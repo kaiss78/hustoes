@@ -17,7 +17,7 @@ namespace Demo
         {
             InitializeComponent();
             //cmd.StartInfo.FileName = "systeminfo.exe";
-            cmd.StartInfo.FileName = "cmd.exe";
+            cmd.StartInfo.FileName = "cmd.exe";//***
             cmd.StartInfo.UseShellExecute = false; //此处必须为false否则引发异常
             cmd.StartInfo.RedirectStandardInput = true; //标准输入
             cmd.StartInfo.RedirectStandardOutput = true; //标准输出
