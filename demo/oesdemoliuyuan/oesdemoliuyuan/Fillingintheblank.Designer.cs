@@ -63,7 +63,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(303, 28);
             this.listBox1.TabIndex = 1;
-          
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // EMcontest
             // 
@@ -73,7 +73,7 @@
             this.EMcontest.Name = "EMcontest";
             this.EMcontest.Size = new System.Drawing.Size(382, 88);
             this.EMcontest.TabIndex = 3;
-            
+            this.EMcontest.SelectedIndexChanged += new System.EventHandler(this.EMcontest_SelectedIndexChanged);
             // 
             // radioButtonA
             // 
@@ -163,7 +163,6 @@
             this.groupchoice.TabIndex = 11;
             this.groupchoice.TabStop = false;
             this.groupchoice.Text = "groupchoice";
-           
             // 
             // panel2
             // 
