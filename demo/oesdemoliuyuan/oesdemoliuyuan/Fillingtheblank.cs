@@ -15,5 +15,10 @@ namespace oesdemoliuyuan
         {
             InitializeComponent();
         }
+
+        private void Fillingtheblank_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

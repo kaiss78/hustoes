@@ -13,42 +13,42 @@ namespace oesdemoliuyuan
     public partial class Fillingintheblank : UserControl
     {
         ReadEMFile reademfile;
-        string [] readstring;
+        string [] readstring=new string[200];
         public Fillingintheblank()
         {
             InitializeComponent();
             ReadEMFile reademfile = new ReadEMFile();
-            readstring=reademfile.read();
+            reademfile.read(readstring);
         }
 
         private void radioButtonA_CheckedChanged(object sender, EventArgs e)
         {
-            radioButtonA.Text = "readstring[2]";
+            radioButtonA.Text = " "+readstring[2];
         }
 
         private void radioButtonB_CheckedChanged(object sender, EventArgs e)
         {
-            radioButtonB.Text = "readstring[3]";
+            radioButtonB.Text = " "+readstring[3];
         }
 
         private void radioButtonC_CheckedChanged(object sender, EventArgs e)
         {
-            radioButtonC.Text = "readstring[4]";
+            radioButtonC.Text = " "+readstring[4];
         }
 
         private void radioButtonD_CheckedChanged(object sender, EventArgs e)
         {
-            radioButtonD.Text = "readstring[5]";
+            radioButtonD.Text = " "+readstring[5];
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            listBox1.Text="readstring[0]";
+            richTextBox1.Text = " "+readstring[0];
         }
 
-        private void EMcontest_SelectedIndexChanged(object sender, EventArgs e)
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-            EMcontest.Text = "readstring[1]";
+            richTextBox2.Text = " "+readstring[1];
         }
 
         
