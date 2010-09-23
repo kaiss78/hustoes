@@ -54,7 +54,6 @@
             this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "题目要求";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // listBox1
             // 
@@ -64,6 +63,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(303, 28);
             this.listBox1.TabIndex = 1;
+          
             // 
             // EMcontest
             // 
@@ -73,6 +73,7 @@
             this.EMcontest.Name = "EMcontest";
             this.EMcontest.Size = new System.Drawing.Size(382, 88);
             this.EMcontest.TabIndex = 3;
+            
             // 
             // radioButtonA
             // 
@@ -84,7 +85,7 @@
             this.radioButtonA.TabStop = true;
             this.radioButtonA.Text = "radioButtonA";
             this.radioButtonA.UseVisualStyleBackColor = true;
-            this.radioButtonA.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButtonA.CheckedChanged += new System.EventHandler(this.radioButtonA_CheckedChanged);
             // 
             // radioButtonB
             // 
@@ -96,6 +97,7 @@
             this.radioButtonB.TabStop = true;
             this.radioButtonB.Text = "radioButtonB";
             this.radioButtonB.UseVisualStyleBackColor = true;
+            this.radioButtonB.CheckedChanged += new System.EventHandler(this.radioButtonB_CheckedChanged);
             // 
             // radioButtonC
             // 
@@ -107,6 +109,7 @@
             this.radioButtonC.TabStop = true;
             this.radioButtonC.Text = "radioButtonC";
             this.radioButtonC.UseVisualStyleBackColor = true;
+            this.radioButtonC.CheckedChanged += new System.EventHandler(this.radioButtonC_CheckedChanged);
             // 
             // radioButtonD
             // 
@@ -118,7 +121,7 @@
             this.radioButtonD.TabStop = true;
             this.radioButtonD.Text = "radioButtonD";
             this.radioButtonD.UseVisualStyleBackColor = true;
-            this.radioButtonD.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.radioButtonD.CheckedChanged += new System.EventHandler(this.radioButtonD_CheckedChanged);
             // 
             // panel1
             // 
@@ -160,7 +163,7 @@
             this.groupchoice.TabIndex = 11;
             this.groupchoice.TabStop = false;
             this.groupchoice.Text = "groupchoice";
-            this.groupchoice.Enter += new System.EventHandler(this.groupchoice_Enter);
+           
             // 
             // panel2
             // 

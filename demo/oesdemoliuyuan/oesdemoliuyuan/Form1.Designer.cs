@@ -1,4 +1,14 @@
-﻿namespace oesdemoliuyuan
+﻿
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace oesdemoliuyuan
 {
     partial class Form1
     {
@@ -33,10 +43,12 @@
             // 
             // fillingintheblank1
             // 
+            this.fillingintheblank1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fillingintheblank1.Location = new System.Drawing.Point(12, 12);
             this.fillingintheblank1.Name = "fillingintheblank1";
             this.fillingintheblank1.Size = new System.Drawing.Size(450, 429);
             this.fillingintheblank1.TabIndex = 0;
+            this.fillingintheblank1.Load += new System.EventHandler(this.fillingintheblank1_Load);
             // 
             // Form1
             // 
@@ -46,6 +58,7 @@
             this.Controls.Add(this.fillingintheblank1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
