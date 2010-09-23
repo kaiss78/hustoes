@@ -12,7 +12,7 @@ namespace oesdemoliuyuan
 {   
     public partial class Fillingintheblank : UserControl
     {
-        ReadEMFile reademfile;
+        ReadEMFile reademfile=new ReadEMFile();
         string [] readstring=new string[200];
         public Fillingintheblank()
         {

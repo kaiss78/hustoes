@@ -16,7 +16,7 @@ namespace oesdemoliuyuan
             InitializeComponent();
         }
 
-        private void fillingintheblank1_Load(object sender, EventArgs e)
+        private void fillingintheblank_Load(object sender, EventArgs e)
         {
 
         }

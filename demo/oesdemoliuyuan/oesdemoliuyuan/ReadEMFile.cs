@@ -15,7 +15,7 @@ namespace oesdemoliuyuan
         {
             try
             {
-                FileStream aFile = new FileStream("C:\\Users\\Administrator\\Desktop\\choice.txt", FileMode.Open);
+                FileStream aFile = new FileStream("C:\\Users\\Administrator\\Desktop\\Choice.txt", FileMode.Open);
                 StreamReader sr = new StreamReader(aFile);
                 strline[0] = sr.ReadToEnd();
                 for (int j = 1; j < 6; j++)

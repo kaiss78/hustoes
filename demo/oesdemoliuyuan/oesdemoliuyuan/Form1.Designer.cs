@@ -38,24 +38,24 @@ namespace oesdemoliuyuan
         /// </summary>
         private void InitializeComponent()
         {
-            this.fillingintheblank1 = new oesdemoliuyuan.Fillingintheblank();
+            this.fillingintheblank = new oesdemoliuyuan.Fillingintheblank();
             this.SuspendLayout();
             // 
             // fillingintheblank1
             // 
-            this.fillingintheblank1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fillingintheblank1.Location = new System.Drawing.Point(12, 12);
-            this.fillingintheblank1.Name = "fillingintheblank1";
-            this.fillingintheblank1.Size = new System.Drawing.Size(450, 429);
-            this.fillingintheblank1.TabIndex = 0;
-            this.fillingintheblank1.Load += new System.EventHandler(this.fillingintheblank1_Load);
+            this.fillingintheblank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fillingintheblank.Location = new System.Drawing.Point(12, 12);
+            this.fillingintheblank.Name = "fillingintheblank";
+            this.fillingintheblank.Size = new System.Drawing.Size(450, 429);
+            this.fillingintheblank.TabIndex = 0;
+            this.fillingintheblank.Load += new System.EventHandler(this.fillingintheblank_Load);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 443);
-            this.Controls.Add(this.fillingintheblank1);
+            this.Controls.Add(this.fillingintheblank);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -65,7 +65,7 @@ namespace oesdemoliuyuan
 
         #endregion
 
-        private Fillingintheblank fillingintheblank1;
+        private Fillingintheblank fillingintheblank;
 
 
     }
