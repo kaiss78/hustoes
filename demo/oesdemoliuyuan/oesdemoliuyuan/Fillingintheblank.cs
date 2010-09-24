@@ -81,9 +81,12 @@ namespace oesdemoliuyuan
             ReadEMFile reademfile = new ReadEMFile();
             reademfile.read(readstring);*/
             if (readstring[i+6] == null)
-            { MessageBox.Show("后面没题了，可以做其他的题目"); }
+            { MessageBox.Show("后面没题了，可以做其他的题目");
+              
+            }
             else
             {
+               
                 richTextBox1.Text = readstring[i];
                 richTextBox2.Text = readstring[i + 1];
                 radioButtonA.Text = readstring[i + 2];
@@ -98,7 +101,8 @@ namespace oesdemoliuyuan
 
         private void laststep_Click(object sender, EventArgs e)
         {
-            i -= 12;
+              i -= 12;
+           
             if (i >= 0)
             {
                 richTextBox1.Text = readstring[i];
@@ -107,9 +111,13 @@ namespace oesdemoliuyuan
                 radioButtonB.Text = readstring[i + 3];
                 radioButtonC.Text = readstring[i + 4];
                 radioButtonD.Text = readstring[i + 5];
+                i += 6;
             }
             else
-            { MessageBox.Show("前面没题了");}
+            { MessageBox.Show("前面没题了");
+             i += 12;
+           
+            }
         }
 
        
