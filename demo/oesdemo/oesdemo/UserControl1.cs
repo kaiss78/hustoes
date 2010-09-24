@@ -13,7 +13,7 @@ namespace oesdemo
      
     public partial class UserControl1 : UserControl
     {
-        static string path1 = "oes\\";
+        static string path1 = @"C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\oesdemoppt\oesdemo\bin\Debug\oes\";
         static string name = "a.ppt";
         static string path2 = path1 + "ans_" + name;
         static string path3 = path1 + "cor_" + name;
@@ -47,10 +47,8 @@ namespace oesdemo
 
             if (MessageBox.Show("继续将会删除之前答案", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                //   Ensure   that   the   target   does   not   exist. 
-                File.Delete(path2);
-                //   Copy   the   file. 
-                File.Copy(path1 + name, path2);
+                
+                File.Copy(path1 + name, path2,true);
                 System.Diagnostics.Process.Start(path2);
             }
             
@@ -60,10 +58,8 @@ namespace oesdemo
         private void UserControl1_Load(object sender, EventArgs e)
         {
             
-            //   Ensure   that   the   target   does   not   exist. 
-            File.Delete(path2);
-            //   Copy   the   file. 
-            File.Copy(path1 + name, path2);
+           
+            File.Copy(path1 + name, path2,true);
             
         }
 
