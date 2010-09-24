@@ -45,16 +45,7 @@ namespace oesdemoliuyuan
             
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-           
-        }
-
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+     
 
         private void Fillingintheblank_Load(object sender, EventArgs e)
         {

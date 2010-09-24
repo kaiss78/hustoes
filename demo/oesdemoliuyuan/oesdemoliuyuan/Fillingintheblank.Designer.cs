@@ -120,7 +120,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(312, 35);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+           
             // 
             // laststep
             // 
@@ -172,7 +172,7 @@
             this.richTextBox2.Size = new System.Drawing.Size(368, 92);
             this.richTextBox2.TabIndex = 12;
             this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
+            
             // 
             // Fillingintheblank
             // 
