@@ -43,15 +43,15 @@ namespace oesdemo
                             pptRange1 = ppp1.Slides[i].Shapes[j].TextFrame.TextRange;
                             pptRange2 = ppp2.Slides[i].Shapes[j].TextFrame.TextRange;
 
-                            if (pptRange1.Font.Name.ToString() == pptRange2.Font.Name)
+                            if (pptRange1.Font.Name == pptRange2.Font.Name)
                             
                                 right++;
                        
-                            if (pptRange1.Font.Bold.ToString() == pptRange2.Font.Bold.ToString())
+                            if (pptRange1.Font.Bold == pptRange2.Font.Bold)
                             
                                 right++;
                         
-                            if (pptRange1.Font.Size.ToString() == pptRange2.Font.Size.ToString())
+                            if (pptRange1.Font.Size == pptRange2.Font.Size)
                                
                                 right++;
                           
@@ -62,7 +62,7 @@ namespace oesdemo
                             if (pptRange1.Font.Color.RGB == pptRange2.Font.Color.RGB)
                                 right++;
                             
-                            if (ppp1.Slides[i].Shapes[j].AnimationSettings.EntryEffect.ToString() == ppp2.Slides[i].Shapes[j].AnimationSettings.EntryEffect.ToString())
+                            if (ppp1.Slides[i].Shapes[j].AnimationSettings.EntryEffect == ppp2.Slides[i].Shapes[j].AnimationSettings.EntryEffect)
                             
                                 right = right + 3;
                            
