@@ -34,11 +34,11 @@
             this.radioButtonC = new System.Windows.Forms.RadioButton();
             this.radioButtonD = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.laststep = new System.Windows.Forms.Button();
             this.nextstep = new System.Windows.Forms.Button();
             this.groupchoice = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.groupchoice.SuspendLayout();
@@ -113,6 +113,15 @@
             this.panel1.Size = new System.Drawing.Size(415, 53);
             this.panel1.TabIndex = 8;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(73, 13);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(312, 35);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
             // laststep
             // 
             this.laststep.Location = new System.Drawing.Point(36, 361);
@@ -121,6 +130,7 @@
             this.laststep.TabIndex = 9;
             this.laststep.Text = "上一步";
             this.laststep.UseVisualStyleBackColor = true;
+            this.laststep.Click += new System.EventHandler(this.laststep_Click);
             // 
             // nextstep
             // 
@@ -130,6 +140,7 @@
             this.nextstep.TabIndex = 10;
             this.nextstep.Text = "下一步";
             this.nextstep.UseVisualStyleBackColor = true;
+            this.nextstep.Click += new System.EventHandler(this.nextstep_Click);
             // 
             // groupchoice
             // 
@@ -142,7 +153,6 @@
             this.groupchoice.Size = new System.Drawing.Size(382, 140);
             this.groupchoice.TabIndex = 11;
             this.groupchoice.TabStop = false;
-            this.groupchoice.Text = "groupchoice";
             // 
             // panel2
             // 
@@ -154,15 +164,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(415, 285);
             this.panel2.TabIndex = 12;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(102, 13);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(283, 35);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // richTextBox2
             // 
@@ -184,6 +185,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Fillingintheblank";
             this.Size = new System.Drawing.Size(448, 395);
+            this.Load += new System.EventHandler(this.Fillingintheblank_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupchoice.ResumeLayout(false);

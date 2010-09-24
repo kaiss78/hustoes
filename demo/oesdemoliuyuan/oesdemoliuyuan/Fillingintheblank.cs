@@ -14,44 +14,112 @@ namespace oesdemoliuyuan
     {
         ReadEMFile reademfile=new ReadEMFile();
         string [] readstring=new string[200];
+        int i=0;
+        
         public Fillingintheblank()
         {
             InitializeComponent();
             ReadEMFile reademfile = new ReadEMFile();
             reademfile.read(readstring);
+
         }
 
         private void radioButtonA_CheckedChanged(object sender, EventArgs e)
         {
-            radioButtonA.Text = " "+readstring[2];
+           // this.Focus();
+          
+           // this.Visible = true;
+          //  this.Name = readstring[2];
+           
+            
         }
 
         private void radioButtonB_CheckedChanged(object sender, EventArgs e)
         {
-            radioButtonB.Text = " "+readstring[3];
+            
+           
         }
 
         private void radioButtonC_CheckedChanged(object sender, EventArgs e)
         {
-            radioButtonC.Text = " "+readstring[4];
+           
         }
 
         private void radioButtonD_CheckedChanged(object sender, EventArgs e)
         {
-            radioButtonD.Text = " "+readstring[5];
+            
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            richTextBox1.Text = " "+readstring[0];
+            
+           
         }
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-            richTextBox2.Text = " "+readstring[1];
+            
         }
 
+        private void Fillingintheblank_Load(object sender, EventArgs e)
+        {
+            richTextBox1.Text = readstring[i];
+            richTextBox2.Text = readstring[i+1];
+            radioButtonA.Text = readstring[i+2];
+            radioButtonB.Text = readstring[i+3];
+            radioButtonC.Text = readstring[i+4];
+            radioButtonD.Text = readstring[i+5];
+            i += 6;
+
+        }
+
+        private void nextstep_Click(object sender, EventArgs e)
+        {
+
+         //   richTextBox1.Text = " ";
+        //    richTextBox2.Text = " ";
+        //    richTextBox1.SelectedText = " ";
+       /*     radioButtonA.Text = " ";
+            radioButtonB.Text = " ";
+            radioButtonC.Text = " ";
+            radioButtonD.Text = " ";
+            ReadEMFile reademfile = new ReadEMFile();
+            reademfile.read(readstring);*/
+            if (readstring[i+6] == null)
+            { MessageBox.Show("后面没题了，可以做其他的题目"); }
+            else
+            {
+                richTextBox1.Text = readstring[i];
+                richTextBox2.Text = readstring[i + 1];
+                radioButtonA.Text = readstring[i + 2];
+                radioButtonB.Text = readstring[i + 3];
+                radioButtonC.Text = readstring[i + 4];
+                radioButtonD.Text = readstring[i + 5];
+                i += 6;
+            }
+           
+            
+        }
+
+        private void laststep_Click(object sender, EventArgs e)
+        {
+            i -= 12;
+            if (i >= 0)
+            {
+                richTextBox1.Text = readstring[i];
+                richTextBox2.Text = readstring[i + 1];
+                radioButtonA.Text = readstring[i + 2];
+                radioButtonB.Text = readstring[i + 3];
+                radioButtonC.Text = readstring[i + 4];
+                radioButtonD.Text = readstring[i + 5];
+            }
+            else
+            { MessageBox.Show("前面没题了");}
+        }
+
+       
+    }
         
     }
    
-}
+

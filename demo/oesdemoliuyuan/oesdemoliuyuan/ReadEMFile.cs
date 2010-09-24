@@ -22,7 +22,7 @@ namespace oesdemoliuyuan
                StreamReader sr = new StreamReader(path,System.Text.Encoding.GetEncoding("GB2312"));
      ;
                 strline[0] = sr.ReadLine();
-                for (int j = 1; j < 6; j++)
+                for (int j = 1; j < 100; j++)
                 {
                     if (strline[j - 1] != null)
                         strline[j] = sr.ReadLine();
