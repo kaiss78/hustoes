@@ -13,7 +13,7 @@ namespace oesdemo
      
     public partial class UserControl1 : UserControl
     {
-        static string path1 = @"oes\";
+        static string path1 = "oes/";
         static string name = "a.ppt";
         static string path2 = path1 + "ans_" + name;
         static string path3 = path1 + "cor_" + name;
@@ -69,8 +69,8 @@ namespace oesdemo
 
         private void button4_Click(object sender, EventArgs e)
         {
-           
-            MessageBox.Show(Correct.Correctppt(path1+name,path3).ToString());
+
+            MessageBox.Show(Correct.Correctppt(path2, path3).ToString());
         }
 
         
