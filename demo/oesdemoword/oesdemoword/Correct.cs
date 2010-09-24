@@ -60,22 +60,22 @@ namespace oesdemo
                 if (doc1.Paragraphs[i].FirstLineIndent == doc2.Paragraphs[i].FirstLineIndent)
                     right++;
 
-                if (doc1.Tables[1].Columns.Count == doc2.Tables[1].Columns.Count)
-                    right++;
+                //if (doc1.Tables[1].Columns.Count == doc2.Tables[1].Columns.Count)
+                //    right++;
 
-                if (doc1.InlineShapes[1].Type == doc2.InlineShapes[1].Type)
-                    right++;
+                //if (doc1.InlineShapes[1].Type == doc2.InlineShapes[1].Type)
+                //    right++;
 
-                if (doc1.InlineShapes.Count == doc2.InlineShapes.Count)
-                    right++;
+                //if (doc1.InlineShapes.Count == doc2.InlineShapes.Count)
+                //    right++;
 
             }
-           
-                 
-            //doc1.Close(ref nullobj, ref nullobj, ref nullobj);
-            //doc2.Close(ref nullobj, ref nullobj, ref nullobj);
-            //word1.Quit(ref nullobj, ref nullobj, ref nullobj);
-            //word2.Quit(ref nullobj, ref nullobj, ref nullobj);           
+
+
+            doc1.Close(ref nullobj, ref nullobj, ref nullobj);
+            doc2.Close(ref nullobj, ref nullobj, ref nullobj);
+            word1.Quit(ref nullobj, ref nullobj, ref nullobj);
+            word2.Quit(ref nullobj, ref nullobj, ref nullobj);           
             
             return right;
 

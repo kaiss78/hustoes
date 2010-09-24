@@ -14,7 +14,7 @@ namespace oesdemoword
 {
     public partial class UserControl1 : UserControl
     {
-        static string path1 = "oes\\";
+        static string path1 = @"C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\oesdemoword\oesdemoword\bin\Debug\oes\";
         static string name = "a.doc";
         static string path2 = path1 + "ans_" + name;
         static string path3 = path1 + "cor_" + name;
@@ -58,11 +58,21 @@ namespace oesdemoword
 
         private void UserControl1_Load_1(object sender, EventArgs e)
         {
-          
-            File.Copy(path1 + name, path2,true);
+
+/*************防止copy出错，关闭所有word进程****************************************************/
+            System.Diagnostics.Process[] pro = System.Diagnostics.Process.GetProcesses();
+            foreach (System.Diagnostics.Process pro1 in pro)
+            {
+                if (pro1.ProcessName == "WINWORD")
+                {
+                    pro1.Kill();
+                }
+            }
+
+            File.Copy(path1 + name, path2, true);
+
 
         }
-
         
     }
 }
