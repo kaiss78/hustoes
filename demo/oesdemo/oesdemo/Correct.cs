@@ -71,6 +71,10 @@ namespace oesdemo
                     }
 
             }
+            ppp1.Close();
+            ppp2.Close();
+            ppt1.Quit();
+            ppt2.Quit();
             return right;
 
             }
