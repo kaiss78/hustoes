@@ -26,11 +26,6 @@ namespace oesdemoliuyuan
 
         private void radioButtonA_CheckedChanged(object sender, EventArgs e)
         {
-           // this.Focus();
-          
-           // this.Visible = true;
-          //  this.Name = readstring[2];
-           
             
         }
 
