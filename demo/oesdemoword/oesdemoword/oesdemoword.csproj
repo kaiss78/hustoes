@@ -105,15 +105,6 @@
       <Isolated>False</Isolated>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="oes\a.doc" />
-    <None Include="oes\ans_a.doc" />
-    <None Include="oes\cor_a.doc" />
-    <None Include="oes\~%24a.doc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="oes\大枪刷图点.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
