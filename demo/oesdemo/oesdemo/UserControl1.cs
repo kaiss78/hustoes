@@ -13,7 +13,7 @@ namespace oesdemo
      
     public partial class UserControl1 : UserControl
     {
-        static string path1 = "oes/";
+        static string path1 = "oes\\";
         static string name = "a.ppt";
         static string path2 = path1 + "ans_" + name;
         static string path3 = path1 + "cor_" + name;
