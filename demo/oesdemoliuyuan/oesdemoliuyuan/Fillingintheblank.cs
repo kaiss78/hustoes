@@ -51,7 +51,8 @@ namespace oesdemoliuyuan
         {
             richTextBox1.Text = readstring[i];
             richTextBox2.Text = readstring[i+1];
-            radioButtonA.Text = readstring[i+2];
+         //   radioButtonA.Text = readstring[i + 2] + "\r\n" + readstring[i];
+            radioButtonA.Text = readstring[i + 2];
             radioButtonB.Text = readstring[i+3];
             radioButtonC.Text = readstring[i+4];
             radioButtonD.Text = readstring[i+5];
@@ -61,16 +62,6 @@ namespace oesdemoliuyuan
 
         private void nextstep_Click(object sender, EventArgs e)
         {
-
-         //   richTextBox1.Text = " ";
-        //    richTextBox2.Text = " ";
-        //    richTextBox1.SelectedText = " ";
-       /*     radioButtonA.Text = " ";
-            radioButtonB.Text = " ";
-            radioButtonC.Text = " ";
-            radioButtonD.Text = " ";
-            ReadEMFile reademfile = new ReadEMFile();
-            reademfile.read(readstring);*/
             if (readstring[i+6] == null)
             { MessageBox.Show("后面没题了，可以做其他的题目");
               
@@ -110,8 +101,26 @@ namespace oesdemoliuyuan
            
             }
         }
+    /*    public string write(string str)
+        {
+            string s,sr;
+           
+            s = str;
+            if (str.Length > 30)
+            {
+                s.Insert(30,"\r\n");
+                if (str.Length > 60)
+                { s.Insert(60, "\r\n"); }
+                
+            }
+            else 
+            {
+                sr = s;
+            }
+            return sr;
+        }
 
-       
+       */
     }
         
     }
