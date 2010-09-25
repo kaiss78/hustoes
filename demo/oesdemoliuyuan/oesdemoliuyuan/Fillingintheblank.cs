@@ -50,12 +50,12 @@ namespace oesdemoliuyuan
         private void Fillingintheblank_Load(object sender, EventArgs e)
         {
             richTextBox1.Text = readstring[i];
-            richTextBox2.Text = readstring[i+1];
+            richTextBox2.Text =  readstring[i+1];
          //   radioButtonA.Text = readstring[i + 2] + "\r\n" + readstring[i];
-            radioButtonA.Text = readstring[i + 2];
-            radioButtonB.Text = readstring[i+3];
-            radioButtonC.Text = readstring[i+4];
-            radioButtonD.Text = readstring[i+5];
+            radioButtonA.Text = write(readstring[i + 2]);
+            radioButtonB.Text = write( readstring[i+3]);
+            radioButtonC.Text = write(readstring[i+4]);
+            radioButtonD.Text = write(readstring[i+5]);
             i += 6;
 
         }
@@ -69,12 +69,12 @@ namespace oesdemoliuyuan
             else
             {
                
-                richTextBox1.Text = readstring[i];
+                richTextBox1.Text =  readstring[i];
                 richTextBox2.Text = readstring[i + 1];
-                radioButtonA.Text = readstring[i + 2];
-                radioButtonB.Text = readstring[i + 3];
-                radioButtonC.Text = readstring[i + 4];
-                radioButtonD.Text = readstring[i + 5];
+                radioButtonA.Text = write(readstring[i + 2]);
+                radioButtonB.Text = write(readstring[i + 3]);
+                radioButtonC.Text = write(readstring[i + 4]);
+                radioButtonD.Text = write(readstring[i + 5]);
                 i += 6;
             }
            
@@ -89,10 +89,10 @@ namespace oesdemoliuyuan
             {
                 richTextBox1.Text = readstring[i];
                 richTextBox2.Text = readstring[i + 1];
-                radioButtonA.Text = readstring[i + 2];
-                radioButtonB.Text = readstring[i + 3];
-                radioButtonC.Text = readstring[i + 4];
-                radioButtonD.Text = readstring[i + 5];
+                radioButtonA.Text = write(readstring[i + 2]);
+                radioButtonB.Text = write(readstring[i + 3]);
+                radioButtonC.Text = write( readstring[i + 4]);
+                radioButtonD.Text = write(readstring[i + 5]);
                 i += 6;
             }
             else
@@ -101,17 +101,19 @@ namespace oesdemoliuyuan
            
             }
         }
-    /*    public string write(string str)
+      public string write(string str)
         {
             string s,sr;
            
             s = str;
             if (str.Length > 30)
             {
-                s.Insert(30,"\r\n");
+                s=s.Insert(30,"\r\n");
                 if (str.Length > 60)
-                { s.Insert(60, "\r\n"); }
-                
+                { s=s.Insert(60, "\r\n"); }
+                if (str.Length >90)
+                { s = s.Insert(90, "\r\n"); }
+                sr = s;
             }
             else 
             {
@@ -120,7 +122,7 @@ namespace oesdemoliuyuan
             return sr;
         }
 
-       */
+       
     }
         
     }
