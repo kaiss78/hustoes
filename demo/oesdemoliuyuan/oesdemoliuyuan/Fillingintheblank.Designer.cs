@@ -58,7 +58,7 @@
             // radioButtonA
             // 
             this.radioButtonA.AutoSize = true;
-            this.radioButtonA.Location = new System.Drawing.Point(6, 20);
+            this.radioButtonA.Location = new System.Drawing.Point(3, 9);
             this.radioButtonA.Name = "radioButtonA";
             this.radioButtonA.Size = new System.Drawing.Size(95, 16);
             this.radioButtonA.TabIndex = 4;
@@ -70,7 +70,7 @@
             // radioButtonB
             // 
             this.radioButtonB.AutoSize = true;
-            this.radioButtonB.Location = new System.Drawing.Point(6, 51);
+            this.radioButtonB.Location = new System.Drawing.Point(3, 46);
             this.radioButtonB.Name = "radioButtonB";
             this.radioButtonB.Size = new System.Drawing.Size(95, 16);
             this.radioButtonB.TabIndex = 5;
@@ -82,7 +82,7 @@
             // radioButtonC
             // 
             this.radioButtonC.AutoSize = true;
-            this.radioButtonC.Location = new System.Drawing.Point(6, 82);
+            this.radioButtonC.Location = new System.Drawing.Point(3, 85);
             this.radioButtonC.Name = "radioButtonC";
             this.radioButtonC.Size = new System.Drawing.Size(95, 16);
             this.radioButtonC.TabIndex = 6;
@@ -94,7 +94,7 @@
             // radioButtonD
             // 
             this.radioButtonD.AutoSize = true;
-            this.radioButtonD.Location = new System.Drawing.Point(6, 118);
+            this.radioButtonD.Location = new System.Drawing.Point(3, 127);
             this.radioButtonD.Name = "radioButtonD";
             this.radioButtonD.Size = new System.Drawing.Size(95, 16);
             this.radioButtonD.TabIndex = 7;
@@ -120,7 +120,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(312, 35);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
-           
             // 
             // laststep
             // 
@@ -148,9 +147,9 @@
             this.groupchoice.Controls.Add(this.radioButtonB);
             this.groupchoice.Controls.Add(this.radioButtonC);
             this.groupchoice.Controls.Add(this.radioButtonD);
-            this.groupchoice.Location = new System.Drawing.Point(3, 114);
+            this.groupchoice.Location = new System.Drawing.Point(3, 104);
             this.groupchoice.Name = "groupchoice";
-            this.groupchoice.Size = new System.Drawing.Size(382, 140);
+            this.groupchoice.Size = new System.Drawing.Size(382, 176);
             this.groupchoice.TabIndex = 11;
             this.groupchoice.TabStop = false;
             // 
@@ -172,7 +171,6 @@
             this.richTextBox2.Size = new System.Drawing.Size(368, 92);
             this.richTextBox2.TabIndex = 12;
             this.richTextBox2.Text = "";
-            
             // 
             // Fillingintheblank
             // 

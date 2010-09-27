@@ -106,7 +106,9 @@ namespace oesdemoliuyuan
             string s,sr;
            
             s = str;
-            if (str.Length > 30)
+
+          //  if ( System.Text.Encoding.Default.GetByteCount(str) > 30)
+           if(str.Length>30)
             {
                 s=s.Insert(30,"\r\n");
                 if (str.Length > 60)
@@ -121,7 +123,10 @@ namespace oesdemoliuyuan
             }
             return sr;
         }
-
+      public int getLengthb(string str1)
+      {
+          return System.Text.Encoding.Default.GetByteCount(str1);
+      }
        
     }
         
