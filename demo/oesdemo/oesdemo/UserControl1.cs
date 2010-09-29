@@ -13,10 +13,11 @@ namespace oesdemo
      
     public partial class UserControl1 : UserControl
     {
-        static string path1 = @"C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\oesdemoppt\oesdemo\bin\Debug\oes\";
+        static string path = @"C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\oesdemoppt\oesdemo\bin\Debug\oes\";
         static string name = "a.ppt";
-        static string path2 = path1 + "ans_" + name;
-        static string path3 = path1 + "cor_" + name;
+        static string path1 = path +  name;
+        static string path2 = path + "ans_" + name;
+        static string path3 = path + "cor_" + name;
         public UserControl1()
         {     
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace oesdemo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            StreamReader sr = new StreamReader(path1+"大枪刷图点.txt", Encoding.GetEncoding("GB2312"), false);
+            StreamReader sr = new StreamReader(path+"大枪刷图点.txt", Encoding.GetEncoding("GB2312"), false);
 
             string str = sr.ReadToEnd();
 
@@ -48,7 +49,7 @@ namespace oesdemo
             if (MessageBox.Show("继续将会删除之前答案", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 
-                File.Copy(path1 + name, path2,true);
+                File.Copy(path + name, path2,true);
                 System.Diagnostics.Process.Start(path2);
             }
             
@@ -57,16 +58,22 @@ namespace oesdemo
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
-            
-           
-            File.Copy(path1 + name, path2,true);
+            System.Diagnostics.Process[] pro = System.Diagnostics.Process.GetProcesses();
+            foreach (System.Diagnostics.Process pro1 in pro)
+            {
+                if (pro1.ProcessName == "POWERPNT")
+                {
+                    pro1.Kill();
+                }
+            }          
+            File.Copy(path + name, path2,true);
             
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show(Correct.Correctppt(path2, path3).ToString());
+            MessageBox.Show(Correct.Correctppt(path1,path2,path3).ToString());
         }
 
         
