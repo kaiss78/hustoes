@@ -41,7 +41,7 @@ namespace oesdemoliuyuan
             this.fillingintheblank = new oesdemoliuyuan.Fillingintheblank();
             this.SuspendLayout();
             // 
-            // fillingintheblank1
+            // fillingintheblank
             // 
             this.fillingintheblank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fillingintheblank.Location = new System.Drawing.Point(12, 12);
@@ -57,7 +57,7 @@ namespace oesdemoliuyuan
             this.ClientSize = new System.Drawing.Size(490, 443);
             this.Controls.Add(this.fillingintheblank);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "OES V1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

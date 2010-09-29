@@ -14,6 +14,9 @@ namespace oesdemoliuyuan
     {
         ReadEMFile reademfile=new ReadEMFile();
         string [] readstring=new string[200];
+        string[] StAnswer = new string[40];
+        string answer;
+        string  A, B, C, D;
         int i=0;
         
         public Fillingintheblank()
@@ -21,28 +24,40 @@ namespace oesdemoliuyuan
             InitializeComponent();
             ReadEMFile reademfile = new ReadEMFile();
             reademfile.readfile(readstring);
-
+            answer=reademfile.readanswer();
         }
 
         private void radioButtonA_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (radioButtonA.Checked = true&&i%6==0)
+            {
+                StAnswer[i] = A;
+            }
         }
 
         private void radioButtonB_CheckedChanged(object sender, EventArgs e)
         {
-            
-           
+
+            if (radioButtonA.Checked = true && i % 6 == 0)
+            {
+                StAnswer[i] = B;
+            }
         }
 
         private void radioButtonC_CheckedChanged(object sender, EventArgs e)
         {
-           
+            if (radioButtonA.Checked = true && i % 6 == 0)
+            {
+                StAnswer[i] = C;
+            }
         }
 
         private void radioButtonD_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (radioButtonA.Checked = true && i % 6 == 0)
+            {
+                StAnswer[i] = D;
+            }
         }
 
      
