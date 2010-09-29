@@ -35,8 +35,8 @@
             this.radioButtonD = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.laststep = new System.Windows.Forms.Button();
-            this.nextstep = new System.Windows.Forms.Button();
+            this.lastquestion = new System.Windows.Forms.Button();
+            this.nextquestion = new System.Windows.Forms.Button();
             this.groupchoice = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -121,25 +121,25 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
-            // laststep
+            // lastquestion
             // 
-            this.laststep.Location = new System.Drawing.Point(36, 361);
-            this.laststep.Name = "laststep";
-            this.laststep.Size = new System.Drawing.Size(75, 23);
-            this.laststep.TabIndex = 9;
-            this.laststep.Text = "上一步";
-            this.laststep.UseVisualStyleBackColor = true;
-            this.laststep.Click += new System.EventHandler(this.laststep_Click);
+            this.lastquestion.Location = new System.Drawing.Point(36, 361);
+            this.lastquestion.Name = "lastquestion";
+            this.lastquestion.Size = new System.Drawing.Size(75, 23);
+            this.lastquestion.TabIndex = 9;
+            this.lastquestion.Text = "上一题";
+            this.lastquestion.UseVisualStyleBackColor = true;
+            this.lastquestion.Click += new System.EventHandler(this.laststep_Click);
             // 
-            // nextstep
+            // nextquestion
             // 
-            this.nextstep.Location = new System.Drawing.Point(343, 361);
-            this.nextstep.Name = "nextstep";
-            this.nextstep.Size = new System.Drawing.Size(75, 23);
-            this.nextstep.TabIndex = 10;
-            this.nextstep.Text = "下一步";
-            this.nextstep.UseVisualStyleBackColor = true;
-            this.nextstep.Click += new System.EventHandler(this.nextstep_Click);
+            this.nextquestion.Location = new System.Drawing.Point(343, 361);
+            this.nextquestion.Name = "nextquestion";
+            this.nextquestion.Size = new System.Drawing.Size(75, 23);
+            this.nextquestion.TabIndex = 10;
+            this.nextquestion.Text = "下一题";
+            this.nextquestion.UseVisualStyleBackColor = true;
+            this.nextquestion.Click += new System.EventHandler(this.nextstep_Click);
             // 
             // groupchoice
             // 
@@ -178,8 +178,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.nextstep);
-            this.Controls.Add(this.laststep);
+            this.Controls.Add(this.nextquestion);
+            this.Controls.Add(this.lastquestion);
             this.Controls.Add(this.panel1);
             this.Name = "Fillingintheblank";
             this.Size = new System.Drawing.Size(448, 395);
@@ -201,8 +201,8 @@
         private System.Windows.Forms.RadioButton radioButtonC;
         private System.Windows.Forms.RadioButton radioButtonD;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button laststep;
-        private System.Windows.Forms.Button nextstep;
+        private System.Windows.Forms.Button lastquestion;
+        private System.Windows.Forms.Button nextquestion;
         private System.Windows.Forms.GroupBox groupchoice;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RichTextBox richTextBox1;
