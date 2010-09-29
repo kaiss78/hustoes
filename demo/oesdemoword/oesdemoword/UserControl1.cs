@@ -45,8 +45,6 @@ namespace oesdemoword
             string str = sr.ReadToEnd();
 
             sr.Close();
-
-            this.richTextBox1.Text = str;
             this.richTextBox2.Text = str;
 
         }
