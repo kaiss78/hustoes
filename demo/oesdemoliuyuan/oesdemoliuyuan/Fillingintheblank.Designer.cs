@@ -40,6 +40,7 @@
             this.groupchoice = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.submit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupchoice.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -117,6 +118,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(73, 13);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(312, 35);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
@@ -168,15 +170,27 @@
             // 
             this.richTextBox2.Location = new System.Drawing.Point(17, 6);
             this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
             this.richTextBox2.Size = new System.Drawing.Size(368, 92);
             this.richTextBox2.TabIndex = 12;
             this.richTextBox2.Text = "";
+            // 
+            // submit
+            // 
+            this.submit.Location = new System.Drawing.Point(176, 361);
+            this.submit.Name = "submit";
+            this.submit.Size = new System.Drawing.Size(75, 23);
+            this.submit.TabIndex = 13;
+            this.submit.Text = "评分";
+            this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
             // Fillingintheblank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.submit);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.nextquestion);
             this.Controls.Add(this.lastquestion);
@@ -207,5 +221,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button submit;
     }
 }

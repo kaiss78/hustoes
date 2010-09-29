@@ -20,7 +20,7 @@ namespace oesdemoliuyuan
         {
             InitializeComponent();
             ReadEMFile reademfile = new ReadEMFile();
-            reademfile.read(readstring);
+            reademfile.readfile(readstring);
 
         }
 
@@ -127,7 +127,15 @@ namespace oesdemoliuyuan
       {
           return System.Text.Encoding.Default.GetByteCount(str1);
       }
-       
+
+      private void submit_Click(object sender, EventArgs e)
+      {
+
+      }
+      public void getmarks()
+      {
+
+      }
     }
         
     }
