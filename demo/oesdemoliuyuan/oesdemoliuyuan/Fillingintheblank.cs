@@ -16,7 +16,7 @@ namespace oesdemoliuyuan
         string [] readstring=new string[200];
         string[] StAnswer = new string[40];
         string answer;
-        string  A, B, C, D;
+        string  A="A", B="B", C="C", D="D";
         int i=0;
         
         public Fillingintheblank()
@@ -138,10 +138,10 @@ namespace oesdemoliuyuan
             }
             return sr;
         }
-      public int getLengthb(string str1)
-      {
-          return System.Text.Encoding.Default.GetByteCount(str1);
-      }
+      /*  public int getLengthb(string str1)
+        {
+            return System.Text.Encoding.Default.GetByteCount(str1);
+        }*/
 
       private void submit_Click(object sender, EventArgs e)
       {
