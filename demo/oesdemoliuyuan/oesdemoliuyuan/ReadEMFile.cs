@@ -37,8 +37,23 @@ namespace oesdemoliuyuan
             {
                 MessageBox.Show(e.ToString());
             }
-          
-
+        }
+        public string  readanswer()
+        {
+            try
+            {
+                FileStream path1 = new FileStream(@"C:\\Users\\Administrator\\Desktop\\answers.txt", FileMode.Open);
+                StreamReader sr1 = new StreamReader(path1, System.Text.Encoding.GetEncoding("GB2312"));
+                string str = sr1.ReadToEnd();
+                sr1.Close();
+                return str;
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show(e.ToString());
+                return "please check your file path";
+            }
+            
         }
 }
 }
