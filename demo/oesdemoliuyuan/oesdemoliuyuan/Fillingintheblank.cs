@@ -14,9 +14,9 @@ namespace oesdemoliuyuan
     {
         ReadEMFile reademfile=new ReadEMFile();
         string [] readstring=new string[200];
-        string[] StAnswer = new string[40];
+        char[] StAnswer = new char[40];
         string answer;
-        string  A="A", B="B", C="C", D="D";
+        char  A='A', B='B', C='C', D='D';
         int i=0;
         
         public Fillingintheblank()
@@ -38,7 +38,7 @@ namespace oesdemoliuyuan
         private void radioButtonB_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (radioButtonA.Checked = true && i % 6 == 0)
+            if (radioButtonB.Checked = true && i % 6 == 0)
             {
                 StAnswer[i] = B;
             }
@@ -46,7 +46,7 @@ namespace oesdemoliuyuan
 
         private void radioButtonC_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonA.Checked = true && i % 6 == 0)
+            if (radioButtonC.Checked = true && i % 6 == 0)
             {
                 StAnswer[i] = C;
             }
@@ -54,7 +54,7 @@ namespace oesdemoliuyuan
 
         private void radioButtonD_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonA.Checked = true && i % 6 == 0)
+            if (radioButtonD.Checked = true && i % 6 == 0)
             {
                 StAnswer[i] = D;
             }
