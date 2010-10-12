@@ -22,8 +22,8 @@ namespace kongzhitiao
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
 
+            this.SetDesktopLocation(0, 0);
         }
 
         private void Form1_AutoSizeChanged(object sender, EventArgs e)
