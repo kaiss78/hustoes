@@ -41,6 +41,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.AutoSizeChanged += new System.EventHandler(this.Form1_AutoSizeChanged);
             this.ResumeLayout(false);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            
 
         }
 

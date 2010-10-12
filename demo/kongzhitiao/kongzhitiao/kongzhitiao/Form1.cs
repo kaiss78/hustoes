@@ -22,8 +22,7 @@ namespace kongzhitiao
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           /* Form1.MaximizeBox = false;
-            Form1.MinimizeBox = false;*/
+           
 
         }
 
