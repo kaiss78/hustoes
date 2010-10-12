@@ -12,7 +12,7 @@ namespace kongzhitiao
     public partial class Form1 : Form
 
     {
-        
+        shitichuangti shitichuang = new shitichuangti();
 
         public Form1()
         {
@@ -24,11 +24,21 @@ namespace kongzhitiao
         {
 
             this.SetDesktopLocation(400, 0);
-        }
+
+            shitichuang.Load();
+           
+        } 
 
         private void Form1_AutoSizeChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

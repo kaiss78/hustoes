@@ -28,7 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.shiti = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // shiti
+            // 
+            this.shiti.Image = ((System.Drawing.Image)(resources.GetObject("shiti.Image")));
+            this.shiti.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.shiti.Location = new System.Drawing.Point(-1, -1);
+            this.shiti.Name = "shiti";
+            this.shiti.Size = new System.Drawing.Size(135, 36);
+            this.shiti.TabIndex = 0;
+            this.shiti.Text = "隐藏试题";
+            this.shiti.UseVisualStyleBackColor = true;
+            this.shiti.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -36,6 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 32);
             this.ControlBox = false;
+            this.Controls.Add(this.shiti);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -48,6 +63,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button shiti;
     }
 }
 
