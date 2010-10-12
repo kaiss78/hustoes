@@ -25,7 +25,7 @@ namespace kongzhitiao
 
             this.SetDesktopLocation(400, 0);
 
-            shitichuang.Load();
+            shitichuang.Visible = true;
            
         } 
 
