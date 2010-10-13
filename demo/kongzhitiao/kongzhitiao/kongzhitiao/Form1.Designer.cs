@@ -47,6 +47,8 @@
             // 
             // stuinfo
             // 
+            this.stuinfo.Image = ((System.Drawing.Image)(resources.GetObject("stuinfo.Image")));
+            this.stuinfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.stuinfo.Location = new System.Drawing.Point(131, -1);
             this.stuinfo.Name = "stuinfo";
             this.stuinfo.Size = new System.Drawing.Size(177, 36);
@@ -66,9 +68,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.ShowInTaskbar = false;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.AutoSizeChanged += new System.EventHandler(this.Form1_AutoSizeChanged);
             this.ResumeLayout(false);
 
         }
