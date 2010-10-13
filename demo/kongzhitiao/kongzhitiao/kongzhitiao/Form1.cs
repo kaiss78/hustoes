@@ -12,9 +12,13 @@ namespace kongzhitiao
 {
     public partial class Form1 : Form
 
-    {
+    {   
+        
+        /**初始化试题界面*/
         shitichuangti shitichuang = new shitichuangti();
+        /**登录学生的学号*/
         string studentinfo;
+        /**开始时间的设置*/
         int second = 0;
         int minute =90;
 
@@ -29,10 +33,11 @@ namespace kongzhitiao
         [DllImport("user32.dll", EntryPoint = "ShowWindow")]
         public static extern IntPtr ShowWindow(IntPtr hWnd, int _value);
         IntPtr hTray = Form1.FindWindowA("Shell_TrayWnd",String.Empty);
+        * 获取状态栏的，如果想只显示当前窗口，可以把整个状态栏隐藏
         */
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            /**界面初始位置，如果想做得更用通用性，先获取当前显示屏的分便率，然后设置相应变量*/
             this.SetDesktopLocation(400, 0);
             /**初始化显示试题窗口*/
             shitichuang.Visible = true;
@@ -48,7 +53,7 @@ namespace kongzhitiao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (shiti.Text.Equals("  隐藏试题"))
+            if (shitichuang.Visible)
             {
                 shitichuang.Visible = false;
                 shiti.Text = "  显示试题";

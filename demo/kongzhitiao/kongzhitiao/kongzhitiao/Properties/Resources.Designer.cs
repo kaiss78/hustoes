@@ -80,5 +80,19 @@ namespace kongzhitiao.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap 调整大小_图标源 {
+            get {
+                object obj = ResourceManager.GetObject("调整大小 图标源", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 调整大小_调整大小_图标源 {
+            get {
+                object obj = ResourceManager.GetObject("调整大小 调整大小 图标源", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

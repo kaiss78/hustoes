@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.jiaojuan = new System.Windows.Forms.Button();
             this.shijian = new System.Windows.Forms.Button();
@@ -83,7 +82,7 @@
             // shiti
             // 
             this.shiti.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.shiti.Image = ((System.Drawing.Image)(resources.GetObject("shiti.Image")));
+            this.shiti.Image = global::kongzhitiao.Properties.Resources.调整大小_调整大小_图标源;
             this.shiti.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.shiti.Location = new System.Drawing.Point(-1, -1);
             this.shiti.Name = "shiti";
