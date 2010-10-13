@@ -34,10 +34,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 327);
+            this.ClientSize = new System.Drawing.Size(593, 422);
             this.ControlBox = false;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "shitichuangti";
             this.Text = "OES";
             this.Load += new System.EventHandler(this.shitichuangti_Load);

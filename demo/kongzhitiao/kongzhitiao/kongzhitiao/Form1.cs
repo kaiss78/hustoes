@@ -26,16 +26,27 @@ namespace kongzhitiao
             this.SetDesktopLocation(400, 0);
 
             shitichuang.Visible = true;
+            shitichuang.SetDesktopLocation(400,200);
            
         } 
 
         private void Form1_AutoSizeChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (shiti.Text.Equals("隐藏试题"))
+            {
+                shitichuang.Visible = false;
+                shiti.Text = "显示试题";
+            }
+            else
+            {
+                shitichuang.Visible = true;
+                shiti.Text = "隐藏试题";
+            }
 
         }
 
