@@ -30,12 +30,55 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.shiti = new System.Windows.Forms.Button();
-            this.stuinfo = new System.Windows.Forms.Button();
-            this.shijian = new System.Windows.Forms.Button();
-            this.jiaojuan = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.jiaojuan = new System.Windows.Forms.Button();
+            this.shijian = new System.Windows.Forms.Button();
+            this.stuinfo = new System.Windows.Forms.Button();
+            this.shiti = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // jiaojuan
+            // 
+            this.jiaojuan.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.jiaojuan.Image = global::kongzhitiao.Properties.Resources.调整大小_Submit;
+            this.jiaojuan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.jiaojuan.Location = new System.Drawing.Point(459, -1);
+            this.jiaojuan.Name = "jiaojuan";
+            this.jiaojuan.Size = new System.Drawing.Size(95, 36);
+            this.jiaojuan.TabIndex = 3;
+            this.jiaojuan.Text = "   交卷";
+            this.jiaojuan.UseVisualStyleBackColor = true;
+            // 
+            // shijian
+            // 
+            this.shijian.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.shijian.Image = global::kongzhitiao.Properties.Resources.调整大小_2;
+            this.shijian.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.shijian.Location = new System.Drawing.Point(337, -1);
+            this.shijian.Name = "shijian";
+            this.shijian.Size = new System.Drawing.Size(128, 36);
+            this.shijian.TabIndex = 2;
+            this.shijian.Text = "  ";
+            this.shijian.UseVisualStyleBackColor = true;
+            // 
+            // stuinfo
+            // 
+            this.stuinfo.CausesValidation = false;
+            this.stuinfo.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.stuinfo.Image = global::kongzhitiao.Properties.Resources._1;
+            this.stuinfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.stuinfo.Location = new System.Drawing.Point(131, -1);
+            this.stuinfo.Name = "stuinfo";
+            this.stuinfo.Size = new System.Drawing.Size(210, 36);
+            this.stuinfo.TabIndex = 1;
+            this.stuinfo.Text = "    stuinfo";
+            this.stuinfo.UseVisualStyleBackColor = true;
             // 
             // shiti
             // 
@@ -49,49 +92,6 @@
             this.shiti.Text = "   隐藏试题";
             this.shiti.UseVisualStyleBackColor = true;
             this.shiti.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // stuinfo
-            // 
-            this.stuinfo.CausesValidation = false;
-            this.stuinfo.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.stuinfo.Image = ((System.Drawing.Image)(resources.GetObject("stuinfo.Image")));
-            this.stuinfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stuinfo.Location = new System.Drawing.Point(131, -1);
-            this.stuinfo.Name = "stuinfo";
-            this.stuinfo.Size = new System.Drawing.Size(210, 36);
-            this.stuinfo.TabIndex = 1;
-            this.stuinfo.Text = "    stuinfo";
-            this.stuinfo.UseVisualStyleBackColor = true;
-            // 
-            // shijian
-            // 
-            this.shijian.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.shijian.Image = ((System.Drawing.Image)(resources.GetObject("shijian.Image")));
-            this.shijian.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.shijian.Location = new System.Drawing.Point(337, -1);
-            this.shijian.Name = "shijian";
-            this.shijian.Size = new System.Drawing.Size(128, 36);
-            this.shijian.TabIndex = 2;
-            this.shijian.Text = "  ";
-            this.shijian.UseVisualStyleBackColor = true;
-            // 
-            // jiaojuan
-            // 
-            this.jiaojuan.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.jiaojuan.Image = ((System.Drawing.Image)(resources.GetObject("jiaojuan.Image")));
-            this.jiaojuan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.jiaojuan.Location = new System.Drawing.Point(459, -1);
-            this.jiaojuan.Name = "jiaojuan";
-            this.jiaojuan.Size = new System.Drawing.Size(95, 36);
-            this.jiaojuan.TabIndex = 3;
-            this.jiaojuan.Text = "   交卷";
-            this.jiaojuan.UseVisualStyleBackColor = true;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
