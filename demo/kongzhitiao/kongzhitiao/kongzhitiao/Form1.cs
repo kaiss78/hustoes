@@ -41,7 +41,7 @@ namespace kongzhitiao
            // ShowWindow(hTray,1);
             studentinfo = " 接口" + "   考生";
             stuinfo.Text = studentinfo;
-           
+            shijian.Text = " 90:00";
            }
 
      
@@ -66,8 +66,8 @@ namespace kongzhitiao
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
 
+            
             if (second > 0)
             { second--; }
             else
