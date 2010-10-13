@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.shiti = new System.Windows.Forms.Button();
             this.stuinfo = new System.Windows.Forms.Button();
             this.shijian = new System.Windows.Forms.Button();
             this.jiaojuan = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // shiti
@@ -85,6 +87,12 @@
             this.jiaojuan.Text = "   交卷";
             this.jiaojuan.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -112,6 +120,7 @@
         private System.Windows.Forms.Button stuinfo;
         private System.Windows.Forms.Button shijian;
         private System.Windows.Forms.Button jiaojuan;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

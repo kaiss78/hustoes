@@ -15,6 +15,9 @@ namespace kongzhitiao
     {
         shitichuangti shitichuang = new shitichuangti();
         string studentinfo;
+        int second = 0;
+        int minute = 90;
+
         public Form1()
         {
             InitializeComponent();
@@ -38,7 +41,8 @@ namespace kongzhitiao
            // ShowWindow(hTray,1);
             studentinfo = " 接口" + "   考生";
             stuinfo.Text = studentinfo;
-            time();
+           
+            
         }
 
      
@@ -59,10 +63,11 @@ namespace kongzhitiao
         }
 
      
-        private void time()
+       
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            int second=0;
-            int minute=90;
+           
 
             if (second > 0)
             { second--; }
@@ -70,31 +75,30 @@ namespace kongzhitiao
             {
                 second = 59;
                 minute--;
-             }
-              if (minute < 10&&second>=10)
-               {
-                   shijian.Text = " " + "0" + minute.ToString() + ":" + second.ToString();
-                }
-                if (minute < 10 && second < 10)
+            }
+            if (minute < 10 && second >= 10)
+            {
+                shijian.Text = " " + "0" + minute.ToString() + ":" + second.ToString();
+            }
+            if (minute < 10 && second < 10)
+            {
+                shijian.Text = " " + "0" + minute.ToString() + ":" + "0" + second.ToString();
+                if (minute == 0 && second == 0)
                 {
-                    shijian.Text = " " + "0" + minute.ToString() + ":" + "0" + second.ToString();
-                    if (minute == 0 && second == 0)
-                    {
-                        MessageBox.Show("考试时间已到！！\n\r 系统退出考试");
-                      this.Close();
-                    }
+                    MessageBox.Show("考试时间已到！！\n\r 系统退出考试");
+                    this.Close();
                 }
-                if (minute >= 10 && second < 10)
-                {
-                    shijian.Text =" "+ minute.ToString() + ":" + "0" + second.ToString();
-                }
-                if (second >= 10 && minute >= 10)
-                {
-                    shijian.Text = " " + minute.ToString() + ":" + second.ToString();
-                }
-                else
-                { MessageBox.Show("时间显示出错！！请重新开始！！"); }
-            
+            }
+            if (minute >= 10 && second < 10)
+            {
+                shijian.Text = " " + minute.ToString() + ":" + "0" + second.ToString();
+            }
+            if (second >= 10 && minute >= 10)
+            {
+                shijian.Text = " " + minute.ToString() + ":" + second.ToString();
+            }
+            else
+            { MessageBox.Show("时间显示出错！！请重新开始！！"); }
         }
 
     }
