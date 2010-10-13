@@ -21,6 +21,7 @@ namespace kongzhitiao
         /**开始时间的设置*/
         int second = 0;
         int minute =90;
+        
 
         public Form1()
         {
@@ -37,20 +38,28 @@ namespace kongzhitiao
         */
         private void Form1_Load(object sender, EventArgs e)
         {
-            /**界面初始位置，如果想做得更用通用性，先获取当前显示屏的分便率，然后设置相应变量*/
-            this.SetDesktopLocation(400, 0);
-            /**初始化显示试题窗口*/
+            /**界面初始位置，如果想做得更用通用性，先获取当前显示屏的分便率，然后设置相应变量,*/
+            Rectangle rect = new Rectangle();
+            rect = Screen.GetWorkingArea(this);
+            this.SetDesktopLocation((rect.Width-530)/2, 0);//这里的530如果是当前FORM实例的长度就更好了
+            /**显示试题窗口的初始位置*/
             shitichuang.Visible = true;
-            shitichuang.SetDesktopLocation(400,200);
-            /**去掉FORM1的状态栏*/
+            shitichuang.SetDesktopLocation((rect.Width-530)/2,rect.Height/4);
+            /**去掉整个屏幕的状态栏*/
            // ShowWindow(hTray,1);
+
+
+
+/**111111*/            /**显示登录学生的信息，替换接口的地方，要求使用字符串*/
             studentinfo = " 接口" + "   考生";
             stuinfo.Text = studentinfo;
+
+            /**显示初始时间*/
             shijian.Text = " 90:00";
            }
 
      
-
+        /**显示隐藏试题按钮*/
         private void button1_Click(object sender, EventArgs e)
         {
             if (shitichuang.Visible)
@@ -68,7 +77,7 @@ namespace kongzhitiao
 
      
        
-
+        /**实现倒计时*/
         private void timer1_Tick(object sender, EventArgs e)
         {
 
@@ -91,7 +100,7 @@ namespace kongzhitiao
                 {
                     timer1.Enabled = false;
                     MessageBox.Show("考试时间已到！！\n\r 系统退出考试");
-                    
+/*222222*/                   /**这里要调用交卷的事件*/ 
                     
                 }
             }
