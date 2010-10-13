@@ -72,7 +72,7 @@
             this.shijian.Name = "shijian";
             this.shijian.Size = new System.Drawing.Size(128, 36);
             this.shijian.TabIndex = 2;
-            this.shijian.Text = "   shijian";
+            this.shijian.Text = "  ";
             this.shijian.UseVisualStyleBackColor = true;
             // 
             // jiaojuan

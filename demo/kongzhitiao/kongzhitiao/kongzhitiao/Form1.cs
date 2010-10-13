@@ -16,7 +16,7 @@ namespace kongzhitiao
         shitichuangti shitichuang = new shitichuangti();
         string studentinfo;
         int second = 0;
-        int minute = 90;
+        int minute =90;
 
         public Form1()
         {
@@ -42,8 +42,7 @@ namespace kongzhitiao
             studentinfo = " 接口" + "   考生";
             stuinfo.Text = studentinfo;
            
-            
-        }
+           }
 
      
 
@@ -85,8 +84,10 @@ namespace kongzhitiao
                 shijian.Text = " " + "0" + minute.ToString() + ":" + "0" + second.ToString();
                 if (minute == 0 && second == 0)
                 {
+                    timer1.Enabled = false;
                     MessageBox.Show("考试时间已到！！\n\r 系统退出考试");
-                    this.Close();
+                    
+                    
                 }
             }
             if (minute >= 10 && second < 10)
@@ -98,7 +99,8 @@ namespace kongzhitiao
                 shijian.Text = " " + minute.ToString() + ":" + second.ToString();
             }
             else
-            { MessageBox.Show("时间显示出错！！请重新开始！！"); }
+            { //MessageBox.Show("时间显示出错！！请重新开始！！"); 
+            }
         }
 
     }
