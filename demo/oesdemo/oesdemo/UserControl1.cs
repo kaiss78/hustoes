@@ -61,7 +61,7 @@ namespace oesdemo
             System.Diagnostics.Process[] pro = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pro1 in pro)
             {
-                if (pro1.ProcessName == "POWERPNT")
+                if (pro1.ProcessName == "POWERPNT" | pro1.ProcessName == "Powerpnt")
                 {
                     pro1.Kill();
                 }

@@ -24,7 +24,7 @@ namespace oesdemo
             PowerPoint.Presentation ppp1 = ppt1.Presentations.Open(path1, Off.MsoTriState.msoFalse, Off.MsoTriState.msoFalse, Off.MsoTriState.msoFalse);
             PowerPoint.Presentation ppp2 = ppt2.Presentations.Open(path2, Off.MsoTriState.msoFalse, Off.MsoTriState.msoFalse, Off.MsoTriState.msoFalse);
             PowerPoint.Presentation ppp3 = ppt3.Presentations.Open(path3, Off.MsoTriState.msoFalse, Off.MsoTriState.msoFalse, Off.MsoTriState.msoFalse);
-
+            
             PowerPoint.TextRange pptRange1;
             PowerPoint.TextRange pptRange2;
             PowerPoint.TextRange pptRange3;
@@ -32,6 +32,7 @@ namespace oesdemo
             int right=0;
             foreach (PowerPoint.Slide s in ppp1.Slides)
             {
+                s.Background.Fill.PresetTexture.Equals("");
                 int j = 0;
                 i++;
                 if (s.SlideShowTransition.EntryEffect !=ppp3.Slides[s.SlideNumber].SlideShowTransition.EntryEffect)
@@ -41,6 +42,7 @@ namespace oesdemo
                 }
                     foreach (PowerPoint.Shape ss in s.Shapes)
                     {
+                        
                         j++;
                         if (ss.TextFrame.HasText != Off.MsoTriState.msoFalse)
                         {
