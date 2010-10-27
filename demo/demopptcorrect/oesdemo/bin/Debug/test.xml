@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<ROOT>
+  <Presentation value="0">
+    <TemplateName value="1" />
+    <Slides value="1">
+      <Layout value="1" />
+      <BackColor value="1" />
+      <Commentstext value="1" />
+      <Shapes value="1">
+        <TextFrame value="0">
+          <TextRange value="0">
+            <Font value="0">
+              <Text value="1" />
+              <Name value="1" />
+              <Bold value="1" />
+              <Italic value="1" />
+              <Size value="1" />
+              <Color value="1" />
+              <Underline value="1" />
+            </Font>
+          </TextRange>
+        </TextFrame>
+        <Hyperlinks value="1" />
+      </Shapes>
+    </Slides>
+    <Slides value="2">
+      <Layout value="1" />
+      <BackColor value="1" />
+      <Commentstext value="1" />
+    </Slides>
+  </Presentation>
+</ROOT>
