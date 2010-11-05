@@ -1,6 +1,6 @@
 ﻿namespace oesdemo
 {
-    partial class UserControl1
+    partial class ppt
     {
         /// <summary>
         /// 必需的设计器变量。

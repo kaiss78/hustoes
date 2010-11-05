@@ -11,14 +11,14 @@ using System.IO;
 namespace oesdemo
 {
      
-    public partial class UserControl1 : UserControl
+    public partial class ppt : UserControl
     {
         static string path = @"C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\demopptcorrect\oesdemo\bin\Debug\oes\";
         static string name = "a.ppt";
         static string path1 = path +  name;
         static string path2 = path + "ans_" + name;
         static string path3 = path + "cor_" + name;
-        public UserControl1()
+        public ppt()
         {     
             InitializeComponent();
         }
