@@ -22,3 +22,11 @@ C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\demo
 C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\demopptcorrect\oesdemo\bin\Debug\oesdemo.dll
 C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\demopptcorrect\oesdemo\bin\Debug\oesdemo.pdb
 C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\demopptcorrect\oesdemo\obj\Debug\oesdemo.pdb
+C:\Documents and Settings\Solaryan\桌面\demopptcorrect\oesdemo\bin\Debug\oesdemo.dll
+C:\Documents and Settings\Solaryan\桌面\demopptcorrect\oesdemo\bin\Debug\oesdemo.pdb
+C:\Documents and Settings\Solaryan\桌面\demopptcorrect\oesdemo\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Solaryan\桌面\demopptcorrect\oesdemo\obj\Debug\oesdemo.csproj.ResolveComReference.cache
+C:\Documents and Settings\Solaryan\桌面\demopptcorrect\oesdemo\obj\Debug\oesdemo.UserControl1.resources
+C:\Documents and Settings\Solaryan\桌面\demopptcorrect\oesdemo\obj\Debug\oesdemo.csproj.GenerateResource.Cache
+C:\Documents and Settings\Solaryan\桌面\demopptcorrect\oesdemo\obj\Debug\oesdemo.dll
+C:\Documents and Settings\Solaryan\桌面\demopptcorrect\oesdemo\obj\Debug\oesdemo.pdb
