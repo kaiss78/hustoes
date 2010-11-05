@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Off = Microsoft.Office.Core;
 using Word = Microsoft.Office.Interop.Word;
+using OESXML;
 
 namespace oesdemo
 {
@@ -17,6 +18,8 @@ namespace oesdemo
         public static int Correctword(String path2,String path3)
         {
 
+            OfficeXML oxml = new OfficeXML("test.xml");
+            oxml.getAllAnsPath();
             Word.Application word1 = new Word.Application();
             Word.Application word2 = new Word.Application();
             object nullobj = System.Reflection.Missing.Value;
@@ -24,51 +27,116 @@ namespace oesdemo
             object file2 = path3;
             Word.Document doc1 = word1.Documents.Open(ref file1, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj);
             Word.Document doc2 = word2.Documents.Open(ref file2, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj);
-            Word.Range rangeWord1;
-            Word.Range rangeWord2;
             int i=0;
+            int pn=0;
             int right=0;
-            foreach (Word.Paragraph s in doc1.Paragraphs)
+            foreach (List<OfficeElement> op in oxml.AnsPaths)
             {
-               
-                i++;                   
-            
-                rangeWord1 = doc1.Paragraphs[i].Range;
-                rangeWord2 = doc2.Paragraphs[i].Range;
+                pn = 0;
+                foreach (OfficeElement oe in op)
+                {
+                    if (oe.AttribName == "Documents")
+                    {
+                        continue;
+                    }
 
-                if (rangeWord1.Font.Name == rangeWord2.Font.Name)                            
-                    right++;
+                    if (oe.AttribName == "Paragraphs")
+                    {
+                        pn = int.Parse(oe.AttribValue);
+                        continue;
+                    }
+                    if (oe.AttribName == "Range")
+                    {
+                        continue;
+                    }
+                    if (oe.AttribName == "font")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Font == doc2.Paragraphs[pn].Range.Font)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "Name")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Font == doc2.Paragraphs[pn].Range.Font)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "Color")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Font == doc2.Paragraphs[pn].Range.Font)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "Size")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Font == doc2.Paragraphs[pn].Range.Font)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "Italic")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Font == doc2.Paragraphs[pn].Range.Font)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "SpaceBefore")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Font == doc2.Paragraphs[pn].Range.Font)
+                            right++;
+                        continue;
+                    }
 
-                if (rangeWord1.Font.Color == rangeWord2.Font.Color)
-                
-                    right++;
+                    if (oe.AttribName == "Shadow")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Font == doc2.Paragraphs[pn].Range.Font)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "Underline")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Font == doc2.Paragraphs[pn].Range.Font)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "SpaceAfter")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Font == doc2.Paragraphs[pn].Range.Font)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "Text")
+                    {
+                        if (doc1.Paragraphs[pn].Range.Text == doc2.Paragraphs[pn].Range.Text)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "LineSpacing")
+                    {
+                        if (doc1.Paragraphs[pn].LineSpacing == doc2.Paragraphs[pn].LineSpacing)
+                            right++;
+                        continue;
+                    }
 
-                if (rangeWord1.Font.Bold == rangeWord2.Font.Bold)
-                   
-                    right++;
+                    if (oe.AttribName == "FirstLineIndent")
+                    {
+                        if (doc1.Paragraphs[pn].FirstLineIndent == doc2.Paragraphs[pn].FirstLineIndent)
+                            right++;
+                        continue;
+                    }
 
-                if (rangeWord1.Font.Size == rangeWord2.Font.Size)
-                   
-                    right++;
-
-                if (rangeWord1.Font.Italic == rangeWord2.Font.Italic)
-                    right++;
-
-                if (doc1.Paragraphs[i].LineSpacing == doc2.Paragraphs[i].LineSpacing)                          
-                    right = right++;
-
-                if (doc1.Paragraphs[i].FirstLineIndent == doc2.Paragraphs[i].FirstLineIndent)
-                    right++;
-
-                //if (doc1.Tables[1].Columns.Count == doc2.Tables[1].Columns.Count)
-                //    right++;
-
-                //if (doc1.InlineShapes[1].Type == doc2.InlineShapes[1].Type)
-                //    right++;
-
-                //if (doc1.InlineShapes.Count == doc2.InlineShapes.Count)
-                //    right++;
-
+                    if (oe.AttribName == "Alignment")
+                    {
+                        if (doc1.Paragraphs[pn].Alignment == doc2.Paragraphs[pn].Alignment)
+                            right++;
+                        continue;
+                    }
+                    if (oe.AttribName == "Shading")
+                    {
+                        if (doc1.Paragraphs[pn].Shading == doc2.Paragraphs[pn].Shading)
+                            right++;
+                        continue;
+                    }
+                }  
             }
 
 

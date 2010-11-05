@@ -12,13 +12,13 @@ using oesdemo;
 
 namespace oesdemoword
 {
-    public partial class UserControl1 : UserControl
+    public partial class word : UserControl
     {
         static string path1 = @"C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\oesdemoword\oesdemoword\bin\Debug\oes\";
         static string name = "a.doc";
         static string path2 = path1 + "ans_" + name;
         static string path3 = path1 + "cor_" + name;
-        public UserControl1()
+        public word()
         {
             InitializeComponent();
         }
@@ -46,6 +46,8 @@ namespace oesdemoword
 
             sr.Close();
             this.richTextBox2.Text = str;
+            this.richTextBox1.Text = str;
+
 
         }
 
@@ -71,6 +73,7 @@ namespace oesdemoword
 
 
         }
+
         
     }
 }
