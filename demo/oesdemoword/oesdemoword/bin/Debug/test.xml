@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ROOT>
+  <Documents value="0">
+    <Paragraphs value="1">
+      <Range value="0">
+        <Font value="0">
+          <Name value="0" />
+          <Color value="0" />
+          <Bold value="0" />
+          <Size value="0" />
+          <Italic value="0" />
+          <Shadow value="0" />
+          <Underline value="0" />
+          <SpaceBefore value="0" />
+          <SpaceAfter value="0" />
+        </Font>
+        <Text value="0" />
+      </Range>
+      <LineSpacing value="0" />
+      <FirstLineIndent value="0" />
+      <Shading value="0" />
+      <Alignment value="0" />
+    </Paragraphs>
+  </Documents>
+</ROOT>
