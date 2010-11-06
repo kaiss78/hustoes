@@ -1,6 +1,6 @@
 ﻿namespace OES
 {
-    partial class Controlbar
+    partial class ControlBar
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -53,6 +53,7 @@
             this.butHandIn.TabIndex = 3;
             this.butHandIn.Text = "   交卷";
             this.butHandIn.UseVisualStyleBackColor = true;
+            this.butHandIn.Click += new System.EventHandler(this.butHandIn_Click);
             // 
             // time
             // 
@@ -92,7 +93,7 @@
             this.butHideMF.UseVisualStyleBackColor = true;
             this.butHideMF.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Controlbar
+            // ControlBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +106,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Controlbar";
+            this.Name = "ControlBar";
             this.ShowInTaskbar = false;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
