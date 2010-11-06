@@ -17,15 +17,47 @@ namespace OES
         static private CustomPPT officePpt;
         static private CustomExcel officeExcel;
         static private CustomProgramInfo cCompletion;
+        static private CustomJudge judge;
+        static private CustomChoice choice;
+        static private CustomCompletion completion;
 
         static private TabPage oficeWordPage;        
         static private TabPage oficePptPage;
         static private TabPage oficeExcelPage;
         static private TabPage cCompletionPage;
+        static private TabPage judgePage;
+        static private TabPage choicePage;
+        static private TabPage completionPage;
 
         public MainForm()
         {
             InitializeComponent();
+        }
+        private void addChoicePage()
+        {
+            choice = new CustomChoice();
+            choice.Font = new Font("宋体", 9);
+            choicePage = new TabPage("选择题");
+            choicePage.Controls.Add(choice);
+            tabControl.TabPages.Add(choicePage);
+        }
+
+        private void addCompletionPage()
+        {
+            completion = new CustomCompletion();
+            completion.Font = new Font("宋体", 9);
+            completionPage = new TabPage("填空题");
+            completionPage.Controls.Add(completion);
+            tabControl.TabPages.Add(completionPage);
+        }
+
+        private void addJudgePage()
+        {
+            judge = new CustomJudge();
+            judge.Font = new Font("宋体", 9);
+            judgePage = new TabPage("判断题");
+            judgePage.Controls.Add(judge);
+            tabControl.TabPages.Add(judgePage);
         }
 
         private void addWordPage()
@@ -66,6 +98,9 @@ namespace OES
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            addChoicePage();
+            addCompletionPage();
+            addJudgePage();
             addWordPage();
             addPptPage();
             addExcelPage();
