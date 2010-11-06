@@ -37,11 +37,11 @@
             // 
             this.txtProblem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProblem.Location = new System.Drawing.Point(-39, 3);
+            this.txtProblem.Location = new System.Drawing.Point(3, 3);
             this.txtProblem.Multiline = true;
             this.txtProblem.Name = "txtProblem";
             this.txtProblem.ReadOnly = true;
-            this.txtProblem.Size = new System.Drawing.Size(820, 400);
+            this.txtProblem.Size = new System.Drawing.Size(777, 400);
             this.txtProblem.TabIndex = 1;
             // 
             // butOpen
