@@ -1,6 +1,6 @@
-﻿namespace MainWindow
+﻿namespace CProblem
 {
-    partial class ProgramInfo
+    partial class CustomProgramInfo
     {
         /// <summary> 
         /// 必需的设计器变量。

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列属性集
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("kongzhitiao")]
+[assembly: AssemblyTitle("OES")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("PCoS.Cc")]
-[assembly: AssemblyProduct("kongzhitiao")]
+[assembly: AssemblyProduct("OES")]
 [assembly: AssemblyCopyright("Copyright © PCoS.Cc 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

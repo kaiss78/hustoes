@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MainWindow
+namespace CProblem
 {
-    public partial class ProgramInfo : UserControl
+    public partial class CustomProgramInfo : UserControl
     {
-        public ProgramInfo()
+        public CustomProgramInfo()
         {
             InitializeComponent();
         }
