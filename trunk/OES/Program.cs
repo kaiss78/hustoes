@@ -15,7 +15,7 @@ namespace OES
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Controlbar());
+            Application.Run(new LoginForm());
         }
     }
 }
