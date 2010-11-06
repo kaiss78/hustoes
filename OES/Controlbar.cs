@@ -64,7 +64,7 @@ namespace OES
             else
             {
                 mainForm.Visible = true;
-                butHideMF.Text = " 隐藏试题";
+                butHideMF.Text = "  隐藏试题";
             }
 
         }
