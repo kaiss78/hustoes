@@ -204,7 +204,7 @@
             this.tabControl.Location = new System.Drawing.Point(3, 25);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(792, 518);
+            this.tabControl.Size = new System.Drawing.Size(790, 518);
             this.tabControl.TabIndex = 1;
             // 
             // MainForm
@@ -253,8 +253,7 @@
         private System.Windows.Forms.ToolStripStatusLabel stuPath;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
-        private System.Windows.Forms.TabControl tabControl;
-        private PublicControl.ProblemsList problemsList1;
+        private System.Windows.Forms.TabControl tabControl;        
 
     }
 }
