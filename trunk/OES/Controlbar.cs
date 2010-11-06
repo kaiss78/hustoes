@@ -10,18 +10,20 @@ using System.Runtime.InteropServices;
 
 namespace OES
 {
-    public partial class Controlbar : Form
+    public partial class ControlBar : Form
     {
 
         /**初始化试题界面*/
         MainForm mainForm = new MainForm();
+        Form parents;
         /**开始时间的设置*/
         int seconds = 0;
         int minute = 90;
-
-        public Controlbar()
-        {
+        /**打开控制条*/
+        public ControlBar(Form  par)
+        {            
             InitializeComponent();
+            parents = par;                        
         }
 
         /* [DllImport("user32.dll", EntryPoint = "FindWindowA")]
@@ -39,7 +41,7 @@ namespace OES
             this.SetDesktopLocation((rect.Width - 530) / 2, 0);//这里的530如果是当前FORM实例的长度就更好了
             /**显示试题窗口的初始位置*/
             mainForm.Visible = true;
-            mainForm.SetDesktopLocation((rect.Width - 530) / 2, rect.Height / 4);
+            mainForm.SetDesktopLocation((rect.Width - 530) /5, rect.Height/9);
             /**去掉整个屏幕的状态栏*/
             // ShowWindow(hTray,1);
 
@@ -104,6 +106,14 @@ namespace OES
             { //MessageBox.Show("时间显示出错！！请重新开始！！"); 
 
             }
+        }
+
+        private void butHandIn_Click(object sender, EventArgs e)
+        {
+            
+            parents.Show();
+            mainForm .Dispose();
+            this.Dispose();
         }
 
     }
