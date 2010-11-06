@@ -94,5 +94,12 @@ namespace OES.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap 预览 {
+            get {
+                object obj = ResourceManager.GetObject("预览", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
