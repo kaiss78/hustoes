@@ -1,4 +1,4 @@
-﻿namespace Controlbar
+﻿namespace OES
 {
     partial class Controlbar
     {
@@ -45,7 +45,7 @@
             // butHandIn
             // 
             this.butHandIn.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.butHandIn.Image = global::Controlbar.Properties.Resources.调整大小_Submit;
+            this.butHandIn.Image = global::OES.Properties.Resources.调整大小_Submit;
             this.butHandIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butHandIn.Location = new System.Drawing.Point(459, -1);
             this.butHandIn.Name = "butHandIn";
@@ -57,7 +57,7 @@
             // time
             // 
             this.time.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.time.Image = global::Controlbar.Properties.Resources.调整大小_2;
+            this.time.Image = global::OES.Properties.Resources.调整大小_2;
             this.time.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.time.Location = new System.Drawing.Point(337, -1);
             this.time.Name = "time";
@@ -70,7 +70,7 @@
             // 
             this.studentID.CausesValidation = false;
             this.studentID.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.studentID.Image = global::Controlbar.Properties.Resources._1;
+            this.studentID.Image = global::OES.Properties.Resources._1;
             this.studentID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.studentID.Location = new System.Drawing.Point(131, -1);
             this.studentID.Name = "studentID";
@@ -82,7 +82,7 @@
             // butHideMF
             // 
             this.butHideMF.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.butHideMF.Image = global::Controlbar.Properties.Resources.调整大小_调整大小_图标源;
+            this.butHideMF.Image = global::OES.Properties.Resources.调整大小_调整大小_图标源;
             this.butHideMF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butHideMF.Location = new System.Drawing.Point(-1, -1);
             this.butHideMF.Name = "butHideMF";

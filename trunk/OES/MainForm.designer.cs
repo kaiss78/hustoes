@@ -1,4 +1,4 @@
-﻿namespace MainWindow
+﻿namespace OES
 {
     partial class MainForm
     {

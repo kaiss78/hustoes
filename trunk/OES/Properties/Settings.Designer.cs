@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Controlbar.Properties {
+namespace OES.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
