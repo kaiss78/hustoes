@@ -32,7 +32,7 @@ namespace OES
         public MainForm()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
+            //this.FormBorderStyle = FormBorderStyle.None;
         }
         private void addChoicePage()
         {
