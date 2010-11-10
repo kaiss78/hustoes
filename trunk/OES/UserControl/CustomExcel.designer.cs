@@ -34,30 +34,32 @@
             this.button_open = new System.Windows.Forms.Button();
             this.button_repeat = new System.Windows.Forms.Button();
             this.button_getPro = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label_title
             // 
             this.label_title.AutoSize = true;
-            this.label_title.Location = new System.Drawing.Point(93, 47);
+            this.label_title.Location = new System.Drawing.Point(40, 101);
             this.label_title.Name = "label_title";
             this.label_title.Size = new System.Drawing.Size(29, 12);
             this.label_title.TabIndex = 0;
-            this.label_title.Text = "题目";
+            this.label_title.Text = "题干";
             // 
             // Text_Content
             // 
-            this.Text_Content.Location = new System.Drawing.Point(95, 108);
+            this.Text_Content.Location = new System.Drawing.Point(40, 128);
             this.Text_Content.Name = "Text_Content";
             this.Text_Content.ReadOnly = true;
             this.Text_Content.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.Text_Content.Size = new System.Drawing.Size(566, 271);
+            this.Text_Content.Size = new System.Drawing.Size(665, 243);
             this.Text_Content.TabIndex = 1;
             this.Text_Content.Text = "";
             // 
             // button_check
             // 
-            this.button_check.Location = new System.Drawing.Point(95, 405);
+            this.button_check.Location = new System.Drawing.Point(152, 420);
             this.button_check.Name = "button_check";
             this.button_check.Size = new System.Drawing.Size(75, 23);
             this.button_check.TabIndex = 2;
@@ -67,9 +69,9 @@
             // 
             // button_open
             // 
-            this.button_open.Location = new System.Drawing.Point(586, 405);
+            this.button_open.Location = new System.Drawing.Point(604, 388);
             this.button_open.Name = "button_open";
-            this.button_open.Size = new System.Drawing.Size(75, 23);
+            this.button_open.Size = new System.Drawing.Size(101, 40);
             this.button_open.TabIndex = 3;
             this.button_open.Text = "打开";
             this.button_open.UseVisualStyleBackColor = true;
@@ -77,9 +79,9 @@
             // 
             // button_repeat
             // 
-            this.button_repeat.Location = new System.Drawing.Point(586, 444);
+            this.button_repeat.Location = new System.Drawing.Point(606, 434);
             this.button_repeat.Name = "button_repeat";
-            this.button_repeat.Size = new System.Drawing.Size(75, 23);
+            this.button_repeat.Size = new System.Drawing.Size(101, 40);
             this.button_repeat.TabIndex = 4;
             this.button_repeat.Text = "重做";
             this.button_repeat.UseVisualStyleBackColor = true;
@@ -87,7 +89,7 @@
             // 
             // button_getPro
             // 
-            this.button_getPro.Location = new System.Drawing.Point(95, 444);
+            this.button_getPro.Location = new System.Drawing.Point(42, 420);
             this.button_getPro.Name = "button_getPro";
             this.button_getPro.Size = new System.Drawing.Size(75, 23);
             this.button_getPro.TabIndex = 5;
@@ -95,17 +97,40 @@
             this.button_getPro.UseVisualStyleBackColor = true;
             this.button_getPro.Click += new System.EventHandler(this.button_getPro_Click);
             // 
-            // Control_excel
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.richTextBox1.Location = new System.Drawing.Point(42, 37);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(664, 52);
+            this.richTextBox1.TabIndex = 8;
+            this.richTextBox1.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "题目要求";
+            // 
+            // CustomExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button_getPro);
             this.Controls.Add(this.button_repeat);
             this.Controls.Add(this.button_open);
             this.Controls.Add(this.button_check);
             this.Controls.Add(this.Text_Content);
             this.Controls.Add(this.label_title);
-            this.Name = "Control_excel";
+            this.Name = "CustomExcel";
             this.Size = new System.Drawing.Size(784, 489);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -120,5 +145,7 @@
         private System.Windows.Forms.Button button_open;
         private System.Windows.Forms.Button button_repeat;
         private System.Windows.Forms.Button button_getPro;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

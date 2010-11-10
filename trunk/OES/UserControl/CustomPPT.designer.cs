@@ -52,7 +52,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(606, 434);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 35);
+            this.button2.Size = new System.Drawing.Size(101, 40);
             this.button2.TabIndex = 1;
             this.button2.Text = "重新做题";
             this.button2.UseVisualStyleBackColor = true;
@@ -69,11 +69,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(40, 412);
+            this.button3.Location = new System.Drawing.Point(40, 406);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(90, 57);
             this.button3.TabIndex = 5;
-            this.button3.Text = "操作题";
+            this.button3.Text = "演示文档";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -109,13 +109,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 102);
+            this.label2.Location = new System.Drawing.Point(40, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 9;
             this.label2.Text = "题干";
             // 
-            // UserControl1
+            // CustomPPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,7 +127,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "UserControl1";
+            this.Name = "CustomPPT";
             this.Size = new System.Drawing.Size(784, 489);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.ResumeLayout(false);

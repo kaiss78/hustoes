@@ -43,7 +43,6 @@ namespace Office
             StreamReader sr = new StreamReader(path1 + "大枪刷图点.txt", Encoding.GetEncoding("GB2312"), false);
 
             string str = sr.ReadToEnd();
-
             sr.Close();
             this.richTextBox2.Text = str;
             this.richTextBox1.Text = str;

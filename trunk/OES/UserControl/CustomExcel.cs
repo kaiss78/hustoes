@@ -65,9 +65,8 @@ namespace Office
             /*输入题目和题干*/
             string txtPathName = pathProName + "\\client\\12.txt";
             StreamReader sr = new StreamReader(@txtPathName, Encoding.Default);
-            string title = sr.ReadLine();
             string content = sr.ReadToEnd();
-            label_title.Text = title;
+            richTextBox1.Text = content;
             Text_Content.Text = content;
             sr.Close();
         }
