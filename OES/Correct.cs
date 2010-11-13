@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Off = Microsoft.Office.Core;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using Word = Microsoft.Office.Interop.Word;
+using Microsoft.Win32;
 using OESXML;
 
 namespace Score
@@ -331,9 +332,9 @@ namespace Score
                                 if (!string.IsNullOrEmpty(installLocation))
                                 {
                                     //将信息添加到ListView控件中
-                                    ListViewItem item = new ListViewItem(softwareName);
+                                    /**ListViewItem item = new ListViewItem(softwareName);
                                     item.SubItems.Add(installLocation);
-                                    listView1.Items.Add(item);
+                                    listView1.Items.Add(item);*/
                                 }
                             }
                         }
