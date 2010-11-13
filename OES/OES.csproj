@@ -73,6 +73,12 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Choice.cs" />
+    <Compile Include="Model\Completion.cs" />
+    <Compile Include="Model\Judge.cs" />
+    <Compile Include="Model\PCompletion.cs" />
+    <Compile Include="Model\PModif.cs" />
+    <Compile Include="Model\PFunction.cs" />
     <Compile Include="UserControl\CustomCompletion.cs">
       <SubType>UserControl</SubType>
     </Compile>
