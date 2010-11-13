@@ -7,12 +7,13 @@ namespace OES.Model
 {
     class Completion
     {
-        public string problem;
+        public string problem, stuAns;
         public List<string> ans;
         public Completion(string p,List<string> a)
         {
             problem = p;
             ans = a;
+            stuAns = "";
         }
     }
 }
