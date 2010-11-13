@@ -300,7 +300,6 @@ namespace Score
                 }
             }
 
-
             doc1.Close(ref nullobj, ref nullobj, ref nullobj);
             doc2.Close(ref nullobj, ref nullobj, ref nullobj);
             word1.Quit(ref nullobj, ref nullobj, ref nullobj);
@@ -313,6 +312,34 @@ namespace Score
         internal static object Correctdoc(string p, string path3)
         {
             throw new NotImplementedException();
+        }
+
+        public void findpath()   //获取安装软件和路径，通过注册表得到。实例代码：
+        {
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall", false);
+            {
+                if (key != null)//判断对象存在
+                {
+                    foreach (string keyName in key.GetSubKeyNames())//遍历子项名称的字符串数组
+                    {
+                        using (RegistryKey key2 = key.OpenSubKey(keyName, false))//遍历子项节点
+                        {
+                            if (key2 != null)
+                            {
+                                string softwareName = key2.GetValue("DisplayName", "").ToString();//获取软件名
+                                string installLocation = key2.GetValue("InstallLocation", "").ToString();//获取安装路径
+                                if (!string.IsNullOrEmpty(installLocation))
+                                {
+                                    //将信息添加到ListView控件中
+                                    ListViewItem item = new ListViewItem(softwareName);
+                                    item.SubItems.Add(installLocation);
+                                    listView1.Items.Add(item);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

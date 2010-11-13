@@ -7,11 +7,12 @@ namespace OES.Model
 {
     class Judge
     {
-        public string ans, problem;
+        public string ans, problem,stuAns;
         public Judge(string a, string p)
         {
             ans = a;
             problem = p;
+            stuAns = "";
         }
     }
 }

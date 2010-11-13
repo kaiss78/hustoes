@@ -8,12 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace CProblem
-{
+{    
     public partial class CustomProgramInfo : UserControl
     {
-        public CustomProgramInfo()
+        private string path;
+        public CustomProgramInfo(string p)
         {
             InitializeComponent();
+            path = p;
         }
 
         private void ProgramInfo_Load(object sender, EventArgs e)

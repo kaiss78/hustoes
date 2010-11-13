@@ -16,3 +16,22 @@ C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\OES\
 C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\OES\obj\Debug\OES.csproj.GenerateResource.Cache
 C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\OES\obj\Debug\OES.exe
 C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\OES\obj\Debug\OES.pdb
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.csproj.ResolveComReference.cache
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.exe
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.pdb
+G:\Documents\Visual Studio 2008\Projects\OES\OES\bin\Debug\OES.exe
+G:\Documents\Visual Studio 2008\Projects\OES\OES\bin\Debug\OES.pdb
+G:\Documents\Visual Studio 2008\Projects\OES\OES\bin\Debug\PublicControl.dll
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\ResolveAssemblyReference.cache
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.ControlBar.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.LoginForm.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.CustomCompletion.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.CustomChoice.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.CustomJudge.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\Office.CustomExcel.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.MainForm.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\Office.CustomPPT.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\CProblem.CustomProgramInfo.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.Properties.Resources.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\Office.CustomWord.resources
+G:\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.csproj.GenerateResource.Cache

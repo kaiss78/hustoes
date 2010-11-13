@@ -21,7 +21,7 @@ namespace OES
         static private CustomChoice choice;
         static private CustomCompletion completion;
 
-        static private TabPage oficeWordPage;        
+        static private TabPage oficeWordPage;
         static private TabPage oficePptPage;
         static private TabPage oficeExcelPage;
         static private TabPage cCompletionPage;
@@ -34,6 +34,7 @@ namespace OES
             InitializeComponent();
             //this.FormBorderStyle = FormBorderStyle.None;
         }
+
         private void addChoicePage()
         {
             choice = new CustomChoice();
@@ -90,7 +91,7 @@ namespace OES
 
         private void addCComPage()
         {
-            cCompletion = new CustomProgramInfo();
+            cCompletion = new CustomProgramInfo("");
             cCompletion.Font = new Font("宋体", 9);
             cCompletionPage = new TabPage("程序填空题");
             cCompletionPage.Controls.Add(cCompletion);
