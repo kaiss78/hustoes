@@ -16,61 +16,49 @@ namespace OES.UControl
 
     public partial class CustomCompletion : UserControl
     {
-        [DllImport("user32", EntryPoint = "HideCaret")]
-        private static extern bool HideCaret(IntPtr hWnd);
-      //  ReadProblemFile readproblemfile = new ReadProblemFile();
-        string [] readstring=new string[200];
-        int i = 0;
+
+        static int proID;
+
+        public void SetQuestion(int proID)
+        {
+            this.Question.Text=ClientControl.GetCompletion(proID).problem;
+            this.Answer.Text = ClientControl.GetCompletion(proID).stuAns;
+        }
+
         public CustomCompletion()
         {
             InitializeComponent();
-            ReadProblemFile readproblemfile = new ReadProblemFile();
-            readproblemfile.readfile(readstring);
-        }
-
-        private void myusercotroll_Load(object sender, EventArgs e)
-        {
-            Rquest.Text = readstring[i];
-            RquestTeam.Text = readstring[i + 1];
-            i += 2;
+            proID = 0;
+            this.SetQuestion(proID);
         }
 
         private void lastproblem_Click(object sender, EventArgs e)
-        {
-            i -= 4;
-            if (i >= 0)
+        {            
+            if (proID >0)
             {
-                Rquest.Text = readstring[i];
-                RquestTeam.Text = readstring[i + 1];
-                Answer_richbox.Text=" ";
-                i += 2;
+                this.SetQuestion(--proID);
             }
             else
             {
-                MessageBox.Show("前面没有填空题了");
-                i += 4;
+                MessageBox.Show("这是第一题");
             }
-
         }
 
         private void nextproblem_Click(object sender, EventArgs e)
-        {
-            if (readstring[i] == null)
+        {            
+            if (proID + 1 < ClientControl.paper.completion.Count)
             {
-                MessageBox.Show("后面没有填空题了，可以做其他题目");
+                this.SetQuestion(++proID);
             }
             else
             {
-                Rquest.Text = readstring[i];
-                RquestTeam.Text=readstring[i-1];
-                Answer_richbox.Text = " ";
-                i += 2;
+                MessageBox.Show("这是最后一题");
             }
         }
 
-        private void Hide_MouseDown(object sender, MouseEventArgs e)
+        private void Answer_richbox_TextChanged(object sender, EventArgs e)
         {
-            HideCaret(((RichTextBox)sender).Handle);
+            ClientControl.GetCompletion(proID).stuAns = this.Answer.Text;
         }
     }
 }
