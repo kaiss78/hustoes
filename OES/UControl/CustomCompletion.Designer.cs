@@ -32,8 +32,8 @@
             this.Rquest = new System.Windows.Forms.RichTextBox();
             this.ProblemRquest = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Answer_richbox = new System.Windows.Forms.RichTextBox();
-            this.Answer = new System.Windows.Forms.Label();
+            this.Answer = new System.Windows.Forms.RichTextBox();
+            this.label = new System.Windows.Forms.Label();
             this.Question = new System.Windows.Forms.RichTextBox();
             this.lastproblem = new System.Windows.Forms.Button();
             this.nextproblem = new System.Windows.Forms.Button();
@@ -83,33 +83,32 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.Answer_richbox);
             this.panel2.Controls.Add(this.Answer);
+            this.panel2.Controls.Add(this.label);
             this.panel2.Controls.Add(this.Question);
             this.panel2.Location = new System.Drawing.Point(18, 95);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(754, 322);
             this.panel2.TabIndex = 1;
             // 
-            // Answer_richbox
-            // 
-            this.Answer_richbox.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Answer_richbox.Location = new System.Drawing.Point(69, 270);
-            this.Answer_richbox.Name = "Answer_richbox";
-            this.Answer_richbox.Size = new System.Drawing.Size(680, 31);
-            this.Answer_richbox.TabIndex = 2;
-            this.Answer_richbox.Text = "";
-            this.Answer_richbox.TextChanged += new System.EventHandler(this.Answer_richbox_TextChanged);
-            // 
             // Answer
             // 
-            this.Answer.AutoSize = true;
-            this.Answer.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Answer.Location = new System.Drawing.Point(3, 277);
+            this.Answer.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Answer.Location = new System.Drawing.Point(84, 270);
             this.Answer.Name = "Answer";
-            this.Answer.Size = new System.Drawing.Size(60, 24);
-            this.Answer.TabIndex = 1;
-            this.Answer.Text = "答案";
+            this.Answer.Size = new System.Drawing.Size(665, 31);
+            this.Answer.TabIndex = 2;
+            this.Answer.Text = "";            
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label.Location = new System.Drawing.Point(18, 273);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(60, 24);
+            this.label.TabIndex = 1;
+            this.label.Text = "答案";
             // 
             // Question
             // 
@@ -177,8 +176,8 @@
         private System.Windows.Forms.RichTextBox Rquest;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RichTextBox Question;
-        private System.Windows.Forms.Label Answer;
-        private System.Windows.Forms.RichTextBox Answer_richbox;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.RichTextBox Answer;
         private System.Windows.Forms.Button lastproblem;
         private System.Windows.Forms.Button nextproblem;
     }
