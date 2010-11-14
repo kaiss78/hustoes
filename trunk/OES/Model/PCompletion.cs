@@ -5,12 +5,12 @@ using System.Text;
 
 namespace OES.Model
 {
-    class PCompletion
+    class PCompletion:Problem
     {
         public string path, ans1, ans2, ans3;
-        public int score;
         public PCompletion()
-        { 
+        {
+            type = "程序填空题";
         }
         public PCompletion(string p)
         {
@@ -18,6 +18,7 @@ namespace OES.Model
             ans1 = "";
             ans2 = "";
             ans3 = "";
+            type = "程序填空题";
         }
     }
 }

@@ -20,6 +20,8 @@ namespace OES
         static private CustomChoice choice;
         static private CustomCompletion completion;
 
+        static public MainForm mf ;
+
         static private TabPage oficeWordPage;
         static private TabPage oficePptPage;
         static private TabPage oficeExcelPage;
@@ -106,6 +108,7 @@ namespace OES
             problemsList = new ProblemsList(ClientControl.paper.choice.Count + ClientControl.paper.completion.Count + ClientControl.paper.judge.Count);
             problemsList.count = ClientControl.paper.choice.Count + ClientControl.paper.completion.Count + ClientControl.paper.judge.Count;
             panelProList.Controls.Add(problemsList);
+            problemsList.OnChoose += new EventHandler(problemsList_OnChoose);
             addChoicePage();
             addCompletionPage();
             addJudgePage();
@@ -113,6 +116,53 @@ namespace OES
             addPptPage();
             addExcelPage();
             addCComPage();
+            mf = this;
+        }
+
+        void problemsList_OnChoose(object sender, EventArgs e)
+        {
+            ClientControl.JumpToPro((int)sender);
+        }
+
+        internal void JumpPro(string tab, int index)
+        {
+            foreach (TabPage tp in tabControl.TabPages)
+            {
+                if (tp.Text == tab)
+                {
+                    tabControl.SelectedTab = tp;
+                    switch (tab)
+                    {
+                        case "选择题":
+                            choice.SetQuestion(index);
+                            break;
+                        case "填空题":
+                            completion.SetQuestion(index);
+                            break;
+                        case "判断题":
+                            judge.SetQuestion(index);
+                            break;
+                        case "编程填空题":
+                            
+                            break;
+                        case "编程综合题":
+                            
+                            break;
+                        case "编程改错题":
+
+                            break;
+                        //case "":
+                        //    break;
+                        //case "":
+                        //    break;
+                        //case "":
+                        //    break;
+
+                    }
+                    break;
+                }
+            }
+
         }
     }
 }
