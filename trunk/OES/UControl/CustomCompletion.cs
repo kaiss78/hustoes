@@ -40,7 +40,8 @@ namespace OES.UControl
         }
 
         private void lastproblem_Click(object sender, EventArgs e)
-        {            
+        {
+            this.CheckAns();
             if (proID >0)
             {
                 this.SetQuestion(--proID);
@@ -52,7 +53,8 @@ namespace OES.UControl
         }
 
         private void nextproblem_Click(object sender, EventArgs e)
-        {            
+        {
+            this.CheckAns();
             if (proID + 1 < ClientControl.paper.completion.Count)
             {
                 this.SetQuestion(++proID);
@@ -68,9 +70,5 @@ namespace OES.UControl
             HideCaret(((RichTextBox)sender).Handle);
         }
 
-        private void Answer_richbox_TextChanged(object sender, EventArgs e)
-        {
-            this.CheckAns();
-        }
     }
 }
