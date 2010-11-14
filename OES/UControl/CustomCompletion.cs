@@ -28,8 +28,9 @@ namespace OES.UControl
             }
         }
 
-        public void SetQuestion(int proID)
+        public void SetQuestion(int x)
         {
+            proID = x;
             completion = ClientControl.GetCompletion(proID);
             this.Question.Text = completion.problem;
             this.Answer.Text = completion.stuAns;

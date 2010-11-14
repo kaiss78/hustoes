@@ -26,8 +26,9 @@ namespace OES.UControl
             }
         }
 
-        public void SetQuestion(int proID)
+        public void SetQuestion(int x)
         {
+            proID = x;
             judge = ClientControl.GetJudge(proID);
             this.Question.Text = judge.problem;
             this.TrueButton.Checked = judge.stuAns == "T";
