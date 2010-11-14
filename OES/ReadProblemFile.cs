@@ -23,7 +23,6 @@ namespace OES
                 {
                     if (strline[j - 1] != null)
                         strline[j] = sr.ReadLine();
-
                 }
 
                 sr.Close();
