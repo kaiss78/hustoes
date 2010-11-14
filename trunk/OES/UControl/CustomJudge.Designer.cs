@@ -48,9 +48,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.Request);
             this.panel1.Controls.Add(this.ProblemRequest);
-            this.panel1.Location = new System.Drawing.Point(18, 23);
+            this.panel1.Location = new System.Drawing.Point(18, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(695, 76);
+            this.panel1.Size = new System.Drawing.Size(754, 76);
             this.panel1.TabIndex = 0;
             // 
             // Request
@@ -62,7 +62,7 @@
             this.Request.Location = new System.Drawing.Point(131, 3);
             this.Request.Name = "Request";
             this.Request.ReadOnly = true;
-            this.Request.Size = new System.Drawing.Size(559, 68);
+            this.Request.Size = new System.Drawing.Size(618, 68);
             this.Request.TabIndex = 1;
             this.Request.Text = "";
             this.Request.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
@@ -82,18 +82,18 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.Jadge_groupBox);
             this.panel2.Controls.Add(this.RequestTeam);
-            this.panel2.Location = new System.Drawing.Point(18, 105);
+            this.panel2.Location = new System.Drawing.Point(18, 95);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(695, 274);
+            this.panel2.Size = new System.Drawing.Size(754, 322);
             this.panel2.TabIndex = 1;
             // 
             // Jadge_groupBox
             // 
             this.Jadge_groupBox.Controls.Add(this.TrueButton);
             this.Jadge_groupBox.Controls.Add(this.FalseButton);
-            this.Jadge_groupBox.Location = new System.Drawing.Point(3, 209);
+            this.Jadge_groupBox.Location = new System.Drawing.Point(3, 248);
             this.Jadge_groupBox.Name = "Jadge_groupBox";
-            this.Jadge_groupBox.Size = new System.Drawing.Size(687, 60);
+            this.Jadge_groupBox.Size = new System.Drawing.Size(746, 60);
             this.Jadge_groupBox.TabIndex = 3;
             this.Jadge_groupBox.TabStop = false;
             // 
@@ -113,7 +113,7 @@
             // 
             this.FalseButton.AutoSize = true;
             this.FalseButton.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.FalseButton.Location = new System.Drawing.Point(489, 20);
+            this.FalseButton.Location = new System.Drawing.Point(512, 20);
             this.FalseButton.Name = "FalseButton";
             this.FalseButton.Size = new System.Drawing.Size(104, 28);
             this.FalseButton.TabIndex = 2;
@@ -130,7 +130,7 @@
             this.RequestTeam.Location = new System.Drawing.Point(3, 3);
             this.RequestTeam.Name = "RequestTeam";
             this.RequestTeam.ReadOnly = true;
-            this.RequestTeam.Size = new System.Drawing.Size(687, 186);
+            this.RequestTeam.Size = new System.Drawing.Size(746, 239);
             this.RequestTeam.TabIndex = 0;
             this.RequestTeam.Text = "";
             this.RequestTeam.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
@@ -138,7 +138,7 @@
             // LastProblem
             // 
             this.LastProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LastProblem.Location = new System.Drawing.Point(22, 406);
+            this.LastProblem.Location = new System.Drawing.Point(22, 423);
             this.LastProblem.Name = "LastProblem";
             this.LastProblem.Size = new System.Drawing.Size(169, 42);
             this.LastProblem.TabIndex = 2;
@@ -149,7 +149,7 @@
             // NestProblem
             // 
             this.NestProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.NestProblem.Location = new System.Drawing.Point(542, 406);
+            this.NestProblem.Location = new System.Drawing.Point(552, 423);
             this.NestProblem.Name = "NestProblem";
             this.NestProblem.Size = new System.Drawing.Size(169, 42);
             this.NestProblem.TabIndex = 3;
@@ -167,7 +167,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "CustomJudge";
-            this.Size = new System.Drawing.Size(750, 466);
+            this.Size = new System.Drawing.Size(790, 496);
             this.Load += new System.EventHandler(this.MyUserControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

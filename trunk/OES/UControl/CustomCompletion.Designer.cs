@@ -46,9 +46,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.Rquest);
             this.panel1.Controls.Add(this.ProblemRquest);
-            this.panel1.Location = new System.Drawing.Point(18, 23);
+            this.panel1.Location = new System.Drawing.Point(18, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(695, 76);
+            this.panel1.Size = new System.Drawing.Size(754, 76);
             this.panel1.TabIndex = 0;
             // 
             // Rquest
@@ -65,7 +65,7 @@
             this.Rquest.ReadOnly = true;
             this.Rquest.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.Rquest.ShortcutsEnabled = false;
-            this.Rquest.Size = new System.Drawing.Size(559, 68);
+            this.Rquest.Size = new System.Drawing.Size(618, 68);
             this.Rquest.TabIndex = 1;
             this.Rquest.Text = "";
             this.Rquest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
@@ -86,16 +86,17 @@
             this.panel2.Controls.Add(this.Answer_richbox);
             this.panel2.Controls.Add(this.Answer);
             this.panel2.Controls.Add(this.RquestTeam);
-            this.panel2.Location = new System.Drawing.Point(18, 105);
+            this.panel2.Location = new System.Drawing.Point(18, 95);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(695, 274);
+            this.panel2.Size = new System.Drawing.Size(754, 322);
             this.panel2.TabIndex = 1;
             // 
             // Answer_richbox
             // 
-            this.Answer_richbox.Location = new System.Drawing.Point(69, 230);
+            this.Answer_richbox.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Answer_richbox.Location = new System.Drawing.Point(69, 270);
             this.Answer_richbox.Name = "Answer_richbox";
-            this.Answer_richbox.Size = new System.Drawing.Size(623, 31);
+            this.Answer_richbox.Size = new System.Drawing.Size(680, 31);
             this.Answer_richbox.TabIndex = 2;
             this.Answer_richbox.Text = "";
             // 
@@ -103,7 +104,7 @@
             // 
             this.Answer.AutoSize = true;
             this.Answer.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Answer.Location = new System.Drawing.Point(3, 237);
+            this.Answer.Location = new System.Drawing.Point(3, 277);
             this.Answer.Name = "Answer";
             this.Answer.Size = new System.Drawing.Size(60, 24);
             this.Answer.TabIndex = 1;
@@ -122,7 +123,7 @@
             this.RquestTeam.ReadOnly = true;
             this.RquestTeam.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.RquestTeam.ShortcutsEnabled = false;
-            this.RquestTeam.Size = new System.Drawing.Size(687, 212);
+            this.RquestTeam.Size = new System.Drawing.Size(746, 249);
             this.RquestTeam.TabIndex = 0;
             this.RquestTeam.Text = "";
             this.RquestTeam.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
@@ -130,7 +131,7 @@
             // lastproblem
             // 
             this.lastproblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lastproblem.Location = new System.Drawing.Point(22, 406);
+            this.lastproblem.Location = new System.Drawing.Point(22, 423);
             this.lastproblem.Name = "lastproblem";
             this.lastproblem.Size = new System.Drawing.Size(169, 42);
             this.lastproblem.TabIndex = 2;
@@ -141,7 +142,7 @@
             // nextproblem
             // 
             this.nextproblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.nextproblem.Location = new System.Drawing.Point(542, 406);
+            this.nextproblem.Location = new System.Drawing.Point(552, 423);
             this.nextproblem.Name = "nextproblem";
             this.nextproblem.Size = new System.Drawing.Size(169, 42);
             this.nextproblem.TabIndex = 3;
@@ -159,7 +160,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "CustomCompletion";
-            this.Size = new System.Drawing.Size(750, 466);
+            this.Size = new System.Drawing.Size(790, 496);
             this.Load += new System.EventHandler(this.myusercotroll_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
