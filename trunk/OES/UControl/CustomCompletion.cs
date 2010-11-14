@@ -11,13 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace OES.UControl
 {
-  
-
-
     public partial class CustomCompletion : UserControl
     {
 
         static int proID;
+        [DllImport("user32", EntryPoint = "HideCaret")]
+        private static extern bool HideCaret(IntPtr hWnd);
 
         public void SetQuestion(int proID)
         {
@@ -59,6 +58,10 @@ namespace OES.UControl
         private void Answer_richbox_TextChanged(object sender, EventArgs e)
         {
             ClientControl.GetCompletion(proID).stuAns = this.Answer.Text;
+        }
+        private void Hide_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideCaret(((RichTextBox)sender).Handle);
         }
     }
 }
