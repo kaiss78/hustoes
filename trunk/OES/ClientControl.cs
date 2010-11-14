@@ -8,13 +8,13 @@ namespace OES
 {   
     class ClientControl
     {        
-        static private Paper paper;
+        static private Paper paper= new Paper();
         public ClientControl()
-        { 
-            
+        {         
         }
-        public void AddChoice()
-        { 
+        public static void AddChoice(Choice choice)
+        {
+            paper.choice.Add(choice);
         }
     }
 }

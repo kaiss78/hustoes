@@ -12,11 +12,11 @@ namespace OES.Model
         public Judge()
         { 
         }
-        public Judge(string a, string p)
+        public Judge(string p)
         {
-            ans = a;
             problem = p;
             stuAns = "";
+            ans = "";
         }
     }
 }
