@@ -27,8 +27,9 @@ namespace OES.UControl
             }
         }
 
-        public void SetQuestion(int proID)
+        public void SetQuestion(int x)
         {
+            proID = x;
             choice = ClientControl.GetChoice(proID);
             this.Question.Text = choice.problem;
             this.OptionA.Text = choice.optionA;
