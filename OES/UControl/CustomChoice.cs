@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
+using OES.Model;
 
 namespace OES.UControl
 {
@@ -15,7 +16,8 @@ namespace OES.UControl
     {
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
-        static int proID;
+        private static int proID;
+        private Choice choice;
 
         public void CheckAns(string ans)
         {
@@ -27,15 +29,16 @@ namespace OES.UControl
 
         public void SetQuestion(int proID)
         {
-            this.Question.Text = ClientControl.GetChoice(proID).problem;
-            this.OptionA.Text = ClientControl.GetChoice(proID).optionA;
-            this.OptionB.Text = ClientControl.GetChoice(proID).optionB;
-            this.OptionC.Text = ClientControl.GetChoice(proID).optionC;
-            this.OptionD.Text = ClientControl.GetChoice(proID).optionD;
-            radioButtonA.Checked = ClientControl.GetChoice(proID).stuAns == "A";
-            radioButtonB.Checked = ClientControl.GetChoice(proID).stuAns == "B";
-            radioButtonC.Checked = ClientControl.GetChoice(proID).stuAns == "C";
-            radioButtonD.Checked = ClientControl.GetChoice(proID).stuAns == "D";
+            choice = ClientControl.GetChoice(proID);
+            this.Question.Text = choice.problem;
+            this.OptionA.Text = choice.optionA;
+            this.OptionB.Text = choice.optionB;
+            this.OptionC.Text = choice.optionC;
+            this.OptionD.Text = choice.optionD;
+            radioButtonA.Checked = choice.stuAns == "A";
+            radioButtonB.Checked = choice.stuAns == "B";
+            radioButtonC.Checked = choice.stuAns == "C";
+            radioButtonD.Checked = choice.stuAns == "D";
         }
 
         public CustomChoice()
@@ -47,7 +50,7 @@ namespace OES.UControl
 
         private void nextstep_Click(object sender, EventArgs e)
         {
-            if (proID + 1 < ClientControl.paper.completion.Count)
+            if (proID + 1 < ClientControl.paper.choice.Count)
             {
                 this.SetQuestion(++proID);
             }

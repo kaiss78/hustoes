@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using OES.Model;
 
 namespace OES.UControl
 {
@@ -14,52 +15,70 @@ namespace OES.UControl
     {
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
-        string[] readstring = new string[200];
-        int i = 0;
+        private int proID;
+        private Judge judge;
+
+        public void CheckAns(string ans)
+        {
+            if (ans != judge.stuAns)
+            {
+                ClientControl.GetJudge(proID).stuAns = ans;
+            }
+        }
+
+        public void SetQuestion(int proID)
+        {
+            judge = ClientControl.GetJudge(proID);
+            this.Question.Text = judge.problem;
+            this.TrueButton.Checked = judge.stuAns == "T";
+            this.FalseButton.Checked = judge.stuAns == "F";
+        }
+
         public CustomJudge()
         {
             InitializeComponent();
-            ReadProblemFile readproblemfile = new ReadProblemFile();
-            readproblemfile.readfile(readstring);
+            proID = 0;
+            this.SetQuestion(proID);
         }
 
-        private void MyUserControl_Load(object sender, EventArgs e)
-        {
-            Request.Text=readstring[i];
-            RequestTeam.Text = readstring[i + 1];
-            i += 2;
-        }
 
         private void LastProblem_Click(object sender, EventArgs e)
-        {
-            i -= 4;
-            if (i >= 0)
+        {            
+            if (proID > 0)
             {
-                Request.Text = readstring[i];
-                RequestTeam.Text = readstring[i + 1];
-                i += 2;
+                this.SetQuestion(--proID);
             }
-            else {
-                MessageBox.Show("前面没有判断题了");
-                i += 4;
+            else
+            {
+                MessageBox.Show("这是第一题");
             }
-
         }
 
         private void NestProblem_Click(object sender, EventArgs e)
-        {
-            if (readstring[i] == null)
-            { MessageBox.Show("后面没有判断题了，可以做其他题目"); }
+        {           
+            if (proID + 1 < ClientControl.paper.judge.Count)
+            {
+                this.SetQuestion(++proID);
+            }
             else
             {
-                Request.Text=readstring[i];
-                RequestTeam.Text=readstring[i+1];
-                i += 2;
+                MessageBox.Show("这是最后一题");
             }
         }
+
         private void Hide_MouseDown(object sender, MouseEventArgs e)
         {
             HideCaret(((RichTextBox)sender).Handle);
+        }
+
+        private void TrueButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.CheckAns("T");
+        }
+
+        private void FalseButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.CheckAns("F");
         }
         
     }
