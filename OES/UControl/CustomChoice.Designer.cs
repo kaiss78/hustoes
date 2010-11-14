@@ -55,7 +55,7 @@
             // 
             this.ProblemRequest.AutoSize = true;
             this.ProblemRequest.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ProblemRequest.Location = new System.Drawing.Point(3, 2);
+            this.ProblemRequest.Location = new System.Drawing.Point(3, 3);
             this.ProblemRequest.Name = "ProblemRequest";
             this.ProblemRequest.Size = new System.Drawing.Size(110, 24);
             this.ProblemRequest.TabIndex = 0;
