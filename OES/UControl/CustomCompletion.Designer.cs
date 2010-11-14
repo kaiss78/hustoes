@@ -34,7 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Answer_richbox = new System.Windows.Forms.RichTextBox();
             this.Answer = new System.Windows.Forms.Label();
-            this.RquestTeam = new System.Windows.Forms.RichTextBox();
+            this.Question = new System.Windows.Forms.RichTextBox();
             this.lastproblem = new System.Windows.Forms.Button();
             this.nextproblem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -85,7 +85,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.Answer_richbox);
             this.panel2.Controls.Add(this.Answer);
-            this.panel2.Controls.Add(this.RquestTeam);
+            this.panel2.Controls.Add(this.Question);
             this.panel2.Location = new System.Drawing.Point(18, 95);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(754, 322);
@@ -99,6 +99,7 @@
             this.Answer_richbox.Size = new System.Drawing.Size(680, 31);
             this.Answer_richbox.TabIndex = 2;
             this.Answer_richbox.Text = "";
+            this.Answer_richbox.TextChanged += new System.EventHandler(this.Answer_richbox_TextChanged);
             // 
             // Answer
             // 
@@ -110,23 +111,23 @@
             this.Answer.TabIndex = 1;
             this.Answer.Text = "答案";
             // 
-            // RquestTeam
+            // Question
             // 
-            this.RquestTeam.BackColor = System.Drawing.Color.White;
-            this.RquestTeam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RquestTeam.CausesValidation = false;
-            this.RquestTeam.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.RquestTeam.DetectUrls = false;
-            this.RquestTeam.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RquestTeam.Location = new System.Drawing.Point(3, 3);
-            this.RquestTeam.Name = "RquestTeam";
-            this.RquestTeam.ReadOnly = true;
-            this.RquestTeam.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.RquestTeam.ShortcutsEnabled = false;
-            this.RquestTeam.Size = new System.Drawing.Size(746, 249);
-            this.RquestTeam.TabIndex = 0;
-            this.RquestTeam.Text = "";
-            this.RquestTeam.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
+            this.Question.BackColor = System.Drawing.Color.White;
+            this.Question.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Question.CausesValidation = false;
+            this.Question.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Question.DetectUrls = false;
+            this.Question.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Question.Location = new System.Drawing.Point(3, 3);
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.Question.ShortcutsEnabled = false;
+            this.Question.Size = new System.Drawing.Size(746, 249);
+            this.Question.TabIndex = 0;
+            this.Question.Text = "";
+            this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // lastproblem
             // 
@@ -161,7 +162,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "CustomCompletion";
             this.Size = new System.Drawing.Size(790, 496);
-            this.Load += new System.EventHandler(this.myusercotroll_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -176,7 +176,7 @@
         private System.Windows.Forms.Label ProblemRquest;
         private System.Windows.Forms.RichTextBox Rquest;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RichTextBox RquestTeam;
+        private System.Windows.Forms.RichTextBox Question;
         private System.Windows.Forms.Label Answer;
         private System.Windows.Forms.RichTextBox Answer_richbox;
         private System.Windows.Forms.Button lastproblem;
