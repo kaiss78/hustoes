@@ -43,6 +43,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.Rquest);
             this.panel1.Controls.Add(this.ProblemRquest);
             this.panel1.Location = new System.Drawing.Point(18, 23);
@@ -52,21 +53,28 @@
             // 
             // Rquest
             // 
-            this.Rquest.BackColor = System.Drawing.SystemColors.Window;
-            this.Rquest.Enabled = false;
+            this.Rquest.BackColor = System.Drawing.Color.White;
+            this.Rquest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Rquest.CausesValidation = false;
+            this.Rquest.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Rquest.DetectUrls = false;
             this.Rquest.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Rquest.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Rquest.Location = new System.Drawing.Point(131, 3);
             this.Rquest.Name = "Rquest";
+            this.Rquest.ReadOnly = true;
+            this.Rquest.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.Rquest.ShortcutsEnabled = false;
             this.Rquest.Size = new System.Drawing.Size(561, 70);
             this.Rquest.TabIndex = 1;
             this.Rquest.Text = "";
+            this.Rquest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // ProblemRquest
             // 
             this.ProblemRquest.AutoSize = true;
             this.ProblemRquest.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ProblemRquest.Location = new System.Drawing.Point(22, 24);
+            this.ProblemRquest.Location = new System.Drawing.Point(3, 3);
             this.ProblemRquest.Name = "ProblemRquest";
             this.ProblemRquest.Size = new System.Drawing.Size(110, 24);
             this.ProblemRquest.TabIndex = 0;
@@ -74,6 +82,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.Answer_richbox);
             this.panel2.Controls.Add(this.Answer);
             this.panel2.Controls.Add(this.RquestTeam);
@@ -84,9 +93,9 @@
             // 
             // Answer_richbox
             // 
-            this.Answer_richbox.Location = new System.Drawing.Point(92, 214);
+            this.Answer_richbox.Location = new System.Drawing.Point(69, 230);
             this.Answer_richbox.Name = "Answer_richbox";
-            this.Answer_richbox.Size = new System.Drawing.Size(600, 57);
+            this.Answer_richbox.Size = new System.Drawing.Size(623, 31);
             this.Answer_richbox.TabIndex = 2;
             this.Answer_richbox.Text = "";
             // 
@@ -94,7 +103,7 @@
             // 
             this.Answer.AutoSize = true;
             this.Answer.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Answer.Location = new System.Drawing.Point(26, 227);
+            this.Answer.Location = new System.Drawing.Point(3, 237);
             this.Answer.Name = "Answer";
             this.Answer.Size = new System.Drawing.Size(60, 24);
             this.Answer.TabIndex = 1;
@@ -102,13 +111,21 @@
             // 
             // RquestTeam
             // 
-            this.RquestTeam.Enabled = false;
+            this.RquestTeam.BackColor = System.Drawing.Color.White;
+            this.RquestTeam.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RquestTeam.CausesValidation = false;
+            this.RquestTeam.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.RquestTeam.DetectUrls = false;
             this.RquestTeam.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.RquestTeam.Location = new System.Drawing.Point(3, 3);
             this.RquestTeam.Name = "RquestTeam";
-            this.RquestTeam.Size = new System.Drawing.Size(689, 194);
+            this.RquestTeam.ReadOnly = true;
+            this.RquestTeam.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.RquestTeam.ShortcutsEnabled = false;
+            this.RquestTeam.Size = new System.Drawing.Size(687, 212);
             this.RquestTeam.TabIndex = 0;
             this.RquestTeam.Text = "";
+            this.RquestTeam.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // lastproblem
             // 
@@ -132,15 +149,16 @@
             this.nextproblem.UseVisualStyleBackColor = true;
             this.nextproblem.Click += new System.EventHandler(this.nextproblem_Click);
             // 
-            // myusercotroll
+            // CustomCompletion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.nextproblem);
             this.Controls.Add(this.lastproblem);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "myusercotroll";
+            this.Name = "CustomCompletion";
             this.Size = new System.Drawing.Size(750, 466);
             this.Load += new System.EventHandler(this.myusercotroll_Load);
             this.panel1.ResumeLayout(false);
