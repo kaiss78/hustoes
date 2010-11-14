@@ -9,12 +9,18 @@ namespace OES
     class ClientControl
     {        
         static private Paper paper= new Paper();
-        public ClientControl()
-        {         
-        }
+
         public static void AddChoice(Choice choice)
         {
             paper.choice.Add(choice);
+        }
+        public static void AddCompletion(Completion completion)
+        {
+            paper.completion.Add(completion);
+        }
+        public static void AddJudge(Judge judge)
+        {
+            paper.judge.Add(judge);
         }
     }
 }

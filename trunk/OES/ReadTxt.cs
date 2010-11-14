@@ -25,8 +25,7 @@ namespace OES
                     s = st.Split('\n');
                     for (i = 0; i < s.Length; i = i + 5)
                     {
-                        choice = new Choice(s[i], s[i + 1], s[i + 2], s[i + 3], s[i + 4]);
-                        MessageBox.Show(s[i]);
+                        choice = new Choice(s[i], s[i + 1], s[i + 2], s[i + 3], s[i + 4]);                        
                         ClientControl.AddChoice(choice);
                     }
                 }
@@ -35,6 +34,25 @@ namespace OES
 
         public static void ReadCompletion(string path)
         {
+            path = path + "b.txt";
+            if (File.Exists(path))
+            {
+                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                {
+                    String st;
+                    String[] s;
+                    Completion completion;
+                    int i;
+                    st = sr.ReadToEnd();
+                    s = st.Split('\n');
+                    for (i = 0; i < s.Length; i = i + 1)
+                    {
+                        completion = new Completion(s[i]);
+                        ClientControl.AddCompletion(completion);
+                    }
+                }
+            }
+
         }
 
         public static void ReadJudge(string path)
