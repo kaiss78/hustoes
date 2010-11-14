@@ -26,8 +26,8 @@ namespace OES
                     for (i = 0; i < s.Length; i = i + 5)
                     {
                         choice = new Choice(s[i], s[i + 1], s[i + 2], s[i + 3], s[i + 4]);
-                        choice.orderId = i/5;
-                        ClientControl.AddChoice(choice);
+                        choice.orderId = i / 5;
+                        ClientControl.paper.Add(choice);
                     }
                 }
             }
@@ -35,7 +35,7 @@ namespace OES
 
         public static void ReadCompletion(string path)
         {
-            path = path + "b.txt";            
+            path = path + "b.txt";
             if (File.Exists(path))
             {
                 using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
@@ -50,7 +50,7 @@ namespace OES
                     {
                         completion = new Completion(s[i]);
                         completion.orderId = i;
-                        ClientControl.AddCompletion(completion);
+                        ClientControl.paper.Add(completion);
                     }
                 }
             }
@@ -73,7 +73,7 @@ namespace OES
                     {
                         judge = new Judge(s[i]);
                         judge.orderId = i;
-                        ClientControl.AddJudge(judge);
+                        ClientControl.paper.Add(judge);
                     }
                 }
             }
@@ -81,14 +81,45 @@ namespace OES
 
         public static void ReadPCompletion(string path)
         {
+            path = path + "h.txt";
+            if (File.Exists(path))
+            {
+                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                {
+                    String st;
+                    PCompletion pCompletion;
+                    st = sr.ReadToEnd();
+                    pCompletion = new PCompletion(st);                    
+                    ClientControl.paper.Add(pCompletion);                    
+                }
+            }
         }
 
         public static void ReadPModif(string path)
         {
+            path = path + "g.txt";
+            using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+            {
+                String st;
+                PModif pModif;
+                st = sr.ReadToEnd();
+                pModif = new PModif(st);
+                ClientControl.paper.Add(pModif);
+            }
+
         }
 
         public static void ReadPFunction(string path)
         {
+            path = path + "i.txt";
+            using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+            {
+                String st;
+                PFunction pFunction;
+                st = sr.ReadToEnd();
+                pFunction = new PFunction(st);
+                ClientControl.paper.Add(pFunction);
+            }
         }
     }
 }

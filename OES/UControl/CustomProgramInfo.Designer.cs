@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtProblem = new System.Windows.Forms.TextBox();
+            this.Question = new System.Windows.Forms.TextBox();
             this.butOpen = new System.Windows.Forms.Button();
             this.butRedo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtProblem
+            // Question
             // 
-            this.txtProblem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProblem.Location = new System.Drawing.Point(3, 3);
-            this.txtProblem.Multiline = true;
-            this.txtProblem.Name = "txtProblem";
-            this.txtProblem.ReadOnly = true;
-            this.txtProblem.Size = new System.Drawing.Size(777, 400);
-            this.txtProblem.TabIndex = 1;
+            this.Question.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Question.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Question.Location = new System.Drawing.Point(0, 0);
+            this.Question.Margin = new System.Windows.Forms.Padding(5);
+            this.Question.Multiline = true;
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.Size = new System.Drawing.Size(784, 400);
+            this.Question.TabIndex = 1;
             // 
             // butOpen
             // 
@@ -55,6 +56,7 @@
             this.butOpen.TabIndex = 1;
             this.butOpen.Text = "打开文档";
             this.butOpen.UseVisualStyleBackColor = true;
+            this.butOpen.Click += new System.EventHandler(this.butOpen_Click);
             // 
             // butRedo
             // 
@@ -68,17 +70,16 @@
             this.butRedo.Text = "重做题目";
             this.butRedo.UseVisualStyleBackColor = true;
             // 
-            // ProgramInfo
+            // CustomProgramInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.txtProblem);
+            this.Controls.Add(this.Question);
             this.Controls.Add(this.butRedo);
             this.Controls.Add(this.butOpen);
-            this.Name = "ProgramInfo";
+            this.Name = "CustomProgramInfo";
             this.Size = new System.Drawing.Size(784, 489);
-            this.Load += new System.EventHandler(this.ProgramInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,7 +87,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtProblem;
+        private System.Windows.Forms.TextBox Question;
         private System.Windows.Forms.Button butOpen;
         private System.Windows.Forms.Button butRedo;
 

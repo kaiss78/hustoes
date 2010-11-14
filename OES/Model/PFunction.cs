@@ -14,7 +14,7 @@ namespace OES.Model
         }
         public PFunction(string p)
         {
-            path = p;
+            problem = p;
             inp1 = "";
             inp2 = "";
             inp3 = "";

@@ -12,20 +12,24 @@ namespace OES
 {
     public partial class MainForm : Form
     {
+        static public MainForm mf;
+
         static private CustomWord officeWord;
         static private CustomPPT officePpt;
         static private CustomExcel officeExcel;
-        static private CustomProgramInfo cCompletion;
+        static private CustomProgramInfo pCompletion;
+        static private CustomProgramInfo pModif;
+        static private CustomProgramInfo pFunction;
         static private CustomJudge judge;
         static private CustomChoice choice;
-        static private CustomCompletion completion;
-
-        static public MainForm mf ;
+        static private CustomCompletion completion;      
 
         static private TabPage oficeWordPage;
         static private TabPage oficePptPage;
         static private TabPage oficeExcelPage;
-        static private TabPage cCompletionPage;
+        static private TabPage pCompletionPage;
+        static private TabPage pModifPage;
+        static private TabPage pFunctionPage;
         static private TabPage judgePage;
         static private TabPage choicePage;
         static private TabPage completionPage;
@@ -91,13 +95,31 @@ namespace OES
             tabControl.TabPages.Add(oficeExcelPage);
         }
 
-        private void addCComPage()
+        private void addPCompletionPage()
         {
-            cCompletion = new CustomProgramInfo("");
-            cCompletion.Font = new Font("宋体", 9);
-            cCompletionPage = new TabPage("程序填空题");
-            cCompletionPage.Controls.Add(cCompletion);
-            tabControl.TabPages.Add(cCompletionPage);
+            pCompletion = new CustomProgramInfo(1);
+            pCompletion.Font = new Font("宋体", 9);
+            pCompletionPage = new TabPage("程序填空题");
+            pCompletionPage.Controls.Add(pCompletion);
+            tabControl.TabPages.Add(pCompletionPage);
+        }
+
+        private void addPModifPage()
+        {
+            pModif = new CustomProgramInfo(2);
+            pModif.Font = new Font("宋体", 9);
+            pModifPage = new TabPage("程序改错题");
+            pModifPage.Controls.Add(pModif);
+            tabControl.TabPages.Add(pModifPage);
+        }
+
+        private void addpFunctionPage()
+        {
+            pFunction = new CustomProgramInfo(3);
+            pFunction.Font = new Font("宋体", 9);
+            pFunctionPage = new TabPage("程序综合题");
+            pFunctionPage.Controls.Add(pFunction);
+            tabControl.TabPages.Add(pFunctionPage);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -105,17 +127,23 @@ namespace OES
             ReadTxt.ReadChoice(@"OESTEST\Paper\");
             ReadTxt.ReadCompletion(@"OESTEST\Paper\");
             ReadTxt.ReadJudge(@"OESTEST\Paper\");
+            ReadTxt.ReadPCompletion(@"OESTEST\Paper\");
+            ReadTxt.ReadPModif(@"OESTEST\Paper\");
+            ReadTxt.ReadPFunction(@"OESTEST\Paper\");
+
             problemsList = new ProblemsList(ClientControl.paper.choice.Count + ClientControl.paper.completion.Count + ClientControl.paper.judge.Count);
             problemsList.count = ClientControl.paper.choice.Count + ClientControl.paper.completion.Count + ClientControl.paper.judge.Count;
             panelProList.Controls.Add(problemsList);
             problemsList.OnChoose += new EventHandler(problemsList_OnChoose);
-            addChoicePage();
-            addCompletionPage();
-            addJudgePage();
-            addWordPage();
-            addPptPage();
-            addExcelPage();
-            addCComPage();
+            this.addChoicePage();
+            this.addCompletionPage();
+            this.addJudgePage();
+            this.addWordPage();
+            this.addPptPage();
+            this.addExcelPage();
+            this.addPCompletionPage();
+            this.addPModifPage();
+            this.addpFunctionPage();
             mf = this;
         }
 
