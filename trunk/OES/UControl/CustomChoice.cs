@@ -10,129 +10,95 @@ using System.IO;
 using System.Runtime.InteropServices;
 
 namespace OES.UControl
-{   
+{
     public partial class CustomChoice : UserControl
     {
-        ReadEMFile reademfile=new ReadEMFile();
-        string [] readstring=new string[200];
-        int i=0;
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
+        static int proID;
+
+        public void CheckAns(string ans)
+        {
+            if (ans != ClientControl.GetChoice(proID).stuAns)
+            {
+                ClientControl.GetChoice(proID).stuAns = ans;
+            }
+        }
+
+        public void SetQuestion(int proID)
+        {
+            this.Question.Text = ClientControl.GetChoice(proID).problem;
+            this.OptionA.Text = ClientControl.GetChoice(proID).optionA;
+            this.OptionB.Text = ClientControl.GetChoice(proID).optionB;
+            this.OptionC.Text = ClientControl.GetChoice(proID).optionC;
+            this.OptionD.Text = ClientControl.GetChoice(proID).optionD;
+            radioButtonA.Checked = ClientControl.GetChoice(proID).stuAns == "A";
+            radioButtonB.Checked = ClientControl.GetChoice(proID).stuAns == "B";
+            radioButtonC.Checked = ClientControl.GetChoice(proID).stuAns == "C";
+            radioButtonD.Checked = ClientControl.GetChoice(proID).stuAns == "D";
+        }
+
         public CustomChoice()
         {
             InitializeComponent();
-            ReadEMFile reademfile = new ReadEMFile();
-            reademfile.read(readstring);
-
-        }
-
-        private void radioButtonA_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void radioButtonB_CheckedChanged(object sender, EventArgs e)
-        {
-            
-           
-        }
-
-        private void radioButtonC_CheckedChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void radioButtonD_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-     
-
-        private void Fillingintheblank_Load(object sender, EventArgs e)
-        {
-            richTextBox1.Text = readstring[i];
-            richTextBox2.Text =  readstring[i+1];
-         //   radioButtonA.Text = readstring[i + 2] + "\r\n" + readstring[i];
-            textBoxA.Text = readstring[i + 2];
-            textBoxB.Text = readstring[i + 3];
-            textBoxC.Text = readstring[i + 4];
-            textBoxD.Text = readstring[i + 5];
-            i += 6;
-
+            proID = 0;
+            this.SetQuestion(proID);
         }
 
         private void nextstep_Click(object sender, EventArgs e)
         {
-            if (readstring[i+6] == null)
-            { MessageBox.Show("后面没题了，可以做其他的题目");
-              
+            if (proID + 1 < ClientControl.paper.completion.Count)
+            {
+                this.SetQuestion(++proID);
             }
             else
             {
-               
-                richTextBox1.Text =  readstring[i];
-                richTextBox2.Text = readstring[i + 1];
-                textBoxA.Text =readstring[i + 2];
-                textBoxB.Text = readstring[i + 3];
-                textBoxC.Text = readstring[i + 4];
-                textBoxD.Text = readstring[i + 5];
-                i += 6;
+                MessageBox.Show("这是最后一题");
             }
-           
-            
         }
 
         private void laststep_Click(object sender, EventArgs e)
-        {
-              i -= 12;
-           
-            if (i >= 0)
+        {            
+            if (proID > 0)
             {
-                richTextBox1.Text = readstring[i];
-                richTextBox2.Text = readstring[i + 1];
-                textBoxA.Text = readstring[i + 2];
-                textBoxB.Text = readstring[i + 3];
-                textBoxC.Text = readstring[i + 4];
-                textBoxD.Text = readstring[i + 5];
-                i += 6;
+                this.SetQuestion(--proID);
             }
             else
-            { MessageBox.Show("前面没题了");
-             i += 12;
-           
+            {
+                MessageBox.Show("这是第一题");
             }
         }
-      public string write(string str)
+
+        private void Hide_MouseDown(object sender, MouseEventArgs e)
         {
-            string s,sr;
-           
-            s = str;
-            if (str.Length > 90)
-            {
-                s=s.Insert(90,"\r\n");
-                if (str.Length > 180)
-                { s=s.Insert(180, "\r\n"); }
-                if (str.Length >270)
-                { s = s.Insert(270, "\r\n"); }
-                sr = s;
-            }
-            else 
-            {
-                sr = s;
-            }
-            return sr;
+            HideCaret(((RichTextBox)sender).Handle);
         }
-      private void Hide_MouseDown(object sender, MouseEventArgs e)
-      {
-          HideCaret(((RichTextBox)sender).Handle);
-      }
-      private void Hide1_MouseDown(object sender, MouseEventArgs e)
-      {
-          HideCaret(((TextBox)sender).Handle);
-      }
+        private void Hide1_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideCaret(((TextBox)sender).Handle);
+        }
+
+        private void radioButtonA_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.CheckAns("A");
+        }
+
+        private void radioButtonB_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.CheckAns("B");
+        }
+
+        private void radioButtonC_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.CheckAns("C");
+        }
+
+        private void radioButtonD_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.CheckAns("D");
+        }
     }
-        
-    }
-   
+
+}
+
 

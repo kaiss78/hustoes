@@ -69,6 +69,5 @@ namespace OES.UControl
         {
             HideCaret(((RichTextBox)sender).Handle);
         }
-
     }
 }
