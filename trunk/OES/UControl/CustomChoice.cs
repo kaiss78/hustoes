@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace OES.UControl
 {   
@@ -15,7 +16,8 @@ namespace OES.UControl
         ReadEMFile reademfile=new ReadEMFile();
         string [] readstring=new string[200];
         int i=0;
-        
+        [DllImport("user32", EntryPoint = "HideCaret")]
+        private static extern bool HideCaret(IntPtr hWnd);
         public CustomChoice()
         {
             InitializeComponent();
@@ -121,8 +123,14 @@ namespace OES.UControl
             }
             return sr;
         }
-
-       
+      private void Hide_MouseDown(object sender, MouseEventArgs e)
+      {
+          HideCaret(((RichTextBox)sender).Handle);
+      }
+      private void Hide1_MouseDown(object sender, MouseEventArgs e)
+      {
+          HideCaret(((TextBox)sender).Handle);
+      }
     }
         
     }
