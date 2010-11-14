@@ -1,4 +1,4 @@
-﻿namespace OES
+﻿namespace OES.UControl
 {
     partial class CustomJudge
     {

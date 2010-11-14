@@ -1,4 +1,4 @@
-﻿namespace Office
+﻿namespace OES.UControl
 {
     partial class CustomWord
     {

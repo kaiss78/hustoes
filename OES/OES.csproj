@@ -85,24 +85,24 @@
     <Compile Include="Model\PModif.cs" />
     <Compile Include="Model\PFunction.cs" />
     <Compile Include="ReadTxt.cs" />
-    <Compile Include="UserControl\CustomCompletion.cs">
+    <Compile Include="UControl\CustomCompletion.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\CustomCompletion.Designer.cs">
+    <Compile Include="UControl\CustomCompletion.Designer.cs">
       <DependentUpon>CustomCompletion.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\CustomChoice.cs">
+    <Compile Include="UControl\CustomChoice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\CustomChoice.Designer.cs">
+    <Compile Include="UControl\CustomChoice.Designer.cs">
       <DependentUpon>CustomChoice.cs</DependentUpon>
     </Compile>
     <Compile Include="ReadEMFile.cs" />
     <Compile Include="ReadProblemFile.cs" />
-    <Compile Include="UserControl\CustomJudge.cs">
+    <Compile Include="UControl\CustomJudge.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\CustomJudge.Designer.cs">
+    <Compile Include="UControl\CustomJudge.Designer.cs">
       <DependentUpon>CustomJudge.cs</DependentUpon>
     </Compile>
     <Compile Include="clsWinrar.cs" />
@@ -112,10 +112,9 @@
     <Compile Include="ControlBar.Designer.cs">
       <DependentUpon>ControlBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\CustomExcel.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="UControl\CustomExcel.cs">
     </Compile>
-    <Compile Include="UserControl\CustomExcel.designer.cs">
+    <Compile Include="UControl\CustomExcel.designer.cs">
       <DependentUpon>CustomExcel.cs</DependentUpon>
     </Compile>
     <Compile Include="Correct.cs" />
@@ -126,17 +125,17 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OfficeXML.cs" />
-    <Compile Include="UserControl\CustomPPT.cs">
+    <Compile Include="UControl\CustomPPT.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\CustomPPT.designer.cs">
+    <Compile Include="UControl\CustomPPT.designer.cs">
       <DependentUpon>CustomPPT.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="UserControl\CustomProgramInfo.cs">
+    <Compile Include="UControl\CustomProgramInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\CustomProgramInfo.Designer.cs">
+    <Compile Include="UControl\CustomProgramInfo.Designer.cs">
       <DependentUpon>CustomProgramInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,19 +147,19 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomCompletion.resx">
+    <EmbeddedResource Include="UControl\CustomCompletion.resx">
       <DependentUpon>CustomCompletion.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomChoice.resx">
+    <EmbeddedResource Include="UControl\CustomChoice.resx">
       <DependentUpon>CustomChoice.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomJudge.resx">
+    <EmbeddedResource Include="UControl\CustomJudge.resx">
       <DependentUpon>CustomJudge.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomExcel.resx">
+    <EmbeddedResource Include="UControl\CustomExcel.resx">
       <DependentUpon>CustomExcel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -168,11 +167,11 @@
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomPPT.resx">
+    <EmbeddedResource Include="UControl\CustomPPT.resx">
       <DependentUpon>CustomPPT.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomProgramInfo.resx">
+    <EmbeddedResource Include="UControl\CustomProgramInfo.resx">
       <DependentUpon>CustomProgramInfo.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -181,7 +180,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\CustomWord.resx">
+    <EmbeddedResource Include="UControl\CustomWord.resx">
       <DependentUpon>CustomWord.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -199,10 +198,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UserControl\CustomWord.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="UControl\CustomWord.cs">
     </Compile>
-    <Compile Include="UserControl\CustomWord.Designer.cs">
+    <Compile Include="UControl\CustomWord.Designer.cs">
       <DependentUpon>CustomWord.cs</DependentUpon>
     </Compile>
   </ItemGroup>

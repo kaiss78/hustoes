@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using Score;
 
-namespace Office
+namespace OES.UControl
 {     
     public partial class CustomPPT : UserControl
     {

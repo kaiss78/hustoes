@@ -6,7 +6,7 @@ using System.IO;
 using Microsoft.Win32;
 using System.Diagnostics;
 
-namespace Office
+namespace OES.UControl
 {
     class clsWinrar
     {

@@ -14,7 +14,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 
-namespace Office
+namespace OES.UControl
 {
     public partial class CustomExcel : UserControl
     {
