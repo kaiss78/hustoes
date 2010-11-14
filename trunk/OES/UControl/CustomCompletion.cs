@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
+using OES.Model;
 
 namespace OES.UControl
 {
     public partial class CustomCompletion : UserControl
     {
 
-        static int proID;
+        private static int proID;
+        private Completion completion;
+
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
 
@@ -28,8 +30,9 @@ namespace OES.UControl
 
         public void SetQuestion(int proID)
         {
-            this.Question.Text=ClientControl.GetCompletion(proID).problem;
-            this.Answer.Text = ClientControl.GetCompletion(proID).stuAns;
+            completion = ClientControl.GetCompletion(proID);
+            this.Question.Text = completion.problem;
+            this.Answer.Text = completion.stuAns;
         }
 
         public CustomCompletion()

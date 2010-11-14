@@ -35,7 +35,7 @@
             this.Jadge_groupBox = new System.Windows.Forms.GroupBox();
             this.TrueButton = new System.Windows.Forms.RadioButton();
             this.FalseButton = new System.Windows.Forms.RadioButton();
-            this.RequestTeam = new System.Windows.Forms.RichTextBox();
+            this.Question = new System.Windows.Forms.RichTextBox();
             this.LastProblem = new System.Windows.Forms.Button();
             this.NestProblem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -81,7 +81,7 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.Jadge_groupBox);
-            this.panel2.Controls.Add(this.RequestTeam);
+            this.panel2.Controls.Add(this.Question);
             this.panel2.Location = new System.Drawing.Point(18, 95);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(754, 322);
@@ -108,6 +108,7 @@
             this.TrueButton.TabStop = true;
             this.TrueButton.Text = " 正 确";
             this.TrueButton.UseVisualStyleBackColor = true;
+            this.TrueButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TrueButton_MouseClick);
             // 
             // FalseButton
             // 
@@ -120,20 +121,21 @@
             this.FalseButton.TabStop = true;
             this.FalseButton.Text = " 错 误";
             this.FalseButton.UseVisualStyleBackColor = true;
+            this.FalseButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FalseButton_MouseClick);
             // 
-            // RequestTeam
+            // Question
             // 
-            this.RequestTeam.BackColor = System.Drawing.Color.White;
-            this.RequestTeam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RequestTeam.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.RequestTeam.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RequestTeam.Location = new System.Drawing.Point(3, 3);
-            this.RequestTeam.Name = "RequestTeam";
-            this.RequestTeam.ReadOnly = true;
-            this.RequestTeam.Size = new System.Drawing.Size(746, 239);
-            this.RequestTeam.TabIndex = 0;
-            this.RequestTeam.Text = "";
-            this.RequestTeam.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
+            this.Question.BackColor = System.Drawing.Color.White;
+            this.Question.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Question.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Question.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Question.Location = new System.Drawing.Point(3, 3);
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.Size = new System.Drawing.Size(746, 239);
+            this.Question.TabIndex = 0;
+            this.Question.Text = "";
+            this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // LastProblem
             // 
@@ -168,7 +170,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "CustomJudge";
             this.Size = new System.Drawing.Size(790, 496);
-            this.Load += new System.EventHandler(this.MyUserControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -184,7 +185,7 @@
         private System.Windows.Forms.RichTextBox Request;
         private System.Windows.Forms.Label ProblemRequest;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RichTextBox RequestTeam;
+        private System.Windows.Forms.RichTextBox Question;
         private System.Windows.Forms.RadioButton FalseButton;
         private System.Windows.Forms.RadioButton TrueButton;
         private System.Windows.Forms.GroupBox Jadge_groupBox;
