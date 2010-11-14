@@ -12,12 +12,12 @@ namespace OES.Model
         public PModif()
         { 
         }
-        public PModif(string p, string a1, string a2, string a3)
+        public PModif(string p)
         {
             path = p;
-            ans1 = a1;
-            ans2 = a2;
-            ans3 = a3;
+            ans1 = "";
+            ans2 = "";
+            ans3 = "";
         }
     }
 }

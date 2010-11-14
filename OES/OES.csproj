@@ -84,6 +84,7 @@
     <Compile Include="Model\PCompletion.cs" />
     <Compile Include="Model\PModif.cs" />
     <Compile Include="Model\PFunction.cs" />
+    <Compile Include="ReadTxt.cs" />
     <Compile Include="UserControl\CustomCompletion.cs">
       <SubType>UserControl</SubType>
     </Compile>

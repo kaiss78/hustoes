@@ -12,15 +12,15 @@ namespace OES.Model
         public Choice()
         {
         }
-        public Choice(string p, string oa, string ob, string oc, string od, string a)
+        public Choice(string p, string oa, string ob, string oc, string od)
         {
-            problem = p;
-            ans = a;
+            problem = p;            
             optionA = oa;
             optionB = ob;
             optionC = oc;
             optionD = od;
             stuAns = "";
+            ans = "";
         }
     }
 }

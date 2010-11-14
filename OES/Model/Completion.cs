@@ -13,11 +13,11 @@ namespace OES.Model
         public Completion()
         { 
         }
-        public Completion(string p,List<string> a)
+        public Completion(string p)
         {
             problem = p;
-            ans = a;
             stuAns = "";
+            ans = new List<string>();
         }
     }
 }

@@ -12,12 +12,12 @@ namespace OES.Model
         public PCompletion()
         { 
         }
-        public PCompletion(string p, string a1, string a2, string a3)
+        public PCompletion(string p)
         {
             path = p;
-            ans1 = a1;
-            ans2 = a2;
-            ans3 = a3;
+            ans1 = "";
+            ans2 = "";
+            ans3 = "";
         }
     }
 }
