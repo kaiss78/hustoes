@@ -8,6 +8,10 @@ namespace OES.Model
     class Judge
     {
         public string ans, problem,stuAns;
+        public int score;
+        public Judge()
+        { 
+        }
         public Judge(string a, string p)
         {
             ans = a;

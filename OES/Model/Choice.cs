@@ -8,6 +8,10 @@ namespace OES.Model
     class Choice
     {
         public string optionA, optionB, optionC, optionD, problem, ans, stuAns;
+        public int score;
+        public Choice()
+        {
+        }
         public Choice(string p, string oa, string ob, string oc, string od, string a)
         {
             problem = p;

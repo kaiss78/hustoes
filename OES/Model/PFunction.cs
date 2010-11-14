@@ -8,6 +8,10 @@ namespace OES.Model
     class PFunction
     {
         public string path, inp1, inp2, inp3, outp1, outp2, outp3;
+        public int score;
+        public PFunction()
+        {
+        }
         public PFunction(string p, string i1, string i2, string i3, string o1, string o2, string o3)
         {
             path = p;

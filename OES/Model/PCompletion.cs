@@ -8,6 +8,10 @@ namespace OES.Model
     class PCompletion
     {
         public string path, ans1, ans2, ans3;
+        public int score;
+        public PCompletion()
+        { 
+        }
         public PCompletion(string p, string a1, string a2, string a3)
         {
             path = p;
