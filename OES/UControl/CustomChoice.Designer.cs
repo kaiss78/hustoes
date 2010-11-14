@@ -127,6 +127,7 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.White;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBox1.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox1.Location = new System.Drawing.Point(128, 2);
             this.richTextBox1.Name = "richTextBox1";
@@ -135,6 +136,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(615, 68);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
+            this.richTextBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // LastProblem
             // 
@@ -207,6 +209,7 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.White;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBox2.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox2.Location = new System.Drawing.Point(3, 5);
             this.richTextBox2.Name = "richTextBox2";
@@ -215,6 +218,7 @@
             this.richTextBox2.Size = new System.Drawing.Size(740, 138);
             this.richTextBox2.TabIndex = 12;
             this.richTextBox2.Text = "";
+            this.richTextBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // textBoxA
             // 
@@ -232,6 +236,7 @@
             this.textBoxA.Size = new System.Drawing.Size(654, 29);
             this.textBoxA.TabIndex = 8;
             this.textBoxA.TabStop = false;
+            this.textBoxA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
             // 
             // textBoxB
             // 
@@ -249,6 +254,7 @@
             this.textBoxB.Size = new System.Drawing.Size(654, 29);
             this.textBoxB.TabIndex = 9;
             this.textBoxB.TabStop = false;
+            this.textBoxB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
             // 
             // textBoxC
             // 
@@ -266,6 +272,7 @@
             this.textBoxC.Size = new System.Drawing.Size(654, 29);
             this.textBoxC.TabIndex = 10;
             this.textBoxC.TabStop = false;
+            this.textBoxC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
             // 
             // textBoxD
             // 
@@ -283,6 +290,7 @@
             this.textBoxD.Size = new System.Drawing.Size(654, 31);
             this.textBoxD.TabIndex = 11;
             this.textBoxD.TabStop = false;
+            this.textBoxD.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
             // 
             // CustomChoice
             // 
