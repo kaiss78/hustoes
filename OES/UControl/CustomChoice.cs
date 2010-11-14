@@ -52,10 +52,10 @@ namespace OES.UControl
             richTextBox1.Text = readstring[i];
             richTextBox2.Text =  readstring[i+1];
          //   radioButtonA.Text = readstring[i + 2] + "\r\n" + readstring[i];
-            radioButtonA.Text = write(readstring[i + 2]);
-            radioButtonB.Text = write( readstring[i+3]);
-            radioButtonC.Text = write(readstring[i+4]);
-            radioButtonD.Text = write(readstring[i+5]);
+            textBoxA.Text = readstring[i + 2];
+            textBoxB.Text = readstring[i + 3];
+            textBoxC.Text = readstring[i + 4];
+            textBoxD.Text = readstring[i + 5];
             i += 6;
 
         }
@@ -71,10 +71,10 @@ namespace OES.UControl
                
                 richTextBox1.Text =  readstring[i];
                 richTextBox2.Text = readstring[i + 1];
-                radioButtonA.Text = write(readstring[i + 2]);
-                radioButtonB.Text = write(readstring[i + 3]);
-                radioButtonC.Text = write(readstring[i + 4]);
-                radioButtonD.Text = write(readstring[i + 5]);
+                textBoxA.Text =readstring[i + 2];
+                textBoxB.Text = readstring[i + 3];
+                textBoxC.Text = readstring[i + 4];
+                textBoxD.Text = readstring[i + 5];
                 i += 6;
             }
            
@@ -89,10 +89,10 @@ namespace OES.UControl
             {
                 richTextBox1.Text = readstring[i];
                 richTextBox2.Text = readstring[i + 1];
-                radioButtonA.Text = write(readstring[i + 2]);
-                radioButtonB.Text = write(readstring[i + 3]);
-                radioButtonC.Text = write( readstring[i + 4]);
-                radioButtonD.Text = write(readstring[i + 5]);
+                textBoxA.Text = readstring[i + 2];
+                textBoxB.Text = readstring[i + 3];
+                textBoxC.Text = readstring[i + 4];
+                textBoxD.Text = readstring[i + 5];
                 i += 6;
             }
             else
