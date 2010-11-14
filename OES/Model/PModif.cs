@@ -5,12 +5,12 @@ using System.Text;
 
 namespace OES.Model
 {
-    class PModif
+    class PModif:Problem
     {
         public string path, ans1, ans2, ans3;
-        public int score;
         public PModif()
-        { 
+        {
+            type = "程序改错题";
         }
         public PModif(string p)
         {
@@ -18,6 +18,7 @@ namespace OES.Model
             ans1 = "";
             ans2 = "";
             ans3 = "";
+            type = "程序改错题";
         }
     }
 }

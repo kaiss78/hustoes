@@ -16,7 +16,7 @@ namespace OES.UControl
     {
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
-        private static int proID;
+        private int proID;
         private Choice choice;
 
         public void CheckAns(string ans)

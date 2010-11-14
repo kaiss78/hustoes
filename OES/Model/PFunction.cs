@@ -5,12 +5,12 @@ using System.Text;
 
 namespace OES.Model
 {
-    class PFunction
+    class PFunction:Problem
     {
         public string path, inp1, inp2, inp3, outp1, outp2, outp3;
-        public int score;
         public PFunction()
         {
+            type = "程序综合题";
         }
         public PFunction(string p)
         {
@@ -21,6 +21,7 @@ namespace OES.Model
             outp1 = "";
             outp2 = "";
             outp3 = "";
+            type = "程序综合题";
         }
     }
 }

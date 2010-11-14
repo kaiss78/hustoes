@@ -25,7 +25,8 @@ namespace OES
                     s = st.Split('\n');
                     for (i = 0; i < s.Length; i = i + 5)
                     {
-                        choice = new Choice(s[i], s[i + 1], s[i + 2], s[i + 3], s[i + 4]);                        
+                        choice = new Choice(s[i], s[i + 1], s[i + 2], s[i + 3], s[i + 4]);
+                        choice.orderId = i/5;
                         ClientControl.AddChoice(choice);
                     }
                 }
@@ -47,7 +48,8 @@ namespace OES
                     s = st.Split('\n');
                     for (i = 0; i < s.Length; i = i + 1)
                     {
-                        completion = new Completion(s[i]);                        
+                        completion = new Completion(s[i]);
+                        completion.orderId = i;
                         ClientControl.AddCompletion(completion);
                     }
                 }
@@ -70,6 +72,7 @@ namespace OES
                     for (i = 0; i < s.Length; i = i + 1)
                     {
                         judge = new Judge(s[i]);
+                        judge.orderId = i;
                         ClientControl.AddJudge(judge);
                     }
                 }

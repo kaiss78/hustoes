@@ -5,19 +5,20 @@ using System.Text;
 
 namespace OES.Model
 {
-    class Completion
+    class Completion:Problem
     {
-        public string problem, stuAns;
-        public int score;
+        public string stuAns;
         public List<string> ans;
         public Completion()
-        { 
+        {
+            type = "填空题";
         }
         public Completion(string p)
         {
             problem = p;
             stuAns = "";
             ans = new List<string>();
+            type = "填空题";
         }
     }
 }

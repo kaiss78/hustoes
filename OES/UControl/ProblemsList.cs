@@ -14,10 +14,8 @@ namespace OES.UControl
         Panel mainPanel;
         List<Button> subPanel=new List<Button>();
         List<int> subPanelStatus = new List<int>();
-        //List<Label> subLabel = new List<Label>();
         public int count=20;
         int halfHeight;
-        //bool isHover = false;
         public ProblemsList(int c)
         {
             InitializeComponent();
@@ -30,18 +28,13 @@ namespace OES.UControl
             for (int i = 0; i < count; i++)
             {
                 Label temp1 = new Label();
-                //temp1.Location = new Point(0, halfHeight * i + halfHeight);
                 temp1.Location = new Point(this.Width/2,halfHeight);
-                //mainPanel.Controls.Add(temp1);
-                //subLabel.Add(temp1);
+
                 temp1.Text = (i+1).ToString();
                 temp1.AutoSize = true;
                 temp1.ForeColor = Color.White;
                 temp1.BackColor = Color.Transparent;
                 temp1.Font = new Font(new FontFamily("微软雅黑"),11,FontStyle.Bold);
-                //temp1.MouseEnter += new EventHandler(temp_MouseEnter);
-                //temp1.MouseLeave += new EventHandler(temp_MouseLeave);
-                //temp1.MouseHover += new EventHandler(temp_MouseHover);
                 
                 Button temp = new Button();
                 temp.Width = (int)(this.Width );
@@ -62,7 +55,7 @@ namespace OES.UControl
             }
             this.Refresh();
         }
-
+        public event EventHandler OnChoose;
         void temp_MouseClick(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < count; i++)
@@ -74,6 +67,7 @@ namespace OES.UControl
                 if (subPanel[i].Equals(sender))
                 {
                     subPanelStatus[i] = 2;
+                    OnChoose(i, e);
                 }
             }
             refreshS();

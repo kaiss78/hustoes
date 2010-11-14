@@ -5,12 +5,18 @@ using System.Text;
 
 namespace OES.Model
 {
-    class Choice
+    class Choice:Problem 
     {
-        public string optionA, optionB, optionC, optionD, problem, ans, stuAns;
-        public int score;
+        public string optionA;
+        public string optionB;
+        public string optionC;
+        public string optionD;
+        public string ans;
+        public string stuAns;
+        
         public Choice()
         {
+            type = "选择题";
         }
         public Choice(string p, string oa, string ob, string oc, string od)
         {
@@ -21,6 +27,7 @@ namespace OES.Model
             optionD = od;
             stuAns = "";
             ans = "";
+            type = "选择题";
         }
     }
 }
