@@ -14,7 +14,7 @@ namespace OES.Model
         }
         public Choice(string p, string oa, string ob, string oc, string od)
         {
-            problem = p;            
+            problem = p;
             optionA = oa;
             optionB = ob;
             optionC = oc;

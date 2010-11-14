@@ -34,17 +34,17 @@
             this.radioButtonC = new System.Windows.Forms.RadioButton();
             this.radioButtonD = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Rquest = new System.Windows.Forms.RichTextBox();
             this.LastProblem = new System.Windows.Forms.Button();
             this.NextProblem = new System.Windows.Forms.Button();
             this.groupchoice = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.OptionD = new System.Windows.Forms.TextBox();
+            this.OptionC = new System.Windows.Forms.TextBox();
+            this.OptionB = new System.Windows.Forms.TextBox();
+            this.OptionA = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.textBoxA = new System.Windows.Forms.TextBox();
-            this.textBoxB = new System.Windows.Forms.TextBox();
-            this.textBoxC = new System.Windows.Forms.TextBox();
-            this.textBoxD = new System.Windows.Forms.TextBox();
+            this.Question = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.groupchoice.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -72,7 +72,7 @@
             this.radioButtonA.TabStop = true;
             this.radioButtonA.Text = "A.";
             this.radioButtonA.UseVisualStyleBackColor = true;
-            this.radioButtonA.CheckedChanged += new System.EventHandler(this.radioButtonA_CheckedChanged);
+            this.radioButtonA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonA_MouseClick);
             // 
             // radioButtonB
             // 
@@ -85,7 +85,7 @@
             this.radioButtonB.TabStop = true;
             this.radioButtonB.Text = "B.";
             this.radioButtonB.UseVisualStyleBackColor = true;
-            this.radioButtonB.CheckedChanged += new System.EventHandler(this.radioButtonB_CheckedChanged);
+            this.radioButtonB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonB_MouseClick);
             // 
             // radioButtonC
             // 
@@ -98,7 +98,7 @@
             this.radioButtonC.TabStop = true;
             this.radioButtonC.Text = "C.";
             this.radioButtonC.UseVisualStyleBackColor = true;
-            this.radioButtonC.CheckedChanged += new System.EventHandler(this.radioButtonC_CheckedChanged);
+            this.radioButtonC.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonC_MouseClick);
             // 
             // radioButtonD
             // 
@@ -106,37 +106,37 @@
             this.radioButtonD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.radioButtonD.Location = new System.Drawing.Point(3, 108);
             this.radioButtonD.Name = "radioButtonD";
-            this.radioButtonD.Size = new System.Drawing.Size(32, 18);
+            this.radioButtonD.Size = new System.Drawing.Size(39, 18);
             this.radioButtonD.TabIndex = 7;
             this.radioButtonD.TabStop = true;
-            this.radioButtonD.Text = "D";
+            this.radioButtonD.Text = "D.";
             this.radioButtonD.UseVisualStyleBackColor = true;
-            this.radioButtonD.CheckedChanged += new System.EventHandler(this.radioButtonD_CheckedChanged);
+            this.radioButtonD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonD_MouseClick);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.Rquest);
             this.panel1.Controls.Add(this.ProblemRequest);
             this.panel1.Location = new System.Drawing.Point(18, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(754, 76);
             this.panel1.TabIndex = 8;
             // 
-            // richTextBox1
+            // Rquest
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.White;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.richTextBox1.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox1.Location = new System.Drawing.Point(128, 2);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(615, 68);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
+            this.Rquest.BackColor = System.Drawing.Color.White;
+            this.Rquest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Rquest.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Rquest.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Rquest.Location = new System.Drawing.Point(128, 2);
+            this.Rquest.Name = "Rquest";
+            this.Rquest.ReadOnly = true;
+            this.Rquest.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.Rquest.Size = new System.Drawing.Size(615, 68);
+            this.Rquest.TabIndex = 1;
+            this.Rquest.Text = "";
+            this.Rquest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // LastProblem
             // 
@@ -172,16 +172,16 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.textBoxD, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxC, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxB, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.OptionD, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.OptionC, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.OptionB, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonA, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonD, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonC, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonB, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxA, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.OptionA, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 17);
@@ -194,103 +194,103 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(740, 142);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
+            // OptionD
+            // 
+            this.OptionD.BackColor = System.Drawing.Color.White;
+            this.OptionD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionD.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OptionD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionD.Location = new System.Drawing.Point(58, 108);
+            this.OptionD.Multiline = true;
+            this.OptionD.Name = "OptionD";
+            this.OptionD.ReadOnly = true;
+            this.OptionD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OptionD.ShortcutsEnabled = false;
+            this.OptionD.Size = new System.Drawing.Size(679, 31);
+            this.OptionD.TabIndex = 11;
+            this.OptionD.TabStop = false;
+            this.OptionD.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // OptionC
+            // 
+            this.OptionC.BackColor = System.Drawing.Color.White;
+            this.OptionC.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionC.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OptionC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionC.Location = new System.Drawing.Point(58, 73);
+            this.OptionC.Multiline = true;
+            this.OptionC.Name = "OptionC";
+            this.OptionC.ReadOnly = true;
+            this.OptionC.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OptionC.ShortcutsEnabled = false;
+            this.OptionC.Size = new System.Drawing.Size(679, 29);
+            this.OptionC.TabIndex = 10;
+            this.OptionC.TabStop = false;
+            this.OptionC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // OptionB
+            // 
+            this.OptionB.BackColor = System.Drawing.Color.White;
+            this.OptionB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionB.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OptionB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionB.Location = new System.Drawing.Point(58, 38);
+            this.OptionB.Multiline = true;
+            this.OptionB.Name = "OptionB";
+            this.OptionB.ReadOnly = true;
+            this.OptionB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OptionB.ShortcutsEnabled = false;
+            this.OptionB.Size = new System.Drawing.Size(679, 29);
+            this.OptionB.TabIndex = 9;
+            this.OptionB.TabStop = false;
+            this.OptionB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // OptionA
+            // 
+            this.OptionA.BackColor = System.Drawing.Color.White;
+            this.OptionA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionA.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OptionA.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionA.Location = new System.Drawing.Point(58, 3);
+            this.OptionA.Multiline = true;
+            this.OptionA.Name = "OptionA";
+            this.OptionA.ReadOnly = true;
+            this.OptionA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OptionA.ShortcutsEnabled = false;
+            this.OptionA.Size = new System.Drawing.Size(679, 29);
+            this.OptionA.TabIndex = 8;
+            this.OptionA.TabStop = false;
+            this.OptionA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.richTextBox2);
+            this.panel2.Controls.Add(this.Question);
             this.panel2.Controls.Add(this.groupchoice);
             this.panel2.Location = new System.Drawing.Point(18, 95);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(754, 322);
             this.panel2.TabIndex = 12;
             // 
-            // richTextBox2
+            // Question
             // 
-            this.richTextBox2.BackColor = System.Drawing.Color.White;
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.richTextBox2.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox2.Location = new System.Drawing.Point(3, 5);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox2.Size = new System.Drawing.Size(740, 138);
-            this.richTextBox2.TabIndex = 12;
-            this.richTextBox2.Text = "";
-            this.richTextBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
-            // 
-            // textBoxA
-            // 
-            this.textBoxA.BackColor = System.Drawing.Color.White;
-            this.textBoxA.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxA.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBoxA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxA.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxA.Location = new System.Drawing.Point(83, 3);
-            this.textBoxA.Multiline = true;
-            this.textBoxA.Name = "textBoxA";
-            this.textBoxA.ReadOnly = true;
-            this.textBoxA.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxA.ShortcutsEnabled = false;
-            this.textBoxA.Size = new System.Drawing.Size(654, 29);
-            this.textBoxA.TabIndex = 8;
-            this.textBoxA.TabStop = false;
-            this.textBoxA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
-            // 
-            // textBoxB
-            // 
-            this.textBoxB.BackColor = System.Drawing.Color.White;
-            this.textBoxB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxB.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBoxB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxB.Location = new System.Drawing.Point(83, 38);
-            this.textBoxB.Multiline = true;
-            this.textBoxB.Name = "textBoxB";
-            this.textBoxB.ReadOnly = true;
-            this.textBoxB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxB.ShortcutsEnabled = false;
-            this.textBoxB.Size = new System.Drawing.Size(654, 29);
-            this.textBoxB.TabIndex = 9;
-            this.textBoxB.TabStop = false;
-            this.textBoxB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
-            // 
-            // textBoxC
-            // 
-            this.textBoxC.BackColor = System.Drawing.Color.White;
-            this.textBoxC.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxC.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBoxC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxC.Location = new System.Drawing.Point(83, 73);
-            this.textBoxC.Multiline = true;
-            this.textBoxC.Name = "textBoxC";
-            this.textBoxC.ReadOnly = true;
-            this.textBoxC.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxC.ShortcutsEnabled = false;
-            this.textBoxC.Size = new System.Drawing.Size(654, 29);
-            this.textBoxC.TabIndex = 10;
-            this.textBoxC.TabStop = false;
-            this.textBoxC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
-            // 
-            // textBoxD
-            // 
-            this.textBoxD.BackColor = System.Drawing.Color.White;
-            this.textBoxD.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxD.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBoxD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxD.Location = new System.Drawing.Point(83, 108);
-            this.textBoxD.Multiline = true;
-            this.textBoxD.Name = "textBoxD";
-            this.textBoxD.ReadOnly = true;
-            this.textBoxD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxD.ShortcutsEnabled = false;
-            this.textBoxD.Size = new System.Drawing.Size(654, 31);
-            this.textBoxD.TabIndex = 11;
-            this.textBoxD.TabStop = false;
-            this.textBoxD.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            this.Question.BackColor = System.Drawing.Color.White;
+            this.Question.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Question.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Question.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Question.Location = new System.Drawing.Point(6, 7);
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.Question.Size = new System.Drawing.Size(740, 138);
+            this.Question.TabIndex = 12;
+            this.Question.Text = "";
+            this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // CustomChoice
             // 
@@ -303,7 +303,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "CustomChoice";
             this.Size = new System.Drawing.Size(790, 478);
-            this.Load += new System.EventHandler(this.Fillingintheblank_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupchoice.ResumeLayout(false);
@@ -326,12 +325,12 @@
         private System.Windows.Forms.Button NextProblem;
         private System.Windows.Forms.GroupBox groupchoice;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox Rquest;
+        private System.Windows.Forms.RichTextBox Question;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox textBoxD;
-        private System.Windows.Forms.TextBox textBoxC;
-        private System.Windows.Forms.TextBox textBoxB;
-        private System.Windows.Forms.TextBox textBoxA;
+        private System.Windows.Forms.TextBox OptionD;
+        private System.Windows.Forms.TextBox OptionC;
+        private System.Windows.Forms.TextBox OptionB;
+        private System.Windows.Forms.TextBox OptionA;
     }
 }
