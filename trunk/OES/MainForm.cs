@@ -100,6 +100,8 @@ namespace OES
         private void MainForm_Load(object sender, EventArgs e)
         {
             ReadTxt.ReadChoice(@"OESTEST\Paper\");
+            ReadTxt.ReadCompletion(@"OESTEST\Paper\");
+            ReadTxt.ReadJudge(@"OESTEST\Paper\");
             addChoicePage();
             addCompletionPage();
             addJudgePage();
