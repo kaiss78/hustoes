@@ -6,11 +6,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace OES.UControl
 {
     public partial class CustomJudge : UserControl
     {
+        [DllImport("user32", EntryPoint = "HideCaret")]
+        private static extern bool HideCaret(IntPtr hWnd);
         string[] readstring = new string[200];
         int i = 0;
         public CustomJudge()
@@ -54,7 +57,10 @@ namespace OES.UControl
                 i += 2;
             }
         }
-          
+        private void Hide_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideCaret(((RichTextBox)sender).Handle);
+        }
         
     }
 }

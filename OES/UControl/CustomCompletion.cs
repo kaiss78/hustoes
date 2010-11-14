@@ -6,11 +6,18 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+
 
 namespace OES.UControl
 {
+  
+
+
     public partial class CustomCompletion : UserControl
     {
+        [DllImport("user32", EntryPoint = "HideCaret")]
+        private static extern bool HideCaret(IntPtr hWnd);
       //  ReadProblemFile readproblemfile = new ReadProblemFile();
         string [] readstring=new string[200];
         int i = 0;
@@ -59,6 +66,11 @@ namespace OES.UControl
                 Answer_richbox.Text = " ";
                 i += 2;
             }
+        }
+
+        private void Hide_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideCaret(((RichTextBox)sender).Handle);
         }
     }
 }
