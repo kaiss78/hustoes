@@ -28,6 +28,7 @@ namespace OES
         static private TabPage choicePage;
         static private TabPage completionPage;
 
+        static private ProblemsList problemsList;
         public MainForm()
         {
             InitializeComponent();
@@ -102,6 +103,9 @@ namespace OES
             ReadTxt.ReadChoice(@"OESTEST\Paper\");
             ReadTxt.ReadCompletion(@"OESTEST\Paper\");
             ReadTxt.ReadJudge(@"OESTEST\Paper\");
+            problemsList = new ProblemsList(ClientControl.paper.choice.Count + ClientControl.paper.completion.Count + ClientControl.paper.judge.Count);
+            problemsList.count = ClientControl.paper.choice.Count + ClientControl.paper.completion.Count + ClientControl.paper.judge.Count;
+            panelProList.Controls.Add(problemsList);
             addChoicePage();
             addCompletionPage();
             addJudgePage();
