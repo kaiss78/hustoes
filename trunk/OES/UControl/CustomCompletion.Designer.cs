@@ -65,7 +65,7 @@
             this.Rquest.ReadOnly = true;
             this.Rquest.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.Rquest.ShortcutsEnabled = false;
-            this.Rquest.Size = new System.Drawing.Size(561, 70);
+            this.Rquest.Size = new System.Drawing.Size(559, 68);
             this.Rquest.TabIndex = 1;
             this.Rquest.Text = "";
             this.Rquest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
@@ -130,7 +130,7 @@
             // lastproblem
             // 
             this.lastproblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lastproblem.Location = new System.Drawing.Point(18, 406);
+            this.lastproblem.Location = new System.Drawing.Point(22, 406);
             this.lastproblem.Name = "lastproblem";
             this.lastproblem.Size = new System.Drawing.Size(169, 42);
             this.lastproblem.TabIndex = 2;
@@ -141,9 +141,9 @@
             // nextproblem
             // 
             this.nextproblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.nextproblem.Location = new System.Drawing.Point(541, 406);
+            this.nextproblem.Location = new System.Drawing.Point(542, 406);
             this.nextproblem.Name = "nextproblem";
-            this.nextproblem.Size = new System.Drawing.Size(172, 42);
+            this.nextproblem.Size = new System.Drawing.Size(169, 42);
             this.nextproblem.TabIndex = 3;
             this.nextproblem.Text = "下一题";
             this.nextproblem.UseVisualStyleBackColor = true;

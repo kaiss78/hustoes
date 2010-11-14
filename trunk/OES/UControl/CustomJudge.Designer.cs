@@ -57,11 +57,12 @@
             // 
             this.Request.BackColor = System.Drawing.Color.White;
             this.Request.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Request.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Request.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Request.Location = new System.Drawing.Point(143, 3);
+            this.Request.Location = new System.Drawing.Point(131, 3);
             this.Request.Name = "Request";
             this.Request.ReadOnly = true;
-            this.Request.Size = new System.Drawing.Size(551, 68);
+            this.Request.Size = new System.Drawing.Size(559, 68);
             this.Request.TabIndex = 1;
             this.Request.Text = "";
             this.Request.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
@@ -124,6 +125,7 @@
             // 
             this.RequestTeam.BackColor = System.Drawing.Color.White;
             this.RequestTeam.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RequestTeam.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.RequestTeam.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.RequestTeam.Location = new System.Drawing.Point(3, 3);
             this.RequestTeam.Name = "RequestTeam";
@@ -136,9 +138,9 @@
             // LastProblem
             // 
             this.LastProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LastProblem.Location = new System.Drawing.Point(26, 406);
+            this.LastProblem.Location = new System.Drawing.Point(22, 406);
             this.LastProblem.Name = "LastProblem";
-            this.LastProblem.Size = new System.Drawing.Size(154, 42);
+            this.LastProblem.Size = new System.Drawing.Size(169, 42);
             this.LastProblem.TabIndex = 2;
             this.LastProblem.Text = "上一题";
             this.LastProblem.UseVisualStyleBackColor = true;
@@ -147,9 +149,9 @@
             // NestProblem
             // 
             this.NestProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.NestProblem.Location = new System.Drawing.Point(555, 406);
+            this.NestProblem.Location = new System.Drawing.Point(542, 406);
             this.NestProblem.Name = "NestProblem";
-            this.NestProblem.Size = new System.Drawing.Size(154, 42);
+            this.NestProblem.Size = new System.Drawing.Size(169, 42);
             this.NestProblem.TabIndex = 3;
             this.NestProblem.Text = "下一题";
             this.NestProblem.UseVisualStyleBackColor = true;
