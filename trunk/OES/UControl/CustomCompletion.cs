@@ -18,6 +18,14 @@ namespace OES.UControl
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
 
+        public void CheckAns()
+        {
+            if (this.Answer.Text != ClientControl.GetCompletion(proID).stuAns)
+            {
+                ClientControl.GetCompletion(proID).stuAns = this.Answer.Text;
+            }
+        }
+
         public void SetQuestion(int proID)
         {
             this.Question.Text=ClientControl.GetCompletion(proID).problem;
@@ -55,13 +63,14 @@ namespace OES.UControl
             }
         }
 
-        private void Answer_richbox_TextChanged(object sender, EventArgs e)
-        {
-            ClientControl.GetCompletion(proID).stuAns = this.Answer.Text;
-        }
         private void Hide_MouseDown(object sender, MouseEventArgs e)
         {
             HideCaret(((RichTextBox)sender).Handle);
+        }
+
+        private void Answer_richbox_TextChanged(object sender, EventArgs e)
+        {
+            this.CheckAns();
         }
     }
 }

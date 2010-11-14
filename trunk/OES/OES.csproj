@@ -113,6 +113,7 @@
       <DependentUpon>ControlBar.cs</DependentUpon>
     </Compile>
     <Compile Include="UControl\CustomExcel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UControl\CustomExcel.designer.cs">
       <DependentUpon>CustomExcel.cs</DependentUpon>
@@ -199,6 +200,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="UControl\CustomWord.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UControl\CustomWord.Designer.cs">
       <DependentUpon>CustomWord.cs</DependentUpon>
