@@ -14,6 +14,7 @@ namespace OES.Model
         public PModif pModif;
         public PFunction pFunction;
         public List<Problem> problemList;
+
         public Paper()
         {
             choice = new List<Choice>();
@@ -24,6 +25,7 @@ namespace OES.Model
             pFunction = new PFunction();
             problemList = new List<Problem>();
         }
+
         public void Add(Problem p)
         {
             if (p is Choice)

@@ -14,7 +14,7 @@ namespace OES.Model
         }
         public PModif(string p)
         {
-            path = p;
+            problem = p;
             ans1 = "";
             ans2 = "";
             ans3 = "";

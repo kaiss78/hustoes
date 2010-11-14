@@ -190,18 +190,18 @@
             // tabControl
             // 
             this.tabControl.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tabControl.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl.Location = new System.Drawing.Point(3, 25);
+            this.tabControl.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabControl.Location = new System.Drawing.Point(2, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(790, 516);
+            this.tabControl.Size = new System.Drawing.Size(790, 518);
             this.tabControl.TabIndex = 1;
             // 
             // panelProList
             // 
-            this.panelProList.Location = new System.Drawing.Point(799, 25);
+            this.panelProList.Location = new System.Drawing.Point(799, 27);
             this.panelProList.Name = "panelProList";
-            this.panelProList.Size = new System.Drawing.Size(85, 496);
+            this.panelProList.Size = new System.Drawing.Size(85, 514);
             this.panelProList.TabIndex = 3;
             // 
             // MainForm
