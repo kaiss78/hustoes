@@ -1,4 +1,4 @@
-﻿namespace CProblem
+﻿namespace OES.UControl
 {
     partial class CustomProgramInfo
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace OES
+namespace OES.UControl
 {   
     public partial class CustomChoice : UserControl
     {

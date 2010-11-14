@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CProblem
+namespace OES.UControl
 {    
     public partial class CustomProgramInfo : UserControl
     {

@@ -10,7 +10,7 @@ using System.IO;
 using Score;
 
 
-namespace Office
+namespace OES.UControl
 {
     public partial class CustomWord : UserControl
     {
