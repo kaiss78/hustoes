@@ -58,6 +58,18 @@ namespace OES.Model
             {
                 pFunction = (PFunction)p;
             }
+            else if (p is OfficeExcel)
+            {
+                officeExcel = (OfficeExcel)p;
+            }
+            else if (p is OfficePowerPoint)
+            {
+                officePPT = (OfficePowerPoint)p;
+            }
+            else if (p is OfficeWord)
+            {
+                officeWord = (OfficeWord)p;
+            }
             p.problemId = problemList.Count;
             problemList.Add(p);
            
