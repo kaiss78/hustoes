@@ -10,6 +10,9 @@ namespace OES.Model
         public List<Choice> choice;
         public List<Completion> completion;
         public List<Judge> judge;
+        public OfficeWord officeWord;
+        public OfficePowerPoint officePPT;
+        public OfficeExcel officeExcel;
         public PCompletion pCompletion;
         public PModif pModif;
         public PFunction pFunction;
@@ -20,6 +23,9 @@ namespace OES.Model
             choice = new List<Choice>();
             completion = new List<Completion>();
             judge = new List<Judge>();
+            officeWord = new OfficeWord();
+            officePPT = new OfficePowerPoint();
+            officeExcel = new OfficeExcel();
             pCompletion = new PCompletion();
             pModif = new PModif();
             pFunction = new PFunction();

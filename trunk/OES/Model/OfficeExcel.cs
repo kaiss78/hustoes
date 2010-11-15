@@ -10,11 +10,18 @@ namespace OES.Model
         public string rawPath;
         public string ansPath;
         public string stuAnsPath;
-        
+
         public OfficeExcel()
-        {
+        {            
             type = "Excel操作题";
         }
+
+        public OfficeExcel(string p)
+        {
+            problem = p;
+            type = "Excel操作题";
+        }
+
         public OfficeExcel(string rawPath, string ansPath, string stuAnsPath)
         {
             this.ansPath = ansPath;

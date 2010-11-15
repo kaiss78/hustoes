@@ -21,6 +21,7 @@ namespace OES.UControl
         public CustomWord()
         {
             InitializeComponent();
+            this.Question.Text = ClientControl.paper.officeWord.problem;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace OES.UControl
 
             string str = sr.ReadToEnd();
             sr.Close();
-            this.richTextBox2.Text = str;
+            this.Question.Text = str;
             this.richTextBox1.Text = str;
 
 
@@ -70,6 +71,11 @@ namespace OES.UControl
 
             File.Copy(path1 + name, path2, true);
 
+
+        }
+
+        private void Question_TextChanged(object sender, EventArgs e)
+        {
 
         }
 
