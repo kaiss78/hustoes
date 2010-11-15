@@ -41,7 +41,10 @@ namespace OES.UControl
             radioButtonC.Checked = choice.stuAns == "C";
             radioButtonD.Checked = choice.stuAns == "D";
         }
-
+        public int GetQuestion()
+        {
+            return proID;
+        }
         public CustomChoice()
         {
             InitializeComponent();
@@ -54,6 +57,7 @@ namespace OES.UControl
             if (proID + 1 < ClientControl.paper.choice.Count)
             {
                 this.SetQuestion(++proID);
+                ClientControl.CurrentProblemNum++;
             }
             else
             {
@@ -66,6 +70,7 @@ namespace OES.UControl
             if (proID > 0)
             {
                 this.SetQuestion(--proID);
+                ClientControl.CurrentProblemNum--;
             }
             else
             {

@@ -10,11 +10,16 @@ namespace OES
     {        
         static public Paper paper= new Paper();
         private static int currentProblemNum = 0;
+        /// <summary>
+        /// 当前题目号属性，可以自动进行列表状态切换
+        /// </summary>
         public static  int CurrentProblemNum
         {
             set
             {
                 currentProblemNum = value;
+                MainForm.problemsList.setDoing(value);
+                //调回主界面进行界面切换
                 MainForm.mf.JumpPro(paper.problemList[currentProblemNum].type, paper.problemList[currentProblemNum].orderId);
             }
             get
@@ -49,6 +54,7 @@ namespace OES
             return paper.judge[proID];
         }
 
+        //总控类设置当前题目号
         internal static void JumpToPro(int p)
         {
             CurrentProblemNum = p;

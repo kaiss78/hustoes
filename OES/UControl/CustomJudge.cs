@@ -35,6 +35,11 @@ namespace OES.UControl
             this.FalseButton.Checked = judge.stuAns == "F";
         }
 
+        public int GetQuestion()
+        {
+            return proID;
+        }
+
         public CustomJudge()
         {
             InitializeComponent();
@@ -48,6 +53,7 @@ namespace OES.UControl
             if (proID > 0)
             {
                 this.SetQuestion(--proID);
+                ClientControl.CurrentProblemNum--;
             }
             else
             {
@@ -60,6 +66,7 @@ namespace OES.UControl
             if (proID + 1 < ClientControl.paper.judge.Count)
             {
                 this.SetQuestion(++proID);
+                ClientControl.CurrentProblemNum++;
             }
             else
             {

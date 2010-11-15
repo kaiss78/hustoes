@@ -34,7 +34,7 @@ namespace OES
         static private TabPage choicePage;
         static private TabPage completionPage;
 
-        static private ProblemsList problemsList;
+        static public ProblemsList problemsList;
         public MainForm()
         {
             InitializeComponent();
@@ -131,10 +131,14 @@ namespace OES
             ReadTxt.ReadPModif(@"OESTEST\Paper\");
             ReadTxt.ReadPFunction(@"OESTEST\Paper\");
 
-            problemsList = new ProblemsList(ClientControl.paper.choice.Count + ClientControl.paper.completion.Count + ClientControl.paper.judge.Count);
-            problemsList.count = ClientControl.paper.choice.Count + ClientControl.paper.completion.Count + ClientControl.paper.judge.Count;
+            //这里初始化右边的问题列表
+            //构造函数里面的值是列表的题目数量
+            problemsList = new ProblemsList(ClientControl.paper.problemList.Count);
             panelProList.Controls.Add(problemsList);
+            //为问题列表添加选中事件，事件函数为problemsList_OnChoose
             problemsList.OnChoose += new EventHandler(problemsList_OnChoose);
+
+
             this.addChoicePage();
             this.addCompletionPage();
             this.addJudgePage();
@@ -144,11 +148,49 @@ namespace OES
             this.addPCompletionPage();
             this.addPModifPage();
             this.addpFunctionPage();
+            
+            //将主窗体自身的实例赋值给自己的一个静态变量，可供其他地方使用
             mf = this;
+
+            tabControl.SelectedIndexChanged += new EventHandler(tabControl_SelectedIndexChanged);
         }
 
+        void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (((TabControl)sender).SelectedTab.Text.ToString())
+            {
+                case "选择题":
+                    ClientControl.CurrentProblemNum = ClientControl.paper.choice[choice.GetQuestion()].problemId;
+                    break;
+                case "填空题":
+                    ClientControl.CurrentProblemNum = ClientControl.paper.completion[completion.GetQuestion()].problemId;
+                    break;
+                case "判断题":
+                    ClientControl.CurrentProblemNum = ClientControl.paper.judge[judge.GetQuestion()].problemId;
+                    break;
+                case "程序填空题":
+                    ClientControl.CurrentProblemNum = ClientControl.paper.pCompletion.problemId;
+                    break;
+                case "程序综合题":
+                    ClientControl.CurrentProblemNum = ClientControl.paper.pFunction.problemId;
+                    break;
+                case "程序改错题":
+                    ClientControl.CurrentProblemNum = ClientControl.paper.pModif.problemId;
+                    break;
+                //case "":
+                //    break;
+                //case "":
+                //    break;
+                //case "":
+                //    break;
+
+            }
+        }
+
+        //这里就是问题列表选中时触发的事件
         void problemsList_OnChoose(object sender, EventArgs e)
         {
+            //主要是将选中的题目号传到总控类
             ClientControl.JumpToPro((int)sender);
         }
 
@@ -170,13 +212,13 @@ namespace OES
                         case "判断题":
                             judge.SetQuestion(index);
                             break;
-                        case "编程填空题":
+                        case "程序填空题":
                             
                             break;
-                        case "编程综合题":
+                        case "程序综合题":
                             
                             break;
-                        case "编程改错题":
+                        case "程序改错题":
 
                             break;
                         //case "":
