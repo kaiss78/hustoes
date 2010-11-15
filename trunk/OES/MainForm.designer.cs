@@ -111,22 +111,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 打开aToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 判断题ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem word操作题ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem powerPoint操作题ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem excel操作题ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem c改错题ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem c填空题ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem c综合题ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
+        
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel stuPath;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
