@@ -132,17 +132,72 @@ namespace OES
                 mf.addpFunctionPage();
             }
         }
+
+        public static void ReadOfficeWord(string path, MainForm mf)
+        {
+            path = path + "d.txt";
+            if (File.Exists(path))
+            {
+                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                {
+                    String st;
+                    //PFunction pFunction;
+                    st = sr.ReadToEnd();
+                    //pFunction = new PFunction(st);
+                    //ClientControl.paper.Add(pFunction);
+                }
+                mf.addWordPage();
+            }
+        }
+
+        public static void ReadOfficePPT(string path, MainForm mf)
+        {
+            path = path + "e.txt";
+            if (File.Exists(path))
+            {
+                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                {
+                    String st;
+                    //PFunction pFunction;
+                    st = sr.ReadToEnd();
+                    //pFunction = new PFunction(st);
+                    //ClientControl.paper.Add(pFunction);
+                }
+                mf.addWordPage();
+            }
+        }
+
+        public static void ReadOfficeExcel(string path, MainForm mf)
+        {
+            path = path + "e.txt";
+            if (File.Exists(path))
+            {
+                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                {
+                    String st;
+                    //PFunction pFunction;
+                    st = sr.ReadToEnd();
+                    //pFunction = new PFunction(st);
+                    //ClientControl.paper.Add(pFunction);
+                }
+                mf.addExcelPage();
+            }
+        }
+
         public static void ReadPaper(string path,MainForm mf)
         {
             ReadTxt.ReadChoice(path, mf);
             ReadTxt.ReadCompletion(path, mf);
             ReadTxt.ReadJudge(path, mf);
+            ReadTxt.ReadOfficeWord(path, mf);
+            ReadTxt.ReadOfficePPT(path, mf);
+            ReadTxt.ReadOfficeExcel(path, mf);
             ReadTxt.ReadPCompletion(path, mf);
             ReadTxt.ReadPModif(path, mf);
             ReadTxt.ReadPFunction(path, mf);                                    
-            mf.addWordPage();
-            mf.addPptPage();
-            mf.addExcelPage();                                    
+            
+            
+            
         }
     }
 }
