@@ -18,9 +18,11 @@ namespace OES.UControl
         static string path1 = path +  name;
         static string path2 = path + "ans_" + name;
         static string path3 = path + "cor_" + name;
+
         public CustomPPT()
         {     
             InitializeComponent();
+            this.Question.Text = ClientControl.paper.officePPT.problem;
         }
 
 
@@ -32,7 +34,7 @@ namespace OES.UControl
 
             sr.Close();
 
-            this.richTextBox1.Text = str;
+            this.Question.Text = str;
             this.richTextBox2.Text = str; 
 
         }

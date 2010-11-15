@@ -141,10 +141,10 @@ namespace OES
                 using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
                 {
                     String st;
-                    //PFunction pFunction;
+                    OfficeWord oWord;
                     st = sr.ReadToEnd();
-                    //pFunction = new PFunction(st);
-                    //ClientControl.paper.Add(pFunction);
+                    oWord = new OfficeWord(st);                    
+                    ClientControl.paper.Add(oWord);
                 }
                 mf.addWordPage();
             }
@@ -158,12 +158,12 @@ namespace OES
                 using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
                 {
                     String st;
-                    //PFunction pFunction;
+                    OfficePowerPoint oPPT;
                     st = sr.ReadToEnd();
-                    //pFunction = new PFunction(st);
-                    //ClientControl.paper.Add(pFunction);
+                    oPPT = new OfficePowerPoint(st);
+                    ClientControl.paper.Add(oPPT);
                 }
-                mf.addWordPage();
+                mf.addPptPage();
             }
         }
 
@@ -175,10 +175,10 @@ namespace OES
                 using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
                 {
                     String st;
-                    //PFunction pFunction;
+                    OfficeExcel oExcel;
                     st = sr.ReadToEnd();
-                    //pFunction = new PFunction(st);
-                    //ClientControl.paper.Add(pFunction);
+                    oExcel = new OfficeExcel(st);                    
+                    ClientControl.paper.Add(oExcel);
                 }
                 mf.addExcelPage();
             }
@@ -194,10 +194,7 @@ namespace OES
             ReadTxt.ReadOfficeExcel(path, mf);
             ReadTxt.ReadPCompletion(path, mf);
             ReadTxt.ReadPModif(path, mf);
-            ReadTxt.ReadPFunction(path, mf);                                    
-            
-            
-            
+            ReadTxt.ReadPFunction(path, mf);                                                                        
         }
     }
 }

@@ -49,6 +49,7 @@ namespace OES.UControl
         public CustomExcel()
         {
             InitializeComponent();
+            this.Question.Text = ClientControl.paper.officeExcel.problem;
             winRar = new clsWinrar();
             pathProName = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.LastIndexOf("\\")).Substring(0,
     Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.LastIndexOf("\\")).LastIndexOf("\\"));
@@ -67,7 +68,7 @@ namespace OES.UControl
             StreamReader sr = new StreamReader(@txtPathName, Encoding.Default);
             string content = sr.ReadToEnd();
             richTextBox1.Text = content;
-            Text_Content.Text = content;
+            Question.Text = content;
             sr.Close();
         }
 

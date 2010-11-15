@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label_title = new System.Windows.Forms.Label();
-            this.Text_Content = new System.Windows.Forms.RichTextBox();
+            this.Question = new System.Windows.Forms.RichTextBox();
             this.button_check = new System.Windows.Forms.Button();
             this.button_open = new System.Windows.Forms.Button();
             this.button_repeat = new System.Windows.Forms.Button();
@@ -47,15 +47,15 @@
             this.label_title.TabIndex = 0;
             this.label_title.Text = "题干";
             // 
-            // Text_Content
+            // Question
             // 
-            this.Text_Content.Location = new System.Drawing.Point(40, 128);
-            this.Text_Content.Name = "Text_Content";
-            this.Text_Content.ReadOnly = true;
-            this.Text_Content.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.Text_Content.Size = new System.Drawing.Size(665, 243);
-            this.Text_Content.TabIndex = 1;
-            this.Text_Content.Text = "";
+            this.Question.Location = new System.Drawing.Point(40, 128);
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.Question.Size = new System.Drawing.Size(665, 243);
+            this.Question.TabIndex = 1;
+            this.Question.Text = "";
             // 
             // button_check
             // 
@@ -128,7 +128,7 @@
             this.Controls.Add(this.button_repeat);
             this.Controls.Add(this.button_open);
             this.Controls.Add(this.button_check);
-            this.Controls.Add(this.Text_Content);
+            this.Controls.Add(this.Question);
             this.Controls.Add(this.label_title);
             this.Name = "CustomExcel";
             this.Size = new System.Drawing.Size(784, 489);
@@ -140,7 +140,7 @@
         #endregion
 
         private System.Windows.Forms.Label label_title;
-        private System.Windows.Forms.RichTextBox Text_Content;
+        private System.Windows.Forms.RichTextBox Question;
         private System.Windows.Forms.Button button_check;
         private System.Windows.Forms.Button button_open;
         private System.Windows.Forms.Button button_repeat;

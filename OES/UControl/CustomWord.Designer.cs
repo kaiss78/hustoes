@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.Question = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -38,17 +38,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // richTextBox2
+            // Question
             // 
-            this.richTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.Question.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.richTextBox2.Location = new System.Drawing.Point(40, 128);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(665, 243);
-            this.richTextBox2.TabIndex = 1;
-            this.richTextBox2.Text = "";
+            this.Question.BackColor = System.Drawing.SystemColors.Control;
+            this.Question.Location = new System.Drawing.Point(40, 128);
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.Size = new System.Drawing.Size(665, 243);
+            this.Question.TabIndex = 1;
+            this.Question.Text = "";
+            this.Question.TextChanged += new System.EventHandler(this.Question_TextChanged);
             // 
             // button1
             // 
@@ -133,7 +134,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.Question);
             this.Name = "CustomWord";
             this.Size = new System.Drawing.Size(784, 489);
             this.Load += new System.EventHandler(this.UserControl1_Load_1);
@@ -144,7 +145,7 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox Question;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
