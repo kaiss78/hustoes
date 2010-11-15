@@ -185,12 +185,15 @@ namespace OES
                 case "程序改错题":
                     ClientControl.CurrentProblemNum = ClientControl.paper.pModif.problemId;
                     break;
-                //case "":
-                //    break;
-                //case "":
-                //    break;
-                //case "":
-                //    break;
+                case "Word操作题":
+                    ClientControl.CurrentProblemNum = ClientControl.paper.officeWord.problemId;
+                    break;
+                case "PowerPoint操作题":
+                    ClientControl.CurrentProblemNum = ClientControl.paper.officePPT.problemId;
+                    break;
+                case "Excel操作题":
+                    ClientControl.CurrentProblemNum = ClientControl.paper.officeExcel.problemId;
+                    break;
 
             }
         }
@@ -229,13 +232,15 @@ namespace OES
                         case "程序改错题":
 
                             break;
-                        //case "":
-                        //    break;
-                        //case "":
-                        //    break;
-                        //case "":
-                        //    break;
-
+                        case "Word操作题":
+                           
+                            break;
+                        case "PowerPoint操作题":
+                           
+                            break;
+                        case "Excel操作题":
+                           
+                            break;
                     }
                     break;
                 }
