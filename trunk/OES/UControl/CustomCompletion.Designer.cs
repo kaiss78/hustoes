@@ -98,7 +98,8 @@
             this.Answer.Name = "Answer";
             this.Answer.Size = new System.Drawing.Size(665, 31);
             this.Answer.TabIndex = 2;
-            this.Answer.Text = "";            
+            this.Answer.Text = "";
+            this.Answer.TextChanged += new System.EventHandler(this.Answer_TextChanged);
             // 
             // label
             // 

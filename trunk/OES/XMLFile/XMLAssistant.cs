@@ -381,8 +381,10 @@ namespace OES.XMLFile
             xmlelem = xd.CreateElement("Time");
             XmlAttribute xa = xd.CreateAttribute("value");
             xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("value", DateTime.Now.ToShortTimeString());
-
+            xmlelem.SetAttribute("value", DateTime.Now.ToLongTimeString());
+            xa = xd.CreateAttribute("type");
+            xmlelem.Attributes.Append(xa);
+            xmlelem.SetAttribute("type", pt.ToString());
             switch (pt)
             {
                 case ProblemType.Choice:
@@ -417,7 +419,7 @@ namespace OES.XMLFile
                         break;
                     }
             }
-            xd.AppendChild(xmlelem);
+            xd.ChildNodes[1].AppendChild(xmlelem);
             xd.Save(fileName);
         }
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.UControl;
+using OES.XMLFile;
 
 namespace OES
 {
@@ -138,6 +139,8 @@ namespace OES
             //为问题列表添加选中事件，事件函数为problemsList_OnChoose
             problemsList.OnChoose += new EventHandler(problemsList_OnChoose);
 
+            //初始化日志文件
+            XMLControl.CreateLogXML();
 
             this.addChoicePage();
             this.addCompletionPage();

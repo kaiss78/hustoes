@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using OES.Model;
+using OES.XMLFile;
 
 namespace OES.UControl
 {
@@ -82,11 +83,13 @@ namespace OES.UControl
         private void TrueButton_MouseClick(object sender, MouseEventArgs e)
         {
             this.CheckAns("T");
+            XMLControl.WriteLogXML(ProblemType.Tof, proID, "T");
         }
 
         private void FalseButton_MouseClick(object sender, MouseEventArgs e)
         {
             this.CheckAns("F");
+            XMLControl.WriteLogXML(ProblemType.Tof, proID, "F");
         }
         
     }
