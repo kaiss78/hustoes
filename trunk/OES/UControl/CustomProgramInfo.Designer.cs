@@ -35,14 +35,13 @@
             // 
             // Question
             // 
-            this.Question.Dock = System.Windows.Forms.DockStyle.Top;
             this.Question.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Question.Location = new System.Drawing.Point(0, 0);
+            this.Question.Location = new System.Drawing.Point(2, 0);
             this.Question.Margin = new System.Windows.Forms.Padding(5);
             this.Question.Multiline = true;
             this.Question.Name = "Question";
             this.Question.ReadOnly = true;
-            this.Question.Size = new System.Drawing.Size(784, 400);
+            this.Question.Size = new System.Drawing.Size(780, 400);
             this.Question.TabIndex = 1;
             // 
             // butOpen
