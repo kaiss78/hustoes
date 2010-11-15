@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
 using OES.Model;
+using OES.XMLFile;
 
 namespace OES.UControl
 {
@@ -89,22 +90,30 @@ namespace OES.UControl
 
         private void radioButtonA_MouseClick(object sender, MouseEventArgs e)
         {
+            
             this.CheckAns("A");
+            XMLControl.WriteLogXML(ProblemType.Choice, proID, "A");
         }
 
         private void radioButtonB_MouseClick(object sender, MouseEventArgs e)
         {
+           
             this.CheckAns("B");
+            XMLControl.WriteLogXML(ProblemType.Choice, proID, "B");
         }
 
         private void radioButtonC_MouseClick(object sender, MouseEventArgs e)
         {
+            
             this.CheckAns("C");
+            XMLControl.WriteLogXML(ProblemType.Choice, proID, "C");
         }
 
         private void radioButtonD_MouseClick(object sender, MouseEventArgs e)
         {
+            
             this.CheckAns("D");
+            XMLControl.WriteLogXML(ProblemType.Choice, proID, "D");
         }
     }
 

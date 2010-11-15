@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Diagnostics;
 
 namespace OES.XMLFile
 {
@@ -12,11 +14,30 @@ namespace OES.XMLFile
         public static XMLAssistant studentAnsXML;
         public static XMLAssistant paperAnsXML;
         public static XMLAssistant logXML;
-        public static void Client(int paperId,int studentId)
+        public static string rootPath = "";
+        public static void CreateLogXML()
         {
-            paperXML = new XMLAssistant("paper_" + paperId.ToString()+".xml", XMLType.Paper, new string[] { paperId.ToString() });
-            logXML = new XMLAssistant("log.xml", XMLType.Log, null);
-            studentAnsXML = new XMLAssistant("SAnswer.xml", XMLType.StudentAnswer, new string[] { paperId.ToString() });
+            if (File.Exists(rootPath+"log.xml"))
+            {
+                int i=1;
+                while (File.Exists(rootPath+"log" + i.ToString() + ".xml"))
+                {
+                    i++;
+                }
+                File.Move(rootPath + "log.xml", rootPath + "log" + i.ToString() + ".xml");
+            }
+            logXML = new XMLAssistant(rootPath+"log.xml", XMLType.Log, null);
+        }
+        public static void WriteLogXML(ProblemType pt,int proId,String ans)
+        {
+            if (File.Exists(rootPath + "log.xml"))
+            {
+                logXML.AddLog(pt, new Pid_Ans(proId, ans));
+            }
+            else
+            {
+                Debug.WriteLine("File not exist!");
+            }
         }
     }
 }
