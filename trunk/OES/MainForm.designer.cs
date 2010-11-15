@@ -65,9 +65,8 @@
             // 
             // tabControl
             // 
-            this.tabControl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tabControl.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl.Location = new System.Drawing.Point(2, 25);
+            this.tabControl.Location = new System.Drawing.Point(2, 26);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(790, 518);

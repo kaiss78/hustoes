@@ -15,6 +15,16 @@ namespace OES
     {
         static public MainForm mf;
 
+        static public bool wordExists = false;
+        static public bool pptExists = false;
+        static public bool excelExists = false;
+        static public bool pCompletionExists = false;
+        static public bool pModifExists = false;
+        static public bool pFunctionExists = false;
+        static public bool choiceExists = false;
+        static public bool judgeExists = false;
+        static public bool completionExists = false;
+
         static private CustomWord officeWord;
         static private CustomPPT officePpt;
         static private CustomExcel officeExcel;
@@ -42,7 +52,7 @@ namespace OES
             //this.FormBorderStyle = FormBorderStyle.None;
         }
 
-        private void addChoicePage()
+        public void addChoicePage()
         {
             choice = new CustomChoice();
             choice.Font = new Font("宋体", 9);
@@ -51,7 +61,7 @@ namespace OES
             tabControl.TabPages.Add(choicePage);
         }
 
-        private void addCompletionPage()
+        public void addCompletionPage()
         {
             completion = new CustomCompletion();
             completion.Font = new Font("宋体", 9);
@@ -60,7 +70,7 @@ namespace OES
             tabControl.TabPages.Add(completionPage);
         }
 
-        private void addJudgePage()
+        public void addJudgePage()
         {
             judge = new CustomJudge();
             judge.Font = new Font("宋体", 9);
@@ -69,7 +79,7 @@ namespace OES
             tabControl.TabPages.Add(judgePage);
         }
 
-        private void addWordPage()
+        public void addWordPage()
         {
             officeWord = new CustomWord();
             officeWord.Font = new Font("宋体", 9);
@@ -78,7 +88,7 @@ namespace OES
             tabControl.TabPages.Add(oficeWordPage);
         }
 
-        private void addPptPage()
+        public void addPptPage()
         {
             officePpt = new CustomPPT();
             officePpt.Font = new Font("宋体", 9);
@@ -87,7 +97,7 @@ namespace OES
             tabControl.TabPages.Add(oficePptPage);
         }
 
-        private void addExcelPage()
+        public void addExcelPage()
         {
             officeExcel = new CustomExcel();
             officeExcel.Font = new Font("宋体", 9);
@@ -96,7 +106,7 @@ namespace OES
             tabControl.TabPages.Add(oficeExcelPage);
         }
 
-        private void addPCompletionPage()
+        public void addPCompletionPage()
         {
             pCompletion = new CustomProgramInfo(1);
             pCompletion.Font = new Font("宋体", 9);
@@ -105,7 +115,7 @@ namespace OES
             tabControl.TabPages.Add(pCompletionPage);
         }
 
-        private void addPModifPage()
+        public void addPModifPage()
         {
             pModif = new CustomProgramInfo(2);
             pModif.Font = new Font("宋体", 9);
@@ -114,7 +124,7 @@ namespace OES
             tabControl.TabPages.Add(pModifPage);
         }
 
-        private void addpFunctionPage()
+        public void addpFunctionPage()
         {
             pFunction = new CustomProgramInfo(3);
             pFunction.Font = new Font("宋体", 9);
@@ -125,13 +135,14 @@ namespace OES
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ReadTxt.ReadChoice(@"OESTEST\Paper\");
+            /**ReadTxt.ReadChoice(@"OESTEST\Paper\");
             ReadTxt.ReadCompletion(@"OESTEST\Paper\");
             ReadTxt.ReadJudge(@"OESTEST\Paper\");
             ReadTxt.ReadPCompletion(@"OESTEST\Paper\");
             ReadTxt.ReadPModif(@"OESTEST\Paper\");
-            ReadTxt.ReadPFunction(@"OESTEST\Paper\");
+            ReadTxt.ReadPFunction(@"OESTEST\Paper\");*/
 
+            ReadTxt.ReadPaper(@"OESTEST\Paper\", this);
             //这里初始化右边的问题列表
             //构造函数里面的值是列表的题目数量
             problemsList = new ProblemsList(ClientControl.paper.problemList.Count);
@@ -142,15 +153,9 @@ namespace OES
             //初始化日志文件
             XMLControl.CreateLogXML();
 
-            this.addChoicePage();
-            this.addCompletionPage();
-            this.addJudgePage();
-            this.addWordPage();
-            this.addPptPage();
-            this.addExcelPage();
-            this.addPCompletionPage();
-            this.addPModifPage();
-            this.addpFunctionPage();
+            //this.addChoicePage();
+            
+
             
             //将主窗体自身的实例赋值给自己的一个静态变量，可供其他地方使用
             mf = this;
