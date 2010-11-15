@@ -32,9 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.ExamNo = new System.Windows.Forms.TextBox();
+            this.SName = new System.Windows.Forms.TextBox();
+            this.Password = new System.Windows.Forms.MaskedTextBox();
             this.butLogin = new System.Windows.Forms.Button();
             this.butExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,9 +58,9 @@
             this.label1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(536, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 25);
+            this.label1.Size = new System.Drawing.Size(55, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "考号";
+            this.label1.Text = "考号:";
             // 
             // label2
             // 
@@ -68,9 +68,9 @@
             this.label2.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(536, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 25);
+            this.label2.Size = new System.Drawing.Size(55, 25);
             this.label2.TabIndex = 2;
-            this.label2.Text = "姓名";
+            this.label2.Text = "姓名:";
             // 
             // label3
             // 
@@ -78,38 +78,38 @@
             this.label3.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(536, 160);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 25);
+            this.label3.Size = new System.Drawing.Size(55, 25);
             this.label3.TabIndex = 3;
-            this.label3.Text = "密码";
+            this.label3.Text = "密码:";
             // 
-            // textBox1
+            // ExamNo
             // 
-            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(593, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 33);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "U123456789";
+            this.ExamNo.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ExamNo.Location = new System.Drawing.Point(593, 56);
+            this.ExamNo.Name = "ExamNo";
+            this.ExamNo.Size = new System.Drawing.Size(192, 33);
+            this.ExamNo.TabIndex = 4;
+            this.ExamNo.Text = "U123456789";
             // 
-            // textBox2
+            // SName
             // 
-            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(592, 108);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(192, 33);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "言凌峰";
+            this.SName.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SName.Location = new System.Drawing.Point(592, 108);
+            this.SName.Name = "SName";
+            this.SName.Size = new System.Drawing.Size(192, 33);
+            this.SName.TabIndex = 5;
+            this.SName.Text = "言凌峰";
             // 
-            // maskedTextBox1
+            // Password
             // 
-            this.maskedTextBox1.AsciiOnly = true;
-            this.maskedTextBox1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(592, 158);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(192, 33);
-            this.maskedTextBox1.TabIndex = 6;
-            this.maskedTextBox1.Text = "123456";
-            this.maskedTextBox1.UseSystemPasswordChar = true;
+            this.Password.AsciiOnly = true;
+            this.Password.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Password.Location = new System.Drawing.Point(592, 158);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(192, 33);
+            this.Password.TabIndex = 6;
+            this.Password.Text = "123456";
+            this.Password.UseSystemPasswordChar = true;
             // 
             // butLogin
             // 
@@ -138,9 +138,9 @@
             this.ClientSize = new System.Drawing.Size(797, 350);
             this.Controls.Add(this.butExit);
             this.Controls.Add(this.butLogin);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Password);
+            this.Controls.Add(this.SName);
+            this.Controls.Add(this.ExamNo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -161,9 +161,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox ExamNo;
+        private System.Windows.Forms.TextBox SName;
+        private System.Windows.Forms.MaskedTextBox Password;
         private System.Windows.Forms.Button butLogin;
         private System.Windows.Forms.Button butExit;
     }

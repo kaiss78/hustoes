@@ -28,8 +28,8 @@ namespace OES
 
         private void butLogin_Click(object sender, EventArgs e)
         {
-            ControlBar controlBar = new ControlBar(this);
-            controlBar.Show();
+            ExamForm examForm = new ExamForm(this,this.SName.Text,this.ExamNo.Text,"123456789");
+            examForm.Show();
             this.Hide();
         }
     }
