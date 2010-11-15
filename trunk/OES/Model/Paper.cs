@@ -52,7 +52,9 @@ namespace OES.Model
             {
                 pFunction = (PFunction)p;
             }
+            p.problemId = problemList.Count;
             problemList.Add(p);
+           
         }
     }
 }

@@ -98,27 +98,32 @@ namespace OES
         public static void ReadPModif(string path)
         {
             path = path + "g.txt";
-            using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+            if (File.Exists(path))
             {
-                String st;
-                PModif pModif;
-                st = sr.ReadToEnd();
-                pModif = new PModif(st);
-                ClientControl.paper.Add(pModif);
+                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                {
+                    String st;
+                    PModif pModif;
+                    st = sr.ReadToEnd();
+                    pModif = new PModif(st);
+                    ClientControl.paper.Add(pModif);
+                }
             }
-
         }
 
         public static void ReadPFunction(string path)
         {
             path = path + "i.txt";
-            using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+            if (File.Exists(path))
             {
-                String st;
-                PFunction pFunction;
-                st = sr.ReadToEnd();
-                pFunction = new PFunction(st);
-                ClientControl.paper.Add(pFunction);
+                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                {
+                    String st;
+                    PFunction pFunction;
+                    st = sr.ReadToEnd();
+                    pFunction = new PFunction(st);
+                    ClientControl.paper.Add(pFunction);
+                }
             }
         }
     }

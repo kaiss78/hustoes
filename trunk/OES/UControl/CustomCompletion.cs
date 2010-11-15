@@ -35,7 +35,10 @@ namespace OES.UControl
             this.Question.Text = completion.problem;
             this.Answer.Text = completion.stuAns;
         }
-
+        public int GetQuestion()
+        {
+            return proID;
+        }
         public CustomCompletion()
         {
             InitializeComponent();
@@ -49,6 +52,7 @@ namespace OES.UControl
             if (proID >0)
             {
                 this.SetQuestion(--proID);
+                ClientControl.CurrentProblemNum--;
             }
             else
             {
@@ -62,6 +66,7 @@ namespace OES.UControl
             if (proID + 1 < ClientControl.paper.completion.Count)
             {
                 this.SetQuestion(++proID);
+                ClientControl.CurrentProblemNum++;
             }
             else
             {

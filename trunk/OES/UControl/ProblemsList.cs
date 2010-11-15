@@ -62,7 +62,7 @@ namespace OES.UControl
             {
                 if (subPanelStatus[i]==2)
                 {
-                    subPanelStatus[i] = 1;
+                    subPanelStatus[i] = 0;
                 }
                 if (subPanel[i].Equals(sender))
                 {
@@ -130,10 +130,20 @@ namespace OES.UControl
         public void setDone(int index)
         {
             subPanelStatus[index] = 1;
+            refreshS();
         }
         public void setDoing(int index)
         {
+            for (int i = 0; i < count; i++)
+            {
+                if (subPanelStatus[i] == 2)
+                {
+                    subPanelStatus[i] = 0;
+                    break;
+                }
+            }
             subPanelStatus[index] = 2;
+            refreshS();
         }
     }
 }
