@@ -11,8 +11,10 @@ using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Win32;
 using OESXML;
+using System.Diagnostics;
+using System.IO;
 
-namespace Score
+namespace OES
 {
     public class Correct
     {
@@ -315,7 +317,51 @@ namespace Score
             throw new NotImplementedException();
         }
 
-        public void findpath()   //获取安装软件和路径，通过注册表得到。实例代码：
+        public static void correctPF(string path)   //程序综合题评分
+        {
+            string clPath = FindVC();
+            string st, name;
+            Process cmd = new Process();
+            FileInfo cpppath =new FileInfo(path);
+
+            if (clPath != "")
+            {                                
+                cmd.StartInfo.FileName = "cmd.exe";//***
+
+                cmd.StartInfo.UseShellExecute = false; //此处必须为false否则引发异常
+                cmd.StartInfo.RedirectStandardInput = true; //标准输入
+                cmd.StartInfo.RedirectStandardOutput = true; //标准输出            
+                cmd.StartInfo.CreateNoWindow = true;//不显示命令行窗口界面            
+                cmd.Start(); //启动进程
+                cmd.StandardInput.WriteLine(clPath[1]+":");
+                cmd.StandardInput.WriteLine("cd " + clPath);   //编译生成.exe文件
+                cmd.StandardInput.WriteLine("VCVARS32.BAT");
+                cmd.StandardInput.WriteLine(cpppath.DirectoryName[0]+":");
+                cmd.StandardInput.WriteLine("cd " + cpppath.DirectoryName);
+                cmd.StandardInput.WriteLine("cl " + cpppath.Name);
+                name = (cpppath.Name.Split('.'))[0] + ".exe";                
+                cmd.StandardInput.WriteLine("Exit");
+                //MessageBox.Show("输出结果为：" + cmd.StandardOutput.ReadToEnd());
+                cmd.WaitForExit();//等待控制台程序执行完成
+                cmd.Close();//关闭该进程
+                
+                cmd.StartInfo.FileName = cpppath.DirectoryName + "\\" + name;
+                cmd.Start();
+                ClientControl.paper.pFunction.inp1 = "";
+                cmd.StandardInput.WriteLine(ClientControl.paper.pFunction.inp1);
+                MessageBox.Show("输出结果为：" + cmd.StandardOutput.ReadToEnd());
+                cmd.WaitForExit();//等待控制台程序执行完成
+                cmd.Close();//关闭该进程
+
+            }
+        }
+
+        public static void correctPC()
+        { 
+
+        }
+
+        public static string FindVC()   //获取安装软件和路径，通过注册表得到。实例代码：
         {
             RegistryKey key = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall", false);
             {
@@ -328,19 +374,18 @@ namespace Score
                             if (key2 != null)
                             {
                                 string softwareName = key2.GetValue("DisplayName", "").ToString();//获取软件名
-                                string installLocation = key2.GetValue("InstallLocation", "").ToString();//获取安装路径
-                                if (!string.IsNullOrEmpty(installLocation))
+                                string installLocation = key2.GetValue("UninstallString", "").ToString();//获取安装路径
+                                if (softwareName.Contains("Microsoft Visual C++ 6.0") == true)
                                 {
-                                    //将信息添加到ListView控件中
-                                    /**ListViewItem item = new ListViewItem(softwareName);
-                                    item.SubItems.Add(installLocation);
-                                    listView1.Items.Add(item);*/
-                                }
+                                    installLocation = installLocation.Remove(installLocation.IndexOf("Setup"));                                    
+                                    return installLocation + @"Bin\";
+                                }                                
                             }
                         }
                     }
                 }
             }
+            return "";
         }
     }
 }

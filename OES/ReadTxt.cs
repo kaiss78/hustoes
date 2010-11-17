@@ -192,8 +192,8 @@ namespace OES
             ReadTxt.ReadOfficeWord(path, mf);
             ReadTxt.ReadOfficePPT(path, mf);
             ReadTxt.ReadOfficeExcel(path, mf);
-            ReadTxt.ReadPCompletion(path, mf);
             ReadTxt.ReadPModif(path, mf);
+            ReadTxt.ReadPCompletion(path, mf);           
             ReadTxt.ReadPFunction(path, mf);                                                                        
         }
     }

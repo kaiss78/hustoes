@@ -68,6 +68,7 @@
             this.butRedo.TabIndex = 2;
             this.butRedo.Text = "重做题目";
             this.butRedo.UseVisualStyleBackColor = true;
+            this.butRedo.Click += new System.EventHandler(this.butRedo_Click);
             // 
             // CustomProgramInfo
             // 
