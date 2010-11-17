@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using OES.XMLFile;
 
 namespace OES
 {
@@ -23,6 +24,23 @@ namespace OES
         public ControlBar(Form  par)
         {            
             InitializeComponent();
+            if (!ClientControl.isResume)
+            {
+                //初始化日志文件
+                XMLControl.CreateLogXML();
+            }
+            else
+            {
+                try
+                {
+                    XMLControl.LoadLogXML();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                    this.Close();
+                }
+            }
             parents = par;                        
         }
 
