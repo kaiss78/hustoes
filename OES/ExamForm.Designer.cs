@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.Statr = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Resume = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -72,14 +72,15 @@
             this.Statr.UseVisualStyleBackColor = true;
             this.Statr.Click += new System.EventHandler(this.Start_Click);
             // 
-            // button2
+            // Resume
             // 
-            this.button2.Location = new System.Drawing.Point(391, 228);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 25);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "恢复考试";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Resume.Location = new System.Drawing.Point(391, 228);
+            this.Resume.Name = "Resume";
+            this.Resume.Size = new System.Drawing.Size(75, 25);
+            this.Resume.TabIndex = 2;
+            this.Resume.Text = "恢复考试";
+            this.Resume.UseVisualStyleBackColor = true;
+            this.Resume.Click += new System.EventHandler(this.button_resume_Click);
             // 
             // button3
             // 
@@ -173,7 +174,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Resume);
             this.Controls.Add(this.Statr);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -196,7 +197,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Statr;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Resume;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
