@@ -35,5 +35,10 @@ namespace OES.UControl
         {
 
         }
+
+        private void butRedo_Click(object sender, EventArgs e)
+        {
+            Correct.correctPF(@"G:\Documents\Visual Studio 2008\Projects\OES\OES\bin\Debug\OESTEST\Paper\i.cpp");
+        }
     }
 }
