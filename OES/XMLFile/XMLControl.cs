@@ -28,6 +28,17 @@ namespace OES.XMLFile
             }
             logXML = new XMLAssistant(rootPath+"log.xml", XMLType.Log, null);
         }
+        public static void LoadLogXML()
+        {
+            if (File.Exists(rootPath + "log.xml"))
+            {
+                logXML = new XMLAssistant(rootPath + "log.xml", XMLType.Log, null);
+            }
+            else
+            {
+                throw new Exception("您无法重新考试");
+            }
+        }
         public static void WriteLogXML(ProblemType pt,int proId,String ans)
         {
             if (File.Exists(rootPath + "log.xml"))
