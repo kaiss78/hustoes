@@ -10,6 +10,7 @@ namespace OES
     {        
         static public Paper paper= new Paper();
         private static int currentProblemNum = 0;
+        public static Boolean isResume = false;
         /// <summary>
         /// 当前题目号属性，可以自动进行列表状态切换
         /// </summary>
