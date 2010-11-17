@@ -23,6 +23,7 @@ namespace OES
 
         private void Start_Click(object sender, EventArgs e)
         {
+            ClientControl.isResume = false;
             ControlBar controlBar = new ControlBar(this);
             controlBar.Show();
             this.Hide();
@@ -30,8 +31,22 @@ namespace OES
 
         private void button4_Click(object sender, EventArgs e)
         {
+
             loginForm.Show();
             this.Dispose();
+        }
+
+        private void button_resume_Click(object sender, EventArgs e)
+        {
+            ClientControl.isResume = true;
+            ControlBar controlBar = new ControlBar(this);
+            try
+            {
+                controlBar.Show();
+                this.Hide();
+            }
+            catch
+            { }
         }
 
     }
