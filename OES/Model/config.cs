@@ -19,7 +19,7 @@ namespace OES.Model
         private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
 
 
-         public INIClass(string INIPath)
+        public Config(string INIPath)
          {
              inipath = INIPath;
              if(ExistINIFile())
