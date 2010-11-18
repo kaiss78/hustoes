@@ -25,7 +25,7 @@ namespace OES.Model
              if(ExistINIFile())
              {
                 stuPath=this.IniReadValue("path","stupath");
-                paperPath=this.IniReadValue("path","paperpath");
+                paperPath=this.IniReadValue("path","paperpath");                
              }
              else
              {
@@ -41,7 +41,7 @@ namespace OES.Model
         /// <param name="Value">值</param>
         public void IniWriteValue(string Section, string Key, string Value)
         {
-            WritePrivateProfileString(Section, Key, Value, this.inipath);
+            WritePrivateProfileString(Section, Key, Value, Config.inipath);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace OES.Model
         public string IniReadValue(string Section, string Key)
         {
             StringBuilder temp = new StringBuilder(500);
-            int i = GetPrivateProfileString(Section, Key, "", temp, 500, this.inipath);
+            int i = GetPrivateProfileString(Section, Key, "", temp, 500, Config.inipath);
             return temp.ToString();
         }
 

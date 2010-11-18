@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.Model;
+
 namespace OES
 {
     public partial class ExamForm : Form
@@ -19,8 +20,8 @@ namespace OES
             this.loginForm = login;
             this.ExamNo.Text = examNo;
             this.SName.Text = name;
-            this.ID.Text = id;
-            config = new Config();
+            this.ID.Text = id;            
+            config = new Config(System.Environment.CurrentDirectory+@"\config.ini");
         }
 
         private void Start_Click(object sender, EventArgs e)
