@@ -317,7 +317,7 @@ namespace OES
             throw new NotImplementedException();
         }
 
-        public static void correctPF(string path)   //程序综合题评分
+        public static void correctPF(string path)   //程序综合题评分(不完整)
         {
             string clPath = FindVC();
             string st, name;
@@ -356,8 +356,47 @@ namespace OES
             }
         }
 
-        public static void correctPC()
-        { 
+        private static string GetText(String path)  //获得path路径下文件的内容
+        {
+            string text = "";
+            if (path.Length > 0)
+            {
+                StreamReader TxtReader = new StreamReader(path);
+                text = TxtReader.ReadToEnd();
+                TxtReader.Close();
+            }
+            return text;
+        } 
+
+        public static void correctPC(string path)
+        {
+            string cpptext, st;
+            int i;
+            cpptext = Correct.GetText(path);
+            string[] str = cpptext.Split('\n');
+            i = 0;
+            while (i < str.Length)
+            {
+                if (str[i].IndexOf(@"//") >= 0)
+                {
+                    st = str[i + 1];
+                    i = i + 2;
+                    while ((st[0] == '\t') || (st[0] == ' '))
+                    {
+                        st = st.Remove(0, 1);
+                    }
+                    while ((st.Length > 0) && ((st[st.Length - 1] == '\t') || (st[st.Length - 1] == '\r')))
+                    {
+                        st = st.Remove(st.Length - 1, 1);
+                        //MessageBox.Show((st[st.Length - 1] == '\r').ToString());
+                    }
+                    MessageBox.Show("{" + st + "}");
+                }
+                else
+                {
+                    i++;
+                }
+            }
 
         }
 

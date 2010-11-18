@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Model\Choice.cs" />
     <Compile Include="Model\Completion.cs" />
+    <Compile Include="Model\Config.cs" />
     <Compile Include="Model\Judge.cs" />
     <Compile Include="Model\OfficeExcel.cs" />
     <Compile Include="Model\OfficePowerPoint.cs" />

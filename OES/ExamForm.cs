@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using OES.Model;
 namespace OES
 {
     public partial class ExamForm : Form
     {
         Form loginForm;
+        Config config;
         public ExamForm(Form login,string name,string examNo,string id)
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace OES
             this.ExamNo.Text = examNo;
             this.SName.Text = name;
             this.ID.Text = id;
+            config = new Config();
         }
 
         private void Start_Click(object sender, EventArgs e)
