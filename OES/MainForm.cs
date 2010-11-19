@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using OES.UControl;
 using OES.XMLFile;
+using OES.Model;
 
 namespace OES
 {
@@ -142,7 +143,7 @@ namespace OES
             ReadTxt.ReadPModif(@"OESTEST\Paper\");
             ReadTxt.ReadPFunction(@"OESTEST\Paper\");*/
 
-            ReadTxt.ReadPaper(@"OESTEST\Paper\", this);
+            ReadTxt.ReadPaper(Config.paperPath, this);
             //这里初始化右边的问题列表
             //构造函数里面的值是列表的题目数量
             problemsList = new ProblemsList(ClientControl.paper.problemList.Count);

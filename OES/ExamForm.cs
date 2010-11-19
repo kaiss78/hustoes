@@ -23,8 +23,14 @@ namespace OES
             this.SName.Text = Student.sName;
             this.ID.Text = Student.ID;            
             config = new Config(System.Environment.CurrentDirectory+@"\config.ini");
-            Config.stuPath = Config.stuPath + Student.examID;
-            Config.paperPath = Config.paperPath + Paper.pName;
+            Config.stuPath = Config.stuPath + Student.examID+@"\";
+            Config.paperPath = Config.paperPath + Paper.pName + @"\";
+
+            if (!File.Exists(Config.paperPath))
+            {
+                Directory.CreateDirectory(Config.paperPath);
+            }
+
             if (!File.Exists(Config.stuPath))
             {
                 Directory.CreateDirectory(Config.stuPath);
