@@ -25,7 +25,7 @@ namespace OES.Model
              if(ExistINIFile())
              {
                 stuPath=this.IniReadValue("path","stupath");
-                paperPath=this.IniReadValue("path","paperpath");                
+                paperPath=this.IniReadValue("path","paperpath");                         
              }
              else
              {
