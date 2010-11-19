@@ -14,13 +14,13 @@ namespace OES
     {
         Form loginForm;
         Config config;
-        public ExamForm(Form login,string name,string examNo,string id)
+        public ExamForm(Form login)
         {
             InitializeComponent();
             this.loginForm = login;
-            this.ExamNo.Text = examNo;
-            this.SName.Text = name;
-            this.ID.Text = id;            
+            this.ExamNo.Text = Student.examID;
+            this.SName.Text = Student.sName;
+            this.ID.Text = Student.ID;            
             config = new Config(System.Environment.CurrentDirectory+@"\config.ini");
         }
 
