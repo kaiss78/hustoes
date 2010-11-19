@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OES.Model;
 
 namespace OES
 {
@@ -21,14 +22,10 @@ namespace OES
             this.Close();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void butLogin_Click(object sender, EventArgs e)
         {
-            ExamForm examForm = new ExamForm(this,this.SName.Text,this.ExamNo.Text,"123456789");
+            Student student = new Student(this.SName.Text, this.ExamNo.Text, "123456789", this.Password.Text);
+            ExamForm examForm = new ExamForm(this);
             examForm.Show();
             this.Hide();
         }
