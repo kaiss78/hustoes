@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.Model;
+using System.IO;
 
 namespace OES
 {
@@ -22,6 +23,12 @@ namespace OES
             this.SName.Text = Student.sName;
             this.ID.Text = Student.ID;            
             config = new Config(System.Environment.CurrentDirectory+@"\config.ini");
+            Config.stuPath = Config.stuPath + Student.examID;
+            Config.paperPath = Config.paperPath + Paper.pName;
+            if (!File.Exists(Config.stuPath))
+            {
+                Directory.CreateDirectory(Config.stuPath);
+            }
         }
 
         private void Start_Click(object sender, EventArgs e)
