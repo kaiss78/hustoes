@@ -151,7 +151,6 @@ namespace OES
             //为问题列表添加选中事件，事件函数为problemsList_OnChoose
             problemsList.OnChoose += new EventHandler(problemsList_OnChoose);
 
-
             //this.addChoicePage();
                         
             //将主窗体自身的实例赋值给自己的一个静态变量，可供其他地方使用
