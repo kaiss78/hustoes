@@ -153,9 +153,7 @@ namespace OES
 
 
             //this.addChoicePage();
-            
-
-            
+                        
             //将主窗体自身的实例赋值给自己的一个静态变量，可供其他地方使用
             mf = this;
 

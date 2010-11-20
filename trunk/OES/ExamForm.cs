@@ -62,7 +62,9 @@ namespace OES
                 this.Hide();
             }
             catch
-            { }
+            { 
+
+            }
         }
 
     }
