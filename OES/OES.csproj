@@ -81,7 +81,7 @@
     </Compile>
     <Compile Include="Model\Choice.cs" />
     <Compile Include="Model\Completion.cs" />
-    <Compile Include="DOA\Config.cs" />
+    <Compile Include="DAO\Config.cs" />
     <Compile Include="Model\Judge.cs" />
     <Compile Include="Model\OfficeExcel.cs" />
     <Compile Include="Model\OfficePowerPoint.cs" />
@@ -92,7 +92,7 @@
     <Compile Include="Model\PFunction.cs" />
     <Compile Include="Model\Problem.cs" />
     <Compile Include="Model\Student.cs" />
-    <Compile Include="DOA\ReadTxt.cs" />
+    <Compile Include="DAO\ReadTxt.cs" />
     <Compile Include="UControl\CustomCompletion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,7 +111,7 @@
     <Compile Include="UControl\CustomJudge.Designer.cs">
       <DependentUpon>CustomJudge.cs</DependentUpon>
     </Compile>
-    <Compile Include="DOA\clsWinrar.cs" />
+    <Compile Include="DAO\clsWinrar.cs" />
     <Compile Include="ControlBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,7 +131,7 @@
     <Compile Include="MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DOA\OfficeXML.cs" />
+    <Compile Include="DAO\OfficeXML.cs" />
     <Compile Include="UControl\CustomPPT.cs">
       <SubType>UserControl</SubType>
     </Compile>
