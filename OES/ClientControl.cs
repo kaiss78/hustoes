@@ -28,6 +28,10 @@ namespace OES
                 return currentProblemNum;
             }
         }
+        public static void SetDone(int id)
+        {
+            MainForm.problemsList.setDone(id);
+        }
         public static void AddChoice(Choice choice)
         {
             paper.Add(choice);

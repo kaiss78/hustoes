@@ -25,6 +25,7 @@ namespace OES.UControl
             if (ans != ClientControl.GetChoice(proID).stuAns)
             {
                 ClientControl.GetChoice(proID).stuAns = ans;
+                ClientControl.SetDone(ClientControl.CurrentProblemNum);
             }
         }
 

@@ -38,7 +38,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(604, 388);
+            this.button1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(482, 434);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 40);
             this.button1.TabIndex = 0;
@@ -48,6 +49,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(606, 434);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(101, 40);
@@ -58,25 +60,28 @@
             // 
             // Question
             // 
+            this.Question.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Question.Location = new System.Drawing.Point(40, 128);
             this.Question.Name = "Question";
             this.Question.ReadOnly = true;
-            this.Question.Size = new System.Drawing.Size(665, 243);
+            this.Question.Size = new System.Drawing.Size(665, 300);
             this.Question.TabIndex = 3;
             this.Question.Text = "";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(40, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "题目要求";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // richTextBox2
             // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.richTextBox2.Location = new System.Drawing.Point(42, 37);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
@@ -87,9 +92,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 102);
+            this.label2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(40, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 9;
             this.label2.Text = "题干";
             // 
@@ -97,6 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label1);

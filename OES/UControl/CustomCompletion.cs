@@ -26,6 +26,7 @@ namespace OES.UControl
             if (this.Answer.Text != ClientControl.GetCompletion(proID).stuAns)
             {
                 ClientControl.GetCompletion(proID).stuAns = this.Answer.Text;
+                ClientControl.SetDone(ClientControl.CurrentProblemNum);
             }
         }
 
@@ -51,7 +52,7 @@ namespace OES.UControl
 
         private void lastproblem_Click(object sender, EventArgs e)
         {
-            this.CheckAns();
+           
             if (proID >0)
             {
                 this.SetQuestion(--proID);
@@ -65,7 +66,7 @@ namespace OES.UControl
 
         private void nextproblem_Click(object sender, EventArgs e)
         {
-            this.CheckAns();
+           
             if (proID + 1 < ClientControl.paper.completion.Count)
             {
                 this.SetQuestion(++proID);
@@ -86,6 +87,7 @@ namespace OES.UControl
         {
             if (this.Answer.Text != ClientControl.GetCompletion(proID).stuAns)
             {
+                this.CheckAns();
                 ClientControl.GetCompletion(proID).stuAns = this.Answer.Text;
                 XMLControl.WriteLogXML(ProblemType.Completion, proID, this.Answer.Text);
             }

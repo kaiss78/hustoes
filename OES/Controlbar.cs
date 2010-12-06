@@ -34,6 +34,7 @@ namespace OES
                 try
                 {
                     XMLControl.LoadLogXML();
+                    ClientControl.paper.Resume();
                 }
                 catch (Exception ex)
                 {

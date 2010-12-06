@@ -39,39 +39,42 @@
             // label_title
             // 
             this.label_title.AutoSize = true;
+            this.label_title.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_title.Location = new System.Drawing.Point(40, 101);
             this.label_title.Name = "label_title";
-            this.label_title.Size = new System.Drawing.Size(29, 12);
+            this.label_title.Size = new System.Drawing.Size(51, 20);
             this.label_title.TabIndex = 0;
             this.label_title.Text = "题干";
             // 
             // Question
             // 
+            this.Question.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Question.Location = new System.Drawing.Point(40, 128);
             this.Question.Name = "Question";
             this.Question.ReadOnly = true;
-            this.Question.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.Question.Size = new System.Drawing.Size(665, 243);
+            this.Question.Size = new System.Drawing.Size(665, 300);
             this.Question.TabIndex = 1;
             this.Question.Text = "";
             // 
             // button_open
             // 
-            this.button_open.Location = new System.Drawing.Point(604, 388);
+            this.button_open.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_open.Location = new System.Drawing.Point(482, 434);
             this.button_open.Name = "button_open";
             this.button_open.Size = new System.Drawing.Size(101, 40);
             this.button_open.TabIndex = 3;
-            this.button_open.Text = "打开";
+            this.button_open.Text = "打开文档";
             this.button_open.UseVisualStyleBackColor = true;
             this.button_open.Click += new System.EventHandler(this.button_open_Click);
             // 
             // button_repeat
             // 
+            this.button_repeat.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_repeat.Location = new System.Drawing.Point(606, 434);
             this.button_repeat.Name = "button_repeat";
             this.button_repeat.Size = new System.Drawing.Size(101, 40);
             this.button_repeat.TabIndex = 4;
-            this.button_repeat.Text = "重做";
+            this.button_repeat.Text = "重新做题";
             this.button_repeat.UseVisualStyleBackColor = true;
             this.button_repeat.Click += new System.EventHandler(this.button_repeat_Click);
             // 
@@ -79,7 +82,7 @@
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.richTextBox1.Location = new System.Drawing.Point(42, 37);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
@@ -90,9 +93,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(40, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "题目要求";
             // 
@@ -100,6 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button_repeat);

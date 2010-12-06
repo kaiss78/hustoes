@@ -14,7 +14,7 @@ namespace OES.XMLFile
         public static XMLAssistant studentAnsXML;
         public static XMLAssistant paperAnsXML;
         public static XMLAssistant logXML;
-        public static string rootPath = "";
+        public static string rootPath = Config.stuPath;
         public static void CreateLogXML()
         {
             if (File.Exists(rootPath+"log.xml"))
@@ -49,6 +49,25 @@ namespace OES.XMLFile
             {
                 Debug.WriteLine("File not exist!");
             }
+        }
+        public static string FindLog(ProblemType pt, int proId)
+        {
+            switch (pt)
+            {
+                case ProblemType.Choice:
+                    {
+                        return logXML.FindLogAns(pt, proId);
+                    }
+                case ProblemType.Completion:
+                    {
+                        return logXML.FindLogAns(pt, proId); 
+                    }
+                case ProblemType.Tof:
+                    {
+                        return logXML.FindLogAns(pt, proId); 
+                    }
+            }
+            return "";
         }
     }
 }
