@@ -24,6 +24,7 @@ namespace OES.UControl
             if (ans != judge.stuAns)
             {
                 ClientControl.GetJudge(proID).stuAns = ans;
+                ClientControl.SetDone(ClientControl.CurrentProblemNum);
             }
         }
 

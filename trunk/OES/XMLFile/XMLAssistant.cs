@@ -221,6 +221,18 @@ namespace OES.XMLFile
             }
             return null;
         }
+        public string FindLogAns(ProblemType pt,int id)
+        {
+            string temp="";
+            foreach (XmlNode xn in xd.ChildNodes.Item(1).ChildNodes)
+            {
+                if (xn.Attributes[1].Value == pt.ToString() && xn.ChildNodes[0].LastChild.Value==id.ToString())
+                {
+                    temp=xn.ChildNodes[1].LastChild.Value;
+                }
+            }
+            return temp;
+        }
         public void AddPaper(ProblemType pt, Pid_Score ps)
         {
             XmlNode xn;

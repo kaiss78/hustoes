@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using OES.XMLFile;
 
 namespace OES.Model
 {
@@ -31,6 +32,25 @@ namespace OES.Model
             pModif = new PModif();
             pFunction = new PFunction();
             problemList = new List<Problem>();
+        }
+
+        public void Resume()
+        {
+            for (int i = 0; i < choice.Count; i++)
+            {
+                choice[i].stuAns = XMLControl.FindLog(ProblemType.Choice, i);
+                (problemList[choice[i].problemId] as Choice).stuAns = choice[i].stuAns;
+            }
+            for (int i = 0; i < completion.Count; i++)
+            {
+                completion[i].stuAns = XMLControl.FindLog(ProblemType.Completion, i);
+                (problemList[completion[i].problemId] as Completion).stuAns = completion[i].stuAns;
+            }
+            for (int i = 0; i < judge.Count; i++)
+            {
+                judge[i].stuAns = XMLControl.FindLog(ProblemType.Tof, i);
+                (problemList[judge[i].problemId] as Judge).stuAns = judge[i].stuAns;
+            }
         }
 
         public void Add(Problem p)

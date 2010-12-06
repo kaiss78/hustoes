@@ -66,7 +66,10 @@ namespace OES.UControl
                 }
                 if (subPanel[i].Equals(sender))
                 {
-                    subPanelStatus[i] = 2;
+                    if (subPanelStatus[i] != 1)
+                    {
+                        subPanelStatus[i] = 2;
+                    }
                     OnChoose(i, e);
                 }
             }
@@ -142,7 +145,10 @@ namespace OES.UControl
                     break;
                 }
             }
-            subPanelStatus[index] = 2;
+            if (subPanelStatus[index] != 1)
+            {
+                subPanelStatus[index] = 2;
+            }
             refreshS();
         }
     }
