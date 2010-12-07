@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace OES.UControl
 {
     public partial class CustomWord : UserControl
     {
+        [DllImport("user32", EntryPoint = "HideCaret")]
+        private static extern bool HideCaret(IntPtr hWnd);
         static string path1 = @"OESTEST\";
         static string name = "a.doc";
         static string path2 = path1 + "ans_" + name;
@@ -77,6 +80,14 @@ namespace OES.UControl
 
         }
 
-        
+
+        private void Hide_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideCaret(((RichTextBox)sender).Handle);
+        }
+        private void Hide1_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

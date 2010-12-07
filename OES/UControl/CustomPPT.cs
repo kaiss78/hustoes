@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace OES.UControl
 {     
     public partial class CustomPPT : UserControl
     {
+        [DllImport("user32", EntryPoint = "HideCaret")]
+        private static extern bool HideCaret(IntPtr hWnd);
+
         static string path = @"OESTEST\";
         static string name = "a.ppt";
         static string path1 = path +  name;
@@ -78,6 +82,14 @@ namespace OES.UControl
             MessageBox.Show(Correct.Correctppt(path2, path3).ToString());
         }
 
-        
+
+        private void Hide_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideCaret(((RichTextBox)sender).Handle);
+        }
+        private void Hide1_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

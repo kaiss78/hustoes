@@ -45,6 +45,7 @@
             this.Question.ReadOnly = true;
             this.Question.Size = new System.Drawing.Size(711, 342);
             this.Question.TabIndex = 1;
+            this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
             // 
             // butOpen
             // 

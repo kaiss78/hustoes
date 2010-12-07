@@ -67,6 +67,7 @@
             this.Question.Size = new System.Drawing.Size(665, 300);
             this.Question.TabIndex = 3;
             this.Question.Text = "";
+            this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // label1
             // 
@@ -88,6 +89,7 @@
             this.richTextBox2.Size = new System.Drawing.Size(664, 52);
             this.richTextBox2.TabIndex = 8;
             this.richTextBox2.Text = "";
+            this.richTextBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // label2
             // 

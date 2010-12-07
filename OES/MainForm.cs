@@ -147,6 +147,7 @@ namespace OES
             //this.addChoicePage();
 
             tabControl.SelectedIndexChanged += new EventHandler(tabControl_SelectedIndexChanged);
+            tabControl_SelectedIndexChanged(tabControl, null);
         }
 
         void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -197,7 +198,9 @@ namespace OES
             {
                 if (tp.Text == tab)
                 {
+                    tabControl.SelectedIndexChanged -= tabControl_SelectedIndexChanged;
                     tabControl.SelectedTab = tp;
+                    tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
                     switch (tab)
                     {
                         case "选择题":

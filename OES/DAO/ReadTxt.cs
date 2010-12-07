@@ -10,7 +10,7 @@ namespace OES
 {
     class ReadTxt
     {
-        public static void ReadChoice(string path, MainForm mf)
+        public static void ReadChoice(string path)
         {
             path = path + "a.txt";
             if (File.Exists(path))
@@ -30,11 +30,11 @@ namespace OES
                         ClientControl.paper.Add(choice);
                     }
                 }
-                mf.addChoicePage();
+                ClientControl.MainForm.addChoicePage();
             }
         }
 
-        public static void ReadCompletion(string path, MainForm mf)
+        public static void ReadCompletion(string path)
         {
             path = path + "b.txt";
             if (File.Exists(path))
@@ -54,11 +54,11 @@ namespace OES
                         ClientControl.paper.Add(completion);
                     }
                 }
-                mf.addCompletionPage();
+                ClientControl.MainForm.addCompletionPage();
             }
         }
 
-        public static void ReadJudge(string path, MainForm mf)
+        public static void ReadJudge(string path)
         {
             path = path + "c.txt";
             if (File.Exists(path))
@@ -78,11 +78,11 @@ namespace OES
                         ClientControl.paper.Add(judge);
                     }
                 }
-                mf.addJudgePage();
+                ClientControl.MainForm.addJudgePage();
             }
         }
 
-        public static void ReadPCompletion(string path, MainForm mf)
+        public static void ReadPCompletion(string path)
         {
             path = path + "h.txt";
             if (File.Exists(path))
@@ -96,10 +96,10 @@ namespace OES
                     ClientControl.paper.Add(pCompletion);                    
                 }
             }
-            mf.addPCompletionPage();
+            ClientControl.MainForm.addPCompletionPage();
         }
 
-        public static void ReadPModif(string path, MainForm mf)
+        public static void ReadPModif(string path)
         {
             path = path + "g.txt";
             if (File.Exists(path))
@@ -113,10 +113,10 @@ namespace OES
                     ClientControl.paper.Add(pModif);
                 }
             }
-            mf.addPModifPage();
+            ClientControl.MainForm.addPModifPage();
         }
 
-        public static void ReadPFunction(string path, MainForm mf)
+        public static void ReadPFunction(string path)
         {
             path = path + "i.txt";
             if (File.Exists(path))
@@ -129,11 +129,11 @@ namespace OES
                     pFunction = new PFunction(st);
                     ClientControl.paper.Add(pFunction);
                 }
-                mf.addpFunctionPage();
+                ClientControl.MainForm.addpFunctionPage();
             }
         }
 
-        public static void ReadOfficeWord(string path, MainForm mf)
+        public static void ReadOfficeWord(string path)
         {
             path = path + "d.txt";
             if (File.Exists(path))
@@ -146,11 +146,11 @@ namespace OES
                     oWord = new OfficeWord(st);                    
                     ClientControl.paper.Add(oWord);
                 }
-                mf.addWordPage();
+                ClientControl.MainForm.addWordPage();
             }
         }
 
-        public static void ReadOfficePPT(string path, MainForm mf)
+        public static void ReadOfficePPT(string path)
         {
             path = path + "e.txt";
             if (File.Exists(path))
@@ -163,11 +163,11 @@ namespace OES
                     oPPT = new OfficePowerPoint(st);
                     ClientControl.paper.Add(oPPT);
                 }
-                mf.addPptPage();
+                ClientControl.MainForm.addPptPage();
             }
         }
 
-        public static void ReadOfficeExcel(string path, MainForm mf)
+        public static void ReadOfficeExcel(string path)
         {
             path = path + "f.txt";
             if (File.Exists(path))
@@ -180,21 +180,21 @@ namespace OES
                     oExcel = new OfficeExcel(st);                    
                     ClientControl.paper.Add(oExcel);
                 }
-                mf.addExcelPage();
+                ClientControl.MainForm.addExcelPage();
             }
         }
 
-        public static void ReadPaper(string path,MainForm mf)
+        public static void ReadPaper(string path)
         {
-            ReadTxt.ReadChoice(path, mf);
-            ReadTxt.ReadCompletion(path, mf);
-            ReadTxt.ReadJudge(path, mf);
-            ReadTxt.ReadOfficeWord(path, mf);
-            ReadTxt.ReadOfficePPT(path, mf);
-            ReadTxt.ReadOfficeExcel(path, mf);
-            ReadTxt.ReadPModif(path, mf);
-            ReadTxt.ReadPCompletion(path, mf);           
-            ReadTxt.ReadPFunction(path, mf);                                                                        
+            ReadTxt.ReadChoice(path);
+            ReadTxt.ReadCompletion(path);
+            ReadTxt.ReadJudge(path);
+            ReadTxt.ReadOfficeWord(path);
+            ReadTxt.ReadOfficePPT(path);
+            ReadTxt.ReadOfficeExcel(path);
+            ReadTxt.ReadPModif(path);
+            ReadTxt.ReadPCompletion(path);           
+            ReadTxt.ReadPFunction(path);                                                                        
         }
     }
 }

@@ -6,11 +6,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace OES.UControl
 {
     public partial class ProblemsList : UserControl
     {
+ 
         Panel mainPanel;
         List<Button> subPanel=new List<Button>();
         List<int> subPanelStatus = new List<int>();
@@ -151,5 +153,7 @@ namespace OES.UControl
             }
             refreshS();
         }
+
+
     }
 }
