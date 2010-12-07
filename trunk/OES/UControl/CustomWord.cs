@@ -28,6 +28,7 @@ namespace OES.UControl
         private void button1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(path2);
+            ClientControl.SetDone(ClientControl.CurrentProblemNum);
         }
 
         private void button2_Click_1(object sender, EventArgs e)

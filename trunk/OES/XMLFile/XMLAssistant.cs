@@ -242,7 +242,7 @@ namespace OES.XMLFile
             {
                 if (xn.Attributes[1].Value == ProblemType.Start.ToString())
                 {
-                    second += (Convert.ToDateTime(per) - Convert.ToDateTime(now)).Seconds;
+                    second += (int)(Convert.ToDateTime(per) - Convert.ToDateTime(now)).TotalSeconds;
                     now = xn.Attributes[0].Value;
                 }
                 per = xn.Attributes[0].Value;
@@ -444,6 +444,7 @@ namespace OES.XMLFile
                         break;
                     }
                 case ProblemType.Start:
+                case ProblemType.Blank:
                     {
                         xmlelem1 = xd.CreateElement("ProblemID");
                         xmlelem1.AppendChild(xd.CreateTextNode(pa.id.ToString()));
@@ -482,7 +483,8 @@ namespace OES.XMLFile
         ProgramCompletion,
         ProgramModification,
         ProgramFun,
-        Start
+        Start,
+        Blank
     }
     class Pid_Ans
     {
