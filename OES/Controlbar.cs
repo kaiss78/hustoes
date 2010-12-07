@@ -47,10 +47,10 @@ namespace OES
                 {
                     XMLControl.LoadLogXML();
                     ClientControl.paper.Resume();
+                    XMLControl.WriteLogXML(ProblemType.Start, 0, "");
                     seconds = Seconds-ClientControl.paper.ResumeSecond();
                     minute = seconds / 60;
                     seconds = seconds % 60;
-                    XMLControl.WriteLogXML(ProblemType.Start, 0, "");
                     //恢复考试，考试时间恢复！！！！！
                     timer1.Start();
 
@@ -101,6 +101,7 @@ namespace OES
             { seconds--; }
             else
             {
+                XMLControl.WriteLogXML(ProblemType.Blank, 0,"");
                 seconds = 59;
                 minute--;
             }

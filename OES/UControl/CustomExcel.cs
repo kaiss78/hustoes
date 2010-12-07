@@ -93,6 +93,7 @@ namespace OES.UControl
             xlwook = excel_handle.Workbooks.Open(pathName, MissingValue, MissingValue, MissingValue, MissingValue,
                 MissingValue, MissingValue, MissingValue, MissingValue, MissingValue, MissingValue, MissingValue, MissingValue, MissingValue, MissingValue);
             excel_handle.Visible = true;
+            ClientControl.SetDone(ClientControl.CurrentProblemNum);
         }
 
         /*响应“检查”那个按钮的事件*/

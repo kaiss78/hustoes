@@ -36,7 +36,7 @@ namespace OES.UControl
 
         private void butOpen_Click(object sender, EventArgs e)
         {
-
+            ClientControl.SetDone(ClientControl.CurrentProblemNum);
         }
 
         private void butRedo_Click(object sender, EventArgs e)
