@@ -52,6 +52,11 @@ namespace OES.Model
                 (problemList[judge[i].problemId] as Judge).stuAns = judge[i].stuAns;
             }
         }
+
+        public int ResumeSecond()
+        {
+            return Convert.ToInt32(XMLControl.FindLog(ProblemType.Start, 0));   
+        }
         public void ReadPaper()
         {
             choice = new List<Choice>();

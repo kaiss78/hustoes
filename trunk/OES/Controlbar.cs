@@ -13,6 +13,8 @@ namespace OES
 {
     public partial class ControlBar : Form
     {
+        //考试总时间
+        public static int Seconds = 5400;
         /**开始时间的设置*/
         int seconds = 0;
         int minute = 90;
@@ -36,6 +38,7 @@ namespace OES
             {
                 //初始化日志文件
                 XMLControl.CreateLogXML();
+                XMLControl.WriteLogXML(ProblemType.Start, 0, "");
                 timer1.Start();
             }
             else
@@ -44,8 +47,12 @@ namespace OES
                 {
                     XMLControl.LoadLogXML();
                     ClientControl.paper.Resume();
+                    seconds = Seconds-ClientControl.paper.ResumeSecond();
+                    minute = seconds / 60;
+                    seconds = seconds % 60;
+                    XMLControl.WriteLogXML(ProblemType.Start, 0, "");
                     //恢复考试，考试时间恢复！！！！！
-
+                    timer1.Start();
 
                 }
                 catch (Exception ex)
