@@ -33,7 +33,7 @@
             this.xpPanel3 = new UIComponents.XPPanel(100);
             this.xpPanel2 = new UIComponents.XPPanel(100);
             this.xpPanel1 = new UIComponents.XPPanel(191);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.SuspendLayout();
@@ -130,20 +130,20 @@
             this.xpPanel1.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel1.VertAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // panel1
+            // MainPanel
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(200, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(742, 666);
-            this.panel1.TabIndex = 1;
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(200, 0);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(742, 666);
+            this.MainPanel.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(942, 666);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.xpPanelGroup1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(950, 700);
@@ -151,7 +151,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OES服务端";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).EndInit();
             this.xpPanelGroup1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -164,7 +163,7 @@
         private UIComponents.XPPanel xpPanel3;
         private UIComponents.XPPanel xpPanel2;
         private UIComponents.XPPanel xpPanel1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel MainPanel;
     }
 }
 
