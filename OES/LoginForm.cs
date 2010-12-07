@@ -26,7 +26,7 @@ namespace OES
         private void butLogin_Click(object sender, EventArgs e)
         {
             //获取当前学生信息
-            Student student = new Student(this.SName.Text, this.ExamNo.Text, "123456789", this.Password.Text);
+            ClientControl.student = new Student(this.SName.Text, this.ExamNo.Text, "123456789", this.Password.Text);
             
             //递交服务端验证……
             //
@@ -45,10 +45,6 @@ namespace OES
         private void LoginForm_Load(object sender, EventArgs e)
         {
             ClientControl.LoginForm = this;
-            ClientControl.ExamForm = new ExamForm();
-            ClientControl.ControlBar = new ControlBar();
-            ClientControl.MainForm = new MainForm();
-            ClientControl.WaitingForm = new WaitingForm();
         }
     }
 }

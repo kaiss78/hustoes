@@ -21,18 +21,22 @@ namespace OES
 
         private void Start_Click(object sender, EventArgs e)
         {
+            //读考卷内容
+            ClientControl.paper.ReadPaper();
+
             ClientControl.isResume = false;
             ClientControl.ControlBar.Show();
+            ClientControl.MainForm.Show();
             this.Hide();
         }
 
         private void ExamForm_Load(object sender, EventArgs e)
         {
-            this.ExamNo.Text = Student.examID;
-            this.SName.Text = Student.sName;
-            this.ID.Text = Student.ID;
+            this.ExamNo.Text = ClientControl.student.examID;
+            this.SName.Text = ClientControl.student.sName;
+            this.ID.Text = ClientControl.student.ID;
             config = new Config(System.Environment.CurrentDirectory + @"\config.ini");
-            Config.stuPath = Config.stuPath + Student.examID + @"\";
+            Config.stuPath = Config.stuPath + ClientControl.student.examID + @"\";
             Config.paperPath = Config.paperPath + Paper.pName + @"\";
 
             if (!File.Exists(Config.paperPath))
@@ -48,16 +52,14 @@ namespace OES
 
         private void Resume_Click(object sender, EventArgs e)
         {
-            ClientControl.isResume = true;
-            try
-            {
-                ClientControl.ControlBar.Show();
-                this.Hide();
-            }
-            catch
-            {
+            //读考卷内容
+            ClientControl.paper.ReadPaper();
 
-            }
+            ClientControl.isResume = true;
+            ClientControl.ControlBar.Show();
+            ClientControl.MainForm.Show();
+            this.Hide();
+
         }
 
         private void Exit_Click(object sender, EventArgs e)

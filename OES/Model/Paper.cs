@@ -52,7 +52,20 @@ namespace OES.Model
                 (problemList[judge[i].problemId] as Judge).stuAns = judge[i].stuAns;
             }
         }
-
+        public void ReadPaper()
+        {
+            choice = new List<Choice>();
+            completion = new List<Completion>();
+            judge = new List<Judge>();
+            officeWord = new OfficeWord();
+            officePPT = new OfficePowerPoint();
+            officeExcel = new OfficeExcel();
+            pCompletion = new PCompletion();
+            pModif = new PModif();
+            pFunction = new PFunction();
+            problemList = new List<Problem>();
+            OES.ReadTxt.ReadPaper(Config.paperPath, ClientControl.MainForm);
+        }
         public void Add(Problem p)
         {
             if (p is Choice)

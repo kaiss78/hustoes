@@ -169,7 +169,7 @@ namespace OES
 
         public static void ReadOfficeExcel(string path, MainForm mf)
         {
-            path = path + "e.txt";
+            path = path + "f.txt";
             if (File.Exists(path))
             {
                 using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
