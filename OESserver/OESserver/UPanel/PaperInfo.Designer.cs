@@ -62,7 +62,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.ChoiceCount = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -100,7 +100,7 @@
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
+            this.ChoiceCount.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -485,7 +485,7 @@
             // groupBox2
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox2, 7);
-            this.groupBox2.Controls.Add(this.tableLayoutPanel4);
+            this.groupBox2.Controls.Add(this.ChoiceCount);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(3, 336);
@@ -495,49 +495,49 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "分值设置";
             // 
-            // tableLayoutPanel4
+            // ChoiceCount
             // 
-            this.tableLayoutPanel4.ColumnCount = 7;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.Controls.Add(this.label16, 4, 2);
-            this.tableLayoutPanel4.Controls.Add(this.textBox14, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.textBox15, 2, 1);
-            this.tableLayoutPanel4.Controls.Add(this.textBox16, 2, 2);
-            this.tableLayoutPanel4.Controls.Add(this.textBox17, 2, 3);
-            this.tableLayoutPanel4.Controls.Add(this.textBox18, 2, 4);
-            this.tableLayoutPanel4.Controls.Add(this.textBox19, 2, 5);
-            this.tableLayoutPanel4.Controls.Add(this.textBox20, 5, 0);
-            this.tableLayoutPanel4.Controls.Add(this.textBox21, 5, 1);
-            this.tableLayoutPanel4.Controls.Add(this.textBox22, 5, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label17, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label18, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label19, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label20, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.label21, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.label22, 1, 5);
-            this.tableLayoutPanel4.Controls.Add(this.label23, 4, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label24, 4, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label25, 5, 5);
-            this.tableLayoutPanel4.Controls.Add(this.button21, 4, 5);
-            this.tableLayoutPanel4.Controls.Add(this.label27, 5, 3);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 22);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 6;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(730, 262);
-            this.tableLayoutPanel4.TabIndex = 1;
+            this.ChoiceCount.ColumnCount = 7;
+            this.ChoiceCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.ChoiceCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ChoiceCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.ChoiceCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.ChoiceCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ChoiceCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.ChoiceCount.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.ChoiceCount.Controls.Add(this.label16, 4, 2);
+            this.ChoiceCount.Controls.Add(this.textBox14, 2, 0);
+            this.ChoiceCount.Controls.Add(this.textBox15, 2, 1);
+            this.ChoiceCount.Controls.Add(this.textBox16, 2, 2);
+            this.ChoiceCount.Controls.Add(this.textBox17, 2, 3);
+            this.ChoiceCount.Controls.Add(this.textBox18, 2, 4);
+            this.ChoiceCount.Controls.Add(this.textBox19, 2, 5);
+            this.ChoiceCount.Controls.Add(this.textBox20, 5, 0);
+            this.ChoiceCount.Controls.Add(this.textBox21, 5, 1);
+            this.ChoiceCount.Controls.Add(this.textBox22, 5, 2);
+            this.ChoiceCount.Controls.Add(this.label17, 1, 0);
+            this.ChoiceCount.Controls.Add(this.label18, 1, 1);
+            this.ChoiceCount.Controls.Add(this.label19, 1, 2);
+            this.ChoiceCount.Controls.Add(this.label20, 1, 3);
+            this.ChoiceCount.Controls.Add(this.label21, 1, 4);
+            this.ChoiceCount.Controls.Add(this.label22, 1, 5);
+            this.ChoiceCount.Controls.Add(this.label23, 4, 0);
+            this.ChoiceCount.Controls.Add(this.label24, 4, 1);
+            this.ChoiceCount.Controls.Add(this.label25, 5, 5);
+            this.ChoiceCount.Controls.Add(this.button21, 4, 5);
+            this.ChoiceCount.Controls.Add(this.label27, 5, 3);
+            this.ChoiceCount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChoiceCount.Location = new System.Drawing.Point(3, 22);
+            this.ChoiceCount.Name = "ChoiceCount";
+            this.ChoiceCount.RowCount = 6;
+            this.ChoiceCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.ChoiceCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.ChoiceCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.ChoiceCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.ChoiceCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.ChoiceCount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.ChoiceCount.Size = new System.Drawing.Size(730, 262);
+            this.ChoiceCount.TabIndex = 1;
             // 
             // label16
             // 
@@ -605,6 +605,7 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(94, 26);
             this.textBox20.TabIndex = 6;
+            this.textBox20.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
             // 
             // textBox21
             // 
@@ -881,8 +882,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
+            this.ChoiceCount.ResumeLayout(false);
+            this.ChoiceCount.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
@@ -936,7 +937,7 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel ChoiceCount;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox15;
