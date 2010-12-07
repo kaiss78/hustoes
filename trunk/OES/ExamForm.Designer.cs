@@ -32,14 +32,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Statr = new System.Windows.Forms.Button();
             this.Resume = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Restart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ExamNo = new System.Windows.Forms.Label();
             this.SName = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.Exit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,16 +80,16 @@
             this.Resume.TabIndex = 2;
             this.Resume.Text = "恢复考试";
             this.Resume.UseVisualStyleBackColor = true;
-            this.Resume.Click += new System.EventHandler(this.button_resume_Click);
+            this.Resume.Click += new System.EventHandler(this.Resume_Click);
             // 
-            // button3
+            // Restart
             // 
-            this.button3.Location = new System.Drawing.Point(391, 270);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 25);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "重新考试";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Restart.Location = new System.Drawing.Point(391, 270);
+            this.Restart.Name = "Restart";
+            this.Restart.Size = new System.Drawing.Size(75, 25);
+            this.Restart.TabIndex = 3;
+            this.Restart.Text = "重新考试";
+            this.Restart.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -151,29 +151,29 @@
             this.ID.TabIndex = 9;
             this.ID.Text = "label7";
             // 
-            // button4
+            // Exit
             // 
-            this.button4.Location = new System.Drawing.Point(230, 363);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "退出";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.Exit.Location = new System.Drawing.Point(230, 363);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(75, 23);
+            this.Exit.TabIndex = 10;
+            this.Exit.Text = "退出";
+            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // ExamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 420);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.Exit);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.SName);
             this.Controls.Add(this.ExamNo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Restart);
             this.Controls.Add(this.Resume);
             this.Controls.Add(this.Statr);
             this.Controls.Add(this.panel1);
@@ -185,6 +185,7 @@
             this.Name = "ExamForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExamForm";
+            this.Load += new System.EventHandler(this.ExamForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -198,13 +199,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Statr;
         private System.Windows.Forms.Button Resume;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Restart;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label ExamNo;
         private System.Windows.Forms.Label SName;
         private System.Windows.Forms.Label ID;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Exit;
     }
 }
