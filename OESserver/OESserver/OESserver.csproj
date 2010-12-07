@@ -82,6 +82,14 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ChptList.resx">
+      <DependentUpon>ChptList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ProList.resx">
+      <DependentUpon>ProList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\PaperInfo.resx">
       <DependentUpon>PaperInfo.cs</DependentUpon>
     </EmbeddedResource>

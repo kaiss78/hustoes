@@ -29,7 +29,7 @@ namespace OESserver.UControl
             mainPanel.Height = this.Height;
             mainPanel.Width = this.Width;
             this.Controls.Add(mainPanel);
-            btnHeight = this.Height /(count+1);
+            btnHeight = this.Height / (count + 1);
             totalpage = (int)((chpt_num / count) + 1);
 
             //list赋初值
@@ -37,22 +37,22 @@ namespace OESserver.UControl
             {
                 chpt_name.Add((i + 1).ToString());
             }
-            
+
             Button last = new Button();
             last.Width = (int)(this.Width);
-            last.Height = (btnHeight/2);
+            last.Height = (btnHeight / 2);
             last.Location = new Point(0, 0);
             last.BackgroundImage = Properties.Resources.cpt_btn;
             last.BackgroundImageLayout = ImageLayout.Stretch;
             last.FlatStyle = FlatStyle.Popup;
             mainPanel.Controls.Add(last);
             last.MouseClick += new MouseEventHandler(last_MouseClick);
-           
+
 
             Button next = new Button();
             next.Width = (int)(this.Width);
             next.Height = (btnHeight / 2);
-            next.Location = new Point(0, this.Height-next.Height);
+            next.Location = new Point(0, this.Height - next.Height);
             next.BackgroundImage = Properties.Resources.cpt_btn;
             next.BackgroundImageLayout = ImageLayout.Stretch;
             next.FlatStyle = FlatStyle.Popup;
@@ -91,40 +91,14 @@ namespace OESserver.UControl
                     else
                     {
                         break;
-                        
+
                     }
                 }
 
 
             }
-            //else
-            //{
-            //    for (int i = 0; i < count; i++)
-            //    {
-            //        Label temp1 = new Label();
-            //        temp1.Location = new Point(0, 0);
-
-            //        temp1.Text = chpt_name[i];
-            //        temp1.AutoSize = true;
-            //        temp1.ForeColor = Color.White;
-            //        temp1.BackColor = Color.Transparent;
-            //        temp1.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
-
-
-            //        Button temp = new Button();
-            //        temp.Width = (int)(this.Width);
-            //        temp.Height = btnHeight;
-            //        temp.Location = new Point(0, (int)(btnHeight * (i+0.5)));
-            //        temp.BackgroundImage = Properties.Resources.cpt_btn;
-            //        temp.BackgroundImageLayout = ImageLayout.Stretch;
-            //        mainPanel.Controls.Add(temp);
-            //        subPanel.Add(temp);
-            //        subPanelStatus.Add(0);
-            //        temp.FlatStyle = FlatStyle.Popup;
-            //        temp.Controls.Add(temp1);
-            //    }
-            //    next.Enabled = true;
-            //}
+             next.Enabled = true;
+            
         }
 
         void next_MouseClick(object sender, MouseEventArgs e)
@@ -170,6 +144,84 @@ namespace OESserver.UControl
                     subPanel[i].Controls[0].Text = "";
                 }
             }
+        }
+
+        private void ChptList_Resize(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            mainPanel = new Panel();
+            mainPanel.Height = this.Height;
+            mainPanel.Width = this.Width;
+            this.Controls.Add(mainPanel);
+            btnHeight = this.Height / (count + 1);
+            totalpage = (int)((chpt_num / count) + 1);
+
+            //list赋初值
+            for (int i = 0; i < 23; i++)
+            {
+                chpt_name.Add((i + 1).ToString());
+            }
+
+            Button last = new Button();
+            last.Width = (int)(this.Width);
+            last.Height = (btnHeight / 2);
+            last.Location = new Point(0, 0);
+            last.BackgroundImage = Properties.Resources.cpt_btn;
+            last.BackgroundImageLayout = ImageLayout.Stretch;
+            last.FlatStyle = FlatStyle.Popup;
+            mainPanel.Controls.Add(last);
+            last.MouseClick += new MouseEventHandler(last_MouseClick);
+
+
+            Button next = new Button();
+            next.Width = (int)(this.Width);
+            next.Height = (btnHeight / 2);
+            next.Location = new Point(0, this.Height - next.Height);
+            next.BackgroundImage = Properties.Resources.cpt_btn;
+            next.BackgroundImageLayout = ImageLayout.Stretch;
+            next.FlatStyle = FlatStyle.Popup;
+            mainPanel.Controls.Add(next);
+            next.MouseClick += new MouseEventHandler(next_MouseClick);
+
+            //判断动态生成章节列表
+            if (chpt_num > 0)
+            {
+                for (int i = 0; i < chpt_num; i++)
+                {
+                    if (i < count)
+                    {
+                        Label temp1 = new Label();
+                        temp1.Location = new Point(0, 0);
+
+                        temp1.Text = chpt_name[i];
+                        temp1.AutoSize = true;
+                        temp1.ForeColor = Color.White;
+                        temp1.BackColor = Color.Transparent;
+                        temp1.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+
+
+                        Button temp = new Button();
+                        temp.Width = (int)(this.Width);
+                        temp.Height = btnHeight;
+                        temp.Location = new Point(0, (int)(btnHeight * (i + 0.5)));
+                        temp.BackgroundImage = Properties.Resources.cpt_btn;
+                        temp.BackgroundImageLayout = ImageLayout.Stretch;
+                        mainPanel.Controls.Add(temp);
+                        subPanel.Add(temp);
+                        subPanelStatus.Add(0);
+                        temp.FlatStyle = FlatStyle.Popup;
+                        temp.Controls.Add(temp1);
+                    }
+                    else
+                    {
+                        break;
+
+                    }
+                }
+
+
+            }
+           
         }
     }
 }
