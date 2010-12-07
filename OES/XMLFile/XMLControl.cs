@@ -66,6 +66,10 @@ namespace OES.XMLFile
                     {
                         return logXML.FindLogAns(pt, proId); 
                     }
+                case ProblemType.Start:
+                    {
+                        return logXML.TotleLogSecond().ToString();
+                    }
             }
             return "";
         }

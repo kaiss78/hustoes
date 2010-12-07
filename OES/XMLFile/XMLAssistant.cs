@@ -233,6 +233,23 @@ namespace OES.XMLFile
             }
             return temp;
         }
+        public int TotleLogSecond()
+        {
+            string per="00:00:00";
+            string now="00:00:00";
+            int second = 0; 
+            foreach (XmlNode xn in xd.ChildNodes.Item(1).ChildNodes)
+            {
+                if (xn.Attributes[1].Value == ProblemType.Start.ToString())
+                {
+                    second += (Convert.ToDateTime(per) - Convert.ToDateTime(now)).Seconds;
+                    now = xn.Attributes[0].Value;
+                }
+                per = xn.Attributes[0].Value;
+            }
+            return second;
+        }
+
         public void AddPaper(ProblemType pt, Pid_Score ps)
         {
             XmlNode xn;
@@ -426,6 +443,16 @@ namespace OES.XMLFile
                         xmlelem.AppendChild(xmlelem1);
                         break;
                     }
+                case ProblemType.Start:
+                    {
+                        xmlelem1 = xd.CreateElement("ProblemID");
+                        xmlelem1.AppendChild(xd.CreateTextNode(pa.id.ToString()));
+                        xmlelem.AppendChild(xmlelem1);
+                        xmlelem1 = xd.CreateElement("StudentAns");
+                        xmlelem1.AppendChild(xd.CreateTextNode(pa.ans));
+                        xmlelem.AppendChild(xmlelem1);
+                        break;
+                    }
                 default:
                     {
                         break;
@@ -454,7 +481,8 @@ namespace OES.XMLFile
         PowerPoint,
         ProgramCompletion,
         ProgramModification,
-        ProgramFun
+        ProgramFun,
+        Start
     }
     class Pid_Ans
     {
