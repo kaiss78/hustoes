@@ -157,10 +157,10 @@ namespace OESserver.UControl
             totalpage = (int)((chpt_num / count) + 1);
 
             //list赋初值
-            for (int i = 0; i < 23; i++)
-            {
-                chpt_name.Add((i + 1).ToString());
-            }
+            //for (int i = 0; i < 23; i++)
+            //{
+            //    chpt_name.Add((i + 1).ToString());
+            //}
 
             Button last = new Button();
             last.Width = (int)(this.Width);
