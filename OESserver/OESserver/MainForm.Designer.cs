@@ -33,6 +33,7 @@
             this.xpPanel3 = new UIComponents.XPPanel(100);
             this.xpPanel2 = new UIComponents.XPPanel(100);
             this.xpPanel1 = new UIComponents.XPPanel(191);
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.SuspendLayout();
@@ -117,6 +118,7 @@
             this.xpPanel1.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel1.ImageItems.ImageSet = null;
             this.xpPanel1.Location = new System.Drawing.Point(8, 8);
+            this.xpPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.xpPanel1.Name = "xpPanel1";
             this.xpPanel1.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanel1.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
@@ -128,15 +130,24 @@
             this.xpPanel1.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel1.VertAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(200, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(742, 666);
+            this.panel1.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 666);
+            this.ClientSize = new System.Drawing.Size(942, 666);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.xpPanelGroup1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(900, 700);
-            this.MinimumSize = new System.Drawing.Size(900, 700);
+            this.MaximumSize = new System.Drawing.Size(950, 700);
+            this.MinimumSize = new System.Drawing.Size(950, 700);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OES服务端";
@@ -152,6 +163,7 @@
         private UIComponents.XPPanel xpPanel3;
         private UIComponents.XPPanel xpPanel2;
         private UIComponents.XPPanel xpPanel1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

@@ -82,6 +82,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\PaperInfo.resx">
+      <DependentUpon>PaperInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -101,9 +104,12 @@
     <Compile Include="UControl\ChptList.Designer.cs">
       <DependentUpon>ChptList.cs</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UPanel\" />
+    <Compile Include="UPanel\PaperInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\PaperInfo.Designer.cs">
+      <DependentUpon>PaperInfo.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
