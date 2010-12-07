@@ -56,5 +56,10 @@ namespace OESserver.UPanel
         {
 
         }
+
+        private void textBox20_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
