@@ -13,17 +13,26 @@ namespace OES
 {
     public partial class ExamForm : Form
     {
-        Form loginForm;
         Config config;
-        public ExamForm(Form login)
+        public ExamForm()
         {
             InitializeComponent();
-            this.loginForm = login;
+        }
+
+        private void Start_Click(object sender, EventArgs e)
+        {
+            ClientControl.isResume = false;
+            ClientControl.ControlBar.Show();
+            this.Hide();
+        }
+
+        private void ExamForm_Load(object sender, EventArgs e)
+        {
             this.ExamNo.Text = Student.examID;
             this.SName.Text = Student.sName;
-            this.ID.Text = Student.ID;            
-            config = new Config(System.Environment.CurrentDirectory+@"\config.ini");
-            Config.stuPath = Config.stuPath + Student.examID+@"\";
+            this.ID.Text = Student.ID;
+            config = new Config(System.Environment.CurrentDirectory + @"\config.ini");
+            Config.stuPath = Config.stuPath + Student.examID + @"\";
             Config.paperPath = Config.paperPath + Paper.pName + @"\";
 
             if (!File.Exists(Config.paperPath))
@@ -37,34 +46,24 @@ namespace OES
             }
         }
 
-        private void Start_Click(object sender, EventArgs e)
-        {
-            ClientControl.isResume = false;
-            ControlBar controlBar = new ControlBar(this);
-            controlBar.Show();
-            this.Hide();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-            loginForm.Show();
-            this.Dispose();
-        }
-
-        private void button_resume_Click(object sender, EventArgs e)
+        private void Resume_Click(object sender, EventArgs e)
         {
             ClientControl.isResume = true;
-            ControlBar controlBar = new ControlBar(this);
             try
             {
-                controlBar.Show();
+                ClientControl.ControlBar.Show();
                 this.Hide();
             }
             catch
-            { 
+            {
 
             }
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            ClientControl.LoginForm.Show();
+            this.Hide();
         }
 
     }

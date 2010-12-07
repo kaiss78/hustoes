@@ -50,7 +50,6 @@ namespace OES
         public MainForm()
         {
             InitializeComponent();
-            ReadTxt.ReadPaper(Config.paperPath, this);
             //this.FormBorderStyle = FormBorderStyle.None;
         }
 
@@ -137,13 +136,7 @@ namespace OES
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            /**ReadTxt.ReadChoice(@"OESTEST\Paper\");
-            ReadTxt.ReadCompletion(@"OESTEST\Paper\");
-            ReadTxt.ReadJudge(@"OESTEST\Paper\");
-            ReadTxt.ReadPCompletion(@"OESTEST\Paper\");
-            ReadTxt.ReadPModif(@"OESTEST\Paper\");
-            ReadTxt.ReadPFunction(@"OESTEST\Paper\");*/
-
+            ReadTxt.ReadPaper(Config.paperPath, this);
             
             //这里初始化右边的问题列表
             //构造函数里面的值是列表的题目数量

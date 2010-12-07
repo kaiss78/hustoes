@@ -11,6 +11,47 @@ namespace OES
         static public Paper paper= new Paper();
         private static int currentProblemNum = 0;
         public static Boolean isResume = false;
+
+        #region 窗体逻辑控制
+        private static LoginForm loginForm = null;
+
+        public static LoginForm LoginForm
+        {
+            get { return ClientControl.loginForm; }
+            set { ClientControl.loginForm = value; }
+        }
+
+        private static ExamForm examForm = null;
+
+        public static ExamForm ExamForm
+        {
+            get { return ClientControl.examForm; }
+            set { ClientControl.examForm = value; }
+        }
+        private static ControlBar controlBar = null;
+
+        public static ControlBar ControlBar
+        {
+            get { return ClientControl.controlBar; }
+            set { ClientControl.controlBar = value; }
+        }
+        private static MainForm mainForm = null;
+
+        public static MainForm MainForm
+        {
+            get { return ClientControl.mainForm; }
+            set { ClientControl.mainForm = value; }
+        }
+        private static WaitingForm waitingForm = null;
+
+        public static WaitingForm WaitingForm
+        {
+            get { return ClientControl.waitingForm; }
+            set { ClientControl.waitingForm = value; }
+        }
+
+        #endregion
+
         /// <summary>
         /// 当前题目号属性，可以自动进行列表状态切换
         /// </summary>

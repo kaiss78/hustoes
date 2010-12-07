@@ -13,36 +13,13 @@ namespace OES
 {
     public partial class ControlBar : Form
     {
-
-        /**初始化试题界面*/
-        MainForm mainForm = new MainForm();
-        Form parents;
         /**开始时间的设置*/
         int seconds = 0;
         int minute = 90;
         /**打开控制条*/
-        public ControlBar(Form  par)
-        {            
+        public ControlBar()
+        {
             InitializeComponent();
-            if (!ClientControl.isResume)
-            {
-                //初始化日志文件
-                XMLControl.CreateLogXML();
-            }
-            else
-            {
-                try
-                {
-                    XMLControl.LoadLogXML();
-                    ClientControl.paper.Resume();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                    this.Close();
-                }
-            }
-            parents = par;                        
         }
 
         /* [DllImport("user32.dll", EntryPoint = "FindWindowA")]
@@ -52,15 +29,37 @@ namespace OES
          IntPtr hTray = Form1.FindWindowA("Shell_TrayWnd",String.Empty);
          * 获取状态栏的，如果想只显示当前窗口，可以把整个状态栏隐藏
          */
-           private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
+            if (!ClientControl.isResume)
+            {
+                //初始化日志文件
+                XMLControl.CreateLogXML();
+                timer1.Start();
+            }
+            else
+            {
+                try
+                {
+                    XMLControl.LoadLogXML();
+                    ClientControl.paper.Resume();
+                    //恢复考试，考试时间恢复！！！！！
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                    this.Close();
+                }
+            }
             /*界面初始位置，如果想做得更用通用性，先获取当前显示屏的分便率，然后设置相应变量,*/
             Rectangle rect = new Rectangle();
             rect = Screen.GetWorkingArea(this);
             this.SetDesktopLocation((rect.Width - 530) / 2, 0);//这里的530如果是当前FORM实例的长度就更好了
             /**显示试题窗口的初始位置*/
-            mainForm.Visible = true;
-            mainForm.SetDesktopLocation((rect.Width - 530) /5, rect.Height/9);
+            ClientControl.MainForm.Visible = true;
+            ClientControl.MainForm.SetDesktopLocation((rect.Width - 530) / 5, rect.Height / 9);
             /**去掉整个屏幕的状态栏*/
             // ShowWindow(hTray,1);
 
@@ -75,14 +74,14 @@ namespace OES
         /**显示隐藏试题按钮*/
         private void button1_Click(object sender, EventArgs e)
         {
-            if (mainForm.Visible)
+            if (ClientControl.MainForm.Visible)
             {
-                mainForm.Visible = false;
+                ClientControl.MainForm.Visible = false;
                 butHideMF.Text = "显示试题";
             }
             else
             {
-                mainForm.Visible = true;
+                ClientControl.MainForm.Visible = true;
                 butHideMF.Text = "  隐藏试题";
             }
 
@@ -90,7 +89,7 @@ namespace OES
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if ( seconds > 0)
+            if (seconds > 0)
             { seconds--; }
             else
             {
@@ -110,7 +109,7 @@ namespace OES
                     MessageBox.Show("考试时间已到！！\n\r 系统退出考试");
                     /*222222*/
                     /**这里要调用交卷的事件*/
-
+                    butHandIn_Click(null, null);
                 }
             }
             if (minute >= 10 && seconds < 10)
@@ -129,10 +128,11 @@ namespace OES
 
         private void butHandIn_Click(object sender, EventArgs e)
         {
-            
-            parents.Show();
-            mainForm .Dispose();
-            this.Dispose();
+            ClientControl.WaitingForm.Show();
+            //ClientControl.MainForm.Dispose();
+            //this.Dispose();
+            ClientControl.MainForm.Hide();
+            this.Hide();
         }
 
     }
