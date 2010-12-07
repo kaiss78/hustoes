@@ -18,6 +18,9 @@ namespace OES.UControl
 {
     public partial class CustomExcel : UserControl
     {
+        [DllImport("user32", EntryPoint = "HideCaret")]
+        private static extern bool HideCaret(IntPtr hWnd);
+
         /*负责解压文件的类*/
         private clsWinrar winRar;
         private int row_s, cell_s, row_e, cell_e;
@@ -319,6 +322,16 @@ namespace OES.UControl
             row_e = end_i;
             cell_e = end_j;
             r_answer = ws_answer.get_Range(ws_answer.Cells[begin_i, begin_j], ws_answer.Cells[end_i, end_j]);
+        }
+
+
+        private void Hide_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideCaret(((RichTextBox)sender).Handle);
+        }
+        private void Hide1_MouseDown(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
