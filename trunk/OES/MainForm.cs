@@ -14,7 +14,6 @@ namespace OES
 {
     public partial class MainForm : Form
     {
-        static public MainForm mf;
 
         static public bool wordExists = false;
         static public bool pptExists = false;
@@ -136,8 +135,8 @@ namespace OES
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ReadTxt.ReadPaper(Config.paperPath, this);
-            
+          
+
             //这里初始化右边的问题列表
             //构造函数里面的值是列表的题目数量
             problemsList = new ProblemsList(ClientControl.paper.problemList.Count);
@@ -146,9 +145,6 @@ namespace OES
             problemsList.OnChoose += new EventHandler(problemsList_OnChoose);
 
             //this.addChoicePage();
-                        
-            //将主窗体自身的实例赋值给自己的一个静态变量，可供其他地方使用
-            mf = this;
 
             tabControl.SelectedIndexChanged += new EventHandler(tabControl_SelectedIndexChanged);
         }

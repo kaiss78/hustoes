@@ -15,6 +15,9 @@ namespace OES.Error
                 case ErrorType.LoginNoPersonError:
                     MessageBox.Show(ErrorTable.LoginNoPersonError);
                     break;
+                case ErrorType.RARNotExist:
+                    MessageBox.Show(ErrorTable.RARNotExist);
+                    break;
             }
         }
     }

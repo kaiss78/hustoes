@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OES.Model;
+using OES.Error;
 
 namespace OES
 {   
     class ClientControl
-    {        
-        static public Paper paper= new Paper();
+    {
+        static public Student student;
+        static public Paper paper=new Paper();
         private static int currentProblemNum = 0;
         public static Boolean isResume = false;
 
@@ -17,7 +19,11 @@ namespace OES
 
         public static LoginForm LoginForm
         {
-            get { return ClientControl.loginForm; }
+            get 
+            {
+                if (loginForm == null) { LoginForm = new LoginForm(); }
+                return ClientControl.loginForm; 
+            }
             set { ClientControl.loginForm = value; }
         }
 
@@ -25,28 +31,45 @@ namespace OES
 
         public static ExamForm ExamForm
         {
-            get { return ClientControl.examForm; }
+            get
+            {
+
+                if (examForm == null) { ExamForm = new ExamForm(); }
+                return ClientControl.examForm; 
+            }
             set { ClientControl.examForm = value; }
         }
         private static ControlBar controlBar = null;
 
         public static ControlBar ControlBar
         {
-            get { return ClientControl.controlBar; }
+            get 
+            {
+                if (controlBar == null) { ControlBar = new ControlBar(); }
+                return ClientControl.controlBar; 
+            }
             set { ClientControl.controlBar = value; }
         }
         private static MainForm mainForm = null;
 
         public static MainForm MainForm
         {
-            get { return ClientControl.mainForm; }
+            get 
+            {
+                if (mainForm == null) { MainForm = new MainForm(); }
+                return ClientControl.mainForm; 
+            }
             set { ClientControl.mainForm = value; }
         }
         private static WaitingForm waitingForm = null;
 
         public static WaitingForm WaitingForm
         {
-            get { return ClientControl.waitingForm; }
+            get 
+            {
+                if (waitingForm == null) { WaitingForm = new WaitingForm(); }   
+                return ClientControl.waitingForm; 
+            }
             set { ClientControl.waitingForm = value; }
         }
 
@@ -62,7 +85,7 @@ namespace OES
                 currentProblemNum = value;
                 MainForm.problemsList.setDoing(value);
                 //调回主界面进行界面切换
-                MainForm.mf.JumpPro(paper.problemList[currentProblemNum].type, paper.problemList[currentProblemNum].orderId);
+                ClientControl.MainForm.JumpPro(paper.problemList[currentProblemNum].type, paper.problemList[currentProblemNum].orderId);
             }
             get
             {
@@ -104,6 +127,18 @@ namespace OES
         internal static void JumpToPro(int p)
         {
             CurrentProblemNum = p;
+        }
+
+        public static void SendInPaper()
+        {
+            if (RARHelper.Exists())
+            {
+                RARHelper.CompressRAR(Config.stuPath, student.ID+".rar", Config.stuPath);
+            }
+            else
+            {
+                ErrorControl.ShowError(ErrorType.RARNotExist);
+            }
         }
     }
 }

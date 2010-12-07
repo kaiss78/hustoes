@@ -31,6 +31,7 @@ namespace OES
          */
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             if (!ClientControl.isResume)
             {
                 //初始化日志文件
@@ -58,7 +59,7 @@ namespace OES
             rect = Screen.GetWorkingArea(this);
             this.SetDesktopLocation((rect.Width - 530) / 2, 0);//这里的530如果是当前FORM实例的长度就更好了
             /**显示试题窗口的初始位置*/
-            ClientControl.MainForm.Visible = true;
+            ClientControl.MainForm.Show();
             ClientControl.MainForm.SetDesktopLocation((rect.Width - 530) / 5, rect.Height / 9);
             /**去掉整个屏幕的状态栏*/
             // ShowWindow(hTray,1);
@@ -129,10 +130,18 @@ namespace OES
         private void butHandIn_Click(object sender, EventArgs e)
         {
             ClientControl.WaitingForm.Show();
+            ClientControl.SendInPaper();
             //ClientControl.MainForm.Dispose();
             //this.Dispose();
-            ClientControl.MainForm.Hide();
-            this.Hide();
+
+            //提交试题，压缩rar
+            //
+
+            ClientControl.MainForm.Dispose();
+            this.Dispose();
+            ClientControl.MainForm = null;
+            ClientControl.ControlBar = null;
+            
         }
 
     }

@@ -5,12 +5,12 @@ using System.Text;
 
 namespace OES.Model
 {
-    class Student
+    public class Student
     {
-        public static string sName;
-        public static string ID;
-        public static string examID;
-        public static string password;
+        public string sName;
+        public string ID;
+        public string examID;
+        public string password;
         public Student(string name,string examid,string id,string pword)
         {
             sName = name;

@@ -20,7 +20,8 @@ namespace OES
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Dispose();
+            ClientControl.WaitingForm = null;
             ClientControl.LoginForm.Show();
             timer1.Stop();
         }
