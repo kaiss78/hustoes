@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using OESserver.UPanel;
+using OESserver.UControl;
 
-namespace OESserver
+namespace OESserver.UPanel
 {
-    public partial class MainForm : Form
+    public partial class ProMan : UserControl
     {
-        public MainForm()
+        public ProMan()
         {
             InitializeComponent();
-
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
+            ChptList aChptList = new ChptList();
+            aChptList.Location = new Point(0, 0);
 
         }
     }

@@ -85,6 +85,9 @@
     <EmbeddedResource Include="UPanel\PaperInfo.resx">
       <DependentUpon>PaperInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ProMan.resx">
+      <DependentUpon>ProMan.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -104,11 +107,23 @@
     <Compile Include="UControl\ChptList.Designer.cs">
       <DependentUpon>ChptList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UControl\ProList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ProList.Designer.cs">
+      <DependentUpon>ProList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UPanel\PaperInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UPanel\PaperInfo.Designer.cs">
       <DependentUpon>PaperInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\ProMan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ProMan.Designer.cs">
+      <DependentUpon>ProMan.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

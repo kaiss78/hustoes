@@ -151,6 +151,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OES服务端";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).EndInit();
             this.xpPanelGroup1.ResumeLayout(false);
             this.ResumeLayout(false);
