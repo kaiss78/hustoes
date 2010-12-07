@@ -15,8 +15,10 @@ namespace OESserver
         public MainForm()
         {
             InitializeComponent();
-            ProMan aProMan = new ProMan();
-            MainPanel.Controls.Add(aProMan);
+        }
+
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
