@@ -34,14 +34,13 @@
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.panelProList = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 544);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(892, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(884, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -66,38 +65,30 @@
             // tabControl
             // 
             this.tabControl.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl.Location = new System.Drawing.Point(2, 26);
+            this.tabControl.Location = new System.Drawing.Point(2, 4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(790, 518);
+            this.tabControl.Size = new System.Drawing.Size(790, 540);
             this.tabControl.TabIndex = 1;
             // 
             // panelProList
             // 
-            this.panelProList.Location = new System.Drawing.Point(799, 27);
+            this.panelProList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelProList.Location = new System.Drawing.Point(799, 4);
             this.panelProList.Name = "panelProList";
-            this.panelProList.Size = new System.Drawing.Size(85, 514);
+            this.panelProList.Size = new System.Drawing.Size(85, 533);
             this.panelProList.TabIndex = 3;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(892, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 566);
+            this.ClientSize = new System.Drawing.Size(884, 562);
             this.ControlBox = false;
             this.Controls.Add(this.panelProList);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl);
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(900, 600);
             this.MinimumSize = new System.Drawing.Size(900, 600);
@@ -117,8 +108,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.Panel panelProList;
-        private System.Windows.Forms.MenuStrip menuStrip1;        
+        private System.Windows.Forms.Panel panelProList;        
 
     }
 }
