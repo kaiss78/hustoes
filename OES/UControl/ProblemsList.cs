@@ -58,10 +58,25 @@ namespace OES.UControl
                 //temp.MouseHover += new EventHandler(temp_MouseHover);
                 temp.MouseClick += new MouseEventHandler(temp_MouseClick);
                 temp1.MouseClick+=new MouseEventHandler(temp_MouseClick);
+                temp.MouseWheel += new MouseEventHandler(temp_MouseWheel);
+                temp1.MouseWheel+=new MouseEventHandler(temp_MouseWheel);
                 temp.Controls.Add(temp1);
+                //this.MouseWheel+=new MouseEventHandler(temp_MouseWheel);
                
             }
             this.Refresh();
+        }
+
+        void temp_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0 && mainPanel.Location.Y < panelUp.Height)
+            {
+                mainPanel.Location = new Point(mainPanel.Location.X, (mainPanel.Location.Y + e.Delta) > panelUp.Height ? panelUp.Height : mainPanel.Location.Y + e.Delta);
+            }
+            else if (e.Delta < 0 && mainPanel.Location.Y > -mainPanel.Height + this.Height - panelDown.Height)
+            {
+                mainPanel.Location = new Point(mainPanel.Location.X, mainPanel.Location.Y + e.Delta < -mainPanel.Height + this.Height - panelDown.Height ? -mainPanel.Height + this.Height - panelDown.Height : mainPanel.Location.Y + e.Delta);
+            }
         }
         public event EventHandler OnChoose;
         void temp_MouseClick(object sender, MouseEventArgs e)
@@ -72,7 +87,7 @@ namespace OES.UControl
                 {
                     subPanelStatus[i] = 0;
                 }
-                if (subPanel[i].Equals(sender))
+                if (subPanel[i].Equals(sender) || subPanel[i].Controls[0].Equals(sender))
                 {
                     if (subPanelStatus[i] != 1)
                     {
