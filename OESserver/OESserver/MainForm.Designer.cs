@@ -35,8 +35,10 @@
             this.xpPanel1 = new UIComponents.XPPanel(191);
             this.MainPanel = new System.Windows.Forms.Panel();
             this.paperInfo1 = new OESserver.UPanel.PaperInfo();
+            this.paperInfo2 = new OESserver.UPanel.PaperInfo();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // xpPanelGroup1
@@ -133,6 +135,7 @@
             // 
             // MainPanel
             // 
+            this.MainPanel.Controls.Add(this.paperInfo2);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(200, 0);
             this.MainPanel.Name = "MainPanel";
@@ -147,6 +150,14 @@
             this.paperInfo1.Name = "paperInfo1";
             this.paperInfo1.Size = new System.Drawing.Size(742, 666);
             this.paperInfo1.TabIndex = 0;
+            // 
+            // paperInfo2
+            // 
+            this.paperInfo2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.paperInfo2.Location = new System.Drawing.Point(0, 0);
+            this.paperInfo2.Name = "paperInfo2";
+            this.paperInfo2.Size = new System.Drawing.Size(742, 666);
+            this.paperInfo2.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -163,6 +174,7 @@
             this.Text = "OES服务端";
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).EndInit();
             this.xpPanelGroup1.ResumeLayout(false);
+            this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -175,6 +187,7 @@
         private UIComponents.XPPanel xpPanel1;
         private System.Windows.Forms.Panel MainPanel;
         private OESserver.UPanel.PaperInfo paperInfo1;
+        private OESserver.UPanel.PaperInfo paperInfo2;
     }
 }
 
