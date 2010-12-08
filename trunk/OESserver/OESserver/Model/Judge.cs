@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace OES.Model
+﻿namespace OES.Model
 {
-    class Judge:Problem
+    internal class Judge : Problem
     {
         public string ans, stuAns;
+
         public Judge()
         {
             type = "判断题";
         }
+
         public Judge(string p)
         {
             problem = p;

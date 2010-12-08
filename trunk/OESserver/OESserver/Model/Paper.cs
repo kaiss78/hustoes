@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace OES.Model
 {
-    class Paper
+    internal class Paper
     {
         public static string pName = "EXAM001";
         public List<Choice> choice;
         public List<Completion> completion;
         public List<Judge> judge;
-        public OfficeWord officeWord;
-        public OfficePowerPoint officePPT;
         public OfficeExcel officeExcel;
+        public OfficePowerPoint officePPT;
+        public OfficeWord officeWord;
         public PCompletion pCompletion;
-        public PModif pModif;
         public PFunction pFunction;
+        public PModif pModif;
         public List<Problem> problemList;
 
         public Paper()
@@ -37,43 +34,42 @@ namespace OES.Model
         {
             if (p is Choice)
             {
-                choice.Add((Choice)p);
+                choice.Add((Choice) p);
             }
             else if (p is Completion)
             {
-                completion.Add((Completion)p);
+                completion.Add((Completion) p);
             }
             else if (p is Judge)
             {
-                judge.Add((Judge)p);
+                judge.Add((Judge) p);
             }
             else if (p is PCompletion)
             {
-                pCompletion = (PCompletion)p;
+                pCompletion = (PCompletion) p;
             }
             else if (p is PModif)
             {
-                pModif = (PModif)p;
+                pModif = (PModif) p;
             }
             else if (p is PFunction)
             {
-                pFunction = (PFunction)p;
+                pFunction = (PFunction) p;
             }
             else if (p is OfficeExcel)
             {
-                officeExcel = (OfficeExcel)p;
+                officeExcel = (OfficeExcel) p;
             }
             else if (p is OfficePowerPoint)
             {
-                officePPT = (OfficePowerPoint)p;
+                officePPT = (OfficePowerPoint) p;
             }
             else if (p is OfficeWord)
             {
-                officeWord = (OfficeWord)p;
+                officeWord = (OfficeWord) p;
             }
             p.problemId = problemList.Count;
             problemList.Add(p);
-           
         }
     }
 }

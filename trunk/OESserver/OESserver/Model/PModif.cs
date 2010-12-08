@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace OES.Model
+﻿namespace OES.Model
 {
-    class PModif:Problem
+    internal class PModif : Problem
     {
-        public string path, ans1, ans2, ans3;
+        public string ans1, ans2, ans3;
+        public string path;
+
         public PModif()
         {
             type = "程序改错题";
         }
+
         public PModif(string p)
         {
             problem = p;

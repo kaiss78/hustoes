@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace OES.Model
+﻿namespace OES.Model
 {
-    class OfficePowerPoint:Problem
+    internal class OfficePowerPoint : Problem
     {
-        public string rawPath;
         public string ansPath;
+        public string rawPath;
         public string stuAnsPath;
 
         public OfficePowerPoint()
-        {            
+        {
             type = "PowerPoint操作题";
         }
 

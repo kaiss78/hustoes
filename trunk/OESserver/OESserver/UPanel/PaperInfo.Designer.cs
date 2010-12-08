@@ -203,7 +203,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(730, 262);
             this.tableLayoutPanel2.TabIndex = 0;
-            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
+
             // 
             // button12
             // 
@@ -240,7 +240,7 @@
             this.button9.Size = new System.Drawing.Size(34, 41);
             this.button9.TabIndex = 27;
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+
             // 
             // button8
             // 
@@ -268,7 +268,7 @@
             this.button6.Size = new System.Drawing.Size(34, 37);
             this.button6.TabIndex = 24;
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+
             // 
             // button5
             // 
@@ -278,7 +278,6 @@
             this.button5.Size = new System.Drawing.Size(34, 37);
             this.button5.TabIndex = 23;
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label13
             // 
@@ -297,7 +296,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(94, 26);
             this.textBox3.TabIndex = 0;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
@@ -556,7 +554,7 @@
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(94, 26);
             this.textBox14.TabIndex = 0;
-            this.textBox14.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
+
             // 
             // textBox15
             // 
@@ -605,7 +603,7 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(94, 26);
             this.textBox20.TabIndex = 6;
-            this.textBox20.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
+
             // 
             // textBox21
             // 
@@ -810,7 +808,7 @@
             this.PaperName.Name = "PaperName";
             this.PaperName.Size = new System.Drawing.Size(224, 26);
             this.PaperName.TabIndex = 8;
-            this.PaperName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+
             // 
             // textBox2
             // 
@@ -822,7 +820,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(181, 26);
             this.textBox2.TabIndex = 9;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+
             // 
             // tableLayoutPanel3
             // 

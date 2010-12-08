@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace OES.Model
 {
-    class Completion:Problem
+    internal class Completion : Problem
     {
-        public string stuAns;
         public List<string> ans;
+        public string stuAns;
+
         public Completion()
         {
             type = "填空题";
         }
+
         public Completion(string p)
         {
             problem = p;
