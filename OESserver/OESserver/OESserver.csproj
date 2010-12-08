@@ -138,9 +138,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpt_btn.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\cpt_btn.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
