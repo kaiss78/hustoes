@@ -91,9 +91,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.PaperNO = new System.Windows.Forms.Label();
             this.PaperName = new System.Windows.Forms.TextBox();
-            this.Author = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -120,7 +120,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label3, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.PaperNO, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.PaperName, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Author, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 5, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
@@ -290,6 +290,7 @@
             this.ChoiceCount.Name = "ChoiceCount";
             this.ChoiceCount.Size = new System.Drawing.Size(94, 26);
             this.ChoiceCount.TabIndex = 0;
+            this.ChoiceCount.Text = "0";
             // 
             // CompletionCount
             // 
@@ -298,6 +299,7 @@
             this.CompletionCount.Name = "CompletionCount";
             this.CompletionCount.Size = new System.Drawing.Size(94, 26);
             this.CompletionCount.TabIndex = 1;
+            this.CompletionCount.Text = "0";
             // 
             // JudgeCount
             // 
@@ -306,6 +308,7 @@
             this.JudgeCount.Name = "JudgeCount";
             this.JudgeCount.Size = new System.Drawing.Size(94, 26);
             this.JudgeCount.TabIndex = 2;
+            this.JudgeCount.Text = "0";
             // 
             // WordCount
             // 
@@ -314,6 +317,7 @@
             this.WordCount.Name = "WordCount";
             this.WordCount.Size = new System.Drawing.Size(94, 26);
             this.WordCount.TabIndex = 3;
+            this.WordCount.Text = "0";
             // 
             // ExcelCount
             // 
@@ -322,6 +326,7 @@
             this.ExcelCount.Name = "ExcelCount";
             this.ExcelCount.Size = new System.Drawing.Size(94, 26);
             this.ExcelCount.TabIndex = 4;
+            this.ExcelCount.Text = "0";
             // 
             // PPTCount
             // 
@@ -330,6 +335,7 @@
             this.PPTCount.Name = "PPTCount";
             this.PPTCount.Size = new System.Drawing.Size(94, 26);
             this.PPTCount.TabIndex = 5;
+            this.PPTCount.Text = "0";
             // 
             // PCompletionCount
             // 
@@ -338,6 +344,7 @@
             this.PCompletionCount.Name = "PCompletionCount";
             this.PCompletionCount.Size = new System.Drawing.Size(94, 26);
             this.PCompletionCount.TabIndex = 6;
+            this.PCompletionCount.Text = "0";
             // 
             // PModifCount
             // 
@@ -346,6 +353,7 @@
             this.PModifCount.Name = "PModifCount";
             this.PModifCount.Size = new System.Drawing.Size(94, 26);
             this.PModifCount.TabIndex = 7;
+            this.PModifCount.Text = "0";
             // 
             // PFunctionCount
             // 
@@ -354,6 +362,7 @@
             this.PFunctionCount.Name = "PFunctionCount";
             this.PFunctionCount.Size = new System.Drawing.Size(94, 26);
             this.PFunctionCount.TabIndex = 8;
+            this.PFunctionCount.Text = "0";
             // 
             // label5
             // 
@@ -549,6 +558,7 @@
             this.ChoiceWeight.Name = "ChoiceWeight";
             this.ChoiceWeight.Size = new System.Drawing.Size(94, 26);
             this.ChoiceWeight.TabIndex = 0;
+            this.ChoiceWeight.Text = "0";
             // 
             // CompletionWeight
             // 
@@ -557,6 +567,7 @@
             this.CompletionWeight.Name = "CompletionWeight";
             this.CompletionWeight.Size = new System.Drawing.Size(94, 26);
             this.CompletionWeight.TabIndex = 1;
+            this.CompletionWeight.Text = "0";
             // 
             // JudgeWeight
             // 
@@ -565,6 +576,7 @@
             this.JudgeWeight.Name = "JudgeWeight";
             this.JudgeWeight.Size = new System.Drawing.Size(94, 26);
             this.JudgeWeight.TabIndex = 2;
+            this.JudgeWeight.Text = "0";
             // 
             // WordWeight
             // 
@@ -573,6 +585,7 @@
             this.WordWeight.Name = "WordWeight";
             this.WordWeight.Size = new System.Drawing.Size(94, 26);
             this.WordWeight.TabIndex = 3;
+            this.WordWeight.Text = "0";
             // 
             // ExcelWeight
             // 
@@ -581,6 +594,7 @@
             this.ExcelWeight.Name = "ExcelWeight";
             this.ExcelWeight.Size = new System.Drawing.Size(94, 26);
             this.ExcelWeight.TabIndex = 4;
+            this.ExcelWeight.Text = "0";
             // 
             // PPTWeight
             // 
@@ -589,6 +603,7 @@
             this.PPTWeight.Name = "PPTWeight";
             this.PPTWeight.Size = new System.Drawing.Size(94, 26);
             this.PPTWeight.TabIndex = 5;
+            this.PPTWeight.Text = "0";
             // 
             // PCompletionWeight
             // 
@@ -597,6 +612,7 @@
             this.PCompletionWeight.Name = "PCompletionWeight";
             this.PCompletionWeight.Size = new System.Drawing.Size(94, 26);
             this.PCompletionWeight.TabIndex = 6;
+            this.PCompletionWeight.Text = "0";
             // 
             // PModifWeight
             // 
@@ -605,6 +621,7 @@
             this.PModifWeight.Name = "PModifWeight";
             this.PModifWeight.Size = new System.Drawing.Size(94, 26);
             this.PModifWeight.TabIndex = 7;
+            this.PModifWeight.Text = "0";
             // 
             // PFunctionWeight
             // 
@@ -613,6 +630,7 @@
             this.PFunctionWeight.Name = "PFunctionWeight";
             this.PFunctionWeight.Size = new System.Drawing.Size(94, 26);
             this.PFunctionWeight.TabIndex = 8;
+            this.PFunctionWeight.Text = "0";
             // 
             // label17
             // 
@@ -713,6 +731,7 @@
             this.TotalScore.TabIndex = 21;
             this.TotalScore.Text = "总计";
             this.TotalScore.UseVisualStyleBackColor = true;
+            this.TotalScore.Click += new System.EventHandler(this.TotalScore_Click);
             // 
             // label27
             // 
@@ -802,17 +821,6 @@
             this.PaperName.Size = new System.Drawing.Size(224, 26);
             this.PaperName.TabIndex = 8;
             // 
-            // Author
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.Author, 2);
-            this.Author.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Author.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Author.Location = new System.Drawing.Point(558, 8);
-            this.Author.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.Author.Name = "Author";
-            this.Author.Size = new System.Drawing.Size(181, 26);
-            this.Author.TabIndex = 9;
-            // 
             // textBox12
             // 
             this.textBox12.Location = new System.Drawing.Point(-17, 3);
@@ -826,6 +834,17 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(94, 21);
             this.textBox13.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(558, 12);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 12, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "pl";
             // 
             // PaperInfo
             // 
@@ -858,7 +877,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label PaperNO;
         private System.Windows.Forms.TextBox PaperName;
-        private System.Windows.Forms.TextBox Author;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TableLayoutPanel TableLayoutPanel3;
@@ -914,6 +932,7 @@
         private System.Windows.Forms.Button TotalPro;
         private System.Windows.Forms.Button Choice;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label4;
 
     }
 }

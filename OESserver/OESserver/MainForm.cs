@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using OESserver.UPanel;
 
 namespace OESserver
 {
@@ -7,6 +8,9 @@ namespace OESserver
         public MainForm()
         {
             InitializeComponent();
+            PaperInfo paperInfo=new PaperInfo();
+            MainPanel.Controls.Add(paperInfo);
+            paperInfo.Dock = DockStyle.Fill;
         }
     }
 }
