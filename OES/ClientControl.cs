@@ -73,7 +73,18 @@ namespace OES
             set { ClientControl.waitingForm = value; }
         }
 
-        #endregion
+        private static TeaPassForm teaPassForm = null;
+
+        public static TeaPassForm TeaPassForm
+        {
+            get 
+            {
+                if (teaPassForm == null) { TeaPassForm = new TeaPassForm(); }
+                return ClientControl.teaPassForm; 
+            }
+            set { ClientControl.teaPassForm = value; }
+        }
+        #endregion 窗体逻辑控制
 
         /// <summary>
         /// 当前题目号属性，可以自动进行列表状态切换

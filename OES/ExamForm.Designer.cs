@@ -90,6 +90,7 @@
             this.Restart.TabIndex = 3;
             this.Restart.Text = "重新考试";
             this.Restart.UseVisualStyleBackColor = true;
+            this.Restart.Click += new System.EventHandler(this.Restart_Click);
             // 
             // label2
             // 

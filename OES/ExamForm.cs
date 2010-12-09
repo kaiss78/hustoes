@@ -68,5 +68,11 @@ namespace OES
             this.Hide();
         }
 
+        private void Restart_Click(object sender, EventArgs e)
+        {
+            ClientControl.TeaPassForm.Show();
+            this.Hide();
+        }
+
     }
 }
