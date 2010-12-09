@@ -21,76 +21,76 @@ namespace OESserver.UControl
         public ChptList()
         {
             InitializeComponent();
-            mainPanel = new Panel();
-            mainPanel.Height = Height;
-            mainPanel.Width = Width;
-            Controls.Add(mainPanel);
-            btnHeight = Height/(count + 1);
-            totalpage = ((chpt_num/count) + 1);
+            //mainPanel = new Panel();
+            //mainPanel.Height = Height;
+            //mainPanel.Width = Width;
+            //Controls.Add(mainPanel);
+            //btnHeight = Height/(count + 1);
+            //totalpage = ((chpt_num/count) + 1);
 
-            //list赋初值
-            for (int i = 0; i < 23; i++)
-            {
-                chpt_name.Add((i + 1).ToString());
-            }
+            ////list赋初值
+            //for (int i = 0; i < 23; i++)
+            //{
+            //    chpt_name.Add((i + 1).ToString());
+            //}
 
-            var last = new Button();
-            last.Width = (Width);
-            last.Height = (btnHeight/2);
-            last.Location = new Point(0, 0);
-            last.BackgroundImage = Resources.cpt_btn;
-            last.BackgroundImageLayout = ImageLayout.Stretch;
-            last.FlatStyle = FlatStyle.Popup;
-            mainPanel.Controls.Add(last);
-            last.MouseClick += last_MouseClick;
-
-
-            var next = new Button();
-            next.Width = (Width);
-            next.Height = (btnHeight/2);
-            next.Location = new Point(0, Height - next.Height);
-            next.BackgroundImage = Resources.cpt_btn;
-            next.BackgroundImageLayout = ImageLayout.Stretch;
-            next.FlatStyle = FlatStyle.Popup;
-            mainPanel.Controls.Add(next);
-            next.MouseClick += next_MouseClick;
-
-            //判断动态生成章节列表
-            if (chpt_num > 0)
-            {
-                for (int i = 0; i < chpt_num; i++)
-                {
-                    if (i < count)
-                    {
-                        var temp1 = new Label();
-                        temp1.Location = new Point(0, 0);
-
-                        temp1.Text = chpt_name[i];
-                        temp1.AutoSize = true;
-                        temp1.ForeColor = Color.White;
-                        temp1.BackColor = Color.Transparent;
-                        temp1.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            //var last = new Button();
+            //last.Width = (Width);
+            //last.Height = (btnHeight/2);
+            //last.Location = new Point(0, 0);
+            //last.BackgroundImage = Resources.cpt_btn;
+            //last.BackgroundImageLayout = ImageLayout.Stretch;
+            //last.FlatStyle = FlatStyle.Popup;
+            //mainPanel.Controls.Add(last);
+            //last.MouseClick += last_MouseClick;
 
 
-                        var temp = new Button();
-                        temp.Width = (Width);
-                        temp.Height = btnHeight;
-                        temp.Location = new Point(0, (int) (btnHeight*(i + 0.5)));
-                        temp.BackgroundImage = Resources.cpt_btn;
-                        temp.BackgroundImageLayout = ImageLayout.Stretch;
-                        mainPanel.Controls.Add(temp);
-                        subPanel.Add(temp);
-                        subPanelStatus.Add(0);
-                        temp.FlatStyle = FlatStyle.Popup;
-                        temp.Controls.Add(temp1);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-            next.Enabled = true;
+            //var next = new Button();
+            //next.Width = (Width);
+            //next.Height = (btnHeight/2);
+            //next.Location = new Point(0, Height - next.Height);
+            //next.BackgroundImage = Resources.cpt_btn;
+            //next.BackgroundImageLayout = ImageLayout.Stretch;
+            //next.FlatStyle = FlatStyle.Popup;
+            //mainPanel.Controls.Add(next);
+            //next.MouseClick += next_MouseClick;
+
+            ////判断动态生成章节列表
+            //if (chpt_num > 0)
+            //{
+            //    for (int i = 0; i < chpt_num; i++)
+            //    {
+            //        if (i < count)
+            //        {
+            //            var temp1 = new Label();
+            //            temp1.Location = new Point(0, 0);
+
+            //            temp1.Text = chpt_name[i];
+            //            temp1.AutoSize = true;
+            //            temp1.ForeColor = Color.White;
+            //            temp1.BackColor = Color.Transparent;
+            //            temp1.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+
+
+            //            var temp = new Button();
+            //            temp.Width = (Width);
+            //            temp.Height = btnHeight;
+            //            temp.Location = new Point(0, (int) (btnHeight*(i + 0.5)));
+            //            temp.BackgroundImage = Resources.cpt_btn;
+            //            temp.BackgroundImageLayout = ImageLayout.Stretch;
+            //            mainPanel.Controls.Add(temp);
+            //            subPanel.Add(temp);
+            //            subPanelStatus.Add(0);
+            //            temp.FlatStyle = FlatStyle.Popup;
+            //            temp.Controls.Add(temp1);
+            //        }
+            //        else
+            //        {
+            //            break;
+            //        }
+            //    }
+            //}
+            //next.Enabled = true;
         }
 
         private void next_MouseClick(object sender, MouseEventArgs e)
@@ -144,10 +144,10 @@ namespace OESserver.UControl
             totalpage = ((chpt_num/count) + 1);
 
             //list赋初值
-            //for (int i = 0; i < 23; i++)
-            //{
-            //    chpt_name.Add((i + 1).ToString());
-            //}
+            for (int i = 0; i < 23; i++)
+            {
+                chpt_name.Add((i + 1).ToString());
+            }
 
             var last = new Button();
             last.Width = (Width);
