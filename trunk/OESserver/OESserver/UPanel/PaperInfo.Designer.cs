@@ -454,6 +454,7 @@
             this.TotalPro.TabIndex = 21;
             this.TotalPro.Text = "总计";
             this.TotalPro.UseVisualStyleBackColor = true;
+            this.TotalPro.Click += new System.EventHandler(this.TotalPro_Click);
             // 
             // Choice
             // 
