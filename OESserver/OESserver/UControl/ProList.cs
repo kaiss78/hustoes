@@ -133,10 +133,10 @@ namespace OESserver.UControl
             mainPanel.Width = Width;
             Controls.Add(mainPanel);
             btnHeight = Height/(count + 1);
-            listWidth = (int) (Width*0.90);
+            listWidth = (int) (Width*0.973);
             choWidth = (int) (Width*0.1);
             numWidth = (int) (Width*0.1);
-            proWidth = (int) (Width*0.8);
+            proWidth = (int) (Width*0.773);
             totalpage = ((pro_num/count) + 1);
 
             mainPanel.AutoScroll = true;
@@ -208,7 +208,7 @@ namespace OESserver.UControl
                     templ3.Text = choiceproL[i].chpt;
 
                     var temp = new Button();
-                    temp.Width = (Width);
+                    temp.Width = listWidth;
                     temp.Height = btnHeight;
                     temp.Location = new Point(0, (btnHeight*(i + 1)));
                     temp.BackgroundImage = Resources.cpt_btn;

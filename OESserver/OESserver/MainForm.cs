@@ -8,6 +8,8 @@ namespace OESserver
         public MainForm()
         {
             InitializeComponent();
+            ProMan aProMan = new ProMan();
+            MainPanel.Controls.Add(aProMan);
         }
     }
 }
