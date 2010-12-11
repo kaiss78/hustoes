@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace OESserver.UPanel
 {
-    public partial class PaperInfo : UserControl
+    public partial class PaperInfo : UserPanel
     {
         public PaperInfo()
         {
@@ -12,7 +12,7 @@ namespace OESserver.UPanel
 
         private void TotalPro_Click(object sender, EventArgs e)
         {
-            int count = 0;
+            int count = 0;            
             if (this.ChoiceCount.Enabled)
             {
                 count = Convert.ToInt32(this.ChoiceCount.Text) + count;
@@ -92,6 +92,11 @@ namespace OESserver.UPanel
                 count = Convert.ToInt32(this.PFunctionWeight.Text) + count;
             }
             this.Score.Text = count.ToString() + "分";
+        }
+
+        public void ReLoad()
+        {
+            this.Visible = true;
         }
     }
 }

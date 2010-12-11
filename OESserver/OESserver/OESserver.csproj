@@ -137,6 +137,12 @@
     <Compile Include="UPanel\ProMan.Designer.cs">
       <DependentUpon>ProMan.cs</DependentUpon>
     </Compile>
+    <Compile Include="UPanel\UserPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\UserPanel.Designer.cs">
+      <DependentUpon>UserPanel.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cpt_btn.jpg" />

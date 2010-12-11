@@ -5,11 +5,22 @@ namespace OESserver
 {
     public partial class MainForm : Form
     {
+        public PaperInfo paperInfo;
+        public ProMan proMan;
+        private PanelControl panelControl;
+
         public MainForm()
         {
             InitializeComponent();
-            ProMan aProMan = new ProMan();
-            MainPanel.Controls.Add(aProMan);
+            proMan = new ProMan();                 //题目管理界面
+            paperInfo = new PaperInfo();          //试卷信息界面
+            MainPanel.Controls.Add(proMan);
+            MainPanel.Controls.Add(paperInfo);
+            //ProMan aProMan = new ProMan();
+            //MainPanel.Controls.Add(aProMan);
+
+            panelControl = new PanelControl(this);
+            panelControl.HideAllPanel();
         }
     }
 }
