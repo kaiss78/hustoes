@@ -4,12 +4,12 @@ using OESserver.UControl;
 
 namespace OESserver.UPanel
 {
-    public partial class ProMan : UserControl
+    public partial class ProMan : UserPanel
     {
         private readonly int ClWidth;
         private readonly int PlHeight;
         private readonly int PlWidth;
-        private readonly int BpHeight;
+        private readonly int BpHeight;      
 
         public ProMan()
         {

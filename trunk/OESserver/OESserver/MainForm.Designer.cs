@@ -144,7 +144,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.PMXP.BackColor = System.Drawing.Color.Transparent;
             this.PMXP.Caption = "题目管理";
-            this.PMXP.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.BottomLeft)));
+            this.PMXP.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
             this.PMXP.CaptionGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(247)))));
             this.PMXP.CaptionGradient.Start = System.Drawing.Color.White;
             this.PMXP.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;

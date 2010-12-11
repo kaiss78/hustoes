@@ -91,9 +91,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.PaperNO = new System.Windows.Forms.Label();
             this.PaperName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -821,6 +821,17 @@
             this.PaperName.Size = new System.Drawing.Size(224, 26);
             this.PaperName.TabIndex = 8;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(558, 12);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 12, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(24, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "pl";
+            // 
             // textBox12
             // 
             this.textBox12.Location = new System.Drawing.Point(-17, 3);
@@ -834,17 +845,6 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(94, 21);
             this.textBox13.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(558, 12);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 12, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 16);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "pl";
             // 
             // PaperInfo
             // 

@@ -9,10 +9,34 @@ namespace OESserver
 {
     class PanelControl
     {
-        private List<UserControl> PanelList=new List<UserControl>(15);
-        public PanelControl(Form mf)
+        public const int PanelNumber=15;
+        public List<UserPanel> panelList = new List<UserPanel>(PanelNumber);
+
+        public PanelControl(MainForm mf)
         {
+            for (int i = 0; i < PanelNumber; i++)
+            {
+                panelList.Add(new UserPanel());                
+            }
             
+            panelList[0] = mf.proMan;
+            mf.proMan.PanelID = 0;
+            panelList[11] = mf.paperInfo;
+            mf.paperInfo.PanelID = 11;
+        }
+
+        public void HideAllPanel()
+        {
+            foreach (UserPanel up in panelList)
+            {
+                up.Visible = false;
+            }
+        }
+
+        public void ChangPanel(int x)
+        {
+            HideAllPanel();
+            panelList[x].ReLoad();
         }
     }
 }
