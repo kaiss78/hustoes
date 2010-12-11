@@ -32,11 +32,23 @@
             this.xpPanelGroup1 = new UIComponents.XPPanelGroup();
             this.xpPanel3 = new UIComponents.XPPanel(100);
             this.xpPanel2 = new UIComponents.XPPanel(100);
-            this.xpPanel1 = new UIComponents.XPPanel(191);
+            this.newPapLbl = new System.Windows.Forms.LinkLabel();
+            this.paperManLbl = new System.Windows.Forms.LinkLabel();
+            this.PMXP = new UIComponents.XPPanel(230);
+            this.choiceLbl = new System.Windows.Forms.LinkLabel();
+            this.cfLbl = new System.Windows.Forms.LinkLabel();
+            this.cmLbl = new System.Windows.Forms.LinkLabel();
+            this.ccLbl = new System.Windows.Forms.LinkLabel();
+            this.WordLbl = new System.Windows.Forms.LinkLabel();
+            this.pptLbl = new System.Windows.Forms.LinkLabel();
+            this.exlLbl = new System.Windows.Forms.LinkLabel();
+            this.JudgeLbl = new System.Windows.Forms.LinkLabel();
+            this.completionLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
-            this.MainPanel.SuspendLayout();
+            this.xpPanel2.SuspendLayout();
+            this.PMXP.SuspendLayout();
             this.SuspendLayout();
             // 
             // xpPanelGroup1
@@ -45,7 +57,7 @@
             this.xpPanelGroup1.BackColor = System.Drawing.Color.Transparent;
             this.xpPanelGroup1.Controls.Add(this.xpPanel3);
             this.xpPanelGroup1.Controls.Add(this.xpPanel2);
-            this.xpPanelGroup1.Controls.Add(this.xpPanel1);
+            this.xpPanelGroup1.Controls.Add(this.PMXP);
             this.xpPanelGroup1.Dock = System.Windows.Forms.DockStyle.Left;
             this.xpPanelGroup1.Location = new System.Drawing.Point(0, 0);
             this.xpPanelGroup1.Name = "xpPanelGroup1";
@@ -67,7 +79,7 @@
             this.xpPanel3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel3.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel3.ImageItems.ImageSet = null;
-            this.xpPanel3.Location = new System.Drawing.Point(8, 315);
+            this.xpPanel3.Location = new System.Drawing.Point(8, 354);
             this.xpPanel3.Name = "xpPanel3";
             this.xpPanel3.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanel3.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
@@ -83,16 +95,19 @@
             this.xpPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.xpPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.xpPanel2.Caption = "组卷管理";
             this.xpPanel2.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
             this.xpPanel2.CaptionGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(247)))));
             this.xpPanel2.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel2.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.xpPanel2.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xpPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.xpPanel2.Controls.Add(this.newPapLbl);
+            this.xpPanel2.Controls.Add(this.paperManLbl);
+            this.xpPanel2.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.xpPanel2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xpPanel2.HorzAlignment = System.Drawing.StringAlignment.Near;
+            this.xpPanel2.HorzAlignment = System.Drawing.StringAlignment.Center;
             this.xpPanel2.ImageItems.ImageSet = null;
-            this.xpPanel2.Location = new System.Drawing.Point(8, 207);
+            this.xpPanel2.Location = new System.Drawing.Point(8, 246);
             this.xpPanel2.Name = "xpPanel2";
             this.xpPanel2.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanel2.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
@@ -103,33 +118,152 @@
             this.xpPanel2.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel2.VertAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // xpPanel1
+            // newPapLbl
             // 
-            this.xpPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.newPapLbl.AutoSize = true;
+            this.newPapLbl.Location = new System.Drawing.Point(10, 63);
+            this.newPapLbl.Name = "newPapLbl";
+            this.newPapLbl.Size = new System.Drawing.Size(59, 13);
+            this.newPapLbl.TabIndex = 1;
+            this.newPapLbl.TabStop = true;
+            this.newPapLbl.Text = "新增试卷";
+            // 
+            // paperManLbl
+            // 
+            this.paperManLbl.AutoSize = true;
+            this.paperManLbl.Location = new System.Drawing.Point(10, 39);
+            this.paperManLbl.Name = "paperManLbl";
+            this.paperManLbl.Size = new System.Drawing.Size(59, 13);
+            this.paperManLbl.TabIndex = 0;
+            this.paperManLbl.TabStop = true;
+            this.paperManLbl.Text = "试卷管理";
+            // 
+            // PMXP
+            // 
+            this.PMXP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.xpPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.xpPanel1.Caption = "题目管理";
-            this.xpPanel1.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
-            this.xpPanel1.CaptionGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(247)))));
-            this.xpPanel1.CaptionGradient.Start = System.Drawing.Color.White;
-            this.xpPanel1.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel1.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xpPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.xpPanel1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xpPanel1.HorzAlignment = System.Drawing.StringAlignment.Near;
-            this.xpPanel1.ImageItems.ImageSet = null;
-            this.xpPanel1.Location = new System.Drawing.Point(8, 8);
-            this.xpPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.xpPanel1.Name = "xpPanel1";
-            this.xpPanel1.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
-            this.xpPanel1.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
-            this.xpPanel1.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel1.Size = new System.Drawing.Size(184, 191);
-            this.xpPanel1.TabIndex = 0;
-            this.xpPanel1.Tag = "";
-            this.xpPanel1.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
-            this.xpPanel1.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            this.xpPanel1.VertAlignment = System.Drawing.StringAlignment.Center;
+            this.PMXP.BackColor = System.Drawing.Color.Transparent;
+            this.PMXP.Caption = "题目管理";
+            this.PMXP.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.BottomLeft)));
+            this.PMXP.CaptionGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(247)))));
+            this.PMXP.CaptionGradient.Start = System.Drawing.Color.White;
+            this.PMXP.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.PMXP.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PMXP.Controls.Add(this.choiceLbl);
+            this.PMXP.Controls.Add(this.cfLbl);
+            this.PMXP.Controls.Add(this.cmLbl);
+            this.PMXP.Controls.Add(this.ccLbl);
+            this.PMXP.Controls.Add(this.WordLbl);
+            this.PMXP.Controls.Add(this.pptLbl);
+            this.PMXP.Controls.Add(this.exlLbl);
+            this.PMXP.Controls.Add(this.JudgeLbl);
+            this.PMXP.Controls.Add(this.completionLbl);
+            this.PMXP.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PMXP.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.PMXP.HorzAlignment = System.Drawing.StringAlignment.Center;
+            this.PMXP.ImageItems.ImageSet = null;
+            this.PMXP.Location = new System.Drawing.Point(8, 8);
+            this.PMXP.Margin = new System.Windows.Forms.Padding(2);
+            this.PMXP.Name = "PMXP";
+            this.PMXP.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+            this.PMXP.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
+            this.PMXP.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.PMXP.Size = new System.Drawing.Size(184, 230);
+            this.PMXP.TabIndex = 0;
+            this.PMXP.Tag = "";
+            this.PMXP.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
+            this.PMXP.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.PMXP.VertAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // choiceLbl
+            // 
+            this.choiceLbl.AutoSize = true;
+            this.choiceLbl.Location = new System.Drawing.Point(6, 39);
+            this.choiceLbl.Name = "choiceLbl";
+            this.choiceLbl.Size = new System.Drawing.Size(46, 13);
+            this.choiceLbl.TabIndex = 9;
+            this.choiceLbl.TabStop = true;
+            this.choiceLbl.Text = "选择题";
+            // 
+            // cfLbl
+            // 
+            this.cfLbl.AutoSize = true;
+            this.cfLbl.Location = new System.Drawing.Point(6, 195);
+            this.cfLbl.Name = "cfLbl";
+            this.cfLbl.Size = new System.Drawing.Size(67, 13);
+            this.cfLbl.TabIndex = 8;
+            this.cfLbl.TabStop = true;
+            this.cfLbl.Text = "程序C编程";
+            // 
+            // cmLbl
+            // 
+            this.cmLbl.AutoSize = true;
+            this.cmLbl.Location = new System.Drawing.Point(6, 172);
+            this.cmLbl.Name = "cmLbl";
+            this.cmLbl.Size = new System.Drawing.Size(67, 13);
+            this.cmLbl.TabIndex = 7;
+            this.cmLbl.TabStop = true;
+            this.cmLbl.Text = "程序C改错";
+            // 
+            // ccLbl
+            // 
+            this.ccLbl.AutoSize = true;
+            this.ccLbl.Location = new System.Drawing.Point(6, 153);
+            this.ccLbl.Name = "ccLbl";
+            this.ccLbl.Size = new System.Drawing.Size(67, 13);
+            this.ccLbl.TabIndex = 6;
+            this.ccLbl.TabStop = true;
+            this.ccLbl.Text = "程序C填空";
+            // 
+            // WordLbl
+            // 
+            this.WordLbl.AutoSize = true;
+            this.WordLbl.Location = new System.Drawing.Point(6, 134);
+            this.WordLbl.Name = "WordLbl";
+            this.WordLbl.Size = new System.Drawing.Size(46, 13);
+            this.WordLbl.TabIndex = 5;
+            this.WordLbl.TabStop = true;
+            this.WordLbl.Text = "字处理";
+            // 
+            // pptLbl
+            // 
+            this.pptLbl.AutoSize = true;
+            this.pptLbl.Location = new System.Drawing.Point(6, 115);
+            this.pptLbl.Name = "pptLbl";
+            this.pptLbl.Size = new System.Drawing.Size(59, 13);
+            this.pptLbl.TabIndex = 4;
+            this.pptLbl.TabStop = true;
+            this.pptLbl.Text = "演示文稿";
+            // 
+            // exlLbl
+            // 
+            this.exlLbl.AutoSize = true;
+            this.exlLbl.Location = new System.Drawing.Point(6, 96);
+            this.exlLbl.Name = "exlLbl";
+            this.exlLbl.Size = new System.Drawing.Size(59, 13);
+            this.exlLbl.TabIndex = 3;
+            this.exlLbl.TabStop = true;
+            this.exlLbl.Text = "电子表格";
+            // 
+            // JudgeLbl
+            // 
+            this.JudgeLbl.AutoSize = true;
+            this.JudgeLbl.Location = new System.Drawing.Point(6, 77);
+            this.JudgeLbl.Name = "JudgeLbl";
+            this.JudgeLbl.Size = new System.Drawing.Size(46, 13);
+            this.JudgeLbl.TabIndex = 2;
+            this.JudgeLbl.TabStop = true;
+            this.JudgeLbl.Text = "判断题";
+            // 
+            // completionLbl
+            // 
+            this.completionLbl.AutoSize = true;
+            this.completionLbl.Location = new System.Drawing.Point(6, 58);
+            this.completionLbl.Name = "completionLbl";
+            this.completionLbl.Size = new System.Drawing.Size(46, 13);
+            this.completionLbl.TabIndex = 1;
+            this.completionLbl.TabStop = true;
+            this.completionLbl.Text = "填空题";
             // 
             // MainPanel
             // 
@@ -154,7 +288,10 @@
             this.Text = "OES服务端";
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).EndInit();
             this.xpPanelGroup1.ResumeLayout(false);
-            this.MainPanel.ResumeLayout(false);
+            this.xpPanel2.ResumeLayout(false);
+            this.xpPanel2.PerformLayout();
+            this.PMXP.ResumeLayout(false);
+            this.PMXP.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -164,8 +301,19 @@
         private UIComponents.XPPanelGroup xpPanelGroup1;
         private UIComponents.XPPanel xpPanel3;
         private UIComponents.XPPanel xpPanel2;
-        private UIComponents.XPPanel xpPanel1;
+        private UIComponents.XPPanel PMXP;
         private System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.LinkLabel cfLbl;
+        private System.Windows.Forms.LinkLabel cmLbl;
+        private System.Windows.Forms.LinkLabel ccLbl;
+        private System.Windows.Forms.LinkLabel WordLbl;
+        private System.Windows.Forms.LinkLabel pptLbl;
+        private System.Windows.Forms.LinkLabel exlLbl;
+        private System.Windows.Forms.LinkLabel JudgeLbl;
+        private System.Windows.Forms.LinkLabel completionLbl;
+        private System.Windows.Forms.LinkLabel choiceLbl;
+        private System.Windows.Forms.LinkLabel newPapLbl;
+        private System.Windows.Forms.LinkLabel paperManLbl;
 
     }
 }
