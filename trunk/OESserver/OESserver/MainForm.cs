@@ -8,9 +8,6 @@ namespace OESserver
         public MainForm()
         {
             InitializeComponent();
-            PaperInfo paperInfo=new PaperInfo();
-            MainPanel.Controls.Add(paperInfo);
-            paperInfo.Dock = DockStyle.Fill;
         }
     }
 }
