@@ -91,6 +91,10 @@
       <DependentUpon>ProList.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ChoiceEdit.resx">
+      <DependentUpon>ChoiceEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\PaperInfo.resx">
       <DependentUpon>PaperInfo.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -124,6 +128,12 @@
     </Compile>
     <Compile Include="UControl\ProList.Designer.cs">
       <DependentUpon>ProList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\ChoiceEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ChoiceEdit.Designer.cs">
+      <DependentUpon>ChoiceEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\PaperInfo.cs">
       <SubType>UserControl</SubType>
