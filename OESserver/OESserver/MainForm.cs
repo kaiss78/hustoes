@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using OESserver.UPanel;
 
 namespace OESserver
@@ -21,6 +22,11 @@ namespace OESserver
 
             panelControl = new PanelControl(this);
             panelControl.HideAllPanel();
+        }
+
+        private void Lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            panelControl.ChangPanel(Convert.ToInt32(((LinkLabel)sender).Tag));
         }
     }
 }

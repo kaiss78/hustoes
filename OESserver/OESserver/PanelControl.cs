@@ -21,8 +21,8 @@ namespace OESserver
             
             panelList[0] = mf.proMan;
             mf.proMan.PanelID = 0;
-            panelList[11] = mf.paperInfo;
-            mf.paperInfo.PanelID = 11;
+            panelList[12] = mf.paperInfo;
+            mf.paperInfo.PanelID = 12;            
         }
 
         public void HideAllPanel()
@@ -35,7 +35,7 @@ namespace OESserver
 
         public void ChangPanel(int x)
         {
-            HideAllPanel();
+            HideAllPanel();            
             panelList[x].ReLoad();
         }
     }

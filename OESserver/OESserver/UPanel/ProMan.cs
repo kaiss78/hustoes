@@ -30,5 +30,9 @@ namespace OESserver.UPanel
             bottomPanel.SetBounds(ClWidth, PlHeight, PlWidth, BpHeight);
             this.Controls.Add(bottomPanel);
         }
+        override public void ReLoad()
+        {
+            this.Visible = true;
+        }
     }
 }

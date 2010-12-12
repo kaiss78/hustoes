@@ -16,7 +16,8 @@ namespace OESserver.UPanel
         {
             InitializeComponent();
         }
-        public void ReLoad()
+
+        virtual public void ReLoad()
         {
         }
     }
