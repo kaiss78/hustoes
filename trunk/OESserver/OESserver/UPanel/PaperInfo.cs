@@ -1,102 +1,85 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace OESserver.UPanel
 {
     public partial class PaperInfo : UserPanel
     {
+        public List<TextBox> scoreList = new List<TextBox>(9);
+        public List<TextBox> countList = new List<TextBox>(3);
+        public int [] flag=new int[9];        
+
         public PaperInfo()
         {
             InitializeComponent();
+            
+            countList.Add(ChoiceCount);
+            countList.Add(CompletionCount);
+            countList.Add(JudgeCount);
+
+            scoreList.Add(ChoiceWeight);
+            scoreList.Add(CompletionWeight);
+            scoreList.Add(JudgeWeight);
+            scoreList.Add(WordWeight);
+            scoreList.Add(ExcelWeight);
+            scoreList.Add(PPTWeight);
+            scoreList.Add(PCompletionWeight);
+            scoreList.Add(PModifWeight);
+            scoreList.Add(PFunctionWeight);
+
+            this.ReLoad();
+            this.Visible = false;
         }
 
-        private void TotalPro_Click(object sender, EventArgs e)
+        public int GetTag(Control con)
         {
-            int count = 0;            
-            if (this.ChoiceCount.Enabled)
-            {
-                count = Convert.ToInt32(this.ChoiceCount.Text) + count;
-            }
-            if (this.CompletionCount.Enabled)
-            {
-                count = Convert.ToInt32(this.CompletionCount.Text) + count;
-            }
-            if (this.JudgeCount.Enabled)
-            {
-                count = Convert.ToInt32(this.JudgeCount.Text) + count;
-            }
-            if (this.WordCount.Enabled)
-            {
-                count = 1 + count;
-            }
-            if (this.ExcelCount.Enabled)
-            {
-                count = 1 + count;
-            }
-            if (this.PPTCount.Enabled)
-            {
-                count = 1 + count;
-            }
-            if (this.PCompletionCount.Enabled)
-            {
-                count = 1 + count;
-            }
-            if (this.PModifCount.Enabled)
-            {
-                count = 1 + count;
-            }
-            if (this.PFunctionCount.Enabled)
-            {
-                count = 1 + count;
-            }
-            this.ProCount.Text = count.ToString() + "题";
+            return Convert.ToInt32(con.Tag);
         }
 
-        private void TotalScore_Click(object sender, EventArgs e)
+        private void Count_Click(object sender, EventArgs e)
         {
             int count = 0;
-            if (this.ChoiceWeight.Enabled)
+            int score = 0;
+            for (int i = 0; i < 3; i++)
             {
-                count = Convert.ToInt32(this.ChoiceWeight.Text) * Convert.ToInt32(this.ChoiceCount.Text) + count;
+                count = count + flag[i] * Convert.ToInt32(countList[i].Text);
+                score = score + flag[i] * Convert.ToInt32(countList[i].Text) * Convert.ToInt32(scoreList[i].Text);
             }
-            if (this.CompletionWeight.Enabled)
+            for (int i = 3; i < 9; i++)
             {
-                count = Convert.ToInt32(this.CompletionWeight.Text) * Convert.ToInt32(this.CompletionCount.Text) + count;
+                count = count + flag[i];
+                score = score + flag[i] *Convert.ToInt32(scoreList[i].Text);
             }
-            if (this.JudgeWeight.Enabled)
-            {
-                count = Convert.ToInt32(this.JudgeWeight.Text) * Convert.ToInt32(this.JudgeCount.Text) + count;
-            }
-            if (this.WordWeight.Enabled)
-            {
-                count = Convert.ToInt32(this.WordWeight.Text) + count;
-            }
-            if (this.ExcelWeight.Enabled)
-            {
-                count = Convert.ToInt32(this.ExcelWeight.Text) + count;
-            }
-            if (this.PPTWeight.Enabled)
-            {
-                count = Convert.ToInt32(this.PPTWeight.Text) + count;
-            }
-            if (this.PCompletionWeight.Enabled)
-            {
-                count = Convert.ToInt32(this.PCompletionWeight.Text) + count;
-            }
-            if (this.PModifWeight.Enabled)
-            {
-                count = Convert.ToInt32(this.PModifWeight.Text) + count;
-            }
-            if (this.PFunctionWeight.Enabled)
-            {
-                count = Convert.ToInt32(this.PFunctionWeight.Text) + count;
-            }
-            this.Score.Text = count.ToString() + "分";
+            this.ProCount.Text = count.ToString() + "题";
+            this.Score.Text = score.ToString() + "分";
         }
 
         override public void ReLoad()
         {         
             this.Visible = true;
+            for (int i = 0; i < 9; i++)
+            {
+                flag[i] = 1;
+                scoreList[i].Enabled = true;
+                scoreList[i].Text = "0";
+            }
+            countList[0].Enabled = true;
+            countList[1].Enabled = true;
+            countList[2].Enabled = true;
+        }
+
+        
+
+        private void CountButton_Click(object sender, EventArgs e)
+        {
+            int x = this.GetTag((Control) sender);
+            flag[x] = 1 - flag[x];
+            scoreList[x].Enabled = Convert.ToBoolean(flag[x]);
+            if (x<3)
+            {
+                countList[x].Enabled = Convert.ToBoolean(flag[x]);
+            }
         }
     }
 }
