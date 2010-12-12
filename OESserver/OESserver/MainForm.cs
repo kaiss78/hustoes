@@ -25,7 +25,7 @@ namespace OESserver
         }
 
         private void Lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+        {            
             panelControl.ChangPanel(Convert.ToInt32(((LinkLabel)sender).Tag));
         }
     }
