@@ -121,22 +121,26 @@
             // newPapLbl
             // 
             this.newPapLbl.AutoSize = true;
-            this.newPapLbl.Location = new System.Drawing.Point(10, 63);
+            this.newPapLbl.Location = new System.Drawing.Point(6, 39);
             this.newPapLbl.Name = "newPapLbl";
             this.newPapLbl.Size = new System.Drawing.Size(59, 13);
-            this.newPapLbl.TabIndex = 1;
+            this.newPapLbl.TabIndex = 0;
             this.newPapLbl.TabStop = true;
+            this.newPapLbl.Tag = "12";
             this.newPapLbl.Text = "新增试卷";
+            this.newPapLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // paperManLbl
             // 
             this.paperManLbl.AutoSize = true;
-            this.paperManLbl.Location = new System.Drawing.Point(10, 39);
+            this.paperManLbl.Location = new System.Drawing.Point(6, 58);
             this.paperManLbl.Name = "paperManLbl";
             this.paperManLbl.Size = new System.Drawing.Size(59, 13);
-            this.paperManLbl.TabIndex = 0;
+            this.paperManLbl.TabIndex = 1;
             this.paperManLbl.TabStop = true;
+            this.paperManLbl.Tag = "13";
             this.paperManLbl.Text = "试卷管理";
+            this.paperManLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // PMXP
             // 
@@ -181,9 +185,11 @@
             this.choiceLbl.Location = new System.Drawing.Point(6, 39);
             this.choiceLbl.Name = "choiceLbl";
             this.choiceLbl.Size = new System.Drawing.Size(46, 13);
-            this.choiceLbl.TabIndex = 9;
+            this.choiceLbl.TabIndex = 0;
             this.choiceLbl.TabStop = true;
+            this.choiceLbl.Tag = "0";
             this.choiceLbl.Text = "选择题";
+            this.choiceLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // cfLbl
             // 
@@ -193,7 +199,9 @@
             this.cfLbl.Size = new System.Drawing.Size(67, 13);
             this.cfLbl.TabIndex = 8;
             this.cfLbl.TabStop = true;
+            this.cfLbl.Tag = "8";
             this.cfLbl.Text = "程序C编程";
+            this.cfLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // cmLbl
             // 
@@ -203,7 +211,9 @@
             this.cmLbl.Size = new System.Drawing.Size(67, 13);
             this.cmLbl.TabIndex = 7;
             this.cmLbl.TabStop = true;
+            this.cmLbl.Tag = "7";
             this.cmLbl.Text = "程序C改错";
+            this.cmLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // ccLbl
             // 
@@ -213,7 +223,9 @@
             this.ccLbl.Size = new System.Drawing.Size(67, 13);
             this.ccLbl.TabIndex = 6;
             this.ccLbl.TabStop = true;
+            this.ccLbl.Tag = "6";
             this.ccLbl.Text = "程序C填空";
+            this.ccLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // WordLbl
             // 
@@ -223,7 +235,9 @@
             this.WordLbl.Size = new System.Drawing.Size(46, 13);
             this.WordLbl.TabIndex = 5;
             this.WordLbl.TabStop = true;
+            this.WordLbl.Tag = "5";
             this.WordLbl.Text = "字处理";
+            this.WordLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // pptLbl
             // 
@@ -233,7 +247,9 @@
             this.pptLbl.Size = new System.Drawing.Size(59, 13);
             this.pptLbl.TabIndex = 4;
             this.pptLbl.TabStop = true;
+            this.pptLbl.Tag = "4";
             this.pptLbl.Text = "演示文稿";
+            this.pptLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // exlLbl
             // 
@@ -243,7 +259,9 @@
             this.exlLbl.Size = new System.Drawing.Size(59, 13);
             this.exlLbl.TabIndex = 3;
             this.exlLbl.TabStop = true;
+            this.exlLbl.Tag = "3";
             this.exlLbl.Text = "电子表格";
+            this.exlLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // JudgeLbl
             // 
@@ -253,7 +271,9 @@
             this.JudgeLbl.Size = new System.Drawing.Size(46, 13);
             this.JudgeLbl.TabIndex = 2;
             this.JudgeLbl.TabStop = true;
+            this.JudgeLbl.Tag = "2";
             this.JudgeLbl.Text = "判断题";
+            this.JudgeLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // completionLbl
             // 
@@ -263,7 +283,9 @@
             this.completionLbl.Size = new System.Drawing.Size(46, 13);
             this.completionLbl.TabIndex = 1;
             this.completionLbl.TabStop = true;
+            this.completionLbl.Tag = "1";
             this.completionLbl.Text = "填空题";
+            this.completionLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // MainPanel
             // 

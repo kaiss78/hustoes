@@ -94,8 +94,8 @@ namespace OESserver.UPanel
             this.Score.Text = count.ToString() + "分";
         }
 
-        public void ReLoad()
-        {
+        override public void ReLoad()
+        {         
             this.Visible = true;
         }
     }
