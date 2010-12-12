@@ -34,7 +34,7 @@
             this.xpPanel2 = new UIComponents.XPPanel(100);
             this.newPapLbl = new System.Windows.Forms.LinkLabel();
             this.paperManLbl = new System.Windows.Forms.LinkLabel();
-            this.PMXP = new UIComponents.XPPanel(230);
+            this.PMXP = new UIComponents.XPPanel(309);
             this.choiceLbl = new System.Windows.Forms.LinkLabel();
             this.cfLbl = new System.Windows.Forms.LinkLabel();
             this.cmLbl = new System.Windows.Forms.LinkLabel();
@@ -45,6 +45,9 @@
             this.JudgeLbl = new System.Windows.Forms.LinkLabel();
             this.completionLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel2.SuspendLayout();
@@ -79,7 +82,7 @@
             this.xpPanel3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel3.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel3.ImageItems.ImageSet = null;
-            this.xpPanel3.Location = new System.Drawing.Point(8, 354);
+            this.xpPanel3.Location = new System.Drawing.Point(8, 433);
             this.xpPanel3.Name = "xpPanel3";
             this.xpPanel3.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanel3.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
@@ -107,7 +110,7 @@
             this.xpPanel2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel2.HorzAlignment = System.Drawing.StringAlignment.Center;
             this.xpPanel2.ImageItems.ImageSet = null;
-            this.xpPanel2.Location = new System.Drawing.Point(8, 246);
+            this.xpPanel2.Location = new System.Drawing.Point(8, 325);
             this.xpPanel2.Name = "xpPanel2";
             this.xpPanel2.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.xpPanel2.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
@@ -153,6 +156,9 @@
             this.PMXP.CaptionGradient.Start = System.Drawing.Color.White;
             this.PMXP.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.PMXP.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PMXP.Controls.Add(this.linkLabel3);
+            this.PMXP.Controls.Add(this.linkLabel2);
+            this.PMXP.Controls.Add(this.linkLabel1);
             this.PMXP.Controls.Add(this.choiceLbl);
             this.PMXP.Controls.Add(this.cfLbl);
             this.PMXP.Controls.Add(this.cmLbl);
@@ -172,7 +178,7 @@
             this.PMXP.PanelGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.PMXP.PanelGradient.Start = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(223)))), ((int)(((byte)(247)))));
             this.PMXP.PanelGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.PMXP.Size = new System.Drawing.Size(184, 230);
+            this.PMXP.Size = new System.Drawing.Size(184, 309);
             this.PMXP.TabIndex = 0;
             this.PMXP.Tag = "";
             this.PMXP.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
@@ -194,7 +200,7 @@
             // cfLbl
             // 
             this.cfLbl.AutoSize = true;
-            this.cfLbl.Location = new System.Drawing.Point(6, 195);
+            this.cfLbl.Location = new System.Drawing.Point(6, 194);
             this.cfLbl.Name = "cfLbl";
             this.cfLbl.Size = new System.Drawing.Size(67, 13);
             this.cfLbl.TabIndex = 8;
@@ -295,6 +301,39 @@
             this.MainPanel.Size = new System.Drawing.Size(742, 666);
             this.MainPanel.TabIndex = 1;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(6, 207);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(101, 19);
+            this.linkLabel1.TabIndex = 9;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Tag = "8";
+            this.linkLabel1.Text = "程序C++填空";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(6, 226);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(101, 19);
+            this.linkLabel2.TabIndex = 10;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Tag = "8";
+            this.linkLabel2.Text = "程序C++改错";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(6, 245);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(101, 19);
+            this.linkLabel3.TabIndex = 11;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Tag = "8";
+            this.linkLabel3.Text = "程序C++编程";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -336,6 +375,9 @@
         private System.Windows.Forms.LinkLabel choiceLbl;
         private System.Windows.Forms.LinkLabel newPapLbl;
         private System.Windows.Forms.LinkLabel paperManLbl;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
 
     }
 }
