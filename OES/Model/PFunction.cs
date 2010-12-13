@@ -7,10 +7,17 @@ namespace OES.Model
 {
     class PFunction:Problem
     {
-        public string path, inp1, inp2, inp3, outp1, outp2, outp3;
+        public string path = "";
+        public string inp1 = "";
+        public string inp2 = "";
+        public string inp3 = "";
+        public string outp1 = "";
+        public string outp2 = "";
+        public string outp3 = "";
+        public string stuAnsPath = "";
         public PFunction()
         {
-            type = "程序综合题";
+            type = ProblemType.ProgramFun;
         }
         public PFunction(string p)
         {
@@ -21,7 +28,11 @@ namespace OES.Model
             outp1 = "";
             outp2 = "";
             outp3 = "";
-            type = "程序综合题";
+            type = ProblemType.ProgramFun;
+        }
+        public override string getAns()
+        {
+            return stuAnsPath;
         }
     }
 }

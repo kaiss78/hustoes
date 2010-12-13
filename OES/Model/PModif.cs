@@ -7,10 +7,14 @@ namespace OES.Model
 {
     class PModif:Problem
     {
-        public string path, ans1, ans2, ans3;
+        public string path = "";
+        public string ans1 = "";
+        public string ans2 = "";
+        public string ans3 = "";
+        public string stuAnsPath = "";
         public PModif()
         {
-            type = "程序改错题";
+            type = ProblemType.ProgramModification;
         }
         public PModif(string p)
         {
@@ -18,7 +22,11 @@ namespace OES.Model
             ans1 = "";
             ans2 = "";
             ans3 = "";
-            type = "程序改错题";
+            type = ProblemType.ProgramModification;
+        }
+        public override string getAns()
+        {
+            return stuAnsPath;
         }
     }
 }

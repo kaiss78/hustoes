@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Diagnostics;
+using OES.Model;
 
 namespace OES.XMLFile
 {
@@ -15,6 +16,16 @@ namespace OES.XMLFile
         public static XMLAssistant paperAnsXML;
         public static XMLAssistant logXML;
         public static string rootPath = Config.stuPath;
+
+        public static void CreateStudentAnsXML()
+        {
+            if (File.Exists(rootPath + "studentAns.xml"))
+            {
+                File.Delete(rootPath + "studentAns.xml");
+            }
+            studentAnsXML = new XMLAssistant(rootPath + "studentAns.xml", XMLType.StudentAnswer, new String[] {ClientControl.student.ID});
+        }
+
         public static void CreateLogXML()
         {
             if (File.Exists(rootPath+"log.xml"))

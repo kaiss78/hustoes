@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using OES.XMLFile;
+using OES.Model;
 
 namespace OES
 {
@@ -141,6 +142,14 @@ namespace OES
             ClientControl.SendInPaper();
             //ClientControl.MainForm.Dispose();
             //this.Dispose();
+            
+            //生成考生答案xml
+            XMLControl.CreateStudentAnsXML();
+            foreach(Problem p in ClientControl.paper.problemList)
+            {
+                XMLControl.studentAnsXML.AddPaperAns(p.type,new Pid_Ans(p.problemId,p.getAns()));
+            }
+           // 
 
             //提交试题，压缩rar
             //

@@ -7,17 +7,22 @@ namespace OES.Model
 {
     class Judge:Problem
     {
-        public string ans, stuAns;
+        public string ans = "";
+        public string stuAns = "";
         public Judge()
         {
-            type = "判断题";
+            type = ProblemType.Tof;
         }
         public Judge(string p)
         {
             problem = p;
             stuAns = "";
             ans = "";
-            type = "判断题";
+            type = ProblemType.Tof;
+        }
+        public override string getAns()
+        {
+            return stuAns;
         }
     }
 }

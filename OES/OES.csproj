@@ -239,6 +239,9 @@
     <Compile Include="UControl\ProblemsList.designer.cs">
       <DependentUpon>ProblemsList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UControl\ProblemTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WaitingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +320,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\doing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NetControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

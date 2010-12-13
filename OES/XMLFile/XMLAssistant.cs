@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.IO;
+using OES.Model;
 
 namespace OES.XMLFile
 {
@@ -472,38 +473,5 @@ namespace OES.XMLFile
         Paper,
         Log
     }
-    enum ProblemType
-    {
-        Choice,
-        Completion,
-        Tof,
-        Word,
-        Excel,
-        PowerPoint,
-        ProgramCompletion,
-        ProgramModification,
-        ProgramFun,
-        Start,
-        Blank
-    }
-    class Pid_Ans
-    {
-        public int id;
-        public string ans;
-        public Pid_Ans(int i,string s)
-        {
-            id=i;
-            ans=s;
-        }
-    }
-    class Pid_Score
-    {
-        public int id;
-        public int score;
-        public Pid_Score(int i, int s)
-        {
-            id=i;
-            score=s;
-        }
-    }
+    
 }

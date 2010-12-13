@@ -33,17 +33,19 @@ namespace OES
         static private CustomProgramInfo pFunction;
         static private CustomJudge judge;
         static private CustomChoice choice;
-        static private CustomCompletion completion;      
+        static private CustomCompletion completion;
 
-        static private TabPage oficeWordPage;
-        static private TabPage oficePptPage;
-        static private TabPage oficeExcelPage;
-        static private TabPage pCompletionPage;
-        static private TabPage pModifPage;
-        static private TabPage pFunctionPage;
-        static private TabPage judgePage;
-        static private TabPage choicePage;
-        static private TabPage completionPage;
+        private List<ProblemTabPage> tabList = new List<ProblemTabPage>();
+        
+        //static private TabPage oficeWordPage;
+        //static private TabPage oficePptPage;
+        //static private TabPage oficeExcelPage;
+        //static private TabPage pCompletionPage;
+        //static private TabPage pModifPage;
+        //static private TabPage pFunctionPage;
+        //static private TabPage judgePage;
+        //static private TabPage choicePage;
+        //static private TabPage completionPage;
 
         static public ProblemsList problemsList;
         public MainForm()
@@ -52,87 +54,154 @@ namespace OES
             //this.FormBorderStyle = FormBorderStyle.None;
         }
 
-        public void addChoicePage()
-        {
-            choice = new CustomChoice();
-            choice.Font = new Font("宋体", 9);
-            choicePage = new TabPage("选择题");
-            choicePage.Controls.Add(choice);
-            tabControl.TabPages.Add(choicePage);
-        }
+        //public void addChoicePage()
+        //{
+        //    choice = new CustomChoice();
+        //    choice.Font = new Font("宋体", 9);
+        //    choicePage = new TabPage("选择题");
+        //    choicePage.Controls.Add(choice);
+        //    tabControl.TabPages.Add(choicePage);
+        //}
 
-        public void addCompletionPage()
-        {
-            completion = new CustomCompletion();
-            completion.Font = new Font("宋体", 9);
-            completionPage = new TabPage("填空题");
-            completionPage.Controls.Add(completion);
-            tabControl.TabPages.Add(completionPage);
-        }
+        //public void addCompletionPage()
+        //{
+        //    completion = new CustomCompletion();
+        //    completion.Font = new Font("宋体", 9);
+        //    completionPage = new TabPage("填空题");
+        //    completionPage.Controls.Add(completion);
+        //    tabControl.TabPages.Add(completionPage);
+        //}
 
-        public void addJudgePage()
-        {
-            judge = new CustomJudge();
-            judge.Font = new Font("宋体", 9);
-            judgePage = new TabPage("判断题");
-            judgePage.Controls.Add(judge);
-            tabControl.TabPages.Add(judgePage);
-        }
+        //public void addJudgePage()
+        //{
+        //    judge = new CustomJudge();
+        //    judge.Font = new Font("宋体", 9);
+        //    judgePage = new TabPage("判断题");
+        //    judgePage.Controls.Add(judge);
+        //    tabControl.TabPages.Add(judgePage);
+        //}
 
-        public void addWordPage()
-        {
-            officeWord = new CustomWord();
-            officeWord.Font = new Font("宋体", 9);
-            oficeWordPage = new TabPage("Word操作题");
-            oficeWordPage.Controls.Add(officeWord);
-            tabControl.TabPages.Add(oficeWordPage);
-        }
+        //public void addWordPage()
+        //{
+        //    officeWord = new CustomWord();
+        //    officeWord.Font = new Font("宋体", 9);
+        //    oficeWordPage = new TabPage("Word操作题");
+        //    oficeWordPage.Controls.Add(officeWord);
+        //    tabControl.TabPages.Add(oficeWordPage);
+        //}
 
-        public void addPptPage()
-        {
-            officePpt = new CustomPPT();
-            officePpt.Font = new Font("宋体", 9);
-            oficePptPage = new TabPage("PowerPoint操作题");
-            oficePptPage.Controls.Add(officePpt);
-            tabControl.TabPages.Add(oficePptPage);
-        }
+        //public void addPptPage()
+        //{
+        //    officePpt = new CustomPPT();
+        //    officePpt.Font = new Font("宋体", 9);
+        //    oficePptPage = new TabPage("PowerPoint操作题");
+        //    oficePptPage.Controls.Add(officePpt);
+        //    tabControl.TabPages.Add(oficePptPage);
+        //}
 
-        public void addExcelPage()
-        {
-            officeExcel = new CustomExcel();
-            officeExcel.Font = new Font("宋体", 9);
-            oficeExcelPage = new TabPage("Excel操作题");
-            oficeExcelPage.Controls.Add(officeExcel);
-            tabControl.TabPages.Add(oficeExcelPage);
-        }
+        //public void addExcelPage()
+        //{
+        //    officeExcel = new CustomExcel();
+        //    officeExcel.Font = new Font("宋体", 9);
+        //    oficeExcelPage = new TabPage("Excel操作题");
+        //    oficeExcelPage.Controls.Add(officeExcel);
+        //    tabControl.TabPages.Add(oficeExcelPage);
+        //}
 
-        public void addPCompletionPage()
-        {
-            pCompletion = new CustomProgramInfo(1);
-            pCompletion.Font = new Font("宋体", 9);
-            pCompletionPage = new TabPage("程序填空题");
-            pCompletionPage.Controls.Add(pCompletion);
-            tabControl.TabPages.Add(pCompletionPage);
-        }
+        //public void addPCompletionPage()
+        //{
+        //    pCompletion = new CustomProgramInfo(1);
+        //    pCompletion.Font = new Font("宋体", 9);
+        //    pCompletionPage = new TabPage("程序填空题");
+        //    pCompletionPage.Controls.Add(pCompletion);
+        //    tabControl.TabPages.Add(pCompletionPage);
+        //}
 
-        public void addPModifPage()
-        {
-            pModif = new CustomProgramInfo(2);
-            pModif.Font = new Font("宋体", 9);
-            pModifPage = new TabPage("程序改错题");
-            pModifPage.Controls.Add(pModif);
-            tabControl.TabPages.Add(pModifPage);
-        }
+        //public void addPModifPage()
+        //{
+        //    pModif = new CustomProgramInfo(2);
+        //    pModif.Font = new Font("宋体", 9);
+        //    pModifPage = new TabPage("程序改错题");
+        //    pModifPage.Controls.Add(pModif);
+        //    tabControl.TabPages.Add(pModifPage);
+        //}
 
-        public void addpFunctionPage()
-        {
-            pFunction = new CustomProgramInfo(3);
-            pFunction.Font = new Font("宋体", 9);
-            pFunctionPage = new TabPage("程序综合题");
-            pFunctionPage.Controls.Add(pFunction);
-            tabControl.TabPages.Add(pFunctionPage);
-        }
+        //public void addpFunctionPage()
+        //{
+        //    pFunction = new CustomProgramInfo(3);
+        //    pFunction.Font = new Font("宋体", 9);
+        //    pFunctionPage = new TabPage("程序综合题");
+        //    pFunctionPage.Controls.Add(pFunction);
+        //    tabControl.TabPages.Add(pFunctionPage);
+        //}
 
+        public void addPage(ProblemType pt)
+        {
+            ProblemTabPage temp;
+            switch (pt)
+            {
+                case ProblemType.Choice:
+                    choice = new CustomChoice();
+                    choice.Font = new Font("宋体", 9);
+                    temp = new ProblemTabPage("选择题");
+                    temp.Controls.Add(choice);       
+                    break;
+                case ProblemType.Completion:
+                    completion = new CustomCompletion();
+                    completion.Font = new Font("宋体", 9);
+                    temp = new ProblemTabPage("填空题");
+                    temp.Controls.Add(completion);
+                    break;
+                case ProblemType.Tof:
+                    judge = new CustomJudge();
+                        judge.Font = new Font("宋体", 9);
+                        temp = new ProblemTabPage("判断题");
+                        temp.Controls.Add(judge);             
+                    break;
+                case ProblemType.Word:
+                    officeWord = new CustomWord();
+                    officeWord.Font = new Font("宋体", 9);
+                    temp = new ProblemTabPage("Word操作题");
+                    temp.Controls.Add(officeWord);
+                    break;
+                case ProblemType.Excel:
+                    officeExcel = new CustomExcel();
+                    officeExcel.Font = new Font("宋体", 9);
+                    temp = new ProblemTabPage("Excel操作题");
+                    temp.Controls.Add(officeExcel);         
+                    break;
+                case ProblemType.PowerPoint:
+                    officePpt = new CustomPPT();
+                    officePpt.Font = new Font("宋体", 9);
+                    temp = new ProblemTabPage("PowerPoint操作题");
+                    temp.Controls.Add(officePpt);
+                    break;
+                case ProblemType.ProgramCompletion:
+                    pCompletion = new CustomProgramInfo(1);
+                    pCompletion.Font = new Font("宋体", 9);
+                    temp = new ProblemTabPage("程序填空题");
+                    temp.Controls.Add(pCompletion);
+                    break;
+                case ProblemType.ProgramModification:
+                    pModif = new CustomProgramInfo(2);
+                    pModif.Font = new Font("宋体", 9);
+                    temp = new ProblemTabPage("程序改错题");
+                    temp.Controls.Add(pModif);
+                    break;
+                case ProblemType.ProgramFun:
+                    pFunction = new CustomProgramInfo(3);
+                    pFunction.Font = new Font("宋体", 9);
+                    temp = new ProblemTabPage("程序综合题");
+                    temp.Controls.Add(pFunction);
+                    break;
+                default:
+                    temp = new ProblemTabPage("未知题型");
+                    break;
+            }
+            temp.type = pt;
+            tabControl.TabPages.Add(temp);
+            tabList.Add(temp);
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
           
@@ -152,33 +221,33 @@ namespace OES
 
         void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (((TabControl)sender).SelectedTab.Text.ToString())
+            switch (((ProblemTabPage)((TabControl)sender).SelectedTab).type)
             {
-                case "选择题":
+                case ProblemType.Choice:
                     ClientControl.CurrentProblemNum = ClientControl.paper.choice[choice.GetQuestion()].problemId;
                     break;
-                case "填空题":
+                case ProblemType.Completion:
                     ClientControl.CurrentProblemNum = ClientControl.paper.completion[completion.GetQuestion()].problemId;
                     break;
-                case "判断题":
+                case ProblemType.Tof:
                     ClientControl.CurrentProblemNum = ClientControl.paper.judge[judge.GetQuestion()].problemId;
                     break;
-                case "程序填空题":
+                case ProblemType.ProgramCompletion:
                     ClientControl.CurrentProblemNum = ClientControl.paper.pCompletion.problemId;
                     break;
-                case "程序综合题":
+                case ProblemType.ProgramFun:
                     ClientControl.CurrentProblemNum = ClientControl.paper.pFunction.problemId;
                     break;
-                case "程序改错题":
+                case ProblemType.ProgramModification:
                     ClientControl.CurrentProblemNum = ClientControl.paper.pModif.problemId;
                     break;
-                case "Word操作题":
+                case ProblemType.Word:
                     ClientControl.CurrentProblemNum = ClientControl.paper.officeWord.problemId;
                     break;
-                case "PowerPoint操作题":
+                case ProblemType.PowerPoint:
                     ClientControl.CurrentProblemNum = ClientControl.paper.officePPT.problemId;
                     break;
-                case "Excel操作题":
+                case ProblemType.Excel:
                     ClientControl.CurrentProblemNum = ClientControl.paper.officeExcel.problemId;
                     break;
 
@@ -192,42 +261,42 @@ namespace OES
             ClientControl.JumpToPro((int)sender);
         }
 
-        internal void JumpPro(string tab, int index)
+        internal void JumpPro(ProblemType tab, int index)
         {
-            foreach (TabPage tp in tabControl.TabPages)
+            foreach (ProblemTabPage tp in tabControl.TabPages)
             {
-                if (tp.Text == tab)
+                if (tp.type == tab)
                 {
                     tabControl.SelectedIndexChanged -= tabControl_SelectedIndexChanged;
                     tabControl.SelectedTab = tp;
                     tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
                     switch (tab)
                     {
-                        case "选择题":
+                        case ProblemType.Choice:
                             choice.SetQuestion(index);
                             break;
-                        case "填空题":
+                        case ProblemType.Completion:
                             completion.SetQuestion(index);
                             break;
-                        case "判断题":
+                        case ProblemType.Tof:
                             judge.SetQuestion(index);
                             break;
-                        case "程序填空题":
+                        case ProblemType.ProgramCompletion:
                             
                             break;
-                        case "程序综合题":
+                        case ProblemType.ProgramFun:
                             
                             break;
-                        case "程序改错题":
+                        case ProblemType.ProgramModification:
 
                             break;
-                        case "Word操作题":
+                        case ProblemType.Word:
                            
                             break;
-                        case "PowerPoint操作题":
+                        case ProblemType.PowerPoint:
                            
                             break;
-                        case "Excel操作题":
+                        case ProblemType.Excel:
                            
                             break;
                     }
