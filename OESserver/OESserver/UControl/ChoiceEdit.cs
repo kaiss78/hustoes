@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OESserver.UPanel
+namespace OESserver.UControl
 {
     public partial class ChoiceEdit : UserControl
     {
