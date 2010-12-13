@@ -15,6 +15,7 @@ namespace OESserver.UPanel
         public int ProType;
         public List<UserControl> EditList=new List<UserControl>();
         public ChoiceEdit aChoiceEdit = new ChoiceEdit();
+        public CompletionEdit aCompletionEdit = new CompletionEdit();
 
         public ProMan()
         {
@@ -41,6 +42,13 @@ namespace OESserver.UPanel
                 aChoiceEdit.Hide();
                 aChoiceEdit.Location = new Point(ClWidth,0);
                 this.Controls.Add(aChoiceEdit);
+                EditList.Add(aChoiceEdit);
+
+                aCompletionEdit.Hide();
+                aCompletionEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aCompletionEdit);
+                EditList.Add(aCompletionEdit);
+                
             }
            
 
