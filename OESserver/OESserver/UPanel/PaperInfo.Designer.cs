@@ -55,6 +55,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.CppPro = new System.Windows.Forms.RadioButton();
+            this.CPro = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
@@ -187,6 +189,8 @@
             this.tableLayoutPanel2.Controls.Add(this.label14, 4, 1);
             this.tableLayoutPanel2.Controls.Add(this.label15, 4, 2);
             this.tableLayoutPanel2.Controls.Add(this.label25, 4, 3);
+            this.tableLayoutPanel2.Controls.Add(this.CppPro, 7, 1);
+            this.tableLayoutPanel2.Controls.Add(this.CPro, 7, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 22);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -451,6 +455,30 @@
             this.label25.Size = new System.Drawing.Size(24, 16);
             this.label25.TabIndex = 34;
             this.label25.Text = "题";
+            // 
+            // CppPro
+            // 
+            this.CppPro.AutoSize = true;
+            this.CppPro.Location = new System.Drawing.Point(443, 13);
+            this.CppPro.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.CppPro.Name = "CppPro";
+            this.CppPro.Size = new System.Drawing.Size(98, 20);
+            this.CppPro.TabIndex = 35;
+            this.CppPro.TabStop = true;
+            this.CppPro.Text = "C++程序题";
+            this.CppPro.UseVisualStyleBackColor = true;
+            // 
+            // CPro
+            // 
+            this.CPro.AutoSize = true;
+            this.CPro.Location = new System.Drawing.Point(443, 56);
+            this.CPro.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
+            this.CPro.Name = "CPro";
+            this.CPro.Size = new System.Drawing.Size(82, 20);
+            this.CPro.TabIndex = 36;
+            this.CPro.TabStop = true;
+            this.CPro.Text = "C程序题";
+            this.CPro.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -929,6 +957,8 @@
         private System.Windows.Forms.Button Count;
         private System.Windows.Forms.Label ProCount;
         private System.Windows.Forms.Label Score;
+        private System.Windows.Forms.RadioButton CppPro;
+        private System.Windows.Forms.RadioButton CPro;
 
     }
 }
