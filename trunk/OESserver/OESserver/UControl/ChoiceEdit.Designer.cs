@@ -1,4 +1,4 @@
-﻿namespace OESserver.UPanel
+﻿namespace OESserver.UControl
 {
     partial class ChoiceEdit
     {
