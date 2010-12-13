@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using OESserver.Properties;
+using OESserver.UPanel;
 
 namespace OESserver.UControl
 {
@@ -14,6 +15,9 @@ namespace OESserver.UControl
         private readonly List<Label> titleList = new List<Label>();
         private choicepro achoicepro;
 
+        //从ProMan中传来的题目类型
+        private int ProType;
+
         private int btnHeight;
         private int choWidth;
         public int count = 10;
@@ -24,11 +28,12 @@ namespace OESserver.UControl
         private int proWidth;
         public int pro_num = 23;
         public int totalpage = 1;
+        ProMan aProMan;
 
-        public ProList()
+        public ProList(ProMan pm)
         {
             InitializeComponent();
-
+            aProMan=pm;
 
         }
 
@@ -127,9 +132,21 @@ namespace OESserver.UControl
                     temp.Controls.Add(templ1);
                     temp.Controls.Add(templ2);
                     temp.Controls.Add(templ3);
+                        
+                    temp.MouseClick +=new MouseEventHandler(temp_MouseClick);
+                     
                 }
+
             }
         }
+
+        void temp_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Hide();
+            aProMan.bottomPanel.Hide();
+            aProMan.EditList[aProMan.ProType].Show();
+
+        }  
 
         #region Nested type: choicepro
 

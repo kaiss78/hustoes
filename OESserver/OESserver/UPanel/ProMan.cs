@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using OESserver.UControl;
+using System.Collections.Generic;
 
 namespace OESserver.UPanel
 {
@@ -9,29 +10,46 @@ namespace OESserver.UPanel
         private readonly int ClWidth;
         private readonly int PlHeight;
         private readonly int PlWidth;
-        private readonly int BpHeight;      
+        private readonly int BpHeight;
+        public Panel bottomPanel = new Panel();
+        public int ProType;
+        public List<UserControl> EditList=new List<UserControl>();
+        public ChoiceEdit aChoiceEdit = new ChoiceEdit();
 
         public ProMan()
         {
             InitializeComponent();
+            
+            ClWidth = (int)(Width * 0.2);
+            PlWidth = (int)(Width * 0.8);
+            PlHeight = (int)(Height * 0.9);
+            BpHeight = (int)(Height * 0.9);
 
-            ClWidth = (int) (Width*0.2);
-            PlWidth = (int) (Width*0.8);
-            PlHeight = (int) (Height*0.9);
-            BpHeight=(int)(Height*0.9);
+            ProType=0;
 
+            
             var aChptList = new ChptList();
             aChptList.Size = new Size(ClWidth, Height);
             Controls.Add(aChptList);
-            var aProList = new ProList();
+            var aProList = new ProList(this);
             aProList.SetBounds(ClWidth, 0, PlWidth, PlHeight);
             Controls.Add(aProList);
-            Panel bottomPanel = new Panel();
             bottomPanel.SetBounds(ClWidth, PlHeight, PlWidth, BpHeight);
             this.Controls.Add(bottomPanel);
+
+            {
+                aChoiceEdit.Hide();
+                aChoiceEdit.Location = new Point(ClWidth,0);
+                this.Controls.Add(aChoiceEdit);
+            }
+           
+
+            EditList.Add(aChoiceEdit);
         }
-        override public void ReLoad()
+
+        override public void ReLoad(int x)
         {
+            ProType = x;
             this.Visible = true;
         }
     }
