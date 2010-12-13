@@ -20,5 +20,8 @@ namespace OESserver.UPanel
         virtual public void ReLoad()
         {
         }
+        virtual public void ReLoad(int x)
+        {
+        }
     }
 }
