@@ -43,8 +43,9 @@
             // 
             // butHandIn
             // 
+            this.butHandIn.BackgroundImage = global::OES.Properties.Resources.handin;
+            this.butHandIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.butHandIn.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.butHandIn.Image = global::OES.Properties.Resources.调整大小_Submit;
             this.butHandIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butHandIn.Location = new System.Drawing.Point(459, -1);
             this.butHandIn.Name = "butHandIn";
@@ -56,8 +57,9 @@
             // 
             // time
             // 
+            this.time.BackgroundImage = global::OES.Properties.Resources.clock;
+            this.time.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.time.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.time.Image = global::OES.Properties.Resources.调整大小_2;
             this.time.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.time.Location = new System.Drawing.Point(337, -1);
             this.time.Name = "time";
@@ -68,9 +70,10 @@
             // 
             // studentID
             // 
+            this.studentID.BackgroundImage = global::OES.Properties.Resources.stuid;
+            this.studentID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.studentID.CausesValidation = false;
             this.studentID.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.studentID.Image = global::OES.Properties.Resources._1;
             this.studentID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.studentID.Location = new System.Drawing.Point(131, -1);
             this.studentID.Name = "studentID";
@@ -81,14 +84,15 @@
             // 
             // butHideMF
             // 
+            this.butHideMF.BackgroundImage = global::OES.Properties.Resources.hide_show;
+            this.butHideMF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.butHideMF.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.butHideMF.Image = global::OES.Properties.Resources.调整大小_调整大小_图标源;
             this.butHideMF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butHideMF.Location = new System.Drawing.Point(-1, -1);
             this.butHideMF.Name = "butHideMF";
             this.butHideMF.Size = new System.Drawing.Size(135, 36);
             this.butHideMF.TabIndex = 0;
-            this.butHideMF.Text = "   隐藏试题";
+            this.butHideMF.Text = "隐藏试题";
             this.butHideMF.UseVisualStyleBackColor = true;
             this.butHideMF.Click += new System.EventHandler(this.button1_Click);
             // 
