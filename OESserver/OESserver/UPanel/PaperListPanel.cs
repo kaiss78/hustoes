@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace OESserver.UPanel
 {
-    public partial class PaperEditPanel : UserControl
+    public partial class PaperListPanel : UserPanel
     {
-        public PaperEditPanel()
+        public PaperListPanel()
         {
             InitializeComponent();
         }
