@@ -35,6 +35,9 @@
             this.newPapLbl = new System.Windows.Forms.LinkLabel();
             this.paperManLbl = new System.Windows.Forms.LinkLabel();
             this.PMXP = new UIComponents.XPPanel(309);
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.choiceLbl = new System.Windows.Forms.LinkLabel();
             this.cfLbl = new System.Windows.Forms.LinkLabel();
             this.cmLbl = new System.Windows.Forms.LinkLabel();
@@ -45,9 +48,6 @@
             this.JudgeLbl = new System.Windows.Forms.LinkLabel();
             this.completionLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel2.SuspendLayout();
@@ -185,6 +185,39 @@
             this.PMXP.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.PMXP.VertAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(6, 245);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(81, 13);
+            this.linkLabel3.TabIndex = 11;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Tag = "11";
+            this.linkLabel3.Text = "程序C++编程";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(6, 226);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(81, 13);
+            this.linkLabel2.TabIndex = 10;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Tag = "10";
+            this.linkLabel2.Text = "程序C++改错";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(6, 207);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(81, 13);
+            this.linkLabel1.TabIndex = 9;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Tag = "9";
+            this.linkLabel1.Text = "程序C++填空";
+            // 
             // choiceLbl
             // 
             this.choiceLbl.AutoSize = true;
@@ -200,7 +233,7 @@
             // cfLbl
             // 
             this.cfLbl.AutoSize = true;
-            this.cfLbl.Location = new System.Drawing.Point(6, 194);
+            this.cfLbl.Location = new System.Drawing.Point(6, 191);
             this.cfLbl.Name = "cfLbl";
             this.cfLbl.Size = new System.Drawing.Size(67, 13);
             this.cfLbl.TabIndex = 8;
@@ -300,39 +333,6 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(742, 666);
             this.MainPanel.TabIndex = 1;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(6, 207);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(101, 19);
-            this.linkLabel1.TabIndex = 9;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Tag = "8";
-            this.linkLabel1.Text = "程序C++填空";
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(6, 226);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(101, 19);
-            this.linkLabel2.TabIndex = 10;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Tag = "8";
-            this.linkLabel2.Text = "程序C++改错";
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(6, 245);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(101, 19);
-            this.linkLabel3.TabIndex = 11;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Tag = "8";
-            this.linkLabel3.Text = "程序C++编程";
             // 
             // MainForm
             // 
