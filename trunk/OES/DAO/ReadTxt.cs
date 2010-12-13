@@ -30,7 +30,7 @@ namespace OES
                         ClientControl.paper.Add(choice);
                     }
                 }
-                ClientControl.MainForm.addChoicePage();
+                ClientControl.MainForm.addPage(ProblemType.Choice);
             }
         }
 
@@ -54,7 +54,7 @@ namespace OES
                         ClientControl.paper.Add(completion);
                     }
                 }
-                ClientControl.MainForm.addCompletionPage();
+                ClientControl.MainForm.addPage(ProblemType.Completion);
             }
         }
 
@@ -78,7 +78,7 @@ namespace OES
                         ClientControl.paper.Add(judge);
                     }
                 }
-                ClientControl.MainForm.addJudgePage();
+                ClientControl.MainForm.addPage(ProblemType.Tof);
             }
         }
 
@@ -96,7 +96,7 @@ namespace OES
                     ClientControl.paper.Add(pCompletion);                    
                 }
             }
-            ClientControl.MainForm.addPCompletionPage();
+            ClientControl.MainForm.addPage(ProblemType.ProgramCompletion);
         }
 
         public static void ReadPModif(string path)
@@ -113,7 +113,7 @@ namespace OES
                     ClientControl.paper.Add(pModif);
                 }
             }
-            ClientControl.MainForm.addPModifPage();
+            ClientControl.MainForm.addPage(ProblemType.ProgramModification); 
         }
 
         public static void ReadPFunction(string path)
@@ -129,7 +129,7 @@ namespace OES
                     pFunction = new PFunction(st);
                     ClientControl.paper.Add(pFunction);
                 }
-                ClientControl.MainForm.addpFunctionPage();
+                ClientControl.MainForm.addPage(ProblemType.ProgramFun);
             }
         }
 
@@ -146,7 +146,7 @@ namespace OES
                     oWord = new OfficeWord(st);                    
                     ClientControl.paper.Add(oWord);
                 }
-                ClientControl.MainForm.addWordPage();
+                ClientControl.MainForm.addPage(ProblemType.Word);
             }
         }
 
@@ -163,7 +163,7 @@ namespace OES
                     oPPT = new OfficePowerPoint(st);
                     ClientControl.paper.Add(oPPT);
                 }
-                ClientControl.MainForm.addPptPage();
+                ClientControl.MainForm.addPage(ProblemType.PowerPoint);
             }
         }
 
@@ -180,7 +180,7 @@ namespace OES
                     oExcel = new OfficeExcel(st);                    
                     ClientControl.paper.Add(oExcel);
                 }
-                ClientControl.MainForm.addExcelPage();
+                ClientControl.MainForm.addPage(ProblemType.Excel);
             }
         }
 

@@ -73,8 +73,6 @@
             // 
             // panelProList
             // 
-            this.panelProList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
             this.panelProList.Location = new System.Drawing.Point(799, 4);
             this.panelProList.Name = "panelProList";
             this.panelProList.Size = new System.Drawing.Size(85, 533);

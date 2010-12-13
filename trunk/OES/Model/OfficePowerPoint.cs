@@ -7,19 +7,19 @@ namespace OES.Model
 {
     class OfficePowerPoint:Problem
     {
-        public string rawPath;
-        public string ansPath;
-        public string stuAnsPath;
+        public string rawPath = "";
+        public string ansPath = "";
+        public string stuAnsPath = "";
 
         public OfficePowerPoint()
-        {            
-            type = "PowerPoint操作题";
+        {
+            type = ProblemType.PowerPoint;
         }
 
         public OfficePowerPoint(string p)
         {
             problem = p;
-            type = "PowerPoint操作题";
+            type = ProblemType.PowerPoint;
         }
 
         public OfficePowerPoint(string rawPath, string ansPath, string stuAnsPath)
@@ -27,7 +27,11 @@ namespace OES.Model
             this.ansPath = ansPath;
             this.rawPath = rawPath;
             this.stuAnsPath = stuAnsPath;
-            type = "PowerPoint操作题";
+            type = ProblemType.PowerPoint;
+        }
+        public override string getAns()
+        {
+            return stuAnsPath;
         }
     }
 }

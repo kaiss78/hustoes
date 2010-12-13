@@ -7,19 +7,19 @@ namespace OES.Model
 {
     class OfficeExcel:Problem
     {
-        public string rawPath;
-        public string ansPath;
-        public string stuAnsPath;
+        public string rawPath = "";
+        public string ansPath = "";
+        public string stuAnsPath = "";
 
         public OfficeExcel()
-        {            
-            type = "Excel操作题";
+        {
+            type = ProblemType.Excel;
         }
 
         public OfficeExcel(string p)
         {
             problem = p;
-            type = "Excel操作题";
+            type = ProblemType.Excel;
         }
 
         public OfficeExcel(string rawPath, string ansPath, string stuAnsPath)
@@ -27,7 +27,11 @@ namespace OES.Model
             this.ansPath = ansPath;
             this.rawPath = rawPath;
             this.stuAnsPath = stuAnsPath;
-            type = "Excel操作题";
+            type = ProblemType.Excel;
+        }
+        public override string getAns()
+        {
+            return stuAnsPath;
         }
     }
 }
