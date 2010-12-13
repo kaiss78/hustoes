@@ -52,7 +52,7 @@ namespace OESserver.UPanel
                 score = score + flag[i] *Convert.ToInt32(scoreList[i].Text);
             }
             this.ProCount.Text = count.ToString() + "题";
-            this.Score.Text = score.ToString() + "分";
+            this.Score.Text = score.ToString() + "分";            
         }
 
         override public void ReLoad()
@@ -66,7 +66,7 @@ namespace OESserver.UPanel
             }
             countList[0].Enabled = true;
             countList[1].Enabled = true;
-            countList[2].Enabled = true;
+            countList[2].Enabled = true;            
         }
 
         
@@ -81,5 +81,6 @@ namespace OESserver.UPanel
                 countList[x].Enabled = Convert.ToBoolean(flag[x]);
             }
         }
+
     }
 }
