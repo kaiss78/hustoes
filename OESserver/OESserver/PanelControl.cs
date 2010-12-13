@@ -18,8 +18,10 @@ namespace OESserver
             {
                 panelList.Add(new UserPanel());                
             }
-            
-            panelList[0] = mf.proMan;
+            for (int i = 0; i < 12; i++)
+            {
+                panelList[i] = mf.proMan;
+            }            
             mf.proMan.PanelID = 0;
             panelList[12] = mf.paperInfo;
             mf.paperInfo.PanelID = 12;            
@@ -35,8 +37,16 @@ namespace OESserver
 
         public void ChangPanel(int x)
         {
-            HideAllPanel();            
-            panelList[x].ReLoad();
+            HideAllPanel();
+            if (x < 12)
+            {
+                panelList[x].ReLoad(x);
+            }
+            else
+            {
+                panelList[x].ReLoad();
+            }
+            
         }
     }
 }
