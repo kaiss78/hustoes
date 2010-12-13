@@ -322,6 +322,18 @@
     <None Include="Resources\doing.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\hide_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stuid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\handin.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="NetControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

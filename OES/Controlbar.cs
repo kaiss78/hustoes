@@ -73,7 +73,7 @@ namespace OES
             // ShowWindow(hTray,1);
 
             /**显示登录学生的信息，替换接口的地方，要求使用字符串*/
-            studentID.Text = "姓名 ID";
+            studentID.Text = ClientControl.student.ID;
 
             /**显示初始时间*/
             time.Text = " 90:00";
@@ -91,7 +91,7 @@ namespace OES
             else
             {
                 ClientControl.MainForm.Visible = true;
-                butHideMF.Text = "  隐藏试题";
+                butHideMF.Text = "隐藏试题";
             }
 
         }

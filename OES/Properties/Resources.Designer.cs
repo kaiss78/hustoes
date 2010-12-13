@@ -60,9 +60,9 @@ namespace OES.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap _1 {
+        internal static System.Drawing.Bitmap clock {
             get {
-                object obj = ResourceManager.GetObject("1", resourceCulture);
+                object obj = ResourceManager.GetObject("clock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -81,37 +81,30 @@ namespace OES.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap handin {
+            get {
+                object obj = ResourceManager.GetObject("handin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap hide_show {
+            get {
+                object obj = ResourceManager.GetObject("hide_show", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap stuid {
+            get {
+                object obj = ResourceManager.GetObject("stuid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap undo {
             get {
                 object obj = ResourceManager.GetObject("undo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap 调整大小_2 {
-            get {
-                object obj = ResourceManager.GetObject("调整大小 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap 调整大小_Submit {
-            get {
-                object obj = ResourceManager.GetObject("调整大小 Submit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap 调整大小_图标源 {
-            get {
-                object obj = ResourceManager.GetObject("调整大小 图标源", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap 调整大小_调整大小_图标源 {
-            get {
-                object obj = ResourceManager.GetObject("调整大小 调整大小 图标源", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
