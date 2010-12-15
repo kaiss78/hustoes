@@ -4,7 +4,10 @@ namespace OES.Model
 {
     internal class Paper
     {
-        public static string pName = "EXAM001";
+        public string paperName = "";
+        public string paperID="";
+        public string createTime="";
+        public string author="";
         public List<Choice> choice;
         public List<Completion> completion;
         public List<Judge> judge;
@@ -14,7 +17,7 @@ namespace OES.Model
         public PCompletion pCompletion;
         public PFunction pFunction;
         public PModif pModif;
-        public List<Problem> problemList;
+        public List<Problem> problemList;        
 
         public Paper()
         {
