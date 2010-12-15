@@ -24,7 +24,9 @@ namespace OESserver
             }            
             mf.proMan.PanelID = 0;
             panelList[12] = mf.paperInfo;
-            mf.paperInfo.PanelID = 12;            
+            mf.paperInfo.PanelID = 12;
+            panelList[13] = mf.paperListPanel;
+            mf.paperListPanel.PanelID = 12;
         }
 
         public void HideAllPanel()
