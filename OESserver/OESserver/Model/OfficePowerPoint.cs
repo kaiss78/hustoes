@@ -1,13 +1,18 @@
-﻿namespace OES.Model
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace OESserver
 {
-    internal class OfficePowerPoint : Problem
+    public class OfficePowerPoint:Problem
     {
-        public string ansPath;
         public string rawPath;
+        public string ansPath;
         public string stuAnsPath;
 
         public OfficePowerPoint()
-        {
+        {            
             type = "PowerPoint操作题";
         }
 

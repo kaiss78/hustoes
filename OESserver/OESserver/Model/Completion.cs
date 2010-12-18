@@ -1,17 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace OES.Model
+namespace OESserver
 {
-    internal class Completion : Problem
+    public class Completion:Problem
     {
-        public List<string> ans;
         public string stuAns;
-
+        public string unit;
+        public List<string> ans;
         public Completion()
         {
             type = "填空题";
         }
-
         public Completion(string p)
         {
             problem = p;

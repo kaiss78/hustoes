@@ -1,15 +1,18 @@
-﻿namespace OES.Model
-{
-    internal class PCompletion : Problem
-    {
-        public string ans1, ans2, ans3;
-        public string path;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
+namespace OESserver
+{
+    public  class PCompletion:Problem
+    {
+        public string path, ans1, ans2, ans3;
+        public bool kind;
         public PCompletion()
         {
             type = "程序填空题";
         }
-
         public PCompletion(string p)
         {
             problem = p;

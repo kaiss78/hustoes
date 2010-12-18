@@ -1,4 +1,4 @@
-﻿namespace OES.Model
+﻿namespace OESserver
 {
     internal class Student
     {
