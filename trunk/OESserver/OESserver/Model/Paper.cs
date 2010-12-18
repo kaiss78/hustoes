@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OESserver
+namespace OESserver.Model
 {
     internal class Paper
     {

@@ -79,12 +79,14 @@
             // 
             // PaperListDGV
             // 
+            this.PaperListDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PaperListDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PaperListDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PaperListDGV.Location = new System.Drawing.Point(3, 22);
             this.PaperListDGV.MultiSelect = false;
             this.PaperListDGV.Name = "PaperListDGV";
             this.PaperListDGV.ReadOnly = true;
+            this.PaperListDGV.RowHeadersVisible = false;
             this.PaperListDGV.RowTemplate.Height = 23;
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaperListDGV.Size = new System.Drawing.Size(710, 575);
