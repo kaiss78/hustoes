@@ -1156,6 +1156,123 @@ namespace OESserver
             pModif = DataSetToListModifProgram(Ds);
             return pModif;
         }
+        //增加Paper记录
+        public void AddPaper(string GenerateDate, string TestDate,string Paper_Path,string Title,string Teacher_Id)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[5];
+            ddlparam[0] = CreateParam("@GenerateDate", SqlDbType.DateTime, 20, GenerateDate, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@TestDate", SqlDbType.DateTime, 20, TestDate, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, Paper_Path, ParameterDirection.Input);
+            ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
+            ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
+            
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 10; i++)
+            {
+                cmd.Parameters.Add(ddlparam[i]);
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        //按照Id 删除Paper记录
+        public void DeletePaper(string Id)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+            
+            //RunProc("FindChoiceByUnit", ddlparam, Ds);
+            SqlCommand Cmd = CreateCmd("DeletePaper", ddlparam);
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        //修改Paper记录
+        public void UpdatePaper(string Id, string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[6];
+            ddlparam[0] = CreateParam("@GenerateDate", SqlDbType.DateTime, 20, GenerateDate, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@TestDate", SqlDbType.DateTime, 20, TestDate, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, Paper_Path, ParameterDirection.Input);
+            ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
+            ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
+            
+            ddlparam[5] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+
+
+            SqlCommand Cmd = CreateCmd("UpdatePaper", ddlparam);
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+        //列出所有的Paper记录
+        public List<Paper> FindPaper()
+        {
+            Ds = new DataSet();
+            //RunProc("FindChoice", null, Ds);
+           
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindPaper", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            results = DataSetToListPaper(Ds);
+            return results;
+
+        }
+
+        private List<Problem> DataSetToListPaper(DataSet Ds)
+        {
+            List<Paper> result = new List<Paper>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Paper problem = new Paper();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Id")
+                        problem.paperID = Convert.ToInt32(p_Data.Rows[j][i]);
+                    if (p_Data.Columns[i].ToString() == "Title")
+                        problem.paperName = (string)p_Data.Rows[j][i];
+                    if(p_Data.Columns[i].ToString()=="GenerateDate")
+                        problem.createTime = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "TName")
+                        problem.author = (string)p_Data.Rows[j][i];
+                }
+
+                result.Add(problem);
+            }
+            return result;
+
+        }
 
     }
 }
