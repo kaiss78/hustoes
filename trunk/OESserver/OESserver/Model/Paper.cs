@@ -10,7 +10,10 @@ namespace OESserver.Model
         public string paperName = "";
         public string paperID="";
         public string createTime="";
-        public string author="";
+        public string authorId="";
+        public string author = "";
+        public string testTime = "";
+        public string paperPath = "";
         public List<Choice> choice;
         public List<Completion> completion;
         public List<Judge> judge;
@@ -76,6 +79,25 @@ namespace OESserver.Model
             }
             p.problemId = problemList.Count;
             problemList.Add(p);
+        }
+
+        public OESData db = new OESData();
+
+        public void AddPaper()
+        {
+            db.AddPaper(createTime,testTime,paperPath,paperName,authorId);
+        }
+        public void DeletePaper()
+        {
+            db.DeletePaper(paperID);
+        }
+        public void UpdatePaper()
+        {
+            db.UpdatePaper(paperID, createTime, testTime, paperPath, paperName, authorId);
+        }
+        public List<Paper> FindPaper()
+        {
+            db.FindPaper();
         }
     }
 }
