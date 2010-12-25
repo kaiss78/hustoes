@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OESserver.Model
 {
-    internal class Paper
+    public class Paper
     {
         public string paperName = "";
         public string paperID="";
@@ -97,7 +97,7 @@ namespace OESserver.Model
         }
         public List<Paper> FindPaper()
         {
-            db.FindPaper();
+            return db.FindPaper();
         }
     }
 }
