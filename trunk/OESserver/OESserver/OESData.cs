@@ -1227,6 +1227,7 @@ namespace OESserver
         //列出所有的Paper记录
         public List<Paper> FindPaper()
         {
+            List<Paper> results = new List<Paper>();
             Ds = new DataSet();
             //RunProc("FindChoice", null, Ds);
            
@@ -1247,7 +1248,7 @@ namespace OESserver
 
         }
 
-        private List<Problem> DataSetToListPaper(DataSet Ds)
+        private List<Paper> DataSetToListPaper(DataSet p_DataSet)
         {
             List<Paper> result = new List<Paper>();
             DataTable p_Data = p_DataSet.Tables[0];
@@ -1259,7 +1260,7 @@ namespace OESserver
                 {
                     // 数据库NULL值单独处理   
                     if (p_Data.Columns[i].ToString() == "Id")
-                        problem.paperID = Convert.ToInt32(p_Data.Rows[j][i]);
+                        problem.paperID = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Title")
                         problem.paperName = (string)p_Data.Rows[j][i];
                     if(p_Data.Columns[i].ToString()=="GenerateDate")
