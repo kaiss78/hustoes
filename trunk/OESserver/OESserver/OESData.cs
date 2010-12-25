@@ -1169,7 +1169,7 @@ namespace OESserver
             DataBind();
             SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 cmd.Parameters.Add(ddlparam[i]);
             }
