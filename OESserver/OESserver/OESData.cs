@@ -1260,11 +1260,11 @@ namespace OESserver
                 {
                     // 数据库NULL值单独处理   
                     if (p_Data.Columns[i].ToString() == "Id")
-                        problem.paperID = (string)p_Data.Rows[j][i];
+                        problem.paperID =p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "Title")
                         problem.paperName = (string)p_Data.Rows[j][i];
                     if(p_Data.Columns[i].ToString()=="GenerateDate")
-                        problem.createTime = (string)p_Data.Rows[j][i];
+                        problem.createTime = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "TName")
                         problem.authorId = (string)p_Data.Rows[j][i];
                 }
