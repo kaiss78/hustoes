@@ -1266,7 +1266,7 @@ namespace OES
                     if(p_Data.Columns[i].ToString()=="GenerateDate")
                         problem.createTime = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "TName")
-                        problem.authorId = (string)p_Data.Rows[j][i];
+                        problem.author = (string)p_Data.Rows[j][i];
                 }
 
                 result.Add(problem);
