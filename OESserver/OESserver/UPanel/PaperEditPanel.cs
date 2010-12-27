@@ -11,9 +11,12 @@ namespace OES.UPanel
 {
     public partial class PaperEditPanel : UserControl
     {
+        public List<LinkLabel> proTypeLink;
+
         public PaperEditPanel()
         {
             InitializeComponent();
         }
+
     }
 }
