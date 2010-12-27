@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OESserver.Model
+namespace OES.Model
 {
     public class PModif:Problem
     {

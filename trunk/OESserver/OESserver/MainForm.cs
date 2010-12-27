@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using OESserver.UPanel;
+using OES.UPanel;
 
-namespace OESserver
+namespace OES
 {
     public partial class MainForm : Form
     {

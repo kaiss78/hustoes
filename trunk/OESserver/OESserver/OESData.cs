@@ -5,10 +5,10 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Reflection;
-using OESserver.Model;
+using OES.Model;
 using System.Data;
 
-namespace OESserver
+namespace OES
 {
     public class OESData
     {

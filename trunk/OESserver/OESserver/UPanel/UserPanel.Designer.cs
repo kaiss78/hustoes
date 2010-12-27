@@ -1,4 +1,4 @@
-﻿namespace OESserver.UPanel
+﻿namespace OES.UPanel
 {
     partial class UserPanel
     {

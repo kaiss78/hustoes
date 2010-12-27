@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace OESserver.UPanel
+namespace OES.UPanel
 {
     public partial class PaperInfo : UserPanel
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace OESserver
+namespace OES
 {
     internal static class Program
     {
