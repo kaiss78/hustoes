@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
-using OESserver.UControl;
+using OES.UControl;
 using System.Collections.Generic;
 
-namespace OESserver.UPanel
+namespace OES.UPanel
 {
     public partial class ProMan : UserPanel
     {

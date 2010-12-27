@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using OESserver.UPanel;
+using OES.UPanel;
 
-namespace OESserver
+namespace OES
 {
     class PanelControl
     {

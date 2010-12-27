@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using OESserver.Properties;
+using OES.Properties;
 
-namespace OESserver.UControl
+namespace OES.UControl
 {
     public partial class ChptList : UserControl
     {

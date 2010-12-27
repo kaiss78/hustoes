@@ -1,4 +1,4 @@
-﻿namespace OESserver.UControl
+﻿namespace OES.UControl
 {
     partial class CompletionEdit
     {

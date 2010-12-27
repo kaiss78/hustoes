@@ -1,4 +1,4 @@
-﻿namespace OESserver
+﻿namespace OES
 {
     partial class MainForm
     {

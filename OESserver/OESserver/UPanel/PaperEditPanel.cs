@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace OESserver.UPanel
+namespace OES.UPanel
 {
     public partial class PaperEditPanel : UserControl
     {

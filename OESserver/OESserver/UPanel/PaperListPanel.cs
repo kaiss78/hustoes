@@ -6,9 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using OESserver.Model;
+using OES.Model;
 
-namespace OESserver.UPanel
+namespace OES.UPanel
 {
     public partial class PaperListPanel : UserPanel
     {
