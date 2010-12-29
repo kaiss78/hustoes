@@ -36,8 +36,9 @@ namespace OES.Model
             pModif = new PModif();
             pFunction = new PFunction();
             problemList = new List<Problem>();
-        }
             officeExcel = new OfficeExcel();
+        }
+            
 
         public void Add(Problem p)
         {

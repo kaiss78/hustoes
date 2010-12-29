@@ -1240,7 +1240,7 @@ namespace OES
             }
             catch (Exception Ex)
             {
-                //MessageBox.Show(Ex.ToString());
+                MessageBox.Show(Ex.ToString());
                 throw Ex;
             }
             results = DataSetToListPaper(Ds);
