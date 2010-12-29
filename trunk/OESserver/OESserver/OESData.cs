@@ -30,9 +30,9 @@ namespace OES
         private bool DataBind()
         {
             sqlcon = new SqlConnection();
-            string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
-          //  strConnection += "initial catalog=OESDB;Server=localhost;";
-           // strConnection += "Connect Timeout=30";           
+            string strConnection = "Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
+            //strConnection += "initial catalog=OESDB;Server=localhost;";
+            //strConnection += "Connect Timeout=30";           
             sqlcon.ConnectionString = strConnection;
             try
             {

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace OES.UControl
 {
-    public partial class OfficeWordEdit : UserControl
+    public partial class OfficePowerpointEdit : UserControl
     {
-        public OfficeWordEdit()
+        public OfficePowerpointEdit()
         {
             InitializeComponent();
         }
