@@ -62,7 +62,7 @@ namespace OES.XMLFile
                         }
                     case XMLType.Paper:
                         {
-                            if (Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Paper") != null)
+                            if (Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Paper") == null)
                             {
                                 xmlelem = xd.CreateElement("Paper");
                                 XmlAttribute xa = xd.CreateAttribute("id");
@@ -93,7 +93,7 @@ namespace OES.XMLFile
                         }
                     case XMLType.PaperAnswer:
                         {
-                            if (Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Answer") != null)
+                            if (Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Answer") == null)
                             {
                                 xmlelem = xd.CreateElement("Answer");
                                 XmlAttribute xa = xd.CreateAttribute("id");
@@ -193,23 +193,25 @@ namespace OES.XMLFile
                 xd.Save(fileName);
             }
         }
-        public string Get(ProblemType pt)
+
+        List<ProblemType> ProblemTypeCollection = new List<ProblemType>() { ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, ProblemType.Word, ProblemType.Excel, ProblemType.PowerPoint, ProblemType.ProgramCompletion, ProblemType.ProgramModification, ProblemType.ProgramFun };
+
+        public List<IdScoreType> Get()
         {
-            string s="";
-            XmlNode xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0),pt.ToString());
-            foreach (XmlNode xnn in xn.ChildNodes)
+            List<IdScoreType> list=new List<IdScoreType>();
+            foreach (ProblemType pt in ProblemTypeCollection)
             {
-                if (xnn.Name == "StudentAns")
+                XmlNode xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
+                foreach (XmlNode xnn in xn.ChildNodes)
                 {
-                    s += xnn.ChildNodes.Item(0).Value + ",";
-                }
-                if (xnn.Name == "AnsPath")
-                {
-                    return xnn.ChildNodes.Item(0).Value;
+                    IdScoreType ist = new IdScoreType();
+                    ist.id = Convert.ToInt32(xnn.ChildNodes.Item(0).ChildNodes.Item(0).Value);
+                    ist.pt = pt;
+                    ist.score = Convert.ToInt32(xnn.ChildNodes.Item(0).ChildNodes.Item(1).Value);
+                    list.Add(ist);
                 }
             }
-            s = s.Remove(s.Length - 1);
-            return s;
+            return list;
         }
         private XmlNode Find(XmlNode e, String name)
         {
