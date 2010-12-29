@@ -108,6 +108,14 @@
       <DependentUpon>CompletionEdit.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\JudgeEdit.resx">
+      <DependentUpon>JudgeEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\OfficeWordEdit.resx">
+      <DependentUpon>OfficeWordEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\PaperEditPanel.resx">
       <DependentUpon>PaperEditPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -161,6 +169,18 @@
     </Compile>
     <Compile Include="UControl\CompletionEdit.Designer.cs">
       <DependentUpon>CompletionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\JudgeEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\JudgeEdit.Designer.cs">
+      <DependentUpon>JudgeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\OfficeWordEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\OfficeWordEdit.Designer.cs">
+      <DependentUpon>OfficeWordEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\PaperEditPanel.cs">
       <SubType>UserControl</SubType>
