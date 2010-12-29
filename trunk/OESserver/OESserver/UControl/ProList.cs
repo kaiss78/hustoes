@@ -148,9 +148,18 @@ namespace OES.UControl
         {
             this.Hide();
             aProMan.bottomPanel.Hide();
-            aProMan.EditList[ProType].Show();
+            change(ProType);
 
-        }  
+        }
+
+        void change(int x)
+        {
+            aProMan.EditList[x].Show();
+            for (int i=0; i < 12 && i != x; i++)
+            {
+                aProMan.EditList[i].Hide();
+            }
+        }
 
         #region Nested type: choicepro
 
