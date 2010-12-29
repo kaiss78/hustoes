@@ -9,6 +9,7 @@ namespace OES
         public PaperInfo paperInfo;
         public ProMan proMan;
         public PaperListPanel paperListPanel;
+        public PaperEditPanel paperEditPanel;
         private PanelControl panelControl;
 
         public MainForm()
@@ -17,9 +18,11 @@ namespace OES
             proMan = new ProMan();                         //题目管理界面
             paperInfo = new PaperInfo();                 //试卷信息界面
             paperListPanel=new PaperListPanel();      //试卷管理界面
+            paperEditPanel=new PaperEditPanel();     //组卷界面
             MainPanel.Controls.Add(proMan);
             MainPanel.Controls.Add(paperInfo);
             MainPanel.Controls.Add(paperListPanel);
+            MainPanel.Controls.Add(paperEditPanel);
             //ProMan aProMan = new ProMan();
             //MainPanel.Controls.Add(aProMan);
 
