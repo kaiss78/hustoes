@@ -32,12 +32,12 @@ namespace OES.Model
             judge = new List<Judge>();
             officeWord = new OfficeWord();
             officePPT = new OfficePowerPoint();
-            officeExcel = new OfficeExcel();
             pCompletion = new PCompletion();
             pModif = new PModif();
             pFunction = new PFunction();
             problemList = new List<Problem>();
         }
+            officeExcel = new OfficeExcel();
 
         public void Add(Problem p)
         {
