@@ -48,8 +48,13 @@ namespace OES
             else
             {
                 panelList[x].ReLoad();
-            }
-            
+            }            
+        }
+
+        public void ChangPanel(int x,int y)
+        {
+            HideAllPanel();
+            panelList[x].ReLoad(y);
         }
     }
 }
