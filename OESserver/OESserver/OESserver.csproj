@@ -125,6 +125,30 @@
       <DependentUpon>OfficeExcelEdit.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CCompletionEdit.resx">
+      <DependentUpon>CCompletionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CppCompletionEdit.resx">
+      <DependentUpon>CppCompletionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CModifEdit.resx">
+      <DependentUpon>CModifEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CppModifEdit.resx">
+      <DependentUpon>CppModifEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CFuctionEdit.resx">
+      <DependentUpon>CFuctionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CppFuctionEdit.resx">
+      <DependentUpon>CppFuctionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\PaperEditPanel.resx">
       <DependentUpon>PaperEditPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -202,6 +226,42 @@
     </Compile>
     <Compile Include="UControl\OfficeExcelEdit.Designer.cs">
       <DependentUpon>OfficeExcelEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CCompletionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CCompletionEdit.Designer.cs">
+      <DependentUpon>CCompletionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CppCompletionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CppCompletionEdit.Designer.cs">
+      <DependentUpon>CppCompletionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CModifEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CModifEdit.Designer.cs">
+      <DependentUpon>CModifEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CppModifEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CppModifEdit.Designer.cs">
+      <DependentUpon>CppModifEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CFuctionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CFuctionEdit.Designer.cs">
+      <DependentUpon>CFuctionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CppFuctionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CppFuctionEdit.Designer.cs">
+      <DependentUpon>CppFuctionEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\PaperEditPanel.cs">
       <SubType>UserControl</SubType>

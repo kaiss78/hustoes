@@ -15,9 +15,7 @@ namespace OES.UControl
         private readonly List<Label> titleList = new List<Label>();
         private choicepro achoicepro;
 
-        //从ProMan中传来的题目类型
-        private int ProType;
-
+        private int ProType=0;
         private int btnHeight;
         private int choWidth;
         public int count = 10;
@@ -30,11 +28,17 @@ namespace OES.UControl
         public int totalpage = 1;
         ProMan aProMan;
 
+
         public ProList(ProMan pm)
         {
             InitializeComponent();
             aProMan=pm;
 
+        }
+
+        public void Reload(int x)
+        {
+            ProType = aProMan.ProType;
         }
 
         private void ProList_Resize(object sender, EventArgs e)
@@ -144,7 +148,7 @@ namespace OES.UControl
         {
             this.Hide();
             aProMan.bottomPanel.Hide();
-            aProMan.EditList[aProMan.ProType].Show();
+            aProMan.EditList[ProType].Show();
 
         }  
 
