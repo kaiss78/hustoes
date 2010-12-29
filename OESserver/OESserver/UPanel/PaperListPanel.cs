@@ -15,9 +15,10 @@ namespace OES.UPanel
         private DataTable paperListDataTable;
         public Paper paper=new Paper();
         public List<Paper> paperList;
-        public PaperListPanel()
+        public OESData oesData=new OESData();
+
+        public void InitList()
         {
-            InitializeComponent();
             paperListDataTable=new DataTable("PaperList");
             paperListDataTable.Columns.Add("选中", typeof(bool));
             paperListDataTable.Columns.Add("试卷ID");
@@ -26,7 +27,8 @@ namespace OES.UPanel
             paperListDataTable.Columns.Add("作者");
             object[] values = new object[5];
 
-            paperList= paper.FindPaper();
+            paperList = oesData.FindPaper();
+            
             for (int i = 0; i < paperList.Count; i++)
             {
                 values[0] = false;
@@ -47,9 +49,16 @@ namespace OES.UPanel
             PaperListDGV.Columns[4].FillWeight = 18;       
             
         }
+
+        public PaperListPanel()
+        {
+            InitializeComponent();
+        }
+
         override public void ReLoad()
         {
             this.Visible = true;
+            InitList();
         }
 
         private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)

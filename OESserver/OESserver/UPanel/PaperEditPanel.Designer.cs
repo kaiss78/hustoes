@@ -63,7 +63,7 @@
             // 
             this.kryptonSplitContainer1.Panel2.Controls.Add(this.DGV);
             this.kryptonSplitContainer1.Size = new System.Drawing.Size(742, 666);
-            this.kryptonSplitContainer1.SplitterDistance = 247;
+            this.kryptonSplitContainer1.SplitterDistance = 220;
             this.kryptonSplitContainer1.TabIndex = 0;
             // 
             // kryptonHeaderGroup1
@@ -76,7 +76,7 @@
             // kryptonHeaderGroup1.Panel
             // 
             this.kryptonHeaderGroup1.Panel.Controls.Add(this.kryptonPanel1);
-            this.kryptonHeaderGroup1.Size = new System.Drawing.Size(247, 666);
+            this.kryptonHeaderGroup1.Size = new System.Drawing.Size(220, 666);
             this.kryptonHeaderGroup1.TabIndex = 0;
             this.kryptonHeaderGroup1.ValuesPrimary.Heading = "题型";
             // 
@@ -86,7 +86,7 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(245, 619);
+            this.kryptonPanel1.Size = new System.Drawing.Size(218, 619);
             this.kryptonPanel1.TabIndex = 0;
             // 
             // FLP
@@ -95,7 +95,7 @@
             this.FLP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FLP.Location = new System.Drawing.Point(0, 0);
             this.FLP.Name = "FLP";
-            this.FLP.Size = new System.Drawing.Size(245, 619);
+            this.FLP.Size = new System.Drawing.Size(218, 619);
             this.FLP.TabIndex = 0;
             // 
             // DGV
@@ -104,7 +104,7 @@
             this.DGV.Location = new System.Drawing.Point(0, 0);
             this.DGV.Name = "DGV";
             this.DGV.RowTemplate.Height = 23;
-            this.DGV.Size = new System.Drawing.Size(490, 666);
+            this.DGV.Size = new System.Drawing.Size(517, 666);
             this.DGV.TabIndex = 0;
             // 
             // PaperEditPanel
