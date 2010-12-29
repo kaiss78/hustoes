@@ -23,7 +23,7 @@ namespace OES.Model
         public PCompletion pCompletion;
         public PFunction pFunction;
         public PModif pModif;
-        public List<Problem> problemList;
+        public List<Problem> problemList;        
 
         public Paper()
         {
@@ -98,6 +98,40 @@ namespace OES.Model
         public List<Paper> FindPaper()
         {
             return db.FindPaper();
+        }
+    }
+    public enum ProblemType
+    {
+        Choice,
+        Completion,
+        Tof,
+        Word,
+        Excel,
+        PowerPoint,
+        ProgramCompletion,
+        ProgramModification,
+        ProgramFun,
+        Start,
+        Blank
+    }
+    public class Pid_Ans
+    {
+        public int id;
+        public string ans;
+        public Pid_Ans(int i, string s)
+        {
+            id = i;
+            ans = s;
+        }
+    }
+    public class Pid_Score
+    {
+        public int id;
+        public int score;
+        public Pid_Score(int i, int s)
+        {
+            id = i;
+            score = s;
         }
     }
 }

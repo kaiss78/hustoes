@@ -15,7 +15,7 @@ namespace OES.XMLFile
         public static XMLAssistant studentAnsXML;
         public static XMLAssistant paperAnsXML;
         public static XMLAssistant logXML;
-        public static string rootPath = Config.stuPath;
+        public static string rootPath = Config.TempPaperPath;
 
         
         public static void CreatePaperXML(string filePath,string paperId)

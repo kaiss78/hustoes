@@ -8,9 +8,8 @@ using System.Runtime.InteropServices;
 namespace OES
 {
     public class Config
-    {
-        public static string stuPath;
-        public static string paperPath;
+    {        
+        public static string TempPaperPath;
         public static bool allowScore;
         public static string inipath;
         [DllImport("kernel32")]
@@ -24,12 +23,11 @@ namespace OES
              inipath = INIPath;
              if(ExistINIFile())
              {
-                stuPath=this.IniReadValue("path","stupath");
-                paperPath=this.IniReadValue("path","paperpath");                         
+                 TempPaperPath = this.IniReadValue("path", "TempPaperPath");
              }
              else
              {
-
+                 File.Create("config.ini");
              }
          }
 
