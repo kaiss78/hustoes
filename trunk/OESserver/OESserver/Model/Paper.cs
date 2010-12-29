@@ -23,7 +23,7 @@ namespace OES.Model
         public PCompletion pCompletion;
         public PFunction pFunction;
         public PModif pModif;
-        public List<Problem> problemList;        
+        public List<Problem> problemList;
 
         public Paper()
         {

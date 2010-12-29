@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OES.Model;
 
 namespace OES.UPanel
 {
@@ -21,6 +22,8 @@ namespace OES.UPanel
         public LinkLabel pCLink = new LinkLabel();
         public LinkLabel pFLink = new LinkLabel();
         public LinkLabel pMLink = new LinkLabel();
+        public DataTable proList;
+        public Paper paper;
 
         public PaperEditPanel()
         {
@@ -36,6 +39,12 @@ namespace OES.UPanel
             pFLink.Tag = 8;
             pMLink.Tag = 9;
         }
+
+        public void LoadChoice()
+        {
+            
+        }
+
         override public void ReLoad(int paperID)
         {
             this.Visible = true;            
