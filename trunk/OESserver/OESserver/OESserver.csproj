@@ -237,7 +237,7 @@
     <Compile Include="XMLFile\XMLControl.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cpt_btn.jpg" />
+    <None Include="Resources\cpt_btn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
