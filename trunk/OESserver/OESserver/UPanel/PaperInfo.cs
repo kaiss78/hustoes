@@ -85,7 +85,7 @@ namespace OES.UPanel
 
         private void OK_Click(object sender, EventArgs e)
         {
-            XMLControl.CreatePaperXML();
+            //XMLControl.CreatePaperXML();
         }
 
     }
