@@ -7,6 +7,8 @@ namespace OES.UPanel
 {
     public partial class ProMan : UserPanel
     {
+        public ProList aProList;
+        public ChptList aChptList;
         private readonly int ClWidth;
         private readonly int PlHeight;
         private readonly int PlWidth;
@@ -17,7 +19,15 @@ namespace OES.UPanel
         public ChoiceEdit aChoiceEdit = new ChoiceEdit();
         public CompletionEdit aCompletionEdit = new CompletionEdit();
         public JudgeEdit aJudgeEdit = new JudgeEdit();
+        public OfficeExcelEdit aOfficeExcelEdit = new OfficeExcelEdit();
+        public OfficePowerpointEdit aOfficePowerpointEdit = new OfficePowerpointEdit();
         public OfficeWordEdit aOfficeWordEdit = new OfficeWordEdit();
+        public CCompletionEdit aCCompletionEdit = new CCompletionEdit();
+        public CModifEdit aCModifEdit = new CModifEdit();
+        public CFuctionEdit aCFuctionEdit = new CFuctionEdit();
+        public CppCompletionEdit aCppCompletionEdit = new CppCompletionEdit();
+        public CppModifEdit aCppModifEdit = new CppModifEdit();
+        public CppFuctionEdit aCppFuctionEdit = new CppFuctionEdit();
 
         public ProMan()
         {
@@ -31,10 +41,10 @@ namespace OES.UPanel
             ProType=0;
 
             
-            var aChptList = new ChptList();
+            aChptList = new ChptList();
             aChptList.Size = new Size(ClWidth, Height);
             Controls.Add(aChptList);
-            var aProList = new ProList(this);
+            aProList = new ProList(this);
             aProList.SetBounds(ClWidth, 0, PlWidth, PlHeight);
             Controls.Add(aProList);
             bottomPanel.SetBounds(ClWidth, PlHeight, PlWidth, BpHeight);
@@ -56,10 +66,50 @@ namespace OES.UPanel
                 this.Controls.Add(aJudgeEdit);
                 EditList.Add(aJudgeEdit);
 
+                aOfficeExcelEdit.Hide();
+                aOfficeExcelEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aOfficeExcelEdit);
+                EditList.Add(aOfficeExcelEdit);
+
+                aOfficePowerpointEdit.Hide();
+                aOfficePowerpointEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aOfficePowerpointEdit);
+                EditList.Add(aOfficePowerpointEdit);
+
                 aOfficeWordEdit.Hide();
                 aOfficeWordEdit.Location = new Point(ClWidth, 0);
                 this.Controls.Add(aOfficeWordEdit);
                 EditList.Add(aOfficeWordEdit);
+
+                aCCompletionEdit.Hide();
+                aCCompletionEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aCCompletionEdit);
+                EditList.Add(aCCompletionEdit);
+
+                aCModifEdit.Hide();
+                aCModifEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aCModifEdit);
+                EditList.Add(aCModifEdit);
+
+                aCFuctionEdit.Hide();
+                aCFuctionEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aCFuctionEdit);
+                EditList.Add(aCFuctionEdit);
+
+                aCppCompletionEdit.Hide();
+                aCppCompletionEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aCppCompletionEdit);
+                EditList.Add(aCppCompletionEdit);
+
+                aCppModifEdit.Hide();
+                aCppModifEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aCppModifEdit);
+                EditList.Add(aCppModifEdit);
+
+                aCppFuctionEdit.Hide();
+                aCppFuctionEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aCppFuctionEdit);
+                EditList.Add(aCppFuctionEdit);
                 
             }
            
@@ -69,7 +119,10 @@ namespace OES.UPanel
 
         override public void ReLoad(int x)
         {
+
             ProType = x;
+            aProList.Reload(ProType);
+            aProList.Show();
             this.Visible = true;
         }
     }
