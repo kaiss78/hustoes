@@ -122,8 +122,17 @@ namespace OES.UPanel
 
             ProType = x;
             aProList.Reload(ProType);
+            HideList();
             aProList.Show();
             this.Visible = true;
+        }
+
+        public void HideList()
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                EditList[i].Hide();
+            }
         }
     }
 }

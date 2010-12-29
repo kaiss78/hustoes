@@ -80,9 +80,9 @@
             this.title.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.title.Location = new System.Drawing.Point(33, 25);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(220, 39);
+            this.title.Size = new System.Drawing.Size(226, 39);
             this.title.TabIndex = 1;
-            this.title.Text = "Cpp程序改错题";
+            this.title.Text = "C++程序改错题";
             // 
             // tableLayoutPanel1
             // 
@@ -262,7 +262,7 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "修改处答案";
             // 
-            // CCompletionEdit
+            // CppModifEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -273,7 +273,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.title);
             this.Controls.Add(this.groupBox1);
-            this.Name = "CCompletionEdit";
+            this.Name = "CppModifEdit";
             this.Size = new System.Drawing.Size(593, 666);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
