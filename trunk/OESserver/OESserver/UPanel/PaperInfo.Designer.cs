@@ -759,6 +759,7 @@
             this.OK.TabIndex = 3;
             this.OK.Text = "提交";
             this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
             // label1
             // 
