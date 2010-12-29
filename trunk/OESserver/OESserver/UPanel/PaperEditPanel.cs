@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OES.UPanel
 {
-    public partial class PaperEditPanel : UserControl
+    public partial class PaperEditPanel : UserPanel
     {
         public List<LinkLabel> proTypeLink;
         public LinkLabel choiceLink;

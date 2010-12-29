@@ -27,6 +27,7 @@ namespace OES
             mf.paperInfo.PanelID = 12;
             panelList[13] = mf.paperListPanel;
             mf.paperListPanel.PanelID = 12;
+            panelList[14] = mf.paperEditPanel;
         }
 
         public void HideAllPanel()

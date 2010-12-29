@@ -102,6 +102,7 @@
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaperListDGV.Size = new System.Drawing.Size(710, 575);
             this.PaperListDGV.TabIndex = 0;
+            this.PaperListDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellDoubleClick);
             this.PaperListDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellClick);
             // 
             // button1
