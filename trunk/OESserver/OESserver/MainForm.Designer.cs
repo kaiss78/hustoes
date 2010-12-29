@@ -195,6 +195,7 @@
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Tag = "11";
             this.linkLabel3.Text = "程序C++编程";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // linkLabel2
             // 
@@ -206,6 +207,7 @@
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Tag = "10";
             this.linkLabel2.Text = "程序C++改错";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // linkLabel1
             // 
@@ -217,6 +219,7 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Tag = "9";
             this.linkLabel1.Text = "程序C++填空";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // choiceLbl
             // 
