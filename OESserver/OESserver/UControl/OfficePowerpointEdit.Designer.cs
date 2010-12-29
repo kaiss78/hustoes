@@ -1,6 +1,6 @@
 ﻿namespace OES.UControl
 {
-    partial class OfficeWordEdit
+    partial class OfficePowerpointEdit
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -33,10 +33,10 @@
             this.title = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -71,9 +71,9 @@
             this.title.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.title.Location = new System.Drawing.Point(33, 25);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(104, 39);
+            this.title.Size = new System.Drawing.Size(133, 39);
             this.title.TabIndex = 1;
-            this.title.Text = "字处理";
+            this.title.Text = "演示文稿";
             // 
             // tableLayoutPanel1
             // 
@@ -105,14 +105,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "答案路径";
             // 
-            // richTextBox3
-            // 
-            this.richTextBox3.Location = new System.Drawing.Point(112, 48);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(335, 39);
-            this.richTextBox3.TabIndex = 9;
-            this.richTextBox3.Text = "";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -143,6 +135,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(112, 48);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(335, 39);
+            this.richTextBox3.TabIndex = 9;
+            this.richTextBox3.Text = "";
+            // 
             // richTextBox2
             // 
             this.richTextBox2.Location = new System.Drawing.Point(112, 3);
@@ -169,7 +169,7 @@
             this.button6.Text = "取消";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // OfficeWordEdit
+            // OfficePowerpointEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -178,7 +178,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.title);
             this.Controls.Add(this.groupBox1);
-            this.Name = "OfficeWordEdit";
+            this.Name = "OfficePowerpointEdit";
             this.Size = new System.Drawing.Size(593, 666);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

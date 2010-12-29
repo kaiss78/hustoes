@@ -16,6 +16,8 @@ namespace OES.UPanel
         public List<UserControl> EditList=new List<UserControl>();
         public ChoiceEdit aChoiceEdit = new ChoiceEdit();
         public CompletionEdit aCompletionEdit = new CompletionEdit();
+        public JudgeEdit aJudgeEdit = new JudgeEdit();
+        public OfficeWordEdit aOfficeWordEdit = new OfficeWordEdit();
 
         public ProMan()
         {
@@ -48,6 +50,16 @@ namespace OES.UPanel
                 aCompletionEdit.Location = new Point(ClWidth, 0);
                 this.Controls.Add(aCompletionEdit);
                 EditList.Add(aCompletionEdit);
+
+                aJudgeEdit.Hide();
+                aJudgeEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aJudgeEdit);
+                EditList.Add(aJudgeEdit);
+
+                aOfficeWordEdit.Hide();
+                aOfficeWordEdit.Location = new Point(ClWidth, 0);
+                this.Controls.Add(aOfficeWordEdit);
+                EditList.Add(aOfficeWordEdit);
                 
             }
            
