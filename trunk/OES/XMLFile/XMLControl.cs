@@ -26,5 +26,25 @@ namespace OES.XMLFile
         {
             paperXML.AddPaper(pt, new Pid_Score(id, score));
         }
+        public static List<IdScoreType> ReadPaper(string filePath)
+        {
+            paperXML = new XMLAssistant(filePath, XMLType.Paper, 0);
+            return paperXML.Get();
+        }
+    }
+    public class IdScoreType
+    {
+        public int id;
+        public ProblemType pt;
+        public int score;
+        public IdScoreType()
+        {
+        }
+        public IdScoreType(int id,ProblemType pt,int score)
+        {
+            this.id=id;
+            this.pt=pt;
+            this.score=score;
+        }
     }
 }
