@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using OES.XMLFile;
 
 namespace OES.UPanel
 {
@@ -80,6 +81,11 @@ namespace OES.UPanel
             {
                 countList[x].Enabled = Convert.ToBoolean(flag[x]);
             }
+        }
+
+        private void OK_Click(object sender, EventArgs e)
+        {
+            XMLControl.CreatePaperXML();
         }
 
     }

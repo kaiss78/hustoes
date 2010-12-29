@@ -61,6 +61,7 @@
     <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1a4c9eadd4711d4" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
