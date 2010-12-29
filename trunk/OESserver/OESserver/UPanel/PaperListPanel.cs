@@ -53,6 +53,7 @@ namespace OES.UPanel
         public PaperListPanel()
         {
             InitializeComponent();
+            InitList();
         }
 
         override public void ReLoad()
