@@ -45,9 +45,20 @@ namespace OES.UPanel
             
         }
 
+        public void loadPaper()
+        {
+
+        }
+
         override public void ReLoad(int paperID)
         {
             this.Visible = true;            
+        }
+
+        override public void ReLoad(Paper p)
+        {
+            this.Visible = true;
+            paper = p;
         }
     }
 }
