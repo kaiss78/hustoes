@@ -46,5 +46,13 @@ namespace OES.XMLFile
             this.pt=pt;
             this.score=score;
         }
+        public static void CreatePaperXML(string filePath,string paperId)
+        {
+            paperXML = new XMLAssistant(filePath, XMLType.Paper, paperId);
+        }
+        public static void AddProblemToPaper(ProblemType pt ,int id,int score)
+        {
+            paperXML.AddPaper(pt, new Pid_Score(id, score));
+        }
     }
 }

@@ -2,12 +2,12 @@
 {
     partial class CustomExcel
     {
-        /// <summary> 
+        /// <summary>
         /// 必需的设计器变量。
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// 清理所有正在使用的资源。
         /// </summary>
         /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
@@ -22,29 +22,41 @@
 
         #region 组件设计器生成的代码
 
-        /// <summary> 
+        /// <summary>
         /// 设计器支持所需的方法 - 不要
         /// 使用代码编辑器修改此方法的内容。
         /// </summary>
         private void InitializeComponent()
         {
-            this.label_title = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.Question = new System.Windows.Forms.RichTextBox();
-            this.button_open = new System.Windows.Forms.Button();
-            this.button_repeat = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label_title
+            // button1
             // 
-            this.label_title.AutoSize = true;
-            this.label_title.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_title.Location = new System.Drawing.Point(40, 101);
-            this.label_title.Name = "label_title";
-            this.label_title.Size = new System.Drawing.Size(51, 20);
-            this.label_title.TabIndex = 0;
-            this.label_title.Text = "题干";
+            this.button1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(482, 434);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 40);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "打开文档";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(606, 434);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(101, 40);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "重新做题";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Question
             // 
@@ -53,44 +65,9 @@
             this.Question.Name = "Question";
             this.Question.ReadOnly = true;
             this.Question.Size = new System.Drawing.Size(665, 300);
-            this.Question.TabIndex = 1;
+            this.Question.TabIndex = 3;
             this.Question.Text = "";
             this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
-            // 
-            // button_open
-            // 
-            this.button_open.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_open.Location = new System.Drawing.Point(482, 434);
-            this.button_open.Name = "button_open";
-            this.button_open.Size = new System.Drawing.Size(101, 40);
-            this.button_open.TabIndex = 3;
-            this.button_open.Text = "打开文档";
-            this.button_open.UseVisualStyleBackColor = true;
-            this.button_open.Click += new System.EventHandler(this.button_open_Click);
-            // 
-            // button_repeat
-            // 
-            this.button_repeat.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_repeat.Location = new System.Drawing.Point(606, 434);
-            this.button_repeat.Name = "button_repeat";
-            this.button_repeat.Size = new System.Drawing.Size(101, 40);
-            this.button_repeat.TabIndex = 4;
-            this.button_repeat.Text = "重新做题";
-            this.button_repeat.UseVisualStyleBackColor = true;
-            this.button_repeat.Click += new System.EventHandler(this.button_repeat_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.richTextBox1.Location = new System.Drawing.Point(42, 37);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(664, 52);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // label1
             // 
@@ -99,22 +76,45 @@
             this.label1.Location = new System.Drawing.Point(40, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 20);
-            this.label1.TabIndex = 9;
+            this.label1.TabIndex = 7;
             this.label1.Text = "题目要求";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // CustomExcel
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.richTextBox2.Location = new System.Drawing.Point(42, 37);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(664, 52);
+            this.richTextBox2.TabIndex = 8;
+            this.richTextBox2.Text = "";
+            this.richTextBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(40, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "题干";
+            // 
+            // CustomPPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button_repeat);
-            this.Controls.Add(this.button_open);
             this.Controls.Add(this.Question);
-            this.Controls.Add(this.label_title);
-            this.Name = "CustomExcel";
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Name = "CustomPPT";
             this.Size = new System.Drawing.Size(784, 489);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,11 +122,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label_title;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox Question;
-        private System.Windows.Forms.Button button_open;
-        private System.Windows.Forms.Button button_repeat;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label2;
     }
 }

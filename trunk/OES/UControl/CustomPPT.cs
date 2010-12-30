@@ -16,12 +16,10 @@ namespace OES.UControl
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
 
-        static string path = @"OESTEST\";
-        static string name = "a.ppt";
-        static string path1 = path +  name;
-        static string path2 = path + "ans_" + name;
-        static string path3 = path + "cor_" + name;
-
+        static string paperPath = Config.paperPath;
+        static string name = "e.ppt";
+        static string stuPath = paperPath + "stu_" + name;
+      
         public CustomPPT()
         {     
             InitializeComponent();
@@ -29,22 +27,22 @@ namespace OES.UControl
         }
 
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            StreamReader sr = new StreamReader(path+"大枪刷图点.txt", Encoding.GetEncoding("GB2312"), false);
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    StreamReader sr = new StreamReader(path+"大枪刷图点.txt", Encoding.GetEncoding("GB2312"), false);
 
-            string str = sr.ReadToEnd();
+        //    string str = sr.ReadToEnd();
 
-            sr.Close();
+        //    sr.Close();
 
-            this.Question.Text = str;
-            this.richTextBox2.Text = str; 
+        //    this.Question.Text = str;
+        //    this.richTextBox2.Text = str; 
 
-        }
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(path2);
+            System.Diagnostics.Process.Start(stuPath);
             ClientControl.SetDone(ClientControl.CurrentProblemNum);
         }
 
@@ -56,8 +54,8 @@ namespace OES.UControl
             if (MessageBox.Show("继续将会删除之前答案", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 
-                File.Copy(path1, path2,true);
-                System.Diagnostics.Process.Start(path2);
+                File.Copy(paperPath+name, stuPath,true);
+                System.Diagnostics.Process.Start(stuPath);
             }
             
 
@@ -73,15 +71,15 @@ namespace OES.UControl
                     pro1.Kill();
                 }
             }          
-            File.Copy(path1, path2,true);
+            File.Copy(paperPath+name, stuPath,true);
             
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
+        //private void button4_Click(object sender, EventArgs e)
+        //{
 
-            MessageBox.Show(Correct.Correctppt(path2, path3).ToString());
-        }
+        //    MessageBox.Show(Correct.Correctppt(path2, path3).ToString());
+        //}
 
 
         private void Hide_MouseDown(object sender, MouseEventArgs e)
