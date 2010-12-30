@@ -352,7 +352,7 @@ namespace OES.XMLFile
                 case ProblemType.Excel:
                 case ProblemType.PowerPoint:
                 case ProblemType.ProgramCompletion:
-                case ProblemType.ProgramModification:
+                case ProblemType.ProgramModification: 
                 case ProblemType.ProgramFun:
                     {
                         xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
