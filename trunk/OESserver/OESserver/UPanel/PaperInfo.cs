@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using OES.XMLFile;
+
 //using OES.XMLFile;
 
 namespace OES.UPanel
@@ -75,6 +77,11 @@ namespace OES.UPanel
             countList[2].Enabled = true;
             this.count();
         }
+
+        override public void ReLoad(Paper p)
+        {
+            this.Visible = true;            
+        }
         
         private void CountButton_Click(object sender, EventArgs e)
         {
@@ -91,6 +98,11 @@ namespace OES.UPanel
         {
             //XMLControl.CreatePaperXML();
             PanelControl.ChangPanel(13);
+        }
+
+        private void EditPaper_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

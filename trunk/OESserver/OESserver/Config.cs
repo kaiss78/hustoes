@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 namespace OES
@@ -13,7 +14,7 @@ namespace OES
         public static bool allowScore;
         public static string inipath;
         [DllImport("kernel32")]
-        private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        private static extern bool WritePrivateProfileString(string section, string key, string val, string filePath);
         [DllImport("kernel32")]
         private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
 
@@ -28,6 +29,10 @@ namespace OES
              else
              {
                  File.Create("config.ini");
+                 inipath = "config.ini";
+                 Directory.CreateDirectory(@"D:\OES\TempPaper");
+                 
+                 //IniWriteValue("path", "",@"");
              }
          }
 
@@ -38,8 +43,9 @@ namespace OES
         /// <param name="Key">键</param>
         /// <param name="Value">值</param>
         public void IniWriteValue(string Section, string Key, string Value)
-        {
-            WritePrivateProfileString(Section, Key, Value, Config.inipath);
+         {
+             WritePrivateProfileString(Section, Key, Value, Config.inipath);
+            MessageBox.Show( WritePrivateProfileString(Section, Key, Value, Config.inipath).ToString());
         }
 
         /// <summary>

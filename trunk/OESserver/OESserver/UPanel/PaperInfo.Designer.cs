@@ -747,6 +747,7 @@
             this.EditPaper.TabIndex = 2;
             this.EditPaper.Text = "编辑试卷";
             this.EditPaper.UseVisualStyleBackColor = true;
+            this.EditPaper.Click += new System.EventHandler(this.EditPaper_Click);
             // 
             // OK
             // 
