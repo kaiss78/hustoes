@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.Model;
+using OES.XMLFile;
 
 namespace OES.UPanel
 {
@@ -24,11 +25,12 @@ namespace OES.UPanel
         public LinkLabel pMLink = new LinkLabel();
         public DataTable proList;
         public Paper paper;
-
+        public OESData oesData;
+        public List<IdScoreType> proIDList;
         public PaperEditPanel()
         {
             InitializeComponent();
-
+            oesData = new OESData();
             choiceLink.Tag = 1;
             completionLink.Tag = 2;
             judgeLink.Tag = 3;
@@ -47,12 +49,12 @@ namespace OES.UPanel
 
         public void loadPaper()
         {
-
+            proIDList = XMLControl.ReadPaper(this.paper.paperPath);
         }
 
         override public void ReLoad(int paperID)
         {
-            this.Visible = true;            
+            this.Visible = true;
         }
 
         override public void ReLoad(Paper p)
