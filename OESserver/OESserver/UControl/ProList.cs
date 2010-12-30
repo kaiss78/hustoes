@@ -51,7 +51,7 @@ namespace OES.UControl
             mainPanel.Height = Height;
             mainPanel.Width = Width;
             Controls.Add(mainPanel);
-            btnHeight = Height / (count + 1);
+            btnHeight = (int)((Height / (count + 1))*1.0186);
             listWidth = (int)(Width * 0.973);
             choWidth = (int)(Width * 0.1);
             numWidth = (int)(Width * 0.1);
