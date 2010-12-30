@@ -83,7 +83,7 @@ namespace OES.UControl
             last.Width = (Width);
             last.Height = (int)(btnHeight/(1.2));
             last.Location = new Point(0, 0);
-            last.BackgroundImage = Resources.cpt_btn;
+            last.BackgroundImage = Resources.up;
             last.BackgroundImageLayout = ImageLayout.Stretch;
             last.FlatStyle = FlatStyle.Popup;
             mainPanel.Controls.Add(last);
@@ -94,7 +94,7 @@ namespace OES.UControl
             next.Width = (Width);
             next.Height = (int)(btnHeight/(1.2));
             next.Location = new Point(0, Height - next.Height);
-            next.BackgroundImage = Resources.cpt_btn;
+            next.BackgroundImage = Resources.down;
             next.BackgroundImageLayout = ImageLayout.Stretch;
             next.FlatStyle = FlatStyle.Popup;
             mainPanel.Controls.Add(next);
@@ -121,7 +121,7 @@ namespace OES.UControl
                         temp.Width = (Width);
                         temp.Height = btnHeight;
                         temp.Location = new Point(0, (int) (btnHeight*(i + 0.8)));
-                        temp.BackgroundImage = Resources.cpt_btn;
+                        temp.BackgroundImage = Resources.title;
                         temp.BackgroundImageLayout = ImageLayout.Stretch;
                         mainPanel.Controls.Add(temp);
                         subPanel.Add(temp);
