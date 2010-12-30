@@ -23,8 +23,6 @@ namespace OES
             MainPanel.Controls.Add(paperInfo);
             MainPanel.Controls.Add(paperListPanel);
             MainPanel.Controls.Add(paperEditPanel);
-            //ProMan aProMan = new ProMan();
-            //MainPanel.Controls.Add(aProMan);            
             PanelControl.init(this);
             PanelControl.HideAllPanel();
         }
