@@ -23,14 +23,15 @@ namespace OES
             MainPanel.Controls.Add(paperInfo);
             MainPanel.Controls.Add(paperListPanel);
             MainPanel.Controls.Add(paperEditPanel);
-
-            panelControl = new PanelControl(this);
-            panelControl.HideAllPanel();
+            //ProMan aProMan = new ProMan();
+            //MainPanel.Controls.Add(aProMan);            
+            PanelControl.init(this);
+            PanelControl.HideAllPanel();
         }
 
         private void Lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {            
-            panelControl.ChangPanel(Convert.ToInt32(((LinkLabel)sender).Tag));
+            PanelControl.ChangPanel(Convert.ToInt32(((LinkLabel)sender).Tag));
         }
     }
 }
