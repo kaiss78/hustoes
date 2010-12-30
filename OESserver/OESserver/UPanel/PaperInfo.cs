@@ -33,12 +33,7 @@ namespace OES.UPanel
             this.Visible = false;
         }
 
-        public int GetTag(Control con)
-        {
-            return Convert.ToInt32(con.Tag);
-        }
-
-        private void Count_Click(object sender, EventArgs e)
+        public void count()
         {
             int count = 0;
             int score = 0;
@@ -50,10 +45,20 @@ namespace OES.UPanel
             for (int i = 3; i < 9; i++)
             {
                 count = count + flag[i];
-                score = score + flag[i] *Convert.ToInt32(scoreList[i].Text);
+                score = score + flag[i] * Convert.ToInt32(scoreList[i].Text);
             }
             this.ProCount.Text = count.ToString() + "题";
             this.Score.Text = score.ToString() + "分";            
+        }
+
+        public int GetTag(Control con)
+        {
+            return Convert.ToInt32(con.Tag);
+        }
+
+        private void Count_Click(object sender, EventArgs e)
+        {
+            this.count();
         }
 
         override public void ReLoad()
@@ -67,11 +72,10 @@ namespace OES.UPanel
             }
             countList[0].Enabled = true;
             countList[1].Enabled = true;
-            countList[2].Enabled = true;            
+            countList[2].Enabled = true;
+            this.count();
         }
-
         
-
         private void CountButton_Click(object sender, EventArgs e)
         {
             int x = this.GetTag((Control) sender);
@@ -86,6 +90,7 @@ namespace OES.UPanel
         private void OK_Click(object sender, EventArgs e)
         {
             //XMLControl.CreatePaperXML();
+            PanelControl.ChangPanel(13);
         }
 
     }

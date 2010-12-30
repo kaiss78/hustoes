@@ -7,21 +7,25 @@ using OES.UPanel;
 
 namespace OES
 {
-    class PanelControl
+    public class PanelControl
     {
         public const int PanelNumber=15;
-        public List<UserPanel> panelList = new List<UserPanel>(PanelNumber);
+        static public List<UserPanel> panelList = new List<UserPanel>(PanelNumber);
 
-        public PanelControl(MainForm mf)
+        public PanelControl( )
+        {
+        }
+
+        static public void init(MainForm mf)
         {
             for (int i = 0; i < PanelNumber; i++)
             {
-                panelList.Add(new UserPanel());                
+                panelList.Add(new UserPanel());
             }
             for (int i = 0; i < 12; i++)
             {
                 panelList[i] = mf.proMan;
-            }            
+            }
             mf.proMan.PanelID = 0;
             panelList[12] = mf.paperInfo;
             mf.paperInfo.PanelID = 12;
@@ -30,7 +34,7 @@ namespace OES
             panelList[14] = mf.paperEditPanel;
         }
 
-        public void HideAllPanel()
+        static public void HideAllPanel()
         {
             foreach (UserPanel up in panelList)
             {
@@ -38,7 +42,7 @@ namespace OES
             }
         }
 
-        public void ChangPanel(int x)
+        static public void ChangPanel(int x)
         {
             HideAllPanel();
             if (x < 12)
@@ -51,7 +55,7 @@ namespace OES
             }            
         }
 
-        public void ChangPanel(int x,int y)
+        static public void ChangPanel(int x, int y)
         {
             HideAllPanel();
             panelList[x].ReLoad(y);
