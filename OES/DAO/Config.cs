@@ -12,7 +12,19 @@ namespace OES
         public static string stuPath;
         public static string paperPath;
         public static bool allowScore;
-        public static string inipath;
+        private static string inipath = "OesConfig.ini";
+
+        public static string Inipath
+        {
+            get 
+            {
+                return Config.inipath; 
+            }
+            set 
+            { 
+                Config.inipath = value; 
+            }
+        }
         [DllImport("kernel32")]
         private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
         [DllImport("kernel32")]
