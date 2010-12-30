@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OES.Model;
 
 namespace OES.UPanel
 {
@@ -22,6 +23,9 @@ namespace OES.UPanel
         }
 
         virtual public void ReLoad(int x)
+        {
+        }
+        virtual public void ReLoad(Paper x)
         {
         }
     }

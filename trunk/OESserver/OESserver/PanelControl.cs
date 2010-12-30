@@ -45,14 +45,18 @@ namespace OES
         static public void ChangPanel(int x)
         {
             HideAllPanel();
-            if (x < 12)
+            switch (x)
             {
-                panelList[x].ReLoad(x);
+                case 12:
+                    panelList[x].ReLoad();
+                    break;
+                case 13:
+                    panelList[x].ReLoad();
+                    break;
+                default:
+                    panelList[x].ReLoad(x);
+                    break;
             }
-            else
-            {
-                panelList[x].ReLoad();
-            }            
         }
 
         static public void ChangPanel(int x, int y)
