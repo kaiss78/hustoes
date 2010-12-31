@@ -14,6 +14,7 @@ namespace OES
     {
         SqlConnection sqlcon;//定义SQL的链接
         string sqlstring; //定义SQL语句字符串
+        List<Paper> paper = new List<Paper>();
         List<Problem> results = new List<Problem>();
         List<Choice> choice = new List<Choice>();
         List<Completion> completion = new List<Completion>();
@@ -32,7 +33,8 @@ namespace OES
             sqlcon = new SqlConnection();
             string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
             //strConnection += "initial catalog=OESDB;Server=localhost;";
-            //strConnection += "Connect Timeout=30";           
+            //strConnection += "Connect Timeout=30"; 
+          
             sqlcon.ConnectionString = strConnection;
             try
             {
@@ -79,8 +81,9 @@ namespace OES
             return param;
         }
         //向数据库中添加选择题
-        public void AddChoice(string Problem_Content, string A, string B, string C, string D, string Answer, string Unit)
+        public void AddChoice(string Problem_Content, string A, string B, string C, string D, string Answer, int Unit)
         {
+            string unit = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[8];
             ddlparam[0] = CreateParam("@Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
 
@@ -89,7 +92,7 @@ namespace OES
             ddlparam[3] = CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@D", SqlDbType.VarChar, 100, D, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@Unit", SqlDbType.VarChar, 100, Unit, ParameterDirection.Input);
+            ddlparam[6] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
 
             DataBind();
             SqlCommand cmd = new SqlCommand("AddChoice", sqlcon);
@@ -207,11 +210,13 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "C")
                         problem.optionC = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "D")
-                        problem.optionD = (string)p_Data.Rows[j][i];
+                        problem.optionD = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "Answer")
-                        problem.ans = (string)p_Data.Rows[j][i];
+                        problem.ans = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "Unit")
-                        problem.unit = (string)p_Data.Rows[j][i];
+                        problem.unit = (int)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "UnitName")
+                        problem.unitName = p_Data.Rows[j][i].ToString();
 
                 }
 
@@ -245,7 +250,9 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "Problem_Content")
                         problem.problem = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Unit")
-                        problem.unit = (string)p_Data.Rows[j][i];
+                        problem.unit = (int)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "UnitName")
+                        problem.unitName = p_Data.Rows[j][i].ToString();
                 }
 
                 for (int k = 0; k < p_DataAns.Rows.Count; k++)
@@ -277,7 +284,9 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "Answer")
                         problem.ans = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Unit")
-                        problem.unit = (string)p_Data.Rows[j][i];
+                        problem.unit = (int)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "UnitName")
+                        problem.unitName = (string)p_Data.Rows[j][i];
 
                 }
 
@@ -477,10 +486,11 @@ namespace OES
             return str;
         }
         //按单元查询选择题
-        public List<Problem> FindChoiceByUnit(string Unit)
+        public List<Problem> FindChoiceByUnit(int Unit)
         {
+            string unit = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Unit", SqlDbType.VarChar, 100, Unit, ParameterDirection.Input);
+            ddlparam[0] = CreateParam("@Unit", SqlDbType.Int,5, unit, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindChoiceByUnit", ddlparam, Ds);
             results = DataSetToList(Ds);
@@ -556,8 +566,9 @@ namespace OES
             }
         }
         //修改制定Id的选择题
-        public void UpdateChoice(string Id, string Problem_Content, string A, string B, string C, string D, string Answer, string Unit)
+        public void UpdateChoice(string Id, string Problem_Content, string A, string B, string C, string D, string Answer, int Unit)
         {
+            string unit = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[8];
             ddlparam[0] = CreateParam("@Problem_Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
 
@@ -566,7 +577,7 @@ namespace OES
             ddlparam[3] = CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@D", SqlDbType.VarChar, 100, D, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@Unit", SqlDbType.VarChar, 100, Unit, ParameterDirection.Input);
+            ddlparam[6] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
             ddlparam[7] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
 
             SqlCommand Cmd = CreateCmd("UpdateChoice", ddlparam);
@@ -603,10 +614,11 @@ namespace OES
         }
 
         //按单元查找填空题
-        public List<Problem> FindCompletionByUnit(string Unit)
+        public List<Problem> FindCompletionByUnit(int Unit)
         {
+            string unit = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Unit", SqlDbType.VarChar, 100, Unit, ParameterDirection.Input);
+            ddlparam[0] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindCompletionByUnit", ddlparam, Ds);
             results = DataSetToList(Ds);
@@ -629,14 +641,15 @@ namespace OES
             }
         }
         //按Id修改填空题
-        public void UpdateCompletion(string Id, string Problem_Content, string Unit, List<string> ans)
+        public void UpdateCompletion(string Id, string Problem_Content, int Unit, List<string> ans)
         {
+            string unit = Unit.ToString();
             string Answer = ListToString(ans);
             SqlParameter[] ddlparam = new SqlParameter[4];
             ddlparam[0] = CreateParam("@Problem_Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
 
             ddlparam[1] = CreateParam("@Answers", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Unit", SqlDbType.VarChar, 100, Unit, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
             ddlparam[3] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
 
             SqlCommand Cmd = CreateCmd("UpdateCompletion", ddlparam);
@@ -651,14 +664,15 @@ namespace OES
 
         }
         //添加填空题
-        public void AddCompletion(string Problem_Content, string Problem_Pic, string Unit, List<string> ans)
+        public void AddCompletion(string Problem_Content, string Problem_Pic, int Unit, List<string> ans)
         {
+            string unit = Unit.ToString();
             string Answer = ListToString(ans);
             SqlParameter[] ddlparam = new SqlParameter[3];
             ddlparam[0] = CreateParam("@Problem_Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
 
             ddlparam[1] = CreateParam("@Answers", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Unit", SqlDbType.VarChar, 100, Unit, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
 
             SqlCommand Cmd = CreateCmd("AddCompletion", ddlparam);
             try
@@ -687,12 +701,13 @@ namespace OES
         }
 
         //单题 增加判断题
-        public void AddTof(string Problem_Content, string Answer, string Unit)
+        public void AddTof(string Problem_Content, string Answer, int Unit)
         {
+            string unit = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[3];
             ddlparam[0] = CreateParam("@Problem_Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
             ddlparam[1] = CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Unit", SqlDbType.VarChar, 100, Unit, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
 
             DataBind();
             SqlCommand cmd = new SqlCommand("AddTof", sqlcon);
@@ -729,13 +744,14 @@ namespace OES
         }
 
         //按Id修改判断题
-        public void UpdateTof(string Id, string Problem_Content, string Unit, string Answer)
+        public void UpdateTof(string Id, string Problem_Content, int Unit, string Answer)
         {
+            string unit = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[4];
             ddlparam[0] = CreateParam("@Problem_Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
 
             ddlparam[1] = CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Unit", SqlDbType.VarChar, 100, Unit, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
             ddlparam[3] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
 
             SqlCommand Cmd = CreateCmd("UpdateTof", ddlparam);
@@ -751,10 +767,11 @@ namespace OES
         }
 
         //按单元查找判断题
-        public List<Problem> FindTofByUnit(string Unit)
+        public List<Problem> FindTofByUnit(int Unit)
         {
+            string unit = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Unit", SqlDbType.VarChar, 100, Unit, ParameterDirection.Input);
+            ddlparam[0] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindTofByUnit", ddlparam, Ds);
             results = DataSetToList(Ds);
@@ -1155,20 +1172,21 @@ namespace OES
             pModif = DataSetToListModifProgram(Ds);
             return pModif;
         }
-        //增加Paper记录
-        public void AddPaper(string GenerateDate, string TestDate,string Paper_Path,string Title,string Teacher_Id)
+        //增加Paper记录 ,ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
+        public void AddPaper(string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id, int ProgramState)
         {
-            SqlParameter[] ddlparam = new SqlParameter[5];
+            SqlParameter[] ddlparam = new SqlParameter[6];
             ddlparam[0] = CreateParam("@GenerateDate", SqlDbType.DateTime, 20, GenerateDate, ParameterDirection.Input);
             ddlparam[1] = CreateParam("@TestDate", SqlDbType.DateTime, 20, TestDate, ParameterDirection.Input);
             ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, Paper_Path, ParameterDirection.Input);
             ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
+            ddlparam[5] = CreateParam("@ProgramState", SqlDbType.Int, 5, ProgramState, ParameterDirection.Input);
             
             DataBind();
             SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 cmd.Parameters.Add(ddlparam[i]);
             }
@@ -1200,10 +1218,10 @@ namespace OES
             }
         }
 
-        //修改Paper记录
-        public void UpdatePaper(string Id, string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id)
+        //修改Paper记录  ,ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
+        public void UpdatePaper(string Id, string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id,int ProgramState)
         {
-            SqlParameter[] ddlparam = new SqlParameter[6];
+            SqlParameter[] ddlparam = new SqlParameter[7];
             ddlparam[0] = CreateParam("@GenerateDate", SqlDbType.DateTime, 20, GenerateDate, ParameterDirection.Input);
             ddlparam[1] = CreateParam("@TestDate", SqlDbType.DateTime, 20, TestDate, ParameterDirection.Input);
             ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, Paper_Path, ParameterDirection.Input);
@@ -1211,6 +1229,7 @@ namespace OES
             ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
             
             ddlparam[5] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+            ddlparam[6] = CreateParam("@ProgramState", SqlDbType.Int, 5, Id, ParameterDirection.Input);
 
 
             SqlCommand Cmd = CreateCmd("UpdatePaper", ddlparam);
@@ -1247,7 +1266,43 @@ namespace OES
             return results;
 
         }
+        //按Id查找Paper记录 
+        public List<Paper> FindPaperById(string Id)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+            Ds = new DataSet();
+            RunProc("FindPaperById", ddlparam, Ds);
+            paper = DataSetToListPaper(Ds);
+            return paper;
+        }
+        //添加章节，UnitName具体的章节名字，例如“故障恢复” Unit 例子：1-12；TypeId 0,1,2分别表示填空选择判断
 
+        public void AddUnit(string UnitName,int Unit,int TypeId)
+        {
+            string A = Unit.ToString();
+            string B = TypeId.ToString();
+            SqlParameter[] ddlparam = new SqlParameter[3];
+            ddlparam[0] = CreateParam("@UnitName", SqlDbType.VarChar, 100, UnitName, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Unit", SqlDbType.Int, 5, A, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@TypeId", SqlDbType.Int, 5, B, ParameterDirection.Input);
+           
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 3; i++)
+            {
+                cmd.Parameters.Add(ddlparam[i]);
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
         private List<Paper> DataSetToListPaper(DataSet p_DataSet)
         {
             List<Paper> result = new List<Paper>();
@@ -1267,6 +1322,12 @@ namespace OES
                         problem.createTime = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "TName")
                         problem.author = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "ProgramState")
+                        problem.programState = (int)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "TestDate")
+                        problem.testTime = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "Paper_Path")
+                        problem.paperPath = p_Data.Rows[j][i].ToString();
                 }
 
                 result.Add(problem);
