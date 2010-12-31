@@ -14,6 +14,8 @@ namespace OES.Model
         public string author = "";
         public string testTime = "";
         public string paperPath = "";
+        //ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
+        public int programState = 0;
         public List<Choice> choice;
         public List<Completion> completion;
         public List<Judge> judge;
