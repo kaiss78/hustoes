@@ -8,7 +8,8 @@ namespace OES.Model
     public class Judge:Problem
     {
         public string ans, stuAns;
-        public string unit;
+        public int unit;
+        public string unitName;
         public Judge()
         {
             type = "判断题";
