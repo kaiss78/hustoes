@@ -13,7 +13,9 @@ namespace OES.Model
         public string optionD;
         public string ans;
         public string stuAns;
-        public string unit;
+        public int unit;
+       
+        public string unitName;
         
         public Choice()
         {
