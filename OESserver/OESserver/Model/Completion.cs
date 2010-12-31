@@ -8,7 +8,8 @@ namespace OES.Model
     public class Completion:Problem
     {
         public string stuAns;
-        public string unit;
+        public int unit;
+        public string unitName;
         public List<string> ans;
         public Completion()
         {
