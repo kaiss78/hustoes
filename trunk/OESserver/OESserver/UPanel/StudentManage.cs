@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OES.UPanel
 {
-    public partial class StudentManage : UserControl
+    public partial class StudentManage : UserPanel
     {
         public StudentManage()
         {
