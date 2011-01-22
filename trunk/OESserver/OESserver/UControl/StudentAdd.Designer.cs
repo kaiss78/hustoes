@@ -71,7 +71,7 @@
             // radioAddOne
             // 
             this.radioAddOne.AutoSize = true;
-            this.radioAddOne.Location = new System.Drawing.Point(51, 28);
+            this.radioAddOne.Location = new System.Drawing.Point(51, 15);
             this.radioAddOne.Name = "radioAddOne";
             this.radioAddOne.Size = new System.Drawing.Size(122, 20);
             this.radioAddOne.TabIndex = 1;
@@ -83,7 +83,7 @@
             // radioAddMany
             // 
             this.radioAddMany.AutoSize = true;
-            this.radioAddMany.Location = new System.Drawing.Point(51, 254);
+            this.radioAddMany.Location = new System.Drawing.Point(51, 241);
             this.radioAddMany.Name = "radioAddMany";
             this.radioAddMany.Size = new System.Drawing.Size(154, 20);
             this.radioAddMany.TabIndex = 2;
@@ -108,7 +108,7 @@
             this.groupAddOne.Controls.Add(this.label4);
             this.groupAddOne.Controls.Add(this.label3);
             this.groupAddOne.Controls.Add(this.label2);
-            this.groupAddOne.Location = new System.Drawing.Point(62, 54);
+            this.groupAddOne.Location = new System.Drawing.Point(62, 41);
             this.groupAddOne.Name = "groupAddOne";
             this.groupAddOne.Size = new System.Drawing.Size(557, 173);
             this.groupAddOne.TabIndex = 4;
@@ -243,7 +243,7 @@
             this.groupAddMany.Controls.Add(this.textFile);
             this.groupAddMany.Controls.Add(this.label7);
             this.groupAddMany.Controls.Add(this.label1);
-            this.groupAddMany.Location = new System.Drawing.Point(62, 280);
+            this.groupAddMany.Location = new System.Drawing.Point(62, 267);
             this.groupAddMany.Name = "groupAddMany";
             this.groupAddMany.Size = new System.Drawing.Size(557, 150);
             this.groupAddMany.TabIndex = 5;
@@ -312,7 +312,7 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(518, 442);
+            this.btnReturn.Location = new System.Drawing.Point(518, 429);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(87, 32);
             this.btnReturn.TabIndex = 10;
