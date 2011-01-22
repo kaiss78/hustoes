@@ -19,12 +19,21 @@ namespace OES
         private void Loginbtn_Click(object sender, EventArgs e)
         {
             InfoControl.User = InfoControl.OesData.FindTeacherByLoginName(UserName.Text);
-            if (InfoControl.User != null)
+            if (InfoControl.User.Equals(null))
             {
-                MessageBox.Show(InfoControl.User.Id);
+                MessageBox.Show("用户名错误！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+                if (Password.Text == InfoControl.User.password)
+                {
+                    InfoControl.MainForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("密码错误！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
         }

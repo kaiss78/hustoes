@@ -29,7 +29,13 @@ namespace OES
             MainPanel.Controls.Add(studentManage);
             PanelControl.init(this);
             PanelControl.HideAllPanel();
+            this.FormClosed += new FormClosedEventHandler(MainForm_FormClosed); 
         }
+
+        void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {            
+            InfoControl.LoginForm.Show();
+        }        
 
         private void Lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {   

@@ -14,7 +14,7 @@ namespace OES
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Config config=new Config("config.ini");
-            Application.Run(new LoginForm());
+            Application.Run(InfoControl.LoginForm);
         }
     }
 }
