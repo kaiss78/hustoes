@@ -21,7 +21,7 @@ namespace OES
         {
             get 
             {
-                if (loginForm == null) { LoginForm = new LoginForm(); }
+                if (loginForm == null || loginForm.IsDisposed) { LoginForm = new LoginForm(); }
                 return ClientControl.loginForm; 
             }
             set { ClientControl.loginForm = value; }
@@ -34,7 +34,7 @@ namespace OES
             get
             {
 
-                if (examForm == null) { ExamForm = new ExamForm(); }
+                if (examForm == null || examForm.IsDisposed) { ExamForm = new ExamForm(); }
                 return ClientControl.examForm; 
             }
             set { ClientControl.examForm = value; }
@@ -45,7 +45,7 @@ namespace OES
         {
             get 
             {
-                if (controlBar == null) { ControlBar = new ControlBar(); }
+                if (controlBar == null || controlBar.IsDisposed) { ControlBar = new ControlBar(); }
                 return ClientControl.controlBar; 
             }
             set { ClientControl.controlBar = value; }
@@ -56,7 +56,7 @@ namespace OES
         {
             get 
             {
-                if (mainForm == null) { MainForm = new MainForm(); }
+                if (mainForm == null || mainForm.IsDisposed) { MainForm = new MainForm(); }
                 return ClientControl.mainForm; 
             }
             set { ClientControl.mainForm = value; }
@@ -67,7 +67,7 @@ namespace OES
         {
             get 
             {
-                if (waitingForm == null) { WaitingForm = new WaitingForm(); }   
+                if (waitingForm == null || waitingForm.IsDisposed) { WaitingForm = new WaitingForm(); }   
                 return ClientControl.waitingForm; 
             }
             set { ClientControl.waitingForm = value; }
@@ -79,7 +79,7 @@ namespace OES
         {
             get 
             {
-                if (teaPassForm == null) { TeaPassForm = new TeaPassForm(); }
+                if (teaPassForm == null|| teaPassForm.IsDisposed) { TeaPassForm = new TeaPassForm(); }
                 return ClientControl.teaPassForm; 
             }
             set { ClientControl.teaPassForm = value; }

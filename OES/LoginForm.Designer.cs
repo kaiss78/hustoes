@@ -60,7 +60,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "考号:";
+            this.label1.Text = "学号:";
             // 
             // label2
             // 

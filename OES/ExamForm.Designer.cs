@@ -47,9 +47,9 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(60, 29);
+            this.panel1.Location = new System.Drawing.Point(45, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(470, 100);
+            this.panel1.Size = new System.Drawing.Size(501, 100);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -58,9 +58,9 @@
             this.label1.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(3, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(452, 48);
+            this.label1.Size = new System.Drawing.Size(500, 48);
             this.label1.TabIndex = 0;
-            this.label1.Text = "全国计算机等级考试";
+            this.label1.Text = "大学生计算机基础考试";
             // 
             // Statr
             // 
@@ -100,7 +100,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "准考证号：";
+            this.label2.Text = "考生学号：";
             // 
             // label3
             // 
@@ -120,13 +120,13 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = "身份证号：";
+            this.label4.Text = "考试代号：";
             // 
             // ExamNo
             // 
             this.ExamNo.AutoSize = true;
             this.ExamNo.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ExamNo.Location = new System.Drawing.Point(240, 185);
+            this.ExamNo.Location = new System.Drawing.Point(240, 272);
             this.ExamNo.Name = "ExamNo";
             this.ExamNo.Size = new System.Drawing.Size(56, 16);
             this.ExamNo.TabIndex = 7;
@@ -146,7 +146,7 @@
             // 
             this.ID.AutoSize = true;
             this.ID.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ID.Location = new System.Drawing.Point(240, 275);
+            this.ID.Location = new System.Drawing.Point(240, 185);
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(56, 16);
             this.ID.TabIndex = 9;
