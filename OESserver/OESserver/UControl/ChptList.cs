@@ -67,12 +67,7 @@ namespace OES.UControl
             }
         }
 
-        public void Reload()
-        {
-            ProType = aProMan.ProType;
 
-
-        }
 
         
 
@@ -86,12 +81,12 @@ namespace OES.UControl
             btnHeight = Height/(count + 1);
             totalpage = ((chpt_num/count) + 1);
             OESData aOESData = new OESData();
-            chpt_num = aOESData.FindUnit(ProType).Count;
+            chpt_num = aOESData.FindUnit(aProMan.ProType).Count;
 
             //list赋初值
             for (int i = 0; i < chpt_num; i++)
             {
-                chpt_name.Add(aOESData.FindUnit(ProType)[i].UnitName);
+                chpt_name.Add(aOESData.FindUnit(aProMan.ProType)[i].UnitName);
             }
 
             var last = new Button();

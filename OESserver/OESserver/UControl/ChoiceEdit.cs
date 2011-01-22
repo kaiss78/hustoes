@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.UPanel;
+using OES.Properties;
 
 
 namespace OES.UControl
@@ -18,8 +19,19 @@ namespace OES.UControl
         {
             InitializeComponent();
             aProMan = pm;
+
+            A.BackgroundImage = Resources.circle_black;
+            A.BackgroundImageLayout = ImageLayout.Stretch;
+            B.BackgroundImage = Resources.circle_black;
+            B.BackgroundImageLayout = ImageLayout.Stretch;
+            C.BackgroundImage = Resources.circle_black;
+            C.BackgroundImageLayout = ImageLayout.Stretch;
+            D.BackgroundImage = Resources.circle_black;
+            D.BackgroundImageLayout = ImageLayout.Stretch;
+
         }
 
+        
         private void button6_Click(object sender, EventArgs e)
         {
             aProMan.bottomPanel.Show();
