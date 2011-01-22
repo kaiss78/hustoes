@@ -17,5 +17,29 @@ namespace OES
             }
             set { InfoControl.oesData = value; }
         }
+        #region 窗体逻辑控制
+        private static LoginForm loginForm = null;
+        public static LoginForm LoginForm
+        {
+            get
+            {
+                if (loginForm == null || loginForm.IsDisposed) { LoginForm = new LoginForm(); }
+                return InfoControl.loginForm;
+            }
+            set { InfoControl.loginForm = value; }
+        }
+        
+        private static MainForm mainForm = null;
+        public static MainForm MainForm
+        {
+            get
+            {
+                if (mainForm == null || mainForm.IsDisposed) {MainForm = new MainForm();}
+                return InfoControl.mainForm;
+            }
+            set { InfoControl.mainForm = value; }
+        }
+
+        #endregion 窗体逻辑控制
     }
 }
