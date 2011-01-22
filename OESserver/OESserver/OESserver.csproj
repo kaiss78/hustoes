@@ -300,6 +300,12 @@
     <Compile Include="UControl\StudentEdit.Designer.cs">
       <DependentUpon>StudentEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="UPanel\ClassManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ClassManage.Designer.cs">
+      <DependentUpon>ClassManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UPanel\PaperEditPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
