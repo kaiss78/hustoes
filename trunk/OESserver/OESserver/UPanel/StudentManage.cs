@@ -19,8 +19,9 @@ namespace OES.UPanel
         public override void ReLoad()
         {
             this.Visible = true;
-            StudentInfoGruop.Visible = true;
-            //show lists
+            studentInfoGruop.Visible = true;
+            studentInfoDGV.Visible = true;
+            studentAdd.Visible = false;
             buttonAdd.Visible = true;
             buttonDelete.Visible = true;
             buttonEdit.Visible = true;
@@ -30,6 +31,12 @@ namespace OES.UPanel
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            studentInfoDGV.Visible = false;
+            studentAdd.Visible = true;
         }
     }
 }
