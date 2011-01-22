@@ -790,13 +790,17 @@
             // CppPro
             // 
             this.CppPro.AutoSize = true;
+            this.CppPro.Checked = true;
             this.CppPro.Location = new System.Drawing.Point(443, 13);
             this.CppPro.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
             this.CppPro.Name = "CppPro";
-            this.CppPro.Size = new System.Drawing.Size(98, 20);
+            this.CppPro.Size = new System.Drawing.Size(98, 25);
             this.CppPro.TabIndex = 35;
             this.CppPro.TabStop = true;
             this.CppPro.Text = "C++程序题";
+            this.CppPro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.CppPro.UseCompatibleTextRendering = true;
+            this.CppPro.UseMnemonic = false;
             this.CppPro.UseVisualStyleBackColor = true;
             // 
             // CPro

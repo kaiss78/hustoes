@@ -14,7 +14,7 @@ namespace OES.UPanel
         public List<TextBox> countList = new List<TextBox>(3);
         public int [] flag=new int[9];
         public OESData oesData;
-
+        public int programstate;
         public PaperInfo()
         {
             InitializeComponent();
@@ -74,6 +74,7 @@ namespace OES.UPanel
                 scoreList[i].Enabled = true;
                 scoreList[i].Text = "0";
             }
+            CppPro.Checked = true;
             countList[0].Enabled = true;
             countList[1].Enabled = true;
             countList[2].Enabled = true;
@@ -98,7 +99,14 @@ namespace OES.UPanel
 
         private void OK_Click(object sender, EventArgs e)
         {
-            //InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text,MainForm.teacher.ID,);
+            if(flag[6]+flag[7]+flag[8]>0)
+            {
+            }
+            else
+            {
+            }
+
+            InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text,InfoControl.User.Id,programstate);
             //XMLControl.CreatePaperXML(Config.TempPaperPath,);
             PanelControl.ChangPanel(13);
         }

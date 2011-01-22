@@ -30,6 +30,17 @@ namespace OES
             set { InfoControl.teacher = value; }
         }
 
+        private static Paper paper = null;
+        public static Paper TmpPaper
+        {
+            get
+            {
+                if (paper == null){paper = new Paper();}
+                return InfoControl.paper;
+            }
+            set { InfoControl.paper = value; }
+        }
+
         #region 窗体逻辑控制
         private static LoginForm loginForm = null;
         public static LoginForm LoginForm
