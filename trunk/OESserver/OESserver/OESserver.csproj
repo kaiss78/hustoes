@@ -87,7 +87,11 @@
     <Compile Include="Model\PModif.cs" />
     <Compile Include="Model\Problem.cs" />
     <Compile Include="Model\Student.cs" />
+
+    <Compile Include="Model\Unit.cs" />
+
     <Compile Include="Model\Teacher.cs" />
+
     <Compile Include="OESData.cs" />
     <Compile Include="PanelControl.cs" />
     <Compile Include="Program.cs" />
