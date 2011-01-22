@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using OES.UControl;
 using System.Collections.Generic;
+using OES.Properties;
 
 namespace OES.UPanel
 {
@@ -13,6 +14,7 @@ namespace OES.UPanel
         private readonly int PlHeight;
         private readonly int PlWidth;
         private readonly int BpHeight;
+        private bool selectall=false;
         public Panel bottomPanel = new Panel();
         public int ProType;
         public List<UserControl> EditList=new List<UserControl>();
@@ -51,6 +53,59 @@ namespace OES.UPanel
             Controls.Add(aProList);
             bottomPanel.SetBounds(ClWidth, PlHeight, PlWidth, BpHeight);
             this.Controls.Add(bottomPanel);
+
+            //底部按钮
+            Button select = new Button();
+            select.Height = 60;
+            select.Width = 110;
+            select.Location = new Point(30, 5);
+            select.Text = "全部标记";
+            select.ForeColor = Color.Blue;
+            select.BackColor = Color.Transparent;
+            select.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            select.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(select);
+            select.FlatStyle = FlatStyle.Popup;
+            select.MouseClick += new MouseEventHandler(select_MouseClick);
+
+            Button cselect = new Button();
+            cselect.Height = 60;
+            cselect.Width = 110;
+            cselect.Location = new Point(160, 5);
+            cselect.Text = "取消全部标记";
+            cselect.ForeColor = Color.Blue;
+            cselect.BackColor = Color.Transparent;
+            cselect.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            cselect.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(cselect);
+            cselect.FlatStyle = FlatStyle.Popup;
+            cselect.MouseClick += new MouseEventHandler(cselect_MouseClick);
+
+            Button delete = new Button();
+            delete.Height = 60;
+            delete.Width = 110;
+            delete.Location = new Point(290, 5);
+            delete.Text = "删除标记项";
+            delete.ForeColor = Color.Blue;
+            delete.BackColor = Color.Transparent;
+            delete.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            delete.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(delete);
+            delete.FlatStyle = FlatStyle.Popup;
+
+            Button add = new Button();
+            add.Height = 60;
+            add.Width = 110;
+            add.Location = new Point(420,5);
+            add.Text = "添加题目";
+            add.ForeColor = Color.Blue;
+            add.BackColor = Color.Transparent;
+            add.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            add.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(add);
+            add.FlatStyle = FlatStyle.Popup;
+
+           
 
             {
                 aChoiceEdit.Hide();
@@ -117,6 +172,30 @@ namespace OES.UPanel
            
 
             EditList.Add(aChoiceEdit);
+        }
+
+        void cselect_MouseClick(object sender, MouseEventArgs e)
+        {
+            selectall = false;
+            aProList.checkNumList.Clear();
+            for (int i = 0; i < aProList.checkClickList.Count; i++)
+            {
+                aProList.checkClickList[i] = false;
+                aProList.checkList[i].BackgroundImage = Resources.circle_black;
+
+            }
+        }
+
+        void select_MouseClick(object sender, MouseEventArgs e)
+        {
+            selectall = true;
+            aProList.checkNumList.Clear();
+            for (int i = 0; i < aProList.checkClickList.Count; i++)
+            {
+                aProList.checkClickList[i] = true;
+                aProList.checkList[i].BackgroundImage = Resources.circle_red;
+                aProList.checkNumList.Add(i);
+            }
         }
 
         override public void ReLoad(int x)

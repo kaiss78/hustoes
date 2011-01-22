@@ -17,10 +17,12 @@ namespace OES.UControl
         private Panel mainPanel;
         public int page = 1;
         public int totalpage = 1;
+        ProMan aProMan;
 
-        public ChptList()
+        public ChptList(ProMan pm)
         {
             InitializeComponent();
+            aProMan = pm;
         }
 
         private void next_MouseClick(object sender, MouseEventArgs e)
