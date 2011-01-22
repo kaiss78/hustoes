@@ -27,6 +27,7 @@ namespace OES.Net
         public string fileName = "test.ppt";
 
         public string server = "222.20.59.83";
+        public int portNum = 20000;
         private IPAddress ip;
 
         public delegate void Submited();
@@ -102,7 +103,7 @@ namespace OES.Net
         {
             try
             {
-                client.BeginConnect(IPAddress.Parse(server), 20000, new AsyncCallback(connect_callBack), client);
+                client.BeginConnect(IPAddress.Parse(server), portNum, new AsyncCallback(connect_callBack), client);
             }
             catch (Exception e)
             {
@@ -120,7 +121,7 @@ namespace OES.Net
             {
                 ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack),0);
 
-                MessageSupervisor.targetFrm.showMessage("End Connection : " + tmsg);
+                //MessageSupervisor.targetFrm.showMessage("End Connection : " + tmsg);
             }
             catch (Exception e)
             {
@@ -142,7 +143,7 @@ namespace OES.Net
             client.EndConnect(asy);
             ns = client.GetStream();
 
-            MessageSupervisor.targetFrm.showMessage("Local Machine: " + client.Client.LocalEndPoint.ToString() + " ----> " + "Connect server: " + client.Client.RemoteEndPoint.ToString());
+            //MessageSupervisor.targetFrm.showMessage("Local Machine: " + client.Client.LocalEndPoint.ToString() + " ----> " + "Connect server: " + client.Client.RemoteEndPoint.ToString());
 
             ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
         }
@@ -187,7 +188,7 @@ namespace OES.Net
                     msg = messages[2];
                     
                     //测试用    
-                    MessageSupervisor.targetFrm.showMessage("Message: [code]" + msg_type.ToString() + " [content]" + msg + " From: " + client.Client.RemoteEndPoint.ToString());
+                    //MessageSupervisor.targetFrm.showMessage("Message: [code]" + msg_type.ToString() + " [content]" + msg + " From: " + client.Client.RemoteEndPoint.ToString());
 
                     MessageScheduler();
                 }
@@ -236,7 +237,7 @@ namespace OES.Net
             {
                 ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
 
-                MessageSupervisor.targetFrm.showMessage("Requesting Paper : " + tmsg);
+                //MessageSupervisor.targetFrm.showMessage("Requesting Paper : " + tmsg);
             }
             catch (Exception e)
             {

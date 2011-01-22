@@ -39,7 +39,7 @@ namespace OES.Net
             dataListener.Start();
             dataListener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), dataListener);
 
-            MessageSupervisor.targetFrm.showMessage("Initialize DataPort: " + dataListener.LocalEndpoint.ToString());
+            //MessageSupervisor.targetFrm.showMessage("Initialize DataPort: " + dataListener.LocalEndpoint.ToString());
             
             //测试用
             archiveDirectory = "H:/" + ip.ToString() + "-" + localPort.ToString() + "-";
