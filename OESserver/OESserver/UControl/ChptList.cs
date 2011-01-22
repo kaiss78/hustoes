@@ -13,12 +13,13 @@ namespace OES.UControl
         private readonly List<Button> subPanel = new List<Button>();
         private readonly List<int> subPanelStatus = new List<int>();
         private int btnHeight;
-        public int chpt_num = 23;
+        public int chpt_num = -1;
         public int count = 20;
         private Panel mainPanel;
         public int page = 1;
         public int totalpage = 1;
         ProMan aProMan;
+        private int ProType;
 
         public ChptList(ProMan pm)
         {
@@ -66,6 +67,14 @@ namespace OES.UControl
             }
         }
 
+        public void Reload()
+        {
+            ProType = aProMan.ProType;
+
+        }
+
+        
+
         private void ChptList_Resize(object sender, EventArgs e)
         {
             Controls.Clear();
@@ -76,11 +85,12 @@ namespace OES.UControl
             btnHeight = Height/(count + 1);
             totalpage = ((chpt_num/count) + 1);
             OESData aOESData = new OESData();
+            chpt_num = aOESData.FindUnit(ProType).Count;
 
             //list赋初值
-            for (int i = 0;i<aOESData.FindUnit(aProMan.ProType).Count; i++)
+            for (int i = 0; i < chpt_num; i++)
             {
-                chpt_name.Add(aOESData.FindUnit(aProMan.ProType)[i]);
+                chpt_name.Add(aOESData.FindUnit(ProType)[i]);
             }
 
             var last = new Button();

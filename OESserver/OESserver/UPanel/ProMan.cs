@@ -204,6 +204,7 @@ namespace OES.UPanel
             ProType = x;
             if (ProType < 3)
             {
+                aChptList.Reload();
                 aProList.Reload();
                 HideList();
                 aChptList.Show();
