@@ -80,7 +80,7 @@ namespace OES.UControl
             //list赋初值
             for (int i = 0;i<aOESData.FindUnit(aProMan.ProType).Count; i++)
             {
-                chpt_name.Add((i + 1).ToString());
+                chpt_name.Add(aOESData.FindUnit(aProMan.ProType)[i]);
             }
 
             var last = new Button();
