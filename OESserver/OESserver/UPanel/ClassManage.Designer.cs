@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.classInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.classInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.classInfoGroup = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classInfoDGV)).BeginInit();
+            this.classInfoGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -50,11 +52,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Controls.Add(this.classInfoDGV, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnAdd, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.button2, 5, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnDelete, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.button4, 5, 7);
+            this.tableLayoutPanel1.Controls.Add(this.classInfoGroup, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -62,31 +64,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.714286F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 202F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 204F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 227F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
-            // 
-            // classInfoDGV
-            // 
-            this.classInfoDGV.AllowUserToAddRows = false;
-            this.classInfoDGV.AllowUserToDeleteRows = false;
-            this.classInfoDGV.AllowUserToResizeRows = false;
-            this.tableLayoutPanel1.SetColumnSpan(this.classInfoDGV, 7);
-            this.classInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classInfoDGV.Location = new System.Drawing.Point(11, 8);
-            this.classInfoDGV.Name = "classInfoDGV";
-            this.classInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
-            this.classInfoDGV.ReadOnly = true;
-            this.tableLayoutPanel1.SetRowSpan(this.classInfoDGV, 3);
-            this.classInfoDGV.RowTemplate.Height = 23;
-            this.classInfoDGV.Size = new System.Drawing.Size(719, 495);
-            this.classInfoDGV.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -128,6 +116,33 @@
             this.button4.Text = "修改班级";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // classInfoDGV
+            // 
+            this.classInfoDGV.AllowUserToAddRows = false;
+            this.classInfoDGV.AllowUserToDeleteRows = false;
+            this.classInfoDGV.AllowUserToResizeRows = false;
+            this.classInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classInfoDGV.Location = new System.Drawing.Point(3, 17);
+            this.classInfoDGV.Name = "classInfoDGV";
+            this.classInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+            this.classInfoDGV.ReadOnly = true;
+            this.classInfoDGV.RowTemplate.Height = 23;
+            this.classInfoDGV.Size = new System.Drawing.Size(713, 498);
+            this.classInfoDGV.TabIndex = 0;
+            // 
+            // classInfoGroup
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.classInfoGroup, 7);
+            this.classInfoGroup.Controls.Add(this.classInfoDGV);
+            this.classInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classInfoGroup.Location = new System.Drawing.Point(11, 8);
+            this.classInfoGroup.Name = "classInfoGroup";
+            this.tableLayoutPanel1.SetRowSpan(this.classInfoGroup, 3);
+            this.classInfoGroup.Size = new System.Drawing.Size(719, 518);
+            this.classInfoGroup.TabIndex = 5;
+            this.classInfoGroup.TabStop = false;
+            this.classInfoGroup.Text = "班级信息";
+            // 
             // ClassManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -137,6 +152,7 @@
             this.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.classInfoDGV)).EndInit();
+            this.classInfoGroup.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -149,5 +165,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox classInfoGroup;
     }
 }
