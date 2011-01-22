@@ -96,6 +96,9 @@
     <Compile Include="Model\Problem.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="DAO\ReadTxt.cs" />
+    <Compile Include="Net\DataPort.cs" />
+    <Compile Include="Net\MessageSupervisor.cs" />
+    <Compile Include="Net\OESClient.cs" />
     <Compile Include="TeaPassForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,9 +335,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\handin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NetControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
