@@ -13,9 +13,9 @@ namespace OES.UControl
         private readonly List<Button> subPanel = new List<Button>();
         private readonly List<int> subPanelStatus = new List<int>();
         private readonly List<Label> titleList = new List<Label>();
-        private readonly List<Button> checkList = new List<Button>();
-        private List<int> checkNumList=new List<int>();
-        private List<bool> checkClickList = new List<bool>();
+        public List<Button> checkList = new List<Button>();
+        public List<int> checkNumList=new List<int>();
+        public List<bool> checkClickList = new List<bool>();
         private choicepro achoicepro;
 
         private int ProType=0;
@@ -94,8 +94,9 @@ namespace OES.UControl
                 choiceproL.Add(achoicepro);
             }
 
+            
 
-            //判断动态生成章节列表
+            //判断动态生成题目列表
             if (pro_num > 0)
             {
                 for (int i = 0; i < pro_num; i++)
