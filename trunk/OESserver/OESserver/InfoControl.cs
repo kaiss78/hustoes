@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using OES.Model;
 
 namespace OES
 {
@@ -12,11 +13,23 @@ namespace OES
         {
             get
             {
-                if (oesData == null) { OesData = new OESData(); }
+                if (oesData == null) { oesData = new OESData(); }
                 return InfoControl.oesData;
             }
             set { InfoControl.oesData = value; }
         }
+
+        private static Teacher teacher=null;
+        public static Teacher User
+        {
+            get
+            {
+                if (teacher == null) { teacher = new Teacher(); }
+                return InfoControl.teacher;
+            }
+            set { InfoControl.teacher = value; }
+        }
+
         #region 窗体逻辑控制
         private static LoginForm loginForm = null;
         public static LoginForm LoginForm

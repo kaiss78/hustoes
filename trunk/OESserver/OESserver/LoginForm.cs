@@ -15,5 +15,10 @@ namespace OES
         {
             InitializeComponent();
         }
+
+        private void Loginbtn_Click(object sender, EventArgs e)
+        {
+           InfoControl.User=InfoControl.OesData.FindTeacherByLoginName(UserName.Text);
+        }
     }
 }

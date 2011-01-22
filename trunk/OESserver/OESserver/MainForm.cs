@@ -13,7 +13,6 @@ namespace OES
         public PaperEditPanel paperEditPanel;
         public StudentManage studentManage;
         private PanelControl panelControl;
-        static public Teacher teacher;
 
         public MainForm()
         {

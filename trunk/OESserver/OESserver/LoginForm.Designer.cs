@@ -90,6 +90,7 @@
             this.Loginbtn.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
             this.Loginbtn.TabIndex = 4;
             this.Loginbtn.Values.Text = "登录";
+            this.Loginbtn.Click += new System.EventHandler(this.Loginbtn_Click);
             // 
             // closebtn
             // 
