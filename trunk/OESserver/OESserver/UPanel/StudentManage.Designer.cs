@@ -35,7 +35,6 @@
             this.studentInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.studentManageLayout = new System.Windows.Forms.TableLayoutPanel();
             this.buttonEdit = new System.Windows.Forms.Button();
-            this.studentAdd = new OES.UControl.StudentAdd();
             this.studentInfoGruop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentInfoDGV)).BeginInit();
             this.studentManageLayout.SuspendLayout();
@@ -75,7 +74,6 @@
             // studentInfoGruop
             // 
             this.studentManageLayout.SetColumnSpan(this.studentInfoGruop, 6);
-            this.studentInfoGruop.Controls.Add(this.studentAdd);
             this.studentInfoGruop.Controls.Add(this.studentInfoDGV);
             this.studentInfoGruop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentInfoGruop.Font = new System.Drawing.Font("宋体", 12F);
@@ -143,15 +141,6 @@
             this.buttonEdit.Text = "修改学生";
             this.buttonEdit.UseVisualStyleBackColor = true;
             // 
-            // studentAdd
-            // 
-            this.studentAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentAdd.Location = new System.Drawing.Point(3, 22);
-            this.studentAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.studentAdd.Name = "studentAdd";
-            this.studentAdd.Size = new System.Drawing.Size(712, 491);
-            this.studentAdd.TabIndex = 1;
-            // 
             // StudentManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -175,7 +164,6 @@
         private System.Windows.Forms.TableLayoutPanel studentManageLayout;
         private System.Windows.Forms.Button buttonEdit;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView studentInfoDGV;
-        private OES.UControl.StudentAdd studentAdd;
 
 
     }

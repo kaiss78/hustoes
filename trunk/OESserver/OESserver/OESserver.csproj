@@ -87,11 +87,8 @@
     <Compile Include="Model\PModif.cs" />
     <Compile Include="Model\Problem.cs" />
     <Compile Include="Model\Student.cs" />
-
     <Compile Include="Model\Unit.cs" />
-
     <Compile Include="Model\Teacher.cs" />
-
     <Compile Include="OESData.cs" />
     <Compile Include="PanelControl.cs" />
     <Compile Include="Program.cs" />
@@ -163,6 +160,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UControl\CppFuctionEdit.resx">
       <DependentUpon>CppFuctionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\StudentAdd.resx">
+      <DependentUpon>StudentAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\StudentEdit.resx">
+      <DependentUpon>StudentEdit.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\PaperEditPanel.resx">
@@ -282,6 +287,18 @@
     </Compile>
     <Compile Include="UControl\CppFuctionEdit.Designer.cs">
       <DependentUpon>CppFuctionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\StudentAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\StudentAdd.Designer.cs">
+      <DependentUpon>StudentAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\StudentEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\StudentEdit.Designer.cs">
+      <DependentUpon>StudentEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\PaperEditPanel.cs">
       <SubType>UserControl</SubType>
