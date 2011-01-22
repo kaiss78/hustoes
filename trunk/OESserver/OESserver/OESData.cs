@@ -1179,6 +1179,22 @@ namespace OES
         //增加Paper记录 ,ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
         public string AddPaper(string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id, int ProgramState)
         {
+            string query = "select max(id) from Paper_Table";
+            string id;
+            int intId;
+            using (SqlConnection connection = new SqlConnection(sqlcon))
+            {
+                SqlCommand com = new SqlCommand(query, sqlcon);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                reader.Read();
+                id = reader[0].ToString();
+                reader.Close();
+            }
+            intId = Convert.ToInt32(id);
+            intId = intId + 1;
+            Paper_Path = Paper_Path + intId.ToString() + ".xml";
             SqlParameter[] ddlparam = new SqlParameter[7];
             ddlparam[0] = CreateParam("@GenerateDate", SqlDbType.DateTime, 20, GenerateDate, ParameterDirection.Input);
             ddlparam[1] = CreateParam("@TestDate", SqlDbType.DateTime, 20, TestDate, ParameterDirection.Input);
@@ -1366,7 +1382,6 @@ namespace OES
                 result.Add(problem);
             }
             return result;
-
         }
         private List<Unit> DataSetToListString(DataSet Ds)
         {
