@@ -1202,10 +1202,7 @@ namespace OES
             ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@ProgramState", SqlDbType.Int, 5, ProgramState, ParameterDirection.Input);
-            //ddlparam[6].Direction = ParameterDirection.Output;       // 设置为输出参数
-           // string  Id = "";
-            //ddlparam[6] = CreateParam("@Id", SqlDbType.Int, 5,Id.ToString() , ParameterDirection.Input);
-            
+           
             DataBind();
             SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
