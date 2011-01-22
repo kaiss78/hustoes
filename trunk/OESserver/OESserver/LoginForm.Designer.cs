@@ -46,7 +46,7 @@
             this.Password.SkipLiterals = false;
             this.Password.TabIndex = 0;
             this.Password.TabStop = false;
-            this.Password.Text = "123";
+            this.Password.Text = "123456";
             // 
             // UserName
             // 
