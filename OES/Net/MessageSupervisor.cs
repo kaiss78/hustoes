@@ -8,6 +8,6 @@ namespace OES.Net
 {
     public class MessageSupervisor
     {
-       // public static OES_Client targetFrm;   
+        //public static OES_Client targetFrm;   
     }
 }

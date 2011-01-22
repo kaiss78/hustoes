@@ -26,7 +26,7 @@ namespace OES.Net
         private int remotePort;
         public string fileName = "test.ppt";
 
-        public string server = "222.20.59.83";
+        public string server = "222.20.59.83";  //服务器地址
         public int portNum = 20000;
         private IPAddress ip;
 
@@ -115,11 +115,32 @@ namespace OES.Net
 
         public bool EndConnection()
         {
-            string tmsg = "#STX#-1#NULL#ETX";
+            if (client.Connected)
+            {
+                string tmsg = "#STX#-1#NULL#ETX";
+                byte[] tBuffer = System.Text.Encoding.Default.GetBytes(tmsg);
+                try
+                {
+                    ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
+
+                   // MessageSupervisor.targetFrm.showMessage("End Connection : " + tmsg);
+                }
+                catch (Exception e)
+                {
+                    //网络出错处理程序
+                    return (false);
+                }
+            }
+            return (true);
+        }
+
+        public bool EndAllConnection()
+        {            
+            string tmsg = "#STX#-2#NULL#ETX";
             byte[] tBuffer = System.Text.Encoding.Default.GetBytes(tmsg);
             try
             {
-                ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack),0);
+                ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
 
                 //MessageSupervisor.targetFrm.showMessage("End Connection : " + tmsg);
             }
@@ -128,14 +149,15 @@ namespace OES.Net
                 //网络出错处理程序
                 return (false);
             }
+            
             return (true);
         }
 
         public void EndService()
-        {
+        {           
             ns.Close();
             client.Close();
-            IsEnd = true;
+            IsEnd = true;            
         }
 
         private void connect_callBack(IAsyncResult asy)
@@ -143,7 +165,7 @@ namespace OES.Net
             client.EndConnect(asy);
             ns = client.GetStream();
 
-            //MessageSupervisor.targetFrm.showMessage("Local Machine: " + client.Client.LocalEndPoint.ToString() + " ----> " + "Connect server: " + client.Client.RemoteEndPoint.ToString());
+           // MessageSupervisor.targetFrm.showMessage("Local Machine: " + client.Client.LocalEndPoint.ToString() + " ----> " + "Connect server: " + client.Client.RemoteEndPoint.ToString());
 
             ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
         }
@@ -188,7 +210,7 @@ namespace OES.Net
                     msg = messages[2];
                     
                     //测试用    
-                    //MessageSupervisor.targetFrm.showMessage("Message: [code]" + msg_type.ToString() + " [content]" + msg + " From: " + client.Client.RemoteEndPoint.ToString());
+                   // MessageSupervisor.targetFrm.showMessage("Message: [code]" + msg_type.ToString() + " [content]" + msg + " From: " + client.Client.RemoteEndPoint.ToString());
 
                     MessageScheduler();
                 }
@@ -202,7 +224,7 @@ namespace OES.Net
 
             temp = temp.Substring(index);
         }
-
+        
         public void sendData()
         {
             port.LoadData(paperPath);
@@ -293,6 +315,12 @@ namespace OES.Net
                 case -1:                   
                     //结束通信
                     EndService();
+                    break;
+
+                case -2:
+                    //断开与服务器的连接
+                    if (EndAllConnection())
+                        EndService();
                     break;
 
                 default:
