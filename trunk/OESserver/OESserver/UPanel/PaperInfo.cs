@@ -12,7 +12,8 @@ namespace OES.UPanel
     {
         public List<TextBox> scoreList = new List<TextBox>(9);
         public List<TextBox> countList = new List<TextBox>(3);
-        public int [] flag=new int[9];        
+        public int [] flag=new int[9];
+        public OESData oesData;
 
         public PaperInfo()
         {
@@ -97,7 +98,8 @@ namespace OES.UPanel
 
         private void OK_Click(object sender, EventArgs e)
         {
-            //XMLControl.CreatePaperXML();
+            //oesData.AddPaper(DateTime.Today.ToString(),TestTime.Text,Config.TempPaperPath,)
+            //XMLControl.CreatePaperXML(Config.TempPaperPath,);
             PanelControl.ChangPanel(13);
         }
 

@@ -28,11 +28,14 @@ namespace OES
              }
              else
              {
-                 File.Create("config.ini");
-                 inipath = "config.ini";
-                 Directory.CreateDirectory(@"D:\OES\TempPaper");
-                 
-                 //IniWriteValue("path", "",@"");
+                 using (StreamWriter sw = new StreamWriter(File.Create("config.ini")))
+                 {
+                     inipath = "config.ini";                     
+                     sw.WriteLine("[path]");
+                     sw.WriteLine(@"TempPaperPath=D:\OES\TempPaper\");
+                     Directory.CreateDirectory(@"D:\OES\TempPaper");
+                     TempPaperPath = @"TempPaperPath=D:\OES\TempPaper\";
+                 } 
              }
          }
 
