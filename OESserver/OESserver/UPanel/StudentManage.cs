@@ -13,6 +13,7 @@ namespace OES.UPanel
     public partial class StudentManage : UserPanel
     {
         StudentAdd stuAdd;
+        StudentEdit stuEdit;
 
         public StudentManage()
         {
