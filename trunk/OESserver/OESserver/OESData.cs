@@ -1175,23 +1175,30 @@ namespace OES
             return pModif;
         }
         //增加Paper记录 ,ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
-        public void AddPaper(string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id, int ProgramState)
+        public string AddPaper(string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id, int ProgramState)
         {
-            SqlParameter[] ddlparam = new SqlParameter[6];
+            SqlParameter[] ddlparam = new SqlParameter[7];
             ddlparam[0] = CreateParam("@GenerateDate", SqlDbType.DateTime, 20, GenerateDate, ParameterDirection.Input);
             ddlparam[1] = CreateParam("@TestDate", SqlDbType.DateTime, 20, TestDate, ParameterDirection.Input);
             ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, Paper_Path, ParameterDirection.Input);
             ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@ProgramState", SqlDbType.Int, 5, ProgramState, ParameterDirection.Input);
+            //ddlparam[6].Direction = ParameterDirection.Output;       // 设置为输出参数
+           // string  Id = "";
+            //ddlparam[6] = CreateParam("@Id", SqlDbType.Int, 5,Id.ToString() , ParameterDirection.Input);
             
             DataBind();
             SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 7; i++)
             {
                 cmd.Parameters.Add(ddlparam[i]);
             }
+            SqlParameter Id = new SqlParameter("@Id", SqlDbType.Int, 4);
+            Id.Direction = ParameterDirection.Output;// 设置为输出参数
+            cmd.Parameters.Add(Id);
+
             try
             {
                 cmd.ExecuteNonQuery();
@@ -1200,6 +1207,8 @@ namespace OES
             {
                 MessageBox.Show(e.ToString());
             }
+            MessageBox.Show(Id.Value.ToString());
+            return Id.Value.ToString();
         }
 
         //按照Id 删除Paper记录
@@ -1279,7 +1288,6 @@ namespace OES
             return paper;
         }
         //添加章节，UnitName具体的章节名字，例如“故障恢复” Unit 例子：1-12；TypeId 0,1,2分别表示填空选择判断
-
         public void AddUnit(string UnitName,int Unit,int TypeId)
         {
             string A = Unit.ToString();
@@ -1304,6 +1312,28 @@ namespace OES
             {
                 MessageBox.Show(e.ToString());
             }
+        }
+        //Description:	给定Type( 0,1,2分别表示填空选择判断的标号)，列出所有相应题型的所有章节名
+        public List<string> FindUnit(string TypeId)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@TypeId", SqlDbType.Int, 3, Id, ParameterDirection.Input);
+            Ds = new DataSet();
+            RunProc("FindUnit", ddlparam, Ds);
+            UnitList = DataSetToListString(Ds);
+            return UnitList;
+        }
+        private List<string> DataSetToListString(DataSet Ds)
+        {
+            //throw new NotImplementedException();
+            List<string> result = new List<string>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                result.Add(p_Data.Rows[j][0].ToString());
+            }
+            return result();
         }
         private List<Paper> DataSetToListPaper(DataSet p_DataSet)
         {
