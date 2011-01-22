@@ -37,7 +37,7 @@
             this.FalseButton = new System.Windows.Forms.RadioButton();
             this.Question = new System.Windows.Forms.RichTextBox();
             this.LastProblem = new System.Windows.Forms.Button();
-            this.NestProblem = new System.Windows.Forms.Button();
+            this.NextProblem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.Jadge_groupBox.SuspendLayout();
@@ -148,23 +148,23 @@
             this.LastProblem.UseVisualStyleBackColor = true;
             this.LastProblem.Click += new System.EventHandler(this.LastProblem_Click);
             // 
-            // NestProblem
+            // NextProblem
             // 
-            this.NestProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.NestProblem.Location = new System.Drawing.Point(552, 423);
-            this.NestProblem.Name = "NestProblem";
-            this.NestProblem.Size = new System.Drawing.Size(169, 42);
-            this.NestProblem.TabIndex = 3;
-            this.NestProblem.Text = "下一题";
-            this.NestProblem.UseVisualStyleBackColor = true;
-            this.NestProblem.Click += new System.EventHandler(this.NestProblem_Click);
+            this.NextProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.NextProblem.Location = new System.Drawing.Point(552, 423);
+            this.NextProblem.Name = "NextProblem";
+            this.NextProblem.Size = new System.Drawing.Size(169, 42);
+            this.NextProblem.TabIndex = 3;
+            this.NextProblem.Text = "下一题";
+            this.NextProblem.UseVisualStyleBackColor = true;
+            this.NextProblem.Click += new System.EventHandler(this.NestProblem_Click);
             // 
             // CustomJudge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.NestProblem);
+            this.Controls.Add(this.NextProblem);
             this.Controls.Add(this.LastProblem);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -190,6 +190,6 @@
         private System.Windows.Forms.RadioButton TrueButton;
         private System.Windows.Forms.GroupBox Jadge_groupBox;
         private System.Windows.Forms.Button LastProblem;
-        private System.Windows.Forms.Button NestProblem;
+        private System.Windows.Forms.Button NextProblem;
     }
 }

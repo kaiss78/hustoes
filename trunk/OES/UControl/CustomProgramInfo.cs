@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.IO;
 
 namespace OES.UControl
 {
@@ -37,11 +39,54 @@ namespace OES.UControl
         private void butOpen_Click(object sender, EventArgs e)
         {
             ClientControl.SetDone(ClientControl.CurrentProblemNum);
+            switch (type)
+            {
+                case 1:
+                    if (!File.Exists(Config.stuPath + "g.cpp"))
+                    {
+                        File.Copy(Config.paperPath + "g.cpp", Config.stuPath + "g.cpp", true);
+                    }
+                    Process.Start(Config.stuPath + "g.cpp");
+                    break ;
+                case 2:
+                    if (!File.Exists(Config.stuPath + "h.cpp"))
+                    {
+                        File.Copy(Config.paperPath + "h.cpp", Config.stuPath + "h.cpp", true);
+                    }
+                    Process.Start(Config.stuPath + "h.cpp");
+                    break ;
+                case 3:
+                    if (!File.Exists(Config.stuPath + "i.cpp"))
+                    {
+                        File.Copy(Config.paperPath + "i.cpp", Config.stuPath + "i.cpp", true);
+                    }
+                    Process.Start(Config.stuPath + "i.cpp");
+                    break ;
+            }
+           
         }
 
         private void butRedo_Click(object sender, EventArgs e)
         {
-            Correct.correctPF(@"G:\Documents\Visual Studio 2008\Projects\OES\OES\bin\Debug\OESTEST\Paper\i.cpp");
+            //Correct.correctPF(@"G:\Documents\Visual Studio 2008\Projects\OES\OES\bin\Debug\OESTEST\Paper\i.cpp");
+            if (MessageBox.Show("继续将会删除之前答案", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                switch (type)
+                {
+                    case 1:
+                        File.Copy(Config.paperPath + "g.cpp", Config.stuPath + "g.cpp", true);
+                        Process.Start(Config.stuPath + "g.cpp");
+                        break;
+                    case 2:
+                        File.Copy(Config.paperPath + "h.cpp", Config.stuPath + "h.cpp", true);
+                        Process.Start(Config.stuPath + "h.cpp");
+                        break;
+                    case 3:
+                        File.Copy(Config.paperPath + "i.cpp", Config.stuPath + "i.cpp", true);
+                        Process.Start(Config.stuPath + "i.cpp");
+                        break;
+                }
+            }
         }
 
 

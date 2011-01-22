@@ -27,7 +27,7 @@ namespace OES
         {
             //验证教师密码正确性
             //
-            if (true)
+            if (maskedTextBox1.Text=="123")
             {
                 ClientControl.paper.ReadPaper();
 
@@ -39,6 +39,7 @@ namespace OES
             }
             else
             {
+                Error.ErrorControl.ShowError(OES.Error.ErrorType.TeacherPassWrong);
             }
         }
     }
