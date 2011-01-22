@@ -26,7 +26,7 @@ namespace OES
         private void butLogin_Click(object sender, EventArgs e)
         {
             //获取当前学生信息
-            ClientControl.student = new Student(this.SName.Text, this.ExamNo.Text, "123456789", this.Password.Text);
+            ClientControl.student = new Student(this.SName.Text,"", this.ExamNo.Text, this.Password.Text);
             
             //递交服务端验证……
             //

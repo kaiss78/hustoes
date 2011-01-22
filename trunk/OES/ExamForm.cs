@@ -27,7 +27,7 @@ namespace OES
             ClientControl.isResume = false;
             ClientControl.ControlBar.Show();
             ClientControl.MainForm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void ExamForm_Load(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace OES
             this.SName.Text = ClientControl.student.sName;
             this.ID.Text = ClientControl.student.ID;
             config = new Config(System.Environment.CurrentDirectory + @"\config.ini");
-            Config.stuPath = Config.stuPath + ClientControl.student.examID + @"\";
+            Config.stuPath = Config.stuPath + ClientControl.student.ID + @"\";
             Config.paperPath = Config.paperPath + Paper.pName + @"\";
 
             if (!File.Exists(Config.paperPath))
@@ -52,26 +52,33 @@ namespace OES
 
         private void Resume_Click(object sender, EventArgs e)
         {
-            //读考卷内容
-            ClientControl.paper.ReadPaper();
-
-            ClientControl.isResume = true;
-            ClientControl.ControlBar.Show();
-            ClientControl.MainForm.Show();
-            this.Hide();
+            //检查是否可以恢复考试
+            if (File.Exists(Config.stuPath + "studentAns.xml"))
+            {
+                Error.ErrorControl.ShowError(OES.Error.ErrorType.ExistAnsXML);
+            }
+            else
+            {
+                //读考卷内容
+                ClientControl.paper.ReadPaper();
+                ClientControl.isResume = true;
+                ClientControl.ControlBar.Show();
+                ClientControl.MainForm.Show();
+                this.Dispose();
+            }
 
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
             ClientControl.LoginForm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
         private void Restart_Click(object sender, EventArgs e)
         {
             ClientControl.TeaPassForm.Show();
-            this.Hide();
+            this.Dispose();
         }
 
     }

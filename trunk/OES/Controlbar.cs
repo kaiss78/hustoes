@@ -25,13 +25,15 @@ namespace OES
             InitializeComponent();
         }
 
-        /* [DllImport("user32.dll", EntryPoint = "FindWindowA")]
-         public static extern IntPtr FindWindowA(string lp1, string lp2);
-         [DllImport("user32.dll", EntryPoint = "ShowWindow")]
-         public static extern IntPtr ShowWindow(IntPtr hWnd, int _value);
-         IntPtr hTray = Form1.FindWindowA("Shell_TrayWnd",String.Empty);
-         * 获取状态栏的，如果想只显示当前窗口，可以把整个状态栏隐藏
-         */
+        public void SetTiem(int s)
+        {
+            Seconds = s;
+            seconds = Seconds - ClientControl.paper.ResumeSecond();
+            minute = seconds / 60;
+            seconds = seconds % 60;
+            time.Text = this.minute.ToString() + ":" + this.seconds.ToString();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -49,9 +51,7 @@ namespace OES
                     XMLControl.LoadLogXML();
                     ClientControl.paper.Resume();
                     XMLControl.WriteLogXML(ProblemType.Start, 0, "");
-                    seconds = Seconds-ClientControl.paper.ResumeSecond();
-                    minute = seconds / 60;
-                    seconds = seconds % 60;
+                    SetTiem(Seconds);
                     //恢复考试，考试时间恢复！！！！！
                     timer1.Start();
 
@@ -76,7 +76,7 @@ namespace OES
             studentID.Text = ClientControl.student.ID;
 
             /**显示初始时间*/
-            time.Text = " 90:00";
+            time.Text = this.minute.ToString() + ":" + this.seconds.ToString();
         }
 
 
@@ -117,7 +117,6 @@ namespace OES
                 {
                     timer1.Enabled = false;
                     MessageBox.Show("考试时间已到！！\n\r 系统退出考试");
-                    /*222222*/
                     /**这里要调用交卷的事件*/
                     butHandIn_Click(null, null);
                 }
