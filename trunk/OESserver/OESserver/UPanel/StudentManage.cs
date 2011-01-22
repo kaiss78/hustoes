@@ -12,7 +12,7 @@ namespace OES.UPanel
 {
     public partial class StudentManage : UserPanel
     {
-        public StudentAdd stuAdd;
+        
 
         public StudentManage()
         {
@@ -24,7 +24,6 @@ namespace OES.UPanel
             this.Visible = true;
             studentInfoGruop.Visible = true;
             studentInfoDGV.Visible = true;
-            studentAdd.Visible = false;
             buttonAdd.Visible = true;
             buttonDelete.Visible = true;
             buttonEdit.Visible = true;
@@ -36,16 +35,11 @@ namespace OES.UPanel
 
         }
 
-        private void createAddPanel()
-        {
-            stuAdd = new StudentAdd();
-        }
-
+       
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             studentInfoDGV.Visible = false;
-            studentAdd = new OES.UControl.StudentAdd();
-            //studentAdd.Visible = true;
+           
         }
     }
 }
