@@ -1182,16 +1182,16 @@ namespace OES
             string query = "select max(id) from Paper_Table";
             string id;
             int intId;
-            using (SqlConnection connection = new SqlConnection(sqlcon))
-            {
+            //using (SqlConnection connection = new SqlConnection(sqlcon))
+            DataBind();
                 SqlCommand com = new SqlCommand(query, sqlcon);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                //connection.Open();
+                SqlDataReader reader = com.ExecuteReader();
 
                 reader.Read();
                 id = reader[0].ToString();
                 reader.Close();
-            }
+          
             intId = Convert.ToInt32(id);
             intId = intId + 1;
             Paper_Path = Paper_Path + intId.ToString() + ".xml";
@@ -1374,9 +1374,9 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "Password")
                         problem.password = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "Permission")
-                        problem.permission = (string)p_Data.Rows[j][i];
+                        problem.permission = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "UserName")
-                        problem.UserName = (int)p_Data.Rows[j][i];
+                        problem.UserName = (string)p_Data.Rows[j][i];
                    
                 }
                 result.Add(problem);
