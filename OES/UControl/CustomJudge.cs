@@ -16,7 +16,29 @@ namespace OES.UControl
     {
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
-        private int proID;
+        private int proid;
+
+        public int proID
+        {
+            get { return proid; }
+            set
+            {
+                proid = value;
+                if (proid == ClientControl.paper.judge.Count - 1)
+                {
+                    NextProblem.Enabled = false;
+                }
+                else if (proid == 0)
+                {
+                    LastProblem.Enabled = false;
+                }
+                else
+                {
+                    NextProblem.Enabled = true;
+                    LastProblem.Enabled = true;
+                }
+            }
+        }
         private Judge judge;
 
         public void CheckAns(string ans)
@@ -57,10 +79,6 @@ namespace OES.UControl
                 this.SetQuestion(--proID);
                 ClientControl.CurrentProblemNum--;
             }
-            else
-            {
-                MessageBox.Show("这是第一题");
-            }
         }
 
         private void NestProblem_Click(object sender, EventArgs e)
@@ -69,10 +87,6 @@ namespace OES.UControl
             {
                 this.SetQuestion(++proID);
                 ClientControl.CurrentProblemNum++;
-            }
-            else
-            {
-                MessageBox.Show("这是最后一题");
             }
         }
 

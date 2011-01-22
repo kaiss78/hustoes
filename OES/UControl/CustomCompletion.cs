@@ -15,7 +15,32 @@ namespace OES.UControl
     public partial class CustomCompletion : UserControl
     {
 
-        private static int proID;
+        private int proid;
+
+        public int proID
+        {
+            get 
+            {
+                return proid; 
+            }
+            set
+            {
+                proid = value;
+                if (proid == ClientControl.paper.completion.Count - 1)
+                {
+                    nextproblem.Enabled = false;
+                }
+                else if (proid == 0)
+                {
+                    lastproblem.Enabled = false;
+                }
+                else
+                {
+                    nextproblem.Enabled = true;
+                    lastproblem.Enabled = true;
+                }
+            }
+        }
         private Completion completion;
 
         [DllImport("user32", EntryPoint = "HideCaret")]
@@ -58,10 +83,6 @@ namespace OES.UControl
                 this.SetQuestion(--proID);
                 ClientControl.CurrentProblemNum--;
             }
-            else
-            {
-                MessageBox.Show("这是第一题");
-            }
         }
 
         private void nextproblem_Click(object sender, EventArgs e)
@@ -71,10 +92,6 @@ namespace OES.UControl
             {
                 this.SetQuestion(++proID);
                 ClientControl.CurrentProblemNum++;
-            }
-            else
-            {
-                MessageBox.Show("这是最后一题");
             }
         }
 
