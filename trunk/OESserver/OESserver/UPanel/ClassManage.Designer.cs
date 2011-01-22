@@ -122,12 +122,12 @@
             this.classInfoDGV.AllowUserToDeleteRows = false;
             this.classInfoDGV.AllowUserToResizeRows = false;
             this.classInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classInfoDGV.Location = new System.Drawing.Point(3, 17);
+            this.classInfoDGV.Location = new System.Drawing.Point(3, 22);
             this.classInfoDGV.Name = "classInfoDGV";
             this.classInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.classInfoDGV.ReadOnly = true;
             this.classInfoDGV.RowTemplate.Height = 23;
-            this.classInfoDGV.Size = new System.Drawing.Size(713, 498);
+            this.classInfoDGV.Size = new System.Drawing.Size(713, 493);
             this.classInfoDGV.TabIndex = 0;
             // 
             // classInfoGroup
@@ -135,6 +135,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.classInfoGroup, 7);
             this.classInfoGroup.Controls.Add(this.classInfoDGV);
             this.classInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classInfoGroup.Font = new System.Drawing.Font("宋体", 12F);
             this.classInfoGroup.Location = new System.Drawing.Point(11, 8);
             this.classInfoGroup.Name = "classInfoGroup";
             this.tableLayoutPanel1.SetRowSpan(this.classInfoGroup, 3);
