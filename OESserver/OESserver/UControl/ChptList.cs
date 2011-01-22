@@ -75,9 +75,10 @@ namespace OES.UControl
             Controls.Add(mainPanel);
             btnHeight = Height/(count + 1);
             totalpage = ((chpt_num/count) + 1);
+            OESData aOESData = new OESData();
 
             //list赋初值
-            for (int i = 0; i < 23; i++)
+            for (int i = 0;i<aOESData.FindUnit(aProMan.ProType).Count; i++)
             {
                 chpt_name.Add((i + 1).ToString());
             }
