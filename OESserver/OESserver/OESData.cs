@@ -1316,8 +1316,9 @@ namespace OES
         //Description:	给定Type( 0,1,2分别表示填空选择判断的标号)，列出所有相应题型的所有章节名
         public List<string> FindUnit(string TypeId)
         {
+            List<string> UnitList = new List<string>();
             SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@TypeId", SqlDbType.Int, 3, Id, ParameterDirection.Input);
+            ddlparam[0] = CreateParam("@TypeId", SqlDbType.Int, 3, TypeId, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindUnit", ddlparam, Ds);
             UnitList = DataSetToListString(Ds);
@@ -1327,13 +1328,13 @@ namespace OES
         {
             //throw new NotImplementedException();
             List<string> result = new List<string>();
-            DataTable p_Data = p_DataSet.Tables[0];
+            DataTable p_Data = Ds.Tables[0];
 
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 result.Add(p_Data.Rows[j][0].ToString());
             }
-            return result();
+            return result;
         }
         private List<Paper> DataSetToListPaper(DataSet p_DataSet)
         {
