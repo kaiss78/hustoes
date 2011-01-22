@@ -351,6 +351,7 @@
             this.stuManlbl.TabStop = true;
             this.stuManlbl.Tag = "14";
             this.stuManlbl.Text = "学生管理";
+            this.stuManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // MainForm
             // 
