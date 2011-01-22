@@ -27,7 +27,7 @@ namespace OES.UPanel
             paperListDataTable.Columns.Add("作者");
             object[] values = new object[5];
 
-            paperList = oesData.FindPaper();
+            paperList = InfoControl.OesData.FindPaper();
             
             for (int i = 0; i < paperList.Count; i++)
             {
