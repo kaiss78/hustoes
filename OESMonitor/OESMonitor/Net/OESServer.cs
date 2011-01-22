@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Collections;
 using System.Net.NetworkInformation;
+using System.Threading;
 
 namespace OESMonitor.Net
 {
@@ -20,6 +21,9 @@ namespace OESMonitor.Net
         private Queue<Client> RequestingQueue = new Queue<Client>();
         private Queue<Client> SubmitingQueue = new Queue<Client>();
         private Queue<int> availablePorts = new Queue<int>();
+
+        //线程同步锁
+        private object syncLock = new object();
 
         //数据端口预定个数
         private int portsRequest = 20;      
@@ -162,58 +166,75 @@ namespace OESMonitor.Net
             }
         }
 
+        //中断所有服务
+        public void EndService()
+        {
+            foreach (Client c in clients)
+            {
+                c.EndAllConnection();
+            }
+        }
+
         private void MessageScheduler(Client client)
         {
-            //此为临界区，需要加锁，解锁，也许可以通过整合到Client类中提高一点效率
-            switch (client.msg_type)
+            lock(syncLock)
             {
-                case 0:
-                    //请求发送试卷
-                    //PaperAllocator();
-                    client.paperPath = currentPaperpath;
-                    if (PortQueue.Count != 0)
-                    {                        
-                        client.port = PortQueue.Dequeue();
-                        MessageSupervisor.targetFrm.showMessage("Requesting Allocate Port: " + client.port.portInfo() + " ---> " + client.clientInfo());
-                        client.sendData();
-                    }
-                    else
-                    {
-                        RequestingQueue.Enqueue(client);
-                        MessageSupervisor.targetFrm.showMessage("Client: " + client.clientInfo() + " Wait for Requesting");
-                    }
-                    break;
+            //此为临界区，需要加锁，解锁，也许可以通过整合到Client类中提高一点效率
+                switch (client.msg_type)
+                {
+                    case 0:
+                        //请求发送试卷
+                        //PaperAllocator();
+                        Console.WriteLine(Thread.CurrentThread.Name);
+                        client.paperPath = currentPaperpath;
+                        if (PortQueue.Count != 0)
+                        {
+                            client.port = PortQueue.Dequeue();
+                            MessageSupervisor.targetFrm.showMessage("Requesting Allocate Port: " + client.port.portInfo() + " ---> " + client.clientInfo());
+                            client.sendData();
+                        }
+                        else
+                        {
+                            RequestingQueue.Enqueue(client);
+                            MessageSupervisor.targetFrm.showMessage("Client: " + client.clientInfo() + " Wait for Requesting");
+                        }
+                        break;
 
-                case 1:
-                    //确定文件名函数client.fileName = ;
-                    client.FetchData();
-                    break;
+                    case 1:
+                        //确定文件名函数client.fileName = ;
+                        client.FetchData();
+                        break;
 
-                case 2:
-                    string[] msgs = client.msg.Split(new char[]{'$'});
-                    client.remoteIP = IPAddress.Parse(msgs[0]);
-                    client.remotePort = Convert.ToInt32(msgs[1]);
-                    if (PortQueue.Count != 0)
-                    {
-                        client.port = PortQueue.Dequeue();
-                        MessageSupervisor.targetFrm.showMessage("Submitting Allocate Port: " + client.port.portInfo() + " ---> " + client.clientInfo());
-                        client.ReceiveData();
-                    }
-                    else
-                    {
-                        SubmitingQueue.Enqueue(client);
-                        MessageSupervisor.targetFrm.showMessage("Client: " + client.clientInfo() + " Wait for Submitting");
-                    }
-                    break;
+                    case 2:
+                        string[] msgs = client.msg.Split(new char[] { '$' });
+                        client.remoteIP = IPAddress.Parse(msgs[0]);
+                        client.remotePort = Convert.ToInt32(msgs[1]);
+                        if (PortQueue.Count != 0)
+                        {
+                            client.port = PortQueue.Dequeue();
+                            MessageSupervisor.targetFrm.showMessage("Submitting Allocate Port: " + client.port.portInfo() + " ---> " + client.clientInfo());
+                            client.ReceiveData();
+                        }
+                        else
+                        {
+                            SubmitingQueue.Enqueue(client);
+                            MessageSupervisor.targetFrm.showMessage("Client: " + client.clientInfo() + " Wait for Submitting");
+                        }
+                        break;
 
-                case -1:
-                    if (client.EndConnection())
+                    case -1:
+                        if (client.EndConnection())
+                            client.EndService();
+                        break;
+
+                    case -2:
                         client.EndService();
-                    break;
+                        break;
 
-                default:
-                    //网络出错程序
-                    break;
+                    default:
+                        //网络出错程序
+                        break;
+                }
             }
         }
 

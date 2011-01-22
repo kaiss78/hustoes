@@ -64,6 +64,7 @@ namespace OESMonitor.Net
         //给远程端口发送数据
         public void accept_callBack(IAsyncResult asy)
         {
+            Console.WriteLine(Thread.CurrentThread.Name);
             TcpListener listener = (TcpListener)asy.AsyncState;
             dataSender = (TcpClient)listener.EndAcceptTcpClient(asy);
             sender_ns = dataSender.GetStream();
