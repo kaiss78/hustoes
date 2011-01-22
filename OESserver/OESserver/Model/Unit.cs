@@ -8,7 +8,7 @@ namespace OES.Model
     public class Unit
     {
         public string UnitName="";
-        public string Unit="";
+        public string UnitId="";
         public string TypeId = "";
 
     }
