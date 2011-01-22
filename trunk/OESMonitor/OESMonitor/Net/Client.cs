@@ -44,6 +44,7 @@ namespace OESMonitor.Net
             return (client.Client.RemoteEndPoint.ToString());
         }
 
+        //结束本连接
         public bool EndConnection()
         {
             string tmsg = "#STX#-1#NULL#ETX";
@@ -60,6 +61,26 @@ namespace OESMonitor.Net
                 return (false);
             }
             return (true);
+        }
+        
+        //结束所有连接
+        public void EndAllConnection()
+        {
+            if (client.Connected)
+            {
+                string tmsg = "#STX#-2#NULL#ETX";
+                MessageSupervisor.targetFrm.showMessage("Send Message: " + tmsg + " --->" + clientInfo());
+
+                byte[] tBuffer = System.Text.Encoding.Default.GetBytes(tmsg);
+                try
+                {
+                    ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
+                }
+                catch (Exception e)
+                {
+                    //网络出错处理程序                   
+                }
+            }
         }
 
         public void EndService()
