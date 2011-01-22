@@ -1328,7 +1328,7 @@ namespace OES
             UnitList = DataSetToListString(Ds);
             return UnitList;
         }
-        private List<string> DataSetToListString(DataSet Ds)
+        private List<Unit> DataSetToListString(DataSet Ds)
         {
             //throw new NotImplementedException();
             List<Unit> result = new List<Unit>();
@@ -1337,7 +1337,7 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 unit.UnitName = p_Data.Rows[j][0].ToString();
-                unit.Unit = p_Data.Rows[j][1].ToString();
+                unit.UnitId = p_Data.Rows[j][1].ToString();
                 result.Add(unit);
             }
             return result;
