@@ -1316,7 +1316,7 @@ namespace OES
             }
         }
         //Description:	给定Type( 0,1,2分别表示填空选择判断的标号)，列出所有相应题型的所有章节名
-        public List<string> FindUnit(string TypeId)
+        public List<string> FindUnit(int TypeId)
         {
             List<string> UnitList = new List<string>();
             SqlParameter[] ddlparam = new SqlParameter[1];
