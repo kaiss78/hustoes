@@ -15,5 +15,15 @@ namespace OES.UControl
         {
             InitializeComponent();
         }
+
+        private void radioAddOne_CheckedChanged(object sender, EventArgs e)
+        {
+            groupAddOne.Enabled = radioAddOne.Checked;
+        }
+
+        private void radioAddMany_CheckedChanged(object sender, EventArgs e)
+        {
+            groupAddMany.Enabled = radioAddMany.Checked;
+        }
     }
 }
