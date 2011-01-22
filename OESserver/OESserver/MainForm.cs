@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using OES.Model;
 using OES.UPanel;
 
 namespace OES
@@ -11,6 +12,7 @@ namespace OES
         public PaperListPanel paperListPanel;
         public PaperEditPanel paperEditPanel;
         private PanelControl panelControl;
+        static public Teacher teacher;
 
         public MainForm()
         {
@@ -28,8 +30,8 @@ namespace OES
         }
 
         private void Lbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {            
-            PanelControl.ChangPanel(Convert.ToInt32(((LinkLabel)sender).Tag));
+        {   
+            PanelControl.ChangPanel(Convert.ToInt32(((LinkLabel)sender).Tag));         
         }
     }
 }
