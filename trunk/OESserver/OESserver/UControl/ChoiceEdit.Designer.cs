@@ -37,10 +37,10 @@
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.A = new System.Windows.Forms.Button();
+            this.C = new System.Windows.Forms.Button();
+            this.B = new System.Windows.Forms.Button();
+            this.D = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -112,10 +112,10 @@
             this.tableLayoutPanel1.Controls.Add(this.richTextBox5, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.richTextBox4, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.richTextBox3, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.A, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.C, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.B, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.D, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 1, 2);
@@ -156,37 +156,39 @@
             this.richTextBox3.TabIndex = 9;
             this.richTextBox3.Text = "";
             // 
-            // button1
+            // A
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 45);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
+            this.A.BackgroundImage = global::OES.Properties.Resources.circle_red;
+            this.A.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.A.Location = new System.Drawing.Point(3, 3);
+            this.A.Name = "A";
+            this.A.Size = new System.Drawing.Size(44, 45);
+            this.A.TabIndex = 0;
+            this.A.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // C
             // 
-            this.button3.Location = new System.Drawing.Point(3, 105);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(44, 45);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = true;
+            this.C.Location = new System.Drawing.Point(3, 105);
+            this.C.Name = "C";
+            this.C.Size = new System.Drawing.Size(44, 45);
+            this.C.TabIndex = 2;
+            this.C.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // B
             // 
-            this.button2.Location = new System.Drawing.Point(3, 54);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 45);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
+            this.B.Location = new System.Drawing.Point(3, 54);
+            this.B.Name = "B";
+            this.B.Size = new System.Drawing.Size(44, 45);
+            this.B.TabIndex = 1;
+            this.B.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // D
             // 
-            this.button4.Location = new System.Drawing.Point(3, 156);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(44, 45);
-            this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = true;
+            this.D.Location = new System.Drawing.Point(3, 156);
+            this.D.Name = "D";
+            this.D.Size = new System.Drawing.Size(44, 45);
+            this.D.TabIndex = 3;
+            this.D.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -284,10 +286,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button A;
+        private System.Windows.Forms.Button C;
+        private System.Windows.Forms.Button B;
+        private System.Windows.Forms.Button D;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

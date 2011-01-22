@@ -1333,9 +1333,10 @@ namespace OES
             //throw new NotImplementedException();
             List<Unit> result = new List<Unit>();
             DataTable p_Data = Ds.Tables[0];
-            Unit unit = new Unit();
+            
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
+                Unit unit = new Unit();
                 unit.UnitName = p_Data.Rows[j][0].ToString();
                 unit.UnitId = p_Data.Rows[j][1].ToString();
                 result.Add(unit);
