@@ -6,11 +6,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OES.UControl;
 
 namespace OES.UPanel
 {
     public partial class StudentManage : UserPanel
     {
+        public StudentAdd stuAdd;
+
         public StudentManage()
         {
             InitializeComponent();
@@ -33,10 +36,16 @@ namespace OES.UPanel
 
         }
 
+        private void createAddPanel()
+        {
+            stuAdd = new StudentAdd();
+        }
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             studentInfoDGV.Visible = false;
-            studentAdd.Visible = true;
+            studentAdd = new OES.UControl.StudentAdd();
+            //studentAdd.Visible = true;
         }
     }
 }
