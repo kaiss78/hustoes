@@ -28,31 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.StudentInfoGruop = new System.Windows.Forms.GroupBox();
+            this.StudentInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonQuery = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
-            this.kryptonDataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.groupBox1.SuspendLayout();
+            this.StudentInfoGruop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentInfoDGV)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // StudentInfoGruop
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 6);
-            this.groupBox1.Controls.Add(this.kryptonDataGridView1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("宋体", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(58, 40);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(613, 464);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "学生列表";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.tableLayoutPanel1.SetColumnSpan(this.StudentInfoGruop, 6);
+            this.StudentInfoGruop.Controls.Add(this.StudentInfoDGV);
+            this.StudentInfoGruop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StudentInfoGruop.Font = new System.Drawing.Font("宋体", 12F);
+            this.StudentInfoGruop.Location = new System.Drawing.Point(58, 40);
+            this.StudentInfoGruop.Name = "StudentInfoGruop";
+            this.StudentInfoGruop.Size = new System.Drawing.Size(613, 464);
+            this.StudentInfoGruop.TabIndex = 0;
+            this.StudentInfoGruop.TabStop = false;
+            this.StudentInfoGruop.Text = "学生列表";
+            this.StudentInfoGruop.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // StudentInfoDGV
+            // 
+            this.StudentInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StudentInfoDGV.Location = new System.Drawing.Point(3, 22);
+            this.StudentInfoDGV.Name = "StudentInfoDGV";
+            this.StudentInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+            this.StudentInfoDGV.RowTemplate.Height = 23;
+            this.StudentInfoDGV.Size = new System.Drawing.Size(607, 439);
+            this.StudentInfoDGV.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -65,7 +75,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.StudentInfoGruop, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonAdd, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.buttonDelete, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.buttonQuery, 5, 3);
@@ -124,16 +134,6 @@
             this.buttonEdit.Text = "修改学生";
             this.buttonEdit.UseVisualStyleBackColor = true;
             // 
-            // kryptonDataGridView1
-            // 
-            this.kryptonDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonDataGridView1.Location = new System.Drawing.Point(3, 22);
-            this.kryptonDataGridView1.Name = "kryptonDataGridView1";
-            this.kryptonDataGridView1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
-            this.kryptonDataGridView1.RowTemplate.Height = 23;
-            this.kryptonDataGridView1.Size = new System.Drawing.Size(607, 439);
-            this.kryptonDataGridView1.TabIndex = 0;
-            // 
             // StudentManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -141,22 +141,22 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "StudentManage";
             this.Size = new System.Drawing.Size(742, 666);
-            this.groupBox1.ResumeLayout(false);
+            this.StudentInfoGruop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.StudentInfoDGV)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox StudentInfoGruop;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonQuery;
         private System.Windows.Forms.Button buttonEdit;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView StudentInfoDGV;
 
     }
 }
