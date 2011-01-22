@@ -1317,7 +1317,7 @@ namespace OES
         }
         //Description:	给定Type( 0,1,2分别表示填空选择判断的标号)，列出所有相应题型的所有章节名
 
-        public List<Unit> FindUnit(string TypeId)
+        public List<Unit> FindUnit(int TypeId)
         {
 
             List<Unit> UnitList = new List<Unit>();
