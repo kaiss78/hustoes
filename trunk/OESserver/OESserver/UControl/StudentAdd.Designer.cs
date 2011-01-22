@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.radioAddOne = new System.Windows.Forms.RadioButton();
             this.radioAddMany = new System.Windows.Forms.RadioButton();
-            this.comboClass = new System.Windows.Forms.ComboBox();
             this.groupAddOne = new System.Windows.Forms.GroupBox();
             this.btnAddOne = new System.Windows.Forms.Button();
             this.textID = new System.Windows.Forms.TextBox();
@@ -49,6 +48,13 @@
             this.textFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboDept = new System.Windows.Forms.ComboBox();
+            this.comboClass = new System.Windows.Forms.ComboBox();
+            this.comboOneClass = new System.Windows.Forms.ComboBox();
+            this.comboOneDept = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupAddOne.SuspendLayout();
             this.groupAddMany.SuspendLayout();
             this.SuspendLayout();
@@ -56,16 +62,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 22);
+            this.label1.Location = new System.Drawing.Point(16, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 16);
+            this.label1.Size = new System.Drawing.Size(88, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "请选择需要添加学生的班级：";
+            this.label1.Text = "学院名称：";
             // 
             // radioAddOne
             // 
             this.radioAddOne.AutoSize = true;
-            this.radioAddOne.Location = new System.Drawing.Point(51, 72);
+            this.radioAddOne.Location = new System.Drawing.Point(51, 51);
             this.radioAddOne.Name = "radioAddOne";
             this.radioAddOne.Size = new System.Drawing.Size(122, 20);
             this.radioAddOne.TabIndex = 1;
@@ -77,26 +83,21 @@
             // radioAddMany
             // 
             this.radioAddMany.AutoSize = true;
-            this.radioAddMany.Location = new System.Drawing.Point(51, 268);
+            this.radioAddMany.Location = new System.Drawing.Point(51, 277);
             this.radioAddMany.Name = "radioAddMany";
-            this.radioAddMany.Size = new System.Drawing.Size(122, 20);
+            this.radioAddMany.Size = new System.Drawing.Size(154, 20);
             this.radioAddMany.TabIndex = 2;
             this.radioAddMany.TabStop = true;
-            this.radioAddMany.Text = "批量导入学生";
+            this.radioAddMany.Text = "批量导入班级学生";
             this.radioAddMany.UseVisualStyleBackColor = true;
             this.radioAddMany.CheckedChanged += new System.EventHandler(this.radioAddMany_CheckedChanged);
             // 
-            // comboClass
-            // 
-            this.comboClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboClass.FormattingEnabled = true;
-            this.comboClass.Location = new System.Drawing.Point(268, 18);
-            this.comboClass.Name = "comboClass";
-            this.comboClass.Size = new System.Drawing.Size(277, 24);
-            this.comboClass.TabIndex = 3;
-            // 
             // groupAddOne
             // 
+            this.groupAddOne.Controls.Add(this.comboOneClass);
+            this.groupAddOne.Controls.Add(this.comboOneDept);
+            this.groupAddOne.Controls.Add(this.label9);
+            this.groupAddOne.Controls.Add(this.label10);
             this.groupAddOne.Controls.Add(this.btnAddOne);
             this.groupAddOne.Controls.Add(this.textID);
             this.groupAddOne.Controls.Add(this.textPW2);
@@ -107,16 +108,16 @@
             this.groupAddOne.Controls.Add(this.label4);
             this.groupAddOne.Controls.Add(this.label3);
             this.groupAddOne.Controls.Add(this.label2);
-            this.groupAddOne.Location = new System.Drawing.Point(62, 98);
+            this.groupAddOne.Location = new System.Drawing.Point(62, 77);
             this.groupAddOne.Name = "groupAddOne";
-            this.groupAddOne.Size = new System.Drawing.Size(557, 136);
+            this.groupAddOne.Size = new System.Drawing.Size(557, 173);
             this.groupAddOne.TabIndex = 4;
             this.groupAddOne.TabStop = false;
             this.groupAddOne.Text = "学生信息";
             // 
             // btnAddOne
             // 
-            this.btnAddOne.Location = new System.Drawing.Point(413, 97);
+            this.btnAddOne.Location = new System.Drawing.Point(413, 128);
             this.btnAddOne.Name = "btnAddOne";
             this.btnAddOne.Size = new System.Drawing.Size(81, 29);
             this.btnAddOne.TabIndex = 9;
@@ -132,7 +133,7 @@
             // 
             // textPW2
             // 
-            this.textPW2.Location = new System.Drawing.Point(117, 99);
+            this.textPW2.Location = new System.Drawing.Point(117, 130);
             this.textPW2.Name = "textPW2";
             this.textPW2.PasswordChar = '*';
             this.textPW2.Size = new System.Drawing.Size(133, 26);
@@ -147,7 +148,7 @@
             // 
             // textPW
             // 
-            this.textPW.Location = new System.Drawing.Point(117, 59);
+            this.textPW.Location = new System.Drawing.Point(117, 90);
             this.textPW.Name = "textPW";
             this.textPW.PasswordChar = '*';
             this.textPW.Size = new System.Drawing.Size(133, 26);
@@ -156,7 +157,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 103);
+            this.label6.Location = new System.Drawing.Point(7, 134);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 16);
             this.label6.TabIndex = 4;
@@ -165,7 +166,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(271, 63);
+            this.label5.Location = new System.Drawing.Point(271, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(280, 16);
             this.label5.TabIndex = 3;
@@ -174,7 +175,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 63);
+            this.label4.Location = new System.Drawing.Point(39, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 16);
             this.label4.TabIndex = 2;
@@ -200,29 +201,33 @@
             // 
             // groupAddMany
             // 
+            this.groupAddMany.Controls.Add(this.comboClass);
+            this.groupAddMany.Controls.Add(this.comboDept);
+            this.groupAddMany.Controls.Add(this.label8);
             this.groupAddMany.Controls.Add(this.btnAddMany);
             this.groupAddMany.Controls.Add(this.btnBrowse);
             this.groupAddMany.Controls.Add(this.textFile);
             this.groupAddMany.Controls.Add(this.label7);
-            this.groupAddMany.Location = new System.Drawing.Point(62, 294);
+            this.groupAddMany.Controls.Add(this.label1);
+            this.groupAddMany.Location = new System.Drawing.Point(62, 303);
             this.groupAddMany.Name = "groupAddMany";
-            this.groupAddMany.Size = new System.Drawing.Size(557, 124);
+            this.groupAddMany.Size = new System.Drawing.Size(557, 150);
             this.groupAddMany.TabIndex = 5;
             this.groupAddMany.TabStop = false;
             this.groupAddMany.Text = "导入文件";
             // 
             // btnAddMany
             // 
-            this.btnAddMany.Location = new System.Drawing.Point(413, 82);
+            this.btnAddMany.Location = new System.Drawing.Point(413, 111);
             this.btnAddMany.Name = "btnAddMany";
-            this.btnAddMany.Size = new System.Drawing.Size(81, 29);
+            this.btnAddMany.Size = new System.Drawing.Size(75, 28);
             this.btnAddMany.TabIndex = 10;
             this.btnAddMany.Text = "导入";
             this.btnAddMany.UseVisualStyleBackColor = true;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(456, 31);
+            this.btnBrowse.Location = new System.Drawing.Point(456, 69);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 28);
             this.btnBrowse.TabIndex = 10;
@@ -231,30 +236,89 @@
             // 
             // textFile
             // 
-            this.textFile.Location = new System.Drawing.Point(133, 31);
+            this.textFile.Location = new System.Drawing.Point(194, 69);
             this.textFile.Name = "textFile";
             this.textFile.PasswordChar = '*';
-            this.textFile.Size = new System.Drawing.Size(292, 26);
+            this.textFile.Size = new System.Drawing.Size(256, 26);
             this.textFile.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 36);
+            this.label7.Location = new System.Drawing.Point(16, 75);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 16);
+            this.label7.Size = new System.Drawing.Size(184, 16);
             this.label7.TabIndex = 0;
-            this.label7.Text = "要导入的文件：";
+            this.label7.Text = "要导入的学生信息文件：";
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(464, 442);
+            this.btnReturn.Location = new System.Drawing.Point(518, 465);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(129, 41);
+            this.btnReturn.Size = new System.Drawing.Size(87, 32);
             this.btnReturn.TabIndex = 10;
             this.btnReturn.Text = "返回";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(226, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 16);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "班级名称：";
+            // 
+            // comboDept
+            // 
+            this.comboDept.FormattingEnabled = true;
+            this.comboDept.Location = new System.Drawing.Point(99, 31);
+            this.comboDept.Name = "comboDept";
+            this.comboDept.Size = new System.Drawing.Size(121, 24);
+            this.comboDept.TabIndex = 12;
+            // 
+            // comboClass
+            // 
+            this.comboClass.FormattingEnabled = true;
+            this.comboClass.Location = new System.Drawing.Point(303, 30);
+            this.comboClass.Name = "comboClass";
+            this.comboClass.Size = new System.Drawing.Size(226, 24);
+            this.comboClass.TabIndex = 13;
+            // 
+            // comboOneClass
+            // 
+            this.comboOneClass.FormattingEnabled = true;
+            this.comboOneClass.Location = new System.Drawing.Point(339, 55);
+            this.comboOneClass.Name = "comboOneClass";
+            this.comboOneClass.Size = new System.Drawing.Size(190, 24);
+            this.comboOneClass.TabIndex = 17;
+            // 
+            // comboOneDept
+            // 
+            this.comboOneDept.FormattingEnabled = true;
+            this.comboOneDept.Location = new System.Drawing.Point(117, 56);
+            this.comboOneDept.Name = "comboOneDept";
+            this.comboOneDept.Size = new System.Drawing.Size(133, 24);
+            this.comboOneDept.TabIndex = 16;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(258, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(88, 16);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "班级名称：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(34, 59);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 16);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "学院名称：";
             // 
             // StudentAdd
             // 
@@ -263,10 +327,8 @@
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.groupAddMany);
             this.Controls.Add(this.groupAddOne);
-            this.Controls.Add(this.comboClass);
             this.Controls.Add(this.radioAddMany);
             this.Controls.Add(this.radioAddOne);
-            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentAdd";
@@ -285,7 +347,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioAddOne;
         private System.Windows.Forms.RadioButton radioAddMany;
-        private System.Windows.Forms.ComboBox comboClass;
         private System.Windows.Forms.GroupBox groupAddOne;
         private System.Windows.Forms.GroupBox groupAddMany;
         private System.Windows.Forms.Label label3;
@@ -303,5 +364,12 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Button btnAddMany;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboOneClass;
+        private System.Windows.Forms.ComboBox comboOneDept;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboClass;
+        private System.Windows.Forms.ComboBox comboDept;
     }
 }
