@@ -1316,11 +1316,13 @@ namespace OES
             }
         }
         //Description:	给定Type( 0,1,2分别表示填空选择判断的标号)，列出所有相应题型的所有章节名
-        public List<string> FindUnit(int TypeId)
+
+        public List<Unit> FindUnit(string TypeId)
         {
-            List<string> UnitList = new List<string>();
+
+            List<Unit> UnitList = new List<Unit>();
             SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@TypeId", SqlDbType.Int, 3, TypeId, ParameterDirection.Input);
+            ddlparam[0] = CreateParam("@TypeId", SqlDbType.Int, 3, TypeId.ToString(), ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindUnit", ddlparam, Ds);
             UnitList = DataSetToListString(Ds);
@@ -1329,12 +1331,14 @@ namespace OES
         private List<string> DataSetToListString(DataSet Ds)
         {
             //throw new NotImplementedException();
-            List<string> result = new List<string>();
+            List<Unit> result = new List<Unit>();
             DataTable p_Data = Ds.Tables[0];
-
+            Unit unit = new Unit();
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
-                result.Add(p_Data.Rows[j][0].ToString());
+                unit.UnitName = p_Data.Rows[j][0].ToString();
+                unit.Unit = p_Data.Rows[j][1].ToString();
+                result.Add(unit);
             }
             return result;
         }
