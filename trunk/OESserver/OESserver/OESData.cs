@@ -1358,17 +1358,16 @@ namespace OES
         {
             Teacher problem = new Teacher();
             DataTable p_Data = p_DataSet.Tables[0];
+            if (p_Data.Rows.Count < 1)
+            {
+                return null;
+            }
             for (int i = 0; i < p_Data.Columns.Count; i++)
             {
                 // 数据库NULL值单独处理   
                 if (p_Data.Columns[i].ToString() == "Id")
                     problem.Id = p_Data.Rows[0][i].ToString();
-                if (problem.Id == null)
-                {
-                    
-                    return null;
 
-                }
                 if (p_Data.Columns[i].ToString() == "TeacherName")
                     problem.TeacherName = (string)p_Data.Rows[0][i];
                 if (p_Data.Columns[i].ToString() == "Password")
