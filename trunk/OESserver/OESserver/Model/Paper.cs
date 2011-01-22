@@ -88,7 +88,7 @@ namespace OES.Model
 
         public void AddPaper()
         {
-            db.AddPaper(createTime,testTime,paperPath,paperName,authorId);
+            db.AddPaper(createTime, testTime, paperPath, paperName, authorId, programState);
         }
         public void DeletePaper()
         {
@@ -96,7 +96,7 @@ namespace OES.Model
         }
         public void UpdatePaper()
         {
-            db.UpdatePaper(paperID, createTime, testTime, paperPath, paperName, authorId);
+            db.UpdatePaper(paperID, createTime, testTime, paperPath, paperName, authorId, programState);
         }
         public List<Paper> FindPaper()
         {
