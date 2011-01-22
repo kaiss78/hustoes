@@ -12,7 +12,7 @@ namespace OES.UPanel
 {
     public partial class StudentManage : UserPanel
     {
-        
+        StudentAdd stuAdd;
 
         public StudentManage()
         {
@@ -35,11 +35,11 @@ namespace OES.UPanel
 
         }
 
-       
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             studentInfoDGV.Visible = false;
-           
+            stuAdd = new StudentAdd();
+            
         }
     }
 }
