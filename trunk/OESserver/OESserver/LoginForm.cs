@@ -18,7 +18,15 @@ namespace OES
 
         private void Loginbtn_Click(object sender, EventArgs e)
         {
-           InfoControl.User=InfoControl.OesData.FindTeacherByLoginName(UserName.Text);
+            InfoControl.User = InfoControl.OesData.FindTeacherByLoginName(UserName.Text);
+            if (InfoControl.User != null)
+            {
+                MessageBox.Show(InfoControl.User.Id);
+            }
+            else
+            {
+
+            }
         }
     }
 }
