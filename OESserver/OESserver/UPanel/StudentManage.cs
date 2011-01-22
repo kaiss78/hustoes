@@ -18,17 +18,16 @@ namespace OES.UPanel
         public StudentManage()
         {
             InitializeComponent();
+            stuAdd = null;
+            stuEdit = null;
         }
 
         public override void ReLoad()
         {
             this.Visible = true;
-            studentInfoGruop.Visible = true;
             studentInfoDGV.Visible = true;
-            btnAdd.Visible = true;
-            btnDelete.Visible = true;
-            btnEdit.Visible = true;
-            btnQuery.Visible = true;
+            changeBtnEnable(true);
+            disposeControl();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -36,12 +35,33 @@ namespace OES.UPanel
 
         }
 
+        private void disposeControl()               //消除原来产生的UserControl
+        {
+            if (stuEdit != null) { stuEdit.Dispose(); }
+            if (stuAdd != null) { stuAdd.Dispose(); }
+        }
+
+        private void changeBtnEnable(bool en)
+        {
+            btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = btnQuery.Enabled = en;
+        }
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            changeBtnEnable(false);
             studentInfoDGV.Visible = false;
             stuAdd = new StudentAdd();
             studentInfoGruop.Controls.Add(stuAdd);
             stuAdd.Dock = DockStyle.Fill;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            changeBtnEnable(false);
+            studentInfoDGV.Visible = false;
+            stuEdit = new StudentEdit();
+            studentInfoGruop.Controls.Add(stuEdit);
+            stuEdit.Dock = DockStyle.Fill;
         }
     }
 }
