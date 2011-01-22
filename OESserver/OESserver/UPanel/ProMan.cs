@@ -19,7 +19,7 @@ namespace OES.UPanel
         public int ProType;
         public List<UserControl> EditList=new List<UserControl>();
         public ChoiceEdit aChoiceEdit;
-        public CompletionEdit aCompletionEdit = new CompletionEdit();
+        public CompletionEdit aCompletionEdit;
         public JudgeEdit aJudgeEdit = new JudgeEdit();
         public OfficeExcelEdit aOfficeExcelEdit = new OfficeExcelEdit();
         public OfficePowerpointEdit aOfficePowerpointEdit = new OfficePowerpointEdit();
@@ -36,6 +36,7 @@ namespace OES.UPanel
             InitializeComponent();
 
             aChoiceEdit = new ChoiceEdit(this);
+            aCompletionEdit = new CompletionEdit(this);
             
             ClWidth = (int)(Width * 0.2);
             PlWidth = (int)(Width * 0.8);
