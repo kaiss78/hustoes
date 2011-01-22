@@ -31,11 +31,13 @@ namespace OES
         private bool DataBind()
         {
             sqlcon = new SqlConnection();
-            string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
-            //sqlcon = new SqlConnection();
-            //string strConnection = "Trusted_Connection=SSPI;";
+            //string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
             //strConnection += "initial catalog=OESDB;Server=localhost;";
-            //strConnection += "Connect Timeout=30";
+            //strConnection += "Connect Timeout=30"; 
+            sqlcon = new SqlConnection();
+            string strConnection = "Trusted_Connection=SSPI;";
+            strConnection += "initial catalog=OESDB;Server=localhost;";
+            strConnection += "Connect Timeout=30";
             sqlcon.ConnectionString = strConnection;
 
             try
