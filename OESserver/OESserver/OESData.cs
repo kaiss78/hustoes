@@ -1328,6 +1328,46 @@ namespace OES
             UnitList = DataSetToListString(Ds);
             return UnitList;
         }
+        //-- Description:	查找Teacher的所有信息，通过Teacher的LoginName
+        public List<Teacher> FindTeacherByLoginName(string UserName)
+        {
+            List<Teacher> teacherList = new List<Teacher>();
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@UserName", SqlDbType.Int, 3, UserName, ParameterDirection.Input);
+            Ds = new DataSet();
+            RunProc("FindTeacherByLoginName", ddlparam, Ds);
+            teacherList = DataSetToListTeacher(Ds);
+            return teacherList;
+        }
+
+        private List<Teacher> DataSetToListTeacher(DataSet p_DataSet)
+        {
+            List<Teacher> result = new List<Teacher>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Teacher problem = new Teacher();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Id")
+                        problem.Id = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "TeacherName")
+                        problem.TeacherName = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "Password")
+                        problem.password = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "Permission")
+                        problem.permission = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "UserName")
+                        problem.UserName = (int)p_Data.Rows[j][i];
+                   
+                }
+                result.Add(problem);
+            }
+            return result;
+
+        }
         private List<Unit> DataSetToListString(DataSet Ds)
         {
             //throw new NotImplementedException();
