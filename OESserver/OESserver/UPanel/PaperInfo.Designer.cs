@@ -28,7 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.Score = new System.Windows.Forms.Label();
+            this.ProCount = new System.Windows.Forms.Label();
+            this.PaperName = new System.Windows.Forms.TextBox();
+            this.PaperNO = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.OK = new System.Windows.Forms.Button();
+            this.EditPaper = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ChoiceWeight = new System.Windows.Forms.TextBox();
+            this.CompletionWeight = new System.Windows.Forms.TextBox();
+            this.JudgeWeight = new System.Windows.Forms.TextBox();
+            this.WordWeight = new System.Windows.Forms.TextBox();
+            this.ExcelWeight = new System.Windows.Forms.TextBox();
+            this.PPTWeight = new System.Windows.Forms.TextBox();
+            this.PCompletionWeight = new System.Windows.Forms.TextBox();
+            this.PModifWeight = new System.Windows.Forms.TextBox();
+            this.PFunctionWeight = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.PFunction = new System.Windows.Forms.Button();
@@ -57,87 +88,387 @@
             this.label25 = new System.Windows.Forms.Label();
             this.CppPro = new System.Windows.Forms.RadioButton();
             this.CPro = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.TableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.ChoiceWeight = new System.Windows.Forms.TextBox();
-            this.CompletionWeight = new System.Windows.Forms.TextBox();
-            this.JudgeWeight = new System.Windows.Forms.TextBox();
-            this.WordWeight = new System.Windows.Forms.TextBox();
-            this.ExcelWeight = new System.Windows.Forms.TextBox();
-            this.PPTWeight = new System.Windows.Forms.TextBox();
-            this.PCompletionWeight = new System.Windows.Forms.TextBox();
-            this.PModifWeight = new System.Windows.Forms.TextBox();
-            this.PFunctionWeight = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.EditPaper = new System.Windows.Forms.Button();
-            this.OK = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.PaperNO = new System.Windows.Forms.Label();
-            this.PaperName = new System.Windows.Forms.TextBox();
-            this.Count = new System.Windows.Forms.Button();
-            this.ProCount = new System.Windows.Forms.Label();
-            this.Score = new System.Windows.Forms.Label();
-            this.TestTime = new System.Windows.Forms.DateTimePicker();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TestTime = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.groupBox2.SuspendLayout();
             this.TableLayoutPanel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // textBox12
             // 
-            this.tableLayoutPanel1.ColumnCount = 11;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.EditPaper, 8, 4);
-            this.tableLayoutPanel1.Controls.Add(this.OK, 9, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 7, 1);
-            this.tableLayoutPanel1.Controls.Add(this.PaperNO, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.PaperName, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.Count, 4, 4);
-            this.tableLayoutPanel1.Controls.Add(this.ProCount, 5, 4);
-            this.tableLayoutPanel1.Controls.Add(this.Score, 6, 4);
-            this.tableLayoutPanel1.Controls.Add(this.TestTime, 8, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(742, 666);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.textBox12.Location = new System.Drawing.Point(-17, 3);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(94, 21);
+            this.textBox12.TabIndex = 0;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(247, 46);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(94, 21);
+            this.textBox13.TabIndex = 1;
+            // 
+            // Score
+            // 
+            this.Score.AutoSize = true;
+            this.Score.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Score.Location = new System.Drawing.Point(408, 629);
+            this.Score.Margin = new System.Windows.Forms.Padding(8, 8, 3, 0);
+            this.Score.Name = "Score";
+            this.Score.Size = new System.Drawing.Size(40, 16);
+            this.Score.TabIndex = 12;
+            this.Score.Text = "XX分";
+            // 
+            // ProCount
+            // 
+            this.ProCount.AutoSize = true;
+            this.ProCount.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ProCount.Location = new System.Drawing.Point(338, 629);
+            this.ProCount.Margin = new System.Windows.Forms.Padding(8, 8, 3, 0);
+            this.ProCount.Name = "ProCount";
+            this.ProCount.Size = new System.Drawing.Size(40, 16);
+            this.ProCount.TabIndex = 11;
+            this.ProCount.Text = "XX题";
+            // 
+            // PaperName
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.PaperName, 3);
+            this.PaperName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PaperName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PaperName.Location = new System.Drawing.Point(253, 7);
+            this.PaperName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.PaperName.Name = "PaperName";
+            this.PaperName.Size = new System.Drawing.Size(214, 26);
+            this.PaperName.TabIndex = 8;
+            // 
+            // PaperNO
+            // 
+            this.PaperNO.AutoSize = true;
+            this.PaperNO.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PaperNO.Location = new System.Drawing.Point(88, 11);
+            this.PaperNO.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.PaperNO.Name = "PaperNO";
+            this.PaperNO.Size = new System.Drawing.Size(56, 16);
+            this.PaperNO.TabIndex = 7;
+            this.PaperNO.Text = "000001";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(473, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "考试时间：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(158, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "试卷名称：";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(8, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "试卷号：";
+            // 
+            // OK
+            // 
+            this.OK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OK.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OK.Location = new System.Drawing.Point(652, 623);
+            this.OK.Margin = new System.Windows.Forms.Padding(2);
+            this.OK.Name = "OK";
+            this.OK.Size = new System.Drawing.Size(81, 31);
+            this.OK.TabIndex = 3;
+            this.OK.Text = "提交";
+            this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OK_Click);
+            // 
+            // EditPaper
+            // 
+            this.EditPaper.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EditPaper.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.EditPaper.Location = new System.Drawing.Point(567, 623);
+            this.EditPaper.Margin = new System.Windows.Forms.Padding(2);
+            this.EditPaper.Name = "EditPaper";
+            this.EditPaper.Size = new System.Drawing.Size(81, 31);
+            this.EditPaper.TabIndex = 2;
+            this.EditPaper.Text = "编辑试卷";
+            this.EditPaper.UseVisualStyleBackColor = true;
+            this.EditPaper.Click += new System.EventHandler(this.EditPaper_Click);
+            // 
+            // groupBox2
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.groupBox2, 9);
+            this.groupBox2.Controls.Add(this.TableLayoutPanel3);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox2.Location = new System.Drawing.Point(8, 331);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(724, 287);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "分值设置";
+            // 
+            // TableLayoutPanel3
+            // 
+            this.TableLayoutPanel3.ColumnCount = 7;
+            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.TableLayoutPanel3.Controls.Add(this.label16, 4, 3);
+            this.TableLayoutPanel3.Controls.Add(this.ChoiceWeight, 2, 1);
+            this.TableLayoutPanel3.Controls.Add(this.CompletionWeight, 2, 2);
+            this.TableLayoutPanel3.Controls.Add(this.JudgeWeight, 2, 3);
+            this.TableLayoutPanel3.Controls.Add(this.WordWeight, 2, 4);
+            this.TableLayoutPanel3.Controls.Add(this.ExcelWeight, 2, 5);
+            this.TableLayoutPanel3.Controls.Add(this.PPTWeight, 2, 6);
+            this.TableLayoutPanel3.Controls.Add(this.PCompletionWeight, 5, 1);
+            this.TableLayoutPanel3.Controls.Add(this.PModifWeight, 5, 2);
+            this.TableLayoutPanel3.Controls.Add(this.PFunctionWeight, 5, 3);
+            this.TableLayoutPanel3.Controls.Add(this.label17, 1, 1);
+            this.TableLayoutPanel3.Controls.Add(this.label18, 1, 2);
+            this.TableLayoutPanel3.Controls.Add(this.label19, 1, 3);
+            this.TableLayoutPanel3.Controls.Add(this.label20, 1, 4);
+            this.TableLayoutPanel3.Controls.Add(this.label21, 1, 5);
+            this.TableLayoutPanel3.Controls.Add(this.label22, 1, 6);
+            this.TableLayoutPanel3.Controls.Add(this.label23, 4, 1);
+            this.TableLayoutPanel3.Controls.Add(this.label24, 4, 2);
+            this.TableLayoutPanel3.Controls.Add(this.label27, 5, 4);
+            this.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TableLayoutPanel3.Location = new System.Drawing.Point(3, 22);
+            this.TableLayoutPanel3.Name = "TableLayoutPanel3";
+            this.TableLayoutPanel3.RowCount = 8;
+            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.4950494F));
+            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
+            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
+            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
+            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
+            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
+            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
+            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.4950494F));
+            this.TableLayoutPanel3.Size = new System.Drawing.Size(718, 262);
+            this.TableLayoutPanel3.TabIndex = 1;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(391, 101);
+            this.label16.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(136, 16);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "编程综合题分值：";
+            // 
+            // ChoiceWeight
+            // 
+            this.ChoiceWeight.Location = new System.Drawing.Point(221, 11);
+            this.ChoiceWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.ChoiceWeight.Name = "ChoiceWeight";
+            this.ChoiceWeight.Size = new System.Drawing.Size(94, 26);
+            this.ChoiceWeight.TabIndex = 0;
+            this.ChoiceWeight.Tag = "0";
+            this.ChoiceWeight.Text = "0";
+            this.ChoiceWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // CompletionWeight
+            // 
+            this.CompletionWeight.Location = new System.Drawing.Point(221, 54);
+            this.CompletionWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.CompletionWeight.Name = "CompletionWeight";
+            this.CompletionWeight.Size = new System.Drawing.Size(94, 26);
+            this.CompletionWeight.TabIndex = 1;
+            this.CompletionWeight.Tag = "1";
+            this.CompletionWeight.Text = "0";
+            this.CompletionWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // JudgeWeight
+            // 
+            this.JudgeWeight.Location = new System.Drawing.Point(221, 97);
+            this.JudgeWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.JudgeWeight.Name = "JudgeWeight";
+            this.JudgeWeight.Size = new System.Drawing.Size(94, 26);
+            this.JudgeWeight.TabIndex = 2;
+            this.JudgeWeight.Tag = "2";
+            this.JudgeWeight.Text = "0";
+            this.JudgeWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // WordWeight
+            // 
+            this.WordWeight.Location = new System.Drawing.Point(221, 140);
+            this.WordWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.WordWeight.Name = "WordWeight";
+            this.WordWeight.Size = new System.Drawing.Size(94, 26);
+            this.WordWeight.TabIndex = 3;
+            this.WordWeight.Tag = "3";
+            this.WordWeight.Text = "0";
+            this.WordWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // ExcelWeight
+            // 
+            this.ExcelWeight.Location = new System.Drawing.Point(221, 183);
+            this.ExcelWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.ExcelWeight.Name = "ExcelWeight";
+            this.ExcelWeight.Size = new System.Drawing.Size(94, 26);
+            this.ExcelWeight.TabIndex = 4;
+            this.ExcelWeight.Tag = "4";
+            this.ExcelWeight.Text = "0";
+            this.ExcelWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // PPTWeight
+            // 
+            this.PPTWeight.Location = new System.Drawing.Point(221, 226);
+            this.PPTWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.PPTWeight.Name = "PPTWeight";
+            this.PPTWeight.Size = new System.Drawing.Size(94, 26);
+            this.PPTWeight.TabIndex = 5;
+            this.PPTWeight.Tag = "5";
+            this.PPTWeight.Text = "0";
+            this.PPTWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // PCompletionWeight
+            // 
+            this.PCompletionWeight.Location = new System.Drawing.Point(569, 11);
+            this.PCompletionWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.PCompletionWeight.Name = "PCompletionWeight";
+            this.PCompletionWeight.Size = new System.Drawing.Size(94, 26);
+            this.PCompletionWeight.TabIndex = 6;
+            this.PCompletionWeight.Tag = "6";
+            this.PCompletionWeight.Text = "0";
+            this.PCompletionWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // PModifWeight
+            // 
+            this.PModifWeight.Location = new System.Drawing.Point(569, 54);
+            this.PModifWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.PModifWeight.Name = "PModifWeight";
+            this.PModifWeight.Size = new System.Drawing.Size(94, 26);
+            this.PModifWeight.TabIndex = 7;
+            this.PModifWeight.Tag = "7";
+            this.PModifWeight.Text = "0";
+            this.PModifWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // PFunctionWeight
+            // 
+            this.PFunctionWeight.Location = new System.Drawing.Point(569, 97);
+            this.PFunctionWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.PFunctionWeight.Name = "PFunctionWeight";
+            this.PFunctionWeight.Size = new System.Drawing.Size(94, 26);
+            this.PFunctionWeight.TabIndex = 8;
+            this.PFunctionWeight.Tag = "8";
+            this.PFunctionWeight.Text = "0";
+            this.PFunctionWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(43, 15);
+            this.label17.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(104, 16);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "选择题分值：";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(43, 58);
+            this.label18.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(104, 16);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "填空题分值：";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(43, 101);
+            this.label19.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(104, 16);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "判断题分值：";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(43, 144);
+            this.label20.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(160, 16);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "Office Word题分值：";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(43, 187);
+            this.label21.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(160, 16);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "Office Excel题分值:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(43, 230);
+            this.label22.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(144, 16);
+            this.label22.TabIndex = 14;
+            this.label22.Text = "Office PPT题分值:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(391, 15);
+            this.label23.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(136, 16);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "编程填空题分值：";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(391, 58);
+            this.label24.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(136, 16);
+            this.label24.TabIndex = 16;
+            this.label24.Text = "编程改错题分值：";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(569, 144);
+            this.label27.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(96, 16);
+            this.label27.TabIndex = 22;
+            this.label27.Text = "单位：分/题";
             // 
             // groupBox1
             // 
@@ -480,401 +811,54 @@
             this.CPro.Text = "C程序题";
             this.CPro.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox2, 9);
-            this.groupBox2.Controls.Add(this.TableLayoutPanel3);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(8, 331);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(724, 287);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "分值设置";
-            // 
-            // TableLayoutPanel3
-            // 
-            this.TableLayoutPanel3.ColumnCount = 7;
-            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.TableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.TableLayoutPanel3.Controls.Add(this.label16, 4, 3);
-            this.TableLayoutPanel3.Controls.Add(this.ChoiceWeight, 2, 1);
-            this.TableLayoutPanel3.Controls.Add(this.CompletionWeight, 2, 2);
-            this.TableLayoutPanel3.Controls.Add(this.JudgeWeight, 2, 3);
-            this.TableLayoutPanel3.Controls.Add(this.WordWeight, 2, 4);
-            this.TableLayoutPanel3.Controls.Add(this.ExcelWeight, 2, 5);
-            this.TableLayoutPanel3.Controls.Add(this.PPTWeight, 2, 6);
-            this.TableLayoutPanel3.Controls.Add(this.PCompletionWeight, 5, 1);
-            this.TableLayoutPanel3.Controls.Add(this.PModifWeight, 5, 2);
-            this.TableLayoutPanel3.Controls.Add(this.PFunctionWeight, 5, 3);
-            this.TableLayoutPanel3.Controls.Add(this.label17, 1, 1);
-            this.TableLayoutPanel3.Controls.Add(this.label18, 1, 2);
-            this.TableLayoutPanel3.Controls.Add(this.label19, 1, 3);
-            this.TableLayoutPanel3.Controls.Add(this.label20, 1, 4);
-            this.TableLayoutPanel3.Controls.Add(this.label21, 1, 5);
-            this.TableLayoutPanel3.Controls.Add(this.label22, 1, 6);
-            this.TableLayoutPanel3.Controls.Add(this.label23, 4, 1);
-            this.TableLayoutPanel3.Controls.Add(this.label24, 4, 2);
-            this.TableLayoutPanel3.Controls.Add(this.label27, 5, 4);
-            this.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TableLayoutPanel3.Location = new System.Drawing.Point(3, 22);
-            this.TableLayoutPanel3.Name = "TableLayoutPanel3";
-            this.TableLayoutPanel3.RowCount = 8;
-            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.4950494F));
-            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
-            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
-            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
-            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
-            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
-            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.50165F));
-            this.TableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0.4950494F));
-            this.TableLayoutPanel3.Size = new System.Drawing.Size(718, 262);
-            this.TableLayoutPanel3.TabIndex = 1;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(391, 101);
-            this.label16.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(136, 16);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "编程综合题分值：";
-            // 
-            // ChoiceWeight
-            // 
-            this.ChoiceWeight.Location = new System.Drawing.Point(221, 11);
-            this.ChoiceWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.ChoiceWeight.Name = "ChoiceWeight";
-            this.ChoiceWeight.Size = new System.Drawing.Size(94, 26);
-            this.ChoiceWeight.TabIndex = 0;
-            this.ChoiceWeight.Tag = "0";
-            this.ChoiceWeight.Text = "0";
-            this.ChoiceWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // CompletionWeight
-            // 
-            this.CompletionWeight.Location = new System.Drawing.Point(221, 54);
-            this.CompletionWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.CompletionWeight.Name = "CompletionWeight";
-            this.CompletionWeight.Size = new System.Drawing.Size(94, 26);
-            this.CompletionWeight.TabIndex = 1;
-            this.CompletionWeight.Tag = "1";
-            this.CompletionWeight.Text = "0";
-            this.CompletionWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // JudgeWeight
-            // 
-            this.JudgeWeight.Location = new System.Drawing.Point(221, 97);
-            this.JudgeWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.JudgeWeight.Name = "JudgeWeight";
-            this.JudgeWeight.Size = new System.Drawing.Size(94, 26);
-            this.JudgeWeight.TabIndex = 2;
-            this.JudgeWeight.Tag = "2";
-            this.JudgeWeight.Text = "0";
-            this.JudgeWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // WordWeight
-            // 
-            this.WordWeight.Location = new System.Drawing.Point(221, 140);
-            this.WordWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.WordWeight.Name = "WordWeight";
-            this.WordWeight.Size = new System.Drawing.Size(94, 26);
-            this.WordWeight.TabIndex = 3;
-            this.WordWeight.Tag = "3";
-            this.WordWeight.Text = "0";
-            this.WordWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // ExcelWeight
-            // 
-            this.ExcelWeight.Location = new System.Drawing.Point(221, 183);
-            this.ExcelWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.ExcelWeight.Name = "ExcelWeight";
-            this.ExcelWeight.Size = new System.Drawing.Size(94, 26);
-            this.ExcelWeight.TabIndex = 4;
-            this.ExcelWeight.Tag = "4";
-            this.ExcelWeight.Text = "0";
-            this.ExcelWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // PPTWeight
-            // 
-            this.PPTWeight.Location = new System.Drawing.Point(221, 226);
-            this.PPTWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.PPTWeight.Name = "PPTWeight";
-            this.PPTWeight.Size = new System.Drawing.Size(94, 26);
-            this.PPTWeight.TabIndex = 5;
-            this.PPTWeight.Tag = "5";
-            this.PPTWeight.Text = "0";
-            this.PPTWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // PCompletionWeight
-            // 
-            this.PCompletionWeight.Location = new System.Drawing.Point(569, 11);
-            this.PCompletionWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.PCompletionWeight.Name = "PCompletionWeight";
-            this.PCompletionWeight.Size = new System.Drawing.Size(94, 26);
-            this.PCompletionWeight.TabIndex = 6;
-            this.PCompletionWeight.Tag = "6";
-            this.PCompletionWeight.Text = "0";
-            this.PCompletionWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // PModifWeight
-            // 
-            this.PModifWeight.Location = new System.Drawing.Point(569, 54);
-            this.PModifWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.PModifWeight.Name = "PModifWeight";
-            this.PModifWeight.Size = new System.Drawing.Size(94, 26);
-            this.PModifWeight.TabIndex = 7;
-            this.PModifWeight.Tag = "7";
-            this.PModifWeight.Text = "0";
-            this.PModifWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // PFunctionWeight
-            // 
-            this.PFunctionWeight.Location = new System.Drawing.Point(569, 97);
-            this.PFunctionWeight.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.PFunctionWeight.Name = "PFunctionWeight";
-            this.PFunctionWeight.Size = new System.Drawing.Size(94, 26);
-            this.PFunctionWeight.TabIndex = 8;
-            this.PFunctionWeight.Tag = "8";
-            this.PFunctionWeight.Text = "0";
-            this.PFunctionWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(43, 15);
-            this.label17.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(104, 16);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "选择题分值：";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(43, 58);
-            this.label18.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(104, 16);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "填空题分值：";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(43, 101);
-            this.label19.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(104, 16);
-            this.label19.TabIndex = 11;
-            this.label19.Text = "判断题分值：";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(43, 144);
-            this.label20.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(160, 16);
-            this.label20.TabIndex = 12;
-            this.label20.Text = "Office Word题分值：";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(43, 187);
-            this.label21.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(160, 16);
-            this.label21.TabIndex = 13;
-            this.label21.Text = "Office Excel题分值:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(43, 230);
-            this.label22.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(144, 16);
-            this.label22.TabIndex = 14;
-            this.label22.Text = "Office PPT题分值:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(391, 15);
-            this.label23.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(136, 16);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "编程填空题分值：";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(391, 58);
-            this.label24.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(136, 16);
-            this.label24.TabIndex = 16;
-            this.label24.Text = "编程改错题分值：";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(569, 144);
-            this.label27.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(96, 16);
-            this.label27.TabIndex = 22;
-            this.label27.Text = "单位：分/题";
-            // 
-            // EditPaper
-            // 
-            this.EditPaper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EditPaper.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EditPaper.Location = new System.Drawing.Point(567, 623);
-            this.EditPaper.Margin = new System.Windows.Forms.Padding(2);
-            this.EditPaper.Name = "EditPaper";
-            this.EditPaper.Size = new System.Drawing.Size(81, 31);
-            this.EditPaper.TabIndex = 2;
-            this.EditPaper.Text = "编辑试卷";
-            this.EditPaper.UseVisualStyleBackColor = true;
-            this.EditPaper.Click += new System.EventHandler(this.EditPaper_Click);
-            // 
-            // OK
-            // 
-            this.OK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OK.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OK.Location = new System.Drawing.Point(652, 623);
-            this.OK.Margin = new System.Windows.Forms.Padding(2);
-            this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(81, 31);
-            this.OK.TabIndex = 3;
-            this.OK.Text = "提交";
-            this.OK.UseVisualStyleBackColor = true;
-            this.OK.Click += new System.EventHandler(this.OK_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(8, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "试卷号：";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(158, 11);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 16);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "试卷名称：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(473, 11);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "考试时间：";
-            // 
-            // PaperNO
-            // 
-            this.PaperNO.AutoSize = true;
-            this.PaperNO.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PaperNO.Location = new System.Drawing.Point(88, 11);
-            this.PaperNO.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.PaperNO.Name = "PaperNO";
-            this.PaperNO.Size = new System.Drawing.Size(56, 16);
-            this.PaperNO.TabIndex = 7;
-            this.PaperNO.Text = "000001";
-            // 
-            // PaperName
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.PaperName, 3);
-            this.PaperName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PaperName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PaperName.Location = new System.Drawing.Point(253, 7);
-            this.PaperName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
-            this.PaperName.Name = "PaperName";
-            this.PaperName.Size = new System.Drawing.Size(214, 26);
-            this.PaperName.TabIndex = 8;
-            // 
-            // Count
-            // 
-            this.Count.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Count.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Count.Location = new System.Drawing.Point(253, 624);
-            this.Count.Name = "Count";
-            this.Count.Size = new System.Drawing.Size(74, 29);
-            this.Count.TabIndex = 10;
-            this.Count.Text = "总计";
-            this.Count.UseVisualStyleBackColor = true;
-            this.Count.Click += new System.EventHandler(this.Count_Click);
-            // 
-            // ProCount
-            // 
-            this.ProCount.AutoSize = true;
-            this.ProCount.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ProCount.Location = new System.Drawing.Point(338, 629);
-            this.ProCount.Margin = new System.Windows.Forms.Padding(8, 8, 3, 0);
-            this.ProCount.Name = "ProCount";
-            this.ProCount.Size = new System.Drawing.Size(40, 16);
-            this.ProCount.TabIndex = 11;
-            this.ProCount.Text = "XX题";
-            // 
-            // Score
-            // 
-            this.Score.AutoSize = true;
-            this.Score.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Score.Location = new System.Drawing.Point(408, 629);
-            this.Score.Margin = new System.Windows.Forms.Padding(8, 8, 3, 0);
-            this.Score.Name = "Score";
-            this.Score.Size = new System.Drawing.Size(40, 16);
-            this.Score.TabIndex = 12;
-            this.Score.Text = "XX分";
+            this.tableLayoutPanel1.ColumnCount = 11;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.EditPaper, 8, 4);
+            this.tableLayoutPanel1.Controls.Add(this.OK, 9, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 7, 1);
+            this.tableLayoutPanel1.Controls.Add(this.PaperNO, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.PaperName, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ProCount, 5, 4);
+            this.tableLayoutPanel1.Controls.Add(this.Score, 6, 4);
+            this.tableLayoutPanel1.Controls.Add(this.TestTime, 8, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(742, 666);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // TestTime
             // 
-            this.TestTime.CalendarFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tableLayoutPanel1.SetColumnSpan(this.TestTime, 2);
             this.TestTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TestTime.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TestTime.Location = new System.Drawing.Point(568, 8);
             this.TestTime.Name = "TestTime";
-            this.TestTime.Size = new System.Drawing.Size(164, 26);
+            this.TestTime.Size = new System.Drawing.Size(164, 24);
             this.TestTime.TabIndex = 13;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(-17, 3);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(94, 21);
-            this.textBox12.TabIndex = 0;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(247, 46);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(94, 21);
-            this.textBox13.TabIndex = 1;
             // 
             // PaperInfo
             // 
@@ -883,32 +867,55 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PaperInfo";
             this.Size = new System.Drawing.Size(742, 666);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.TableLayoutPanel3.ResumeLayout(false);
             this.TableLayoutPanel3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button EditPaper;
-        private System.Windows.Forms.Button OK;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label PaperNO;
-        private System.Windows.Forms.TextBox PaperName;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Label Score;
+        private System.Windows.Forms.Label ProCount;
+        private System.Windows.Forms.TextBox PaperName;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button PFunction;
+        private System.Windows.Forms.Button PModif;
+        private System.Windows.Forms.Button PCompletion;
+        private System.Windows.Forms.Button PPT;
+        private System.Windows.Forms.Button Excel;
+        private System.Windows.Forms.Button Word;
+        private System.Windows.Forms.Button Judge;
+        private System.Windows.Forms.Button Completion;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox ChoiceCount;
+        private System.Windows.Forms.TextBox CompletionCount;
+        private System.Windows.Forms.TextBox JudgeCount;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button Choice;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.RadioButton CppPro;
+        private System.Windows.Forms.RadioButton CPro;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel TableLayoutPanel3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox ChoiceWeight;
@@ -929,37 +936,13 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button PFunction;
-        private System.Windows.Forms.Button PModif;
-        private System.Windows.Forms.Button PCompletion;
-        private System.Windows.Forms.Button Judge;
-        private System.Windows.Forms.Button Completion;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox ChoiceCount;
-        private System.Windows.Forms.TextBox CompletionCount;
-        private System.Windows.Forms.TextBox JudgeCount;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button Choice;
-        private System.Windows.Forms.Button PPT;
-        private System.Windows.Forms.Button Excel;
-        private System.Windows.Forms.Button Word;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Button Count;
-        private System.Windows.Forms.Label ProCount;
-        private System.Windows.Forms.Label Score;
-        private System.Windows.Forms.RadioButton CppPro;
-        private System.Windows.Forms.RadioButton CPro;
-        private System.Windows.Forms.DateTimePicker TestTime;
+        private System.Windows.Forms.Button EditPaper;
+        private System.Windows.Forms.Button OK;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label PaperNO;
+        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker TestTime;
 
     }
 }

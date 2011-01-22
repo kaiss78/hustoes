@@ -98,7 +98,7 @@ namespace OES.UPanel
 
         private void OK_Click(object sender, EventArgs e)
         {
-            //InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text,MainForm.teacher.ID,);            
+            //InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text,MainForm.teacher.ID,);
             //XMLControl.CreatePaperXML(Config.TempPaperPath,);
             PanelControl.ChangPanel(13);
         }

@@ -14,9 +14,7 @@ namespace OES.UPanel
     {
         private DataTable paperListDataTable;
         public Paper paper=new Paper();
-        public List<Paper> paperList;
-        public OESData oesData=new OESData();
-
+        public List<Paper> paperList;    
         public void InitList()
         {
             paperListDataTable=new DataTable("PaperList");
