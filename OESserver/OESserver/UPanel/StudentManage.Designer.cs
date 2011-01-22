@@ -28,48 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonQuery = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.btnQuery = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.studentInfoGruop = new System.Windows.Forms.GroupBox();
             this.studentInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.studentManageLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonEdit = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.studentInfoGruop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentInfoDGV)).BeginInit();
             this.studentManageLayout.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonQuery
+            // btnQuery
             // 
-            this.buttonQuery.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonQuery.Location = new System.Drawing.Point(436, 548);
-            this.buttonQuery.Name = "buttonQuery";
-            this.buttonQuery.Size = new System.Drawing.Size(117, 39);
-            this.buttonQuery.TabIndex = 3;
-            this.buttonQuery.Text = "查找学生";
-            this.buttonQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnQuery.Location = new System.Drawing.Point(436, 548);
+            this.btnQuery.Name = "btnQuery";
+            this.btnQuery.Size = new System.Drawing.Size(117, 39);
+            this.btnQuery.TabIndex = 3;
+            this.btnQuery.Text = "查找学生";
+            this.btnQuery.UseVisualStyleBackColor = true;
             // 
-            // buttonDelete
+            // btnDelete
             // 
-            this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDelete.Location = new System.Drawing.Point(147, 605);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(118, 37);
-            this.buttonDelete.TabIndex = 2;
-            this.buttonDelete.Text = "删除学生";
-            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDelete.Location = new System.Drawing.Point(147, 605);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(118, 37);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "删除学生";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // buttonAdd
+            // btnAdd
             // 
-            this.buttonAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAdd.Location = new System.Drawing.Point(147, 548);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(118, 39);
-            this.buttonAdd.TabIndex = 1;
-            this.buttonAdd.Text = "添加学生";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdd.Location = new System.Drawing.Point(147, 548);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(118, 39);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "添加学生";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // studentInfoGruop
             // 
@@ -112,10 +112,10 @@
             this.studentManageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
             this.studentManageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.studentManageLayout.Controls.Add(this.studentInfoGruop, 1, 1);
-            this.studentManageLayout.Controls.Add(this.buttonEdit, 5, 6);
-            this.studentManageLayout.Controls.Add(this.buttonQuery, 5, 4);
-            this.studentManageLayout.Controls.Add(this.buttonAdd, 3, 4);
-            this.studentManageLayout.Controls.Add(this.buttonDelete, 3, 6);
+            this.studentManageLayout.Controls.Add(this.btnEdit, 5, 6);
+            this.studentManageLayout.Controls.Add(this.btnQuery, 5, 4);
+            this.studentManageLayout.Controls.Add(this.btnAdd, 3, 4);
+            this.studentManageLayout.Controls.Add(this.btnDelete, 3, 6);
             this.studentManageLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentManageLayout.Location = new System.Drawing.Point(0, 0);
             this.studentManageLayout.Name = "studentManageLayout";
@@ -131,15 +131,15 @@
             this.studentManageLayout.Size = new System.Drawing.Size(742, 666);
             this.studentManageLayout.TabIndex = 0;
             // 
-            // buttonEdit
+            // btnEdit
             // 
-            this.buttonEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonEdit.Location = new System.Drawing.Point(436, 605);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(117, 37);
-            this.buttonEdit.TabIndex = 4;
-            this.buttonEdit.Text = "修改学生";
-            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEdit.Location = new System.Drawing.Point(436, 605);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(117, 37);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "修改学生";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // StudentManage
             // 
@@ -157,12 +157,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonQuery;
-        private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button btnQuery;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox studentInfoGruop;
         private System.Windows.Forms.TableLayoutPanel studentManageLayout;
-        private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button btnEdit;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView studentInfoDGV;
 
 

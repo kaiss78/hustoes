@@ -24,10 +24,10 @@ namespace OES.UPanel
             this.Visible = true;
             studentInfoGruop.Visible = true;
             studentInfoDGV.Visible = true;
-            buttonAdd.Visible = true;
-            buttonDelete.Visible = true;
-            buttonEdit.Visible = true;
-            buttonQuery.Visible = true;
+            btnAdd.Visible = true;
+            btnDelete.Visible = true;
+            btnEdit.Visible = true;
+            btnQuery.Visible = true;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -39,7 +39,8 @@ namespace OES.UPanel
         {
             studentInfoDGV.Visible = false;
             stuAdd = new StudentAdd();
-            
+            studentInfoGruop.Controls.Add(stuAdd);
+            stuAdd.Dock = DockStyle.Fill;
         }
     }
 }
