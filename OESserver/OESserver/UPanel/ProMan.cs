@@ -204,7 +204,11 @@ namespace OES.UPanel
             ProType = x;
             if (ProType < 3)
             {
-                aChptList.Reload();
+                aChptList.Dispose();
+                aChptList = new ChptList(this);
+                aChptList.Size = new Size(ClWidth, Height);
+                Controls.Add(aChptList);
+
                 aProList.Reload();
                 HideList();
                 aChptList.Show();

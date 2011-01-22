@@ -71,6 +71,7 @@ namespace OES.UControl
         {
             ProType = aProMan.ProType;
 
+
         }
 
         
@@ -90,7 +91,7 @@ namespace OES.UControl
             //list赋初值
             for (int i = 0; i < chpt_num; i++)
             {
-                chpt_name.Add(aOESData.FindUnit(ProType)[i]);
+                chpt_name.Add(aOESData.FindUnit(ProType)[i].UnitName);
             }
 
             var last = new Button();
