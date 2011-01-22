@@ -41,7 +41,7 @@ namespace OES.UPanel
             if (stuAdd != null) { stuAdd.Dispose(); }
         }
 
-        private void changeBtnEnable(bool en)
+        private void changeBtnEnable(bool en)               //改变下方增删改查按钮的可用性
         {
             btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = btnQuery.Enabled = en;
         }
@@ -51,6 +51,7 @@ namespace OES.UPanel
             changeBtnEnable(false);
             studentInfoDGV.Visible = false;
             stuAdd = new StudentAdd();
+            stuAdd.Disposed += new EventHandler(stuOperation_Disposed);
             studentInfoGruop.Controls.Add(stuAdd);
             stuAdd.Dock = DockStyle.Fill;
         }
@@ -60,8 +61,15 @@ namespace OES.UPanel
             changeBtnEnable(false);
             studentInfoDGV.Visible = false;
             stuEdit = new StudentEdit();
+            stuEdit.Disposed += new EventHandler(stuOperation_Disposed);
             studentInfoGruop.Controls.Add(stuEdit);
             stuEdit.Dock = DockStyle.Fill;
+        }
+
+        void stuOperation_Disposed(object sender, EventArgs e)
+        {
+            changeBtnEnable(true);
+            studentInfoDGV.Visible = true;
         }
     }
 }
