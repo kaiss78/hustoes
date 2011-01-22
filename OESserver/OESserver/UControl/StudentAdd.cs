@@ -27,5 +27,10 @@ namespace OES.UControl
         {
             groupAddMany.Enabled = radioAddMany.Checked;
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
