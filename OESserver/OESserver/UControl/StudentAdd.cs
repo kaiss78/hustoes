@@ -13,9 +13,9 @@ namespace OES.UControl
     {
         public StudentAdd()
         {
+            InitializeComponent();
             radioAddOne.Checked = true;
             groupAddMany.Enabled = false;
-            InitializeComponent();
         }
 
         private void radioAddOne_CheckedChanged(object sender, EventArgs e)
