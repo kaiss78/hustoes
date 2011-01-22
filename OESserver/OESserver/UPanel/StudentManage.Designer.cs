@@ -85,7 +85,6 @@
             this.studentInfoGruop.TabIndex = 0;
             this.studentInfoGruop.TabStop = false;
             this.studentInfoGruop.Text = "学生信息";
-            this.studentInfoGruop.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // studentInfoDGV
             // 
