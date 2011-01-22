@@ -45,8 +45,10 @@
             this.textID = new System.Windows.Forms.TextBox();
             this.btnAddOne = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textFile = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.btnAddMany = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.groupAddOne.SuspendLayout();
             this.groupAddMany.SuspendLayout();
             this.SuspendLayout();
@@ -70,17 +72,19 @@
             this.radioAddOne.TabStop = true;
             this.radioAddOne.Text = "添加单个学生";
             this.radioAddOne.UseVisualStyleBackColor = true;
+            this.radioAddOne.CheckedChanged += new System.EventHandler(this.radioAddOne_CheckedChanged);
             // 
             // radioAddMany
             // 
             this.radioAddMany.AutoSize = true;
-            this.radioAddMany.Location = new System.Drawing.Point(51, 253);
+            this.radioAddMany.Location = new System.Drawing.Point(51, 268);
             this.radioAddMany.Name = "radioAddMany";
             this.radioAddMany.Size = new System.Drawing.Size(122, 20);
             this.radioAddMany.TabIndex = 2;
             this.radioAddMany.TabStop = true;
             this.radioAddMany.Text = "批量导入学生";
             this.radioAddMany.UseVisualStyleBackColor = true;
+            this.radioAddMany.CheckedChanged += new System.EventHandler(this.radioAddMany_CheckedChanged);
             // 
             // comboClass
             // 
@@ -112,12 +116,13 @@
             // 
             // groupAddMany
             // 
-            this.groupAddMany.Controls.Add(this.button1);
-            this.groupAddMany.Controls.Add(this.textBox1);
+            this.groupAddMany.Controls.Add(this.btnAddMany);
+            this.groupAddMany.Controls.Add(this.btnBrowse);
+            this.groupAddMany.Controls.Add(this.textFile);
             this.groupAddMany.Controls.Add(this.label7);
-            this.groupAddMany.Location = new System.Drawing.Point(62, 279);
+            this.groupAddMany.Location = new System.Drawing.Point(62, 294);
             this.groupAddMany.Name = "groupAddMany";
-            this.groupAddMany.Size = new System.Drawing.Size(557, 149);
+            this.groupAddMany.Size = new System.Drawing.Size(557, 124);
             this.groupAddMany.TabIndex = 5;
             this.groupAddMany.TabStop = false;
             this.groupAddMany.Text = "导入文件";
@@ -199,9 +204,9 @@
             // 
             // btnAddOne
             // 
-            this.btnAddOne.Location = new System.Drawing.Point(394, 92);
+            this.btnAddOne.Location = new System.Drawing.Point(413, 97);
             this.btnAddOne.Name = "btnAddOne";
-            this.btnAddOne.Size = new System.Drawing.Size(100, 34);
+            this.btnAddOne.Size = new System.Drawing.Size(81, 29);
             this.btnAddOne.TabIndex = 9;
             this.btnAddOne.Text = "添加学生";
             this.btnAddOne.UseVisualStyleBackColor = true;
@@ -215,27 +220,46 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "要导入的文件：";
             // 
-            // textBox1
+            // textFile
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(292, 26);
-            this.textBox1.TabIndex = 10;
+            this.textFile.Location = new System.Drawing.Point(133, 31);
+            this.textFile.Name = "textFile";
+            this.textFile.PasswordChar = '*';
+            this.textFile.Size = new System.Drawing.Size(292, 26);
+            this.textFile.TabIndex = 10;
             // 
-            // button1
+            // btnBrowse
             // 
-            this.button1.Location = new System.Drawing.Point(456, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "浏览";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBrowse.Location = new System.Drawing.Point(456, 31);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 28);
+            this.btnBrowse.TabIndex = 10;
+            this.btnBrowse.Text = "浏览";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            // 
+            // btnAddMany
+            // 
+            this.btnAddMany.Location = new System.Drawing.Point(413, 82);
+            this.btnAddMany.Name = "btnAddMany";
+            this.btnAddMany.Size = new System.Drawing.Size(81, 29);
+            this.btnAddMany.TabIndex = 10;
+            this.btnAddMany.Text = "导入";
+            this.btnAddMany.UseVisualStyleBackColor = true;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(464, 442);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(129, 41);
+            this.btnReturn.TabIndex = 10;
+            this.btnReturn.Text = "返回";
+            this.btnReturn.UseVisualStyleBackColor = true;
             // 
             // StudentAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.groupAddMany);
             this.Controls.Add(this.groupAddOne);
             this.Controls.Add(this.comboClass);
@@ -272,9 +296,11 @@
         private System.Windows.Forms.TextBox textPW2;
         private System.Windows.Forms.TextBox textName;
         private System.Windows.Forms.TextBox textPW;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textFile;
         private System.Windows.Forms.Button btnAddOne;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.Button btnAddMany;
+        private System.Windows.Forms.Button btnReturn;
     }
 }
