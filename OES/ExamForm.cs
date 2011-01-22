@@ -13,7 +13,7 @@ namespace OES
 {
     public partial class ExamForm : Form
     {
-        Config config;
+        
         public ExamForm()
         {
             InitializeComponent();
@@ -35,7 +35,6 @@ namespace OES
             this.ExamNo.Text = ClientControl.student.examID;
             this.SName.Text = ClientControl.student.sName;
             this.ID.Text = ClientControl.student.ID;
-            config = new Config(System.Environment.CurrentDirectory + @"\config.ini");
             Config.stuPath = Config.stuPath + ClientControl.student.ID + @"\";
             Config.paperPath = Config.paperPath + Paper.pName + @"\";
 

@@ -11,6 +11,8 @@ namespace OES
     {
         public static string stuPath;
         public static string paperPath;
+        public static string server;
+        public static int portNum;
         public static bool allowScore;
         private static string inipath = "OesConfig.ini";
 
@@ -37,7 +39,9 @@ namespace OES
              if(ExistINIFile())
              {
                 stuPath=this.IniReadValue("path","stupath");
-                paperPath=this.IniReadValue("path","paperpath");                         
+                paperPath=this.IniReadValue("path","paperpath");
+                server = this.IniReadValue("path", "serverip");
+                portNum = Convert.ToInt32(this.IniReadValue("path", "port"));
              }
              else
              {
