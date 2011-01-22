@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
 
-namespace OES_Client
+namespace OES.Net
 {
     public class OESClient
     {
