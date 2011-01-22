@@ -31,14 +31,15 @@ namespace OES
         private bool DataBind()
         {
             sqlcon = new SqlConnection();
-            string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
+            //string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
             //strConnection += "initial catalog=OESDB;Server=localhost;";
             //strConnection += "Connect Timeout=30"; 
-            //sqlcon = new SqlConnection();
-            //string strConnection = "Trusted_Connection=SSPI;";
-            //strConnection += "initial catalog=OESDB;Server=localhost;";
-            //strConnection += "Connect Timeout=30";
+            sqlcon = new SqlConnection();
+            string strConnection = "Trusted_Connection=SSPI;";
+            strConnection += "initial catalog=OESDB;Server=localhost;";
+            strConnection += "Connect Timeout=30";
             sqlcon.ConnectionString = strConnection;
+
 
             try
             {
@@ -1362,6 +1363,12 @@ namespace OES
                 // 数据库NULL值单独处理   
                 if (p_Data.Columns[i].ToString() == "Id")
                     problem.Id = p_Data.Rows[0][i].ToString();
+                if (problem.Id == null)
+                {
+                    
+                    return null;
+
+                }
                 if (p_Data.Columns[i].ToString() == "TeacherName")
                     problem.TeacherName = (string)p_Data.Rows[0][i];
                 if (p_Data.Columns[i].ToString() == "Password")
