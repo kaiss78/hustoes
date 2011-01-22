@@ -71,5 +71,13 @@ namespace OES.UPanel
             changeBtnEnable(true);
             studentInfoDGV.Visible = true;
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确认删除这些学生信息？", "学生管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            { 
+                //TODO: Delete them.
+            }
+        }
     }
 }

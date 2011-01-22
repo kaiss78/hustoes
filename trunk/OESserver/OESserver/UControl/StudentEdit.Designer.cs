@@ -41,6 +41,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.comboDept = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(99, 178);
+            this.label3.Location = new System.Drawing.Point(99, 217);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 16);
             this.label3.TabIndex = 2;
@@ -73,7 +75,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(83, 228);
+            this.label4.Location = new System.Drawing.Point(83, 267);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 16);
             this.label4.TabIndex = 3;
@@ -82,7 +84,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(51, 275);
+            this.label5.Location = new System.Drawing.Point(51, 314);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 16);
             this.label5.TabIndex = 4;
@@ -91,14 +93,14 @@
             // comboClass
             // 
             this.comboClass.FormattingEnabled = true;
-            this.comboClass.Location = new System.Drawing.Point(187, 173);
+            this.comboClass.Location = new System.Drawing.Point(187, 212);
             this.comboClass.Name = "comboClass";
             this.comboClass.Size = new System.Drawing.Size(184, 24);
             this.comboClass.TabIndex = 5;
             // 
             // textPW
             // 
-            this.textPW.Location = new System.Drawing.Point(187, 220);
+            this.textPW.Location = new System.Drawing.Point(187, 259);
             this.textPW.Name = "textPW";
             this.textPW.PasswordChar = '*';
             this.textPW.Size = new System.Drawing.Size(184, 26);
@@ -120,7 +122,7 @@
             // 
             // textPW2
             // 
-            this.textPW2.Location = new System.Drawing.Point(187, 267);
+            this.textPW2.Location = new System.Drawing.Point(187, 306);
             this.textPW2.Name = "textPW2";
             this.textPW2.PasswordChar = '*';
             this.textPW2.Size = new System.Drawing.Size(184, 26);
@@ -129,7 +131,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(395, 225);
+            this.label6.Location = new System.Drawing.Point(395, 264);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(216, 16);
             this.label6.TabIndex = 10;
@@ -137,7 +139,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(121, 352);
+            this.btnEdit.Location = new System.Drawing.Point(121, 391);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(129, 39);
             this.btnEdit.TabIndex = 11;
@@ -146,7 +148,7 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(346, 352);
+            this.btnReturn.Location = new System.Drawing.Point(346, 391);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(129, 39);
             this.btnReturn.TabIndex = 12;
@@ -154,10 +156,29 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // comboDept
+            // 
+            this.comboDept.FormattingEnabled = true;
+            this.comboDept.Location = new System.Drawing.Point(187, 166);
+            this.comboDept.Name = "comboDept";
+            this.comboDept.Size = new System.Drawing.Size(184, 24);
+            this.comboDept.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(99, 171);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 16);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "学院：";
+            // 
             // StudentEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboDept);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.label6);
@@ -195,5 +216,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.ComboBox comboDept;
+        private System.Windows.Forms.Label label7;
     }
 }
