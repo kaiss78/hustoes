@@ -16,6 +16,17 @@ namespace OES.UPanel
             InitializeComponent();
         }
 
+        public override void ReLoad()
+        {
+            this.Visible = true;
+            StudentInfoGruop.Visible = true;
+            //show lists
+            buttonAdd.Visible = true;
+            buttonDelete.Visible = true;
+            buttonEdit.Visible = true;
+            buttonQuery.Visible = true;
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
