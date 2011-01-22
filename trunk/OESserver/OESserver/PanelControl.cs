@@ -9,7 +9,7 @@ namespace OES
 {
     public class PanelControl
     {
-        public const int PanelNumber=15;
+        public const int PanelNumber=20;
         static public List<UserPanel> panelList = new List<UserPanel>(PanelNumber);
 
         public PanelControl( )
@@ -30,8 +30,12 @@ namespace OES
             panelList[12] = mf.paperInfo;
             mf.paperInfo.PanelID = 12;
             panelList[13] = mf.paperListPanel;
-            mf.paperListPanel.PanelID = 12;
-            panelList[14] = mf.paperEditPanel;
+            mf.paperListPanel.PanelID = 13;
+            panelList[14] = mf.studentManage;
+            mf.studentManage.PanelID = 14;
+            panelList[PanelNumber-1] = mf.paperEditPanel;
+            mf.paperEditPanel.PanelID = PanelNumber-1;
+
         }
 
         static public void HideAllPanel()
@@ -51,6 +55,9 @@ namespace OES
                     panelList[x].ReLoad();
                     break;
                 case 13:
+                    panelList[x].ReLoad();
+                    break;
+                case 14:
                     panelList[x].ReLoad();
                     break;
                 default:

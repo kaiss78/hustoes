@@ -48,8 +48,10 @@
             this.JudgeLbl = new System.Windows.Forms.LinkLabel();
             this.completionLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.stuManlbl = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
+            this.xpPanel3.SuspendLayout();
             this.xpPanel2.SuspendLayout();
             this.PMXP.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +80,7 @@
             this.xpPanel3.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel3.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.xpPanel3.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xpPanel3.Controls.Add(this.stuManlbl);
             this.xpPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.xpPanel3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel3.HorzAlignment = System.Drawing.StringAlignment.Near;
@@ -337,6 +340,18 @@
             this.MainPanel.Size = new System.Drawing.Size(742, 666);
             this.MainPanel.TabIndex = 1;
             // 
+            // stuManlbl
+            // 
+            this.stuManlbl.AutoSize = true;
+            this.stuManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.stuManlbl.Location = new System.Drawing.Point(7, 35);
+            this.stuManlbl.Name = "stuManlbl";
+            this.stuManlbl.Size = new System.Drawing.Size(69, 19);
+            this.stuManlbl.TabIndex = 2;
+            this.stuManlbl.TabStop = true;
+            this.stuManlbl.Tag = "14";
+            this.stuManlbl.Text = "学生管理";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -352,6 +367,8 @@
             this.Text = "OES服务端";
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).EndInit();
             this.xpPanelGroup1.ResumeLayout(false);
+            this.xpPanel3.ResumeLayout(false);
+            this.xpPanel3.PerformLayout();
             this.xpPanel2.ResumeLayout(false);
             this.xpPanel2.PerformLayout();
             this.PMXP.ResumeLayout(false);
@@ -381,6 +398,7 @@
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel stuManlbl;
 
     }
 }

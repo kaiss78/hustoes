@@ -11,6 +11,7 @@ namespace OES
         public ProMan proMan;
         public PaperListPanel paperListPanel;
         public PaperEditPanel paperEditPanel;
+        public StudentManage studentManage;
         private PanelControl panelControl;
         static public Teacher teacher;
 
@@ -21,10 +22,12 @@ namespace OES
             paperInfo = new PaperInfo();                 //试卷信息界面
             paperListPanel=new PaperListPanel();      //试卷管理界面
             paperEditPanel=new PaperEditPanel();     //组卷界面
+            studentManage=new StudentManage();     //学生管理界面
             MainPanel.Controls.Add(proMan);
             MainPanel.Controls.Add(paperInfo);
             MainPanel.Controls.Add(paperListPanel);
             MainPanel.Controls.Add(paperEditPanel);
+            MainPanel.Controls.Add(studentManage);
             PanelControl.init(this);
             PanelControl.HideAllPanel();
         }
