@@ -1342,15 +1342,37 @@ namespace OES
             return UnitList;
         }
         //-- Description:	查找Teacher的所有信息，通过Teacher的LoginName
-        public List<Teacher> FindTeacherByLoginName(string UserName)
+        public Teacher FindTeacherByLoginName(string UserName)
         {
-            List<Teacher> teacherList = new List<Teacher>();
+            Teacher teacher = new Teacher();
             SqlParameter[] ddlparam = new SqlParameter[1];
             ddlparam[0] = CreateParam("@UserName", SqlDbType.Int, 3, UserName, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindTeacherByLoginName", ddlparam, Ds);
-            teacherList = DataSetToListTeacher(Ds);
-            return teacherList;
+            teacher = DataSetToTeacher(Ds);
+            return teacher;
+        }
+
+        private Teacher DataSetToTeacher(DataSet p_DataSet)
+        {
+            Teacher problem = new Teacher();
+            DataTable p_Data = p_DataSet.Tables[0];
+            for (int i = 0; i < p_Data.Columns.Count; i++)
+            {
+                // 数据库NULL值单独处理   
+                if (p_Data.Columns[i].ToString() == "Id")
+                    problem.Id = p_Data.Rows[0][i].ToString();
+                if (p_Data.Columns[i].ToString() == "TeacherName")
+                    problem.TeacherName = (string)p_Data.Rows[0][i];
+                if (p_Data.Columns[i].ToString() == "Password")
+                    problem.password = p_Data.Rows[0][i].ToString();
+                if (p_Data.Columns[i].ToString() == "Permission")
+                    problem.permission = (int)p_Data.Rows[0][i];
+                if (p_Data.Columns[i].ToString() == "UserName")
+                    problem.UserName = (string)p_Data.Rows[0][i];
+
+            }
+            return problem;
         }
 
         private List<Teacher> DataSetToListTeacher(DataSet p_DataSet)
