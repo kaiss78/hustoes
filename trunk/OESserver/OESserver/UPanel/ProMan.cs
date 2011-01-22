@@ -45,7 +45,7 @@ namespace OES.UPanel
             ProType=0;
 
             
-            aChptList = new ChptList();
+            aChptList = new ChptList(this);
             aChptList.Size = new Size(ClWidth, Height);
             Controls.Add(aChptList);
             aProList = new ProList(this);
