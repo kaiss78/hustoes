@@ -104,6 +104,7 @@
             this.closebtn.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
             this.closebtn.TabIndex = 5;
             this.closebtn.Values.Text = "退出";
+            this.closebtn.Click += new System.EventHandler(this.closebtn_Click);
             // 
             // LoginForm
             // 
