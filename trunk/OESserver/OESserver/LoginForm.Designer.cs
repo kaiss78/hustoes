@@ -32,6 +32,8 @@
             this.UserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Loginbtn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.closebtn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.SuspendLayout();
             // 
             // Password
@@ -44,6 +46,7 @@
             this.Password.SkipLiterals = false;
             this.Password.TabIndex = 0;
             this.Password.TabStop = false;
+            this.Password.Text = "123";
             // 
             // UserName
             // 
@@ -52,6 +55,7 @@
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(150, 26);
             this.UserName.TabIndex = 1;
+            this.UserName.Text = "pl";
             // 
             // label1
             // 
@@ -73,11 +77,40 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "密码：";
             // 
+            // Loginbtn
+            // 
+            this.Loginbtn.Location = new System.Drawing.Point(35, 140);
+            this.Loginbtn.Margin = new System.Windows.Forms.Padding(0);
+            this.Loginbtn.Name = "Loginbtn";
+            this.Loginbtn.Size = new System.Drawing.Size(80, 26);
+            this.Loginbtn.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.Loginbtn.StateCommon.Border.Rounding = 10;
+            this.Loginbtn.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
+            this.Loginbtn.TabIndex = 4;
+            this.Loginbtn.Values.Text = "登录";
+            // 
+            // closebtn
+            // 
+            this.closebtn.Location = new System.Drawing.Point(153, 140);
+            this.closebtn.Name = "closebtn";
+            this.closebtn.Size = new System.Drawing.Size(80, 26);
+            this.closebtn.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.closebtn.StateCommon.Border.Rounding = 10;
+            this.closebtn.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
+            this.closebtn.TabIndex = 5;
+            this.closebtn.Values.Text = "退出";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 229);
+            this.ClientSize = new System.Drawing.Size(275, 191);
+            this.Controls.Add(this.closebtn);
+            this.Controls.Add(this.Loginbtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UserName);
@@ -95,6 +128,8 @@
         private System.Windows.Forms.TextBox UserName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton Loginbtn;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton closebtn;
 
     }
 }
