@@ -28,6 +28,7 @@ namespace OES.UPanel
             studentInfoDGV.Visible = true;
             changeBtnEnable(true);
             disposeControl();
+            studentInfoGruop.Text = "学生信息";
         }
 
         private void disposeControl()               //消除原来产生的UserControl
@@ -45,6 +46,7 @@ namespace OES.UPanel
         {
             changeBtnEnable(false);
             studentInfoDGV.Visible = false;
+            studentInfoGruop.Text = "添加学生";
             stuAdd = new StudentAdd();
             stuAdd.Disposed += new EventHandler(stuOperation_Disposed);
             studentInfoGruop.Controls.Add(stuAdd);
@@ -55,6 +57,7 @@ namespace OES.UPanel
         {
             changeBtnEnable(false);
             studentInfoDGV.Visible = false;
+            studentInfoGruop.Text = "修改学生";
             stuEdit = new StudentEdit();
             stuEdit.Disposed += new EventHandler(stuOperation_Disposed);
             studentInfoGruop.Controls.Add(stuEdit);
