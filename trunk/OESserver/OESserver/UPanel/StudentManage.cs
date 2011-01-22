@@ -30,11 +30,6 @@ namespace OES.UPanel
             disposeControl();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void disposeControl()               //消除原来产生的UserControl
         {
             if (stuEdit != null) { stuEdit.Dispose(); }
