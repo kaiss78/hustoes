@@ -13,6 +13,8 @@ namespace OES.UControl
     {
         public StudentAdd()
         {
+            radioAddOne.Checked = true;
+            groupAddMany.Enabled = false;
             InitializeComponent();
         }
 
