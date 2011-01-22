@@ -123,10 +123,21 @@ namespace OES.UPanel
         {
 
             ProType = x;
-            aProList.Reload(ProType);
-            HideList();
-            aProList.Show();
-            this.Visible = true;
+            if (ProType < 3)
+            {
+                aProList.Reload();
+                HideList();
+                aChptList.Show();
+                aProList.Show();
+                this.Visible = true;
+            }
+            else
+            {
+                aChptList.Hide();
+                HideList();
+                aProList.Show();
+                this.Visible = true;
+            }
         }
 
         public void HideList()

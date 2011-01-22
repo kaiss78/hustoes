@@ -39,7 +39,7 @@ namespace OES.UControl
 
         }
 
-        public void Reload(int x)
+        public void Reload()
         {
             ProType = aProMan.ProType;
         }
@@ -78,6 +78,10 @@ namespace OES.UControl
             titleList[0].Text = "勾选";
             titleList[1].Text = "题号";
             titleList[2].Text = "题干";
+
+            titleList[0].ForeColor = Color.Blue;
+            titleList[1].ForeColor = Color.Blue;
+            titleList[2].ForeColor = Color.Blue;
 
             titleList[0].Location = new Point(0, 0);
             titleList[1].Location = new Point(choWidth, 0);
