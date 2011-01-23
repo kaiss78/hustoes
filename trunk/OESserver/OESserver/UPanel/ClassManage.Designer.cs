@@ -106,6 +106,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "删除班级";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -116,6 +117,7 @@
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "修改班级";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // classInfoGroup
             // 
