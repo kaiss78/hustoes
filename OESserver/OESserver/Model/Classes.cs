@@ -19,5 +19,8 @@ namespace OES.Model
             className = cn;
             teacherUserName = tun;
         }
+
+        public Classes()
+        { }
     }
 }
