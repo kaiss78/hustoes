@@ -17,19 +17,32 @@ namespace OES
         public ExamForm()
         {
             InitializeComponent();
+            progressBar1.CreateControl();
+            this.CreateControl();
+            progressBar1.Maximum = 1000;
+            
         }
 
         private void Start_Click(object sender, EventArgs e)
+        {
+            Program.Client.RequestingPaper();
+            
+        }
+
+        public void JumpToMain(object sender,EventArgs e)
         {
             //读考卷内容
             ClientControl.paper.ReadPaper();
 
             ClientControl.isResume = false;
-            ClientControl.ControlBar.Show();
-            ClientControl.MainForm.Show();
-            this.Dispose();
-        }
 
+            this.Invoke(new MethodInvoker(() =>
+            {
+                ClientControl.ControlBar.Show();
+                ClientControl.MainForm.Show(); 
+                this.Dispose();
+            }));
+        }
         private void ExamForm_Load(object sender, EventArgs e)
         {
             this.ExamNo.Text = ClientControl.student.examID;
@@ -79,6 +92,14 @@ namespace OES
             ClientControl.TeaPassForm.Show();
             this.Dispose();
         }
-
+        public int perPackage = 0;
+        public void addProcessBar()
+        {
+            this.CreateControl();
+            this.Invoke(new MethodInvoker(() =>
+            {
+                this.progressBar1.Value += perPackage;
+            }));
+        }
     }
 }

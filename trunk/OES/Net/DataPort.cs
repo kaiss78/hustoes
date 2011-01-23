@@ -13,6 +13,7 @@ namespace OES.Net
     {
         public int localPort;
         public IPAddress ip;
+        public long fileLength;
 
         private TcpListener dataListener;
         private TcpClient dataReceiver;
@@ -23,6 +24,7 @@ namespace OES.Net
         private NetworkStream receiver_ns;
         private NetworkStream sender_ns;
         private string filePath;
+        
 
         //文件接收时的默认路径
         public string archiveDirectory;
@@ -30,6 +32,9 @@ namespace OES.Net
         //端口收回事件
         public delegate void portUsed(DataPort port);
         public event portUsed portRecycle;
+
+        //接受试卷完成事件
+        public event EventHandler paperGetOver;
 
         public DataPort(IPAddress ip, int localPort)
         {
@@ -42,7 +47,7 @@ namespace OES.Net
             //MessageSupervisor.targetFrm.showMessage("Initialize DataPort: " + dataListener.LocalEndpoint.ToString());
             
             //测试用
-            archiveDirectory = "H:/" + ip.ToString() + "-" + localPort.ToString() + "-";
+            archiveDirectory = Config.paperPath;
         }
         
         //装载数据
@@ -92,9 +97,10 @@ namespace OES.Net
             dataReceiver = (TcpClient)asy.AsyncState;
             dataReceiver.EndConnect(asy);
             receiver_ns = dataReceiver.GetStream();
-
-            Thread thread = new Thread(ReceiveData);
-            thread.Start();        
+            this.paperGetOver += ClientControl.ExamForm.JumpToMain;
+            ReceiveData();
+            //Thread thread = new Thread(ReceiveData);
+            //thread.Start();        
         }
 
         private void ReceiveData()
@@ -103,17 +109,20 @@ namespace OES.Net
             Byte[] buffer = new Byte[1024];
             FileStream file = new FileStream(@filePath, FileMode.Create, FileAccess.Write);
             byteRead = receiver_ns.Read(buffer, 0, 1024);
-
+            ClientControl.ExamForm.perPackage = (int)(1000 * 1024 / fileLength);
             while (byteRead > 0)
             {
                 file.Write(buffer, 0, byteRead);
                 Array.Clear(buffer, 0, 1024);
                 byteRead = receiver_ns.Read(buffer, 0, 1024);
+                ClientControl.ExamForm.addProcessBar();
             }
 
             receiver_ns.Dispose();
             dataReceiver.Close();
             file.Close();
+
+            paperGetOver(this, null);
 
             if( portRecycle != null )
                 portRecycle(this);

@@ -26,7 +26,7 @@ namespace OES.Net
         public string paperPath = "F:/paper.ppt";           //发送数据的文件路径
         private IPAddress remoteIP;      //接收试卷所需信息
         private int remotePort;
-        public string fileName = "test.ppt";
+        public string fileName = "EXAM001.rar";
 
         public string server = "222.20.59.83";  //服务器地址
         public int portNum = 20000;
@@ -323,6 +323,7 @@ namespace OES.Net
                     msgs = msg.Split(new char[] { '$' });
                     remoteIP = IPAddress.Parse(msgs[0]);
                     remotePort = Convert.ToInt32(msgs[1]);
+                    port.fileLength = Convert.ToInt64(msgs[2]);
                     ReceiveData();
                     break;
 
