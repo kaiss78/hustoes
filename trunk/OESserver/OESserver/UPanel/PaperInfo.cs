@@ -120,7 +120,7 @@ namespace OES.UPanel
             InfoControl.TmpPaper.programState = programstate;
             InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
             
-            //XMLControl.CreatePaperXML(InfoControl.TmpPaper.paperPath, InfoControl.TmpPaper.paperID);
+            XMLControl.CreatePaperXML(InfoControl.TmpPaper.paperPath, InfoControl.TmpPaper.paperID);
             PanelControl.ChangPanel(13);
         }
 

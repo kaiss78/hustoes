@@ -62,12 +62,12 @@ namespace OES.XMLFile
                         }
                     case XMLType.Paper:
                         {
-                            if (Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Paper") == null)
+                            if (xd.ChildNodes.Item(1).ChildNodes.Count==0 || Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Paper") == null)
                             {
                                 xmlelem = xd.CreateElement("Paper");
                                 XmlAttribute xa = xd.CreateAttribute("id");
                                 xmlelem.Attributes.Append(xa);
-                                xmlelem.SetAttribute("id", ((string[])o)[0]);
+                                xmlelem.SetAttribute("id", ((string)o));
                                 xmlelem1 = xd.CreateElement("Choice");
                                 xmlelem.AppendChild(xmlelem1);
                                 xmlelem1 = xd.CreateElement("Completion");
@@ -93,7 +93,7 @@ namespace OES.XMLFile
                         }
                     case XMLType.PaperAnswer:
                         {
-                            if (Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Answer") == null)
+                            if (xd.ChildNodes.Item(1).ChildNodes.Count == 0 || Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Answer") == null)
                             {
                                 xmlelem = xd.CreateElement("Answer");
                                 XmlAttribute xa = xd.CreateAttribute("id");
