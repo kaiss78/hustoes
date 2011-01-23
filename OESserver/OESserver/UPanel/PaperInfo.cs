@@ -118,8 +118,8 @@ namespace OES.UPanel
             InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text, InfoControl.User.Id, programstate);
             InfoControl.TmpPaper.paperName = PaperName.Text;
             InfoControl.TmpPaper.programState = programstate;
-            InfoControl.TmpPaper.paperPath = Config.TempPaperPath + "\\" + InfoControl.TmpPaper.paperID + ".xml";
-
+            InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
+            
             //XMLControl.CreatePaperXML(InfoControl.TmpPaper.paperPath, InfoControl.TmpPaper.paperID);
             PanelControl.ChangPanel(13);
         }
