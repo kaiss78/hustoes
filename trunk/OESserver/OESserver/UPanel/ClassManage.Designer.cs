@@ -30,14 +30,14 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnQuery = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.classInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.classInfoGroup = new System.Windows.Forms.GroupBox();
+            this.classInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classInfoDGV)).BeginInit();
             this.classInfoGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classInfoDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -53,9 +53,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.Controls.Add(this.btnAdd, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 5, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnQuery, 5, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnDelete, 2, 7);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 5, 7);
+            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 5, 7);
             this.tableLayoutPanel1.Controls.Add(this.classInfoGroup, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -85,16 +85,17 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "添加班级";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button2
+            // btnQuery
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(468, 547);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 37);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "查找班级";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnQuery.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnQuery.Location = new System.Drawing.Point(468, 547);
+            this.btnQuery.Name = "btnQuery";
+            this.btnQuery.Size = new System.Drawing.Size(117, 37);
+            this.btnQuery.TabIndex = 2;
+            this.btnQuery.Text = "查找班级";
+            this.btnQuery.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
@@ -106,29 +107,15 @@
             this.btnDelete.Text = "删除班级";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnEdit
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(468, 600);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(117, 37);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "修改班级";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // classInfoDGV
-            // 
-            this.classInfoDGV.AllowUserToAddRows = false;
-            this.classInfoDGV.AllowUserToDeleteRows = false;
-            this.classInfoDGV.AllowUserToResizeRows = false;
-            this.classInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classInfoDGV.Location = new System.Drawing.Point(3, 22);
-            this.classInfoDGV.Name = "classInfoDGV";
-            this.classInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
-            this.classInfoDGV.ReadOnly = true;
-            this.classInfoDGV.RowTemplate.Height = 23;
-            this.classInfoDGV.Size = new System.Drawing.Size(713, 493);
-            this.classInfoDGV.TabIndex = 0;
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEdit.Location = new System.Drawing.Point(468, 600);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(117, 37);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "修改班级";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // classInfoGroup
             // 
@@ -144,6 +131,20 @@
             this.classInfoGroup.TabStop = false;
             this.classInfoGroup.Text = "班级信息";
             // 
+            // classInfoDGV
+            // 
+            this.classInfoDGV.AllowUserToAddRows = false;
+            this.classInfoDGV.AllowUserToDeleteRows = false;
+            this.classInfoDGV.AllowUserToResizeRows = false;
+            this.classInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classInfoDGV.Location = new System.Drawing.Point(3, 22);
+            this.classInfoDGV.Name = "classInfoDGV";
+            this.classInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+            this.classInfoDGV.ReadOnly = true;
+            this.classInfoDGV.RowTemplate.Height = 23;
+            this.classInfoDGV.Size = new System.Drawing.Size(713, 493);
+            this.classInfoDGV.TabIndex = 0;
+            // 
             // ClassManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -152,8 +153,8 @@
             this.Name = "ClassManage";
             this.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.classInfoDGV)).EndInit();
             this.classInfoGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.classInfoDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -163,9 +164,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView classInfoDGV;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.GroupBox classInfoGroup;
     }
 }
