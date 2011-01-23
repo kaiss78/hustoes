@@ -12,13 +12,14 @@ namespace OES.UPanel
     {
         public List<TextBox> scoreList = new List<TextBox>(9);
         public List<TextBox> countList = new List<TextBox>(3);
-        public int [] flag=new int[9];
+        public int[] flag = new int[9];
         public OESData oesData;
         public int programstate;
+
         public PaperInfo()
         {
             InitializeComponent();
-            
+
             countList.Add(ChoiceCount);
             countList.Add(CompletionCount);
             countList.Add(JudgeCount);
@@ -52,7 +53,7 @@ namespace OES.UPanel
                 score = score + flag[i] * Convert.ToInt32(scoreList[i].Text);
             }
             this.ProCount.Text = count.ToString() + "题";
-            this.Score.Text = score.ToString() + "分";            
+            this.Score.Text = score.ToString() + "分";
         }
 
         public int GetTag(Control con)
@@ -66,7 +67,7 @@ namespace OES.UPanel
         }
 
         override public void ReLoad()
-        {         
+        {
             this.Visible = true;
             for (int i = 0; i < 9; i++)
             {
@@ -83,15 +84,15 @@ namespace OES.UPanel
 
         override public void ReLoad(Paper p)
         {
-            this.Visible = true;            
+            this.Visible = true;
         }
-        
+
         private void CountButton_Click(object sender, EventArgs e)
         {
-            int x = this.GetTag((Control) sender);
+            int x = this.GetTag((Control)sender);
             flag[x] = 1 - flag[x];
             scoreList[x].Enabled = Convert.ToBoolean(flag[x]);
-            if (x<3)
+            if (x < 3)
             {
                 countList[x].Enabled = Convert.ToBoolean(flag[x]);
             }
@@ -99,15 +100,27 @@ namespace OES.UPanel
 
         private void OK_Click(object sender, EventArgs e)
         {
-            if(flag[6]+flag[7]+flag[8]>0)
+            if (flag[6] + flag[7] + flag[8] > 0)
             {
+                if (CPro.Checked)
+                {
+                    programstate = 2;
+                }
+                if (CppPro.Checked)
+                {
+                    programstate = 2;
+                }
             }
             else
             {
+                programstate = 0;
             }
+            InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text, InfoControl.User.Id, programstate);
+            InfoControl.TmpPaper.paperName = PaperName.Text;
+            InfoControl.TmpPaper.programState = programstate;
+            InfoControl.TmpPaper.paperPath = Config.TempPaperPath + "\\" + InfoControl.TmpPaper.paperID + ".xml";
 
-            InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text,InfoControl.User.Id,programstate);
-            //XMLControl.CreatePaperXML(Config.TempPaperPath,);
+            //XMLControl.CreatePaperXML(InfoControl.TmpPaper.paperPath, InfoControl.TmpPaper.paperID);
             PanelControl.ChangPanel(13);
         }
 
@@ -115,6 +128,6 @@ namespace OES.UPanel
         {
 
         }
-
     }
+
 }

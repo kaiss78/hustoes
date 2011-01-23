@@ -90,6 +90,7 @@
             this.CPro = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.TestTime = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.Total = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.TableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -841,6 +842,7 @@
             this.tableLayoutPanel1.Controls.Add(this.ProCount, 5, 4);
             this.tableLayoutPanel1.Controls.Add(this.Score, 6, 4);
             this.tableLayoutPanel1.Controls.Add(this.TestTime, 8, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Total, 4, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
@@ -863,6 +865,17 @@
             this.TestTime.Name = "TestTime";
             this.TestTime.Size = new System.Drawing.Size(164, 24);
             this.TestTime.TabIndex = 13;
+            // 
+            // Total
+            // 
+            this.Total.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Total.Location = new System.Drawing.Point(253, 624);
+            this.Total.Name = "Total";
+            this.Total.Size = new System.Drawing.Size(74, 29);
+            this.Total.TabIndex = 14;
+            this.Total.Text = "总计";
+            this.Total.UseVisualStyleBackColor = true;
+            this.Total.Click += new System.EventHandler(this.Count_Click);
             // 
             // PaperInfo
             // 
@@ -947,6 +960,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label PaperNO;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker TestTime;
+        private System.Windows.Forms.Button Total;
 
     }
 }
