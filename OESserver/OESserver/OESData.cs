@@ -1572,6 +1572,29 @@ namespace OES
             return studentList;
 
         }
+        //-- Description:	按院系班级信息查询学生
+        public List<Student> FindStudentByClass(string Dept, string ClassName)
+        {
+            Ds = new DataSet();
+            List<Student> studentList = new List<Student>();
+
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindStudentByClass", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            studentList = DataSetToListStudent(Ds);
+            return studentList;
+        }
+        //
         private List<Student> DataSetToListStudent(DataSet p_DataSet)
         {
 
@@ -1589,7 +1612,7 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "StudentName")
                         problem.sName = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "ClassId")
-                        problem.classId = (string)p_Data.Rows[j][i];
+                        problem.classId = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "Password")
                         problem.password = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Dept")
