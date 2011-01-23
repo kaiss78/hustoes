@@ -44,8 +44,13 @@ namespace OES.UPanel
             PaperListDGV.Columns[1].FillWeight = 12;
             PaperListDGV.Columns[2].FillWeight = 45;
             PaperListDGV.Columns[3].FillWeight = 20;
-            PaperListDGV.Columns[4].FillWeight = 18;       
-            
+            PaperListDGV.Columns[4].FillWeight = 18;
+
+            PaperListDGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            PaperListDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            PaperListDGV.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+            PaperListDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+            PaperListDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
         public PaperListPanel()
