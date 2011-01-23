@@ -38,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.OK = new System.Windows.Forms.Button();
-            this.EditPaper = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
@@ -201,19 +200,6 @@
             this.OK.Text = "提交";
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.OK_Click);
-            // 
-            // EditPaper
-            // 
-            this.EditPaper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EditPaper.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EditPaper.Location = new System.Drawing.Point(567, 623);
-            this.EditPaper.Margin = new System.Windows.Forms.Padding(2);
-            this.EditPaper.Name = "EditPaper";
-            this.EditPaper.Size = new System.Drawing.Size(81, 31);
-            this.EditPaper.TabIndex = 2;
-            this.EditPaper.Text = "编辑试卷";
-            this.EditPaper.UseVisualStyleBackColor = true;
-            this.EditPaper.Click += new System.EventHandler(this.EditPaper_Click);
             // 
             // groupBox2
             // 
@@ -832,7 +818,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.EditPaper, 8, 4);
             this.tableLayoutPanel1.Controls.Add(this.OK, 9, 4);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 3, 1);
@@ -953,7 +938,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button EditPaper;
         private System.Windows.Forms.Button OK;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
