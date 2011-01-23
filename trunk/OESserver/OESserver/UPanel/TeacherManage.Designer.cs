@@ -84,12 +84,14 @@
             this.teacherInfoDGV.AllowUserToAddRows = false;
             this.teacherInfoDGV.AllowUserToDeleteRows = false;
             this.teacherInfoDGV.AllowUserToResizeRows = false;
+            this.teacherInfoDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.teacherInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teacherInfoDGV.Location = new System.Drawing.Point(3, 22);
             this.teacherInfoDGV.Name = "teacherInfoDGV";
             this.teacherInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.teacherInfoDGV.ReadOnly = true;
             this.teacherInfoDGV.RowTemplate.Height = 23;
+            this.teacherInfoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.teacherInfoDGV.Size = new System.Drawing.Size(713, 487);
             this.teacherInfoDGV.TabIndex = 0;
             // 
