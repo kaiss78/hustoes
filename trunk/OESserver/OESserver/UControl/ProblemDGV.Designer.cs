@@ -28,20 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.proDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.proDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // proDGV
             // 
+            this.proDGV.AllowUserToDeleteRows = false;
+            this.proDGV.AllowUserToOrderColumns = true;
+            this.proDGV.AllowUserToResizeColumns = false;
+            this.proDGV.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.proDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.proDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.proDGV.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.proDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.proDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
             this.proDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.proDGV.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.proDGV.ImeMode = System.Windows.Forms.ImeMode.On;
             this.proDGV.Location = new System.Drawing.Point(0, 0);
+            this.proDGV.Margin = new System.Windows.Forms.Padding(5);
             this.proDGV.Name = "proDGV";
+            this.proDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.proDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.proDGV.RowTemplate.Height = 23;
-            this.proDGV.Size = new System.Drawing.Size(527, 490);
+            this.proDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.proDGV.Size = new System.Drawing.Size(517, 666);
             this.proDGV.TabIndex = 0;
             // 
             // ProblemDGV
@@ -50,7 +66,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.proDGV);
             this.Name = "ProblemDGV";
-            this.Size = new System.Drawing.Size(527, 490);
+            this.Size = new System.Drawing.Size(517, 666);
             ((System.ComponentModel.ISupportInitialize)(this.proDGV)).EndInit();
             this.ResumeLayout(false);
 
