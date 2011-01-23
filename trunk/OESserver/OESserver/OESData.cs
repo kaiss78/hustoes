@@ -1379,7 +1379,7 @@ namespace OES
                 cmd.Parameters.Add(ddlparam[i]);
             }
             SqlParameter Paper_Path = new SqlParameter("@Paper_Path", SqlDbType.VarChar, 100);
-            Id.Direction = ParameterDirection.Output;// 设置为输出参数
+            Paper_Path.Direction = ParameterDirection.Output;// 设置为输出参数
             cmd.Parameters.Add(Paper_Path);
 
             try
@@ -1393,6 +1393,68 @@ namespace OES
             MessageBox.Show(Paper_Path.Value.ToString());
             return Paper_Path.Value.ToString();
 
+        }
+        //-- Description:	验证学生可否参加考试,返回false 表示验证不通过，true，验证通过
+        public bool CheckStudent(string StudentName ,string  StudentId ,string Password )
+        {
+            SqlParameter[] ddlparam = new SqlParameter[3];
+            ddlparam[0] = CreateParam("@StudentName", SqlDbType.VarChar, 50, StudentName, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@StudentId", SqlDbType.VarChar, 50, StudentId, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Password", SqlDbType.VarChar, 50, Password, ParameterDirection.Input);
+
+            Ds = new DataSet();
+            RunProc("CheckStudent", ddlparam, Ds);
+
+            DataTable p_Data = Ds.Tables[0];
+            if (p_Data.Columns.Count < 1)
+            {
+                return false;
+            }
+            return true;
+        }
+        //-- Description:	列出试卷,按照测试时间>当前时间
+        public List<Paper> FindPaperByTestDate()
+        {
+            Ds = new DataSet();
+            List<Paper> paperList = new List<Paper>();
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindPaperByTestDate", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            paperList = DataSetToListPaper2(Ds);
+            return paperList;
+        }
+
+        private List<Paper> DataSetToListPaper2(DataSet p_DataSet)
+        {
+            List<Paper> result = new List<Paper>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Paper problem = new Paper();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Id")
+                        problem.paperID = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "Title")
+                        problem.paperName = (string)p_Data.Rows[j][i];
+                   
+                }
+
+                result.Add(problem);
+            }
+            return result;
         }
         private Teacher DataSetToTeacher(DataSet p_DataSet)
         {
