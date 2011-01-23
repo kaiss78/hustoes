@@ -31,11 +31,11 @@
             this.btnQuery = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.studentInfoGruop = new System.Windows.Forms.GroupBox();
+            this.studentInfoGroup = new System.Windows.Forms.GroupBox();
             this.studentInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.studentManageLayout = new System.Windows.Forms.TableLayoutPanel();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.studentInfoGruop.SuspendLayout();
+            this.studentInfoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentInfoDGV)).BeginInit();
             this.studentManageLayout.SuspendLayout();
             this.SuspendLayout();
@@ -72,19 +72,19 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // studentInfoGruop
+            // studentInfoGroup
             // 
-            this.studentManageLayout.SetColumnSpan(this.studentInfoGruop, 6);
-            this.studentInfoGruop.Controls.Add(this.studentInfoDGV);
-            this.studentInfoGruop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentInfoGruop.Font = new System.Drawing.Font("宋体", 12F);
-            this.studentInfoGruop.Location = new System.Drawing.Point(12, 4);
-            this.studentInfoGruop.Name = "studentInfoGruop";
-            this.studentManageLayout.SetRowSpan(this.studentInfoGruop, 2);
-            this.studentInfoGruop.Size = new System.Drawing.Size(718, 516);
-            this.studentInfoGruop.TabIndex = 0;
-            this.studentInfoGruop.TabStop = false;
-            this.studentInfoGruop.Text = "学生信息";
+            this.studentManageLayout.SetColumnSpan(this.studentInfoGroup, 6);
+            this.studentInfoGroup.Controls.Add(this.studentInfoDGV);
+            this.studentInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentInfoGroup.Font = new System.Drawing.Font("宋体", 12F);
+            this.studentInfoGroup.Location = new System.Drawing.Point(12, 4);
+            this.studentInfoGroup.Name = "studentInfoGroup";
+            this.studentManageLayout.SetRowSpan(this.studentInfoGroup, 2);
+            this.studentInfoGroup.Size = new System.Drawing.Size(718, 516);
+            this.studentInfoGroup.TabIndex = 0;
+            this.studentInfoGroup.TabStop = false;
+            this.studentInfoGroup.Text = "学生信息";
             // 
             // studentInfoDGV
             // 
@@ -111,7 +111,7 @@
             this.studentManageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.studentManageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
             this.studentManageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.studentManageLayout.Controls.Add(this.studentInfoGruop, 1, 1);
+            this.studentManageLayout.Controls.Add(this.studentInfoGroup, 1, 1);
             this.studentManageLayout.Controls.Add(this.btnEdit, 5, 6);
             this.studentManageLayout.Controls.Add(this.btnQuery, 5, 4);
             this.studentManageLayout.Controls.Add(this.btnAdd, 3, 4);
@@ -149,7 +149,7 @@
             this.Controls.Add(this.studentManageLayout);
             this.Name = "StudentManage";
             this.Size = new System.Drawing.Size(742, 666);
-            this.studentInfoGruop.ResumeLayout(false);
+            this.studentInfoGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.studentInfoDGV)).EndInit();
             this.studentManageLayout.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -161,7 +161,7 @@
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.GroupBox studentInfoGruop;
+        private System.Windows.Forms.GroupBox studentInfoGroup;
         private System.Windows.Forms.TableLayoutPanel studentManageLayout;
         private System.Windows.Forms.Button btnEdit;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView studentInfoDGV;

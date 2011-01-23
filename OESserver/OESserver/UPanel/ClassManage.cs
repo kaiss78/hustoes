@@ -55,6 +55,7 @@ namespace OES.UPanel
         {
             changeBtnEnable(true);
             classInfoDGV.Visible = true;
+            classInfoGroup.Text = "班级信息";
         }
 
     }
