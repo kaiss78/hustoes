@@ -1433,7 +1433,124 @@ namespace OES
             paperList = DataSetToListPaper2(Ds);
             return paperList;
         }
+        //-- Description:	增加教师信息
+        public void AddTeacher(string TeacherName, string Password, int Permission, string UserName)
+        {
+            
+            SqlParameter[] ddlparam = new SqlParameter[4];
+            ddlparam[0] = CreateParam("@TeacherName", SqlDbType.VarChar, 50, TeacherName, ParameterDirection.Input);
 
+            ddlparam[1] = CreateParam("@Password", SqlDbType.VarChar, 200, Password, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Permission", SqlDbType.Int , 2, Permission.ToString(), ParameterDirection.Input);
+            ddlparam[3] = CreateParam("@UserName", SqlDbType.VarChar, 50, UserName, ParameterDirection.Input);
+            
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddTeacher", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 4; i++)
+            {
+                cmd.Parameters.Add(ddlparam[i]);
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+        //-- Description:	按照Id删除教师信息
+
+        public void DeleteTeacherById(string Id)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+
+            //RunProc("FindChoiceByUnit", ddlparam, Ds);
+            SqlCommand Cmd = CreateCmd("DeleteTeacherById", ddlparam);
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+        //-- Description:	修改教师记录的信息
+        public void UpdateTeacherById(string Id, string TeacherName, string Password, int Permission, string UserName)
+        {
+            
+            SqlParameter[] ddlparam = new SqlParameter[5];
+
+            ddlparam[0] = CreateParam("@TeacherName", SqlDbType.VarChar, 50, TeacherName, ParameterDirection.Input);
+
+            ddlparam[1] = CreateParam("@Password", SqlDbType.VarChar, 200, Password, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Permission", SqlDbType.Int, 2, Permission.ToString(), ParameterDirection.Input);
+            ddlparam[3] = CreateParam("@UserName", SqlDbType.VarChar, 50, UserName, ParameterDirection.Input);
+            ddlparam[4] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+            
+            SqlCommand Cmd = CreateCmd("UpdateTeacherById", ddlparam);
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+        //-- Description:	列出所有teacher信息
+        public List<Teacher> FindTeacher()
+        {
+            Ds = new DataSet();
+            List<Teacher> teacherList = new List<Teacher>();
+            //RunProc("FindTeacher", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindTeacher", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            teacherList = DataSetToTeacherList(Ds);
+            return teacherList;
+        }
+
+        private List<Teacher> DataSetToTeacherList(DataSet p_DataSet)
+        {
+            List<Teacher> result = new List<Teacher>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Teacher problem = new Teacher();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Id")
+                        problem.Id = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "TeacherName")
+                        problem.TeacherName = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "Password")
+                        problem.password = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "Permission")
+                        problem.permission = (int)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "UserName")
+                        problem.UserName = (string)p_Data.Rows[j][i];
+
+                }
+
+                result.Add(problem);
+            }
+            return result;
+        }
         private List<Paper> DataSetToListPaper2(DataSet p_DataSet)
         {
             List<Paper> result = new List<Paper>();
