@@ -91,6 +91,7 @@
             this.btnQuery.TabIndex = 2;
             this.btnQuery.Text = "查找班级";
             this.btnQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
             // btnDelete
             // 
