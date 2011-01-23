@@ -26,7 +26,8 @@ namespace OES
         List<PCompletion> pCompletion = new List<PCompletion>();
         List<PModif> pModif = new List<PModif>();
 
-        DataSet Ds;//定义返回的数据集
+        DataSet Ds;
+        //定义返回的数据集
         //数据库连接
         private bool DataBind()
         {
@@ -124,8 +125,9 @@ namespace OES
         public DataSet RunProc(string procName, SqlParameter[] prams, DataSet Ds)
         {
             SqlCommand Cmd = CreateCmd(procName, prams);
+
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            //Cmd.Parameters.Clear();
+
             try
             {
                 Da.Fill(Ds, "demo");
