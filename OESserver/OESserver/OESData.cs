@@ -1526,7 +1526,84 @@ namespace OES
             teacherList = DataSetToTeacherList(Ds);
             return teacherList;
         }
+        //-- Description:	超级管理员列出所有学生
+        public List<Student> FindAllStudent()
+        {
+            Ds = new DataSet();
+            List<Student> studentList = new List<Student>();
 
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindAllStudent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            studentList = DataSetToListStudent(Ds);
+            return studentList;
+
+        }
+        //-- Description:	普通教师查看自己所教院系的学生信息
+        public List<Student> FindStudentByTeacherId()
+        {
+            Ds = new DataSet();
+            List<Student> studentList = new List<Student>();
+
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindStudentByTeacherId", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            studentList = DataSetToListStudent(Ds);
+            return studentList;
+
+        }
+        private List<Student> DataSetToListStudent(DataSet p_DataSet)
+        {
+
+            List<Student> result = new List<Student>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Student problem = new Student();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "StudentId")
+                        problem.ID = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "StudentName")
+                        problem.sName = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "ClassId")
+                        problem.classId = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "Password")
+                        problem.password = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "Dept")
+                        problem.dept= (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "ClassName")
+                        problem.className = (string)p_Data.Rows[j][i];
+                
+          
+                }
+
+                result.Add(problem);
+            }
+            return result;
+        }
         private List<Teacher> DataSetToTeacherList(DataSet p_DataSet)
         {
             List<Teacher> result = new List<Teacher>();
