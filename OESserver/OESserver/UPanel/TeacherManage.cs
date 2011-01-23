@@ -32,7 +32,7 @@ namespace OES.UPanel
             getTeacherTable();
         }
 
-        private void disposeControl()               //消除原来产生的UserControl
+        private void disposeControl()                       //消除原来产生的UserControl
         {
             if (teaAdd != null) { teaAdd.Dispose(); }
         }
