@@ -13,7 +13,7 @@ namespace OES.Error
         {
 
             MessageBox.Show(Type.GetType("OES.Error.ErrorTable").GetField(et.ToString()).GetValue(null).ToString());
-            //switch(et)
+            //switch (et)
             //{
             //    case ErrorType.LoginNoPersonError:
             //        MessageBox.Show(ErrorTable.LoginNoPersonError);

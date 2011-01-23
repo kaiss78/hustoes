@@ -5,6 +5,8 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace OES.Net
 {
@@ -162,12 +164,19 @@ namespace OES.Net
 
         private void connect_callBack(IAsyncResult asy)
         {
-            client.EndConnect(asy);
-            ns = client.GetStream();
+            try
+            {
+                client.EndConnect(asy);
+                ns = client.GetStream();
 
-           // MessageSupervisor.targetFrm.showMessage("Local Machine: " + client.Client.LocalEndPoint.ToString() + " ----> " + "Connect server: " + client.Client.RemoteEndPoint.ToString());
+                // MessageSupervisor.targetFrm.showMessage("Local Machine: " + client.Client.LocalEndPoint.ToString() + " ----> " + "Connect server: " + client.Client.RemoteEndPoint.ToString());
 
-            ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
+                ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
+            }
+            catch
+            {
+                Error.ErrorControl.ShowError(OES.Error.ErrorType.ServerConnectFailure);
+            }
         }
 
         private void receive_callBack(IAsyncResult asy)
@@ -238,8 +247,23 @@ namespace OES.Net
             {
                 //网络出错处理程序
             }
+        }
+
+        public void validStudent(string name,string id,string password)
+        {
+            port.LoadData(paperPath);
+            string tmsg = "#STX#3#" + name + "$" + id + "$" + password + "#ETX";
+            byte[] tBuffer = System.Text.Encoding.Default.GetBytes(tmsg);
+            try
+            {
+                ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
+            }
+            catch (Exception e)
+            {
+                //网络出错处理程序
+            }
         }    
-       
+
         private void write_callBack(IAsyncResult asy)
         {
             try
@@ -292,10 +316,11 @@ namespace OES.Net
 
         private void MessageScheduler()
         {
+            string[] msgs;
             switch (msg_type)
             {
                 case 0:
-                    string[] msgs = msg.Split(new char[] { '$' });
+                    msgs = msg.Split(new char[] { '$' });
                     remoteIP = IPAddress.Parse(msgs[0]);
                     remotePort = Convert.ToInt32(msgs[1]);
                     ReceiveData();
@@ -312,6 +337,11 @@ namespace OES.Net
                         SubmitReporter();
                     break;
 
+                case 3:
+                    //登录返回
+                    msgs = msg.Split(new char[] { '$' });
+                    ClientControl.LoginForm.Invoke(FormDelegate.dispatchMsgs,MsgType.LoginOk, Convert.ToBoolean(msgs[0]));
+                    break;
                 case -1:                   
                     //结束通信
                     EndService();

@@ -11,6 +11,7 @@ namespace OES.Error
         public static string RARNotExist = "本机未装RAR软件！";
         public static string ExistAnsXML = "您已经完成考试，无法恢复考试！";
         public static string TeacherPassWrong = "教师验证码错误！";
+        public static string ServerConnectFailure = "服务器连接出错！";
     }
     public enum ErrorType
     {
@@ -18,6 +19,7 @@ namespace OES.Error
         LoginWPasswordError,
         RARNotExist,
         ExistAnsXML,
-        TeacherPassWrong
+        TeacherPassWrong,
+        ServerConnectFailure
     }
 }
