@@ -36,8 +36,7 @@ namespace OES
                      Directory.CreateDirectory(@"D:\OES\TempPaper");
                      TempPaperPath = @"TempPaperPath=D:\OES\TempPaper";
                  } 
-             }
-             MessageBox.Show(Config.TempPaperPath);
+             }             
          }
 
          /// <summary>
