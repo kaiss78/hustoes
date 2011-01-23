@@ -1207,7 +1207,7 @@ namespace OES
             DataBind();
             SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 6; i++)
             {
                 cmd.Parameters.Add(ddlparam[i]);
             }
@@ -1367,7 +1367,6 @@ namespace OES
                 // 数据库NULL值单独处理   
                 if (p_Data.Columns[i].ToString() == "Id")
                     problem.Id = p_Data.Rows[0][i].ToString();
-
                 if (p_Data.Columns[i].ToString() == "TeacherName")
                     problem.TeacherName = (string)p_Data.Rows[0][i];
                 if (p_Data.Columns[i].ToString() == "Password")
@@ -1440,7 +1439,7 @@ namespace OES
                         problem.paperName = (string)p_Data.Rows[j][i];
                     if(p_Data.Columns[i].ToString()=="GenerateDate")
                         problem.createTime = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "TName")
+                    if (p_Data.Columns[i].ToString() == "TeacherName")
                         problem.author = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "ProgramState")
                         problem.programState = (int)p_Data.Rows[j][i];
