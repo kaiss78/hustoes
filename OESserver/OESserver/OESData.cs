@@ -1594,7 +1594,83 @@ namespace OES
             studentList = DataSetToListStudent(Ds);
             return studentList;
         }
-        //
+        //-- Description:	按学生姓名查询学生信息
+        public List<Student> FindStudentByName(string Dept, string ClassName)
+        {
+            Ds = new DataSet();
+            List<Student> studentList = new List<Student>();
+
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindStudentByName", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            studentList = DataSetToListStudent(Ds);
+            return studentList;
+        }
+        //-- Description:	按学号查询学生信息
+        public List<Student> FindStudentByStudentId(string StudentId)
+        {
+            Ds = new DataSet();
+            List<Student> studentList = new List<Student>();
+
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindStudentByStudentId", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            studentList = DataSetToListStudent(Ds);
+            return studentList;
+        }
+        //-- Description:	查找某个学院下的所有班级
+        public List<string> FindClassNameOfDept(string Dept)
+        {
+            Ds = new DataSet();
+            List<string> classStringList = new List<string>();
+
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindClassNameOfDept", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            classStringList = DataSetToclassStringList(Ds);
+            return classStringList;
+        }
+
+        private List<string> DataSetToclassStringList(DataSet p_DataSet)
+        {
+            List<string> result = new List<string>();
+            DataTable p_Data = p_DataSet.Tables[0];
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                result.Add(p_Data.Rows[j][0].ToString());
+            }
+            return result;
+        }
         private List<Student> DataSetToListStudent(DataSet p_DataSet)
         {
 
