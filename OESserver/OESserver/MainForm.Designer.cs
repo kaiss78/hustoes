@@ -50,6 +50,7 @@
             this.JudgeLbl = new System.Windows.Forms.LinkLabel();
             this.completionLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
@@ -81,6 +82,7 @@
             this.xpPanel3.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel3.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.xpPanel3.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xpPanel3.Controls.Add(this.linkLabel4);
             this.xpPanel3.Controls.Add(this.classManlbl);
             this.xpPanel3.Controls.Add(this.stuManlbl);
             this.xpPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
@@ -368,6 +370,19 @@
             this.MainPanel.Size = new System.Drawing.Size(742, 666);
             this.MainPanel.TabIndex = 1;
             // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.linkLabel4.Location = new System.Drawing.Point(7, 73);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(69, 19);
+            this.linkLabel4.TabIndex = 4;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Tag = "16";
+            this.linkLabel4.Text = "教师管理";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -416,6 +431,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel stuManlbl;
         private System.Windows.Forms.LinkLabel classManlbl;
+        private System.Windows.Forms.LinkLabel linkLabel4;
 
     }
 }
