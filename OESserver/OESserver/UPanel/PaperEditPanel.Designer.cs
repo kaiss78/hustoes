@@ -323,6 +323,7 @@
             this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlPanel.Location = new System.Drawing.Point(0, 0);
             this.ControlPanel.Name = "ControlPanel";
+            this.ControlPanel.Padding = new System.Windows.Forms.Padding(5);
             this.ControlPanel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.ControlPanel.Size = new System.Drawing.Size(517, 666);
             this.ControlPanel.TabIndex = 0;
