@@ -12,5 +12,6 @@ namespace OES.Model
         public int orderId;//
         public string problem;
         public string type;
+        public bool exist;
     }
 }

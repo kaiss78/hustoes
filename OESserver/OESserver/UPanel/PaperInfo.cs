@@ -115,13 +115,24 @@ namespace OES.UPanel
             {
                 programstate = 0;
             }
-            InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text, InfoControl.User.Id, programstate);
+
+            InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text, InfoControl.User.Id, programstate);            
             InfoControl.TmpPaper.paperName = PaperName.Text;
             InfoControl.TmpPaper.programState = programstate;
             InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
+            InfoControl.TmpPaper.choice = new List<Choice>(Convert.ToInt32(countList[0].Text));
+            InfoControl.TmpPaper.completion = new List<Completion>(Convert.ToInt32(countList[1].Text));
+            InfoControl.TmpPaper.judge = new List<Judge>(Convert.ToInt32(countList[2].Text));
             
+            InfoControl.TmpPaper.officeWord.exist = flag[3] == 1;
+            InfoControl.TmpPaper.officeExcel.exist =flag[4]==1;           
+            InfoControl.TmpPaper.officePPT.exist = flag[5] == 1;
+            InfoControl.TmpPaper.pCompletion.exist = flag[6] == 1;
+            InfoControl.TmpPaper.pModif.exist = flag[7] == 1;
+            InfoControl.TmpPaper.pFunction.exist = flag[8] == 1;
+
             XMLControl.CreatePaperXML(InfoControl.TmpPaper.paperPath, InfoControl.TmpPaper.paperID);
-            PanelControl.ChangPanel(13);
+            PanelControl.ChangPanel(19);
         }
 
         private void EditPaper_Click(object sender, EventArgs e)

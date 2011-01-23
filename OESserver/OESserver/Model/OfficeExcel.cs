@@ -9,8 +9,7 @@ namespace OES.Model
     {
         public string rawPath;
         public string ansPath;
-        public string stuAnsPath;
-
+        public string stuAnsPath;        
         public OfficeExcel()
         {            
             type = "Excel操作题";
