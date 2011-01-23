@@ -40,6 +40,8 @@
             this.SName = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,7 +156,7 @@
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(230, 363);
+            this.Exit.Location = new System.Drawing.Point(243, 372);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(75, 23);
             this.Exit.TabIndex = 10;
@@ -162,11 +164,29 @@
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(45, 340);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(504, 16);
+            this.progressBar1.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(45, 322);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "加载试卷";
+            // 
             // ExamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 420);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.SName);
@@ -208,5 +228,7 @@
         private System.Windows.Forms.Label SName;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label5;
     }
 }
