@@ -54,19 +54,12 @@ namespace OES
             HideAllPanel();
             switch (x)
             {
-                case 12:
-                    panelList[x].ReLoad();
-                    break;
+                case 12:                    
                 case 13:
-                    panelList[x].ReLoad();
-                    break;
                 case 14:
-                    panelList[x].ReLoad();
-                    break;
                 case 15:
-                    panelList[x].ReLoad();
-                    break;
                 case 16:
+                case 19:                    
                     panelList[x].ReLoad();
                     break;
                 default:

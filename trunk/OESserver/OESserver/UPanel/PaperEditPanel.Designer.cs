@@ -39,8 +39,8 @@
             this.btnPModif = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnPCompletion = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnPFunction = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.DGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.proDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.DGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel1)).BeginInit();
             this.kryptonSplitContainer1.Panel1.SuspendLayout();
@@ -48,8 +48,8 @@
             this.kryptonSplitContainer1.Panel2.SuspendLayout();
             this.kryptonSplitContainer1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonSplitContainer1
@@ -113,6 +113,7 @@
             this.btnChoice.TabIndex = 9;
             this.btnChoice.Tag = "0";
             this.btnChoice.Values.Text = "选择题";
+            this.btnChoice.Click += new System.EventHandler(this.btnProType_Click);
             // 
             // btnJudge
             // 
@@ -312,15 +313,6 @@
             this.btnPFunction.Tag = "8";
             this.btnPFunction.Values.Text = "程序综合题";
             // 
-            // DGV
-            // 
-            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV.Location = new System.Drawing.Point(0, 0);
-            this.DGV.Name = "DGV";
-            this.DGV.RowTemplate.Height = 23;
-            this.DGV.Size = new System.Drawing.Size(517, 666);
-            this.DGV.TabIndex = 0;
-            // 
             // proDGV
             // 
             this.proDGV.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -329,6 +321,15 @@
             this.proDGV.RowTemplate.Height = 23;
             this.proDGV.Size = new System.Drawing.Size(517, 666);
             this.proDGV.TabIndex = 1;
+            // 
+            // DGV
+            // 
+            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGV.Location = new System.Drawing.Point(0, 0);
+            this.DGV.Name = "DGV";
+            this.DGV.RowTemplate.Height = 23;
+            this.DGV.Size = new System.Drawing.Size(517, 666);
+            this.DGV.TabIndex = 0;
             // 
             // PaperEditPanel
             // 
@@ -344,8 +345,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).EndInit();
             this.kryptonSplitContainer1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.ResumeLayout(false);
 
         }
