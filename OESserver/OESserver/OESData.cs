@@ -1641,22 +1641,13 @@ namespace OES
         //-- Description:	查找某个学院下的所有班级
         public List<string> FindClassNameOfDept(string Dept)
         {
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@Dept", SqlDbType.VarChar , 50, Dept, ParameterDirection.Input);
+
             Ds = new DataSet();
             List<string> classStringList = new List<string>();
 
-            //RunProc("FindChoice", null, Ds);
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindClassNameOfDept", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try
-            {
-                Da.Fill(Ds);
-            }
-            catch (Exception Ex)
-            {
-                throw Ex;
-            }
+            RunProc("FindClassNameOfDept", ddlparam, Ds);
             classStringList = DataSetToclassStringList(Ds);
             return classStringList;
         }
