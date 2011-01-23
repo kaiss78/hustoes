@@ -1660,7 +1660,39 @@ namespace OES
             classStringList = DataSetToclassStringList(Ds);
             return classStringList;
         }
+        //-- Description:	查找所有的学院
+        public List<string> FindAllDept(string Dept)
+        {
+            Ds = new DataSet();
+            List<string> deptStringList = new List<string>();
 
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindAllDept", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            deptStringList = DataSetToDeptStringList(Ds);
+            return deptStringList;
+        }
+
+        private List<string> DataSetToDeptStringList(DataSet p_DataSet)
+        {
+            List<string> result = new List<string>();
+            DataTable p_Data = p_DataSet.Tables[0];
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                result.Add(p_Data.Rows[j][0].ToString());
+            }
+            return result;
+        }
         private List<string> DataSetToclassStringList(DataSet p_DataSet)
         {
             List<string> result = new List<string>();
