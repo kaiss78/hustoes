@@ -629,6 +629,17 @@ namespace OES
             results = DataSetToList(Ds);
             return results;
         }
+        //按单元查找填空题2
+        public List<Problem> FindCompletionByUnit2(int Unit)
+        {
+            string unit = Unit.ToString();
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
+            Ds = new DataSet();
+            RunProc("FindCompletionByUnit", ddlparam, Ds);
+            results = DataSetToList(Ds);
+            return results;
+        }
         //按Id删除填空题
         public void DeleteCompletionById(string Id)
         {
@@ -1353,7 +1364,36 @@ namespace OES
             teacher = DataSetToTeacher(Ds);
             return teacher;
         }
+        //-- Description:	根据试卷号返回试卷具体文件地址
+        public string FindPaperPathByPaperId(string Id)
+        {
+            
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+            
+            DataBind();
+            SqlCommand cmd = new SqlCommand("FindPaperPathByPaperId", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 1; i++)
+            {
+                cmd.Parameters.Add(ddlparam[i]);
+            }
+            SqlParameter Paper_Path = new SqlParameter("@Paper_Path", SqlDbType.VarChar, 100);
+            Id.Direction = ParameterDirection.Output;// 设置为输出参数
+            cmd.Parameters.Add(Paper_Path);
 
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            MessageBox.Show(Paper_Path.Value.ToString());
+            return Paper_Path.Value.ToString();
+
+        }
         private Teacher DataSetToTeacher(DataSet p_DataSet)
         {
             Teacher problem = new Teacher();
