@@ -29,14 +29,15 @@ namespace OES
 
             MainPanel.Controls.Add(proMan);
             MainPanel.Controls.Add(paperInfo);
-            MainPanel.Controls.Add(paperListPanel);
-            MainPanel.Controls.Add(paperEditPanel);
+            MainPanel.Controls.Add(paperListPanel);            
             MainPanel.Controls.Add(studentManage);
             MainPanel.Controls.Add(classManage);
             MainPanel.Controls.Add(teacherManage);
+            MainPanel.Controls.Add(paperEditPanel);
 
             PanelControl.init(this);
             PanelControl.HideAllPanel();
+            
             this.FormClosed += new FormClosedEventHandler(MainForm_FormClosed); 
         }
 

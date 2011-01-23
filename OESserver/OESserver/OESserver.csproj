@@ -113,6 +113,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UControl\ClassAdd.resx">
       <DependentUpon>ClassAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UControl\ClassEdit.resx">
       <DependentUpon>ClassEdit.cs</DependentUpon>
