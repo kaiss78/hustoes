@@ -11,13 +11,15 @@ namespace OES.Model
         public string dept;
         public string className;
         public string teacherUserName;
+        public string teacherName;
 
-        public Classes(int id, string dp, string cn, string tun)
+        public Classes(int id, string dp, string cn, string tun, string tn)
         {
             classID = id;
             dept = dp;
             className = cn;
             teacherUserName = tun;
+            teacherName = tn;
         }
 
         public Classes()

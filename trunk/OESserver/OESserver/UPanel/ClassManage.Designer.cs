@@ -142,6 +142,7 @@
             this.classInfoDGV.RowTemplate.Height = 23;
             this.classInfoDGV.Size = new System.Drawing.Size(714, 487);
             this.classInfoDGV.TabIndex = 0;
+            this.classInfoDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.classInfoDGV_CellClick);
             // 
             // ClassManage
             // 

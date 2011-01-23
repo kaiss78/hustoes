@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnQuery = new System.Windows.Forms.Button();
             this.studentManageLayout = new System.Windows.Forms.TableLayoutPanel();
             this.studentInfoGroup = new System.Windows.Forms.GroupBox();
@@ -98,12 +99,22 @@
             this.studentInfoDGV.AllowUserToAddRows = false;
             this.studentInfoDGV.AllowUserToDeleteRows = false;
             this.studentInfoDGV.AllowUserToResizeRows = false;
+            this.studentInfoDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.studentInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentInfoDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.studentInfoDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
+            this.studentInfoDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.studentInfoDGV.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.studentInfoDGV.Location = new System.Drawing.Point(3, 22);
+            this.studentInfoDGV.MultiSelect = false;
             this.studentInfoDGV.Name = "studentInfoDGV";
             this.studentInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.studentInfoDGV.ReadOnly = true;
+            this.studentInfoDGV.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.studentInfoDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.studentInfoDGV.RowTemplate.Height = 23;
+            this.studentInfoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentInfoDGV.Size = new System.Drawing.Size(714, 487);
             this.studentInfoDGV.TabIndex = 0;
             // 
@@ -139,7 +150,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(117, 37);
             this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "删除学生";
+            this.btnDelete.Text = "删除选中学生";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
