@@ -15,6 +15,7 @@ namespace OES.UPanel
     {
         ClassAdd clsAdd;
         ClassEdit clsEdit;
+        ClassFind clsFind;
 
         private DataTable dt;
 
@@ -81,6 +82,17 @@ namespace OES.UPanel
             }
         }
 
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            changeBtnEnable(false);
+            classInfoDGV.Visible = false;
+            classInfoGroup.Text = "查找班级";
+            clsFind = new ClassFind();
+            clsFind.Disposed += new EventHandler(clsOperation_Disposed);
+            classInfoGroup.Controls.Add(clsFind);
+            clsFind.Dock = DockStyle.Fill;
+        }
+
         private void getClassTable()
         {
             dt = new DataTable("Class");
@@ -124,7 +136,6 @@ namespace OES.UPanel
                 dt.Rows[RIndex][0] = !Convert.ToBoolean(dt.Rows[RIndex][0]);
             }
         }
-
 
     }
 }
