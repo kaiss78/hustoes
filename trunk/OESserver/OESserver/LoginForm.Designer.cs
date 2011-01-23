@@ -117,6 +117,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UserName);
             this.Controls.Add(this.Password);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(283, 225);
+            this.MinimumSize = new System.Drawing.Size(283, 225);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "登录";
