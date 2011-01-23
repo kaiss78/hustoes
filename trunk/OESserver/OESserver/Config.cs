@@ -24,7 +24,7 @@ namespace OES
              inipath = INIPath;
              if(ExistINIFile())
              {
-                 TempPaperPath = this.IniReadValue("path", "TempPaperPath");
+                 TempPaperPath = this.IniReadValue("path", "TempPaperPath")+"\\";
              }
              else
              {
@@ -32,11 +32,12 @@ namespace OES
                  {
                      inipath = "config.ini";                     
                      sw.WriteLine("[path]");
-                     sw.WriteLine(@"TempPaperPath=D:\OES\TempPaper\");
+                     sw.WriteLine(@"TempPaperPath=D:\OES\TempPaper");
                      Directory.CreateDirectory(@"D:\OES\TempPaper");
-                     TempPaperPath = @"TempPaperPath=D:\OES\TempPaper\";
+                     TempPaperPath = @"TempPaperPath=D:\OES\TempPaper";
                  } 
              }
+             MessageBox.Show(Config.TempPaperPath);
          }
 
          /// <summary>
