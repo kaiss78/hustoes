@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.Model;
+using OES.UControl;
 using OES.XMLFile;
 
 namespace OES.UPanel
@@ -16,15 +17,15 @@ namespace OES.UPanel
         public Paper paper;
         public OESData oesData;
         public List<IdScoreType> proIDList;
+        private ProblemDGV proDGV;
 
         public PaperEditPanel()
         {
             InitializeComponent();
-        }
+            proDGV=new ProblemDGV();
+            ControlPanel.Controls.Add(proDGV);
+            proDGV.Dock = System.Windows.Forms.DockStyle.Fill;
 
-        public void LoadChoice()
-        {
-            
         }
 
         public void loadPaper()
@@ -47,9 +48,23 @@ namespace OES.UPanel
             btnPFunction.Visible = InfoControl.TmpPaper.pFunction.exist;
         }
 
-        private void btnProType_Click(object sender, EventArgs e)
+        private void BtnProType_Click(object sender, EventArgs e)
         {
-
+          
+            switch (Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton)sender).Tag))
+            {
+                case 0:
+                    proDGV.LoadPro(InfoControl.TmpPaper.choice);
+                    break;
+                case 1: 
+                    proDGV.LoadPro(InfoControl.TmpPaper.judge);
+                    break;
+                case 2: 
+                    proDGV.LoadPro(InfoControl.TmpPaper.completion);
+                    break;
+                default:
+                    break;
+            }
         }        
     }
 }
