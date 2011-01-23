@@ -39,7 +39,7 @@
             this.btnPModif = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnPCompletion = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnPFunction = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.DGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.ControlPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel1)).BeginInit();
             this.kryptonSplitContainer1.Panel1.SuspendLayout();
@@ -47,7 +47,7 @@
             this.kryptonSplitContainer1.Panel2.SuspendLayout();
             this.kryptonSplitContainer1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ControlPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonSplitContainer1
@@ -63,7 +63,7 @@
             // 
             // kryptonSplitContainer1.Panel2
             // 
-            this.kryptonSplitContainer1.Panel2.Controls.Add(this.DGV);
+            this.kryptonSplitContainer1.Panel2.Controls.Add(this.ControlPanel);
             this.kryptonSplitContainer1.Size = new System.Drawing.Size(742, 666);
             this.kryptonSplitContainer1.SplitterDistance = 220;
             this.kryptonSplitContainer1.TabIndex = 0;
@@ -110,7 +110,7 @@
             this.btnChoice.TabIndex = 9;
             this.btnChoice.Tag = "0";
             this.btnChoice.Values.Text = "选择题";
-            this.btnChoice.Click += new System.EventHandler(this.btnProType_Click);
+            this.btnChoice.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnJudge
             // 
@@ -136,6 +136,7 @@
             this.btnJudge.TabIndex = 10;
             this.btnJudge.Tag = "1";
             this.btnJudge.Values.Text = "判断题";
+            this.btnJudge.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnCompletion
             // 
@@ -161,6 +162,7 @@
             this.btnCompletion.TabIndex = 11;
             this.btnCompletion.Tag = "2";
             this.btnCompletion.Values.Text = "填空题";
+            this.btnCompletion.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnWord
             // 
@@ -186,6 +188,7 @@
             this.btnWord.TabIndex = 12;
             this.btnWord.Tag = "3";
             this.btnWord.Values.Text = "Office-Word题";
+            this.btnWord.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnPPT
             // 
@@ -210,6 +213,7 @@
             this.btnPPT.TabIndex = 13;
             this.btnPPT.Tag = "4";
             this.btnPPT.Values.Text = "Office-PPT题";
+            this.btnPPT.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnExcel
             // 
@@ -235,6 +239,7 @@
             this.btnExcel.TabIndex = 14;
             this.btnExcel.Tag = "5";
             this.btnExcel.Values.Text = "Office-Excel题";
+            this.btnExcel.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnPModif
             // 
@@ -259,6 +264,7 @@
             this.btnPModif.TabIndex = 15;
             this.btnPModif.Tag = "6";
             this.btnPModif.Values.Text = "程序改错题";
+            this.btnPModif.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnPCompletion
             // 
@@ -284,6 +290,7 @@
             this.btnPCompletion.TabIndex = 16;
             this.btnPCompletion.Tag = "7";
             this.btnPCompletion.Values.Text = "程序填空题";
+            this.btnPCompletion.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnPFunction
             // 
@@ -309,15 +316,16 @@
             this.btnPFunction.TabIndex = 17;
             this.btnPFunction.Tag = "8";
             this.btnPFunction.Values.Text = "程序综合题";
+            this.btnPFunction.Click += new System.EventHandler(this.BtnProType_Click);
             // 
-            // DGV
+            // ControlPanel
             // 
-            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV.Location = new System.Drawing.Point(0, 0);
-            this.DGV.Name = "DGV";
-            this.DGV.RowTemplate.Height = 23;
-            this.DGV.Size = new System.Drawing.Size(517, 666);
-            this.DGV.TabIndex = 0;
+            this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ControlPanel.Location = new System.Drawing.Point(0, 0);
+            this.ControlPanel.Name = "ControlPanel";
+            this.ControlPanel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.ControlPanel.Size = new System.Drawing.Size(517, 666);
+            this.ControlPanel.TabIndex = 0;
             // 
             // PaperEditPanel
             // 
@@ -333,7 +341,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).EndInit();
             this.kryptonSplitContainer1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ControlPanel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -342,7 +350,6 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView DGV;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnChoice;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnJudge;
@@ -353,5 +360,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPModif;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPCompletion;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPFunction;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel ControlPanel;
     }
 }
