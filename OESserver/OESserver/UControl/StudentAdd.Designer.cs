@@ -47,14 +47,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupAddMany = new System.Windows.Forms.GroupBox();
-            this.comboClass = new System.Windows.Forms.ComboBox();
-            this.comboDept = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnAddMany = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.textFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.textClass = new System.Windows.Forms.TextBox();
+            this.textDept = new System.Windows.Forms.TextBox();
             this.groupAddOne.SuspendLayout();
             this.groupAddMany.SuspendLayout();
             this.SuspendLayout();
@@ -235,8 +235,8 @@
             // 
             // groupAddMany
             // 
-            this.groupAddMany.Controls.Add(this.comboClass);
-            this.groupAddMany.Controls.Add(this.comboDept);
+            this.groupAddMany.Controls.Add(this.textClass);
+            this.groupAddMany.Controls.Add(this.textDept);
             this.groupAddMany.Controls.Add(this.label8);
             this.groupAddMany.Controls.Add(this.btnAddMany);
             this.groupAddMany.Controls.Add(this.btnBrowse);
@@ -250,26 +250,10 @@
             this.groupAddMany.TabStop = false;
             this.groupAddMany.Text = "导入文件";
             // 
-            // comboClass
-            // 
-            this.comboClass.FormattingEnabled = true;
-            this.comboClass.Location = new System.Drawing.Point(303, 30);
-            this.comboClass.Name = "comboClass";
-            this.comboClass.Size = new System.Drawing.Size(226, 24);
-            this.comboClass.TabIndex = 13;
-            // 
-            // comboDept
-            // 
-            this.comboDept.FormattingEnabled = true;
-            this.comboDept.Location = new System.Drawing.Point(99, 31);
-            this.comboDept.Name = "comboDept";
-            this.comboDept.Size = new System.Drawing.Size(121, 24);
-            this.comboDept.TabIndex = 12;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(226, 34);
+            this.label8.Location = new System.Drawing.Point(245, 34);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 16);
             this.label8.TabIndex = 11;
@@ -320,6 +304,22 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // textClass
+            // 
+            this.textClass.Location = new System.Drawing.Point(339, 31);
+            this.textClass.Name = "textClass";
+            this.textClass.PasswordChar = '*';
+            this.textClass.Size = new System.Drawing.Size(190, 26);
+            this.textClass.TabIndex = 18;
+            // 
+            // textDept
+            // 
+            this.textDept.Location = new System.Drawing.Point(98, 29);
+            this.textDept.Name = "textDept";
+            this.textDept.PasswordChar = '*';
+            this.textDept.Size = new System.Drawing.Size(141, 26);
+            this.textDept.TabIndex = 19;
+            // 
             // StudentAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -369,7 +369,7 @@
         private System.Windows.Forms.ComboBox comboOneDept;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboClass;
-        private System.Windows.Forms.ComboBox comboDept;
+        private System.Windows.Forms.TextBox textClass;
+        private System.Windows.Forms.TextBox textDept;
     }
 }
