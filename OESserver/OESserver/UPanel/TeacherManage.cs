@@ -37,7 +37,7 @@ namespace OES.UPanel
 
         private void changeBtnEnable(bool en)               //改变下方增删改查按钮的可用性
         {
-            btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = btnQuery.Enabled = en;
+            btnAdd.Enabled = btnDelete.Enabled = btnEdit.Enabled = en;
         }
 
         void teacherOperation_Disposed(object sender, EventArgs e)
