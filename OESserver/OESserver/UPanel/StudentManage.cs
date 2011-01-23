@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.UControl;
+using OES.Model;
 
 namespace OES.UPanel
 {
@@ -14,6 +15,8 @@ namespace OES.UPanel
     {
         StudentAdd stuAdd;
         StudentEdit stuEdit;
+
+        private DataTable dt;
 
         public StudentManage()
         {
@@ -79,6 +82,51 @@ namespace OES.UPanel
             studentInfoGroup.Text = "学生信息";
         }
 
+        private void getStudentTable()
+        {
+            dt = new DataTable("Student");
+            List<Teacher> data = InfoControl.OesData.FindTeacher();
+            object[] values = new object[6];
+            dt.Columns.Add("选中", typeof(bool));
+            dt.Columns.Add("教师编号");
+            dt.Columns.Add("教师姓名");
+            dt.Columns.Add("教工号");
+            dt.Columns.Add("密码");
+            dt.Columns.Add("权限");
+            foreach (Teacher th in data)
+            {
+                values[0] = false;
+                values[1] = th.Id;
+                values[2] = th.TeacherName;
+                values[3] = th.UserName;
+                values[4] = th.password;
+                values[5] = th.permission == 1 ? "超级管理员" : "普通用户";
+                dt.Rows.Add(values);
+            }
+            studentInfoDGV.DataSource = dt;
+            studentInfoDGV.Columns[0].FillWeight = 5;
+            studentInfoDGV.Columns[1].FillWeight = 12;
+            studentInfoDGV.Columns[2].FillWeight = 25;
+            studentInfoDGV.Columns[3].FillWeight = 20;
+            studentInfoDGV.Columns[4].FillWeight = 18;
+            studentInfoDGV.Columns[5].FillWeight = 20;
+
+            studentInfoDGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            studentInfoDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            studentInfoDGV.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+            studentInfoDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+            studentInfoDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+            studentInfoDGV.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
+
+        private void teacherInfoDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RIndex = e.RowIndex;
+            if (RIndex > -1)
+            {
+                dt.Rows[RIndex][0] = !Convert.ToBoolean(dt.Rows[RIndex][0]);
+            }
+        }
         
     }
 }
