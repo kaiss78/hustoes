@@ -120,6 +120,7 @@ namespace OES.UPanel
             InfoControl.TmpPaper.paperName = PaperName.Text;
             InfoControl.TmpPaper.programState = programstate;
             InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
+
             InfoControl.TmpPaper.choice = new List<Choice>(Convert.ToInt32(countList[0].Text));
             InfoControl.TmpPaper.completion = new List<Completion>(Convert.ToInt32(countList[1].Text));
             InfoControl.TmpPaper.judge = new List<Judge>(Convert.ToInt32(countList[2].Text));
