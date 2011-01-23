@@ -125,6 +125,7 @@ namespace OES
         {
             SqlCommand Cmd = CreateCmd(procName, prams);
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            //Cmd.Parameters.Clear();
             try
             {
                 Da.Fill(Ds, "demo");
@@ -133,6 +134,7 @@ namespace OES
             {
                 throw Ex;
             }
+            Cmd.Parameters.Clear();
             return Ds;
         }
 
@@ -636,7 +638,7 @@ namespace OES
             SqlParameter[] ddlparam = new SqlParameter[1];
             ddlparam[0] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
             Ds = new DataSet();
-            RunProc("FindCompletionByUnit", ddlparam, Ds);
+            RunProc("FindCompletionByUnit2", ddlparam, Ds);
             results = DataSetToList(Ds);
             return results;
         }

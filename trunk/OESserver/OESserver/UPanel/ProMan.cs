@@ -10,12 +10,15 @@ namespace OES.UPanel
     {
         public ProList aProList;
         public ChptList aChptList;
-        private readonly int ClWidth;
-        private readonly int PlHeight;
-        private readonly int PlWidth;
-        private readonly int BpHeight;
+        public static int ClWidth;
+        public static int PlHeight;
+        public static int TpHeight;
+        public static int PlWidth;
+        public static int BpHeight;
         private bool selectall=false;
+        private readonly List<Label> titleList = new List<Label>();
         public Panel bottomPanel = new Panel();
+        public Panel titlePanel = new Panel();
         public int ProType;
         public List<UserControl> EditList=new List<UserControl>();
         public ChoiceEdit aChoiceEdit;
@@ -41,8 +44,15 @@ namespace OES.UPanel
             
             ClWidth = (int)(Width * 0.2);
             PlWidth = (int)(Width * 0.8);
-            PlHeight = (int)(Height * 0.9);
-            BpHeight = (int)(Height * 0.9);
+            
+            BpHeight = (int)(Height * 0.1);
+            TpHeight = (int)((Height*0.9)/ ProList.count);
+            ProList.btnHeight = TpHeight;
+            PlHeight = (int)(Height*0.9 - TpHeight);
+            ProList.listWidth = (int)(PlWidth * 0.973);
+            ProList.choWidth = (int)(PlWidth * 0.1);
+            ProList.numWidth = (int)(PlWidth * 0.1);
+            ProList.proWidth = (int)(PlWidth * 0.773);
 
             ProType=0;
 
@@ -50,11 +60,10 @@ namespace OES.UPanel
             aChptList = new ChptList(this);
             aChptList.Size = new Size(ClWidth, Height);
             Controls.Add(aChptList);
-            aProList = new ProList(this);
-            aProList.SetBounds(ClWidth, 0, PlWidth, PlHeight);
-            Controls.Add(aProList);
-            bottomPanel.SetBounds(ClWidth, PlHeight, PlWidth, BpHeight);
-            this.Controls.Add(bottomPanel);
+            
+            bottomPanel.SetBounds(ClWidth,(TpHeight+PlHeight), PlWidth, BpHeight);
+            bottomPanel.BackColor = Color.Transparent;
+            Controls.Add(bottomPanel);
 
             //底部按钮
             Button select = new Button();
@@ -107,7 +116,39 @@ namespace OES.UPanel
             bottomPanel.Controls.Add(add);
             add.FlatStyle = FlatStyle.Popup;
 
-           
+            titlePanel.SetBounds(ClWidth,0, PlWidth,TpHeight);
+            titlePanel.BackColor = Color.Transparent;
+            Controls.Add(titlePanel);
+            //顶部panel设置lable
+            for (int i = 0; i < 3; i++)
+            {
+                var templt = new Label();
+                templt.Height = ProList.btnHeight;
+                templt.ForeColor = Color.White;
+                templt.BackColor = Color.Transparent;
+                templt.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+                templt.TextAlign = ContentAlignment.MiddleCenter;
+                titleList.Add(templt);
+                titlePanel.Controls.Add(templt);
+            }
+            titleList[0].Width = ProList.choWidth;
+            titleList[1].Width = ProList.numWidth;
+            titleList[2].Width = ProList.proWidth;
+
+            titleList[0].Text = "勾选";
+            titleList[1].Text = "题号";
+            titleList[2].Text = "题干";
+
+            titleList[0].ForeColor = Color.Blue;
+            titleList[1].ForeColor = Color.Blue;
+            titleList[2].ForeColor = Color.Blue;
+
+            titleList[0].Location = new Point(0, 0);
+            titleList[1].Location = new Point(ProList.choWidth, 0);
+            titleList[2].Location = new Point((ProList.choWidth + ProList.numWidth), 0);
+
+            
+
 
             {
                 aChoiceEdit.Hide();
@@ -204,22 +245,29 @@ namespace OES.UPanel
         {
 
             ProType = x;
+            if (Controls.Contains(aProList))
+            {
+                aProList.Dispose();
+            }
             if (ProType < 3)
             {
-                aChptList.Dispose();
+                aChptList.Dispose();                
                 aChptList = new ChptList(this);
                 aChptList.Size = new Size(ClWidth, Height);
                 Controls.Add(aChptList);
-
-                aProList.Reload();
-                HideList();
                 aChptList.Show();
-                aProList.Show();
+                HideList();
+
+
+                             
                 this.Visible = true;
             }
             else
             {
                 aChptList.Hide();
+                aProList = new ProList(this);
+                aProList.SetBounds(ClWidth, TpHeight, PlWidth, PlHeight);
+                Controls.Add(aProList);
                 HideList();
                 aProList.Show();
                 this.Visible = true;

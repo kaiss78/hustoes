@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.procon = new System.Windows.Forms.RichTextBox();
             this.title = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.anstxt = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.procon);
             this.groupBox1.Location = new System.Drawing.Point(35, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(514, 223);
@@ -54,13 +54,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "题干";
             // 
-            // richTextBox1
+            // procon
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(501, 196);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.procon.Location = new System.Drawing.Point(7, 21);
+            this.procon.Name = "procon";
+            this.procon.Size = new System.Drawing.Size(501, 196);
+            this.procon.TabIndex = 0;
+            this.procon.Text = "";
             // 
             // title
             // 
@@ -117,20 +117,20 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.richTextBox3);
+            this.flowLayoutPanel1.Controls.Add(this.anstxt);
             this.flowLayoutPanel1.Controls.Add(this.richTextBox2);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(42, 315);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(507, 99);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
-            // richTextBox3
+            // anstxt
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(3, 3);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(485, 78);
-            this.richTextBox3.TabIndex = 1;
-            this.richTextBox3.Text = "";
+            this.anstxt.Location = new System.Drawing.Point(3, 3);
+            this.anstxt.Name = "anstxt";
+            this.anstxt.Size = new System.Drawing.Size(485, 78);
+            this.anstxt.TabIndex = 1;
+            this.anstxt.Text = "";
             // 
             // richTextBox2
             // 
@@ -189,13 +189,13 @@
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox procon;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox anstxt;
         private System.Windows.Forms.Button button2;
     }
 }

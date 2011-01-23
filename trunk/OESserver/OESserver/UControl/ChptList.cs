@@ -4,22 +4,30 @@ using System.Drawing;
 using System.Windows.Forms;
 using OES.Properties;
 using OES.UPanel;
+using OES.Model;
 
 namespace OES.UControl
 {
     public partial class ChptList : UserControl
     {
+        public static List<choicepro> choiceproL = new List<choicepro>();
         private readonly List<String> chpt_name = new List<string>();
         private readonly List<Button> subPanel = new List<Button>();
+        private readonly List<int> chpt_ID = new List<int>();
         private readonly List<int> subPanelStatus = new List<int>();
+        private choicepro achoicepro;
+
         private int btnHeight;
         public int chpt_num = -1;
-        public int count = 20;
+        public static int count = 20;
         private Panel mainPanel;
         public int page = 1;
         public int totalpage = 1;
+        public static int pro_num = 0;
         ProMan aProMan;
-        private int ProType;
+        public string selectedchpt;
+        public static string click_num="0";
+        ProList aProList;
 
         public ChptList(ProMan pm)
         {
@@ -80,13 +88,14 @@ namespace OES.UControl
             Controls.Add(mainPanel);
             btnHeight = Height/(count + 1);
             totalpage = ((chpt_num/count) + 1);
-            OESData aOESData = new OESData();
-            chpt_num = aOESData.FindUnit(aProMan.ProType).Count;
+            chpt_num = InfoControl.OesData.FindUnit(aProMan.ProType).Count;
+           
 
             //list赋初值
             for (int i = 0; i < chpt_num; i++)
             {
-                chpt_name.Add(aOESData.FindUnit(aProMan.ProType)[i].UnitName);
+                chpt_name.Add(InfoControl.OesData.FindUnit(aProMan.ProType)[i].UnitName);
+                chpt_ID.Add(Convert.ToInt32(InfoControl.OesData.FindUnit(aProMan.ProType)[i].UnitId));
             }
 
             var last = new Button();
@@ -117,19 +126,14 @@ namespace OES.UControl
                 {
                     if (i < count)
                     {
-                        var temp1 = new Label();
-                        temp1.Location = new Point(0, 0);
-
-                        temp1.Text = chpt_name[i];
-                        temp1.AutoSize = true;
-                        temp1.ForeColor = Color.White;
-                        temp1.BackColor = Color.Transparent;
-                        temp1.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
-
-
                         var temp = new Button();
+                        temp.Text = chpt_name[i];
+                        temp.Tag = chpt_ID[i];
                         temp.Width = (Width);
                         temp.Height = btnHeight;
+                        temp.ForeColor = Color.White;
+                        temp.BackColor = Color.Transparent;
+                        temp.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
                         temp.Location = new Point(0, (int) (btnHeight*(i + 0.8)));
                         temp.BackgroundImage = Resources.title;
                         temp.BackgroundImageLayout = ImageLayout.Stretch;
@@ -137,7 +141,7 @@ namespace OES.UControl
                         subPanel.Add(temp);
                         subPanelStatus.Add(0);
                         temp.FlatStyle = FlatStyle.Popup;
-                        temp.Controls.Add(temp1);
+                        temp.MouseClick += new MouseEventHandler(temp_MouseClick);
                     }
                     else
                     {
@@ -146,5 +150,84 @@ namespace OES.UControl
                 }
             }
         }
+
+        void temp_MouseClick(object sender, MouseEventArgs e)
+        {
+            click_num =Convert.ToString(((Button)sender).Tag);
+            if (aProMan.Controls.Contains(aProList))
+            {
+                aProMan.aProList.Dispose();
+            }
+
+            switch (aProMan.ProType)
+            {
+                case 0:
+                    Loadpl(InfoControl.OesData.FindChoiceByUnit(Convert.ToInt32(click_num)),0);
+                    aProList = new ProList(aProMan);
+                    aProList.SetBounds(ProMan.ClWidth,ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                    aProMan.aProList = aProList;
+                    aProMan.Controls.Add(aProList);                 
+                    break;
+                case 1:
+                    Loadpl(InfoControl.OesData.FindCompletionByUnit2(Convert.ToInt32(click_num)),1);
+                    aProList = new ProList(aProMan);
+                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                    aProMan.aProList = aProList;
+                    aProMan.Controls.Add(aProList);
+                    break;
+                case 2:
+                    Loadpl(InfoControl.OesData.FindTofByUnit(Convert.ToInt32(click_num)),2);
+                    aProList = new ProList(aProMan);
+                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                    aProMan.aProList = aProList;
+                    aProMan.Controls.Add(aProList);
+                    break;
+                default:                   
+                    break;
+            }
+        }
+
+        //prolist赋初值
+        public void Loadpl(List<Problem> pl,int pt)
+        {
+            choiceproL.Clear();
+            switch (pt)
+            {
+                case 0:
+                    pro_num = InfoControl.OesData.FindChoiceByUnit(Convert.ToInt32(ChptList.click_num)).Count;                                          
+                    break;
+                case 1:
+                    pro_num = InfoControl.OesData.FindCompletionByUnit2(Convert.ToInt32(ChptList.click_num)).Count;
+                    break;
+                case 2:
+                    pro_num = InfoControl.OesData.FindTofByUnit(Convert.ToInt32(ChptList.click_num)).Count;
+                    break;
+            }
+            for (int i = 0; i < pro_num; i++)
+            {
+                achoicepro = new choicepro(pl[i].problemId.ToString(), pl[i].problem);
+                choiceproL.Add(achoicepro);
+            }
+                     
+
+            
+        }
+
+        #region Nested type: choicepro
+
+        public class choicepro
+        {
+            public string chpt;
+            public string num;
+            public string pro;
+
+            public choicepro(string n, string p)
+            {
+                num = n;
+                pro = p;
+            }
+        }
+
+        #endregion
     }
 }

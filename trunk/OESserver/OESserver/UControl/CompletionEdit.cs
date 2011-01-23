@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.UPanel;
+using OES.Model;
 
 namespace OES.UControl
 {
@@ -26,6 +27,21 @@ namespace OES.UControl
             temp.Size = new Size(495, 83);
             AnswerList.Add(temp);
             flowLayoutPanel1.Controls.Add(temp);
+        }
+
+        public void fill(List<Completion> acompletion)
+        {
+            procon.Text = acompletion[0].problem;
+            anstxt.Text = acompletion[0].ans[0];
+            for (int i = 1; i < acompletion[0].ans.Count; i++)
+            {
+                RichTextBox temp = new RichTextBox();
+                temp.Size = new Size(495, 83);
+                temp.Text = acompletion[0].ans[i];
+                AnswerList.Add(temp);
+                flowLayoutPanel1.Controls.Add(temp);
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
