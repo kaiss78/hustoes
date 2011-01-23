@@ -39,7 +39,6 @@
             this.btnPModif = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnPCompletion = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnPFunction = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.proDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.DGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel1)).BeginInit();
@@ -48,7 +47,6 @@
             this.kryptonSplitContainer1.Panel2.SuspendLayout();
             this.kryptonSplitContainer1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +63,6 @@
             // 
             // kryptonSplitContainer1.Panel2
             // 
-            this.kryptonSplitContainer1.Panel2.Controls.Add(this.proDGV);
             this.kryptonSplitContainer1.Panel2.Controls.Add(this.DGV);
             this.kryptonSplitContainer1.Size = new System.Drawing.Size(742, 666);
             this.kryptonSplitContainer1.SplitterDistance = 220;
@@ -313,15 +310,6 @@
             this.btnPFunction.Tag = "8";
             this.btnPFunction.Values.Text = "程序综合题";
             // 
-            // proDGV
-            // 
-            this.proDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.proDGV.Location = new System.Drawing.Point(0, 0);
-            this.proDGV.Name = "proDGV";
-            this.proDGV.RowTemplate.Height = 23;
-            this.proDGV.Size = new System.Drawing.Size(517, 666);
-            this.proDGV.TabIndex = 1;
-            // 
             // DGV
             // 
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -345,7 +333,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).EndInit();
             this.kryptonSplitContainer1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.proDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.ResumeLayout(false);
 
@@ -366,6 +353,5 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPModif;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPCompletion;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPFunction;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView proDGV;
     }
 }
