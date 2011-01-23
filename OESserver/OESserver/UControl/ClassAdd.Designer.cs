@@ -36,12 +36,13 @@
             this.textClass = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.labelInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(140, 103);
+            this.label1.Location = new System.Drawing.Point(140, 128);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 16);
             this.label1.TabIndex = 0;
@@ -50,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(140, 166);
+            this.label2.Location = new System.Drawing.Point(140, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 1;
@@ -59,7 +60,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(124, 229);
+            this.label3.Location = new System.Drawing.Point(124, 254);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 16);
             this.label3.TabIndex = 2;
@@ -67,21 +68,21 @@
             // 
             // textDept
             // 
-            this.textDept.Location = new System.Drawing.Point(234, 97);
+            this.textDept.Location = new System.Drawing.Point(234, 122);
             this.textDept.Name = "textDept";
             this.textDept.Size = new System.Drawing.Size(185, 26);
             this.textDept.TabIndex = 3;
             // 
             // textTeacherUserName
             // 
-            this.textTeacherUserName.Location = new System.Drawing.Point(234, 223);
+            this.textTeacherUserName.Location = new System.Drawing.Point(234, 248);
             this.textTeacherUserName.Name = "textTeacherUserName";
             this.textTeacherUserName.Size = new System.Drawing.Size(185, 26);
             this.textTeacherUserName.TabIndex = 4;
             // 
             // textClass
             // 
-            this.textClass.Location = new System.Drawing.Point(234, 160);
+            this.textClass.Location = new System.Drawing.Point(234, 185);
             this.textClass.Name = "textClass";
             this.textClass.Size = new System.Drawing.Size(185, 26);
             this.textClass.TabIndex = 5;
@@ -105,10 +106,19 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // labelInfo
+            // 
+            this.labelInfo.AutoSize = true;
+            this.labelInfo.Location = new System.Drawing.Point(80, 61);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(0, 16);
+            this.labelInfo.TabIndex = 8;
+            // 
             // ClassAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.textClass);
@@ -136,5 +146,6 @@
         private System.Windows.Forms.TextBox textClass;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Label labelInfo;
     }
 }
