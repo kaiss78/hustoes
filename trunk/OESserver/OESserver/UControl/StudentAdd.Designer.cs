@@ -47,14 +47,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupAddMany = new System.Windows.Forms.GroupBox();
+            this.textClass = new System.Windows.Forms.TextBox();
+            this.textDept = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnAddMany = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.textFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.textClass = new System.Windows.Forms.TextBox();
-            this.textDept = new System.Windows.Forms.TextBox();
             this.groupAddOne.SuspendLayout();
             this.groupAddMany.SuspendLayout();
             this.SuspendLayout();
@@ -117,6 +117,7 @@
             // 
             // comboOneClass
             // 
+            this.comboOneClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboOneClass.FormattingEnabled = true;
             this.comboOneClass.Location = new System.Drawing.Point(339, 55);
             this.comboOneClass.Name = "comboOneClass";
@@ -125,6 +126,7 @@
             // 
             // comboOneDept
             // 
+            this.comboOneDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboOneDept.FormattingEnabled = true;
             this.comboOneDept.Location = new System.Drawing.Point(117, 56);
             this.comboOneDept.Name = "comboOneDept";
@@ -143,7 +145,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(34, 59);
+            this.label10.Location = new System.Drawing.Point(23, 59);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 16);
             this.label10.TabIndex = 14;
@@ -250,6 +252,20 @@
             this.groupAddMany.TabStop = false;
             this.groupAddMany.Text = "导入文件";
             // 
+            // textClass
+            // 
+            this.textClass.Location = new System.Drawing.Point(339, 31);
+            this.textClass.Name = "textClass";
+            this.textClass.Size = new System.Drawing.Size(190, 26);
+            this.textClass.TabIndex = 18;
+            // 
+            // textDept
+            // 
+            this.textDept.Location = new System.Drawing.Point(98, 29);
+            this.textDept.Name = "textDept";
+            this.textDept.Size = new System.Drawing.Size(141, 26);
+            this.textDept.TabIndex = 19;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -281,7 +297,6 @@
             // 
             this.textFile.Location = new System.Drawing.Point(194, 69);
             this.textFile.Name = "textFile";
-            this.textFile.PasswordChar = '*';
             this.textFile.Size = new System.Drawing.Size(256, 26);
             this.textFile.TabIndex = 10;
             // 
@@ -303,22 +318,6 @@
             this.btnReturn.Text = "返回";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // textClass
-            // 
-            this.textClass.Location = new System.Drawing.Point(339, 31);
-            this.textClass.Name = "textClass";
-            this.textClass.PasswordChar = '*';
-            this.textClass.Size = new System.Drawing.Size(190, 26);
-            this.textClass.TabIndex = 18;
-            // 
-            // textDept
-            // 
-            this.textDept.Location = new System.Drawing.Point(98, 29);
-            this.textDept.Name = "textDept";
-            this.textDept.PasswordChar = '*';
-            this.textDept.Size = new System.Drawing.Size(141, 26);
-            this.textDept.TabIndex = 19;
             // 
             // StudentAdd
             // 
