@@ -47,13 +47,23 @@ namespace OES.UPanel
             changeBtnEnable(true);
             teacherInfoDGV.Visible = true;
             teacherInfoGroup.Text = "教师信息";
+            getTeacherTable();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确认删除这些教师信息？", "教师管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            List<string> del = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                //TODO: Delete them.
+                if (Convert.ToBoolean(dt.Rows[i][0]) == true)
+                    del.Add(dt.Rows[i][1].ToString());
+            }
+            if (MessageBox.Show("确认删除这些教师信息？", "教师管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                for (int i = 0; i < del.Count; i++)
+                    InfoControl.OesData.DeleteTeacherById(del[i]);
+                MessageBox.Show("删除完成！", "教师管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                getTeacherTable();
             }
         }
 
@@ -70,10 +80,15 @@ namespace OES.UPanel
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            int cr = teacherInfoDGV.CurrentRow.Index;
+            if (cr <= -1)  { return; }
             changeBtnEnable(false);
             teacherInfoDGV.Visible = false;
             teacherInfoGroup.Text = "修改教师";
-            teaAdd = new TeacherAdd(new Teacher("0001", "罗康琦", "hust.elt", "wqeqweq", 1));
+            int permission = dt.Rows[cr][5].ToString().Equals("超级管理员") ? 1 : 0;
+            Teacher th = new Teacher(dt.Rows[cr][1].ToString(), dt.Rows[cr][2].ToString(),
+                dt.Rows[cr][3].ToString(), dt.Rows[cr][4].ToString(), permission);
+            teaAdd = new TeacherAdd(th);
             teaAdd.Disposed += new EventHandler(teacherOperation_Disposed);
             teacherInfoGroup.Controls.Add(teaAdd);
             teaAdd.Dock = DockStyle.Fill;
@@ -87,7 +102,7 @@ namespace OES.UPanel
             dt.Columns.Add("选中", typeof(bool));
             dt.Columns.Add("教师编号");
             dt.Columns.Add("教师姓名");
-            dt.Columns.Add("用户名");
+            dt.Columns.Add("教工号");
             dt.Columns.Add("密码");
             dt.Columns.Add("权限");
             foreach (Teacher th in data)
