@@ -14,19 +14,16 @@ namespace OES.UControl
     {
         private Classes currentClass;
 
-        public ClassEdit(int mode, Classes cls)
+        public ClassEdit(Classes cls)
         {
             InitializeComponent();
-            currentClass = null;
-            if (mode == 1)
-            {
-                currentClass = cls;
-                textDept.Text = currentClass.dept;
-                textClass.Text = currentClass.className;
-                textTeacherUserName.Text = currentClass.teacherUserName;
-                btnAdd.Text = "修改班级";
-                labelInfo.Text = "当前要修改的班级为：" + currentClass.dept + " " + currentClass.className;
-            }
+            currentClass = cls;
+            textDept.Text = currentClass.dept;
+            textClass.Text = currentClass.className;
+            textTeacherUserName.Text = currentClass.teacherUserName;
+            btnAdd.Text = "修改班级";
+            labelInfo.Text = "当前要修改的班级为：" + currentClass.dept + " " + currentClass.className;
+            
 
         }
 
