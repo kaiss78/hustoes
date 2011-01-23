@@ -59,13 +59,14 @@ namespace OESMonitor.Net
                     archiveDirectory = value;
             }
         }
-        
+        public delegate void UpdatePanel(Client c);
         public void accept_callBack(IAsyncResult asy)
         {
             TcpListener tlistener = (TcpListener)asy.AsyncState;
             TcpClient tclient = tlistener.EndAcceptTcpClient(asy);
 
             Client client = new Client(tclient);
+            MessageSupervisor.mainForm.AddComputer(client);
             client.MessageScheduler += MessageScheduler;
 
             clients.Add(client);
@@ -179,6 +180,7 @@ namespace OESMonitor.Net
         {
             lock(syncLock)
             {
+                string[] msgs;
             //此为临界区，需要加锁，解锁，也许可以通过整合到Client类中提高一点效率
                 switch (client.msg_type)
                 {
@@ -206,7 +208,7 @@ namespace OESMonitor.Net
                         break;
 
                     case 2:
-                        string[] msgs = client.msg.Split(new char[] { '$' });
+                        msgs = client.msg.Split(new char[] { '$' });
                         client.remoteIP = IPAddress.Parse(msgs[0]);
                         client.remotePort = Convert.ToInt32(msgs[1]);
                         if (PortQueue.Count != 0)
@@ -221,6 +223,16 @@ namespace OESMonitor.Net
                             MessageSupervisor.targetFrm.showMessage("Client: " + client.clientInfo() + " Wait for Submitting");
                         }
                         break;
+
+                    case 3:
+                        {
+                            msgs = client.msg.Split(new char[] { '$' });
+                            client.computer.Student = new global::OESMonitor.Model.Student(msgs[0], "", msgs[1], msgs[2]);
+                            //验证学生是否可以考试
+                            
+                            client.Login(true);
+                            break;
+                        }
 
                     case -1:
                         if (client.EndConnection())
