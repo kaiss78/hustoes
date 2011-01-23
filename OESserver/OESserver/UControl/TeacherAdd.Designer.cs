@@ -49,7 +49,7 @@
             this.btnReturn.Location = new System.Drawing.Point(302, 316);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(87, 32);
-            this.btnReturn.TabIndex = 15;
+            this.btnReturn.TabIndex = 7;
             this.btnReturn.Text = "返回";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
@@ -59,7 +59,7 @@
             this.btnAdd.Location = new System.Drawing.Point(126, 316);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(87, 32);
-            this.btnAdd.TabIndex = 9;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "添加教师";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -69,7 +69,7 @@
             this.textUserName.Location = new System.Drawing.Point(172, 134);
             this.textUserName.Name = "textUserName";
             this.textUserName.Size = new System.Drawing.Size(202, 26);
-            this.textUserName.TabIndex = 8;
+            this.textUserName.TabIndex = 1;
             // 
             // textPW2
             // 
@@ -77,14 +77,14 @@
             this.textPW2.Name = "textPW2";
             this.textPW2.PasswordChar = '*';
             this.textPW2.Size = new System.Drawing.Size(202, 26);
-            this.textPW2.TabIndex = 7;
+            this.textPW2.TabIndex = 3;
             // 
             // textName
             // 
             this.textName.Location = new System.Drawing.Point(172, 95);
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(202, 26);
-            this.textName.TabIndex = 6;
+            this.textName.TabIndex = 0;
             // 
             // textPW
             // 
@@ -92,7 +92,7 @@
             this.textPW.Name = "textPW";
             this.textPW.PasswordChar = '*';
             this.textPW.Size = new System.Drawing.Size(202, 26);
-            this.textPW.TabIndex = 5;
+            this.textPW.TabIndex = 2;
             // 
             // label6
             // 
@@ -154,7 +154,7 @@
             this.radioUser.Location = new System.Drawing.Point(172, 256);
             this.radioUser.Name = "radioUser";
             this.radioUser.Size = new System.Drawing.Size(90, 20);
-            this.radioUser.TabIndex = 17;
+            this.radioUser.TabIndex = 4;
             this.radioUser.TabStop = true;
             this.radioUser.Text = "普通用户";
             this.radioUser.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             this.radioAdmin.Location = new System.Drawing.Point(268, 256);
             this.radioAdmin.Name = "radioAdmin";
             this.radioAdmin.Size = new System.Drawing.Size(106, 20);
-            this.radioAdmin.TabIndex = 18;
+            this.radioAdmin.TabIndex = 5;
             this.radioAdmin.TabStop = true;
             this.radioAdmin.Text = "超级管理员";
             this.radioAdmin.UseVisualStyleBackColor = true;
@@ -189,7 +189,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Font = new System.Drawing.Font("宋体", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TeacherAdd";
             this.Size = new System.Drawing.Size(710, 510);
             this.ResumeLayout(false);
