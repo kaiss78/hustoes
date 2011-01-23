@@ -76,5 +76,35 @@ namespace OES.UPanel
             teacherInfoGroup.Controls.Add(teaAdd);
             teaAdd.Dock = DockStyle.Fill;
         }
+
+        private void getTeacherTable()
+        {
+            DataTable dt = new DataTable("Teacher");
+            List<Teacher> data = new List<Teacher>();
+            object[] values = new object[6];
+            dt.Columns.Add("选中", typeof(bool));
+            dt.Columns.Add("教师编号");
+            dt.Columns.Add("教师姓名");
+            dt.Columns.Add("用户名");
+            dt.Columns.Add("密码");
+            dt.Columns.Add("权限");
+            foreach (Teacher th in data)
+            {
+                values[0] = false;
+                values[1] = th.Id;
+                values[2] = th.TeacherName;
+                values[3] = th.UserName;
+                values[4] = th.password;
+                values[5] = th.permission == 1 ? "超级管理员" : "普通用户";
+                dt.Rows.Add(values);
+            }
+            teacherInfoDGV.DataSource = dt;
+            teacherInfoDGV.Columns[0].FillWeight = 5;
+            teacherInfoDGV.Columns[1].FillWeight = 12;
+            teacherInfoDGV.Columns[2].FillWeight = 25;
+            teacherInfoDGV.Columns[3].FillWeight = 20;
+            teacherInfoDGV.Columns[4].FillWeight = 18;
+            teacherInfoDGV.Columns[5].FillWeight = 20;
+        }
     }
 }
