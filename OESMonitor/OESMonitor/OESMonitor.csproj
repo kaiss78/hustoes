@@ -60,12 +60,19 @@
     <Compile Include="Computer.Designer.cs">
       <DependentUpon>Computer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComputerState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComputerState.Designer.cs">
+      <DependentUpon>ComputerState.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Student.cs" />
     <Compile Include="Net\Client.cs" />
     <Compile Include="Net\ClientInfo.cs" />
     <Compile Include="Net\DataPort.cs" />
@@ -78,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Computer.resx">
       <DependentUpon>Computer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComputerState.resx">
+      <DependentUpon>ComputerState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

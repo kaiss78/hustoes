@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Collections;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace OESMonitor.Net
 {
@@ -28,6 +29,7 @@ namespace OESMonitor.Net
         public IPAddress remoteIP;      //接收试卷所需信息
         public int remotePort;
         public string fileName;
+        public Computer computer;       //对应的界面元素
       
         public Client(TcpClient client)
         {
@@ -36,7 +38,6 @@ namespace OESMonitor.Net
             ns = client.GetStream();
             ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
             MessageSupervisor.targetFrm.showMessage("Accept client: " + client.Client.RemoteEndPoint.ToString());
-            MessageSupervisor.mainForm.addComputer(this);
         }
 
         public string clientInfo()
@@ -93,12 +94,19 @@ namespace OESMonitor.Net
 
         private void receive_callBack(IAsyncResult asy)
         {
-            TcpClient tclient = (TcpClient)asy.AsyncState;
-            int result = ns.EndRead(asy);
-            GetActualFullMessage();
+            try
+            {
+                TcpClient tclient = (TcpClient)asy.AsyncState;
+                int result = ns.EndRead(asy);
+                GetActualFullMessage();
 
-            if(!IsEnd)
-                ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
+                if (!IsEnd)
+                    ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
+            }
+            catch
+            {
+                computer.State = 0;;
+            }
         }
 
         private void GetActualFullMessage()
@@ -163,8 +171,26 @@ namespace OESMonitor.Net
             {
                 //网络出错处理程序
             }
-        }    
-       
+        }
+
+        public void Login(bool b)
+        {
+            string tmsg = "#STX#3#" + b.ToString() + "#ETX";
+
+            MessageSupervisor.targetFrm.showMessage("Login: " + tmsg + " --->" + clientInfo());
+
+            byte[] tBuffer = System.Text.Encoding.Default.GetBytes(tmsg);
+            try
+            {
+                ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
+                computer.State = 2;
+            }
+            catch (Exception e)
+            {
+                //网络出错处理程序
+            }
+        } 
+
         private void write_callBack(IAsyncResult asy)
         {
             try

@@ -14,27 +14,26 @@ namespace OESMonitor
     {
         public List<Computer> ComputerList = new List<Computer>();
         CommandLine cl = new CommandLine();
-        private delegate void UpdatePanel(Client c);
+       
         public OESMonitor()
         {
             InitializeComponent();
-            Net.MessageSupervisor.mainForm = this;
-            Net.MessageSupervisor.targetFrm = cl;
-            cl.Show();
-            Program.server = new Net.OESServer();
-
+            panel1.Controls.Add( ComputerState.getInstance());
         }
-        public void addComputer(Client client)
-        {
-            flowLayoutPanel1.Invoke(new UpdatePanel(AddComputer), client);
-        }
+       
         public void AddComputer(Client client)
         {
-            Computer com=new Computer();
-            com.State=1;
-            com.client = client;
-            ComputerList.Add(com);
-            UpdateList();
+            this.Invoke(new MethodInvoker(() =>
+            {
+                Computer com = new Computer();
+                com.CreateControl();
+                Computer.Add(com);
+                com.State = 1;
+                com.Client = client;
+                ComputerList.Add(com);
+
+                UpdateList();
+            }));
         }
         private void UpdateList()
         {
@@ -48,6 +47,14 @@ namespace OESMonitor
         {
             
             flowLayoutPanel1.Controls.Add(new Computer());
+        }
+
+        private void OESMonitor_Load(object sender, EventArgs e)
+        {
+            Net.MessageSupervisor.mainForm = this;
+            Net.MessageSupervisor.targetFrm = cl;
+            cl.Show();
+            Program.server = new Net.OESServer();
         }
     }
 }
