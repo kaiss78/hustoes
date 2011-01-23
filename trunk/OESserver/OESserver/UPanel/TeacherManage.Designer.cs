@@ -1,6 +1,6 @@
 ﻿namespace OES.UPanel
 {
-    partial class ClassManage
+    partial class TeacherManage
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.teacherInfoGroup = new System.Windows.Forms.GroupBox();
+            this.teacherInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnQuery = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnQuery = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.classInfoGroup = new System.Windows.Forms.GroupBox();
-            this.classInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.tableLayoutPanel1.SuspendLayout();
-            this.classInfoGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classInfoDGV)).BeginInit();
+            this.teacherInfoGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherInfoDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -50,11 +50,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel1.Controls.Add(this.teacherInfoGroup, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnAdd, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnQuery, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnDelete, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnQuery, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnEdit, 4, 5);
-            this.tableLayoutPanel1.Controls.Add(this.classInfoGroup, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -69,90 +69,84 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // teacherInfoGroup
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.teacherInfoGroup, 5);
+            this.teacherInfoGroup.Controls.Add(this.teacherInfoDGV);
+            this.teacherInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacherInfoGroup.Location = new System.Drawing.Point(11, 11);
+            this.teacherInfoGroup.Name = "teacherInfoGroup";
+            this.teacherInfoGroup.Size = new System.Drawing.Size(720, 512);
+            this.teacherInfoGroup.TabIndex = 0;
+            this.teacherInfoGroup.TabStop = false;
+            this.teacherInfoGroup.Text = "教师信息";
+            // 
+            // teacherInfoDGV
+            // 
+            this.teacherInfoDGV.AllowUserToAddRows = false;
+            this.teacherInfoDGV.AllowUserToDeleteRows = false;
+            this.teacherInfoDGV.AllowUserToResizeRows = false;
+            this.teacherInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacherInfoDGV.Location = new System.Drawing.Point(3, 22);
+            this.teacherInfoDGV.Name = "teacherInfoDGV";
+            this.teacherInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+            this.teacherInfoDGV.ReadOnly = true;
+            this.teacherInfoDGV.RowTemplate.Height = 23;
+            this.teacherInfoDGV.Size = new System.Drawing.Size(714, 487);
+            this.teacherInfoDGV.TabIndex = 0;
+            // 
             // btnAdd
             // 
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAdd.Font = new System.Drawing.Font("宋体", 12F);
             this.btnAdd.Location = new System.Drawing.Point(161, 547);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(117, 37);
             this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "添加班级";
+            this.btnAdd.Text = "添加教师";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnQuery
-            // 
-            this.btnQuery.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnQuery.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnQuery.Location = new System.Drawing.Point(161, 608);
-            this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(117, 37);
-            this.btnQuery.TabIndex = 2;
-            this.btnQuery.Text = "查找班级";
-            this.btnQuery.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDelete.Font = new System.Drawing.Font("宋体", 12F);
             this.btnDelete.Location = new System.Drawing.Point(464, 547);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(117, 37);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "删除班级";
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "删除教师";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnQuery
+            // 
+            this.btnQuery.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnQuery.Location = new System.Drawing.Point(161, 608);
+            this.btnQuery.Name = "btnQuery";
+            this.btnQuery.Size = new System.Drawing.Size(117, 37);
+            this.btnQuery.TabIndex = 3;
+            this.btnQuery.Text = "查找教师";
+            this.btnQuery.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Font = new System.Drawing.Font("宋体", 12F);
             this.btnEdit.Location = new System.Drawing.Point(464, 608);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(117, 37);
             this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "修改班级";
+            this.btnEdit.Text = "修改教师";
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // classInfoGroup
+            // TeacherManage
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.classInfoGroup, 5);
-            this.classInfoGroup.Controls.Add(this.classInfoDGV);
-            this.classInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classInfoGroup.Font = new System.Drawing.Font("宋体", 12F);
-            this.classInfoGroup.Location = new System.Drawing.Point(11, 11);
-            this.classInfoGroup.Name = "classInfoGroup";
-            this.classInfoGroup.Size = new System.Drawing.Size(720, 512);
-            this.classInfoGroup.TabIndex = 5;
-            this.classInfoGroup.TabStop = false;
-            this.classInfoGroup.Text = "班级信息";
-            // 
-            // classInfoDGV
-            // 
-            this.classInfoDGV.AllowUserToAddRows = false;
-            this.classInfoDGV.AllowUserToDeleteRows = false;
-            this.classInfoDGV.AllowUserToResizeRows = false;
-            this.classInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classInfoDGV.Location = new System.Drawing.Point(3, 22);
-            this.classInfoDGV.Name = "classInfoDGV";
-            this.classInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
-            this.classInfoDGV.ReadOnly = true;
-            this.classInfoDGV.RowTemplate.Height = 23;
-            this.classInfoDGV.Size = new System.Drawing.Size(714, 487);
-            this.classInfoDGV.TabIndex = 0;
-            // 
-            // ClassManage
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "ClassManage";
+            this.Font = new System.Drawing.Font("宋体", 12F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "TeacherManage";
             this.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.classInfoGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.classInfoDGV)).EndInit();
+            this.teacherInfoGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.teacherInfoDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -160,11 +154,11 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView classInfoDGV;
-        private System.Windows.Forms.Button btnQuery;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.GroupBox classInfoGroup;
+        private System.Windows.Forms.GroupBox teacherInfoGroup;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView teacherInfoDGV;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnQuery;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
