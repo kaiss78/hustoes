@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.teacherInfoGroup = new System.Windows.Forms.GroupBox();
             this.teacherInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
@@ -85,6 +86,8 @@
             this.teacherInfoDGV.AllowUserToAddRows = false;
             this.teacherInfoDGV.AllowUserToDeleteRows = false;
             this.teacherInfoDGV.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.teacherInfoDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.teacherInfoDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.teacherInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teacherInfoDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
@@ -97,8 +100,8 @@
             this.teacherInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.teacherInfoDGV.ReadOnly = true;
             this.teacherInfoDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.teacherInfoDGV.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.teacherInfoDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.teacherInfoDGV.RowTemplate.Height = 23;
             this.teacherInfoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.teacherInfoDGV.Size = new System.Drawing.Size(713, 487);
