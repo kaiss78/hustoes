@@ -15,8 +15,6 @@ namespace OES.Model
         public string dept;
         public string className;
 
-
-
         public Student(string name, string examid, string id, string pword)
         {
             sName = name;
@@ -24,8 +22,16 @@ namespace OES.Model
             ID = id;
             password = pword;
         }
-        public Student()
+
+        public Student(string id, string name, string cid, string dp, string cn)
         {
+            ID = id;
+            sName = name;
+            classId = cid;
+            dept = dp;
+            className = cn;
         }
+
+        public Student() { }
     }
 }
