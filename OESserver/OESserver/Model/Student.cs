@@ -23,13 +23,14 @@ namespace OES.Model
             password = pword;
         }
 
-        public Student(string id, string name, string cid, string dp, string cn)
+        public Student(string id, string name, string cid, string dp, string cn, string pw)
         {
             ID = id;
             sName = name;
             classId = cid;
             dept = dp;
             className = cn;
+            password = pw;
         }
 
         public Student() { }

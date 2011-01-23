@@ -32,6 +32,7 @@ namespace OES.UPanel
             changeBtnEnable(true);
             disposeControl();
             studentInfoGroup.Text = "学生信息";
+            getStudentTable();
         }
 
         private void disposeControl()               //消除原来产生的UserControl
@@ -58,10 +59,14 @@ namespace OES.UPanel
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            int cr = studentInfoDGV.CurrentRow.Index;
+            if (cr <= -1) { return; }
             changeBtnEnable(false);
             studentInfoDGV.Visible = false;
             studentInfoGroup.Text = "修改学生";
-            stuEdit = new StudentEdit();
+            Student st = new Student(dt.Rows[cr][1].ToString(), dt.Rows[cr][2].ToString(), dt.Rows[cr][3].ToString(),
+                dt.Rows[cr][4].ToString(), dt.Rows[cr][5].ToString(), dt.Rows[cr][6].ToString());
+            stuEdit = new StudentEdit(st);
             stuEdit.Disposed += new EventHandler(stuOperation_Disposed);
             studentInfoGroup.Controls.Add(stuEdit);
             stuEdit.Dock = DockStyle.Fill;
@@ -85,31 +90,34 @@ namespace OES.UPanel
         private void getStudentTable()
         {
             dt = new DataTable("Student");
-            List<Teacher> data = InfoControl.OesData.FindTeacher();
-            object[] values = new object[6];
+            List<Student> data = InfoControl.OesData.FindAllStudent();
+            object[] values = new object[7];
             dt.Columns.Add("选中", typeof(bool));
-            dt.Columns.Add("教师编号");
-            dt.Columns.Add("教师姓名");
-            dt.Columns.Add("教工号");
+            dt.Columns.Add("学号");
+            dt.Columns.Add("姓名");
+            dt.Columns.Add("班级编号");
+            dt.Columns.Add("学院");
+            dt.Columns.Add("班级");
             dt.Columns.Add("密码");
-            dt.Columns.Add("权限");
-            foreach (Teacher th in data)
+            foreach (Student st in data)
             {
                 values[0] = false;
-                values[1] = th.Id;
-                values[2] = th.TeacherName;
-                values[3] = th.UserName;
-                values[4] = th.password;
-                values[5] = th.permission == 1 ? "超级管理员" : "普通用户";
+                values[1] = st.ID;
+                values[2] = st.sName;
+                values[3] = st.classId;
+                values[4] = st.dept;
+                values[5] = st.className;
+                values[6] = st.password;
                 dt.Rows.Add(values);
             }
             studentInfoDGV.DataSource = dt;
             studentInfoDGV.Columns[0].FillWeight = 5;
             studentInfoDGV.Columns[1].FillWeight = 12;
             studentInfoDGV.Columns[2].FillWeight = 25;
-            studentInfoDGV.Columns[3].FillWeight = 20;
+            studentInfoDGV.Columns[3].FillWeight = 10;
             studentInfoDGV.Columns[4].FillWeight = 18;
             studentInfoDGV.Columns[5].FillWeight = 20;
+            studentInfoDGV.Columns[6].FillWeight = 10;
 
             studentInfoDGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
             studentInfoDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -117,6 +125,9 @@ namespace OES.UPanel
             studentInfoDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
             studentInfoDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
             studentInfoDGV.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            studentInfoDGV.Columns[3].Visible = false;
+            studentInfoDGV.Columns[6].Visible = false;
         }
 
         private void teacherInfoDGV_CellClick(object sender, DataGridViewCellEventArgs e)
