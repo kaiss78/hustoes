@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.xpPanelGroup1 = new UIComponents.XPPanelGroup();
             this.xpPanel3 = new UIComponents.XPPanel(100);
+            this.classManlbl = new System.Windows.Forms.LinkLabel();
+            this.stuManlbl = new System.Windows.Forms.LinkLabel();
             this.xpPanel2 = new UIComponents.XPPanel(100);
             this.newPapLbl = new System.Windows.Forms.LinkLabel();
             this.paperManLbl = new System.Windows.Forms.LinkLabel();
@@ -48,7 +50,6 @@
             this.JudgeLbl = new System.Windows.Forms.LinkLabel();
             this.completionLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.stuManlbl = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
@@ -80,6 +81,7 @@
             this.xpPanel3.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel3.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.xpPanel3.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xpPanel3.Controls.Add(this.classManlbl);
             this.xpPanel3.Controls.Add(this.stuManlbl);
             this.xpPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.xpPanel3.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -95,6 +97,32 @@
             this.xpPanel3.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanel3.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel3.VertAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // classManlbl
+            // 
+            this.classManlbl.AutoSize = true;
+            this.classManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.classManlbl.Location = new System.Drawing.Point(7, 54);
+            this.classManlbl.Name = "classManlbl";
+            this.classManlbl.Size = new System.Drawing.Size(69, 19);
+            this.classManlbl.TabIndex = 3;
+            this.classManlbl.TabStop = true;
+            this.classManlbl.Tag = "15";
+            this.classManlbl.Text = "班级管理";
+            this.classManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            // 
+            // stuManlbl
+            // 
+            this.stuManlbl.AutoSize = true;
+            this.stuManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.stuManlbl.Location = new System.Drawing.Point(7, 35);
+            this.stuManlbl.Name = "stuManlbl";
+            this.stuManlbl.Size = new System.Drawing.Size(69, 19);
+            this.stuManlbl.TabIndex = 2;
+            this.stuManlbl.TabStop = true;
+            this.stuManlbl.Tag = "14";
+            this.stuManlbl.Text = "学生管理";
+            this.stuManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // xpPanel2
             // 
@@ -340,19 +368,6 @@
             this.MainPanel.Size = new System.Drawing.Size(742, 666);
             this.MainPanel.TabIndex = 1;
             // 
-            // stuManlbl
-            // 
-            this.stuManlbl.AutoSize = true;
-            this.stuManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.stuManlbl.Location = new System.Drawing.Point(7, 35);
-            this.stuManlbl.Name = "stuManlbl";
-            this.stuManlbl.Size = new System.Drawing.Size(69, 19);
-            this.stuManlbl.TabIndex = 2;
-            this.stuManlbl.TabStop = true;
-            this.stuManlbl.Tag = "14";
-            this.stuManlbl.Text = "学生管理";
-            this.stuManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -400,6 +415,7 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel stuManlbl;
+        private System.Windows.Forms.LinkLabel classManlbl;
 
     }
 }

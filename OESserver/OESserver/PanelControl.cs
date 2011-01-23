@@ -33,9 +33,11 @@ namespace OES
             mf.paperListPanel.PanelID = 13;
             panelList[14] = mf.studentManage;
             mf.studentManage.PanelID = 14;
-            panelList[PanelNumber-1] = mf.paperEditPanel;
+            panelList[15] = mf.classManage;
+            mf.classManage.PanelID = 15;
+            
+            panelList[PanelNumber-1] = mf.paperEditPanel;                        
             mf.paperEditPanel.PanelID = PanelNumber-1;
-
         }
 
         static public void HideAllPanel()
@@ -58,6 +60,9 @@ namespace OES
                     panelList[x].ReLoad();
                     break;
                 case 14:
+                    panelList[x].ReLoad();
+                    break;
+                case 15:
                     panelList[x].ReLoad();
                     break;
                 default:
