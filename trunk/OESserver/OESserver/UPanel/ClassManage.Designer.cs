@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.classInfoGroup = new System.Windows.Forms.GroupBox();
             this.classInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.classInfoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classInfoDGV)).BeginInit();
@@ -42,76 +42,47 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 9;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.651163F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.34884F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel1.ColumnCount = 7;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Controls.Add(this.btnAdd, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.btnQuery, 5, 5);
-            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 2, 7);
-            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 5, 7);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel1.Controls.Add(this.btnAdd, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnQuery, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 4, 5);
             this.tableLayoutPanel1.Controls.Add(this.classInfoGroup, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.714286F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 202F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 227F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAdd.Location = new System.Drawing.Point(175, 547);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(117, 37);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "添加班级";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnQuery
             // 
             this.btnQuery.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnQuery.Location = new System.Drawing.Point(468, 547);
+            this.btnQuery.Location = new System.Drawing.Point(464, 547);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(117, 37);
             this.btnQuery.TabIndex = 2;
             this.btnQuery.Text = "查找班级";
             this.btnQuery.UseVisualStyleBackColor = true;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDelete.Location = new System.Drawing.Point(175, 600);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(117, 37);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "删除班级";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Location = new System.Drawing.Point(468, 600);
+            this.btnEdit.Location = new System.Drawing.Point(464, 608);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(117, 37);
             this.btnEdit.TabIndex = 4;
@@ -121,14 +92,13 @@
             // 
             // classInfoGroup
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.classInfoGroup, 7);
+            this.tableLayoutPanel1.SetColumnSpan(this.classInfoGroup, 5);
             this.classInfoGroup.Controls.Add(this.classInfoDGV);
             this.classInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.classInfoGroup.Font = new System.Drawing.Font("宋体", 12F);
-            this.classInfoGroup.Location = new System.Drawing.Point(11, 8);
+            this.classInfoGroup.Location = new System.Drawing.Point(11, 11);
             this.classInfoGroup.Name = "classInfoGroup";
-            this.tableLayoutPanel1.SetRowSpan(this.classInfoGroup, 3);
-            this.classInfoGroup.Size = new System.Drawing.Size(719, 518);
+            this.classInfoGroup.Size = new System.Drawing.Size(720, 512);
             this.classInfoGroup.TabIndex = 5;
             this.classInfoGroup.TabStop = false;
             this.classInfoGroup.Text = "班级信息";
@@ -144,8 +114,30 @@
             this.classInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.classInfoDGV.ReadOnly = true;
             this.classInfoDGV.RowTemplate.Height = 23;
-            this.classInfoDGV.Size = new System.Drawing.Size(713, 493);
+            this.classInfoDGV.Size = new System.Drawing.Size(714, 487);
             this.classInfoDGV.TabIndex = 0;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDelete.Location = new System.Drawing.Point(161, 608);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(117, 37);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "删除班级";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdd.Location = new System.Drawing.Point(161, 547);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(117, 37);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "添加班级";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // ClassManage
             // 
@@ -165,10 +157,10 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView classInfoDGV;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnQuery;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.GroupBox classInfoGroup;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
