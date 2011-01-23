@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.procon = new System.Windows.Forms.RichTextBox();
             this.title = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.Dtxt = new System.Windows.Forms.RichTextBox();
+            this.Ctxt = new System.Windows.Forms.RichTextBox();
+            this.Btxt = new System.Windows.Forms.RichTextBox();
             this.A = new System.Windows.Forms.Button();
             this.C = new System.Windows.Forms.Button();
             this.B = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.Atxt = new System.Windows.Forms.RichTextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -54,7 +54,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.procon);
             this.groupBox1.Location = new System.Drawing.Point(35, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(514, 223);
@@ -62,13 +62,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "题干";
             // 
-            // richTextBox1
+            // procon
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(501, 196);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.procon.Location = new System.Drawing.Point(7, 21);
+            this.procon.Name = "procon";
+            this.procon.Size = new System.Drawing.Size(501, 196);
+            this.procon.TabIndex = 0;
+            this.procon.Text = "";
             // 
             // title
             // 
@@ -109,9 +109,9 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.Controls.Add(this.richTextBox5, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.richTextBox4, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.richTextBox3, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Dtxt, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.Ctxt, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Btxt, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.A, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.C, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.B, 0, 1);
@@ -120,7 +120,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.richTextBox2, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Atxt, 2, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(42, 317);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -132,29 +132,29 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(501, 207);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // richTextBox5
+            // Dtxt
             // 
-            this.richTextBox5.Location = new System.Drawing.Point(103, 156);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(395, 45);
-            this.richTextBox5.TabIndex = 11;
-            this.richTextBox5.Text = "";
+            this.Dtxt.Location = new System.Drawing.Point(103, 156);
+            this.Dtxt.Name = "Dtxt";
+            this.Dtxt.Size = new System.Drawing.Size(395, 45);
+            this.Dtxt.TabIndex = 11;
+            this.Dtxt.Text = "";
             // 
-            // richTextBox4
+            // Ctxt
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(103, 105);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(395, 45);
-            this.richTextBox4.TabIndex = 10;
-            this.richTextBox4.Text = "";
+            this.Ctxt.Location = new System.Drawing.Point(103, 105);
+            this.Ctxt.Name = "Ctxt";
+            this.Ctxt.Size = new System.Drawing.Size(395, 45);
+            this.Ctxt.TabIndex = 10;
+            this.Ctxt.Text = "";
             // 
-            // richTextBox3
+            // Btxt
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(103, 54);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(395, 45);
-            this.richTextBox3.TabIndex = 9;
-            this.richTextBox3.Text = "";
+            this.Btxt.Location = new System.Drawing.Point(103, 54);
+            this.Btxt.Name = "Btxt";
+            this.Btxt.Size = new System.Drawing.Size(395, 45);
+            this.Btxt.TabIndex = 9;
+            this.Btxt.Text = "";
             // 
             // A
             // 
@@ -165,6 +165,7 @@
             this.A.Size = new System.Drawing.Size(44, 45);
             this.A.TabIndex = 0;
             this.A.UseVisualStyleBackColor = true;
+            this.A.Click += new System.EventHandler(this.A_Click);
             // 
             // C
             // 
@@ -173,6 +174,7 @@
             this.C.Size = new System.Drawing.Size(44, 45);
             this.C.TabIndex = 2;
             this.C.UseVisualStyleBackColor = true;
+            this.C.Click += new System.EventHandler(this.C_Click);
             // 
             // B
             // 
@@ -181,6 +183,7 @@
             this.B.Size = new System.Drawing.Size(44, 45);
             this.B.TabIndex = 1;
             this.B.UseVisualStyleBackColor = true;
+            this.B.Click += new System.EventHandler(this.B_Click);
             // 
             // D
             // 
@@ -189,6 +192,7 @@
             this.D.Size = new System.Drawing.Size(44, 45);
             this.D.TabIndex = 3;
             this.D.UseVisualStyleBackColor = true;
+            this.D.Click += new System.EventHandler(this.D_Click);
             // 
             // label3
             // 
@@ -230,13 +234,13 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "D";
             // 
-            // richTextBox2
+            // Atxt
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(103, 3);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(395, 45);
-            this.richTextBox2.TabIndex = 8;
-            this.richTextBox2.Text = "";
+            this.Atxt.Location = new System.Drawing.Point(103, 3);
+            this.Atxt.Name = "Atxt";
+            this.Atxt.Size = new System.Drawing.Size(395, 45);
+            this.Atxt.TabIndex = 8;
+            this.Atxt.Text = "";
             // 
             // button5
             // 
@@ -284,7 +288,7 @@
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox procon;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button A;
         private System.Windows.Forms.Button C;
@@ -294,10 +298,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RichTextBox richTextBox5;
-        private System.Windows.Forms.RichTextBox richTextBox4;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox Dtxt;
+        private System.Windows.Forms.RichTextBox Ctxt;
+        private System.Windows.Forms.RichTextBox Btxt;
+        private System.Windows.Forms.RichTextBox Atxt;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
     }

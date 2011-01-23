@@ -9,7 +9,7 @@ namespace OES.Model
     {
         public string UnitName="";
         public string UnitId="";
-        public string TypeId = "";
+        public string TypeId ="";
 
     }
 }

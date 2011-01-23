@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.procon = new System.Windows.Forms.RichTextBox();
             this.title = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.yes = new System.Windows.Forms.Button();
+            this.no = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.procon);
             this.groupBox1.Location = new System.Drawing.Point(35, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(514, 223);
@@ -54,13 +54,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "题干";
             // 
-            // richTextBox1
+            // procon
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(501, 196);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.procon.Location = new System.Drawing.Point(7, 21);
+            this.procon.Name = "procon";
+            this.procon.Size = new System.Drawing.Size(501, 196);
+            this.procon.TabIndex = 0;
+            this.procon.Text = "";
             // 
             // title
             // 
@@ -100,8 +100,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.yes, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.no, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(42, 325);
@@ -113,21 +113,21 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(150, 139);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // button1
+            // yes
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 45);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
+            this.yes.Location = new System.Drawing.Point(3, 3);
+            this.yes.Name = "yes";
+            this.yes.Size = new System.Drawing.Size(44, 45);
+            this.yes.TabIndex = 0;
+            this.yes.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // no
             // 
-            this.button2.Location = new System.Drawing.Point(3, 72);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 45);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
+            this.no.Location = new System.Drawing.Point(3, 72);
+            this.no.Name = "no";
+            this.no.Size = new System.Drawing.Size(44, 45);
+            this.no.TabIndex = 1;
+            this.no.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -195,10 +195,10 @@
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox procon;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button yes;
+        private System.Windows.Forms.Button no;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button5;
