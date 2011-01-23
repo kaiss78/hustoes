@@ -34,7 +34,7 @@ namespace OESMonitor.Net
         public event PaperRequestor PaperAllocator;
 
         //将当前试卷路径填充
-        public string currentPaperpath = "D:/test.ppt";
+        public string currentPaperpath = "D:/EXAM001.rar";
 
         public OESServer()
         {            
@@ -188,10 +188,13 @@ namespace OESMonitor.Net
                         //请求发送试卷
                         //PaperAllocator();
                         Console.WriteLine(Thread.CurrentThread.Name);
+                        //获取考试对应试卷
+                        //client.computer.Student
                         client.paperPath = currentPaperpath;
                         if (PortQueue.Count != 0)
                         {
                             client.port = PortQueue.Dequeue();
+                            client.port.paperDelivered += client.port_paperDelivered;
                             MessageSupervisor.targetFrm.showMessage("Requesting Allocate Port: " + client.port.portInfo() + " ---> " + client.clientInfo());
                             client.sendData();
                         }

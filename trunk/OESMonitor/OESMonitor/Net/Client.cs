@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Collections;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO;
 
 namespace OESMonitor.Net
 {
@@ -38,6 +39,11 @@ namespace OESMonitor.Net
             ns = client.GetStream();
             ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
             MessageSupervisor.targetFrm.showMessage("Accept client: " + client.Client.RemoteEndPoint.ToString());
+        }
+
+        public void port_paperDelivered(object sender, EventArgs e)
+        {
+            this.computer.State = 3;
         }
 
         public string clientInfo()
@@ -158,7 +164,8 @@ namespace OESMonitor.Net
         public void sendData()
         {
             port.LoadData(paperPath);
-            string tmsg = "#STX#0#" + port.ip.ToString() + "$" + port.localPort.ToString() + "#ETX";
+            FileInfo fi = new FileInfo(this.paperPath);
+            string tmsg = "#STX#0#" + port.ip.ToString() + "$" + port.localPort.ToString() +"$"+fi.Length.ToString()+ "#ETX";
 
             MessageSupervisor.targetFrm.showMessage("Send Message: " + tmsg + " --->" + clientInfo());
 
