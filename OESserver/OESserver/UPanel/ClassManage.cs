@@ -14,7 +14,7 @@ namespace OES.UPanel
     public partial class ClassManage : UserPanel
     {
 
-        ClassAdd clsAdd;
+        ClassEdit clsAdd;
 
         public ClassManage()
         {
@@ -50,13 +50,13 @@ namespace OES.UPanel
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            changeBtnEnable(false);
-            classInfoDGV.Visible = false;
-            classInfoGroup.Text = "添加班级";
-            clsAdd = new ClassAdd(0, null);
-            clsAdd.Disposed += new EventHandler(clsOperation_Disposed);
-            classInfoGroup.Controls.Add(clsAdd);
-            clsAdd.Dock = DockStyle.Fill;
+            //changeBtnEnable(false);
+            //classInfoDGV.Visible = false;
+            //classInfoGroup.Text = "添加班级";
+            //clsAdd = new ClassEdit(0, null);
+            //clsAdd.Disposed += new EventHandler(clsOperation_Disposed);
+            //classInfoGroup.Controls.Add(clsAdd);
+            //clsAdd.Dock = DockStyle.Fill;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace OES.UPanel
             changeBtnEnable(false);
             classInfoDGV.Visible = false;
             classInfoGroup.Text = "修改班级";
-            clsAdd = new ClassAdd(1, currentClass);
+            clsAdd = new ClassEdit(currentClass);
             clsAdd.Disposed += new EventHandler(clsOperation_Disposed);
             classInfoGroup.Controls.Add(clsAdd);
             clsAdd.Dock = DockStyle.Fill;
