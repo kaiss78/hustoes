@@ -29,9 +29,14 @@ namespace OES
             ClientControl.student = new Student(this.SName.Text,"", this.ExamNo.Text, this.Password.Text);
             
             //递交服务端验证……
+            Program.Client.validStudent(ClientControl.student.sName, ClientControl.student.ID, ClientControl.student.password);
             //
-            //
-            if (true)
+            
+        }
+
+        public void Login(Boolean isOk)
+        {
+            if (isOk)
             {
                 ClientControl.ExamForm.Show();
                 this.Hide();
