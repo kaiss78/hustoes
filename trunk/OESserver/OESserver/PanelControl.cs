@@ -35,7 +35,8 @@ namespace OES
             mf.studentManage.PanelID = 14;
             panelList[15] = mf.classManage;
             mf.classManage.PanelID = 15;
-            
+            panelList[16] = mf.teacherManage;
+            mf.teacherManage.PanelID=16;
             panelList[PanelNumber-1] = mf.paperEditPanel;                        
             mf.paperEditPanel.PanelID = PanelNumber-1;
         }
@@ -63,6 +64,9 @@ namespace OES
                     panelList[x].ReLoad();
                     break;
                 case 15:
+                    panelList[x].ReLoad();
+                    break;
+                case 16:
                     panelList[x].ReLoad();
                     break;
                 default:
