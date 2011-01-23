@@ -14,6 +14,7 @@ namespace OES.UPanel
     public partial class TeacherManage : UserPanel
     {
         private TeacherAdd teaAdd;
+        private DataTable dt;
 
         public TeacherManage()
         {
@@ -28,6 +29,7 @@ namespace OES.UPanel
             changeBtnEnable(true);
             disposeControl();
             teacherInfoGroup.Text = "教师信息";
+            getTeacherTable();
         }
 
         private void disposeControl()               //消除原来产生的UserControl
@@ -79,8 +81,8 @@ namespace OES.UPanel
 
         private void getTeacherTable()
         {
-            DataTable dt = new DataTable("Teacher");
-            List<Teacher> data = new List<Teacher>();
+            dt = new DataTable("Teacher");
+            List<Teacher> data = InfoControl.OesData.FindTeacher();
             object[] values = new object[6];
             dt.Columns.Add("选中", typeof(bool));
             dt.Columns.Add("教师编号");
@@ -105,6 +107,22 @@ namespace OES.UPanel
             teacherInfoDGV.Columns[3].FillWeight = 20;
             teacherInfoDGV.Columns[4].FillWeight = 18;
             teacherInfoDGV.Columns[5].FillWeight = 20;
+
+            teacherInfoDGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            teacherInfoDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            teacherInfoDGV.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+            teacherInfoDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+            teacherInfoDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+            teacherInfoDGV.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
+
+        private void teacherInfoDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RIndex = e.RowIndex;
+            if (RIndex > -1)
+            {
+                dt.Rows[RIndex][0] = !Convert.ToBoolean(dt.Rows[RIndex][0]);
+            }
         }
     }
 }
