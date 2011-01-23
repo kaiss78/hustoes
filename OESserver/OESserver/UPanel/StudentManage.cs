@@ -78,5 +78,7 @@ namespace OES.UPanel
             studentInfoDGV.Visible = true;
             studentInfoGroup.Text = "学生信息";
         }
+
+        
     }
 }
