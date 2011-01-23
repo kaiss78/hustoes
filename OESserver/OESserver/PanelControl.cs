@@ -14,6 +14,7 @@ namespace OES
 
         public PanelControl( )
         {
+
         }
 
         static public void init(MainForm mf)

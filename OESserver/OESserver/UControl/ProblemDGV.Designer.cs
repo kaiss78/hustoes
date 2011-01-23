@@ -35,6 +35,9 @@
             // proDGV
             // 
             this.proDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.proDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.proDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.proDGV.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.proDGV.Location = new System.Drawing.Point(0, 0);
             this.proDGV.Name = "proDGV";
             this.proDGV.RowTemplate.Height = 23;
