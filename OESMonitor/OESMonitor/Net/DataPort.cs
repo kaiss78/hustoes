@@ -31,6 +31,9 @@ namespace OESMonitor.Net
         public delegate void portUsed(DataPort port);
         public event portUsed portRecycle;
 
+        //试卷发放完毕事件
+        public event EventHandler paperDelivered;
+
         public DataPort(IPAddress ip, int localPort)
         {
             this.ip = ip;
@@ -139,6 +142,8 @@ namespace OESMonitor.Net
             sender_ns.Dispose();
             dataSender.Close();
             file.Close();
+
+            paperDelivered(this, null);
 
             if (portRecycle != null)
                 portRecycle(this);
