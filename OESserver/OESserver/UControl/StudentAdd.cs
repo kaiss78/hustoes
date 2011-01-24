@@ -16,6 +16,7 @@ namespace OES.UControl
             InitializeComponent();
             radioAddOne.Checked = true;
             groupAddMany.Enabled = false;
+            showAllDepts();
         }
 
         private void radioAddOne_CheckedChanged(object sender, EventArgs e)
@@ -31,6 +32,57 @@ namespace OES.UControl
         private void btnReturn_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void showAllDepts()
+        {
+            List<string> dps = InfoControl.OesData.FindAllDept();
+            object[] ob = new object[dps.Count];
+            for (int i = 0; i < dps.Count; i++)
+                ob[i] = dps[i];
+            comboOneDept.Items.Clear();
+            comboOneDept.Items.AddRange(ob);
+            comboOneDept.SelectedIndex = 0;
+        }
+
+        private void showClassInDept(string dept)
+        {
+            List<String> cls = InfoControl.OesData.FindClassNameOfDept(dept);
+            object[] ob = new object[cls.Count];
+            for (int i = 0; i < cls.Count; i++)
+                ob[i] = cls[i];
+            comboOneClass.Items.Clear();
+            comboOneClass.Items.AddRange(ob);
+            comboOneClass.SelectedIndex = 0;
+        }
+
+        private void comboOneDept_TextChanged(object sender, EventArgs e)
+        {
+            showClassInDept(comboOneDept.Text);
+        }
+
+        private void btnAddOne_Click(object sender, EventArgs e)
+        {
+            if (textName.Text == "" || textID.Text == "")
+            {
+                MessageBox.Show("输入信息不完整！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (textPW.Text != "" && textPW.Text != textPW2.Text)
+            {
+                MessageBox.Show("两次密码输入不一致！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string pw = textPW.Text != "" ? textPW.Text : textID.Text;
+            //InfoControl.AddStudent();
+            MessageBox.Show("貌似成功了");
+            clearInfo();
+        }
+
+        private void clearInfo()
+        {
+            showAllDepts();
+            textID.Text = textName.Text = textPW.Text = textPW2.Text = "";
         }
     }
 }

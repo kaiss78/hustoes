@@ -132,6 +132,7 @@
             this.comboOneDept.Name = "comboOneDept";
             this.comboOneDept.Size = new System.Drawing.Size(133, 24);
             this.comboOneDept.TabIndex = 16;
+            this.comboOneDept.TextChanged += new System.EventHandler(this.comboOneDept_TextChanged);
             // 
             // label9
             // 
@@ -140,7 +141,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(88, 16);
             this.label9.TabIndex = 15;
-            this.label9.Text = "班级名称：";
+            this.label9.Text = "所在班级：";
             // 
             // label10
             // 
@@ -149,7 +150,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 16);
             this.label10.TabIndex = 14;
-            this.label10.Text = "学院名称：";
+            this.label10.Text = "所在学院：";
             // 
             // btnAddOne
             // 
@@ -159,6 +160,7 @@
             this.btnAddOne.TabIndex = 9;
             this.btnAddOne.Text = "添加学生";
             this.btnAddOne.UseVisualStyleBackColor = true;
+            this.btnAddOne.Click += new System.EventHandler(this.btnAddOne_Click);
             // 
             // textID
             // 
