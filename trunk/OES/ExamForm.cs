@@ -74,7 +74,7 @@ namespace OES
             Start.Enabled = false;
             Restart.Enabled = false;
             Resume.Enabled = false;
-            Config.paperPath = Config.PaperPath + OESClient.fileName.Replace(".rar", "");
+            Config.paperPath = Config.PaperPath + OESClient.fileName.Replace(".rar", "")+ @"\";
             if (!ExistPaper())
             {
                 Program.Client.RequestingPaper();

@@ -138,8 +138,7 @@ namespace OES
 
         private void butHandIn_Click(object sender, EventArgs e)
         {
-            ClientControl.WaitingForm.Show();
-            ClientControl.SendInPaper();
+           
             //ClientControl.MainForm.Dispose();
             //this.Dispose();
             
@@ -149,8 +148,9 @@ namespace OES
             {
                 XMLControl.studentAnsXML.AddPaperAns(p.type,new Pid_Ans(p.problemId,p.getAns()));
             }
-           // 
-            Thread.Sleep(2000);
+            // 
+            ClientControl.WaitingForm.Show();
+            ClientControl.SendInPaper();
             //提交试题，压缩rar
             //
 
