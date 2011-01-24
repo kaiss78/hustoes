@@ -184,6 +184,10 @@
       <DependentUpon>StudentEdit.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\StudentFind.resx">
+      <DependentUpon>StudentFind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UControl\TeacherAdd.resx">
       <DependentUpon>TeacherAdd.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -355,6 +359,12 @@
     </Compile>
     <Compile Include="UControl\StudentEdit.Designer.cs">
       <DependentUpon>StudentEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\StudentFind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\StudentFind.Designer.cs">
+      <DependentUpon>StudentFind.cs</DependentUpon>
     </Compile>
     <Compile Include="UControl\TeacherAdd.cs">
       <SubType>UserControl</SubType>
