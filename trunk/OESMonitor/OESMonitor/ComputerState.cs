@@ -17,7 +17,11 @@ namespace OESMonitor
         {
             InitializeComponent();
             instance = this;
-
+            this.NameLab.Text = "";
+            this.IdLab.Text = "";
+            this.PortLab.Text = "";
+            this.IpLab.Text = "";
+            this.StateLab.Text = "";
         }
         public void setIpPort(string ip, int port)
         {
