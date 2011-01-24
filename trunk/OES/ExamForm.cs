@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using OES.Model;
 using System.IO;
+using OES.Net;
 
 namespace OES
 {
@@ -17,39 +18,73 @@ namespace OES
         public ExamForm()
         {
             InitializeComponent();
-            progressBar1.CreateControl();
-            this.CreateControl();
-            progressBar1.Maximum = 1000;
             
+        }
+
+        private bool ExistPaper()
+        {
+            if (Directory.Exists(Config.paperPath + OESClient.fileName.Replace(".rar", "")))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void Start_Click(object sender, EventArgs e)
-        {
-            Program.Client.RequestingPaper();
-            
-        }
-
-        public void JumpToMain(object sender,EventArgs e)
         {
             //读考卷内容
             ClientControl.paper.ReadPaper();
 
             ClientControl.isResume = false;
 
+      
+            ClientControl.ControlBar.Show();
+            ClientControl.MainForm.Show();
+            this.Dispose();
+            Program.Client.beginExam(0);
+         
+        }
+
+        public void JumpToMain(object sender,EventArgs e)
+        {
             this.Invoke(new MethodInvoker(() =>
-            {
-                ClientControl.ControlBar.Show();
-                ClientControl.MainForm.Show(); 
-                this.Dispose();
-            }));
+                {
+                    Start.Enabled = true;
+                    Restart.Enabled = true;
+                    Resume.Enabled = true;
+                }));
+            RARHelper.UnCompressRAR(Config.paperPath, Config.paperPath, OESClient.fileName, true, "");
         }
         private void ExamForm_Load(object sender, EventArgs e)
         {
-            this.ExamNo.Text = ClientControl.student.examID;
+
+            progressBar1.CreateControl();
+            this.CreateControl();
+            progressBar1.Maximum = 1000;
+            Start.Enabled = false;
+            Restart.Enabled = false;
+            Resume.Enabled = false;
+            if (!ExistPaper())
+            {
+                Program.Client.RequestingPaper();
+            }
+            else
+            {
+                Start.Enabled = true;
+                Restart.Enabled = true;
+                Resume.Enabled = true;
+                this.progressBar1.Value = 1000;
+            }
+
+            string temp = OESClient.fileName.Replace(".rar", "");
+            Paper.pName = temp;
+            this.ExamNo.Text = Paper.pName;
             this.SName.Text = ClientControl.student.sName;
             this.ID.Text = ClientControl.student.ID;
             Config.stuPath = Config.stuPath + ClientControl.student.ID + @"\";
-            Config.paperPath = Config.paperPath + Paper.pName + @"\";
 
             if (!File.Exists(Config.paperPath))
             {
@@ -77,6 +112,7 @@ namespace OES
                 ClientControl.ControlBar.Show();
                 ClientControl.MainForm.Show();
                 this.Dispose();
+                Program.Client.beginExam(1);
             }
 
         }
@@ -84,12 +120,14 @@ namespace OES
         private void Exit_Click(object sender, EventArgs e)
         {
             ClientControl.LoginForm.Show();
+            Program.Client.logout();
             this.Dispose();
         }
 
         private void Restart_Click(object sender, EventArgs e)
         {
             ClientControl.TeaPassForm.Show();
+            Program.Client.beginExam(2);
             this.Dispose();
         }
         public int perPackage = 0;
@@ -98,7 +136,14 @@ namespace OES
             this.CreateControl();
             this.Invoke(new MethodInvoker(() =>
             {
-                this.progressBar1.Value += perPackage;
+                if (this.progressBar1.Value + perPackage > 1000)
+                {
+                    this.progressBar1.Value = 1000;
+                }
+                else
+                {
+                    this.progressBar1.Value += perPackage;
+                }
             }));
         }
     }

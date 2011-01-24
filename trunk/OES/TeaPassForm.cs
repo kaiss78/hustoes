@@ -36,6 +36,7 @@ namespace OES
                 ClientControl.MainForm.Show();
                 this.Dispose();
                 ClientControl.TeaPassForm = null;
+                Program.Client.beginExam(3);
             }
             else
             {

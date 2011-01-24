@@ -17,6 +17,8 @@ namespace OES
             RegistryKey the_Reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\WinRAR.exe");
             return !string.IsNullOrEmpty(the_Reg.GetValue("").ToString());
         }
+
+
         /// <summary>
         /// 解压文件
         /// </summary>
@@ -25,7 +27,7 @@ namespace OES
         /// <param name="rarName">rar文件名</param>
         /// <param name="deleteAfterUnCompress">解压结束后是否删除原文件</param>
         /// <returns></returns>
-        public static bool UnCompressRAR(string unRarPatch, string rarPatch, string rarName, bool deleteAfterUnCompress)
+        public static bool UnCompressRAR(string unRarPatch, string rarPatch, string rarName, bool deleteAfterUnCompress,string password)
         {
             string the_Info;
             string the_rar;
@@ -60,8 +62,14 @@ namespace OES
                 #endregion
 
                 #region 开始解压文件
-
-                the_Info = "x \"" + rarName + "\" \"" + unRarPatch + "\" -y";
+                if (password != "")
+                {
+                    the_Info = "x -p" + password + "\"" + rarName + "\" \"" + unRarPatch + "\" -y";
+                }
+                else
+                {
+                    the_Info = "x \"" + rarName + "\" \"" + unRarPatch + "\" -y";
+                }
 
                 ProcessStartInfo the_StartInfo = new ProcessStartInfo();
                 the_StartInfo.RedirectStandardOutput = true;
@@ -106,7 +114,7 @@ namespace OES
         /// <param name="rarName">压缩后的文件名</param>
         /// <param name="rarPath">压缩后所在的路径名</param>
         /// <returns></returns>
-        public static bool CompressRAR(string compressPath, string rarName, string rarPath)
+        public static bool CompressRAR(string compressPath, string rarName, string rarPath,string password)
         {
             string the_Info;
             string the_rar;
@@ -140,8 +148,16 @@ namespace OES
 
                 #region 开始压缩文件
 
-                the_Info = @" a -k -r -s -m1 {0} {1} ";
-                the_Info = String.Format(the_Info, rarPath + rarName, compressPath);
+                if (password != "")
+                {
+                    the_Info = @" a -p{0} -k -r -s -m1 {1} {2} ";
+                    the_Info = String.Format(the_Info, password, rarPath + rarName, compressPath);
+                }
+                else
+                {
+                    the_Info = @" a -k -r -s -m1 {0} {1} ";
+                    the_Info = String.Format(the_Info,  rarPath + rarName, compressPath);
+                }
 
                 ProcessStartInfo the_StartInfo = new ProcessStartInfo();
                 the_StartInfo.RedirectStandardOutput = true;

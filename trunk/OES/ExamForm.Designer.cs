@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.Statr = new System.Windows.Forms.Button();
+            this.Start = new System.Windows.Forms.Button();
             this.Resume = new System.Windows.Forms.Button();
             this.Restart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,15 +64,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "大学生计算机基础考试";
             // 
-            // Statr
+            // Start
             // 
-            this.Statr.Location = new System.Drawing.Point(391, 183);
-            this.Statr.Name = "Statr";
-            this.Statr.Size = new System.Drawing.Size(75, 25);
-            this.Statr.TabIndex = 1;
-            this.Statr.Text = "开始考试";
-            this.Statr.UseVisualStyleBackColor = true;
-            this.Statr.Click += new System.EventHandler(this.Start_Click);
+            this.Start.Location = new System.Drawing.Point(391, 183);
+            this.Start.Name = "Start";
+            this.Start.Size = new System.Drawing.Size(75, 25);
+            this.Start.TabIndex = 1;
+            this.Start.Text = "开始考试";
+            this.Start.UseVisualStyleBackColor = true;
+            this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
             // Resume
             // 
@@ -122,7 +122,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = "考试代号：";
+            this.label4.Text = "试卷代号：";
             // 
             // ExamNo
             // 
@@ -196,7 +196,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Restart);
             this.Controls.Add(this.Resume);
-            this.Controls.Add(this.Statr);
+            this.Controls.Add(this.Start);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -218,7 +218,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Statr;
+        private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Button Resume;
         private System.Windows.Forms.Button Restart;
         private System.Windows.Forms.Label label2;

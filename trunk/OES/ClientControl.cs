@@ -13,6 +13,7 @@ namespace OES
         static public Paper paper=new Paper();
         private static int currentProblemNum = 0;
         public static Boolean isResume = false;
+        public static string password = "";
 
         #region 窗体逻辑控制
         private static LoginForm loginForm = null;
@@ -144,7 +145,7 @@ namespace OES
         {
             if (RARHelper.Exists())
             {
-                RARHelper.CompressRAR(Config.stuPath, student.ID+".rar", Config.stuPath);
+                RARHelper.CompressRAR(Config.stuPath, student.ID + ".rar", Config.stuPath, password);
             }
             else
             {

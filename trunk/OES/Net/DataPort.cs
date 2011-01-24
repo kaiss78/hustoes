@@ -109,7 +109,7 @@ namespace OES.Net
             Byte[] buffer = new Byte[1024];
             FileStream file = new FileStream(@filePath, FileMode.Create, FileAccess.Write);
             byteRead = receiver_ns.Read(buffer, 0, 1024);
-            ClientControl.ExamForm.perPackage = (int)(1000 * 1024 / fileLength);
+            ClientControl.ExamForm.perPackage = (int)(1000 * 1024 / fileLength)+1;
             while (byteRead > 0)
             {
                 file.Write(buffer, 0, byteRead);
