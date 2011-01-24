@@ -333,9 +333,11 @@
             // 
             // ItemPanel
             // 
+            this.ItemPanel.AutoScroll = true;
             this.ItemPanel.BackColor = System.Drawing.Color.Transparent;
             this.ItemPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ItemPanel.Location = new System.Drawing.Point(5, 5);
+            this.ItemPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.ItemPanel.Name = "ItemPanel";
             this.ItemPanel.Size = new System.Drawing.Size(507, 656);
             this.ItemPanel.TabIndex = 0;
