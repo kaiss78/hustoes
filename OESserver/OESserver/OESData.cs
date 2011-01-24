@@ -1769,6 +1769,96 @@ namespace OES
             return problemList;
         }
 
+        //-- Description:   查找C语言填空试题的ID和题目
+        public List<Problem> FindCCompletionProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCCompletionProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C++填空试题的ID和题目
+        public List<Problem> FindCppCompletionProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCppCompletionProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C语言编程试题的ID和题目
+        public List<Problem> FindCFunProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCFunProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C++编程试题的ID和题目
+        public List<Problem> FindCppFunProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCppFunProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C语言改错试题的ID和题目
+        public List<Problem> FindCModificationProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCModificationProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C++改错试题的ID和题目
+        public List<Problem> FindCppModificationProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCppModificationProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
         private List<Problem> DataSetToProblemList(DataSet p_DataSet)
         {
             List<Problem> res = new List<Problem>();
