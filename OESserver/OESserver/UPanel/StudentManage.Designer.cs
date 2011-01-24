@@ -121,6 +121,7 @@
             this.studentInfoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentInfoDGV.Size = new System.Drawing.Size(714, 487);
             this.studentInfoDGV.TabIndex = 0;
+            this.studentInfoDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentInfoDGV_CellClick);
             // 
             // btnEdit
             // 

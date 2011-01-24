@@ -74,9 +74,19 @@ namespace OES.UPanel
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确认删除这些学生信息？", "学生管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            List<string> del = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                //TODO: Delete them.
+                if (Convert.ToBoolean(dt.Rows[i][0]) == true)
+                    del.Add(dt.Rows[i][1].ToString());
+            }
+            if (MessageBox.Show("确认删除这些学生信息？", "学生管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                for (int i = 0; i < del.Count; i++) { }
+                    //InfoControl.OesData.DeleteStudent(del[i]);
+                    //MessageBox.Show("删除完成！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("貌似完成了");
+                getStudentTable();
             }
         }
 
@@ -131,6 +141,15 @@ namespace OES.UPanel
         }
 
         private void teacherInfoDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RIndex = e.RowIndex;
+            if (RIndex > -1)
+            {
+                dt.Rows[RIndex][0] = !Convert.ToBoolean(dt.Rows[RIndex][0]);
+            }
+        }
+
+        private void studentInfoDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RIndex = e.RowIndex;
             if (RIndex > -1)

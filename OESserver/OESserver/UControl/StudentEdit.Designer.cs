@@ -92,6 +92,7 @@
             // 
             // comboClass
             // 
+            this.comboClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboClass.FormattingEnabled = true;
             this.comboClass.Location = new System.Drawing.Point(187, 212);
             this.comboClass.Name = "comboClass";
@@ -145,6 +146,7 @@
             this.btnEdit.TabIndex = 11;
             this.btnEdit.Text = "修改";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnReturn
             // 
@@ -158,11 +160,13 @@
             // 
             // comboDept
             // 
+            this.comboDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDept.FormattingEnabled = true;
             this.comboDept.Location = new System.Drawing.Point(187, 166);
             this.comboDept.Name = "comboDept";
             this.comboDept.Size = new System.Drawing.Size(184, 24);
             this.comboDept.TabIndex = 14;
+            this.comboDept.SelectedIndexChanged += new System.EventHandler(this.comboDept_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -193,7 +197,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("宋体", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentEdit";
             this.Size = new System.Drawing.Size(710, 510);
             this.ResumeLayout(false);
