@@ -31,12 +31,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.procon = new System.Windows.Forms.RichTextBox();
             this.title = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.chptlbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.anstxt = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -73,16 +72,15 @@
             this.title.TabIndex = 1;
             this.title.Text = "填空题";
             // 
-            // label1
+            // chptlbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(477, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 27);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "无";
+            this.chptlbl.AutoSize = true;
+            this.chptlbl.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chptlbl.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.chptlbl.Location = new System.Drawing.Point(415, 30);
+            this.chptlbl.Name = "chptlbl";
+            this.chptlbl.Size = new System.Drawing.Size(0, 27);
+            this.chptlbl.TabIndex = 2;
             // 
             // label2
             // 
@@ -103,6 +101,7 @@
             this.button5.TabIndex = 5;
             this.button5.Text = "保存";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -117,25 +116,16 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.anstxt);
             this.flowLayoutPanel1.Controls.Add(this.richTextBox2);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(42, 315);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(507, 99);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
-            // anstxt
-            // 
-            this.anstxt.Location = new System.Drawing.Point(3, 3);
-            this.anstxt.Name = "anstxt";
-            this.anstxt.Size = new System.Drawing.Size(485, 78);
-            this.anstxt.TabIndex = 1;
-            this.anstxt.Text = "";
-            // 
             // richTextBox2
             // 
             this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox2.Location = new System.Drawing.Point(3, 87);
+            this.richTextBox2.Location = new System.Drawing.Point(3, 3);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(495, 0);
             this.richTextBox2.TabIndex = 0;
@@ -171,7 +161,7 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chptlbl);
             this.Controls.Add(this.title);
             this.Controls.Add(this.groupBox1);
             this.Name = "CompletionEdit";
@@ -187,7 +177,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label chptlbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox procon;
         private System.Windows.Forms.Button button5;
@@ -195,7 +185,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox anstxt;
         private System.Windows.Forms.Button button2;
     }
 }

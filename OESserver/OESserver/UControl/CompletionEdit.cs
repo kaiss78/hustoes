@@ -15,10 +15,16 @@ namespace OES.UControl
     {
         ProMan aProMan;
         List<RichTextBox> AnswerList = new List<RichTextBox>();
+        public bool isnew = false;
+
         public CompletionEdit(ProMan pm)
         {
             InitializeComponent();
             aProMan = pm;
+            RichTextBox temp = new RichTextBox();
+            temp.Size = new Size(495, 83);
+            AnswerList.Add(temp);
+            flowLayoutPanel1.Controls.Add(temp);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,9 +37,12 @@ namespace OES.UControl
 
         public void fill(List<Completion> acompletion)
         {
+            chptlbl.Text = ChptList.click_name;
             procon.Text = acompletion[0].problem;
-            anstxt.Text = acompletion[0].ans[0];
-            for (int i = 1; i < acompletion[0].ans.Count; i++)
+
+            flowLayoutPanel1.Controls.Remove(AnswerList[AnswerList.Count - 1]);
+            AnswerList.Clear();
+            for (int i = 0; i < acompletion[0].ans.Count; i++)
             {
                 RichTextBox temp = new RichTextBox();
                 temp.Size = new Size(495, 83);
@@ -56,8 +65,38 @@ namespace OES.UControl
         private void button6_Click(object sender, EventArgs e)
         {
             aProMan.bottomPanel.Show();
+            aProMan.titlePanel.Show();
             aProMan.aProList.Show();
             this.Hide(); 
+        }
+
+        //提取标准答案
+        private List<string> AnswerString()
+        {
+            List<string> aList = new List<string>();
+            for (int i = 0; i < AnswerList.Count; i++)
+            {
+                aList.Add(AnswerList[i].Text);
+            }
+            return aList;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (!isnew)
+            {
+                InfoControl.OesData.UpdateCompletion(ProList.click_proid, procon.Text, Convert.ToInt32(ChptList.click_num), AnswerString());
+            }
+            else
+            {
+                InfoControl.OesData.AddCompletion(procon.Text,"", Convert.ToInt32(ChptList.click_num), AnswerString());
+            }
+            
+            MessageBox.Show("保存成功！");
+            aProMan.bottomPanel.Show();
+            aProMan.titlePanel.Show();
+            this.Hide();
+            aProMan.aChptList.newpl();
         }
     }
 }

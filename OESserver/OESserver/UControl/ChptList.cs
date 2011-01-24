@@ -27,6 +27,7 @@ namespace OES.UControl
         ProMan aProMan;
         public string selectedchpt;
         public static string click_num="0";
+        public static string click_name = "";
         ProList aProList;
 
         public ChptList(ProMan pm)
@@ -154,6 +155,13 @@ namespace OES.UControl
         void temp_MouseClick(object sender, MouseEventArgs e)
         {
             click_num =Convert.ToString(((Button)sender).Tag);
+            click_name = ((Button)sender).Text;
+            newpl();
+        }
+
+        //装载题目预览
+        public void newpl()
+        {
             if (aProMan.Controls.Contains(aProList))
             {
                 aProMan.aProList.Dispose();
@@ -162,27 +170,27 @@ namespace OES.UControl
             switch (aProMan.ProType)
             {
                 case 0:
-                    Loadpl(InfoControl.OesData.FindChoiceByUnit(Convert.ToInt32(click_num)),0);
+                    Loadpl(InfoControl.OesData.FindChoiceByUnit(Convert.ToInt32(click_num)), 0);
                     aProList = new ProList(aProMan);
-                    aProList.SetBounds(ProMan.ClWidth,ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                     aProMan.aProList = aProList;
-                    aProMan.Controls.Add(aProList);                 
+                    aProMan.Controls.Add(aProList);
                     break;
                 case 1:
-                    Loadpl(InfoControl.OesData.FindCompletionByUnit2(Convert.ToInt32(click_num)),1);
+                    Loadpl(InfoControl.OesData.FindCompletionByUnit2(Convert.ToInt32(click_num)), 1);
                     aProList = new ProList(aProMan);
                     aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                     aProMan.aProList = aProList;
                     aProMan.Controls.Add(aProList);
                     break;
                 case 2:
-                    Loadpl(InfoControl.OesData.FindTofByUnit(Convert.ToInt32(click_num)),2);
+                    Loadpl(InfoControl.OesData.FindTofByUnit(Convert.ToInt32(click_num)), 2);
                     aProList = new ProList(aProMan);
                     aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                     aProMan.aProList = aProList;
                     aProMan.Controls.Add(aProList);
                     break;
-                default:                   
+                default:
                     break;
             }
         }

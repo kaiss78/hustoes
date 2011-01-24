@@ -16,12 +16,15 @@ namespace OES.UControl
     public partial class ChoiceEdit : UserControl
     {
         ProMan aProMan;
+        public string answer;
+        public bool isnew = false; 
+
         public ChoiceEdit(ProMan pm)
         {
             InitializeComponent();
             aProMan = pm;
 
-            A.BackgroundImage = Resources.circle_black;
+            A.BackgroundImage = Resources.circle_red;
             A.BackgroundImageLayout = ImageLayout.Stretch;
             B.BackgroundImage = Resources.circle_black;
             B.BackgroundImageLayout = ImageLayout.Stretch;
@@ -29,6 +32,8 @@ namespace OES.UControl
             C.BackgroundImageLayout = ImageLayout.Stretch;
             D.BackgroundImage = Resources.circle_black;
             D.BackgroundImageLayout = ImageLayout.Stretch;
+
+            
 
         }
 
@@ -40,9 +45,10 @@ namespace OES.UControl
             aProMan.aProList.Show();
             this.Hide();          
         }
-
-        public void fill(List<Choice> achoice)
+        //填充进题目信息
+        public void fill(List<Choice> achoice,string chpt)
         {
+            chptlbl.Text = ChptList.click_name;
             procon.Text = achoice[0].problem;
             Atxt.Text = achoice[0].optionA;
             Btxt.Text = achoice[0].optionB;
@@ -66,6 +72,9 @@ namespace OES.UControl
             }
         }
 
+        //写入函数，题目信息写进数据库
+
+        //对选项按钮进行控制，无法多选
         public void optioncontrol(string s)
         {
             switch (s)
@@ -75,24 +84,28 @@ namespace OES.UControl
                     B.BackgroundImage = Resources.circle_black;
                     C.BackgroundImage = Resources.circle_black;
                     D.BackgroundImage = Resources.circle_black;
+                    answer = "A";
                     break;
                 case "B":
                     A.BackgroundImage = Resources.circle_black;
                     B.BackgroundImage = Resources.circle_red;
                     C.BackgroundImage = Resources.circle_black;
                     D.BackgroundImage = Resources.circle_black;
+                    answer = "B";
                     break;
                 case "C":
                     A.BackgroundImage = Resources.circle_black;
-                    B.BackgroundImage = Resources.circle_red;
-                    C.BackgroundImage = Resources.circle_black;
+                    B.BackgroundImage = Resources.circle_black;
+                    C.BackgroundImage = Resources.circle_red;
                     D.BackgroundImage = Resources.circle_black;
+                    answer = "C";
                     break;
                 case "D":
                     A.BackgroundImage = Resources.circle_black;
                     B.BackgroundImage = Resources.circle_black;
                     C.BackgroundImage = Resources.circle_black;
                     D.BackgroundImage = Resources.circle_red;
+                    answer = "D";
                     break;
 
 
@@ -117,6 +130,23 @@ namespace OES.UControl
         private void D_Click(object sender, EventArgs e)
         {
             optioncontrol("D");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (!isnew)
+            {
+                InfoControl.OesData.UpdateChoice(ProList.click_proid, procon.Text, Atxt.Text, Btxt.Text, Ctxt.Text, Dtxt.Text, answer, Convert.ToInt32(ChptList.click_num));
+            }
+            else
+            {
+                InfoControl.OesData.AddChoice( procon.Text, Atxt.Text, Btxt.Text, Ctxt.Text, Dtxt.Text, answer, Convert.ToInt32(ChptList.click_num));
+            }
+            MessageBox.Show("保存成功！");
+            aProMan.bottomPanel.Show();
+            aProMan.titlePanel.Show();
+            this.Hide();
+            aProMan.aChptList.newpl();
         }
 
 
