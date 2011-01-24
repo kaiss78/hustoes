@@ -23,26 +23,34 @@ namespace OES.UPanel
         public PaperEditPanel()
         {
             InitializeComponent();
+            ItemList = new List<ProblemItem>();
         }
 
         public void LoadPro<T>(List<T> proList) where T : Problem
-        {
-            ItemList = new List<ProblemItem>();
-            ItemPanel.Controls.Clear();
-            for (int i = 0; i < proList.Capacity; i++)
+        {                        
+            while (proList.Capacity > ItemList.Count)
             {
                 tmpItem = new ProblemItem();
-                tmpItem.ItemNo.Text = (i + 1).ToString();
+                tmpItem.ItemNo.Text = (ItemList.Count+1).ToString();
                 tmpItem.ItemText.Text = "-";
-
-                if (!proList[i].Equals(null))
-                {
-                    tmpItem.ItemText.Text = proList[i].problem;
-                }
-                ItemList.Add(tmpItem);
-                ItemPanel.Controls.Add(tmpItem);
                 tmpItem.Margin = new System.Windows.Forms.Padding(0);
                 tmpItem.Padding = new System.Windows.Forms.Padding(0);
+                ItemList.Add(tmpItem);
+                ItemPanel.Controls.Add(tmpItem);
+            }
+            while (proList.Capacity < ItemList.Count)
+            {
+                ItemPanel.Controls.Remove(ItemList[ItemList.Count-1]);
+                ItemList.RemoveAt(ItemList.Count-1);                
+            }
+            for (int i = 0; i < proList.Capacity; i++)
+            {
+
+                ItemList[i].ItemText.Text = "-";
+                if (!proList[i].Equals(null))
+                {
+                    ItemList[i].ItemText.Text = proList[i].problem;
+                }
             }
         }
 

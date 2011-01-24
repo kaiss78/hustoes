@@ -64,6 +64,7 @@ namespace OES.UPanel
         private void Count_Click(object sender, EventArgs e)
         {
             this.count();
+            MessageBox.Show(TestTime.Text);
         }
 
         override public void ReLoad()
@@ -116,7 +117,7 @@ namespace OES.UPanel
                 programstate = 0;
             }
 
-            InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text, InfoControl.User.Id, programstate);            
+            InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text, InfoControl.User.Id, programstate);
             InfoControl.TmpPaper.paperName = PaperName.Text;
             InfoControl.TmpPaper.programState = programstate;
             InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
@@ -134,7 +135,7 @@ namespace OES.UPanel
             Judge tmpJudge = new Judge();
             tmpJudge.problemId = -1;
             tmpJudge.problem = "-";
-            for (int i = 0; i < InfoControl.TmpPaper.choice.Capacity;i++ )
+            for (int i = 0; i < InfoControl.TmpPaper.choice.Capacity; i++)
             {
                 InfoControl.TmpPaper.choice.Add(tmpChoice);
             }
@@ -147,7 +148,7 @@ namespace OES.UPanel
                 InfoControl.TmpPaper.judge.Add(tmpJudge);
             }
             InfoControl.TmpPaper.officeWord.exist = flag[3] == 1;
-            InfoControl.TmpPaper.officeExcel.exist =flag[4]==1;           
+            InfoControl.TmpPaper.officeExcel.exist = flag[4] == 1;
             InfoControl.TmpPaper.officePPT.exist = flag[5] == 1;
             InfoControl.TmpPaper.pCompletion.exist = flag[6] == 1;
             InfoControl.TmpPaper.pModif.exist = flag[7] == 1;
@@ -155,12 +156,7 @@ namespace OES.UPanel
 
             XMLControl.CreatePaperXML(InfoControl.TmpPaper.paperPath, InfoControl.TmpPaper.paperID);
             PanelControl.ChangPanel(19);
-        }
-
-        private void EditPaper_Click(object sender, EventArgs e)
-        {
-
-        }
+        }        
     }
 
 }
