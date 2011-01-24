@@ -1745,6 +1745,21 @@ namespace OES
             return problemList;
         }
 
+        //-- Description:   查找Word试题的ID和题目
+        public List<Problem> FindWordProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindWordProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
         private List<Problem> DataSetToProblemList(DataSet p_DataSet)
         {
             List<Problem> res = new List<Problem>();
