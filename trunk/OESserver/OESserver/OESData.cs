@@ -35,11 +35,16 @@ namespace OES
             //string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
             //strConnection += "initial catalog=OESDB;Server=localhost;";
             //strConnection += "Connect Timeout=30"; 
-            sqlcon = new SqlConnection();
             //string strConnection = "Trusted_Connection=SSPI;";
             //strConnection += "initial catalog=OESDB;Server=localhost;";
             //strConnection += "Connect Timeout=30";
-            string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
+
+            //string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
+
+            string strConnection = @"Data Source=.\SQLEXPRESS;
+                AttachDbFilename=G:\C#\OESserver\OESserver\OESserver\OESDB.mdf;
+                Integrated Security=True;Connect Timeout=30;User Instance=True";
+
             sqlcon.ConnectionString = strConnection;
 
 
@@ -1673,6 +1678,42 @@ namespace OES
             }
             deptStringList = DataSetToDeptStringList(Ds);
             return deptStringList;
+        }
+
+        //-- Description:   查找Excel试题的ID和题目
+        public List<Problem> FindExcelProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindExcelProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        private List<Problem> DataSetToProblemList(DataSet p_DataSet)
+        {
+            List<Problem> res = new List<Problem>();
+            DataTable dt = p_DataSet.Tables[0];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Problem pb = new Problem();
+                pb.problemId = Convert.ToInt32(dt.Rows[i][0]);
+                pb.problem = dt.Rows[i][1].ToString();
+                res.Add(pb);
+            }
+            return res;
         }
 
         private List<string> DataSetToDeptStringList(DataSet p_DataSet)
