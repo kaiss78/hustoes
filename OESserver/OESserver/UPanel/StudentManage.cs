@@ -15,6 +15,7 @@ namespace OES.UPanel
     {
         StudentAdd stuAdd;
         StudentEdit stuEdit;
+        StudentFind stuFind;
 
         private DataTable dt;
 
@@ -23,6 +24,7 @@ namespace OES.UPanel
             InitializeComponent();
             stuAdd = null;
             stuEdit = null;
+            stuFind = null;
         }
 
         public override void ReLoad()
@@ -39,6 +41,7 @@ namespace OES.UPanel
         {
             if (stuEdit != null) { stuEdit.Dispose(); }
             if (stuAdd != null) { stuAdd.Dispose(); }
+            if (stuFind != null) { stuFind.Dispose(); }
         }
 
         private void changeBtnEnable(bool en)               //改变下方增删改查按钮的可用性
@@ -57,6 +60,17 @@ namespace OES.UPanel
             stuAdd.Dock = DockStyle.Fill;
         }
 
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            changeBtnEnable(false);
+            studentInfoDGV.Visible = false;
+            studentInfoGroup.Text = "查找学生";
+            stuFind = new StudentFind();
+            stuFind.Disposed += new EventHandler(stuOperation_Disposed);
+            studentInfoGroup.Controls.Add(stuFind);
+            stuFind.Dock = DockStyle.Fill;
+        }
+        
         private void btnEdit_Click(object sender, EventArgs e)
         {
             int cr = studentInfoDGV.CurrentRow.Index;
@@ -157,6 +171,6 @@ namespace OES.UPanel
                 dt.Rows[RIndex][0] = !Convert.ToBoolean(dt.Rows[RIndex][0]);
             }
         }
-        
+
     }
 }
