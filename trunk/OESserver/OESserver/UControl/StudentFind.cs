@@ -14,6 +14,12 @@ namespace OES.UControl
         public StudentFind()
         {
             InitializeComponent();
+            radioByName.Checked = true;
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
