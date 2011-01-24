@@ -28,18 +28,21 @@ namespace OES.UPanel
         public void LoadPro<T>(List<T> proList) where T : Problem
         {
             ItemList = new List<ProblemItem>();
+            ItemPanel.Controls.Clear();
             for (int i = 0; i < proList.Capacity; i++)
             {
                 tmpItem = new ProblemItem();
                 tmpItem.ItemNo.Text = (i + 1).ToString();
                 tmpItem.ItemText.Text = "-";
-
+                
                 if (!proList[i].Equals(null))
                 {
                     tmpItem.ItemText.Text = proList[i].problem;
                 }                
                 ItemList.Add(tmpItem);
                 ItemPanel.Controls.Add(tmpItem);
+                tmpItem.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+                tmpItem.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);                
             }
         }
 
