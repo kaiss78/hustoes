@@ -237,6 +237,31 @@ namespace OESMonitor.Net
                             break;
                         }
 
+                    case 4:
+                        {
+                            msgs = client.msg.Split(new char[] { '$' });
+                            switch (Convert.ToInt32(msgs[0]))
+                            {
+                                case 0:
+                                    client.computer.State = 3;
+                                    break;
+                                case 1:
+                                    client.computer.State = 6;
+                                    break;
+                                case 2:
+                                    client.computer.State = 7;
+                                    break;
+                                case 3:
+                                    client.computer.State = 8;
+                                    break;
+                            }
+                            break;
+                        }
+                    case 5:
+                        {
+                            client.computer.State = 1;
+                            break;
+                        }
                     case -1:
                         if (client.EndConnection())
                             client.EndService();

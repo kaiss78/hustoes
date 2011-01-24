@@ -43,7 +43,7 @@ namespace OESMonitor.Net
 
         public void port_paperDelivered(object sender, EventArgs e)
         {
-            this.computer.State = 3;
+            this.computer.State = 5;
         }
 
         public string clientInfo()
@@ -111,7 +111,10 @@ namespace OESMonitor.Net
             }
             catch
             {
-                computer.State = 0;;
+                computer.State = 0;
+                this.EndConnection();
+                this.EndService();
+                Computer.Del(computer);
             }
         }
 

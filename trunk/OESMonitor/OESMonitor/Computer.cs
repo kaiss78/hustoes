@@ -13,6 +13,12 @@ namespace OESMonitor
     public partial class Computer : UserControl
     {
         private static List<Computer> computerList = new List<Computer>();
+
+        public static List<Computer> ComputerList
+        {
+            get { return Computer.computerList; }
+            //set { Computer.computerList = value; }
+        }
        
         private int state=0;
 
@@ -55,7 +61,7 @@ namespace OESMonitor
                         this.Invoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s3;
-                            lab.Text = "考试中";
+                            lab.Text = "开始考试";
                             
                         }));
                         break;
@@ -65,6 +71,38 @@ namespace OESMonitor
                             ico.BackgroundImage = Properties.Resources.s4;
                             lab.Text = "已交卷";
                             
+                        }));
+                        break;
+                    case 5:
+                        this.Invoke(new MethodInvoker(() =>
+                        {
+                            ico.BackgroundImage = Properties.Resources.s2;
+                            lab.Text = "已发卷";
+
+                        }));
+                        break;
+                    case 6:
+                        this.Invoke(new MethodInvoker(() =>
+                        {
+                            ico.BackgroundImage = Properties.Resources.s3;
+                            lab.Text = "恢复考试";
+
+                        }));
+                        break;
+                    case 7:
+                        this.Invoke(new MethodInvoker(() =>
+                        {
+                            ico.BackgroundImage = Properties.Resources.s7;
+                            lab.Text = "申请重考";
+
+                        }));
+                        break;
+                    case 8:
+                        this.Invoke(new MethodInvoker(() =>
+                        {
+                            ico.BackgroundImage = Properties.Resources.s3;
+                            lab.Text = "开始重考";
+
                         }));
                         break;
                     default:
@@ -132,6 +170,10 @@ namespace OESMonitor
         public static void Add(Computer c)
         {
             computerList.Add(c);
+        }
+        public static void Del(Computer c)
+        {
+            computerList.Remove(c);
         }
     }
 }

@@ -12,7 +12,6 @@ namespace OESMonitor
 {
     public partial class OESMonitor : Form
     {
-        public List<Computer> ComputerList = new List<Computer>();
         CommandLine cl = new CommandLine();
        
         public OESMonitor()
@@ -27,10 +26,9 @@ namespace OESMonitor
             {
                 Computer com = new Computer();
                 com.CreateControl();
-                Computer.Add(com);
                 com.State = 1;
                 com.Client = client;
-                ComputerList.Add(com);
+                Computer.Add(com);
 
                 UpdateList();
             }));
@@ -38,7 +36,7 @@ namespace OESMonitor
         private void UpdateList()
         {
             flowLayoutPanel1.Controls.Clear();
-            foreach (Computer c in ComputerList)
+            foreach (Computer c in Computer.ComputerList)
             {
                 flowLayoutPanel1.Controls.Add(c);
             }
