@@ -15,5 +15,10 @@ namespace OES.UControl
         {
             InitializeComponent();
         }
+
+        private void ItemText_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
