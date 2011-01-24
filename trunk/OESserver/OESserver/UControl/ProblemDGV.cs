@@ -23,28 +23,31 @@ namespace OES.UControl
         {
             dt=new DataTable();
             dt.Columns.Add("题号", typeof (int));
-            dt.Columns.Add("题干", typeof (string));
+            dt.Columns.Add("题干", typeof (Button));
             object[] values = new object[2];
             for(int i=0;i<proList.Capacity;i++)
             {
                 values[0] = i;
-                values[1] = "-";
+                Button tmp = new Button();
+                tmp.Text = "-";
+                //values[1] = "-";
                 if(!proList[i].Equals(null))
                 {
-                    values[1] = proList[i].problem;
+                    //values[1] = proList[i].problem;
+                    tmp.Text = proList[i].problem;
                 }
+                values[1] = tmp;
                 dt.Rows.Add(values);
             }
 
             proDGV.DataSource = dt;
             proDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
+            proListBox.DataSource = dt;
             proDGV.Columns[0].FillWeight = 10;
             proDGV.Columns[1].FillWeight = 90;
 
             proDGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
             proDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
         }
-
     }
 }
