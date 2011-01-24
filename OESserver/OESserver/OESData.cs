@@ -718,6 +718,9 @@ namespace OES
             DataSet DsAns = new DataSet();
 
             RunProc("FindCompletionById", ddlparam, Ds);
+
+            ddlparam[0] = CreateParam("@P_Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+
             RunProc("FindCompletionAnsByPId", ddlparam, DsAns);
 
             completion = DataSetToListCompletion(Ds, DsAns);
