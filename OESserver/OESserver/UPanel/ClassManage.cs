@@ -37,6 +37,8 @@ namespace OES.UPanel
         private void disposeControl()                       //消除原来产生的UserControl
         {
             if (clsEdit != null) { clsEdit.Dispose(); }
+            if (clsFind != null) { clsFind.Dispose(); }
+            if (clsAdd != null) { clsAdd.Dispose(); }
         }
 
         private void changeBtnEnable(bool en)               //改变下方增删改查按钮的可用性
