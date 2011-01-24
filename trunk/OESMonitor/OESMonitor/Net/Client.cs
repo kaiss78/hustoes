@@ -46,9 +46,21 @@ namespace OESMonitor.Net
             this.computer.State = 5;
         }
 
+        public void port_answerHanded(object sender, EventArgs e)
+        {
+            this.computer.State = 4;
+        }
+
         public string clientInfo()
         {
-            return (client.Client.RemoteEndPoint.ToString());
+            try
+            {
+                return (client.Client.RemoteEndPoint.ToString());
+            }
+            catch
+            {
+                return "";
+            }
         }
 
         //结束本连接
@@ -111,10 +123,14 @@ namespace OESMonitor.Net
             }
             catch
             {
-                computer.State = 0;
+                if (computer.State != 4)
+                {
+                    computer.State = 0;
+                    Computer.Del(computer);
+                }
                 this.EndConnection();
                 this.EndService();
-                Computer.Del(computer);
+                
             }
         }
 
@@ -230,7 +246,7 @@ namespace OESMonitor.Net
 
         public void ReceiveData()
         {
-            fileName = "用户信息" + remoteIP.ToString() + "-" + remotePort.ToString() + "paper.ppt";
+            fileName = this.computer.Student.ID + ".rar";
            if(!(port.DownloadData(remoteIP, remotePort, fileName)))
            {
                //网络出错处理程序

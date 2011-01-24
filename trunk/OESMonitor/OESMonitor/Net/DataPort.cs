@@ -34,6 +34,8 @@ namespace OESMonitor.Net
         //试卷发放完毕事件
         public event EventHandler paperDelivered;
 
+        //试卷接受完毕事件
+        public event EventHandler answerHanded;
         public DataPort(IPAddress ip, int localPort)
         {
             this.ip = ip;
@@ -120,6 +122,8 @@ namespace OESMonitor.Net
             receiver_ns.Dispose();
             dataReceiver.Close();
             file.Close();
+
+            answerHanded(this, null);
 
             if (portRecycle != null)
                 portRecycle(this);

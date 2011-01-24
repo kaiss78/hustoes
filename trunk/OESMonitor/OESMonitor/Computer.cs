@@ -165,7 +165,14 @@ namespace OESMonitor
             this.BorderStyle = BorderStyle.FixedSingle;
             ComputerState.getInstance().setStudent(student);
             ComputerState.getInstance().setState(lab.Text);
-            ComputerState.getInstance().setIpPort(client.clientInfo().Split(':')[0], Convert.ToInt32(client.clientInfo().Split(':')[1]));
+            if (client.clientInfo() != "")
+            {
+                ComputerState.getInstance().setIpPort(client.clientInfo().Split(':')[0], Convert.ToInt32(client.clientInfo().Split(':')[1]));
+            }
+            else
+            {
+                ComputerState.getInstance().setIpPort("已离开", 0);
+            }
         }
         public static void Add(Computer c)
         {
