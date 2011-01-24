@@ -15,7 +15,6 @@ namespace OES.UPanel
         public static int TpHeight;
         public static int PlWidth;
         public static int BpHeight;
-        private bool selectall=false;
         private readonly List<Label> titleList = new List<Label>();
         public Panel bottomPanel = new Panel();
         public Panel titlePanel = new Panel();
@@ -103,6 +102,7 @@ namespace OES.UPanel
             delete.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(delete);
             delete.FlatStyle = FlatStyle.Popup;
+            delete.MouseClick += new MouseEventHandler(delete_MouseClick);
 
             Button add = new Button();
             add.Height = 60;
@@ -115,6 +115,7 @@ namespace OES.UPanel
             add.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(add);
             add.FlatStyle = FlatStyle.Popup;
+            add.MouseClick += new MouseEventHandler(add_MouseClick);
 
             titlePanel.SetBounds(ClWidth,0, PlWidth,TpHeight);
             titlePanel.BackColor = Color.Transparent;
@@ -217,13 +218,23 @@ namespace OES.UPanel
             EditList.Add(aChoiceEdit);
         }
 
+        void add_MouseClick(object sender, MouseEventArgs e)
+        {
+            newedit(ProType);
+        }
+
+        void delete_MouseClick(object sender, MouseEventArgs e)
+        {
+            delete();
+            aChptList.newpl();
+        }
+
         void cselect_MouseClick(object sender, MouseEventArgs e)
         {
-            selectall = false;
-            aProList.checkNumList.Clear();
-            for (int i = 0; i < aProList.checkClickList.Count; i++)
+            aProList.acheckproList.Clear();
+            for (int i = 0; i < aProList.acheckproList.Count; i++)
             {
-                aProList.checkClickList[i] = false;
+                aProList.acheckproList[i].selected = false;
                 aProList.checkList[i].BackgroundImage = Resources.circle_black;
 
             }
@@ -231,13 +242,82 @@ namespace OES.UPanel
 
         void select_MouseClick(object sender, MouseEventArgs e)
         {
-            selectall = true;
-            aProList.checkNumList.Clear();
-            for (int i = 0; i < aProList.checkClickList.Count; i++)
+            aProList.acheckproList.Clear();
+            for (int i = 0; i < aProList.acheckproList.Count; i++)
             {
-                aProList.checkClickList[i] = true;
+                aProList.acheckproList[i].selected = true;
                 aProList.checkList[i].BackgroundImage = Resources.circle_red;
-                aProList.checkNumList.Add(i);
+            }
+        }
+
+        public void newedit(int pt)
+        {
+            
+            aProList.Hide();
+            bottomPanel.Hide();
+            titlePanel.Hide();
+
+            switch (pt)
+            {
+                case 0:
+                    aChoiceEdit.Dispose();
+                    aChoiceEdit = new ChoiceEdit(this);
+                    aChoiceEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aChoiceEdit);
+                    EditList[pt]=aChoiceEdit;
+                    aChoiceEdit.isnew = true;
+                    break;
+                case 1:
+                    aCompletionEdit.Dispose();
+                    aCompletionEdit = new CompletionEdit(this);
+                    aCompletionEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aCompletionEdit);
+                    EditList[pt] = aCompletionEdit;
+                    aCompletionEdit.isnew = true;
+                    break;
+                case 2:
+                    aJudgeEdit.Dispose();
+                    aJudgeEdit = new JudgeEdit(this);
+                    aJudgeEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aJudgeEdit);
+                    EditList[pt] = aJudgeEdit;
+                    aJudgeEdit.isnew = true;
+                    break;
+            }
+            EditList[pt].Show();
+            for (int i = 0; i < 12 && i != pt; i++)
+            {
+                EditList[i].Hide();
+            }
+
+            
+        }
+
+        public void delete()
+        {
+            for (int i = 0; i < aProList.acheckproList.Count; i++)
+            {
+                if (aProList.acheckproList[i].selected)
+                {
+                    switch (ProType)
+                    { 
+                        case 0:
+                            InfoControl.OesData.DeleteChoiceById(aProList.acheckproList[i].proid);
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 1:
+                            InfoControl.OesData.DeleteCompletionById(aProList.acheckproList[i].proid);
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 2:
+                            InfoControl.OesData.DeleteTofById(aProList.acheckproList[i].proid);
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                }
             }
         }
 

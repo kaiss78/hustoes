@@ -31,7 +31,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.procon = new System.Windows.Forms.RichTextBox();
             this.title = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.chptlbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Dtxt = new System.Windows.Forms.RichTextBox();
@@ -81,16 +81,15 @@
             this.title.TabIndex = 1;
             this.title.Text = "选择题";
             // 
-            // label1
+            // chptlbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(477, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 27);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "无";
+            this.chptlbl.AutoSize = true;
+            this.chptlbl.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chptlbl.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.chptlbl.Location = new System.Drawing.Point(416, 30);
+            this.chptlbl.Name = "chptlbl";
+            this.chptlbl.Size = new System.Drawing.Size(0, 27);
+            this.chptlbl.TabIndex = 2;
             // 
             // label2
             // 
@@ -250,6 +249,7 @@
             this.button5.TabIndex = 5;
             this.button5.Text = "保存";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -269,7 +269,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chptlbl);
             this.Controls.Add(this.title);
             this.Controls.Add(this.groupBox1);
             this.Name = "ChoiceEdit";
@@ -286,7 +286,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label chptlbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox procon;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

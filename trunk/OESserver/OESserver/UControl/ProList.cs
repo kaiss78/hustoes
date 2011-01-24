@@ -15,20 +15,20 @@ namespace OES.UControl
         private readonly List<int> subPanelStatus = new List<int>();
         private readonly List<Label> titleList = new List<Label>();
         public List<Button> checkList = new List<Button>();
-        public List<int> checkNumList=new List<int>();
-        public List<bool> checkClickList = new List<bool>();
+        public List<check> acheckproList = new List<check>();
     
         public static int btnHeight;
         public static int choWidth;
         public static int count = 10;
         public static int listWidth;
-        private Panel mainPanel;
+        public Panel mainPanel;
         public static int numWidth;
         public int page = 1;
         public static int proWidth;
 
         public int totalpage = 1;
         ProMan aProMan;
+        public static string click_proid = "";
 
 
         public ProList(ProMan pm)
@@ -65,28 +65,34 @@ namespace OES.UControl
                     checkButton.Location = new Point(0, (btnHeight * i));
                     checkButton.BackgroundImage = Resources.circle_black;
                     checkButton.BackgroundImageLayout = ImageLayout.Stretch;
+                    checkButton.Tag = i;
 
                     var templ2 = new Label();
                     templ2.Height = btnHeight;
                     templ2.ForeColor = Color.White;
                     templ2.BackColor = Color.Transparent;
                     templ2.Tag = ChptList.choiceproL[i].num;
-                    templ2.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+                    templ2.Font = new Font(new FontFamily("微软雅黑"), 20, FontStyle.Bold);
+                    templ2.TextAlign = ContentAlignment.MiddleCenter;
+                    templ2.AutoSize = false;
+                    
 
                     var templ3 = new Label();
                     templ3.Height = btnHeight;
                     templ3.ForeColor = Color.White;
                     templ3.BackColor = Color.Transparent;
                     templ3.Tag = ChptList.choiceproL[i].num;
-                    templ3.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+                    templ3.Font = new Font(new FontFamily("微软雅黑"), 15, FontStyle.Bold);
+                    templ3.TextAlign = ContentAlignment.MiddleCenter;
+                    templ3.AutoSize = false;
 
 
-                    templ2.Location = new Point(choWidth, 0);
+                    templ2.Location = new Point(0, 0);
                     templ2.Width = numWidth;
                     templ2.Text =ChptList.choiceproL[i].num;
 
-                    templ3.Location = new Point((choWidth + numWidth), 0);
-                    templ3.Width = choWidth;
+                    templ3.Location = new Point(numWidth, 0);
+                    templ3.Width = proWidth;
                     templ3.Text = ChptList.choiceproL[i].pro;
 
                     var temp = new Button();
@@ -105,8 +111,8 @@ namespace OES.UControl
 
                     mainPanel.Controls.Add(checkButton);
                     checkList.Add(checkButton);
-                    checkButton.Tag = checkList.Count;
-                    checkClickList.Add(false);
+                    check acheck = new check(false, ChptList.choiceproL[i].num);
+                    acheckproList.Add(acheck);
                                           
                     temp.MouseClick +=new MouseEventHandler(temp_MouseClick);
                     templ2.MouseClick += new MouseEventHandler(templ2_MouseClick);
@@ -121,17 +127,15 @@ namespace OES.UControl
         
         void checkButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if ((checkClickList[(int)((Button)sender).Tag]))
+            if (acheckproList[(int)((Button)sender).Tag].selected)
             {
                 ((Button)sender).BackgroundImage = Resources.circle_black;
-                checkClickList[(int)((Button)sender).Tag] = false;
-                checkNumList.Remove((int)((Button)sender).Tag);
+                acheckproList[(int)((Button)sender).Tag].selected = false;              
             }
             else
             {
                 ((Button)sender).BackgroundImage = Resources.circle_red;
-                checkClickList[(int)((Button)sender).Tag] = true;
-                checkNumList.Add((int)((Button)sender).Tag);
+                acheckproList[(int)((Button)sender).Tag].selected = true;
                 
             }
         }
@@ -164,6 +168,7 @@ namespace OES.UControl
 
         void change(int id,int pt)
         {
+            click_proid = Convert.ToString(id);
             loadpro(id, pt);
             aProMan.EditList[pt].Show();
             for (int i=0; i < 12 && i != pt; i++)
@@ -172,23 +177,45 @@ namespace OES.UControl
             }
         }
 
+        
+
         void loadpro(int id,int pt)
         {
+            
             switch (pt)
             {
                 case 0:
-                    aProMan.aChoiceEdit.fill(InfoControl.OesData.FindChoiceById(id.ToString()));
+                    aProMan.aChoiceEdit.isnew = false;
+                    aProMan.aChoiceEdit.fill(InfoControl.OesData.FindChoiceById(id.ToString()),"");
                     break;
                 case 1:
+                    aProMan.aCompletionEdit.isnew = false;
                     aProMan.aCompletionEdit.fill(InfoControl.OesData.FindCompletionById(id.ToString()));
                     break;
                 case 2:
-                    //aProMan.aJudgeEdit.fill(InfoControl.OesData.FindTofById(id.ToString()));
+                    aProMan.aJudgeEdit.isnew = false;
+                    aProMan.aJudgeEdit.fill(InfoControl.OesData.FindTofById(id.ToString()));
                     break;
                 default:
                     break;
             }
         }
+
+        #region Nested type: choicepro
+
+        public class check
+        {
+            public bool selected;
+            public string proid;
+
+            public check(bool s, string p)
+            {
+                selected = s;
+                proid = p;
+            }
+        }
+
+        #endregion
 
         
     }
