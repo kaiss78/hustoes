@@ -15,7 +15,6 @@ namespace OES.UControl
         {
             InitializeComponent();
             radioByDept.Checked = true;
-            textClass.Enabled = false;
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -23,14 +22,10 @@ namespace OES.UControl
             this.Dispose();
         }
 
-        private void radioByDept_CheckedChanged(object sender, EventArgs e)
+      
+        private void btnFind_Click(object sender, EventArgs e)
         {
-            textDept.Enabled = radioByDept.Checked;
-        }
 
-        private void radioByClass_CheckedChanged(object sender, EventArgs e)
-        {
-            textClass.Enabled = radioByClass.Checked;
         }
     }
 }
