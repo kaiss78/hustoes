@@ -325,8 +325,8 @@
             this.ControlPanel.Controls.Add(this.ItemPanel);
             this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlPanel.Location = new System.Drawing.Point(0, 0);
+            this.ControlPanel.Margin = new System.Windows.Forms.Padding(0);
             this.ControlPanel.Name = "ControlPanel";
-            this.ControlPanel.Padding = new System.Windows.Forms.Padding(5);
             this.ControlPanel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.ControlPanel.Size = new System.Drawing.Size(517, 666);
             this.ControlPanel.TabIndex = 0;
@@ -336,10 +336,10 @@
             this.ItemPanel.AutoScroll = true;
             this.ItemPanel.BackColor = System.Drawing.Color.Transparent;
             this.ItemPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemPanel.Location = new System.Drawing.Point(5, 5);
-            this.ItemPanel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.ItemPanel.Location = new System.Drawing.Point(0, 0);
+            this.ItemPanel.Margin = new System.Windows.Forms.Padding(0);
             this.ItemPanel.Name = "ItemPanel";
-            this.ItemPanel.Size = new System.Drawing.Size(507, 656);
+            this.ItemPanel.Size = new System.Drawing.Size(517, 666);
             this.ItemPanel.TabIndex = 0;
             // 
             // PaperEditPanel

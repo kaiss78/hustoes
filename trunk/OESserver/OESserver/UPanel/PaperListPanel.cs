@@ -83,6 +83,22 @@ namespace OES.UPanel
             }
         }
 
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToBoolean(MessageBox.Show("确定删除记录", "确认删除", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)))
+            {
+                for (int i = 0; i < paperListDataTable.Rows.Count; i++)
+                {
+                    if ((bool)paperListDataTable.Rows[i][0])
+                    {
+                        //MessageBox.Show("DELETE * FROM tb_Book WHERE BID=" + BookTable.Rows[i][1]);                                                
+                        InfoControl.OesData.DeletePaper(paperListDataTable.Rows[i]["试卷ID"].ToString());
+                    }
+                }
+                InitList();
+            }
+        }
+
 
     }
 }

@@ -125,6 +125,7 @@
             this.btnDel.TabIndex = 5;
             this.btnDel.Text = "删除试卷";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // PaperListPanel
             // 

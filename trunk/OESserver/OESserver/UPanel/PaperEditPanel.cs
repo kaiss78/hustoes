@@ -18,7 +18,7 @@ namespace OES.UPanel
         public OESData oesData;
         public List<IdScoreType> proIDList;
         private ProblemItem tmpItem;
-        public List<ProblemItem> ItemList;   
+        public List<ProblemItem> ItemList;
 
         public PaperEditPanel()
         {
@@ -34,15 +34,15 @@ namespace OES.UPanel
                 tmpItem = new ProblemItem();
                 tmpItem.ItemNo.Text = (i + 1).ToString();
                 tmpItem.ItemText.Text = "-";
-                
+
                 if (!proList[i].Equals(null))
                 {
                     tmpItem.ItemText.Text = proList[i].problem;
-                }                
+                }
                 ItemList.Add(tmpItem);
                 ItemPanel.Controls.Add(tmpItem);
-                tmpItem.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-                tmpItem.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);                
+                tmpItem.Margin = new System.Windows.Forms.Padding(0);
+                tmpItem.Padding = new System.Windows.Forms.Padding(0);
             }
         }
 
@@ -57,7 +57,7 @@ namespace OES.UPanel
             btnChoice.Visible = InfoControl.TmpPaper.choice.Capacity > 0;
             btnJudge.Visible = InfoControl.TmpPaper.judge.Capacity > 0;
             btnCompletion.Visible = InfoControl.TmpPaper.completion.Capacity > 0;
-            
+
             btnWord.Visible = InfoControl.TmpPaper.officeWord.exist;
             btnPPT.Visible = InfoControl.TmpPaper.officePPT.exist;
             btnExcel.Visible = InfoControl.TmpPaper.officeExcel.exist;
@@ -68,21 +68,20 @@ namespace OES.UPanel
 
         private void BtnProType_Click(object sender, EventArgs e)
         {
-          
             switch (Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton)sender).Tag))
             {
                 case 0:
                     LoadPro(InfoControl.TmpPaper.choice);
                     break;
-                case 1: 
+                case 1:
                     LoadPro(InfoControl.TmpPaper.judge);
                     break;
-                case 2: 
+                case 2:
                     LoadPro(InfoControl.TmpPaper.completion);
                     break;
                 default:
                     break;
             }
-        }        
+        }
     }
 }
