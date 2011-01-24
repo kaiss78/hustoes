@@ -35,7 +35,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DoubleBuffered = true;
             this.Name = "ProList";
+            this.Size = new System.Drawing.Size(146, 146);
             this.Resize += new System.EventHandler(this.ProList_Resize);
             this.ResumeLayout(false);
 

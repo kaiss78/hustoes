@@ -70,38 +70,38 @@ namespace OES.UPanel
             select.Width = 110;
             select.Location = new Point(30, 5);
             select.Text = "全部标记";
-            select.ForeColor = Color.Blue;
-            select.BackColor = Color.Transparent;
-            select.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            select.ForeColor = Color.White;
+            select.BackColor = Color.RoyalBlue;
+            select.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
             select.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(select);
-            select.FlatStyle = FlatStyle.Popup;
+            select.FlatStyle = FlatStyle.Standard;
             select.MouseClick += new MouseEventHandler(select_MouseClick);
 
             Button cselect = new Button();
             cselect.Height = 60;
             cselect.Width = 110;
             cselect.Location = new Point(160, 5);
-            cselect.Text = "取消全部标记";
-            cselect.ForeColor = Color.Blue;
-            cselect.BackColor = Color.Transparent;
-            cselect.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            cselect.Text = "取消全标";
+            cselect.ForeColor = Color.White;
+            cselect.BackColor = Color.RoyalBlue;
+            cselect.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
             cselect.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(cselect);
-            cselect.FlatStyle = FlatStyle.Popup;
+            cselect.FlatStyle = FlatStyle.Standard;
             cselect.MouseClick += new MouseEventHandler(cselect_MouseClick);
 
             Button delete = new Button();
             delete.Height = 60;
             delete.Width = 110;
             delete.Location = new Point(290, 5);
-            delete.Text = "删除标记项";
-            delete.ForeColor = Color.Blue;
-            delete.BackColor = Color.Transparent;
-            delete.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            delete.Text = "删除标项";
+            delete.ForeColor = Color.White;
+            delete.BackColor = Color.RoyalBlue;
+            delete.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
             delete.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(delete);
-            delete.FlatStyle = FlatStyle.Popup;
+            delete.FlatStyle = FlatStyle.Standard;
             delete.MouseClick += new MouseEventHandler(delete_MouseClick);
 
             Button add = new Button();
@@ -109,12 +109,12 @@ namespace OES.UPanel
             add.Width = 110;
             add.Location = new Point(420,5);
             add.Text = "添加题目";
-            add.ForeColor = Color.Blue;
-            add.BackColor = Color.Transparent;
-            add.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            add.ForeColor = Color.White;
+            add.BackColor = Color.RoyalBlue;
+            add.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
             add.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(add);
-            add.FlatStyle = FlatStyle.Popup;
+            add.FlatStyle = FlatStyle.Standard;
             add.MouseClick += new MouseEventHandler(add_MouseClick);
 
             titlePanel.SetBounds(ClWidth,0, PlWidth,TpHeight);
@@ -127,7 +127,7 @@ namespace OES.UPanel
                 templt.Height = ProList.btnHeight;
                 templt.ForeColor = Color.White;
                 templt.BackColor = Color.Transparent;
-                templt.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+                templt.Font = new Font(new FontFamily("微软雅黑"), 15, FontStyle.Bold);
                 templt.TextAlign = ContentAlignment.MiddleCenter;
                 titleList.Add(templt);
                 titlePanel.Controls.Add(templt);
@@ -140,9 +140,9 @@ namespace OES.UPanel
             titleList[1].Text = "题号";
             titleList[2].Text = "题干";
 
-            titleList[0].ForeColor = Color.Blue;
-            titleList[1].ForeColor = Color.Blue;
-            titleList[2].ForeColor = Color.Blue;
+            titleList[0].ForeColor = Color.White;
+            titleList[1].ForeColor = Color.White;
+            titleList[2].ForeColor = Color.White;
 
             titleList[0].Location = new Point(0, 0);
             titleList[1].Location = new Point(ProList.choWidth, 0);
@@ -320,7 +320,7 @@ namespace OES.UPanel
                 }
             }
         }
-
+        //从题型panel传入的题型作处理，分0,1,2有章节，其余没有
         override public void ReLoad(int x)
         {
 
@@ -336,10 +336,7 @@ namespace OES.UPanel
                 aChptList.Size = new Size(ClWidth, Height);
                 Controls.Add(aChptList);
                 aChptList.Show();
-                HideList();
-
-
-                             
+                HideList();                            
                 this.Visible = true;
             }
             else
@@ -347,8 +344,10 @@ namespace OES.UPanel
                 aChptList.Hide();
                 aProList = new ProList(this);
                 aProList.SetBounds(ClWidth, TpHeight, PlWidth, PlHeight);
-                Controls.Add(aProList);
+                
+                aChptList.newpl();
                 HideList();
+                Controls.Add(aProList);
                 aProList.Show();
                 this.Visible = true;
             }
