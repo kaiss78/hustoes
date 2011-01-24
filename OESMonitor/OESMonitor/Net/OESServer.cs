@@ -217,6 +217,7 @@ namespace OESMonitor.Net
                         if (PortQueue.Count != 0)
                         {
                             client.port = PortQueue.Dequeue();
+                            client.port.answerHanded+=client.port_answerHanded;
                             MessageSupervisor.targetFrm.showMessage("Submitting Allocate Port: " + client.port.portInfo() + " ---> " + client.clientInfo());
                             client.ReceiveData();
                         }
