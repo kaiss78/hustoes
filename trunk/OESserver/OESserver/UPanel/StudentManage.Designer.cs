@@ -52,6 +52,7 @@
             this.btnQuery.TabIndex = 3;
             this.btnQuery.Text = "查找学生";
             this.btnQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
             // studentManageLayout
             // 
