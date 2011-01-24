@@ -62,14 +62,14 @@
             // 
             // textKey
             // 
-            this.textKey.Location = new System.Drawing.Point(236, 279);
+            this.textKey.Location = new System.Drawing.Point(236, 274);
             this.textKey.Name = "textKey";
             this.textKey.Size = new System.Drawing.Size(303, 26);
             this.textKey.TabIndex = 3;
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(128, 358);
+            this.btnFind.Location = new System.Drawing.Point(128, 353);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(102, 35);
             this.btnFind.TabIndex = 4;
@@ -79,7 +79,7 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(349, 358);
+            this.btnReturn.Location = new System.Drawing.Point(349, 353);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(102, 35);
             this.btnReturn.TabIndex = 5;
@@ -91,7 +91,7 @@
             // 
             this.groupBox1.Controls.Add(this.radioByDept);
             this.groupBox1.Controls.Add(this.radioByClass);
-            this.groupBox1.Location = new System.Drawing.Point(78, 62);
+            this.groupBox1.Location = new System.Drawing.Point(78, 57);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(131, 162);
             this.groupBox1.TabIndex = 6;
@@ -101,7 +101,7 @@
             // labelInfo
             // 
             this.labelInfo.AutoSize = true;
-            this.labelInfo.Location = new System.Drawing.Point(78, 284);
+            this.labelInfo.Location = new System.Drawing.Point(78, 279);
             this.labelInfo.Name = "labelInfo";
             this.labelInfo.Size = new System.Drawing.Size(152, 16);
             this.labelInfo.TabIndex = 7;
