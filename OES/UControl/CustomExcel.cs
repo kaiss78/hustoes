@@ -18,7 +18,7 @@ namespace OES.UControl
 
         static string paperPath = Config.paperPath;
         static string name = "f.xls";
-        static string stuPath = paperPath + "stu_" + name;
+        static string stuPath = Config.stuPath + "stu_" + name;
 
         public CustomExcel()
         {

@@ -13,7 +13,7 @@ namespace OES
         static public Paper paper=new Paper();
         private static int currentProblemNum = 0;
         public static Boolean isResume = false;
-        public static string password = "";
+        public static string password = "123456";
 
         #region 窗体逻辑控制
         private static LoginForm loginForm = null;
