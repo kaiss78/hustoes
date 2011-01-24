@@ -23,7 +23,7 @@ namespace OES
 
         private bool ExistPaper()
         {
-            if (Directory.Exists(Config.paperPath + OESClient.fileName.Replace(".rar", "")))
+            if (Directory.Exists(Config.paperPath ))
             {
                 return true;
             }
@@ -58,7 +58,7 @@ namespace OES
                 }));
             if (RARHelper.Exists())
             {
-                RARHelper.UnCompressRAR(Config.paperPath, Config.paperPath, OESClient.fileName, true, "");
+                RARHelper.UnCompressRAR(Config.PaperPath, Config.PaperPath, OESClient.fileName, true, "");
             }
             else
             {
@@ -74,6 +74,7 @@ namespace OES
             Start.Enabled = false;
             Restart.Enabled = false;
             Resume.Enabled = false;
+            Config.paperPath = Config.PaperPath + OESClient.fileName.Replace(".rar", "");
             if (!ExistPaper())
             {
                 Program.Client.RequestingPaper();
@@ -91,13 +92,17 @@ namespace OES
             this.ExamNo.Text = Paper.pName;
             this.SName.Text = ClientControl.student.sName;
             this.ID.Text = ClientControl.student.ID;
-            Config.stuPath = Config.stuPath + ClientControl.student.ID + @"\";
+            Config.stuPath = Config.StuPath + ClientControl.student.ID + @"\";
 
-            if (!File.Exists(Config.paperPath))
+            if (!File.Exists(Config.PaperPath))
             {
-                Directory.CreateDirectory(Config.paperPath);
+                Directory.CreateDirectory(Config.PaperPath);
             }
 
+            if (!File.Exists(Config.StuPath))
+            {
+                Directory.CreateDirectory(Config.StuPath);
+            }
             if (!File.Exists(Config.stuPath))
             {
                 Directory.CreateDirectory(Config.stuPath);

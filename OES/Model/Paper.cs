@@ -69,7 +69,7 @@ namespace OES.Model
             pModif = new PModif();
             pFunction = new PFunction();
             problemList = new List<Problem>();
-            OES.ReadTxt.ReadPaper(Config.paperPath+Paper.pName+@"\");
+            OES.ReadTxt.ReadPaper(Config.PaperPath+Paper.pName+@"\");
         }
         public void Add(Problem p)
         {

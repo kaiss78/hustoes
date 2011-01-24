@@ -9,8 +9,10 @@ namespace OES
 {
     class Config
     {
-        public static string stuPath;
-        public static string paperPath;
+        public static string stuPath;//单个学生路径
+        public static string StuPath;//学生文件夹路径
+        public static string PaperPath;//试卷文件夹路径
+        public static string paperPath;//单张试卷路径
         public static string server;
         public static int portNum;
         public static bool allowScore;
@@ -38,8 +40,8 @@ namespace OES
              inipath = INIPath;
              if(ExistINIFile())
              {
-                stuPath=this.IniReadValue("path","stupath");
-                paperPath=this.IniReadValue("path","paperpath");
+                StuPath=this.IniReadValue("path","stupath");
+                PaperPath=this.IniReadValue("path","paperpath");
                 server = this.IniReadValue("path", "serverip");
                 portNum = Convert.ToInt32(this.IniReadValue("path", "port"));
              }

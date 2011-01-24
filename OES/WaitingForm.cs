@@ -29,9 +29,9 @@ namespace OES
         {
             this.Invoke(new MethodInvoker(() =>
                 {
-                    this.Dispose();
                     ClientControl.WaitingForm = null;
                     ClientControl.LoginForm.Show();
+                    this.Hide();
                 }));
         }
 
