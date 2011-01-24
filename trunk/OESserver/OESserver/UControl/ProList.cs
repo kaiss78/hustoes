@@ -55,74 +55,72 @@ namespace OES.UControl
             
 
             //判断动态生成题目列表
-            if (ChptList.pro_num > 0)
+            for (int i = 0; i < ChptList.pro_num; i++)
             {
-                for (int i = 0; i < ChptList.pro_num; i++)
-                {
-                    var checkButton = new Button();
-                    checkButton.Height = btnHeight;
-                    checkButton.Width = choWidth;
-                    checkButton.Location = new Point(0, (btnHeight * i));
-                    checkButton.BackgroundImage = Resources.circle_black;
-                    checkButton.BackgroundImageLayout = ImageLayout.Stretch;
-                    checkButton.Tag = i;
+                var checkButton = new Button();
+                checkButton.Height = btnHeight;
+                checkButton.Width = choWidth;
+                checkButton.Location = new Point(0, (btnHeight * i));
+                checkButton.BackgroundImage = Resources.circle_black;
+                checkButton.BackgroundImageLayout = ImageLayout.Stretch;
+                checkButton.Tag = i;
 
-                    var templ2 = new Label();
-                    templ2.Height = btnHeight;
-                    templ2.ForeColor = Color.White;
-                    templ2.BackColor = Color.Transparent;
-                    templ2.Tag = ChptList.choiceproL[i].num;
-                    templ2.Font = new Font(new FontFamily("微软雅黑"), 20, FontStyle.Bold);
-                    templ2.TextAlign = ContentAlignment.MiddleCenter;
-                    templ2.AutoSize = false;
-                    
+                var templ2 = new Label();
+                templ2.Height = btnHeight;
+                templ2.ForeColor = Color.White;
+                templ2.BackColor = Color.Transparent;
+                templ2.Tag = ChptList.choiceproL[i].num;
+                templ2.Font = new Font(new FontFamily("微软雅黑"), 20, FontStyle.Bold);
+                templ2.TextAlign = ContentAlignment.MiddleCenter;
+                templ2.AutoSize = false;
+                
 
-                    var templ3 = new Label();
-                    templ3.Height = btnHeight;
-                    templ3.ForeColor = Color.White;
-                    templ3.BackColor = Color.Transparent;
-                    templ3.Tag = ChptList.choiceproL[i].num;
-                    templ3.Font = new Font(new FontFamily("微软雅黑"), 15, FontStyle.Bold);
-                    templ3.TextAlign = ContentAlignment.MiddleCenter;
-                    templ3.AutoSize = false;
+                var templ3 = new Label();
+                templ3.Height = btnHeight;
+                templ3.ForeColor = Color.White;
+                templ3.BackColor = Color.Transparent;
+                templ3.Tag = ChptList.choiceproL[i].num;
+                templ3.Font = new Font(new FontFamily("微软雅黑"), 15, FontStyle.Bold);
+                templ3.TextAlign = ContentAlignment.MiddleCenter;
+                templ3.AutoSize = false;
 
 
-                    templ2.Location = new Point(0, 0);
-                    templ2.Width = numWidth;
-                    templ2.Text =ChptList.choiceproL[i].num;
+                templ2.Location = new Point(0, 0);
+                templ2.Width = numWidth;
+                templ2.Text =ChptList.choiceproL[i].num;
 
-                    templ3.Location = new Point(numWidth, 0);
-                    templ3.Width = proWidth;
-                    templ3.Text = ChptList.choiceproL[i].pro;
+                templ3.Location = new Point(numWidth, 0);
+                templ3.Width = proWidth;
+                templ3.Text = ChptList.choiceproL[i].pro;
 
-                    var temp = new Button();
-                    temp.Width = (listWidth-choWidth);
-                    temp.Height = btnHeight;
-                    temp.Tag = ChptList.choiceproL[i].num;
-                    temp.Location = new Point(choWidth, (btnHeight * i));
-                    temp.BackgroundImage = Resources.cpt_btn;
-                    temp.BackgroundImageLayout = ImageLayout.Stretch;
-                    mainPanel.Controls.Add(temp);
-                    subPanel.Add(temp);
-                    subPanelStatus.Add(0);
-                    temp.FlatStyle = FlatStyle.Popup;
-                    temp.Controls.Add(templ2);
-                    temp.Controls.Add(templ3);
+                var temp = new Button();
+                temp.Width = (listWidth-choWidth);
+                temp.Height = btnHeight;
+                temp.Tag = ChptList.choiceproL[i].num;
+                temp.Location = new Point(choWidth, (btnHeight * i));
+                temp.BackgroundImage = Resources.cpt_btn;
+                temp.BackgroundImageLayout = ImageLayout.Stretch;
+                mainPanel.Controls.Add(temp);
+                subPanel.Add(temp);
+                subPanelStatus.Add(0);
+                temp.FlatStyle = FlatStyle.Popup;
+                temp.Controls.Add(templ2);
+                temp.Controls.Add(templ3);
 
-                    mainPanel.Controls.Add(checkButton);
-                    checkList.Add(checkButton);
-                    check acheck = new check(false, ChptList.choiceproL[i].num);
-                    acheckproList.Add(acheck);
-                                          
-                    temp.MouseClick +=new MouseEventHandler(temp_MouseClick);
-                    templ2.MouseClick += new MouseEventHandler(templ2_MouseClick);
-                    templ3.MouseClick += new MouseEventHandler(templ3_MouseClick);
-                    checkButton.MouseClick += new MouseEventHandler(checkButton_MouseClick);
-                     
-                }
-
+                mainPanel.Controls.Add(checkButton);
+                checkList.Add(checkButton);
+                check acheck = new check(false, ChptList.choiceproL[i].num);
+                acheckproList.Add(acheck);
+                                      
+                temp.MouseClick +=new MouseEventHandler(temp_MouseClick);
+                templ2.MouseClick += new MouseEventHandler(templ2_MouseClick);
+                templ3.MouseClick += new MouseEventHandler(templ3_MouseClick);
+                checkButton.MouseClick += new MouseEventHandler(checkButton_MouseClick);
+                 
             }
+
         }
+        
 
         
         void checkButton_MouseClick(object sender, MouseEventArgs e)

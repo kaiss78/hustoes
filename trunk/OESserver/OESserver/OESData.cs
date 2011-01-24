@@ -41,9 +41,7 @@ namespace OES
 
             //string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
 
-            string strConnection = @"Data Source=.\SQLEXPRESS;
-                AttachDbFilename=G:\C#\OESserver\OESserver\OESserver\OESDB.mdf;
-                Integrated Security=True;Connect Timeout=30;User Instance=True";
+            string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
 
             sqlcon.ConnectionString = strConnection;
 

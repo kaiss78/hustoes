@@ -83,6 +83,7 @@ namespace OES.UControl
         private void ChptList_Resize(object sender, EventArgs e)
         {
             Controls.Clear();
+            
             mainPanel = new Panel();
             mainPanel.Height = Height;
             mainPanel.Width = Width;
@@ -90,7 +91,7 @@ namespace OES.UControl
             btnHeight = Height/(count + 1);
             totalpage = ((chpt_num/count) + 1);
             chpt_num = InfoControl.OesData.FindUnit(aProMan.ProType).Count;
-           
+            
 
             //list赋初值
             for (int i = 0; i < chpt_num; i++)
@@ -190,6 +191,27 @@ namespace OES.UControl
                     aProMan.aProList = aProList;
                     aProMan.Controls.Add(aProList);
                     break;
+                case 3:
+                    Loadpl(InfoControl.OesData.FindExcelProblemContent(), 3);
+                    aProList = new ProList(aProMan);
+                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                    aProMan.aProList = aProList;
+                    aProMan.Controls.Add(aProList);
+                    break;
+                case 4:
+                    Loadpl(InfoControl.OesData.FindPowerPointProblemContent(), 3);
+                    aProList = new ProList(aProMan);
+                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                    aProMan.aProList = aProList;
+                    aProMan.Controls.Add(aProList);
+                    break;
+                case 5:
+                    Loadpl(InfoControl.OesData.FindWordProblemContent(), 3);
+                    aProList = new ProList(aProMan);
+                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                    aProMan.aProList = aProList;
+                    aProMan.Controls.Add(aProList);
+                    break;
                 default:
                     break;
             }
@@ -199,18 +221,10 @@ namespace OES.UControl
         public void Loadpl(List<Problem> pl,int pt)
         {
             choiceproL.Clear();
-            switch (pt)
-            {
-                case 0:
-                    pro_num = InfoControl.OesData.FindChoiceByUnit(Convert.ToInt32(ChptList.click_num)).Count;                                          
-                    break;
-                case 1:
-                    pro_num = InfoControl.OesData.FindCompletionByUnit2(Convert.ToInt32(ChptList.click_num)).Count;
-                    break;
-                case 2:
-                    pro_num = InfoControl.OesData.FindTofByUnit(Convert.ToInt32(ChptList.click_num)).Count;
-                    break;
-            }
+            pro_num = pl.Count;
+            
+
+            //将取出题目属性导入变量列表
             for (int i = 0; i < pro_num; i++)
             {
                 achoicepro = new choicepro(pl[i].problemId.ToString(), pl[i].problem);

@@ -109,6 +109,13 @@ namespace OES.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap table4 {
+            get {
+                object obj = ResourceManager.GetObject("table4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap title {
             get {
                 object obj = ResourceManager.GetObject("title", resourceCulture);
