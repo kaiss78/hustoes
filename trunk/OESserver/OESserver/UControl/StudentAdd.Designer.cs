@@ -285,6 +285,7 @@
             this.btnAddMany.TabIndex = 10;
             this.btnAddMany.Text = "导入";
             this.btnAddMany.UseVisualStyleBackColor = true;
+            this.btnAddMany.Click += new System.EventHandler(this.btnAddMany_Click);
             // 
             // btnBrowse
             // 
@@ -294,22 +295,24 @@
             this.btnBrowse.TabIndex = 10;
             this.btnBrowse.Text = "浏览";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // textFile
             // 
-            this.textFile.Location = new System.Drawing.Point(194, 69);
+            this.textFile.Location = new System.Drawing.Point(160, 69);
             this.textFile.Name = "textFile";
-            this.textFile.Size = new System.Drawing.Size(256, 26);
+            this.textFile.Size = new System.Drawing.Size(290, 26);
             this.textFile.TabIndex = 10;
+            this.textFile.Text = "G:\\C#\\OESserver\\OESserver\\OESserver\\bin\\Debug\\1.csv";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(16, 75);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(184, 16);
+            this.label7.Size = new System.Drawing.Size(152, 16);
             this.label7.TabIndex = 0;
-            this.label7.Text = "要导入的学生信息文件：";
+            this.label7.Text = "学生信息文件地址：";
             // 
             // btnReturn
             // 

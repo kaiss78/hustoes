@@ -84,5 +84,48 @@ namespace OES.UControl
             showAllDepts();
             textID.Text = textName.Text = textPW.Text = textPW2.Text = "";
         }
+
+        private void btnAddMany_Click(object sender, EventArgs e)
+        {
+            List<Object[]> dataList;
+            if (textClass.Text == "" || textDept.Text == "" || textFile.Text == "")
+            {
+                MessageBox.Show("输入信息不完整！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try 
+            {
+                dataList = CVSHelper.CSVImporter.getObjectInCSV(textFile.Text, 2);
+                for (int i = 0; i < dataList.Count; i++)
+                {
+                    for (int j = 0; j < 2; j++)
+                        Console.Write(dataList[i][j].ToString() + " ");
+                    Console.WriteLine("");
+                }
+            } 
+            catch 
+            {
+                MessageBox.Show("文件读取失败！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            /*
+            for (int i = 0; i < dataList.Count; i++)
+            {
+                try 
+                { 
+                    //InfoControl.OesData.AddS
+                }
+                catch { }
+            }
+            */
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            of.Filter = "CSV文件(逗号分隔)(*.csv)|*.csv|所有文件(*.*)|*.*";
+            of.ShowDialog();
+            textFile.Text = of.FileName;
+        }
     }
 }
