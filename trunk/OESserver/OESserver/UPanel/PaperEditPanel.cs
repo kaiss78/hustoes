@@ -17,15 +17,30 @@ namespace OES.UPanel
         public Paper paper;
         public OESData oesData;
         public List<IdScoreType> proIDList;
-        private ProblemDGV proDGV;
+        private ProblemItem tmpItem;
+        public List<ProblemItem> ItemList;   
 
         public PaperEditPanel()
         {
             InitializeComponent();
-            proDGV=new ProblemDGV();
-            ControlPanel.Controls.Add(proDGV);
-            proDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+        }
 
+        public void LoadPro<T>(List<T> proList) where T : Problem
+        {
+            ItemList = new List<ProblemItem>();
+            for (int i = 0; i < proList.Capacity; i++)
+            {
+                tmpItem = new ProblemItem();
+                tmpItem.ItemNo.Text = (i + 1).ToString();
+                tmpItem.ItemText.Text = "-";
+
+                if (!proList[i].Equals(null))
+                {
+                    tmpItem.ItemText.Text = proList[i].problem;
+                }                
+                ItemList.Add(tmpItem);
+                ItemPanel.Controls.Add(tmpItem);
+            }
         }
 
         public void loadPaper()
@@ -54,13 +69,13 @@ namespace OES.UPanel
             switch (Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton)sender).Tag))
             {
                 case 0:
-                    proDGV.LoadPro(InfoControl.TmpPaper.choice);
+                    LoadPro(InfoControl.TmpPaper.choice);
                     break;
                 case 1: 
-                    proDGV.LoadPro(InfoControl.TmpPaper.judge);
+                    LoadPro(InfoControl.TmpPaper.judge);
                     break;
                 case 2: 
-                    proDGV.LoadPro(InfoControl.TmpPaper.completion);
+                    LoadPro(InfoControl.TmpPaper.completion);
                     break;
                 default:
                     break;

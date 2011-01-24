@@ -40,6 +40,7 @@
             this.btnPCompletion = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnPFunction = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ControlPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.ItemPanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel1)).BeginInit();
             this.kryptonSplitContainer1.Panel1.SuspendLayout();
@@ -48,6 +49,7 @@
             this.kryptonSplitContainer1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ControlPanel)).BeginInit();
+            this.ControlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonSplitContainer1
@@ -320,6 +322,7 @@
             // 
             // ControlPanel
             // 
+            this.ControlPanel.Controls.Add(this.ItemPanel);
             this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlPanel.Location = new System.Drawing.Point(0, 0);
             this.ControlPanel.Name = "ControlPanel";
@@ -327,6 +330,15 @@
             this.ControlPanel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.ControlPanel.Size = new System.Drawing.Size(517, 666);
             this.ControlPanel.TabIndex = 0;
+            // 
+            // ItemPanel
+            // 
+            this.ItemPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ItemPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemPanel.Location = new System.Drawing.Point(5, 5);
+            this.ItemPanel.Name = "ItemPanel";
+            this.ItemPanel.Size = new System.Drawing.Size(507, 656);
+            this.ItemPanel.TabIndex = 0;
             // 
             // PaperEditPanel
             // 
@@ -343,6 +355,7 @@
             this.kryptonSplitContainer1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ControlPanel)).EndInit();
+            this.ControlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -362,5 +375,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPCompletion;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPFunction;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel ControlPanel;
+        private System.Windows.Forms.FlowLayoutPanel ItemPanel;
     }
 }
