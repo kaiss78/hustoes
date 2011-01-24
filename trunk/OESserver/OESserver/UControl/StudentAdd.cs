@@ -74,9 +74,16 @@ namespace OES.UControl
                 return;
             }
             string pw = textPW.Text != "" ? textPW.Text : textID.Text;
-            //InfoControl.AddStudent();
-            MessageBox.Show("貌似成功了");
-            clearInfo();
+            try
+            {
+                InfoControl.OesData.AddStudent(textID.Text, textName.Text, comboOneDept.Text, comboOneClass.Text, pw);
+                MessageBox.Show("添加成功！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clearInfo();
+            }
+            catch
+            {
+                MessageBox.Show("添加出现错误！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void clearInfo()

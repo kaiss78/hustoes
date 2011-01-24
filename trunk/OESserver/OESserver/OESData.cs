@@ -1532,6 +1532,34 @@ namespace OES
             teacherList = DataSetToTeacherList(Ds);
             return teacherList;
         }
+
+        //-- Description:   添加学生 输入学院、班级信息.
+        public void AddStudent(string id, string name, string dept, string className, string password)
+        {
+            /////////////////////////////////////////////////////////fdfsdfsfsfdsf
+            SqlParameter[] ddlparam = new SqlParameter[5];
+            ddlparam[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, id, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@StudentName", SqlDbType.VarChar, 50, name, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
+            ddlparam[3] = CreateParam("@ClassName", SqlDbType.VarChar, 50, className, ParameterDirection.Input);
+            ddlparam[4] = CreateParam("@Password", SqlDbType.VarChar, 50, password, ParameterDirection.Input);
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddNewStudent", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 5; i++)
+            {
+                cmd.Parameters.Add(ddlparam[i]);
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+        }
+
         //-- Description:	超级管理员列出所有学生
         public List<Student> FindAllStudent()
         {
@@ -1698,6 +1726,21 @@ namespace OES
             {
                 throw Ex;
             }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找PowerPoint试题的ID和题目
+        public List<Problem> FindPowerPointProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindPowerPointProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
             problemList = DataSetToProblemList(Ds);
             return problemList;
         }

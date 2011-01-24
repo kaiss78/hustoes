@@ -109,6 +109,7 @@ namespace OES.UPanel
             changeBtnEnable(true);
             studentInfoDGV.Visible = true;
             studentInfoGroup.Text = "学生信息";
+            getStudentTable();
         }
 
         private void getStudentTable()
