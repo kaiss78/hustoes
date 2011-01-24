@@ -44,20 +44,21 @@
             this.tableLayoutPanel1.Controls.Add(this.ItemNo, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(500, 40);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(500, 35);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ItemText
             // 
             this.ItemText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemText.Location = new System.Drawing.Point(61, 3);
-            this.ItemText.Margin = new System.Windows.Forms.Padding(1, 3, 3, 3);
+            this.ItemText.Location = new System.Drawing.Point(61, 1);
+            this.ItemText.Margin = new System.Windows.Forms.Padding(1, 1, 3, 1);
             this.ItemText.Name = "ItemText";
-            this.ItemText.Size = new System.Drawing.Size(436, 34);
+            this.ItemText.Size = new System.Drawing.Size(436, 33);
             this.ItemText.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.ItemText.StateCommon.Border.Rounding = 15;
@@ -68,10 +69,10 @@
             // ItemNo
             // 
             this.ItemNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemNo.Location = new System.Drawing.Point(3, 3);
-            this.ItemNo.Margin = new System.Windows.Forms.Padding(3, 3, 1, 3);
+            this.ItemNo.Location = new System.Drawing.Point(3, 1);
+            this.ItemNo.Margin = new System.Windows.Forms.Padding(3, 1, 1, 1);
             this.ItemNo.Name = "ItemNo";
-            this.ItemNo.Size = new System.Drawing.Size(56, 34);
+            this.ItemNo.Size = new System.Drawing.Size(56, 33);
             this.ItemNo.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.ItemNo.StateCommon.Border.Rounding = 15;
@@ -84,9 +85,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ProblemItem";
-            this.Size = new System.Drawing.Size(500, 40);
+            this.Size = new System.Drawing.Size(500, 35);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
