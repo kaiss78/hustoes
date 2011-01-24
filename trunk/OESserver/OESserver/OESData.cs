@@ -41,7 +41,7 @@ namespace OES
 
             //string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
 
-            string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
+            string strConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=G:\C#\OESserver\OESserver\OESserver\OESDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
             sqlcon.ConnectionString = strConnection;
 
@@ -1534,7 +1534,6 @@ namespace OES
         //-- Description:   添加学生 输入学院、班级信息.
         public void AddStudent(string id, string name, string dept, string className, string password)
         {
-            /////////////////////////////////////////////////////////fdfsdfsfsfdsf
             SqlParameter[] ddlparam = new SqlParameter[5];
             ddlparam[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, id, ParameterDirection.Input);
             ddlparam[1] = CreateParam("@StudentName", SqlDbType.VarChar, 50, name, ParameterDirection.Input);
@@ -1556,6 +1555,18 @@ namespace OES
             {
                 throw e;
             }
+        }
+
+        public void DeleteStudent(string id)
+        {
+            SqlParameter[] dp = new SqlParameter[1];
+            dp[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, id, ParameterDirection.Input);
+            DataBind();
+            SqlCommand cmd = new SqlCommand("DeleteStudentByStudentId", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(dp[0]);
+            try { cmd.ExecuteNonQuery(); }
+            catch (SqlException Ex) { throw Ex; }
         }
 
         //-- Description:	超级管理员列出所有学生
