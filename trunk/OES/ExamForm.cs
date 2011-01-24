@@ -56,7 +56,14 @@ namespace OES
                     Restart.Enabled = true;
                     Resume.Enabled = true;
                 }));
-            RARHelper.UnCompressRAR(Config.paperPath, Config.paperPath, OESClient.fileName, true, "");
+            if (RARHelper.Exists())
+            {
+                RARHelper.UnCompressRAR(Config.paperPath, Config.paperPath, OESClient.fileName, true, "");
+            }
+            else
+            {
+                Error.ErrorControl.ShowError(OES.Error.ErrorType.RARNotExist);
+            }
         }
         private void ExamForm_Load(object sender, EventArgs e)
         {

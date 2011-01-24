@@ -146,6 +146,8 @@ namespace OES
             if (RARHelper.Exists())
             {
                 RARHelper.CompressRAR(Config.stuPath, student.ID + ".rar", Config.stuPath, password);
+                Program.Client.paperPath = Config.stuPath + student.ID + ".rar";
+                Program.Client.sendData();
             }
             else
             {
