@@ -184,7 +184,7 @@ namespace OES.UControl
             {
                 case 0:
                     aProMan.aChoiceEdit.isnew = false;
-                    aProMan.aChoiceEdit.fill(InfoControl.OesData.FindChoiceById(id.ToString()),"");
+                    aProMan.aChoiceEdit.fill(InfoControl.OesData.FindChoiceById(id.ToString()));
                     break;
                 case 1:
                     aProMan.aCompletionEdit.isnew = false;

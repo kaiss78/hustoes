@@ -46,7 +46,7 @@ namespace OES.UControl
             this.Hide();          
         }
         //填充进题目信息
-        public void fill(List<Choice> achoice,string chpt)
+        public void fill(List<Choice> achoice)
         {
             chptlbl.Text = ChptList.click_name;
             procon.Text = achoice[0].problem;

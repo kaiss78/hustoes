@@ -231,7 +231,6 @@ namespace OES.UPanel
 
         void cselect_MouseClick(object sender, MouseEventArgs e)
         {
-            aProList.acheckproList.Clear();
             for (int i = 0; i < aProList.acheckproList.Count; i++)
             {
                 aProList.acheckproList[i].selected = false;
@@ -242,7 +241,6 @@ namespace OES.UPanel
 
         void select_MouseClick(object sender, MouseEventArgs e)
         {
-            aProList.acheckproList.Clear();
             for (int i = 0; i < aProList.acheckproList.Count; i++)
             {
                 aProList.acheckproList[i].selected = true;
