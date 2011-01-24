@@ -48,7 +48,7 @@ namespace OES.Net
             //MessageSupervisor.targetFrm.showMessage("Initialize DataPort: " + dataListener.LocalEndpoint.ToString());
             
             //测试用
-            archiveDirectory = Config.paperPath;
+            archiveDirectory = Config.PaperPath;
         }
         
         //装载数据

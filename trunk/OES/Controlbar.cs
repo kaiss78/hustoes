@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using OES.XMLFile;
 using OES.Model;
+using System.Threading;
 
 namespace OES
 {
@@ -149,7 +150,7 @@ namespace OES
                 XMLControl.studentAnsXML.AddPaperAns(p.type,new Pid_Ans(p.problemId,p.getAns()));
             }
            // 
-
+            Thread.Sleep(2000);
             //提交试题，压缩rar
             //
 
