@@ -26,7 +26,7 @@ namespace OES.Net
         public string paperPath = "F:/paper.ppt";           //发送数据的文件路径
         private IPAddress remoteIP;      //接收试卷所需信息
         private int remotePort;
-        public string fileName = "EXAM001.rar";
+        public static string fileName = "EXAM001.rar";
 
         public string server = "222.20.59.83";  //服务器地址
         public int portNum = 20000;
@@ -181,11 +181,18 @@ namespace OES.Net
 
         private void receive_callBack(IAsyncResult asy)
         {
-            int result = ns.EndRead(asy);
-            GetActualFullMessage();
+            try
+            {
+                int result = ns.EndRead(asy);
+                GetActualFullMessage();
 
-            if(!IsEnd)
-                ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
+                if (!IsEnd)
+                    ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
+            }
+            catch
+            {
+                Error.ErrorControl.ShowError(OES.Error.ErrorType.ServerConnectFailure);
+            }
         }
 
         private void GetActualFullMessage()
@@ -262,8 +269,36 @@ namespace OES.Net
             {
                 //网络出错处理程序
             }
-        }    
+        }
 
+        public void beginExam(int mode)
+        {
+            port.LoadData(paperPath);
+            string tmsg = "#STX#4#" + mode.ToString() + "#ETX";
+            byte[] tBuffer = System.Text.Encoding.Default.GetBytes(tmsg);
+            try
+            {
+                ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
+            }
+            catch (Exception e)
+            {
+                //网络出错处理程序
+            }
+        }
+
+        public void logout()
+        {
+            string tmsg = "#STX#5#NULL#ETX";
+            byte[] tBuffer = System.Text.Encoding.Default.GetBytes(tmsg);
+            try
+            {
+                ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
+            }
+            catch (Exception e)
+            {
+                //网络出错处理程序
+            }
+        }
         private void write_callBack(IAsyncResult asy)
         {
             try
