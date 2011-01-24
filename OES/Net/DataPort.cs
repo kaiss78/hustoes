@@ -35,7 +35,8 @@ namespace OES.Net
 
         //接受试卷完成事件
         public event EventHandler paperGetOver;
-
+        //发送答案完成事件
+        public event EventHandler answerHandInOver;
         public DataPort(IPAddress ip, int localPort)
         {
             this.ip = ip;
@@ -70,10 +71,13 @@ namespace OES.Net
             TcpListener listener = (TcpListener)asy.AsyncState;
             dataSender = (TcpClient)listener.EndAcceptTcpClient(asy);        
             sender_ns = dataSender.GetStream();
-
-            Thread thread = new Thread(SendData);
-            thread.Start();
-
+            this.answerHandInOver += ClientControl.WaitingForm.HandInOver;
+            this.fileLength = new FileInfo(filePath).Length;
+            ClientControl.WaitingForm.perPackage = (int)(1000 * 1024 / fileLength)+1;
+            SendData();
+            //Thread thread = new Thread(SendData);
+            //thread.Start();
+            answerHandInOver(this, null);
             dataListener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), dataListener);
         }
 
@@ -140,6 +144,7 @@ namespace OES.Net
                 sender_ns.Write(buffer, 0, byteRead);
                 Array.Clear(buffer, 0, 1024);
                 byteRead = file.Read(buffer, 0, 1024);
+                ClientControl.WaitingForm.addProgress();
             }
 
             sender_ns.Dispose();
