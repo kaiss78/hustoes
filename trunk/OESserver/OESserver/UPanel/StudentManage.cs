@@ -96,10 +96,9 @@ namespace OES.UPanel
             }
             if (MessageBox.Show("确认删除这些学生信息？", "学生管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                for (int i = 0; i < del.Count; i++) { }
-                    //InfoControl.OesData.DeleteStudent(del[i]);
-                    //MessageBox.Show("删除完成！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MessageBox.Show("貌似完成了");
+                for (int i = 0; i < del.Count; i++) 
+                    InfoControl.OesData.DeleteStudent(del[i]);
+                MessageBox.Show("删除完成！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 getStudentTable();
             }
         }
