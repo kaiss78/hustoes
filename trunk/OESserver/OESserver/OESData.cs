@@ -41,7 +41,8 @@ namespace OES
 
             //string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
 
-            string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
+            string strConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=G:\C#\OESserver\OESserver\OESserver\OESDB.mdf;
+                                        Integrated Security=True;Connect Timeout=30;User Instance=True";
 
             sqlcon.ConnectionString = strConnection;
 
@@ -165,6 +166,11 @@ namespace OES
 
             return Cmd;
         }
+
+
+        #region DataSet ---> List 系列方法
+
+
         /// <summary>   
         /// DataSet装换为泛型集合   
         /// </summary>   
@@ -488,6 +494,9 @@ namespace OES
             }
             return result;
         }
+        #endregion
+
+
         //List<string>转成一个字符串
         private string ListToString(List<string> ans)
         {
@@ -1351,8 +1360,8 @@ namespace OES
                 MessageBox.Show(e.ToString());
             }
         }
-        //Description:	给定Type( 0,1,2分别表示填空选择判断的标号)，列出所有相应题型的所有章节名
 
+        //Description:	给定Type( 0,1,2分别表示填空选择判断的标号)，列出所有相应题型的所有章节名
         public List<Unit> FindUnit(int TypeId)
         {
 
@@ -1375,6 +1384,7 @@ namespace OES
             teacher = DataSetToTeacher(Ds);
             return teacher;
         }
+
         //-- Description:	根据试卷号返回试卷具体文件地址
         public string FindPaperPathByPaperId(string Id)
         {
@@ -1444,6 +1454,9 @@ namespace OES
             paperList = DataSetToListPaper2(Ds);
             return paperList;
         }
+
+        #region 教师信息管理
+
         //-- Description:	增加教师信息
         public void AddTeacher(string TeacherName, string Password, int Permission, string UserName)
         {
@@ -1534,6 +1547,94 @@ namespace OES
             return teacherList;
         }
 
+        #endregion
+
+        #region 班级信息管理
+
+        //-- Description:   添加班级 输入老师教工号
+        public void AddClass(string dept, string className, string teacherUserName)
+        {
+            SqlParameter[] dp = new SqlParameter[3];
+            dp[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
+            dp[1] = CreateParam("@ClassName", SqlDbType.VarChar, 50, className, ParameterDirection.Input);
+            dp[2] = CreateParam("@TeacherUserName", SqlDbType.VarChar, 50, teacherUserName, ParameterDirection.Input);
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddClass", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 3; i++)
+                cmd.Parameters.Add(dp[i]);
+            try { cmd.ExecuteNonQuery(); }
+            catch (SqlException Ex) { throw Ex; }
+        }
+
+        //-- Description:   删除班级信息
+        public void DeleteClass(string classId)
+        {
+            SqlParameter[] dp = new SqlParameter[1];
+            dp[0] = CreateParam("@ClassId", SqlDbType.VarChar, 50, classId, ParameterDirection.Input);
+            DataBind();
+            SqlCommand cmd = new SqlCommand("DeleteClass", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(dp[0]);
+            try { cmd.ExecuteNonQuery(); }
+            catch (SqlException Ex) { throw Ex; }
+        }
+
+        //-- Description:   超级管理员查询所有班级信息
+        public List<Classes> FindAllClass()
+        {
+            Ds = new DataSet();
+            List<Classes> classList = new List<Classes>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindAllClass", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            classList = DataSetToClass(Ds);
+            return classList;
+        }
+
+        //-- Description:	查找某个学院下的所有班级
+        public List<string> FindClassNameOfDept(string Dept)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, Dept, ParameterDirection.Input);
+
+            Ds = new DataSet();
+            List<string> classStringList = new List<string>();
+
+            RunProc("FindClassNameOfDept", ddlparam, Ds);
+            classStringList = DataSetToclassStringList(Ds);
+            return classStringList;
+        }
+        //-- Description:	查找所有的学院
+        public List<string> FindAllDept()
+        {
+            Ds = new DataSet();
+            List<string> deptStringList = new List<string>();
+
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindAllDept", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            deptStringList = DataSetToDeptStringList(Ds);
+            return deptStringList;
+        }
+
+        #endregion
+
+        #region 学生信息管理
+
         //-- Description:   添加学生 输入学院、班级信息.
         public void AddStudent(string id, string name, string dept, string className, string password)
         {
@@ -1560,6 +1661,13 @@ namespace OES
             }
         }
 
+        //-- Description:   批量导入学生
+        public void AddManyStudents(string dept, string className, List<Object[]> value)
+        {
+    
+        }
+
+        //-- Description:   删除学生
         public void DeleteStudent(string id)
         {
             SqlParameter[] dp = new SqlParameter[1];
@@ -1684,41 +1792,8 @@ namespace OES
             studentList = DataSetToListStudent(Ds);
             return studentList;
         }
-        //-- Description:	查找某个学院下的所有班级
-        public List<string> FindClassNameOfDept(string Dept)
-        {
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Dept", SqlDbType.VarChar , 50, Dept, ParameterDirection.Input);
 
-            Ds = new DataSet();
-            List<string> classStringList = new List<string>();
-
-            RunProc("FindClassNameOfDept", ddlparam, Ds);
-            classStringList = DataSetToclassStringList(Ds);
-            return classStringList;
-        }
-        //-- Description:	查找所有的学院
-        public List<string> FindAllDept()
-        {
-            Ds = new DataSet();
-            List<string> deptStringList = new List<string>();
-
-            //RunProc("FindChoice", null, Ds);
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindAllDept", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try
-            {
-                Da.Fill(Ds);
-            }
-            catch (Exception Ex)
-            {
-                throw Ex;
-            }
-            deptStringList = DataSetToDeptStringList(Ds);
-            return deptStringList;
-        }
+        #endregion
 
         //-- Description:   查找Excel试题的ID和题目
         public List<Problem> FindExcelProblemContent()
@@ -1860,6 +1935,27 @@ namespace OES
             catch (Exception Ex) { throw Ex; }
             problemList = DataSetToProblemList(Ds);
             return problemList;
+        }
+
+
+
+        #region DataSet ---> List 系列方法
+
+        private List<Classes> DataSetToClass(DataSet p_DataSet)
+        {
+            List<Classes> res = new List<Classes>();
+            DataTable dt = p_DataSet.Tables[0];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Classes cls = new Classes();
+                cls.classID = dt.Rows[i][0].ToString();
+                cls.dept = dt.Rows[i][1].ToString();
+                cls.className = dt.Rows[i][2].ToString();
+                cls.teacherName = dt.Rows[i][3].ToString();
+                cls.teacherUserName = dt.Rows[i][4].ToString();
+                res.Add(cls);
+            }
+            return res;
         }
 
         private List<Problem> DataSetToProblemList(DataSet p_DataSet)
@@ -2078,6 +2174,8 @@ namespace OES
             return result;
 
         }
+
+        #endregion
 
     }
 }

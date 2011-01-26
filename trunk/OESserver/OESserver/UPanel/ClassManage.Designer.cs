@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
@@ -135,12 +137,24 @@
             this.classInfoDGV.AllowUserToAddRows = false;
             this.classInfoDGV.AllowUserToDeleteRows = false;
             this.classInfoDGV.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.classInfoDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.classInfoDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.classInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classInfoDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.classInfoDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
+            this.classInfoDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.classInfoDGV.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.classInfoDGV.Location = new System.Drawing.Point(3, 22);
+            this.classInfoDGV.MultiSelect = false;
             this.classInfoDGV.Name = "classInfoDGV";
             this.classInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.classInfoDGV.ReadOnly = true;
+            this.classInfoDGV.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.classInfoDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.classInfoDGV.RowTemplate.Height = 23;
+            this.classInfoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.classInfoDGV.Size = new System.Drawing.Size(714, 487);
             this.classInfoDGV.TabIndex = 0;
             this.classInfoDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.classInfoDGV_CellClick);

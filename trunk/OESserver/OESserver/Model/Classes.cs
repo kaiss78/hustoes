@@ -7,13 +7,13 @@ namespace OES.Model
 {
     public class Classes
     {
-        public int classID;
+        public string classID;
         public string dept;
         public string className;
         public string teacherUserName;
         public string teacherName;
 
-        public Classes(int id, string dp, string cn, string tun, string tn)
+        public Classes(string id, string dp, string cn, string tun, string tn)
         {
             classID = id;
             dept = dp;
