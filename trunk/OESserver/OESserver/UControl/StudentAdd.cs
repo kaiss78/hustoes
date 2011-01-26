@@ -103,28 +103,13 @@ namespace OES.UControl
             try 
             {
                 dataList = CVSHelper.CSVImporter.getObjectInCSV(textFile.Text, 2);
-                for (int i = 0; i < dataList.Count; i++)
-                {
-                    for (int j = 0; j < 2; j++)
-                        Console.Write(dataList[i][j].ToString() + " ");
-                    Console.WriteLine("");
-                }
             } 
             catch 
             {
                 MessageBox.Show("文件读取失败！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            /*
-            for (int i = 0; i < dataList.Count; i++)
-            {
-                try 
-                { 
-                    //InfoControl.OesData.AddS
-                }
-                catch { }
-            }
-            */
+            InfoControl.OesData.AddManyStudents(textDept.Text, textClass.Text, dataList);
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)

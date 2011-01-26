@@ -55,6 +55,7 @@
             this.textFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupAddOne.SuspendLayout();
             this.groupAddMany.SuspendLayout();
             this.SuspendLayout();
@@ -239,6 +240,7 @@
             // 
             // groupAddMany
             // 
+            this.groupAddMany.Controls.Add(this.label11);
             this.groupAddMany.Controls.Add(this.textClass);
             this.groupAddMany.Controls.Add(this.textDept);
             this.groupAddMany.Controls.Add(this.label8);
@@ -279,7 +281,7 @@
             // 
             // btnAddMany
             // 
-            this.btnAddMany.Location = new System.Drawing.Point(413, 111);
+            this.btnAddMany.Location = new System.Drawing.Point(413, 105);
             this.btnAddMany.Name = "btnAddMany";
             this.btnAddMany.Size = new System.Drawing.Size(75, 28);
             this.btnAddMany.TabIndex = 10;
@@ -323,6 +325,15 @@
             this.btnReturn.Text = "返回";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(19, 111);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(328, 16);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "注意：学生信息包括姓名、学号以及密码信息";
             // 
             // StudentAdd
             // 
@@ -375,5 +386,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textClass;
         private System.Windows.Forms.TextBox textDept;
+        private System.Windows.Forms.Label label11;
     }
 }
