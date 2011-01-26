@@ -32,6 +32,7 @@ namespace OES.UPanel
             changeBtnEnable(true);
             disposeControl();
             classInfoGroup.Text = "班级信息";
+            getClassTable();
         }
 
         private void disposeControl()                       //消除原来产生的UserControl
@@ -66,7 +67,7 @@ namespace OES.UPanel
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Classes currentClass = new Classes(1, "软件学院", "软件工程0805班", "1", "罗康琦");   
+            Classes currentClass = new Classes("1", "软件学院", "软件工程0805班", "1", "罗康琦");   
             changeBtnEnable(false);
             classInfoDGV.Visible = false;
             classInfoGroup.Text = "修改班级";
@@ -98,13 +99,14 @@ namespace OES.UPanel
         private void getClassTable()
         {
             dt = new DataTable("Class");
-            List<Classes> data = null;
-            object[] values = new object[5];
+            List<Classes> data = InfoControl.OesData.FindAllClass();
+            object[] values = new object[6];
             dt.Columns.Add("选中", typeof(bool));
             dt.Columns.Add("班级编号");
             dt.Columns.Add("学院");
             dt.Columns.Add("班级名称");
-            dt.Columns.Add("老师");
+            dt.Columns.Add("教师姓名");
+            dt.Columns.Add("教工号");
             foreach (Classes cls in data)
             {
                 values[0] = false;
@@ -112,6 +114,7 @@ namespace OES.UPanel
                 values[2] = cls.dept;
                 values[3] = cls.className;
                 values[4] = cls.teacherName;
+                values[5] = cls.teacherUserName;
                 dt.Rows.Add(values);
             }
             classInfoDGV.DataSource = dt;
@@ -120,7 +123,7 @@ namespace OES.UPanel
             classInfoDGV.Columns[2].FillWeight = 25;
             classInfoDGV.Columns[3].FillWeight = 20;
             classInfoDGV.Columns[4].FillWeight = 18;
-            classInfoDGV.Columns[5].FillWeight = 20;
+            classInfoDGV.Columns[5].FillWeight = 10;
 
             classInfoDGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
             classInfoDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
