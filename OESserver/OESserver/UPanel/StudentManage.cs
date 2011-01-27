@@ -141,12 +141,12 @@ namespace OES.UPanel
             }
             studentInfoDGV.DataSource = dt;
             studentInfoDGV.Columns[0].FillWeight = 5;
-            studentInfoDGV.Columns[1].FillWeight = 12;
-            studentInfoDGV.Columns[2].FillWeight = 25;
+            studentInfoDGV.Columns[1].FillWeight = 16;
+            studentInfoDGV.Columns[2].FillWeight = 16;
             studentInfoDGV.Columns[3].FillWeight = 10;
-            studentInfoDGV.Columns[4].FillWeight = 18;
-            studentInfoDGV.Columns[5].FillWeight = 20;
-            studentInfoDGV.Columns[6].FillWeight = 10;
+            studentInfoDGV.Columns[4].FillWeight = 24;
+            studentInfoDGV.Columns[5].FillWeight = 24;
+            studentInfoDGV.Columns[6].FillWeight = 16;
 
             studentInfoDGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
             studentInfoDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -154,9 +154,9 @@ namespace OES.UPanel
             studentInfoDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
             studentInfoDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
             studentInfoDGV.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+            studentInfoDGV.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
 
             studentInfoDGV.Columns[3].Visible = false;
-            studentInfoDGV.Columns[6].Visible = false;
         }
 
         

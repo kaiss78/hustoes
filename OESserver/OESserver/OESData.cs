@@ -12,6 +12,7 @@ namespace OES
 {
     public class OESData
     {
+        #region 变量定义
         SqlConnection sqlcon;//定义SQL的链接
         string sqlstring; //定义SQL语句字符串
         List<Paper> paper = new List<Paper>();
@@ -28,6 +29,11 @@ namespace OES
 
         DataSet Ds;
         //定义返回的数据集
+
+        #endregion
+
+        #region 数据库基本控制
+
         //数据库连接
         private bool DataBind()
         {
@@ -91,36 +97,7 @@ namespace OES
             }
             return param;
         }
-        //向数据库中添加选择题
-        public void AddChoice(string Problem_Content, string A, string B, string C, string D, string Answer, int Unit)
-        {
-            string unit = Unit.ToString();
-            SqlParameter[] ddlparam = new SqlParameter[8];
-            ddlparam[0] = CreateParam("@Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
-
-            ddlparam[1] = CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input);
-            ddlparam[3] = CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input);
-            ddlparam[4] = CreateParam("@D", SqlDbType.VarChar, 100, D, ParameterDirection.Input);
-            ddlparam[5] = CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
-
-            DataBind();
-            SqlCommand cmd = new SqlCommand("AddChoice", sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 7; i++)
-            {
-                cmd.Parameters.Add(ddlparam[i]);
-            }
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
+        
         /// <summary>
         /// 运行存储过程,返回dataset
         /// </summary>
@@ -167,6 +144,7 @@ namespace OES
             return Cmd;
         }
 
+        #endregion
 
         #region DataSet ---> List 系列方法
 
@@ -494,8 +472,246 @@ namespace OES
             }
             return result;
         }
-        #endregion
 
+        private List<Classes> DataSetToClass(DataSet p_DataSet)
+        {
+            List<Classes> res = new List<Classes>();
+            DataTable dt = p_DataSet.Tables[0];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Classes cls = new Classes();
+                cls.classID = dt.Rows[i][0].ToString();
+                cls.dept = dt.Rows[i][1].ToString();
+                cls.className = dt.Rows[i][2].ToString();
+                if (dt.Rows[i][3] == null)
+                    cls.teacherName = "";
+                else
+                    cls.teacherName = dt.Rows[i][3].ToString();
+                if (dt.Rows[i][4] == null)
+                    cls.teacherUserName = "";
+                else
+                    cls.teacherUserName = dt.Rows[i][4].ToString();
+                res.Add(cls);
+            }
+            return res;
+        }
+
+        private List<Problem> DataSetToProblemList(DataSet p_DataSet)
+        {
+            List<Problem> res = new List<Problem>();
+            DataTable dt = p_DataSet.Tables[0];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Problem pb = new Problem();
+                pb.problemId = Convert.ToInt32(dt.Rows[i][0]);
+                pb.problem = dt.Rows[i][1].ToString();
+                res.Add(pb);
+            }
+            return res;
+        }
+
+        private List<string> DataSetToDeptStringList(DataSet p_DataSet)
+        {
+            List<string> result = new List<string>();
+            DataTable p_Data = p_DataSet.Tables[0];
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                result.Add(p_Data.Rows[j][0].ToString());
+            }
+            return result;
+        }
+        private List<string> DataSetToclassStringList(DataSet p_DataSet)
+        {
+            List<string> result = new List<string>();
+            DataTable p_Data = p_DataSet.Tables[0];
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                result.Add(p_Data.Rows[j][0].ToString());
+            }
+            return result;
+        }
+        private List<Student> DataSetToListStudent(DataSet p_DataSet)
+        {
+
+            List<Student> result = new List<Student>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Student problem = new Student();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "StudentId")
+                        problem.ID = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "StudentName")
+                        problem.sName = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "ClassId")
+                        problem.classId = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "Password")
+                        problem.password = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "Dept")
+                        problem.dept = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "ClassName")
+                        problem.className = (string)p_Data.Rows[j][i];
+
+
+                }
+
+                result.Add(problem);
+            }
+            return result;
+        }
+        private List<Teacher> DataSetToTeacherList(DataSet p_DataSet)
+        {
+            List<Teacher> result = new List<Teacher>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Teacher problem = new Teacher();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Id")
+                        problem.Id = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "TeacherName")
+                        problem.TeacherName = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "Password")
+                        problem.password = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "Permission")
+                        problem.permission = (int)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "UserName")
+                        problem.UserName = (string)p_Data.Rows[j][i];
+
+                }
+
+                result.Add(problem);
+            }
+            return result;
+        }
+        private List<Paper> DataSetToListPaper2(DataSet p_DataSet)
+        {
+            List<Paper> result = new List<Paper>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Paper problem = new Paper();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Id")
+                        problem.paperID = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "Title")
+                        problem.paperName = (string)p_Data.Rows[j][i];
+
+                }
+
+                result.Add(problem);
+            }
+            return result;
+        }
+        private Teacher DataSetToTeacher(DataSet p_DataSet)
+        {
+            Teacher problem = new Teacher();
+            DataTable p_Data = p_DataSet.Tables[0];
+            if (p_Data.Rows.Count < 1)
+            {
+                return null;
+            }
+            for (int i = 0; i < p_Data.Columns.Count; i++)
+            {
+                // 数据库NULL值单独处理   
+                if (p_Data.Columns[i].ToString() == "Id")
+                    problem.Id = p_Data.Rows[0][i].ToString();
+                if (p_Data.Columns[i].ToString() == "TeacherName")
+                    problem.TeacherName = (string)p_Data.Rows[0][i];
+                if (p_Data.Columns[i].ToString() == "Password")
+                    problem.password = p_Data.Rows[0][i].ToString();
+                if (p_Data.Columns[i].ToString() == "Permission")
+                    problem.permission = (int)p_Data.Rows[0][i];
+                if (p_Data.Columns[i].ToString() == "UserName")
+                    problem.UserName = (string)p_Data.Rows[0][i];
+
+            }
+            return problem;
+        }
+
+        private List<Teacher> DataSetToListTeacher(DataSet p_DataSet)
+        {
+            List<Teacher> result = new List<Teacher>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Teacher problem = new Teacher();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Id")
+                        problem.Id = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "TeacherName")
+                        problem.TeacherName = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "Password")
+                        problem.password = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "Permission")
+                        problem.permission = (int)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "UserName")
+                        problem.UserName = (string)p_Data.Rows[j][i];
+
+                }
+                result.Add(problem);
+            }
+            return result;
+        }
+        private List<Unit> DataSetToListString(DataSet Ds)
+        {
+            //throw new NotImplementedException();
+            List<Unit> result = new List<Unit>();
+            DataTable p_Data = Ds.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Unit unit = new Unit();
+                unit.UnitName = p_Data.Rows[j][0].ToString();
+                unit.UnitId = p_Data.Rows[j][1].ToString();
+                result.Add(unit);
+            }
+            return result;
+        }
+        private List<Paper> DataSetToListPaper(DataSet p_DataSet)
+        {
+            List<Paper> result = new List<Paper>();
+            DataTable p_Data = p_DataSet.Tables[0];
+
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Paper problem = new Paper();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Id")
+                        problem.paperID = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "Title")
+                        problem.paperName = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "GenerateDate")
+                        problem.createTime = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "TeacherName")
+                        problem.author = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "ProgramState")
+                        problem.programState = (int)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "TestDate")
+                        problem.testTime = p_Data.Rows[j][i].ToString();
+                    if (p_Data.Columns[i].ToString() == "Paper_Path")
+                        problem.paperPath = p_Data.Rows[j][i].ToString();
+                }
+
+                result.Add(problem);
+            }
+            return result;
+
+        }
 
         //List<string>转成一个字符串
         private string ListToString(List<string> ans)
@@ -507,6 +723,41 @@ namespace OES
             }
             return str;
         }
+        #endregion
+
+        #region 选择题有关的方法
+
+        //向数据库中添加选择题
+        public void AddChoice(string Problem_Content, string A, string B, string C, string D, string Answer, int Unit)
+        {
+            string unit = Unit.ToString();
+            SqlParameter[] ddlparam = new SqlParameter[8];
+            ddlparam[0] = CreateParam("@Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
+
+            ddlparam[1] = CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input);
+            ddlparam[3] = CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input);
+            ddlparam[4] = CreateParam("@D", SqlDbType.VarChar, 100, D, ParameterDirection.Input);
+            ddlparam[5] = CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
+            ddlparam[6] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
+
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddChoice", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 7; i++)
+            {
+                cmd.Parameters.Add(ddlparam[i]);
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
         //按单元查询选择题
         public List<Problem> FindChoiceByUnit(int Unit)
         {
@@ -613,6 +864,11 @@ namespace OES
             }
 
         }
+
+        #endregion
+
+        #region 填空题有关的方法
+
         //列出所有填空题
         public List<Problem> FindCompletion()
         {
@@ -736,6 +992,10 @@ namespace OES
             return completion;
         }
 
+        #endregion
+
+        #region 判断题有关的方法
+
         //单题 增加判断题
         public void AddTof(string Problem_Content, string Answer, int Unit)
         {
@@ -846,6 +1106,10 @@ namespace OES
             judge = DataSetToListJudge(Ds);
             return judge;
         }
+
+        #endregion
+
+        #region office类题目有关的方法
 
         //增加office类题目   sort传的值为1,2,3，字符串的形式，分别表示Word，Excel，PPT三类大题
         public void AddOffice(string Problem_Content, string Answer_Path, string File_Path, string Sort)
@@ -975,6 +1239,62 @@ namespace OES
             powerPoint = DataSetToListOfficePowerPoint(Ds);
             return powerPoint;
         }
+
+        //-- Description:   查找Excel试题的ID和题目
+        public List<Problem> FindExcelProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindExcelProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找PowerPoint试题的ID和题目
+        public List<Problem> FindPowerPointProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindPowerPointProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找Word试题的ID和题目
+        public List<Problem> FindWordProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindWordProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        #endregion
+
+        #region 编程题有关方法
 
         //增加编程的综合体型
         public void AddFunProgram(string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)
@@ -1208,6 +1528,101 @@ namespace OES
             pModif = DataSetToListModifProgram(Ds);
             return pModif;
         }
+
+        //-- Description:   查找C语言填空试题的ID和题目
+        public List<Problem> FindCCompletionProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCCompletionProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C++填空试题的ID和题目
+        public List<Problem> FindCppCompletionProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCppCompletionProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C语言编程试题的ID和题目
+        public List<Problem> FindCFunProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCFunProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C++编程试题的ID和题目
+        public List<Problem> FindCppFunProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCppFunProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C语言改错试题的ID和题目
+        public List<Problem> FindCModificationProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCModificationProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        //-- Description:   查找C++改错试题的ID和题目
+        public List<Problem> FindCppModificationProblemContent()
+        {
+            Ds = new DataSet();
+            List<Problem> problemList = new List<Problem>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindCppModificationProblemContent", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            problemList = DataSetToProblemList(Ds);
+            return problemList;
+        }
+
+        #endregion
+
+        #region paper记录管理
+
         //增加Paper记录 ,ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
         public string AddPaper(string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id, int ProgramState)
         {
@@ -1334,6 +1749,11 @@ namespace OES
             paper = DataSetToListPaper(Ds);
             return paper;
         }
+
+        #endregion
+
+        #region 章节管理
+
         //添加章节，UnitName具体的章节名字，例如“故障恢复” Unit 例子：1-12；TypeId 0,1,2分别表示填空选择判断
         public void AddUnit(string UnitName,int Unit,int TypeId)
         {
@@ -1373,17 +1793,10 @@ namespace OES
             UnitList = DataSetToListString(Ds);
             return UnitList;
         }
-        //-- Description:	查找Teacher的所有信息，通过Teacher的LoginName
-        public Teacher FindTeacherByLoginName(string UserName)
-        {
-            Teacher teacher = new Teacher();
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@UserName", SqlDbType.Int, 3, UserName, ParameterDirection.Input);
-            Ds = new DataSet();
-            RunProc("FindTeacherByLoginName", ddlparam, Ds);
-            teacher = DataSetToTeacher(Ds);
-            return teacher;
-        }
+
+        #endregion
+
+        #region 考试、试卷管理
 
         //-- Description:	根据试卷号返回试卷具体文件地址
         public string FindPaperPathByPaperId(string Id)
@@ -1455,7 +1868,21 @@ namespace OES
             return paperList;
         }
 
+#endregion
+
         #region 教师信息管理
+
+        //-- Description:	查找Teacher的所有信息，通过Teacher的LoginName
+        public Teacher FindTeacherByLoginName(string UserName)
+        {
+            Teacher teacher = new Teacher();
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@UserName", SqlDbType.Int, 3, UserName, ParameterDirection.Input);
+            Ds = new DataSet();
+            RunProc("FindTeacherByLoginName", ddlparam, Ds);
+            teacher = DataSetToTeacher(Ds);
+            return teacher;
+        }
 
         //-- Description:	增加教师信息
         public void AddTeacher(string TeacherName, string Password, int Permission, string UserName)
@@ -1580,6 +2007,23 @@ namespace OES
             catch (SqlException Ex) { throw Ex; }
         }
 
+        //-- Description:   修改班级信息
+        public void UpdateClass(string classId, string dept, string className, string teacherUserName)
+        {
+            SqlParameter[] dp = new SqlParameter[4];
+            dp[0] = CreateParam("@ClassId", SqlDbType.VarChar, 50, classId, ParameterDirection.Input);
+            dp[1] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
+            dp[2] = CreateParam("@ClassName", SqlDbType.VarChar, 50, className, ParameterDirection.Input);
+            dp[3] = CreateParam("@TeacherUserName", SqlDbType.VarChar, 50, teacherUserName, ParameterDirection.Input);
+            DataBind();
+            SqlCommand cmd = new SqlCommand("UpdateClass", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 4; i++)
+                cmd.Parameters.Add(dp[i]);
+            try { cmd.ExecuteNonQuery(); }
+            catch (SqlException Ex) { throw Ex; }
+        }
+
         //-- Description:   超级管理员查询所有班级信息
         public List<Classes> FindAllClass()
         {
@@ -1678,6 +2122,25 @@ namespace OES
             cmd.Parameters.Add(dp[0]);
             try { cmd.ExecuteNonQuery(); }
             catch (SqlException Ex) { throw Ex; }
+        }
+
+        //-- Description:   修改学生
+        public void UpdateStudent(string id, string name, string dept, string className, string password, string oriId)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[6];
+            ddlparam[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, id, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@StudentName", SqlDbType.VarChar, 50, name, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
+            ddlparam[3] = CreateParam("@ClassName", SqlDbType.VarChar, 50, className, ParameterDirection.Input);
+            ddlparam[4] = CreateParam("@Password", SqlDbType.VarChar, 50, password, ParameterDirection.Input);
+            ddlparam[5] = CreateParam("@OriStudentId", SqlDbType.VarChar, 50, oriId, ParameterDirection.Input);
+            DataBind();
+            SqlCommand cmd = new SqlCommand("UpdateStudent", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 6; i++)
+                cmd.Parameters.Add(ddlparam[i]);
+            try { cmd.ExecuteNonQuery(); }
+            catch (SqlException e) { throw e; }
         }
 
         //-- Description:	超级管理员列出所有学生
@@ -1791,394 +2254,6 @@ namespace OES
             }
             studentList = DataSetToListStudent(Ds);
             return studentList;
-        }
-
-        #endregion
-
-        //-- Description:   查找Excel试题的ID和题目
-        public List<Problem> FindExcelProblemContent()
-        {
-            Ds = new DataSet();
-            List<Problem> problemList = new List<Problem>();
-
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindExcelProblemContent", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try
-            {
-                Da.Fill(Ds);
-            }
-            catch (Exception Ex)
-            {
-                throw Ex;
-            }
-            problemList = DataSetToProblemList(Ds);
-            return problemList;
-        }
-
-        //-- Description:   查找PowerPoint试题的ID和题目
-        public List<Problem> FindPowerPointProblemContent()
-        {
-            Ds = new DataSet();
-            List<Problem> problemList = new List<Problem>();
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindPowerPointProblemContent", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try { Da.Fill(Ds); }
-            catch (Exception Ex) { throw Ex; }
-            problemList = DataSetToProblemList(Ds);
-            return problemList;
-        }
-
-        //-- Description:   查找Word试题的ID和题目
-        public List<Problem> FindWordProblemContent()
-        {
-            Ds = new DataSet();
-            List<Problem> problemList = new List<Problem>();
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindWordProblemContent", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try { Da.Fill(Ds); }
-            catch (Exception Ex) { throw Ex; }
-            problemList = DataSetToProblemList(Ds);
-            return problemList;
-        }
-
-        //-- Description:   查找C语言填空试题的ID和题目
-        public List<Problem> FindCCompletionProblemContent()
-        {
-            Ds = new DataSet();
-            List<Problem> problemList = new List<Problem>();
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindCCompletionProblemContent", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try { Da.Fill(Ds); }
-            catch (Exception Ex) { throw Ex; }
-            problemList = DataSetToProblemList(Ds);
-            return problemList;
-        }
-
-        //-- Description:   查找C++填空试题的ID和题目
-        public List<Problem> FindCppCompletionProblemContent()
-        {
-            Ds = new DataSet();
-            List<Problem> problemList = new List<Problem>();
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindCppCompletionProblemContent", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try { Da.Fill(Ds); }
-            catch (Exception Ex) { throw Ex; }
-            problemList = DataSetToProblemList(Ds);
-            return problemList;
-        }
-
-        //-- Description:   查找C语言编程试题的ID和题目
-        public List<Problem> FindCFunProblemContent()
-        {
-            Ds = new DataSet();
-            List<Problem> problemList = new List<Problem>();
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindCFunProblemContent", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try { Da.Fill(Ds); }
-            catch (Exception Ex) { throw Ex; }
-            problemList = DataSetToProblemList(Ds);
-            return problemList;
-        }
-
-        //-- Description:   查找C++编程试题的ID和题目
-        public List<Problem> FindCppFunProblemContent()
-        {
-            Ds = new DataSet();
-            List<Problem> problemList = new List<Problem>();
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindCppFunProblemContent", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try { Da.Fill(Ds); }
-            catch (Exception Ex) { throw Ex; }
-            problemList = DataSetToProblemList(Ds);
-            return problemList;
-        }
-
-        //-- Description:   查找C语言改错试题的ID和题目
-        public List<Problem> FindCModificationProblemContent()
-        {
-            Ds = new DataSet();
-            List<Problem> problemList = new List<Problem>();
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindCModificationProblemContent", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try { Da.Fill(Ds); }
-            catch (Exception Ex) { throw Ex; }
-            problemList = DataSetToProblemList(Ds);
-            return problemList;
-        }
-
-        //-- Description:   查找C++改错试题的ID和题目
-        public List<Problem> FindCppModificationProblemContent()
-        {
-            Ds = new DataSet();
-            List<Problem> problemList = new List<Problem>();
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindCppModificationProblemContent", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try { Da.Fill(Ds); }
-            catch (Exception Ex) { throw Ex; }
-            problemList = DataSetToProblemList(Ds);
-            return problemList;
-        }
-
-
-
-        #region DataSet ---> List 系列方法
-
-        private List<Classes> DataSetToClass(DataSet p_DataSet)
-        {
-            List<Classes> res = new List<Classes>();
-            DataTable dt = p_DataSet.Tables[0];
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                Classes cls = new Classes();
-                cls.classID = dt.Rows[i][0].ToString();
-                cls.dept = dt.Rows[i][1].ToString();
-                cls.className = dt.Rows[i][2].ToString();
-                if (dt.Rows[i][3] == null)
-                    cls.teacherName = "";
-                else
-                    cls.teacherName = dt.Rows[i][3].ToString();
-                if (dt.Rows[i][4] == null)
-                    cls.teacherUserName = "";
-                else
-                    cls.teacherUserName = dt.Rows[i][4].ToString();
-                res.Add(cls);
-            }
-            return res;
-        }
-
-        private List<Problem> DataSetToProblemList(DataSet p_DataSet)
-        {
-            List<Problem> res = new List<Problem>();
-            DataTable dt = p_DataSet.Tables[0];
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                Problem pb = new Problem();
-                pb.problemId = Convert.ToInt32(dt.Rows[i][0]);
-                pb.problem = dt.Rows[i][1].ToString();
-                res.Add(pb);
-            }
-            return res;
-        }
-
-        private List<string> DataSetToDeptStringList(DataSet p_DataSet)
-        {
-            List<string> result = new List<string>();
-            DataTable p_Data = p_DataSet.Tables[0];
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                result.Add(p_Data.Rows[j][0].ToString());
-            }
-            return result;
-        }
-        private List<string> DataSetToclassStringList(DataSet p_DataSet)
-        {
-            List<string> result = new List<string>();
-            DataTable p_Data = p_DataSet.Tables[0];
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                result.Add(p_Data.Rows[j][0].ToString());
-            }
-            return result;
-        }
-        private List<Student> DataSetToListStudent(DataSet p_DataSet)
-        {
-
-            List<Student> result = new List<Student>();
-            DataTable p_Data = p_DataSet.Tables[0];
-
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                Student problem = new Student();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "StudentId")
-                        problem.ID = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "StudentName")
-                        problem.sName = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "ClassId")
-                        problem.classId = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "Password")
-                        problem.password = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Dept")
-                        problem.dept= (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "ClassName")
-                        problem.className = (string)p_Data.Rows[j][i];
-                
-          
-                }
-
-                result.Add(problem);
-            }
-            return result;
-        }
-        private List<Teacher> DataSetToTeacherList(DataSet p_DataSet)
-        {
-            List<Teacher> result = new List<Teacher>();
-            DataTable p_Data = p_DataSet.Tables[0];
-
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                Teacher problem = new Teacher();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.Id = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "TeacherName")
-                        problem.TeacherName = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Password")
-                        problem.password = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Permission")
-                        problem.permission = (int)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "UserName")
-                        problem.UserName = (string)p_Data.Rows[j][i];
-
-                }
-
-                result.Add(problem);
-            }
-            return result;
-        }
-        private List<Paper> DataSetToListPaper2(DataSet p_DataSet)
-        {
-            List<Paper> result = new List<Paper>();
-            DataTable p_Data = p_DataSet.Tables[0];
-
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                Paper problem = new Paper();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.paperID = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "Title")
-                        problem.paperName = (string)p_Data.Rows[j][i];
-                   
-                }
-
-                result.Add(problem);
-            }
-            return result;
-        }
-        private Teacher DataSetToTeacher(DataSet p_DataSet)
-        {
-            Teacher problem = new Teacher();
-            DataTable p_Data = p_DataSet.Tables[0];
-            if (p_Data.Rows.Count < 1)
-            {
-                return null;
-            }
-            for (int i = 0; i < p_Data.Columns.Count; i++)
-            {
-                // 数据库NULL值单独处理   
-                if (p_Data.Columns[i].ToString() == "Id")
-                    problem.Id = p_Data.Rows[0][i].ToString();
-                if (p_Data.Columns[i].ToString() == "TeacherName")
-                    problem.TeacherName = (string)p_Data.Rows[0][i];
-                if (p_Data.Columns[i].ToString() == "Password")
-                    problem.password = p_Data.Rows[0][i].ToString();
-                if (p_Data.Columns[i].ToString() == "Permission")
-                    problem.permission = (int)p_Data.Rows[0][i];
-                if (p_Data.Columns[i].ToString() == "UserName")
-                    problem.UserName = (string)p_Data.Rows[0][i];
-
-            }
-            return problem;
-        }
-
-        private List<Teacher> DataSetToListTeacher(DataSet p_DataSet)
-        {
-            List<Teacher> result = new List<Teacher>();
-            DataTable p_Data = p_DataSet.Tables[0];
-
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                Teacher problem = new Teacher();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.Id = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "TeacherName")
-                        problem.TeacherName = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Password")
-                        problem.password = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "Permission")
-                        problem.permission = (int)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "UserName")
-                        problem.UserName = (string)p_Data.Rows[j][i];
-                   
-                }
-                result.Add(problem);
-            }
-            return result;
-        }
-        private List<Unit> DataSetToListString(DataSet Ds)
-        {
-            //throw new NotImplementedException();
-            List<Unit> result = new List<Unit>();
-            DataTable p_Data = Ds.Tables[0];
-            
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                Unit unit = new Unit();
-                unit.UnitName = p_Data.Rows[j][0].ToString();
-                unit.UnitId = p_Data.Rows[j][1].ToString();
-                result.Add(unit);
-            }
-            return result;
-        }
-        private List<Paper> DataSetToListPaper(DataSet p_DataSet)
-        {
-            List<Paper> result = new List<Paper>();
-            DataTable p_Data = p_DataSet.Tables[0];
-
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                Paper problem = new Paper();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.paperID =p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "Title")
-                        problem.paperName = (string)p_Data.Rows[j][i];
-                    if(p_Data.Columns[i].ToString()=="GenerateDate")
-                        problem.createTime = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "TeacherName")
-                        problem.author = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "ProgramState")
-                        problem.programState = (int)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "TestDate")
-                        problem.testTime = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "Paper_Path")
-                        problem.paperPath = p_Data.Rows[j][i].ToString();
-                }
-
-                result.Add(problem);
-            }
-            return result;
-
         }
 
         #endregion

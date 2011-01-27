@@ -68,10 +68,13 @@ namespace OES.UPanel
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Classes currentClass = new Classes("1", "软件学院", "软件工程0805班", "1", "罗康琦");   
+            int cr = classInfoDGV.CurrentRow.Index;
+            if (cr <= -1) { return; }
             changeBtnEnable(false);
             classInfoDGV.Visible = false;
             classInfoGroup.Text = "修改班级";
+            Classes currentClass = new Classes(dt.Rows[cr][1].ToString(), dt.Rows[cr][2].ToString(),
+                dt.Rows[cr][3].ToString(), dt.Rows[cr][4].ToString(), dt.Rows[cr][5].ToString());
             clsEdit = new ClassEdit(currentClass);
             clsEdit.Disposed += new EventHandler(clsOperation_Disposed);
             classInfoGroup.Controls.Add(clsEdit);
@@ -100,7 +103,7 @@ namespace OES.UPanel
                     catch { state = 1; }
                 }
                 string info = state == 0 ? "删除完成！" :
-                    "部分班级未能删除，请修改这些班内学生的班级后再试！";
+                    "部分班级未能删除，请将这些班内的学生加入别的班级后再试！";
                 MessageBox.Show(info, "班级管理", MessageBoxButtons.OK, state == 0 ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
                 getClassTable();
             }
