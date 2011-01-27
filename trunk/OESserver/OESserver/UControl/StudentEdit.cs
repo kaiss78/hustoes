@@ -33,6 +33,7 @@ namespace OES.UControl
                     comboClass.SelectedIndex = i;
                     break;
                 }
+            labelInfo.Text = "当前要修改的学生为：" + currentStudent.ID + " " + currentStudent.sName;
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
