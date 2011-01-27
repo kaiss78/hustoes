@@ -52,6 +52,7 @@ namespace OES.UPanel
             changeBtnEnable(true);
             classInfoDGV.Visible = true;
             classInfoGroup.Text = "班级信息";
+            getClassTable();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -79,9 +80,29 @@ namespace OES.UPanel
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确认删除这些班级信息？", "班级管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            int state = 0;
+            List<string> del = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                //TODO: Delete them.
+                if (Convert.ToBoolean(dt.Rows[i][0]) == true)
+                    del.Add(dt.Rows[i][1].ToString());
+            }
+            if (del.Count == 0)
+            {
+                MessageBox.Show("请先选中要删除的班级！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (MessageBox.Show("确认删除这些班级信息？", "班级管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                for (int i = 0; i < del.Count; i++)
+                {
+                    try { InfoControl.OesData.DeleteClass(del[i]); }
+                    catch { state = 1; }
+                }
+                string info = state == 0 ? "删除完成！" :
+                    "部分班级未能删除，请修改这些班内学生的班级后再试！";
+                MessageBox.Show(info, "班级管理", MessageBoxButtons.OK, state == 0 ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
+                getClassTable();
             }
         }
 
@@ -120,10 +141,10 @@ namespace OES.UPanel
             classInfoDGV.DataSource = dt;
             classInfoDGV.Columns[0].FillWeight = 5;
             classInfoDGV.Columns[1].FillWeight = 12;
-            classInfoDGV.Columns[2].FillWeight = 25;
-            classInfoDGV.Columns[3].FillWeight = 20;
-            classInfoDGV.Columns[4].FillWeight = 18;
-            classInfoDGV.Columns[5].FillWeight = 10;
+            classInfoDGV.Columns[2].FillWeight = 20;
+            classInfoDGV.Columns[3].FillWeight = 25;
+            classInfoDGV.Columns[4].FillWeight = 20;
+            classInfoDGV.Columns[5].FillWeight = 20;
 
             classInfoDGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
             classInfoDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -131,6 +152,8 @@ namespace OES.UPanel
             classInfoDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
             classInfoDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
             classInfoDGV.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            classInfoDGV.Columns[1].Visible = false;
         }
 
         private void classInfoDGV_CellClick(object sender, DataGridViewCellEventArgs e)

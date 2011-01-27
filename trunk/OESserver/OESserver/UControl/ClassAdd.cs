@@ -32,5 +32,29 @@ namespace OES.UControl
         {
             groupAddMany.Enabled = radioAddMany.Checked;
         }
+
+        private void btnAddOne_Click(object sender, EventArgs e)
+        {
+            if (textDept.Text == "" || textClass.Text == "")
+            {
+                MessageBox.Show("输入信息不完整！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                InfoControl.OesData.AddClass(textDept.Text, textClass.Text, textUserName.Text);
+                MessageBox.Show("添加成功！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clearInfo();
+            }
+            catch
+            {
+                MessageBox.Show("添加出现错误！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void clearInfo()
+        {
+            textDept.Text = textClass.Text = textUserName.Text = "";
+        }
     }
 }
