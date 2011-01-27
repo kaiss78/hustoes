@@ -75,8 +75,8 @@ namespace OES.UControl
                 return;
             }
             string pw = textPW.Text != "" ? textPW.Text : currentStudent.password;
-            //InfoControl.UpdateStudent();
-            MessageBox.Show("貌似成功了");
+            InfoControl.OesData.UpdateStudent(textID.Text, textName.Text, comboDept.Text, comboClass.Text, pw,currentStudent.ID);
+            MessageBox.Show("修改成功！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Dispose();
         }
 

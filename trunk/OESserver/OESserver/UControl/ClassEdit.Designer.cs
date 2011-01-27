@@ -34,7 +34,7 @@
             this.textDept = new System.Windows.Forms.TextBox();
             this.textTeacherUserName = new System.Windows.Forms.TextBox();
             this.textClass = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.labelInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -87,14 +87,15 @@
             this.textClass.Size = new System.Drawing.Size(185, 26);
             this.textClass.TabIndex = 5;
             // 
-            // btnAdd
+            // btnEdit
             // 
-            this.btnAdd.Location = new System.Drawing.Point(127, 320);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(102, 33);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "添加班级";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnEdit.Location = new System.Drawing.Point(127, 320);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(102, 33);
+            this.btnEdit.TabIndex = 6;
+            this.btnEdit.Text = "修改班级";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnReturn
             // 
@@ -114,13 +115,13 @@
             this.labelInfo.Size = new System.Drawing.Size(0, 16);
             this.labelInfo.TabIndex = 8;
             // 
-            // ClassAdd
+            // ClassEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.textClass);
             this.Controls.Add(this.textTeacherUserName);
             this.Controls.Add(this.textDept);
@@ -129,7 +130,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ClassAdd";
+            this.Name = "ClassEdit";
             this.Size = new System.Drawing.Size(710, 510);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -144,7 +145,7 @@
         private System.Windows.Forms.TextBox textDept;
         private System.Windows.Forms.TextBox textTeacherUserName;
         private System.Windows.Forms.TextBox textClass;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label labelInfo;
     }

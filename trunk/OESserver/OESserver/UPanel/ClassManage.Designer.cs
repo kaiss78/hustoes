@@ -103,7 +103,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(117, 37);
             this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "删除班级";
+            this.btnDelete.Text = "删除选中班级";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 

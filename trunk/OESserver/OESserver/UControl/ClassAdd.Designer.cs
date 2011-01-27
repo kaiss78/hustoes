@@ -76,7 +76,7 @@
             this.btnAddMany.Location = new System.Drawing.Point(419, 98);
             this.btnAddMany.Name = "btnAddMany";
             this.btnAddMany.Size = new System.Drawing.Size(88, 32);
-            this.btnAddMany.TabIndex = 10;
+            this.btnAddMany.TabIndex = 7;
             this.btnAddMany.Text = "导入";
             this.btnAddMany.UseVisualStyleBackColor = true;
             // 
@@ -85,7 +85,7 @@
             this.btnBrowse.Location = new System.Drawing.Point(463, 39);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 28);
-            this.btnBrowse.TabIndex = 10;
+            this.btnBrowse.TabIndex = 6;
             this.btnBrowse.Text = "浏览";
             this.btnBrowse.UseVisualStyleBackColor = true;
             // 
@@ -95,7 +95,7 @@
             this.textFile.Name = "textFile";
             this.textFile.PasswordChar = '*';
             this.textFile.Size = new System.Drawing.Size(256, 26);
-            this.textFile.TabIndex = 10;
+            this.textFile.TabIndex = 5;
             // 
             // label7
             // 
@@ -127,14 +127,14 @@
             this.textClass.Location = new System.Drawing.Point(348, 36);
             this.textClass.Name = "textClass";
             this.textClass.Size = new System.Drawing.Size(190, 26);
-            this.textClass.TabIndex = 22;
+            this.textClass.TabIndex = 2;
             // 
             // textDept
             // 
             this.textDept.Location = new System.Drawing.Point(118, 36);
             this.textDept.Name = "textDept";
             this.textDept.Size = new System.Drawing.Size(141, 26);
-            this.textDept.TabIndex = 23;
+            this.textDept.TabIndex = 1;
             // 
             // label8
             // 
@@ -159,7 +159,7 @@
             this.btnAddOne.Location = new System.Drawing.Point(414, 92);
             this.btnAddOne.Name = "btnAddOne";
             this.btnAddOne.Size = new System.Drawing.Size(94, 33);
-            this.btnAddOne.TabIndex = 9;
+            this.btnAddOne.TabIndex = 4;
             this.btnAddOne.Text = "添加班级";
             this.btnAddOne.UseVisualStyleBackColor = true;
             this.btnAddOne.Click += new System.EventHandler(this.btnAddOne_Click);
@@ -169,7 +169,7 @@
             this.textUserName.Location = new System.Drawing.Point(118, 94);
             this.textUserName.Name = "textUserName";
             this.textUserName.Size = new System.Drawing.Size(141, 26);
-            this.textUserName.TabIndex = 7;
+            this.textUserName.TabIndex = 3;
             // 
             // label6
             // 
@@ -198,7 +198,7 @@
             this.radioAddOne.Location = new System.Drawing.Point(51, 28);
             this.radioAddOne.Name = "radioAddOne";
             this.radioAddOne.Size = new System.Drawing.Size(122, 20);
-            this.radioAddOne.TabIndex = 11;
+            this.radioAddOne.TabIndex = 0;
             this.radioAddOne.TabStop = true;
             this.radioAddOne.Text = "添加单个班级";
             this.radioAddOne.UseVisualStyleBackColor = true;

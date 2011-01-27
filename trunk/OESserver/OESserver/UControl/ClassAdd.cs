@@ -56,5 +56,7 @@ namespace OES.UControl
         {
             textDept.Text = textClass.Text = textUserName.Text = "";
         }
+
+        
     }
 }
