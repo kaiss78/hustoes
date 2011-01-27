@@ -94,6 +94,11 @@ namespace OES.UPanel
                 if (Convert.ToBoolean(dt.Rows[i][0]) == true)
                     del.Add(dt.Rows[i][1].ToString());
             }
+            if (del.Count == 0)
+            {
+                MessageBox.Show("请先选中要删除的学生！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (MessageBox.Show("确认删除这些学生信息？", "学生管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 for (int i = 0; i < del.Count; i++) 
@@ -154,15 +159,7 @@ namespace OES.UPanel
             studentInfoDGV.Columns[6].Visible = false;
         }
 
-        private void teacherInfoDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int RIndex = e.RowIndex;
-            if (RIndex > -1)
-            {
-                dt.Rows[RIndex][0] = !Convert.ToBoolean(dt.Rows[RIndex][0]);
-            }
-        }
-
+        
         private void studentInfoDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RIndex = e.RowIndex;

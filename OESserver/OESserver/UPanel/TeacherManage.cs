@@ -58,6 +58,11 @@ namespace OES.UPanel
                 if (Convert.ToBoolean(dt.Rows[i][0]) == true)
                     del.Add(dt.Rows[i][1].ToString());
             }
+            if (del.Count == 0)
+            {
+                MessageBox.Show("请先选中要删除的教师！", "教师管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (MessageBox.Show("确认删除这些教师信息？", "教师管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 for (int i = 0; i < del.Count; i++)

@@ -35,15 +35,15 @@
             this.textFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupAddOne = new System.Windows.Forms.GroupBox();
-            this.btnAddOne = new System.Windows.Forms.Button();
-            this.textPW2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.radioAddMany = new System.Windows.Forms.RadioButton();
-            this.radioAddOne = new System.Windows.Forms.RadioButton();
             this.textClass = new System.Windows.Forms.TextBox();
             this.textDept = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAddOne = new System.Windows.Forms.Button();
+            this.textUserName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.radioAddMany = new System.Windows.Forms.RadioButton();
+            this.radioAddOne = new System.Windows.Forms.RadioButton();
             this.groupAddMany.SuspendLayout();
             this.groupAddOne.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +113,7 @@
             this.groupAddOne.Controls.Add(this.label8);
             this.groupAddOne.Controls.Add(this.label1);
             this.groupAddOne.Controls.Add(this.btnAddOne);
-            this.groupAddOne.Controls.Add(this.textPW2);
+            this.groupAddOne.Controls.Add(this.textUserName);
             this.groupAddOne.Controls.Add(this.label6);
             this.groupAddOne.Location = new System.Drawing.Point(62, 54);
             this.groupAddOne.Name = "groupAddOne";
@@ -121,6 +121,38 @@
             this.groupAddOne.TabIndex = 13;
             this.groupAddOne.TabStop = false;
             this.groupAddOne.Text = "班级信息";
+            // 
+            // textClass
+            // 
+            this.textClass.Location = new System.Drawing.Point(348, 36);
+            this.textClass.Name = "textClass";
+            this.textClass.Size = new System.Drawing.Size(190, 26);
+            this.textClass.TabIndex = 22;
+            // 
+            // textDept
+            // 
+            this.textDept.Location = new System.Drawing.Point(118, 36);
+            this.textDept.Name = "textDept";
+            this.textDept.Size = new System.Drawing.Size(141, 26);
+            this.textDept.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(267, 39);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 16);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "班级名称：";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 16);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "学院名称：";
             // 
             // btnAddOne
             // 
@@ -130,14 +162,14 @@
             this.btnAddOne.TabIndex = 9;
             this.btnAddOne.Text = "添加班级";
             this.btnAddOne.UseVisualStyleBackColor = true;
+            this.btnAddOne.Click += new System.EventHandler(this.btnAddOne_Click);
             // 
-            // textPW2
+            // textUserName
             // 
-            this.textPW2.Location = new System.Drawing.Point(118, 94);
-            this.textPW2.Name = "textPW2";
-            this.textPW2.PasswordChar = '*';
-            this.textPW2.Size = new System.Drawing.Size(141, 26);
-            this.textPW2.TabIndex = 7;
+            this.textUserName.Location = new System.Drawing.Point(118, 94);
+            this.textUserName.Name = "textUserName";
+            this.textUserName.Size = new System.Drawing.Size(141, 26);
+            this.textUserName.TabIndex = 7;
             // 
             // label6
             // 
@@ -172,40 +204,6 @@
             this.radioAddOne.UseVisualStyleBackColor = true;
             this.radioAddOne.CheckedChanged += new System.EventHandler(this.radioAddOne_CheckedChanged);
             // 
-            // textClass
-            // 
-            this.textClass.Location = new System.Drawing.Point(348, 36);
-            this.textClass.Name = "textClass";
-            this.textClass.PasswordChar = '*';
-            this.textClass.Size = new System.Drawing.Size(190, 26);
-            this.textClass.TabIndex = 22;
-            // 
-            // textDept
-            // 
-            this.textDept.Location = new System.Drawing.Point(118, 36);
-            this.textDept.Name = "textDept";
-            this.textDept.PasswordChar = '*';
-            this.textDept.Size = new System.Drawing.Size(141, 26);
-            this.textDept.TabIndex = 23;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(267, 39);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 16);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "班级名称：";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 16);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "学院名称：";
-            // 
             // ClassAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -216,7 +214,7 @@
             this.Controls.Add(this.radioAddMany);
             this.Controls.Add(this.radioAddOne);
             this.Font = new System.Drawing.Font("宋体", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClassAdd";
             this.Size = new System.Drawing.Size(710, 510);
             this.groupAddMany.ResumeLayout(false);
@@ -238,7 +236,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupAddOne;
         private System.Windows.Forms.Button btnAddOne;
-        private System.Windows.Forms.TextBox textPW2;
+        private System.Windows.Forms.TextBox textUserName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton radioAddMany;
         private System.Windows.Forms.RadioButton radioAddOne;

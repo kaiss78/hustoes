@@ -152,6 +152,7 @@
             this.classInfoDGV.ReadOnly = true;
             this.classInfoDGV.RowHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.NavajoWhite;
             this.classInfoDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.classInfoDGV.RowTemplate.Height = 23;
             this.classInfoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

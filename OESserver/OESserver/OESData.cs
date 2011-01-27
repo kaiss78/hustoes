@@ -1499,7 +1499,7 @@ namespace OES
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.ToString());
+                throw e;
             }
         }
         //-- Description:	修改教师记录的信息
@@ -1522,7 +1522,7 @@ namespace OES
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.ToString());
+                throw e;
             }
         }
         //-- Description:	列出所有teacher信息
@@ -1951,8 +1951,14 @@ namespace OES
                 cls.classID = dt.Rows[i][0].ToString();
                 cls.dept = dt.Rows[i][1].ToString();
                 cls.className = dt.Rows[i][2].ToString();
-                cls.teacherName = dt.Rows[i][3].ToString();
-                cls.teacherUserName = dt.Rows[i][4].ToString();
+                if (dt.Rows[i][3] == null)
+                    cls.teacherName = "";
+                else
+                    cls.teacherName = dt.Rows[i][3].ToString();
+                if (dt.Rows[i][4] == null)
+                    cls.teacherUserName = "";
+                else
+                    cls.teacherUserName = dt.Rows[i][4].ToString();
                 res.Add(cls);
             }
             return res;
