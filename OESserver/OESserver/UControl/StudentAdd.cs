@@ -82,14 +82,15 @@ namespace OES.UControl
             }
             catch
             {
-                MessageBox.Show("添加出现错误！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("添加失败！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void clearInfo()
         {
             showAllDepts();
-            textID.Text = textName.Text = textPW.Text = textPW2.Text = "";
+            textID.Text = textName.Text = textPW.Text = textPW2.Text = 
+                textFile.Text = textDept.Text = textClass.Text = "";
         }
 
         private void btnAddMany_Click(object sender, EventArgs e)
@@ -102,14 +103,23 @@ namespace OES.UControl
             }
             try 
             {
-                dataList = CVSHelper.CSVImporter.getObjectInCSV(textFile.Text, 2);
+                dataList = CVSHelper.CSVImporter.getObjectInCSV(textFile.Text, 3);
             } 
             catch 
             {
                 MessageBox.Show("文件读取失败！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            InfoControl.OesData.AddManyStudents(textDept.Text, textClass.Text, dataList);
+            try
+            {
+                InfoControl.OesData.AddManyStudents(textDept.Text, textClass.Text, dataList);
+                MessageBox.Show("导入成功！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clearInfo();
+            }
+            catch
+            {
+                MessageBox.Show("导入失败！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
