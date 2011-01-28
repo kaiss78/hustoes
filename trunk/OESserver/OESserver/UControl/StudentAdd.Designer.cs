@@ -47,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupAddMany = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.textClass = new System.Windows.Forms.TextBox();
             this.textDept = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.textFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupAddOne.SuspendLayout();
             this.groupAddMany.SuspendLayout();
             this.SuspendLayout();
@@ -123,7 +123,7 @@
             this.comboOneClass.Location = new System.Drawing.Point(339, 55);
             this.comboOneClass.Name = "comboOneClass";
             this.comboOneClass.Size = new System.Drawing.Size(190, 24);
-            this.comboOneClass.TabIndex = 17;
+            this.comboOneClass.TabIndex = 10;
             // 
             // comboOneDept
             // 
@@ -132,7 +132,7 @@
             this.comboOneDept.Location = new System.Drawing.Point(117, 56);
             this.comboOneDept.Name = "comboOneDept";
             this.comboOneDept.Size = new System.Drawing.Size(133, 24);
-            this.comboOneDept.TabIndex = 16;
+            this.comboOneDept.TabIndex = 9;
             this.comboOneDept.TextChanged += new System.EventHandler(this.comboOneDept_TextChanged);
             // 
             // label9
@@ -158,7 +158,7 @@
             this.btnAddOne.Location = new System.Drawing.Point(413, 128);
             this.btnAddOne.Name = "btnAddOne";
             this.btnAddOne.Size = new System.Drawing.Size(81, 29);
-            this.btnAddOne.TabIndex = 9;
+            this.btnAddOne.TabIndex = 13;
             this.btnAddOne.Text = "添加学生";
             this.btnAddOne.UseVisualStyleBackColor = true;
             this.btnAddOne.Click += new System.EventHandler(this.btnAddOne_Click);
@@ -176,7 +176,7 @@
             this.textPW2.Name = "textPW2";
             this.textPW2.PasswordChar = '*';
             this.textPW2.Size = new System.Drawing.Size(133, 26);
-            this.textPW2.TabIndex = 7;
+            this.textPW2.TabIndex = 12;
             // 
             // textName
             // 
@@ -191,7 +191,7 @@
             this.textPW.Name = "textPW";
             this.textPW.PasswordChar = '*';
             this.textPW.Size = new System.Drawing.Size(133, 26);
-            this.textPW.TabIndex = 5;
+            this.textPW.TabIndex = 11;
             // 
             // label6
             // 
@@ -256,6 +256,15 @@
             this.groupAddMany.TabStop = false;
             this.groupAddMany.Text = "导入文件";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(19, 111);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(360, 16);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "注意：学生信息包括学生姓名、学号以及密码信息";
+            // 
             // textClass
             // 
             this.textClass.Location = new System.Drawing.Point(339, 31);
@@ -268,7 +277,7 @@
             this.textDept.Location = new System.Drawing.Point(98, 29);
             this.textDept.Name = "textDept";
             this.textDept.Size = new System.Drawing.Size(141, 26);
-            this.textDept.TabIndex = 19;
+            this.textDept.TabIndex = 14;
             // 
             // label8
             // 
@@ -284,7 +293,7 @@
             this.btnAddMany.Location = new System.Drawing.Point(413, 105);
             this.btnAddMany.Name = "btnAddMany";
             this.btnAddMany.Size = new System.Drawing.Size(75, 28);
-            this.btnAddMany.TabIndex = 10;
+            this.btnAddMany.TabIndex = 22;
             this.btnAddMany.Text = "导入";
             this.btnAddMany.UseVisualStyleBackColor = true;
             this.btnAddMany.Click += new System.EventHandler(this.btnAddMany_Click);
@@ -294,7 +303,7 @@
             this.btnBrowse.Location = new System.Drawing.Point(456, 69);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 28);
-            this.btnBrowse.TabIndex = 10;
+            this.btnBrowse.TabIndex = 20;
             this.btnBrowse.Text = "浏览";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -304,7 +313,7 @@
             this.textFile.Location = new System.Drawing.Point(160, 69);
             this.textFile.Name = "textFile";
             this.textFile.Size = new System.Drawing.Size(290, 26);
-            this.textFile.TabIndex = 10;
+            this.textFile.TabIndex = 19;
             this.textFile.Text = "G:\\C#\\OESserver\\OESserver\\OESserver\\bin\\Debug\\1.csv";
             // 
             // label7
@@ -321,19 +330,10 @@
             this.btnReturn.Location = new System.Drawing.Point(518, 429);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(87, 32);
-            this.btnReturn.TabIndex = 10;
+            this.btnReturn.TabIndex = 25;
             this.btnReturn.Text = "返回";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(19, 111);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(328, 16);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "注意：学生信息包括姓名、学号以及密码信息";
             // 
             // StudentAdd
             // 

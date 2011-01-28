@@ -76,9 +76,16 @@ namespace OES.UControl
                 return;
             }
             string pw = textPW.Text != "" ? textPW.Text : currentStudent.password;
-            InfoControl.OesData.UpdateStudent(textID.Text, textName.Text, comboDept.Text, comboClass.Text, pw,currentStudent.ID);
-            MessageBox.Show("修改成功！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Dispose();
+            try
+            {
+                InfoControl.OesData.UpdateStudent(textID.Text, textName.Text, comboDept.Text, comboClass.Text, pw, currentStudent.ID);
+                MessageBox.Show("修改成功！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
+            }
+            catch
+            {
+                MessageBox.Show("修改失败，请检查学号是否重复！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void comboDept_SelectedIndexChanged(object sender, EventArgs e)

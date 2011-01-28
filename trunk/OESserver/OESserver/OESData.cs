@@ -1994,6 +1994,30 @@ namespace OES
             catch (SqlException Ex) { throw Ex; }
         }
 
+        //-- Description:   导入学生时添加的班级
+        public string AddClassByImport(string dept, string className)
+        {
+            string res = "";                //返回ClassId
+            Ds = new DataSet();
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
+            dp[1] = CreateParam("@ClassName", SqlDbType.VarChar, 50, className, ParameterDirection.Input);
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddClassByImport", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 2; i++)
+                cmd.Parameters.Add(dp[i]);
+            SqlDataAdapter Da = new SqlDataAdapter(cmd);
+            try 
+            {
+                Da.Fill(Ds);
+                DataTable dt = Ds.Tables[0];
+                res = dt.Rows[0][0].ToString();
+            }
+            catch (Exception Ex) { throw Ex; }
+            return res;
+        }
+
         //-- Description:   删除班级信息
         public void DeleteClass(string classId)
         {
@@ -2105,10 +2129,36 @@ namespace OES
             }
         }
 
+        //-- Description:   批量导入时，导入单个学生的方法
+        public void AddStudentByImport(string id, string name, string classId, string password)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[4];
+            ddlparam[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, id, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@StudentName", SqlDbType.VarChar, 50, name, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@ClassId", SqlDbType.VarChar, 50, classId, ParameterDirection.Input);
+            ddlparam[3] = CreateParam("@Password", SqlDbType.VarChar, 50, password, ParameterDirection.Input);
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddStudent", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 4; i++)
+                cmd.Parameters.Add(ddlparam[i]);
+            try { cmd.ExecuteNonQuery(); }
+            catch (SqlException e) { throw e; }
+        }
+
         //-- Description:   批量导入学生
         public void AddManyStudents(string dept, string className, List<Object[]> value)
         {
-    
+            SqlTransaction tx = sqlcon.BeginTransaction();
+            string classId = AddClassByImport(dept, className);
+            for (int i = 0; i < value.Count; i++)
+            {
+                string name = value[i][0].ToString();
+                string id = value[i][1].ToString();
+                string pw = value[i][2].ToString();
+                AddStudentByImport(id, name, classId, pw);
+            }
+            tx.Commit();
         }
 
         //-- Description:   删除学生
