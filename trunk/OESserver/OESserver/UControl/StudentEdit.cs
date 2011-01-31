@@ -92,5 +92,6 @@ namespace OES.UControl
         {
             showClassInDept(comboDept.Text);
         }
+
     }
 }
