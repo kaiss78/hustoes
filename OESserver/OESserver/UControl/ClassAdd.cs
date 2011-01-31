@@ -6,16 +6,21 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OES.Model;
+using OES.UPanel;
 
 namespace OES.UControl
 {
     public partial class ClassAdd : UserControl
     {
+
         public ClassAdd()
         {
             InitializeComponent();
             radioAddOne.Checked = true;
             groupAddMany.Enabled = false;
+            comboTeacher.Items.AddRange(ClassManage.comboInfo);
+            comboTeacher.SelectedIndex = 0;
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -42,7 +47,13 @@ namespace OES.UControl
             }
             try
             {
-                InfoControl.OesData.AddClass(textDept.Text, textClass.Text, textUserName.Text);
+                string userName = "";
+                if (comboTeacher.Text != "暂无教师")
+                {
+                    int pos = comboTeacher.Text.IndexOf('(');
+                    userName = comboTeacher.Text.Substring(pos + 1, comboTeacher.Text.Length - pos - 2);
+                }
+                InfoControl.OesData.AddClass(textDept.Text, textClass.Text, userName);
                 MessageBox.Show("添加成功！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearInfo();
             }
@@ -54,7 +65,40 @@ namespace OES.UControl
 
         private void clearInfo()
         {
-            textDept.Text = textClass.Text = textUserName.Text = "";
+            textDept.Text = textClass.Text = textFile.Text = "";
+            comboTeacher.SelectedIndex = 0;
+        }
+
+        private void btnAddMany_Click(object sender, EventArgs e)
+        {
+            List<Object[]> dataList;
+            try
+            {
+                dataList = CVSHelper.CSVImporter.getObjectInCSV(textFile.Text, 3);
+            }
+            catch
+            {
+                MessageBox.Show("文件读取失败！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                InfoControl.OesData.AddManyClasses(dataList);
+                MessageBox.Show("导入成功！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clearInfo();
+            }
+            catch
+            {
+                MessageBox.Show("导入失败！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            of.Filter = "CSV文件(逗号分隔)(*.csv)|*.csv|所有文件(*.*)|*.*";
+            of.ShowDialog();
+            textFile.Text = of.FileName;
         }
 
         

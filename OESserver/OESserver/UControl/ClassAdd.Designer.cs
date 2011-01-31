@@ -30,17 +30,18 @@
         {
             this.btnReturn = new System.Windows.Forms.Button();
             this.groupAddMany = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnAddMany = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.textFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupAddOne = new System.Windows.Forms.GroupBox();
+            this.comboTeacher = new System.Windows.Forms.ComboBox();
             this.textClass = new System.Windows.Forms.TextBox();
             this.textDept = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddOne = new System.Windows.Forms.Button();
-            this.textUserName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.radioAddMany = new System.Windows.Forms.RadioButton();
             this.radioAddOne = new System.Windows.Forms.RadioButton();
@@ -60,6 +61,7 @@
             // 
             // groupAddMany
             // 
+            this.groupAddMany.Controls.Add(this.label2);
             this.groupAddMany.Controls.Add(this.btnAddMany);
             this.groupAddMany.Controls.Add(this.btnBrowse);
             this.groupAddMany.Controls.Add(this.textFile);
@@ -71,14 +73,24 @@
             this.groupAddMany.TabStop = false;
             this.groupAddMany.Text = "导入文件";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(27, 107);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(376, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "注意：班级信息包括学院名、班级名以及教工号信息";
+            // 
             // btnAddMany
             // 
-            this.btnAddMany.Location = new System.Drawing.Point(419, 98);
+            this.btnAddMany.Location = new System.Drawing.Point(427, 98);
             this.btnAddMany.Name = "btnAddMany";
             this.btnAddMany.Size = new System.Drawing.Size(88, 32);
             this.btnAddMany.TabIndex = 7;
             this.btnAddMany.Text = "导入";
             this.btnAddMany.UseVisualStyleBackColor = true;
+            this.btnAddMany.Click += new System.EventHandler(this.btnAddMany_Click);
             // 
             // btnBrowse
             // 
@@ -88,12 +100,12 @@
             this.btnBrowse.TabIndex = 6;
             this.btnBrowse.Text = "浏览";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // textFile
             // 
             this.textFile.Location = new System.Drawing.Point(201, 39);
             this.textFile.Name = "textFile";
-            this.textFile.PasswordChar = '*';
             this.textFile.Size = new System.Drawing.Size(256, 26);
             this.textFile.TabIndex = 5;
             // 
@@ -108,12 +120,12 @@
             // 
             // groupAddOne
             // 
+            this.groupAddOne.Controls.Add(this.comboTeacher);
             this.groupAddOne.Controls.Add(this.textClass);
             this.groupAddOne.Controls.Add(this.textDept);
             this.groupAddOne.Controls.Add(this.label8);
             this.groupAddOne.Controls.Add(this.label1);
             this.groupAddOne.Controls.Add(this.btnAddOne);
-            this.groupAddOne.Controls.Add(this.textUserName);
             this.groupAddOne.Controls.Add(this.label6);
             this.groupAddOne.Location = new System.Drawing.Point(62, 54);
             this.groupAddOne.Name = "groupAddOne";
@@ -121,6 +133,15 @@
             this.groupAddOne.TabIndex = 13;
             this.groupAddOne.TabStop = false;
             this.groupAddOne.Text = "班级信息";
+            // 
+            // comboTeacher
+            // 
+            this.comboTeacher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboTeacher.FormattingEnabled = true;
+            this.comboTeacher.Location = new System.Drawing.Point(118, 94);
+            this.comboTeacher.Name = "comboTeacher";
+            this.comboTeacher.Size = new System.Drawing.Size(237, 24);
+            this.comboTeacher.TabIndex = 22;
             // 
             // textClass
             // 
@@ -164,21 +185,14 @@
             this.btnAddOne.UseVisualStyleBackColor = true;
             this.btnAddOne.Click += new System.EventHandler(this.btnAddOne_Click);
             // 
-            // textUserName
-            // 
-            this.textUserName.Location = new System.Drawing.Point(118, 94);
-            this.textUserName.Name = "textUserName";
-            this.textUserName.Size = new System.Drawing.Size(141, 26);
-            this.textUserName.TabIndex = 3;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 98);
+            this.label6.Location = new System.Drawing.Point(23, 100);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 16);
+            this.label6.Size = new System.Drawing.Size(88, 16);
             this.label6.TabIndex = 4;
-            this.label6.Text = "老师教工号：";
+            this.label6.Text = "教师信息：";
             // 
             // radioAddMany
             // 
@@ -236,7 +250,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupAddOne;
         private System.Windows.Forms.Button btnAddOne;
-        private System.Windows.Forms.TextBox textUserName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton radioAddMany;
         private System.Windows.Forms.RadioButton radioAddOne;
@@ -244,5 +257,7 @@
         private System.Windows.Forms.TextBox textDept;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboTeacher;
     }
 }

@@ -16,6 +16,10 @@ namespace OES.UPanel
         ClassAdd clsAdd;
         ClassEdit clsEdit;
         ClassFind clsFind;
+        public static List<Classes> findData;
+        public static List<Teacher> teacherList;
+        public static string[] comboInfo;
+        public static int findState = 0;
 
         private DataTable dt;
 
@@ -30,16 +34,28 @@ namespace OES.UPanel
             this.Visible = true;
             classInfoDGV.Visible = true;
             changeBtnEnable(true);
-            disposeControl();
-            classInfoGroup.Text = "班级信息";
-            getClassTable();
+            if (disposeControl() == 0)
+                getClassTable(InfoControl.OesData.FindAllClass());
+            getTeacherInfo();
         }
 
-        private void disposeControl()                       //消除原来产生的UserControl
+        private void getTeacherInfo()           //获得可选的教师信息
         {
-            if (clsEdit != null) { clsEdit.Dispose(); }
-            if (clsFind != null) { clsFind.Dispose(); }
-            if (clsAdd != null) { clsAdd.Dispose(); }
+            teacherList = InfoControl.OesData.FindTeacher();
+            comboInfo = new string[teacherList.Count + 1];
+            for (int i = 0; i < teacherList.Count; i++)
+                comboInfo[i] = (teacherList[i].TeacherName + "(" + teacherList[i].UserName + ")");
+            comboInfo[teacherList.Count] = "暂无教师";
+            
+        }
+
+        private int disposeControl()                       //消除原来产生的UserControl
+        {
+            int check = 0;
+            if (clsEdit != null) { clsEdit.Dispose(); check = 1; }
+            if (clsFind != null) { clsFind.Dispose(); check = 1; }
+            if (clsAdd != null) { clsAdd.Dispose(); check = 1; }
+            return check;
         }
 
         private void changeBtnEnable(bool en)               //改变下方增删改查按钮的可用性
@@ -52,7 +68,12 @@ namespace OES.UPanel
             changeBtnEnable(true);
             classInfoDGV.Visible = true;
             classInfoGroup.Text = "班级信息";
-            getClassTable();
+            if (findState == 1)
+                getClassTable(findData);
+            else
+                getClassTable(InfoControl.OesData.FindAllClass());
+            findState = 0;
+            getTeacherInfo();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -105,7 +126,7 @@ namespace OES.UPanel
                 string info = state == 0 ? "删除完成！" :
                     "部分班级未能删除，请将这些班内的学生加入别的班级后再试！";
                 MessageBox.Show(info, "班级管理", MessageBoxButtons.OK, state == 0 ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-                getClassTable();
+                getClassTable(InfoControl.OesData.FindAllClass());
             }
         }
 
@@ -120,10 +141,9 @@ namespace OES.UPanel
             clsFind.Dock = DockStyle.Fill;
         }
 
-        private void getClassTable()
+        private void getClassTable(List<Classes> data)
         {
             dt = new DataTable("Class");
-            List<Classes> data = InfoControl.OesData.FindAllClass();
             object[] values = new object[6];
             dt.Columns.Add("选中", typeof(bool));
             dt.Columns.Add("班级编号");

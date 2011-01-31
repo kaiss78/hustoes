@@ -32,11 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textDept = new System.Windows.Forms.TextBox();
-            this.textTeacherUserName = new System.Windows.Forms.TextBox();
             this.textClass = new System.Windows.Forms.TextBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.labelInfo = new System.Windows.Forms.Label();
+            this.comboTeacher = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -51,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(140, 191);
+            this.label2.Location = new System.Drawing.Point(140, 189);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 1;
@@ -60,31 +60,24 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(124, 254);
+            this.label3.Location = new System.Drawing.Point(140, 250);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 16);
+            this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 2;
-            this.label3.Text = "老师教工号：";
+            this.label3.Text = "教师信息：";
             // 
             // textDept
             // 
             this.textDept.Location = new System.Drawing.Point(234, 122);
             this.textDept.Name = "textDept";
-            this.textDept.Size = new System.Drawing.Size(185, 26);
+            this.textDept.Size = new System.Drawing.Size(211, 26);
             this.textDept.TabIndex = 3;
-            // 
-            // textTeacherUserName
-            // 
-            this.textTeacherUserName.Location = new System.Drawing.Point(234, 248);
-            this.textTeacherUserName.Name = "textTeacherUserName";
-            this.textTeacherUserName.Size = new System.Drawing.Size(185, 26);
-            this.textTeacherUserName.TabIndex = 4;
             // 
             // textClass
             // 
-            this.textClass.Location = new System.Drawing.Point(234, 185);
+            this.textClass.Location = new System.Drawing.Point(234, 184);
             this.textClass.Name = "textClass";
-            this.textClass.Size = new System.Drawing.Size(185, 26);
+            this.textClass.Size = new System.Drawing.Size(211, 26);
             this.textClass.TabIndex = 5;
             // 
             // btnEdit
@@ -99,7 +92,7 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(343, 320);
+            this.btnReturn.Location = new System.Drawing.Point(373, 320);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(102, 33);
             this.btnReturn.TabIndex = 7;
@@ -115,15 +108,24 @@
             this.labelInfo.Size = new System.Drawing.Size(0, 16);
             this.labelInfo.TabIndex = 8;
             // 
+            // comboTeacher
+            // 
+            this.comboTeacher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboTeacher.FormattingEnabled = true;
+            this.comboTeacher.Location = new System.Drawing.Point(235, 246);
+            this.comboTeacher.Name = "comboTeacher";
+            this.comboTeacher.Size = new System.Drawing.Size(210, 24);
+            this.comboTeacher.TabIndex = 9;
+            // 
             // ClassEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboTeacher);
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.textClass);
-            this.Controls.Add(this.textTeacherUserName);
             this.Controls.Add(this.textDept);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -143,10 +145,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textDept;
-        private System.Windows.Forms.TextBox textTeacherUserName;
         private System.Windows.Forms.TextBox textClass;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.ComboBox comboTeacher;
     }
 }

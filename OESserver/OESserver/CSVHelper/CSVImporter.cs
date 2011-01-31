@@ -20,8 +20,10 @@ namespace OES.CVSHelper
             {
                 value = new Object[dataCount];
                 data = buf.Split(',');
-                for (int i = 0; i < dataCount; i++)
+                for (int i = 0; i < data.Length; i++)
                     value[i] = data[i];
+                for (int i = data.Length; i < dataCount; i++)
+                    value[i] = "";
                 ret.Add(value);
             }
             return ret;

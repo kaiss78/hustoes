@@ -1994,6 +1994,39 @@ namespace OES
             catch (SqlException Ex) { throw Ex; }
         }
 
+        //-- Description:   批量导入班级时的添加单个班级
+        public void AddClassByClassImport(string dept, string className, string teacherUserName)
+        {
+            SqlParameter[] dp = new SqlParameter[3];
+            dp[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
+            dp[1] = CreateParam("@ClassName", SqlDbType.VarChar, 50, className, ParameterDirection.Input);
+            dp[2] = CreateParam("@UserName", SqlDbType.VarChar, 50, teacherUserName, ParameterDirection.Input);
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddManyClass", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 3; i++)
+                cmd.Parameters.Add(dp[i]);
+            try { cmd.ExecuteNonQuery(); }
+            catch (SqlException Ex) { throw Ex; }
+        }
+
+
+        //-- Description:   批量导入班级
+        public void AddManyClasses(List<Object[]> value)
+        {
+            SqlTransaction tx = sqlcon.BeginTransaction();
+            for (int i = 0; i < value.Count; i++)
+            {
+                string dept = value[i][0].ToString();
+                string className = value[i][1].ToString();
+                string userName = value[i][2].ToString();
+                AddClassByClassImport(dept, className, userName);
+            }
+            tx.Commit();
+        }
+
+
+
         //-- Description:   导入学生时添加的班级
         public string AddClassByImport(string dept, string className)
         {
@@ -2056,6 +2089,60 @@ namespace OES
             DataBind();
             SqlCommand Cmd = new SqlCommand("FindAllClass", sqlcon);
             Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            classList = DataSetToClass(Ds);
+            return classList;
+        }
+
+        //-- Description:   按学院查找班级
+        public List<Classes> FindClassByDept(string dept)
+        {
+            SqlParameter[] dp = new SqlParameter[1];
+            dp[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
+            Ds = new DataSet();
+            List<Classes> classList = new List<Classes>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindClassByDept", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(dp[0]);
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            classList = DataSetToClass(Ds);
+            return classList;
+        }
+
+        //-- Description:   按班级名称查找班级
+        public List<Classes> FindClassByClassName(string className)
+        {
+            SqlParameter[] dp = new SqlParameter[1];
+            dp[0] = CreateParam("@ClassName", SqlDbType.VarChar, 50, className, ParameterDirection.Input);
+            Ds = new DataSet();
+            List<Classes> classList = new List<Classes>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindClassByClassName", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(dp[0]);
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            classList = DataSetToClass(Ds);
+            return classList;
+        }
+
+        //-- Description:   按教工号查找班级
+        public List<Classes> FindClassByUserName(string userName)
+        {
+            SqlParameter[] dp = new SqlParameter[1];
+            dp[0] = CreateParam("@UserName", SqlDbType.VarChar, 50, userName, ParameterDirection.Input);
+            Ds = new DataSet();
+            List<Classes> classList = new List<Classes>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindClassByUserName", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(dp[0]);
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
             try { Da.Fill(Ds); }
             catch (Exception Ex) { throw Ex; }
