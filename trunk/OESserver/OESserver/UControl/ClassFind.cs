@@ -13,15 +13,12 @@ namespace OES.UControl
 {
     public partial class ClassFind : UserControl
     {
-        private List<Teacher> teacherList = null;
-
         public ClassFind()
         {
             InitializeComponent();
             radioByDept.Checked = true;
             comboTeacher.Hide();
             textKey.Show();
-            teacherList = InfoControl.OesData.FindTeacher();
             comboTeacher.Items.Clear();
             comboTeacher.Items.AddRange(ClassManage.comboInfo);
             comboTeacher.SelectedIndex = 0;
