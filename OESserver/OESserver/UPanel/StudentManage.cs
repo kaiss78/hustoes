@@ -16,6 +16,10 @@ namespace OES.UPanel
         StudentAdd stuAdd;
         StudentEdit stuEdit;
         StudentFind stuFind;
+        public static List<Student> findData;
+        public static List<Teacher> teacherList;
+        public static string[] comboInfo;
+        public static int findState = 0;
 
         private DataTable dt;
 
@@ -32,16 +36,29 @@ namespace OES.UPanel
             this.Visible = true;
             studentInfoDGV.Visible = true;
             changeBtnEnable(true);
-            disposeControl();
+            if (disposeControl() == 0)
+                getStudentTable(InfoControl.OesData.FindAllStudent());
             studentInfoGroup.Text = "学生信息";
-            getStudentTable();
+            getTeacherInfo();
         }
 
-        private void disposeControl()               //消除原来产生的UserControl
+        private void getTeacherInfo()           //获得可选的教师信息
         {
-            if (stuEdit != null) { stuEdit.Dispose(); }
-            if (stuAdd != null) { stuAdd.Dispose(); }
-            if (stuFind != null) { stuFind.Dispose(); }
+            teacherList = InfoControl.OesData.FindTeacher();
+            comboInfo = new string[teacherList.Count + 1];
+            for (int i = 0; i < teacherList.Count; i++)
+                comboInfo[i] = (teacherList[i].TeacherName + "(" + teacherList[i].UserName + ")");
+            comboInfo[teacherList.Count] = "暂无教师";
+
+        }
+
+        private int disposeControl()               //消除原来产生的UserControl
+        {
+            int check = 0;
+            if (stuEdit != null) { stuEdit.Dispose(); check = 1; }
+            if (stuAdd != null) { stuAdd.Dispose(); check = 1; }
+            if (stuFind != null) { stuFind.Dispose(); check = 1; }
+            return check;
         }
 
         private void changeBtnEnable(bool en)               //改变下方增删改查按钮的可用性
@@ -104,7 +121,7 @@ namespace OES.UPanel
                 for (int i = 0; i < del.Count; i++) 
                     InfoControl.OesData.DeleteStudent(del[i]);
                 MessageBox.Show("删除完成！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                getStudentTable();
+                getStudentTable(InfoControl.OesData.FindAllStudent());
             }
         }
 
@@ -113,13 +130,17 @@ namespace OES.UPanel
             changeBtnEnable(true);
             studentInfoDGV.Visible = true;
             studentInfoGroup.Text = "学生信息";
-            getStudentTable();
+            if (findState == 1)
+                getStudentTable(findData);
+            else
+                getStudentTable(InfoControl.OesData.FindAllStudent());
+            findState = 0;
+            getTeacherInfo();
         }
 
-        private void getStudentTable()
+        private void getStudentTable(List<Student> data)
         {
             dt = new DataTable("Student");
-            List<Student> data = InfoControl.OesData.FindAllStudent();
             object[] values = new object[7];
             dt.Columns.Add("选中", typeof(bool));
             dt.Columns.Add("学号");

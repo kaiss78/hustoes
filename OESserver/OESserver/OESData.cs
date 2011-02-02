@@ -2304,15 +2304,16 @@ namespace OES
 
         }
         //-- Description:	普通教师查看自己所教院系的学生信息
-        public List<Student> FindStudentByTeacherId()
+        public List<Student> FindStudentByUserName(string userName)
         {
             Ds = new DataSet();
             List<Student> studentList = new List<Student>();
-
+            SqlParameter dp = CreateParam("@UserName", SqlDbType.VarChar, 50, userName, ParameterDirection.Input);
             //RunProc("FindChoice", null, Ds);
             DataBind();
-            SqlCommand Cmd = new SqlCommand("FindStudentByTeacherId", sqlcon);
+            SqlCommand Cmd = new SqlCommand("FindStudentByUserName", sqlcon);
             Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(dp);
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
             try
             {
@@ -2331,11 +2332,14 @@ namespace OES
         {
             Ds = new DataSet();
             List<Student> studentList = new List<Student>();
-
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, Dept, ParameterDirection.Input);
+            dp[1] = CreateParam("@ClassName", SqlDbType.VarChar, 50, ClassName, ParameterDirection.Input);
             //RunProc("FindChoice", null, Ds);
             DataBind();
             SqlCommand Cmd = new SqlCommand("FindStudentByClass", sqlcon);
             Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.AddRange(dp);
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
             try
             {
@@ -2349,15 +2353,15 @@ namespace OES
             return studentList;
         }
         //-- Description:	按学生姓名查询学生信息
-        public List<Student> FindStudentByName(string Dept, string ClassName)
+        public List<Student> FindStudentByName(string name)
         {
             Ds = new DataSet();
             List<Student> studentList = new List<Student>();
-
-            //RunProc("FindChoice", null, Ds);
+            SqlParameter dp = CreateParam("@StudentName", SqlDbType.VarChar, 50, name, ParameterDirection.Input);
             DataBind();
             SqlCommand Cmd = new SqlCommand("FindStudentByName", sqlcon);
             Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(dp);
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
             try
             {
@@ -2375,11 +2379,12 @@ namespace OES
         {
             Ds = new DataSet();
             List<Student> studentList = new List<Student>();
-
+            SqlParameter dp = CreateParam("@StudentId", SqlDbType.VarChar, 50, StudentId, ParameterDirection.Input);
             //RunProc("FindChoice", null, Ds);
             DataBind();
             SqlCommand Cmd = new SqlCommand("FindStudentByStudentId", sqlcon);
             Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(dp);
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
             try
             {

@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OES.UPanel;
+using OES.Model;
 
 namespace OES.UControl
 {
@@ -15,11 +17,108 @@ namespace OES.UControl
         {
             InitializeComponent();
             radioByName.Checked = true;
+            comboTeacher.Hide();
+            comboClass.Hide();
+            comboDept.Hide();
+            textKey.Show();
+            comboTeacher.Items.Clear();
+            comboTeacher.Items.AddRange(StudentManage.comboInfo);
+            comboTeacher.SelectedIndex = 0;
+            showAllDepts();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void showAllDepts()
+        {
+            List<string> dps = InfoControl.OesData.FindAllDept();
+            object[] ob = new object[dps.Count];
+            for (int i = 0; i < dps.Count; i++)
+                ob[i] = dps[i];
+            comboDept.Items.Clear();
+            comboDept.Items.AddRange(ob);
+            comboDept.SelectedIndex = 0;
+        }
+
+        private void showClassInDept(string dept)
+        {
+            List<String> cls = InfoControl.OesData.FindClassNameOfDept(dept);
+            object[] ob = new object[cls.Count];
+            for (int i = 0; i < cls.Count; i++)
+                ob[i] = cls[i];
+            comboClass.Items.Clear();
+            comboClass.Items.Add("所有学生");
+            comboClass.Items.AddRange(ob);
+            comboClass.SelectedIndex = 0;
+        }
+
+        private void radioByName_CheckedChanged(object sender, EventArgs e)
+        {
+            labelInfo.Text = "学生姓名：";
+            comboTeacher.Hide();
+            comboDept.Hide();
+            comboClass.Hide();
+            textKey.Show();
+        }
+
+        private void radioByID_CheckedChanged(object sender, EventArgs e)
+        {
+            labelInfo.Text = "学生学号：";
+            comboTeacher.Hide();
+            comboDept.Hide();
+            comboClass.Hide();
+            textKey.Show();
+        }
+
+        private void radioByClass_CheckedChanged(object sender, EventArgs e)
+        {
+            labelInfo.Text = "班级信息：";
+            comboTeacher.Hide();
+            comboDept.Show();
+            comboClass.Show();
+            textKey.Hide();
+        }
+
+        private void radioByTeacher_CheckedChanged(object sender, EventArgs e)
+        {
+            labelInfo.Text = "教师信息：";
+            comboTeacher.Show();
+            comboDept.Hide();
+            comboClass.Hide();
+            textKey.Hide();
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            if (radioByName.Checked)
+                StudentManage.findData = InfoControl.OesData.FindStudentByName(textKey.Text);
+            else if (radioByID.Checked)
+                StudentManage.findData = InfoControl.OesData.FindStudentByStudentId(textKey.Text);
+            else if (radioByTeacher.Checked)
+            {
+                string userName = "";
+                if (comboTeacher.Text != "暂无教师")
+                {
+                    int pos = comboTeacher.Text.IndexOf('(');
+                    userName = comboTeacher.Text.Substring(pos + 1, comboTeacher.Text.Length - pos - 2);
+                }
+                StudentManage.findData = InfoControl.OesData.FindStudentByUserName(userName);
+            }
+            else if (radioByClass.Checked)
+            {
+                string className = comboClass.Text != "所有学生" ? comboClass.Text : "";
+                StudentManage.findData = InfoControl.OesData.FindStudentByClass(comboDept.Text, className);
+            }
+            StudentManage.findState = 1;
+            this.Dispose();
+        }
+
+        private void comboDept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            showClassInDept(comboDept.Text);
         }
     }
 }
