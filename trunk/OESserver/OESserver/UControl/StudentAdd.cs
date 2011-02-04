@@ -82,7 +82,7 @@ namespace OES.UControl
             }
             catch
             {
-                MessageBox.Show("添加失败！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("添加失败，请检查学号是否重复！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

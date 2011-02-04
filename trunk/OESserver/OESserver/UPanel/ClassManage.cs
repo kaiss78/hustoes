@@ -118,15 +118,16 @@ namespace OES.UPanel
             }
             if (MessageBox.Show("确认删除这些班级信息？", "班级管理", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                for (int i = 0; i < del.Count; i++)
+                try
                 {
-                    try { InfoControl.OesData.DeleteClass(del[i]); }
-                    catch { state = 1; }
+                    InfoControl.OesData.DeleteManyClass(del);
+                    MessageBox.Show("删除成功！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    getClassTable(InfoControl.OesData.FindAllClass());
                 }
-                string info = state == 0 ? "删除完成！" :
-                    "部分班级未能删除，请将这些班内的学生加入别的班级后再试！";
-                MessageBox.Show(info, "班级管理", MessageBoxButtons.OK, state == 0 ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
-                getClassTable(InfoControl.OesData.FindAllClass());
+                catch
+                {
+                    MessageBox.Show("删除失败，请重试！", "班级管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
