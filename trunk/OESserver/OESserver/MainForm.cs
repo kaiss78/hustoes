@@ -37,8 +37,19 @@ namespace OES
 
             PanelControl.init(this);
             PanelControl.HideAllPanel();
-            
+
+            PermissionControl();
+
             this.FormClosed += new FormClosedEventHandler(MainForm_FormClosed); 
+        }
+
+        //权限控制，根据登录用户的权限，设置不同的功能显示
+        void PermissionControl()
+        {
+            int permission = InfoControl.User.permission;
+            if (permission == 1) { return; }    //管理员拥有所有权限
+            //以下是对普通用户的功能屏蔽
+            classManage.ForbidFunction();
         }
 
         void MainForm_FormClosed(object sender, FormClosedEventArgs e)

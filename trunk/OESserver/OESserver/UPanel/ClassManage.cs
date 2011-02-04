@@ -29,6 +29,13 @@ namespace OES.UPanel
             clsEdit = null;
         }
 
+        public void ForbidFunction()
+        {
+            btnAdd.Visible = false;
+            btnEdit.Visible = false;
+            btnDelete.Visible = false;
+        }
+
         public override void ReLoad()
         {
             this.Visible = true;
@@ -46,7 +53,6 @@ namespace OES.UPanel
             for (int i = 0; i < teacherList.Count; i++)
                 comboInfo[i] = (teacherList[i].TeacherName + "(" + teacherList[i].UserName + ")");
             comboInfo[teacherList.Count] = "暂无教师";
-            
         }
 
         private int disposeControl()                       //消除原来产生的UserControl
