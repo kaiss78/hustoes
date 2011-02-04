@@ -64,7 +64,7 @@ namespace OES.UControl
         {
             if (radioByClass.Checked)
             {
-                labelInfo.Text = "班级名称：";
+                labelInfo.Text = "专业班级名称：";
                 textKey.Show();
                 comboTeacher.Hide();
             }
