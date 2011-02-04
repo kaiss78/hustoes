@@ -1929,6 +1929,20 @@ namespace OES
                 throw e;
             }
         }
+
+        //-- Description:   删除多个教师
+        public void DeleteManyTeacher(List<String> list)
+        {
+            try
+            {
+                SqlTransaction tx = sqlcon.BeginTransaction();
+                for (int i = 0; i < list.Count; i++)
+                    DeleteTeacherById(list[i]);
+                tx.Commit();
+            }
+            catch (Exception e) { throw e; }
+        }
+
         //-- Description:	修改教师记录的信息
         public void UpdateTeacherById(string Id, string TeacherName, string Password, int Permission, string UserName)
         {
@@ -2062,6 +2076,19 @@ namespace OES
             cmd.Parameters.Add(dp[0]);
             try { cmd.ExecuteNonQuery(); }
             catch (SqlException Ex) { throw Ex; }
+        }
+
+        //-- Description:   删除多个班级
+        public void DeleteManyClass(List<String> list)
+        {
+            try
+            {
+                SqlTransaction tx = sqlcon.BeginTransaction();
+                for (int i = 0; i < list.Count; i++)
+                    DeleteClass(list[i]);
+                tx.Commit();
+            }
+            catch (Exception e) { throw e; }
         }
 
         //-- Description:   修改班级信息
@@ -2234,7 +2261,7 @@ namespace OES
         }
 
         //-- Description:   批量导入学生
-        public void AddManyStudents(string dept, string className, List<Object[]> value)
+        public void  AddManyStudents(string dept, string className, List<Object[]> value)
         {
             SqlTransaction tx = sqlcon.BeginTransaction();
             string classId = AddClassByImport(dept, className);
@@ -2259,6 +2286,19 @@ namespace OES
             cmd.Parameters.Add(dp[0]);
             try { cmd.ExecuteNonQuery(); }
             catch (SqlException Ex) { throw Ex; }
+        }
+
+        //-- Description:   删除多个学生
+        public void DeleteManyStudent(List<String> list)
+        {
+            try
+            {
+                SqlTransaction tx = sqlcon.BeginTransaction();
+                for (int i = 0; i < list.Count; i++)
+                    DeleteStudent(list[i]);
+                tx.Commit();
+            }
+            catch (Exception e) { throw e; }
         }
 
         //-- Description:   修改学生
