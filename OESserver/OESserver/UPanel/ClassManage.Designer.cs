@@ -52,11 +52,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Controls.Add(this.btnAdd, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnQuery, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 4, 5);
             this.tableLayoutPanel1.Controls.Add(this.classInfoGroup, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 4, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnAdd, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnQuery, 2, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -73,9 +73,8 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAdd.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnAdd.Location = new System.Drawing.Point(161, 547);
+            this.btnAdd.Location = new System.Drawing.Point(161, 608);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(117, 37);
             this.btnAdd.TabIndex = 1;
@@ -85,9 +84,8 @@
             // 
             // btnQuery
             // 
-            this.btnQuery.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnQuery.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnQuery.Location = new System.Drawing.Point(161, 608);
+            this.btnQuery.Location = new System.Drawing.Point(161, 547);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(117, 37);
             this.btnQuery.TabIndex = 2;
@@ -97,9 +95,8 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDelete.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnDelete.Location = new System.Drawing.Point(464, 547);
+            this.btnDelete.Location = new System.Drawing.Point(464, 608);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(117, 37);
             this.btnDelete.TabIndex = 3;
@@ -109,9 +106,8 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEdit.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnEdit.Location = new System.Drawing.Point(464, 608);
+            this.btnEdit.Location = new System.Drawing.Point(464, 547);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(117, 37);
             this.btnEdit.TabIndex = 4;
