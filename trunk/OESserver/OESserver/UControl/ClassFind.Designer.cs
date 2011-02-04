@@ -60,7 +60,7 @@
             this.radioByClass.Size = new System.Drawing.Size(138, 20);
             this.radioByClass.TabIndex = 1;
             this.radioByClass.TabStop = true;
-            this.radioByClass.Text = "按班级名称查询";
+            this.radioByClass.Text = "按专业班级查询";
             this.radioByClass.UseVisualStyleBackColor = true;
             this.radioByClass.CheckedChanged += new System.EventHandler(this.radioByClass_CheckedChanged);
             // 
