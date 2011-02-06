@@ -56,6 +56,8 @@
             this.textFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.comboManyDept = new System.Windows.Forms.ComboBox();
+            this.comboManyClass = new System.Windows.Forms.ComboBox();
             this.groupAddOne.SuspendLayout();
             this.groupAddMany.SuspendLayout();
             this.SuspendLayout();
@@ -240,6 +242,8 @@
             // 
             // groupAddMany
             // 
+            this.groupAddMany.Controls.Add(this.comboManyClass);
+            this.groupAddMany.Controls.Add(this.comboManyDept);
             this.groupAddMany.Controls.Add(this.label11);
             this.groupAddMany.Controls.Add(this.textClass);
             this.groupAddMany.Controls.Add(this.textDept);
@@ -276,13 +280,13 @@
             // 
             this.textDept.Location = new System.Drawing.Point(98, 29);
             this.textDept.Name = "textDept";
-            this.textDept.Size = new System.Drawing.Size(141, 26);
+            this.textDept.Size = new System.Drawing.Size(133, 26);
             this.textDept.TabIndex = 14;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(245, 34);
+            this.label8.Location = new System.Drawing.Point(258, 34);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 16);
             this.label8.TabIndex = 11;
@@ -334,6 +338,27 @@
             this.btnReturn.Text = "返回";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // comboManyDept
+            // 
+            this.comboManyDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboManyDept.FormattingEnabled = true;
+            this.comboManyDept.Location = new System.Drawing.Point(98, 31);
+            this.comboManyDept.Name = "comboManyDept";
+            this.comboManyDept.Size = new System.Drawing.Size(133, 24);
+            this.comboManyDept.TabIndex = 16;
+            this.comboManyDept.Visible = false;
+            this.comboManyDept.SelectedIndexChanged += new System.EventHandler(this.comboManyDept_SelectedIndexChanged);
+            // 
+            // comboManyClass
+            // 
+            this.comboManyClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboManyClass.FormattingEnabled = true;
+            this.comboManyClass.Location = new System.Drawing.Point(339, 31);
+            this.comboManyClass.Name = "comboManyClass";
+            this.comboManyClass.Size = new System.Drawing.Size(190, 24);
+            this.comboManyClass.TabIndex = 16;
+            this.comboManyClass.Visible = false;
             // 
             // StudentAdd
             // 
@@ -387,5 +412,7 @@
         private System.Windows.Forms.TextBox textClass;
         private System.Windows.Forms.TextBox textDept;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboManyClass;
+        private System.Windows.Forms.ComboBox comboManyDept;
     }
 }

@@ -2123,7 +2123,7 @@ namespace OES
             return classList;
         }
 
-        //-- Description:   按学院查找班级
+        //-- Description:   超级管理员按学院查找班级
         public List<Classes> FindClassByDept(string dept)
         {
             SqlParameter[] dp = new SqlParameter[1];
@@ -2141,7 +2141,26 @@ namespace OES
             return classList;
         }
 
-        //-- Description:   按班级名称查找班级
+        //-- Description:   普通教师按学院查找班级
+        public List<Classes> FindClassByDeptWithTeacher(string dept, string userName)
+        {
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
+            dp[1] = CreateParam("@UserName", SqlDbType.VarChar, 50, userName, ParameterDirection.Input);
+            Ds = new DataSet();
+            List<Classes> classList = new List<Classes>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindClassByDeptWithTeacher", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.AddRange(dp);
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            classList = DataSetToClass(Ds);
+            return classList;
+        }
+
+        //-- Description:   超级管理员按班级名称查找班级
         public List<Classes> FindClassByClassName(string className)
         {
             SqlParameter[] dp = new SqlParameter[1];
@@ -2152,6 +2171,25 @@ namespace OES
             SqlCommand Cmd = new SqlCommand("FindClassByClassName", sqlcon);
             Cmd.CommandType = CommandType.StoredProcedure;
             Cmd.Parameters.Add(dp[0]);
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            classList = DataSetToClass(Ds);
+            return classList;
+        }
+
+        //-- Description:   普通教师按班级名称查找班级
+        public List<Classes> FindClassByClassNameWithTeacher(string className, string userName)
+        {
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@ClassName", SqlDbType.VarChar, 50, className, ParameterDirection.Input);
+            dp[1] = CreateParam("@UserName", SqlDbType.VarChar, 50, userName, ParameterDirection.Input);
+            Ds = new DataSet();
+            List<Classes> classList = new List<Classes>();
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindClassByClassNameWithTeacher", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.AddRange(dp);
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
             try { Da.Fill(Ds); }
             catch (Exception Ex) { throw Ex; }
@@ -2429,6 +2467,29 @@ namespace OES
             studentList = DataSetToListStudent(Ds);
             return studentList;
         }
+
+        //-- Description:	 普通教师按院系班级信息查询学生
+        public List<Student> FindStudentByClassWithTeacher(string Dept, string ClassName, string userName)
+        {
+            Ds = new DataSet();
+            List<Student> studentList = new List<Student>();
+            SqlParameter[] dp = new SqlParameter[3];
+            dp[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, Dept, ParameterDirection.Input);
+            dp[1] = CreateParam("@ClassName", SqlDbType.VarChar, 50, ClassName, ParameterDirection.Input);
+            dp[2] = CreateParam("@UserName", SqlDbType.VarChar, 50, userName, ParameterDirection.Input);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindStudentByClassWithTeacher", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.AddRange(dp);
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            studentList = DataSetToListStudent(Ds);
+            return studentList;
+        }
+
+
+
         //-- Description:	按学生姓名查询学生信息
         public List<Student> FindStudentByName(string name)
         {
@@ -2451,6 +2512,26 @@ namespace OES
             studentList = DataSetToListStudent(Ds);
             return studentList;
         }
+
+        //-- Description:   普通教师按学生姓名查询学生信息
+        public List<Student> FindStudentByNameWithTeacher(string name, string userName)
+        {
+            Ds = new DataSet();
+            List<Student> studentList = new List<Student>();
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@StudentName", SqlDbType.VarChar, 50, name, ParameterDirection.Input);
+            dp[1] = CreateParam("@UserName", SqlDbType.VarChar, 50, userName, ParameterDirection.Input);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindStudentByNameWithTeacher", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.AddRange(dp);
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            studentList = DataSetToListStudent(Ds);
+            return studentList;
+        }
+
         //-- Description:	按学号查询学生信息
         public List<Student> FindStudentByStudentId(string StudentId)
         {
@@ -2474,6 +2555,26 @@ namespace OES
             studentList = DataSetToListStudent(Ds);
             return studentList;
         }
+
+        //-- Description:   普通教师按学号查询学生信息
+        public List<Student> FindStudentByStudentIdWithTeacher(string id, string userName)
+        {
+            Ds = new DataSet();
+            List<Student> studentList = new List<Student>();
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, id, ParameterDirection.Input);
+            dp[1] = CreateParam("@UserName", SqlDbType.VarChar, 50, userName, ParameterDirection.Input);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindStudentByStudentIdWithTeacher", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.AddRange(dp);
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            studentList = DataSetToListStudent(Ds);
+            return studentList;
+        }
+
 
         #endregion
 

@@ -116,9 +116,19 @@ namespace OES.UControl
         private void btnFind_Click(object sender, EventArgs e)
         {
             if (radioByName.Checked)
-                StudentManage.findData = InfoControl.OesData.FindStudentByName(textKey.Text);
+            {
+                if (permissionUserName == "")
+                    StudentManage.findData = InfoControl.OesData.FindStudentByName(textKey.Text);
+                else
+                    StudentManage.findData = InfoControl.OesData.FindStudentByNameWithTeacher(textKey.Text, permissionUserName);
+            }
             else if (radioByID.Checked)
-                StudentManage.findData = InfoControl.OesData.FindStudentByStudentId(textKey.Text);
+            {
+                if (permissionUserName == "")
+                    StudentManage.findData = InfoControl.OesData.FindStudentByStudentId(textKey.Text);
+                else
+                    StudentManage.findData = InfoControl.OesData.FindStudentByStudentIdWithTeacher(textKey.Text, permissionUserName);
+            }
             else if (radioByTeacher.Checked)
             {
                 string userName = "";
@@ -132,7 +142,10 @@ namespace OES.UControl
             else if (radioByClass.Checked)
             {
                 string className = comboClass.Text != "所有学生" ? comboClass.Text : "";
-                StudentManage.findData = InfoControl.OesData.FindStudentByClass(comboDept.Text, className);
+                if (permissionUserName == "")
+                    StudentManage.findData = InfoControl.OesData.FindStudentByClass(comboDept.Text, className);
+                else
+                    StudentManage.findData = InfoControl.OesData.FindStudentByClassWithTeacher(comboDept.Text, className, permissionUserName);
             }
             StudentManage.findState = 1;
             this.Dispose();

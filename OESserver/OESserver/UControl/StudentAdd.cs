@@ -19,9 +19,20 @@ namespace OES.UControl
             InitializeComponent();
             radioAddOne.Checked = true;
             groupAddMany.Enabled = false;
-            if (InfoControl.User.permission == 0) 
+            if (InfoControl.User.permission == 0)
+            {
                 permissionUserName = InfoControl.User.UserName;
+                ChangeDisplay();
+            }
             showAllDepts();
+        }
+
+        private void ChangeDisplay()
+        {
+            textClass.Hide();
+            textDept.Hide();
+            comboManyDept.Show();
+            comboManyClass.Show();
         }
 
         private void radioAddOne_CheckedChanged(object sender, EventArgs e)
@@ -49,12 +60,17 @@ namespace OES.UControl
             object[] ob = new object[dps.Count];
             for (int i = 0; i < dps.Count; i++)
                 ob[i] = dps[i];
+
             comboOneDept.Items.Clear();
             comboOneDept.Items.AddRange(ob);
             comboOneDept.SelectedIndex = 0;
+
+            comboManyDept.Items.Clear();
+            comboManyDept.Items.AddRange(ob);
+            comboManyDept.SelectedIndex = 0;
         }
 
-        private void showClassInDept(string dept)
+        private void showClassInDept(string dept, ComboBox com)
         {
             List<String> cls = new List<string>();
             if (permissionUserName == "")
@@ -64,14 +80,20 @@ namespace OES.UControl
             object[] ob = new object[cls.Count];
             for (int i = 0; i < cls.Count; i++)
                 ob[i] = cls[i];
-            comboOneClass.Items.Clear();
-            comboOneClass.Items.AddRange(ob);
-            comboOneClass.SelectedIndex = 0;
+            com.Items.Clear();
+            com.Items.AddRange(ob);
+            com.SelectedIndex = 0;
         }
 
         private void comboOneDept_TextChanged(object sender, EventArgs e)
         {
-            showClassInDept(comboOneDept.Text);
+            showClassInDept(comboOneDept.Text, comboOneClass);
+        }
+
+
+        private void comboManyDept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            showClassInDept(comboManyDept.Text, comboManyClass);
         }
 
         private void btnAddOne_Click(object sender, EventArgs e)
@@ -109,7 +131,12 @@ namespace OES.UControl
         private void btnAddMany_Click(object sender, EventArgs e)
         {
             List<Object[]> dataList;
-            if (textClass.Text == "" || textDept.Text == "" || textFile.Text == "")
+            bool infoState = true;
+            if (textFile.Text == "")
+                infoState = false;
+            else if ((textDept.Text == "" || textClass.Text == "") && textDept.Visible == true)
+                infoState = false;
+            if (!infoState)
             {
                 MessageBox.Show("输入信息不完整！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -125,7 +152,18 @@ namespace OES.UControl
             }
             try
             {
-                InfoControl.OesData.AddManyStudents(textDept.Text, textClass.Text, dataList);
+                string dept, className;
+                if (textDept.Visible == true)
+                {
+                    dept = textDept.Text;
+                    className = textClass.Text;
+                }
+                else
+                {
+                    dept = comboManyDept.Text; 
+                    className = comboManyClass.Text;
+                }
+                InfoControl.OesData.AddManyStudents(dept, className, dataList);
                 MessageBox.Show("导入成功！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearInfo();
             }
@@ -142,5 +180,6 @@ namespace OES.UControl
             of.ShowDialog();
             textFile.Text = of.FileName;
         }
+
     }
 }
