@@ -13,6 +13,7 @@ namespace OES.UControl
     public partial class StudentEdit : UserControl
     {
         private Student currentStudent;
+        string permissionUserName = "";                 //当前登录的用户名，用来区分权限，若为空表示是管理员
 
         public StudentEdit(Student stu)
         {
@@ -20,6 +21,8 @@ namespace OES.UControl
             currentStudent = stu;
             textID.Text = currentStudent.ID;
             textName.Text = currentStudent.sName;
+            if (InfoControl.User.permission == 0)
+                permissionUserName = InfoControl.User.UserName;
             showAllDepts();
             for (int i = 0; i < comboDept.Items.Count; i++)
                 if (comboDept.Items[i].ToString() == currentStudent.dept)
@@ -36,6 +39,7 @@ namespace OES.UControl
             labelInfo.Text = "当前要修改的学生为：" + currentStudent.ID + " " + currentStudent.sName;
         }
 
+
         private void btnReturn_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -43,7 +47,11 @@ namespace OES.UControl
 
         private void showAllDepts()
         {
-            List<string> dps = InfoControl.OesData.FindAllDept();
+            List<string> dps = new List<string>();
+            if (permissionUserName == "")
+                dps = InfoControl.OesData.FindAllDept();
+            else
+                dps = InfoControl.OesData.FindAllDeptWithTeacher(permissionUserName);
             object[] ob = new object[dps.Count];
             for (int i = 0; i < dps.Count; i++)
                 ob[i] = dps[i];
@@ -54,7 +62,11 @@ namespace OES.UControl
 
         private void showClassInDept(string dept)
         {
-            List<String> cls = InfoControl.OesData.FindClassNameOfDept(dept);
+            List<String> cls = new List<string>();
+            if (permissionUserName == "")
+                cls = InfoControl.OesData.FindClassNameOfDept(dept);
+            else
+                cls = InfoControl.OesData.FindClassNameOfDeptWithTeacher(dept, permissionUserName);
             object[] ob = new object[cls.Count];
             for (int i = 0; i < cls.Count; i++)
                 ob[i] = cls[i];

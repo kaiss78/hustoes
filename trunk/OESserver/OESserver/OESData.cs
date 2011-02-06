@@ -1877,7 +1877,7 @@ namespace OES
         {
             Teacher teacher = new Teacher();
             SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@UserName", SqlDbType.Int, 3, UserName, ParameterDirection.Input);
+            ddlparam[0] = CreateParam("@UserName", SqlDbType.VarChar, 50, UserName, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindTeacherByLoginName", ddlparam, Ds);
             teacher = DataSetToTeacher(Ds);
@@ -2190,6 +2190,26 @@ namespace OES
             classStringList = DataSetToclassStringList(Ds);
             return classStringList;
         }
+
+        //-- Description:   查找某个学院下某个老师的所有班级
+        public List<String> FindClassNameOfDeptWithTeacher(string dept, string userName)
+        {
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
+            dp[1] = CreateParam("@UserName", SqlDbType.VarChar, 50, userName, ParameterDirection.Input);
+            DataBind();
+            Ds = new DataSet();
+            List<string> res = new List<string>();
+            SqlCommand Cmd = new SqlCommand("FindClassNameOfDeptWithTeacher", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.AddRange(dp);
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            res = DataSetToclassStringList(Ds);
+            return res;
+        }
+
         //-- Description:	查找所有的学院
         public List<string> FindAllDept()
         {
@@ -2211,6 +2231,23 @@ namespace OES
             }
             deptStringList = DataSetToDeptStringList(Ds);
             return deptStringList;
+        }
+
+        //-- Description:   查找某个老师所教班级所在的所有学院
+        public List<String> FindAllDeptWithTeacher(string userName)
+        {
+            Ds = new DataSet();
+            List<string> res = new List<string>();
+            SqlParameter dp = CreateParam("@UserName", SqlDbType.VarChar, 50, userName, ParameterDirection.Input);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindAllDeptWithTeacher", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            Cmd.Parameters.Add(dp);
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try { Da.Fill(Ds); }
+            catch (Exception Ex) { throw Ex; }
+            res = DataSetToDeptStringList(Ds);
+            return res;
         }
 
         #endregion

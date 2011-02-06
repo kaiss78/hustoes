@@ -13,6 +13,9 @@ namespace OES.UControl
 {
     public partial class ClassFind : UserControl
     {
+
+        private string permissionUserName = "";
+
         public ClassFind()
         {
             InitializeComponent();
@@ -22,6 +25,11 @@ namespace OES.UControl
             comboTeacher.Items.Clear();
             comboTeacher.Items.AddRange(ClassManage.comboInfo);
             comboTeacher.SelectedIndex = 0;
+            if (InfoControl.User.permission == 0)
+            {
+                permissionUserName = InfoControl.User.UserName;
+                ChangeDisplay();
+            }
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -29,6 +37,12 @@ namespace OES.UControl
             this.Dispose();
         }
 
+        private void ChangeDisplay()
+        {
+            radioByTeacherName.Visible = false;
+            radioByDept.Top = (2 * radioByDept.Top + radioByClass.Top) / 3;
+            radioByClass.Top = (radioByClass.Top + 2 * radioByTeacherName.Top) / 3;
+        }
       
         private void btnFind_Click(object sender, EventArgs e)
         {
