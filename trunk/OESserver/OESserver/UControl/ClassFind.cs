@@ -47,9 +47,19 @@ namespace OES.UControl
         private void btnFind_Click(object sender, EventArgs e)
         {
             if (radioByDept.Checked)
-                ClassManage.findData = InfoControl.OesData.FindClassByDept(textKey.Text);
+            {
+                if (permissionUserName == "")
+                    ClassManage.findData = InfoControl.OesData.FindClassByDept(textKey.Text);
+                else
+                    ClassManage.findData = InfoControl.OesData.FindClassByDeptWithTeacher(textKey.Text, permissionUserName);
+            }
             else if (radioByClass.Checked)
-                ClassManage.findData = InfoControl.OesData.FindClassByClassName(textKey.Text);
+            {
+                if (permissionUserName == "")
+                    ClassManage.findData = InfoControl.OesData.FindClassByClassName(textKey.Text);
+                else
+                    ClassManage.findData = InfoControl.OesData.FindClassByClassNameWithTeacher(textKey.Text, permissionUserName);
+            }
             else if (radioByTeacherName.Checked)
             {
                 string userName = "";
