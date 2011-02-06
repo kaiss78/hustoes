@@ -43,7 +43,7 @@
             // radioByDept
             // 
             this.radioByDept.AutoSize = true;
-            this.radioByDept.Location = new System.Drawing.Point(13, 38);
+            this.radioByDept.Location = new System.Drawing.Point(11, 34);
             this.radioByDept.Name = "radioByDept";
             this.radioByDept.Size = new System.Drawing.Size(138, 20);
             this.radioByDept.TabIndex = 0;
@@ -55,7 +55,7 @@
             // radioByClass
             // 
             this.radioByClass.AutoSize = true;
-            this.radioByClass.Location = new System.Drawing.Point(13, 82);
+            this.radioByClass.Location = new System.Drawing.Point(11, 79);
             this.radioByClass.Name = "radioByClass";
             this.radioByClass.Size = new System.Drawing.Size(138, 20);
             this.radioByClass.TabIndex = 1;
@@ -106,7 +106,7 @@
             // radioByTeacherName
             // 
             this.radioByTeacherName.AutoSize = true;
-            this.radioByTeacherName.Location = new System.Drawing.Point(13, 126);
+            this.radioByTeacherName.Location = new System.Drawing.Point(11, 123);
             this.radioByTeacherName.Name = "radioByTeacherName";
             this.radioByTeacherName.Size = new System.Drawing.Size(138, 20);
             this.radioByTeacherName.TabIndex = 2;

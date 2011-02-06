@@ -60,7 +60,7 @@
             this.groupBox1.Controls.Add(this.radioByClass);
             this.groupBox1.Location = new System.Drawing.Point(69, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(183, 190);
+            this.groupBox1.Size = new System.Drawing.Size(161, 190);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询方式";
@@ -68,7 +68,7 @@
             // radioByTeacher
             // 
             this.radioByTeacher.AutoSize = true;
-            this.radioByTeacher.Location = new System.Drawing.Point(16, 153);
+            this.radioByTeacher.Location = new System.Drawing.Point(13, 108);
             this.radioByTeacher.Name = "radioByTeacher";
             this.radioByTeacher.Size = new System.Drawing.Size(138, 20);
             this.radioByTeacher.TabIndex = 3;
@@ -80,7 +80,7 @@
             // radioByID
             // 
             this.radioByID.AutoSize = true;
-            this.radioByID.Location = new System.Drawing.Point(16, 67);
+            this.radioByID.Location = new System.Drawing.Point(13, 66);
             this.radioByID.Name = "radioByID";
             this.radioByID.Size = new System.Drawing.Size(138, 20);
             this.radioByID.TabIndex = 2;
@@ -92,7 +92,7 @@
             // radioByName
             // 
             this.radioByName.AutoSize = true;
-            this.radioByName.Location = new System.Drawing.Point(16, 24);
+            this.radioByName.Location = new System.Drawing.Point(13, 24);
             this.radioByName.Name = "radioByName";
             this.radioByName.Size = new System.Drawing.Size(138, 20);
             this.radioByName.TabIndex = 0;
@@ -104,7 +104,7 @@
             // radioByClass
             // 
             this.radioByClass.AutoSize = true;
-            this.radioByClass.Location = new System.Drawing.Point(16, 110);
+            this.radioByClass.Location = new System.Drawing.Point(13, 150);
             this.radioByClass.Name = "radioByClass";
             this.radioByClass.Size = new System.Drawing.Size(138, 20);
             this.radioByClass.TabIndex = 1;

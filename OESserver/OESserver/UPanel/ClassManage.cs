@@ -42,8 +42,18 @@ namespace OES.UPanel
             classInfoDGV.Visible = true;
             changeBtnEnable(true);
             if (disposeControl() == 0)
-                getClassTable(InfoControl.OesData.FindAllClass());
+                showClasses();
             getTeacherInfo();
+        }
+
+        private void showClasses()         //点击班级管理时显示的班级信息
+        {
+            List<Classes> lst = null;
+            if (InfoControl.User.permission == 1)
+                lst = InfoControl.OesData.FindAllClass();
+            else
+                lst = InfoControl.OesData.FindClassByUserName(InfoControl.User.UserName);
+            getClassTable(lst);
         }
 
         private void getTeacherInfo()           //获得可选的教师信息
@@ -77,7 +87,7 @@ namespace OES.UPanel
             if (findState == 1)
                 getClassTable(findData);
             else
-                getClassTable(InfoControl.OesData.FindAllClass());
+                showClasses();
             findState = 0;
             getTeacherInfo();
         }

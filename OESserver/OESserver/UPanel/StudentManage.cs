@@ -37,9 +37,19 @@ namespace OES.UPanel
             studentInfoDGV.Visible = true;
             changeBtnEnable(true);
             if (disposeControl() == 0)
-                getStudentTable(InfoControl.OesData.FindAllStudent());
+                showStudents();
             studentInfoGroup.Text = "学生信息";
             getTeacherInfo();
+        }
+
+        private void showStudents()         //点击学生管理时显示的学生信息
+        {
+            List<Student> lst = null;
+            if (InfoControl.User.permission == 1)
+                lst = InfoControl.OesData.FindAllStudent();
+            else
+                lst = InfoControl.OesData.FindStudentByUserName(InfoControl.User.UserName);
+            getStudentTable(lst);
         }
 
         private void getTeacherInfo()           //获得可选的教师信息
@@ -139,7 +149,7 @@ namespace OES.UPanel
             if (findState == 1)
                 getStudentTable(findData);
             else
-                getStudentTable(InfoControl.OesData.FindAllStudent());
+                showStudents();
             findState = 0;
             getTeacherInfo();
         }
