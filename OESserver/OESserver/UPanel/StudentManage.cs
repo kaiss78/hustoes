@@ -44,10 +44,8 @@ namespace OES.UPanel
 
         private void showStudents()         //点击学生管理时显示的学生信息
         {
-            List<Student> lst = null;
-            if (InfoControl.User.permission == 1)
-                lst = InfoControl.OesData.FindAllStudent();
-            else
+            List<Student> lst = new List<Student>();
+            if (InfoControl.User.permission == 0)
                 lst = InfoControl.OesData.FindStudentByUserName(InfoControl.User.UserName);
             getStudentTable(lst);
         }

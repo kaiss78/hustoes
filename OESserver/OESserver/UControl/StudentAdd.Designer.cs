@@ -47,6 +47,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupAddMany = new System.Windows.Forms.GroupBox();
+            this.comboManyClass = new System.Windows.Forms.ComboBox();
+            this.comboManyDept = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textClass = new System.Windows.Forms.TextBox();
             this.textDept = new System.Windows.Forms.TextBox();
@@ -56,8 +58,6 @@
             this.textFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.comboManyDept = new System.Windows.Forms.ComboBox();
-            this.comboManyClass = new System.Windows.Forms.ComboBox();
             this.groupAddOne.SuspendLayout();
             this.groupAddMany.SuspendLayout();
             this.SuspendLayout();
@@ -260,6 +260,27 @@
             this.groupAddMany.TabStop = false;
             this.groupAddMany.Text = "导入文件";
             // 
+            // comboManyClass
+            // 
+            this.comboManyClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboManyClass.FormattingEnabled = true;
+            this.comboManyClass.Location = new System.Drawing.Point(339, 31);
+            this.comboManyClass.Name = "comboManyClass";
+            this.comboManyClass.Size = new System.Drawing.Size(190, 24);
+            this.comboManyClass.TabIndex = 16;
+            this.comboManyClass.Visible = false;
+            // 
+            // comboManyDept
+            // 
+            this.comboManyDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboManyDept.FormattingEnabled = true;
+            this.comboManyDept.Location = new System.Drawing.Point(98, 31);
+            this.comboManyDept.Name = "comboManyDept";
+            this.comboManyDept.Size = new System.Drawing.Size(133, 24);
+            this.comboManyDept.TabIndex = 16;
+            this.comboManyDept.Visible = false;
+            this.comboManyDept.SelectedIndexChanged += new System.EventHandler(this.comboManyDept_SelectedIndexChanged);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -318,7 +339,6 @@
             this.textFile.Name = "textFile";
             this.textFile.Size = new System.Drawing.Size(290, 26);
             this.textFile.TabIndex = 19;
-            this.textFile.Text = "G:\\C#\\OESserver\\OESserver\\OESserver\\bin\\Debug\\1.csv";
             // 
             // label7
             // 
@@ -338,27 +358,6 @@
             this.btnReturn.Text = "返回";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // comboManyDept
-            // 
-            this.comboManyDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboManyDept.FormattingEnabled = true;
-            this.comboManyDept.Location = new System.Drawing.Point(98, 31);
-            this.comboManyDept.Name = "comboManyDept";
-            this.comboManyDept.Size = new System.Drawing.Size(133, 24);
-            this.comboManyDept.TabIndex = 16;
-            this.comboManyDept.Visible = false;
-            this.comboManyDept.SelectedIndexChanged += new System.EventHandler(this.comboManyDept_SelectedIndexChanged);
-            // 
-            // comboManyClass
-            // 
-            this.comboManyClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboManyClass.FormattingEnabled = true;
-            this.comboManyClass.Location = new System.Drawing.Point(339, 31);
-            this.comboManyClass.Name = "comboManyClass";
-            this.comboManyClass.Size = new System.Drawing.Size(190, 24);
-            this.comboManyClass.TabIndex = 16;
-            this.comboManyClass.Visible = false;
             // 
             // StudentAdd
             // 
