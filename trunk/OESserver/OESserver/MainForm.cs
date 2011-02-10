@@ -48,6 +48,7 @@ namespace OES
         {
             int permission = InfoControl.User.permission;
             if (permission == 1) { return; }    //管理员拥有所有权限
+            techManlbl.Visible = false;
             //以下是对普通用户的功能屏蔽
             classManage.ForbidFunction();
         }
