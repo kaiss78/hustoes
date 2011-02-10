@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.xpPanelGroup1 = new UIComponents.XPPanelGroup();
             this.xpPanel3 = new UIComponents.XPPanel(100);
+            this.techManlbl = new System.Windows.Forms.LinkLabel();
             this.classManlbl = new System.Windows.Forms.LinkLabel();
             this.stuManlbl = new System.Windows.Forms.LinkLabel();
             this.xpPanel2 = new UIComponents.XPPanel(100);
@@ -50,7 +51,6 @@
             this.JudgeLbl = new System.Windows.Forms.LinkLabel();
             this.completionLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
@@ -69,7 +69,7 @@
             this.xpPanelGroup1.Location = new System.Drawing.Point(0, 0);
             this.xpPanelGroup1.Name = "xpPanelGroup1";
             this.xpPanelGroup1.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelGroup1.PanelGradient")));
-            this.xpPanelGroup1.Size = new System.Drawing.Size(200, 666);
+            this.xpPanelGroup1.Size = new System.Drawing.Size(200, 662);
             this.xpPanelGroup1.TabIndex = 0;
             // 
             // xpPanel3
@@ -82,7 +82,7 @@
             this.xpPanel3.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel3.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.xpPanel3.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xpPanel3.Controls.Add(this.linkLabel4);
+            this.xpPanel3.Controls.Add(this.techManlbl);
             this.xpPanel3.Controls.Add(this.classManlbl);
             this.xpPanel3.Controls.Add(this.stuManlbl);
             this.xpPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
@@ -99,6 +99,19 @@
             this.xpPanel3.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanel3.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel3.VertAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // techManlbl
+            // 
+            this.techManlbl.AutoSize = true;
+            this.techManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.techManlbl.Location = new System.Drawing.Point(7, 73);
+            this.techManlbl.Name = "techManlbl";
+            this.techManlbl.Size = new System.Drawing.Size(69, 19);
+            this.techManlbl.TabIndex = 4;
+            this.techManlbl.TabStop = true;
+            this.techManlbl.Tag = "16";
+            this.techManlbl.Text = "教师管理";
+            this.techManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // classManlbl
             // 
@@ -367,27 +380,14 @@
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(200, 0);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(742, 666);
+            this.MainPanel.Size = new System.Drawing.Size(734, 662);
             this.MainPanel.TabIndex = 1;
-            // 
-            // linkLabel4
-            // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.linkLabel4.Location = new System.Drawing.Point(7, 73);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(69, 19);
-            this.linkLabel4.TabIndex = 4;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Tag = "16";
-            this.linkLabel4.Text = "教师管理";
-            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 666);
+            this.ClientSize = new System.Drawing.Size(934, 662);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.xpPanelGroup1);
             this.MaximizeBox = false;
@@ -431,7 +431,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel stuManlbl;
         private System.Windows.Forms.LinkLabel classManlbl;
-        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel techManlbl;
 
     }
 }
