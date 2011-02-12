@@ -53,6 +53,7 @@ namespace OESMonitor
             Net.MessageSupervisor.targetFrm = cl;
             cl.Show();
             Program.server = new Net.OESServer();
+            Program.server.OnAccepted += AddComputer;
         }
     }
 }

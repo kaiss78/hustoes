@@ -24,14 +24,50 @@ namespace OESMonitor.Net
         public DataPort port;
         public string paperPath;    //该考生试卷路径
 
-        public delegate void DisposeMessage(Client client);
-        public event DisposeMessage MessageScheduler;
+        
 
         public IPAddress remoteIP;      //接收试卷所需信息
         public int remotePort;
         public string fileName;
-        public Computer computer;       //对应的界面元素
-      
+        //public Computer computer;       //对应的界面元素
+
+        #region 事件定义
+        public delegate void SimpleFun();
+
+        //消息处理
+        public delegate void DisposeMessage(Client client);
+        public event DisposeMessage MessageScheduler;
+        
+        //开始考试
+        public delegate void StartTest(int reason);
+        public event StartTest TestStarted;
+
+        //登录检测
+        public delegate bool ValidateLogin(string name, string id, string pwd);
+        public event ValidateLogin LoginValidating;
+
+        //登录成功
+        public event SimpleFun LoginSuccess;
+
+        //客户端崩溃
+        public event SimpleFun ClientCrashed;
+
+        //准备发卷
+        public event SimpleFun PaperDelivering;
+
+        //准备收卷
+        public event SimpleFun AnswerHanding;
+
+        //发卷完毕
+        public event SimpleFun PaperDelivered;
+
+        //收卷完毕
+        public event SimpleFun AnswerHanded;
+
+        //登出
+        public event SimpleFun LogoutSuccess;
+
+        #endregion
         public Client(TcpClient client)
         {
             IsEnd = false;
@@ -41,14 +77,20 @@ namespace OESMonitor.Net
             MessageSupervisor.targetFrm.showMessage("Accept client: " + client.Client.RemoteEndPoint.ToString());
         }
 
+        //试卷下发完毕
         public void port_paperDelivered(object sender, EventArgs e)
         {
-            this.computer.State = 5;
+            if (PaperDelivered != null)
+                PaperDelivered();
+            
         }
 
+        //答案上交完毕
         public void port_answerHanded(object sender, EventArgs e)
         {
-            this.computer.State = 4;
+            if (AnswerHanded != null)
+                AnswerHanded();
+            
         }
 
         public string clientInfo()
@@ -110,6 +152,7 @@ namespace OESMonitor.Net
             IsEnd = true;
         }
 
+        //Receive回调函数
         private void receive_callBack(IAsyncResult asy)
         {
             try
@@ -123,11 +166,9 @@ namespace OESMonitor.Net
             }
             catch
             {
-                if (computer.State != 4)
-                {
-                    computer.State = 0;
-                    Computer.Del(computer);
-                }
+                if (ClientCrashed != null)
+                    ClientCrashed();
+           
                 this.EndConnection();
                 this.EndService();
                 
@@ -182,6 +223,8 @@ namespace OESMonitor.Net
 
         public void sendData()
         {
+            if (PaperDelivering != null)
+                PaperDelivering();
             port.LoadData(paperPath);
             FileInfo fi = new FileInfo(this.paperPath);
             string tmsg = "#STX#0#" + port.ip.ToString() + "$" + port.localPort.ToString() +"$"+fi.Length.ToString()+ "#ETX";
@@ -199,24 +242,43 @@ namespace OESMonitor.Net
             }
         }
 
-        public void Login(bool b)
+        //学生登录
+        public void Login(string name ,string id,string pwd)
         {
-            string tmsg = "#STX#3#" + b.ToString() + "#ETX";
-
+            string tmsg;
+            if(LoginValidating ==null || LoginValidating(name,id,pwd))
+            {
+                tmsg = "#STX#3#" + "true" + "#ETX";
+                if (LoginSuccess != null)
+                    LoginSuccess();
+            }
+            else
+            {
+                tmsg = "#STX#3#" + "false" + "#ETX";
+            }
             MessageSupervisor.targetFrm.showMessage("Login: " + tmsg + " --->" + clientInfo());
 
             byte[] tBuffer = System.Text.Encoding.Default.GetBytes(tmsg);
             try
             {
                 ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
-                computer.State = 2;
+
             }
             catch (Exception e)
             {
                 //网络出错处理程序
             }
+               
         } 
 
+        //学生登出
+        public void Logout()
+        {
+            if (LogoutSuccess != null)
+                LogoutSuccess();
+        }
+
+        //Write回调函数
         private void write_callBack(IAsyncResult asy)
         {
             try
@@ -246,12 +308,22 @@ namespace OESMonitor.Net
 
         public void ReceiveData()
         {
-            fileName = this.computer.Student.ID + ".rar";
+            if (AnswerHanding != null)
+                AnswerHanding();
+            
            if(!(port.DownloadData(remoteIP, remotePort, fileName)))
            {
                //网络出错处理程序
            }
 
         }
+
+        //开始考试
+        public void Start(int reason)
+        {
+            if (TestStarted != null)
+                TestStarted(reason);
+        }
+
     }
 }

@@ -131,9 +131,85 @@ namespace OESMonitor
             set 
             {
                 client = value;
-                client.computer = this;
+                client.TestStarted += new global::OESMonitor.Net.Client.StartTest(client_TestStarted);
+                client.LoginValidating += new global::OESMonitor.Net.Client.ValidateLogin(client_LoginValidating);
+                client.LoginSuccess += new global::OESMonitor.Net.Client.SimpleFun(client_LoginSuccess);
+                client.ClientCrashed += new global::OESMonitor.Net.Client.SimpleFun(client_ClientCrashed);
+                client.AnswerHanded += new global::OESMonitor.Net.Client.SimpleFun(client_AnswerHanded);
+                client.PaperDelivered += new global::OESMonitor.Net.Client.SimpleFun(client_PaperDelivered);
+                client.AnswerHanding += new global::OESMonitor.Net.Client.SimpleFun(client_AnswerHanding);
+                client.PaperDelivering += new global::OESMonitor.Net.Client.SimpleFun(client_PaperDelivering);
+                client.LogoutSuccess += new global::OESMonitor.Net.Client.SimpleFun(client_LogoutSuccess);
             }
         }
+
+        #region 填充client事件
+        void client_PaperDelivering()
+        {
+            //this.Client.paperPath=
+        }
+
+        void client_LogoutSuccess()
+        {
+            this.State = 1;
+        }
+
+        void client_AnswerHanding()
+        {
+            this.Client.fileName = this.Student.ID + ".rar";
+        }
+
+        void client_PaperDelivered()
+        {
+            this.State = 5;
+        }
+
+        void client_AnswerHanded()
+        {
+            this.State = 4;
+        }
+
+        void client_ClientCrashed()
+        {
+            if (this.State != 4)
+            {
+                this.State = 0;
+                Computer.Del(this);
+            }
+        }
+
+        void client_LoginSuccess()
+        {
+            this.State = 2;
+        }
+
+        bool client_LoginValidating(string name, string id, string pwd)
+        {
+            this.Student = new Student(name, "", id, pwd);
+            //if()
+                return false;
+        }
+
+        void client_TestStarted(int reason)
+        {
+            switch (reason)
+            {
+                case 0:
+                    this.State = 3;
+                    break;
+                case 1:
+                    this.State = 6;
+                    break;
+                case 2:
+                    this.State = 7;
+                    break;
+                case 3:
+                    this.State = 8;
+                    break;
+            }
+        }
+
+        #endregion
 
         private Student student = new Student("", "", "", "");
 
