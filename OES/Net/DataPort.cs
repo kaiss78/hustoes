@@ -34,9 +34,9 @@ namespace OES.Net
         public event portUsed portRecycle;
 
         //接受试卷完成事件
-        public event EventHandler paperGetOver;
+        public event EventHandler paperDelivered;
         //发送答案完成事件
-        public event EventHandler answerHandInOver;
+        public event EventHandler answerHanded;
         public DataPort(IPAddress ip, int localPort)
         {
             this.ip = ip;
@@ -71,13 +71,13 @@ namespace OES.Net
             TcpListener listener = (TcpListener)asy.AsyncState;
             dataSender = (TcpClient)listener.EndAcceptTcpClient(asy);        
             sender_ns = dataSender.GetStream();
-            this.answerHandInOver += ClientControl.WaitingForm.HandInOver;
+            this.answerHanded += ClientControl.WaitingForm.HandInOver;
             this.fileLength = new FileInfo(filePath).Length;
             ClientControl.WaitingForm.perPackage = (int)(1000 * 1024 / fileLength)+1;
             SendData();
             //Thread thread = new Thread(SendData);
             //thread.Start();
-            answerHandInOver(this, null);
+            answerHanded(this, null);
             dataListener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), dataListener);
         }
 
@@ -101,7 +101,7 @@ namespace OES.Net
             dataReceiver = (TcpClient)asy.AsyncState;
             dataReceiver.EndConnect(asy);
             receiver_ns = dataReceiver.GetStream();
-            this.paperGetOver += ClientControl.ExamForm.JumpToMain;
+            this.paperDelivered += ClientControl.ExamForm.JumpToMain;
             ReceiveData();
             //Thread thread = new Thread(ReceiveData);
             //thread.Start();        
@@ -126,7 +126,7 @@ namespace OES.Net
             dataReceiver.Close();
             file.Close();
 
-            paperGetOver(this, null);
+            paperDelivered(this, null);
 
             if( portRecycle != null )
                 portRecycle(this);
