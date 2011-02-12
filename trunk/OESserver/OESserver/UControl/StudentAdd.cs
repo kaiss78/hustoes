@@ -130,7 +130,7 @@ namespace OES.UControl
 
         private void btnAddMany_Click(object sender, EventArgs e)
         {
-            List<Object[]> dataList;
+            List<string[]> dataList;
             bool infoState = true;
             if (textFile.Text == "")
                 infoState = false;
