@@ -376,7 +376,14 @@ namespace OES.Net
                 case 3:
                     //登录返回
                     msgs = msg.Split(new char[] { '$' });
-                    ClientControl.LoginForm.Invoke(FormDelegate.dispatchMsgs,MsgType.LoginOk, Convert.ToBoolean(msgs[0]));
+                    if (Convert.ToBoolean(msgs[0]))
+                    {
+                        ClientControl.LoginForm.Invoke(FormDelegate.dispatchMsgs, MsgType.LoginOk, true);
+                    }
+                    else
+                    {
+                        ClientControl.LoginForm.Invoke(FormDelegate.dispatchMsgs, MsgType.LoginError, false);
+                    }
                     break;
                 case -1:                   
                     //结束通信
