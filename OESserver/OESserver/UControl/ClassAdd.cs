@@ -71,7 +71,7 @@ namespace OES.UControl
 
         private void btnAddMany_Click(object sender, EventArgs e)
         {
-            List<Object[]> dataList;
+            List<string[]> dataList;
             try
             {
                 dataList = CVSHelper.CSVImporter.getObjectInCSV(textFile.Text, 3);

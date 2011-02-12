@@ -2026,7 +2026,7 @@ namespace OES
 
 
         //-- Description:   批量导入班级
-        public void AddManyClasses(List<Object[]> value)
+        public void AddManyClasses(List<string[]> value)
         {
             SqlTransaction tx = sqlcon.BeginTransaction();
             for (int i = 0; i < value.Count; i++)
@@ -2336,7 +2336,7 @@ namespace OES
         }
 
         //-- Description:   批量导入学生
-        public void  AddManyStudents(string dept, string className, List<Object[]> value)
+        public void  AddManyStudents(string dept, string className, List<string[]> value)
         {
             SqlTransaction tx = sqlcon.BeginTransaction();
             string classId = AddClassByImport(dept, className);
