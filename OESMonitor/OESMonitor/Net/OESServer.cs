@@ -27,11 +27,27 @@ namespace OESMonitor.Net
 
         //数据端口预定个数
         private int portsRequest = 20;      
-        private string archiveDirectory = "D:/";       
+        private string archiveDirectory = "D:/";
 
+
+        #region 运行事件定义
+        
         //事件机制处理新的试卷请求
         public delegate void PaperRequestor();
         public event PaperRequestor PaperAllocator;
+
+        //接收到连接请求
+        public delegate void PortAccepted(Client client);
+        public event PortAccepted OnAccepted;
+
+        #endregion
+        #region 出错事件定义
+        
+        //数据端口出错
+        public delegate void DataPortError(string msg);
+        public event DataPortError OnDataPortError;
+
+        #endregion
 
         //将当前试卷路径填充
         public string currentPaperpath = "D:/EXAM001.rar";
@@ -45,34 +61,12 @@ namespace OESMonitor.Net
                 listener.Start();
                 listener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), listener);
                 MessageSupervisor.targetFrm.showMessage("Start server: " + listener.LocalEndpoint.ToString());
-                
                 InitializeDataPorts();
             }
             //else 通知出错处理程序
         }
 
-        public string ARCHIVEDIRECTORY
-        {
-            set
-            {
-                if (value.Length != 0)
-                    archiveDirectory = value;
-            }
-        }
-        public delegate void UpdatePanel(Client c);
-        public void accept_callBack(IAsyncResult asy)
-        {
-            TcpListener tlistener = (TcpListener)asy.AsyncState;
-            TcpClient tclient = tlistener.EndAcceptTcpClient(asy);
-
-            Client client = new Client(tclient);
-            MessageSupervisor.mainForm.AddComputer(client);
-            client.MessageScheduler += MessageScheduler;
-
-            clients.Add(client);
-            listener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), listener);
-        }
-        
+        //获取本机IP
         private void RetrieveHostIpv4Address()
         {
             //获得所有的ip地址，包括ipv6和ipv4
@@ -88,12 +82,13 @@ namespace OESMonitor.Net
             }
         }
 
+        //初始化数据端口
         private void InitializeDataPorts()
         {
             SearchSparePort();
-            for(int i = availablePorts.Count - 1; i >= 0 ; i-- )
+            for (int i = availablePorts.Count - 1; i >= 0; i--)
             {
-                DataPort dport = new DataPort(ip,availablePorts.Dequeue());
+                DataPort dport = new DataPort(ip, availablePorts.Dequeue());
                 dport.archiveDirectory = archiveDirectory;
                 dport.portRecycle += PortRecycler;  //注册回收端口事件
                 ports.Add(dport);
@@ -105,13 +100,13 @@ namespace OESMonitor.Net
         private void SearchSparePort()
         {
             int start_port = 10005;
-            IPGlobalProperties ipgloabalprops = IPGlobalProperties.GetIPGlobalProperties();          
+            IPGlobalProperties ipgloabalprops = IPGlobalProperties.GetIPGlobalProperties();
             IPEndPoint[] tcpListInfos = ipgloabalprops.GetActiveTcpListeners();
             TcpConnectionInformation[] tcpConnInfos = ipgloabalprops.GetActiveTcpConnections();
             IPEndPoint[] udpInfos = ipgloabalprops.GetActiveUdpListeners();
 
             List<int> portNumbers = new List<int>();
-            foreach(IPEndPoint tcpl in tcpListInfos)
+            foreach (IPEndPoint tcpl in tcpListInfos)
             {
                 portNumbers.Add(tcpl.Port);
             }
@@ -138,10 +133,16 @@ namespace OESMonitor.Net
                     port++;
                     if (--portsRequest == 0)
                         return;
-                }              
-            }            
+                }
+            }
+            if (portsRequest != 0)
+            {
+                if(OnDataPortError!=null)
+                    OnDataPortError("可用端口数量不足！");
+            }
         }
 
+        //回收数据端口
         private void PortRecycler(DataPort port)
         {
             PortQueue.Enqueue(port);
@@ -167,6 +168,31 @@ namespace OESMonitor.Net
             }
         }
 
+        //目标目录
+        public string ARCHIVEDIRECTORY
+        {
+            set
+            {
+                if (value.Length != 0)
+                    archiveDirectory = value;
+            }
+        }
+
+        //Accept回调函数
+        public void accept_callBack(IAsyncResult asy)
+        {
+            TcpListener tlistener = (TcpListener)asy.AsyncState;
+            TcpClient tclient = tlistener.EndAcceptTcpClient(asy);
+
+            Client client = new Client(tclient);
+            client.MessageScheduler += MessageScheduler;
+            clients.Add(client);
+            if(OnAccepted!=null)
+                OnAccepted(client);
+
+            listener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), listener);
+        }
+               
         //中断所有服务
         public void EndService()
         {
@@ -184,10 +210,12 @@ namespace OESMonitor.Net
             //此为临界区，需要加锁，解锁，也许可以通过整合到Client类中提高一点效率
                 switch (client.msg_type)
                 {
+                    
                     case 0:
+                    #region 搜索空闲数据端口，准备传送数据
                         //请求发送试卷
                         //PaperAllocator();
-                        Console.WriteLine(Thread.CurrentThread.Name);
+                        System.Diagnostics.Debug.WriteLine(Thread.CurrentThread.Name);
                         //获取考试对应试卷
                         //client.computer.Student
                         client.paperPath = currentPaperpath;
@@ -204,11 +232,14 @@ namespace OESMonitor.Net
                             MessageSupervisor.targetFrm.showMessage("Client: " + client.clientInfo() + " Wait for Requesting");
                         }
                         break;
+                    #endregion
 
                     case 1:
+                    #region 搜索空闲数据端口，准备接受数据
                         //确定文件名函数client.fileName = ;
                         client.FetchData();
                         break;
+                    #endregion
 
                     case 2:
                         msgs = client.msg.Split(new char[] { '$' });
@@ -231,38 +262,28 @@ namespace OESMonitor.Net
                     case 3:
                         {
                             msgs = client.msg.Split(new char[] { '$' });
-                            client.computer.Student = new global::OESMonitor.Model.Student(msgs[0], "", msgs[1], msgs[2]);
+                            //client.computer.Student = new global::OESMonitor.Model.Student(msgs[0], "", msgs[1], msgs[2]);
                             //验证学生是否可以考试
-                            
-                            client.Login(true);
+
+                            client.Login(msgs[0], msgs[1], msgs[2]);
                             break;
                         }
 
                     case 4:
+                    #region 开始考试
                         {
                             msgs = client.msg.Split(new char[] { '$' });
-                            switch (Convert.ToInt32(msgs[0]))
-                            {
-                                case 0:
-                                    client.computer.State = 3;
-                                    break;
-                                case 1:
-                                    client.computer.State = 6;
-                                    break;
-                                case 2:
-                                    client.computer.State = 7;
-                                    break;
-                                case 3:
-                                    client.computer.State = 8;
-                                    break;
-                            }
+                            client.Start(Convert.ToInt32(msgs[0]));
                             break;
                         }
+                    #endregion
+
                     case 5:
                         {
-                            client.computer.State = 1;
+                            client.Logout();
                             break;
                         }
+
                     case -1:
                         if (client.EndConnection())
                             client.EndService();
