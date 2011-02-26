@@ -90,6 +90,7 @@
     <Compile Include="Model\PFunction.cs" />
     <Compile Include="Model\PModif.cs" />
     <Compile Include="Model\Problem.cs" />
+    <Compile Include="PaperControl\PaperControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CommandLine.resx">
@@ -128,7 +129,7 @@
     <Compile Include="Model\Unit.cs" />
     <Compile Include="XMLFile\XMLAssistant.cs" />
     <Compile Include="XMLFile\XMLControl.cs" />
-    <Compile Include="XMLtoTXT.cs" />
+    <Compile Include="PaperControl\XMLtoTXT.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\20091225234526924.png" />
