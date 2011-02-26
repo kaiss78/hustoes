@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OES.Model
 {
-    public class OfficeExcel:Problem
+    public class OfficeExcel:Office
     {
         public string rawPath;
         public string ansPath;
@@ -21,12 +21,9 @@ namespace OES.Model
             type = "Excel操作题";
         }
 
-        public OfficeExcel(string rawPath, string ansPath, string stuAnsPath)
-        {
-            this.ansPath = ansPath;
-            this.rawPath = rawPath;
-            this.stuAnsPath = stuAnsPath;
-            type = "Excel操作题";
+        public OfficeExcel(string rawPath, string ansPath, string stuAnsPath):base(rawPath,ansPath,stuAnsPath)
+        { 
+           type = "Excel操作题";
         }
     }
 }
