@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Diagnostics;
-using OES.Model;
+using OESMonitor.Model;
 
 namespace OES.XMLFile
 {
@@ -15,7 +15,7 @@ namespace OES.XMLFile
         public static XMLAssistant studentAnsXML;
         public static XMLAssistant paperAnsXML;
         public static XMLAssistant logXML;
-        public static string rootPath = Config.TempPaperPath;
+        //public static string rootPath = Config.TempPaperPath;
         
         public static void CreatePaperXML(string filePath,string paperId)
         {
