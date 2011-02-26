@@ -128,6 +128,7 @@
     <Compile Include="Model\Unit.cs" />
     <Compile Include="XMLFile\XMLAssistant.cs" />
     <Compile Include="XMLFile\XMLControl.cs" />
+    <Compile Include="XMLtoTXT.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\20091225234526924.png" />
