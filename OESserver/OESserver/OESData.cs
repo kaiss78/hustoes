@@ -41,14 +41,14 @@ namespace OES
             //string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
             //strConnection += "initial catalog=OESDB;Server=localhost;";
             //strConnection += "Connect Timeout=30"; 
-            //string strConnection = "Trusted_Connection=SSPI;";
-            //strConnection += "initial catalog=OESDB;Server=localhost;";
-            //strConnection += "Connect Timeout=30";
+            string strConnection = "Trusted_Connection=SSPI;";
+            strConnection += "initial catalog=OESDB;Server=localhost;";
+            strConnection += "Connect Timeout=30";
 
             //string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
 
-            string strConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=G:\C#\OESserver\DB File\OESDB.mdf;
-                                        Integrated Security=True;Connect Timeout=30;User Instance=True";
+            //string strConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=G:\C#\OESserver\DB File\OESDB.mdf;
+              //                          Integrated Security=True;Connect Timeout=30;User Instance=True";
 
             sqlcon.ConnectionString = strConnection;
 
@@ -1203,7 +1203,7 @@ namespace OES
         }
 
         //按Id查询OfficeWord题目
-        public List<OfficeWord> FindOfficeWordById(string Id, string Sort)
+        public List<OfficeWord> FindOfficeWordById(string Id,string Sort)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
@@ -1216,11 +1216,11 @@ namespace OES
 
 
         //按Id查询OfficeExcel题目
-        public List<OfficeExcel> FindOfficeExcelById(string Id, string Sort)
+        public List<OfficeExcel> FindOfficeExcelById(string Id,string Sort)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2,Sort, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             excel = DataSetToListOfficeExcel(Ds);
@@ -1229,11 +1229,11 @@ namespace OES
 
 
         //按Id查询OfficePowerPointl题目
-        public List<OfficePowerPoint> FindOfficePowerPointById(string Id, string Sort)
+        public List<OfficePowerPoint> FindOfficePowerPointById(string Id,string Sort)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2,Sort , ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             powerPoint = DataSetToListOfficePowerPoint(Ds);
@@ -1261,7 +1261,6 @@ namespace OES
             problemList = DataSetToProblemList(Ds);
             return problemList;
         }
-
         //-- Description:   查找PowerPoint试题的ID和题目
         public List<Problem> FindPowerPointProblemContent()
         {
@@ -1518,7 +1517,7 @@ namespace OES
         }
 
         //查询指定Id的修改题
-        public List<PModif> FindModificationProgramById(string Id, string Sort)
+        public List<PModif> FindModificationProgramById(string Id)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
