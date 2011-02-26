@@ -5,11 +5,9 @@ using System.Text;
 
 namespace OES.Model
 {
-    public class OfficeWord:Problem
+    public class OfficeWord:Office
     {
-        public string rawPath;
-        public string ansPath;
-        public string stuAnsPath;
+        
 
         public OfficeWord()
         {            
@@ -21,11 +19,9 @@ namespace OES.Model
             problem = p;
             type = "Word操作题";
         }
-        public OfficeWord(string rawPath, string ansPath, string stuAnsPath)
+        public OfficeWord(string rawPath, string ansPath, string stuAnsPath):base(rawPath,ansPath,stuAnsPath)
         {
-            this.ansPath = ansPath;
-            this.rawPath = rawPath;
-            this.stuAnsPath = stuAnsPath;
+            
             type = "Word操作题";
         }
     }
