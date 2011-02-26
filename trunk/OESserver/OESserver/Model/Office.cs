@@ -11,6 +11,9 @@ namespace OES.Model
         public string ansPath;
         public string stuAnsPath;
 
+        public Office()
+        {
+        }
         public Office(string rawPath, string ansPath, string stuAnsPath)
         {
             this.ansPath = ansPath;
