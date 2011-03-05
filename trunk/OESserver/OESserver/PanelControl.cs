@@ -30,16 +30,25 @@ namespace OES
             mf.proMan.PanelID = 0;
             panelList[12] = mf.paperInfo;
             mf.paperInfo.PanelID = 12;
+
             panelList[13] = mf.paperListPanel;
             mf.paperListPanel.PanelID = 13;
+
             panelList[14] = mf.studentManage;
             mf.studentManage.PanelID = 14;
+
             panelList[15] = mf.classManage;
             mf.classManage.PanelID = 15;
+
             panelList[16] = mf.teacherManage;
             mf.teacherManage.PanelID=16;
+
+            panelList[17] = mf.scoreManage;
+            mf.scoreManage.PanelID = 17;
+
             panelList[PanelNumber-1] = mf.paperEditPanel;                        
             mf.paperEditPanel.PanelID = PanelNumber-1;
+            
         }
 
         static public void HideAllPanel()
@@ -59,7 +68,7 @@ namespace OES
                 case 13:
                 case 14:
                 case 15:
-                case 16:
+                case 16:                
                 case 19:                    
                     panelList[x].ReLoad();
                     break;
