@@ -76,6 +76,7 @@
     <Compile Include="Model\Classes.cs" />
     <Compile Include="Model\Completion.cs" />
     <Compile Include="Model\Judge.cs" />
+    <Compile Include="Model\Office.cs" />
     <Compile Include="Model\OfficeExcel.cs" />
     <Compile Include="Model\OfficePowerPoint.cs" />
     <Compile Include="Model\OfficeWord.cs" />
@@ -210,6 +211,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ProMan.resx">
       <DependentUpon>ProMan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ScoreManage.resx">
+      <DependentUpon>ScoreManage.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\StudentManage.resx">
@@ -395,6 +400,12 @@
     </Compile>
     <Compile Include="UPanel\ProMan.Designer.cs">
       <DependentUpon>ProMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\ScoreManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ScoreManage.Designer.cs">
+      <DependentUpon>ScoreManage.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\StudentManage.cs">
       <SubType>UserControl</SubType>
