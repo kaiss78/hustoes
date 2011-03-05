@@ -90,6 +90,7 @@
     <Compile Include="Model\PFunction.cs" />
     <Compile Include="Model\PModif.cs" />
     <Compile Include="Model\Problem.cs" />
+    <Compile Include="PaperControl\config.cs" />
     <Compile Include="PaperControl\PaperControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

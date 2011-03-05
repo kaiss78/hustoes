@@ -6,7 +6,7 @@ using System.Xml;
 using System.IO;
 using OESMonitor.Model;
 
-namespace OES.XMLFile
+namespace OESMonitor.XMLFile
 {
     class XMLAssistant
     {
