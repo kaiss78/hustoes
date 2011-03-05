@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using OES;
 
 namespace OESMonitor.PaperControl
 {
-    class PaperControl
+    public class PaperControl
     {
         private static OESData oesData = null;
         public static OESData OesData
