@@ -17,5 +17,16 @@ namespace OESMonitor.PaperControl
             }
             set { PaperControl.oesData = value; }
         }
+
+        private static Config config = null;
+        public static Config OESConfig
+        {
+            get
+            {
+                if(config==null){config=new Config();}
+                return PaperControl.config;
+            }
+            set { PaperControl.config = value; }
+        }
     }
 }
