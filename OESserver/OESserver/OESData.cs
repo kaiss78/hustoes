@@ -178,6 +178,27 @@ namespace OES
             }
             return result;
         }
+
+        private List<String> DataSetPaperToList(DataSet p_DataSet)
+        {
+            DataTable p_Data = p_DataSet.Tables[0];
+            // 返回值初始化   
+            List<String> result = new List<String>();
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                String str = new String();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Title")
+                        str = (String)p_Data.Rows[j][i];
+
+                }
+
+                result.Add(str);
+            }
+            return result;
+        }
         /// <summary>   
         /// DataSet装换为泛型集合   
         /// </summary>   
@@ -1714,7 +1735,31 @@ namespace OES
                 MessageBox.Show(e.ToString());
             }
         }
-        //列出所有的Paper记录
+        //纯粹列出所有的Paper记录
+        public List<String> FindAllPaper()
+        {
+            List<String> results = new List<String>();
+            Ds = new DataSet();
+            //RunProc("FindChoice", null, Ds);
+
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindAllPaper", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.ToString());
+                throw Ex;
+            }
+            results = DataSetPaperToList(Ds);
+            return results;
+
+        }
+        //列出所有的Paper记录,其中将相关的出试卷的老师信息也查找出来
         public List<Paper> FindPaper()
         {
             List<Paper> results = new List<Paper>();
