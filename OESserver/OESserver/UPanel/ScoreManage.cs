@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OES.UPanel
 {
-    public partial class ScoreManage : UserControl
+    public partial class ScoreManage : UserPanel
     {
 
         List<String> dps = new List<string>();
