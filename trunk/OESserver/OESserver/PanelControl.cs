@@ -68,7 +68,8 @@ namespace OES
                 case 13:
                 case 14:
                 case 15:
-                case 16:                
+                case 16: 
+                case 17:
                 case 19:                    
                     panelList[x].ReLoad();
                     break;
