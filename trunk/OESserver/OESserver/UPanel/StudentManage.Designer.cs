@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnQuery = new System.Windows.Forms.Button();
             this.studentManageLayout = new System.Windows.Forms.TableLayoutPanel();
             this.studentInfoGroup = new System.Windows.Forms.GroupBox();
             this.studentInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.studentManageLayout.SuspendLayout();
             this.studentInfoGroup.SuspendLayout();
@@ -101,9 +101,9 @@
             this.studentInfoDGV.AllowUserToAddRows = false;
             this.studentInfoDGV.AllowUserToDeleteRows = false;
             this.studentInfoDGV.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.studentInfoDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.studentInfoDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.studentInfoDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.studentInfoDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentInfoDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
@@ -116,25 +116,13 @@
             this.studentInfoDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.studentInfoDGV.ReadOnly = true;
             this.studentInfoDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.studentInfoDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.studentInfoDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.studentInfoDGV.RowTemplate.Height = 23;
             this.studentInfoDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentInfoDGV.Size = new System.Drawing.Size(714, 487);
             this.studentInfoDGV.TabIndex = 0;
             this.studentInfoDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentInfoDGV_CellClick);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnEdit.Location = new System.Drawing.Point(464, 547);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(117, 37);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "修改学生";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -147,6 +135,18 @@
             this.btnAdd.Text = "添加学生";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEdit.Font = new System.Drawing.Font("宋体", 12F);
+            this.btnEdit.Location = new System.Drawing.Point(464, 547);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(117, 37);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "修改学生";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
