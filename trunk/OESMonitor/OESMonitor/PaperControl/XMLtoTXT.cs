@@ -23,7 +23,7 @@ namespace OESMonitor.PaperControl
         static public PCompletion pcompletion=new PCompletion();
         static public PModif pmodif=new PModif();
         static public PFunction pfunction=new PFunction();
-
+        
         static public void xmltotxt(string xmlpath)
         {
             problemList = XMLControl.ReadPaper(xmlpath);
@@ -78,6 +78,7 @@ namespace OESMonitor.PaperControl
                         break;
                 }
             }
+
         }
     }
 }
