@@ -98,7 +98,6 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="DAO\ReadTxt.cs" />
     <Compile Include="Net\DataPort.cs" />
-    <Compile Include="Net\MessageSupervisor.cs" />
     <Compile Include="Net\OESClient.cs" />
     <Compile Include="TeaPassForm.cs">
       <SubType>Form</SubType>
