@@ -1314,7 +1314,7 @@ namespace OES
 
         #endregion
 
-        #region 编程题有关方法
+        #region 编程题有关方法(部分填空题、修改题的方法也在内)
 
         //增加编程的综合体型
         public void AddFunProgram(string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)
