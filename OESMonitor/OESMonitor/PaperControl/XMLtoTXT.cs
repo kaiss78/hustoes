@@ -75,7 +75,7 @@ namespace OESMonitor.PaperControl
                         break;
                     case ProblemType.ProgramFun:
                         pfunction = PaperControl.OesData.FindFunProgramById(problem.id.ToString())[0];
-                        prostr[9] = prostr[9] + pfunction.problem + "\r\n";
+                        prostr[8] = prostr[8] + pfunction.problem + "\r\n";
                         break;
                 }
             }
@@ -86,9 +86,9 @@ namespace OESMonitor.PaperControl
             Directory.CreateDirectory(paperpath);
             for(int i=0;i<9;i++)
             {
-                if(prostr[0]!="")
+                if(prostr[i]!="")
                 {
-                    filepath = paperpath + fileName;
+                    filepath = paperpath + fileName[i];
                     //File.Create(filepath);
                     StreamWriter sw = File.CreateText(filepath);
                     sw.Write(prostr[i]);
