@@ -27,7 +27,6 @@ namespace OESMonitor.PaperControl
         
         static public void xmltotxt(string xmlpath)
         {
-            choice=PaperControl.OesData.FindChoiceById("10")[-1];
             problemList = XMLControl.ReadPaper(xmlpath);
             for(int i=0;i<9;i++)
             {
