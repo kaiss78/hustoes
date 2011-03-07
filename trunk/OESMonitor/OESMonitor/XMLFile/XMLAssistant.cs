@@ -194,6 +194,11 @@ namespace OESMonitor.XMLFile
             }
         }
 
+        public string getPaperId()
+        {
+            return xd.ChildNodes.Item(1).ChildNodes.Item(0).Attributes["id"].Value.ToString();
+        }
+
         List<ProblemType> ProblemTypeCollection = new List<ProblemType>() { ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, ProblemType.Word, ProblemType.Excel, ProblemType.PowerPoint, ProblemType.ProgramCompletion, ProblemType.ProgramModification, ProblemType.ProgramFun };
 
         public List<IdScoreType> Get()

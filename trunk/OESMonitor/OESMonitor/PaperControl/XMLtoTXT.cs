@@ -11,7 +11,7 @@ namespace OESMonitor.PaperControl
     public class XMLtoTXT
     {
         static public List<IdScoreType> problemList=new List<IdScoreType>();
-
+        private static string paperid;
         static public string[] prostr = new string[9];
         static private string[] fileName = { "a.txt", "b.txt", "c.txt", "d.txt", "e.txt", 
                                                     "f.txt","g.txt","h.txt","i.txt"};
@@ -28,6 +28,7 @@ namespace OESMonitor.PaperControl
         static public void xmltotxt(string xmlpath)
         {
             problemList = XMLControl.ReadPaper(xmlpath);
+            paperid = XMLControl.getPaperId(xmlpath);
             for(int i=0;i<9;i++)
             {
                 prostr[i] = "";
@@ -82,7 +83,7 @@ namespace OESMonitor.PaperControl
  
             string paperpath="";
             string filepath="";
-            paperpath = PaperControl.OESConfig.tmpPaper + "PaperId\\";
+            paperpath = PaperControl.OESConfig.tmpPaper + paperid+"\\";
             Directory.CreateDirectory(paperpath);
             for(int i=0;i<9;i++)
             {
