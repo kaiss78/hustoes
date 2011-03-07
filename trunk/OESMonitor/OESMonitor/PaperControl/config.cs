@@ -60,7 +60,7 @@ namespace OESMonitor.PaperControl
                 xmltext = root.CreateTextNode("User...");
                 xmlelem.AppendChild(xmltext);
 
-                xmlelem = root.CreateElement("User");
+                xmlelem = root.CreateElement("Password");
                 xmlnode.AppendChild(xmlelem);
                 xmltext = root.CreateTextNode("Password");
                 xmlelem.AppendChild(xmltext);
