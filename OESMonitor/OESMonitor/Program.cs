@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using OESMonitor.PaperControl;
 
 namespace OESMonitor
 {
@@ -16,7 +17,8 @@ namespace OESMonitor
         {
 
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetCompatibleTextRenderingDefault(false);            
+            XMLtoTXT.xmltotxt("paper.xml");
             Application.Run(new OESMonitor());
         }
     }

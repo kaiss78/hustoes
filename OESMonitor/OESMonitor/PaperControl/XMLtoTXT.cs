@@ -13,7 +13,8 @@ namespace OESMonitor.PaperControl
         static public List<IdScoreType> problemList=new List<IdScoreType>();
 
         static public string[] prostr = new string[9];
-
+        static private string[] fileName = { "a.txt", "b.txt", "c.txt", "d.txt", "e.txt", 
+                                                    "f.txt","g.txt","h.txt","i.txt"};
         static public Choice choice=new Choice();
         static public Judge judge=new Judge();
         static public Completion completion=new Completion();
@@ -26,6 +27,7 @@ namespace OESMonitor.PaperControl
         
         static public void xmltotxt(string xmlpath)
         {
+            choice=PaperControl.OesData.FindChoiceById("10")[-1];
             problemList = XMLControl.ReadPaper(xmlpath);
             for(int i=0;i<9;i++)
             {
@@ -78,7 +80,22 @@ namespace OESMonitor.PaperControl
                         break;
                 }
             }
-
+ 
+            string paperpath="";
+            string filepath="";
+            paperpath = PaperControl.OESConfig.tmpPaper + "PaperId\\";
+            Directory.CreateDirectory(paperpath);
+            for(int i=0;i<9;i++)
+            {
+                if(prostr[0]!="")
+                {
+                    filepath = paperpath + fileName;
+                    //File.Create(filepath);
+                    StreamWriter sw = File.CreateText(filepath);
+                    sw.Write(prostr[i]);
+                    sw.Close();
+                }
+            }
         }
     }
 }

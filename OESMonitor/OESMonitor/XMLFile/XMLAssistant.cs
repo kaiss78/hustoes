@@ -67,7 +67,7 @@ namespace OESMonitor.XMLFile
                                 xmlelem = xd.CreateElement("Paper");
                                 XmlAttribute xa = xd.CreateAttribute("id");
                                 xmlelem.Attributes.Append(xa);
-                                xmlelem.SetAttribute("id", ((string)o));
+                                xmlelem.SetAttribute("id", (o.ToString()));
                                 xmlelem1 = xd.CreateElement("Choice");
                                 xmlelem.AppendChild(xmlelem1);
                                 xmlelem1 = xd.CreateElement("Completion");
@@ -202,13 +202,20 @@ namespace OESMonitor.XMLFile
             foreach (ProblemType pt in ProblemTypeCollection)
             {
                 XmlNode xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
+                IdScoreType ist=new IdScoreType();
                 foreach (XmlNode xnn in xn.ChildNodes)
                 {
-                    IdScoreType ist = new IdScoreType();
-                    ist.id = Convert.ToInt32(xnn.ChildNodes.Item(0).ChildNodes.Item(0).Value);
-                    ist.pt = pt;
-                    ist.score = Convert.ToInt32(xnn.ChildNodes.Item(0).ChildNodes.Item(1).Value);
-                    list.Add(ist);
+                    if (xnn.Name.ToString() == "ProblemID")
+                    {
+                        ist=new IdScoreType();
+                        ist.id = Convert.ToInt32(xnn.ChildNodes.Item(0).Value);
+                        ist.pt = pt;
+                    }
+                    else if (xnn.Name.ToString() == "Score")
+                    {
+                        ist.score = Convert.ToInt32(xnn.ChildNodes.Item(0).Value);
+                        list.Add(ist);
+                    }
                 }
             }
             return list;
