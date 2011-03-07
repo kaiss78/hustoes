@@ -18,7 +18,6 @@ namespace OESMonitor
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);            
-            XMLtoTXT.xmltotxt("paper.xml");
             Application.Run(new OESMonitor());
         }
     }
