@@ -63,16 +63,24 @@ namespace OES
 
         private void Start_Click(object sender, EventArgs e)
         {
-            //读考卷内容
-            ClientControl.paper.ReadPaper();
+            //检查是否可以恢复考试
+            if (File.Exists(Config.stuPath + "studentAns.xml"))
+            {
+                Error.ErrorControl.ShowError(OES.Error.ErrorType.ExistAnsXML);
+            }
+            else
+            {
+                //读考卷内容
+                ClientControl.paper.ReadPaper();
 
-            ClientControl.isResume = false;
+                ClientControl.isResume = false;
 
-      
-            ClientControl.ControlBar.Show();
-            ClientControl.MainForm.Show();
-            this.Dispose();
-            ClientEvt.beginExam(0,"");
+
+                ClientControl.ControlBar.Show();
+                ClientControl.MainForm.Show();
+                this.Dispose();
+                ClientEvt.beginExam(0, "");
+            }
          
         }
         string restore="";

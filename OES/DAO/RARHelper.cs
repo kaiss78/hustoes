@@ -150,12 +150,12 @@ namespace OES
 
                 if (password != "")
                 {
-                    the_Info = @" a -p{0} -k -r -s -m1 {1} {2} ";
+                    the_Info = @" a -p{0} -k -r -s -m5 -ep1 -dw {1} {2} ";
                     the_Info = String.Format(the_Info, password, rarPath + rarName, compressPath);
                 }
                 else
                 {
-                    the_Info = @" a -k -r -s -m1 {0} {1} ";
+                    the_Info = @" a -k -r -s -m5 -ep1 -dw {0} {1} ";
                     the_Info = String.Format(the_Info,  rarPath + rarName, compressPath);
                 }
 
