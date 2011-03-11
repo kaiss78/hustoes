@@ -94,6 +94,14 @@ namespace OESMonitor.Net
         /// 文件接收过程中出错(一般为客户端断开连接)
         /// </summary>
         public event ErrorEventHandler FileReceiveError;
+        /// <summary>
+        /// 传送文件比例
+        /// </summary>
+        public event ReturnVal SendFileRate;
+        /// <summary>
+        /// 接收文件比例
+        /// </summary>
+        public event ReturnVal RecieveFileRate;
         #endregion
 
         /// <summary>
@@ -176,6 +184,10 @@ namespace OESMonitor.Net
                     file.Write(buffer, 0, byteRead);
                     Array.Clear(buffer, 0, 1024);
                     byteRead = data_ns.Read(buffer, 0, 1024);
+                    if (RecieveFileRate != null)
+                    {
+                        RecieveFileRate(1.0 - total / fileLength);
+                    }
                 }
 
                 data_ns.Dispose();
@@ -216,6 +228,7 @@ namespace OESMonitor.Net
                     FileSendBegin(this);
                 }
                 int byteRead;
+                long totle = 0L;
                 Byte[] buffer = new Byte[1024];
                 FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
 
@@ -225,6 +238,11 @@ namespace OESMonitor.Net
                     data_ns.Write(buffer, 0, byteRead);
                     Array.Clear(buffer, 0, 1024);
                     byteRead = file.Read(buffer, 0, 1024);
+                    totle += byteRead;
+                    if (SendFileRate != null)
+                    {
+                        SendFileRate(totle / fileLength);
+                    }
                 }
 
                 data_ns.Dispose();
@@ -247,4 +265,5 @@ namespace OESMonitor.Net
         }
     }
     public delegate void DataPortEventHandler(DataPort dataPort);
+    public delegate void ReturnVal(double rate);
 }
