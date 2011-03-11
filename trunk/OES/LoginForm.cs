@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using OES.Model;
 using OES.Error;
+using OES.Net;
 
 namespace OES
 {
@@ -16,6 +17,24 @@ namespace OES
         public LoginForm()
         {
             InitializeComponent();
+            ClientEvt.LoginReturn += new EventHandler(ClientEvt_LoginReturn);
+        }
+
+        void ClientEvt_LoginReturn(object sender, EventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+                        {
+                            if (sender != null)
+                            {
+                                ClientEvt.Paper = sender.ToString();
+                                ClientControl.ExamForm.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                ErrorControl.ShowError(ErrorType.LoginNoPersonError);
+                            }
+                        }));
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -29,22 +48,9 @@ namespace OES
             ClientControl.student = new Student(this.SName.Text,"", this.ExamNo.Text, this.Password.Text);
             
             //递交服务端验证……
-            Program.Client.validStudent(ClientControl.student.sName, ClientControl.student.ID, ClientControl.student.password);
+            ClientEvt.validStudent(ClientControl.student.sName, ClientControl.student.ID, ClientControl.student.password);
             //
             
-        }
-
-        public void Login(Boolean isOk)
-        {
-            if (isOk)
-            {
-                ClientControl.ExamForm.Show();
-                this.Hide();
-            }
-            else
-            {
-                ErrorControl.ShowError(ErrorType.LoginNoPersonError);
-            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

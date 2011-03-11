@@ -18,13 +18,41 @@ namespace OES
         public ExamForm()
         {
             InitializeComponent();
-            
+            ClientEvt.Client.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
+            ClientEvt.Client.Port.RecieveFileRate += new ReturnVal(Port_RecieveFileRate);
+        }
+
+        void Port_RecieveFileRate(double rate)
+        {
+            this.CreateControl();
+            this.Invoke(new MethodInvoker(() =>
+            {
+                this.progressBar1.Value = (int)(1000 * rate);
+            }));
+        }
+
+        void Port_FileReceiveEnd(object sender, EventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                Start.Enabled = true;
+                Restart.Enabled = true;
+                Resume.Enabled = true;
+            }));
+            if (RARHelper.Exists())
+            {
+                RARHelper.UnCompressRAR(Config.PaperPath, Config.PaperPath, restore, true, "");
+            }
+            else
+            {
+                Error.ErrorControl.ShowError(OES.Error.ErrorType.RARNotExist);
+            }
         }
 
         private bool ExistPaper()
         {
             if (Directory.Exists(Config.paperPath ))
-            {
+            {  
                 return true;
             }
             else
@@ -44,27 +72,10 @@ namespace OES
             ClientControl.ControlBar.Show();
             ClientControl.MainForm.Show();
             this.Dispose();
-            Program.Client.beginExam(0);
+            ClientEvt.beginExam(0,"");
          
         }
-
-        public void JumpToMain(object sender,EventArgs e)
-        {
-            this.Invoke(new MethodInvoker(() =>
-                {
-                    Start.Enabled = true;
-                    Restart.Enabled = true;
-                    Resume.Enabled = true;
-                }));
-            if (RARHelper.Exists())
-            {
-                RARHelper.UnCompressRAR(Config.PaperPath, Config.PaperPath, OESClient.fileName, true, "");
-            }
-            else
-            {
-                Error.ErrorControl.ShowError(OES.Error.ErrorType.RARNotExist);
-            }
-        }
+        string restore="";
         private void ExamForm_Load(object sender, EventArgs e)
         {
 
@@ -74,10 +85,14 @@ namespace OES
             Start.Enabled = false;
             Restart.Enabled = false;
             Resume.Enabled = false;
-            Config.paperPath = Config.PaperPath + OESClient.fileName.Replace(".rar", "")+ @"\";
+
+            restore = ClientEvt.Paper;
+
+            Config.paperPath = Config.PaperPath + ClientEvt.Paper.Replace(".rar", "")+ @"\";
+            ClientEvt.Paper = Config.PaperPath + ClientEvt.Paper;
             if (!ExistPaper())
             {
-                Program.Client.RequestingPaper();
+                ClientEvt.Client.ReceiveFile();
             }
             else
             {
@@ -86,8 +101,8 @@ namespace OES
                 Resume.Enabled = true;
                 this.progressBar1.Value = 1000;
             }
-
-            string temp = OESClient.fileName.Replace(".rar", "");
+            
+            string temp = restore.Replace(".rar", "");
             Paper.pName = temp;
             this.ExamNo.Text = Paper.pName;
             this.SName.Text = ClientControl.student.sName;
@@ -124,7 +139,7 @@ namespace OES
                 ClientControl.ControlBar.Show();
                 ClientControl.MainForm.Show();
                 this.Dispose();
-                Program.Client.beginExam(1);
+                ClientEvt.beginExam(1,"");
             }
 
         }
@@ -132,31 +147,15 @@ namespace OES
         private void Exit_Click(object sender, EventArgs e)
         {
             ClientControl.LoginForm.Show();
-            Program.Client.logout();
+            ClientEvt.logout();
             this.Dispose();
         }
 
         private void Restart_Click(object sender, EventArgs e)
         {
             ClientControl.TeaPassForm.Show();
-            Program.Client.beginExam(2);
+            ClientEvt.beginExam(2, "");
             this.Dispose();
-        }
-        public int perPackage = 0;
-        public void addProcessBar()
-        {
-            this.CreateControl();
-            this.Invoke(new MethodInvoker(() =>
-            {
-                if (this.progressBar1.Value + perPackage > 1000)
-                {
-                    this.progressBar1.Value = 1000;
-                }
-                else
-                {
-                    this.progressBar1.Value += perPackage;
-                }
-            }));
         }
     }
 }

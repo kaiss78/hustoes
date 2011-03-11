@@ -22,7 +22,26 @@ namespace OES.Net
         //网络流
         private NetworkStream data_ns;
         //文件路径
-        public string filePath = "F:/";
+        private string filePath = "";
+        public string FilePath
+        {
+            get
+            {
+                return filePath;
+            }
+            set
+            {
+                filePath = value;
+                if (File.Exists(filePath))
+                {
+                    fileLength=new FileInfo(filePath).Length;
+                }
+                else
+                {
+                    fileLength = 0;
+                }
+            }
+        }
         //文件大小
         public long fileLength = 0;
         //是否用于传送数据
@@ -66,6 +85,14 @@ namespace OES.Net
         /// 文件传输大小错误(一般为网络中丢包)
         /// </summary>
         public event ErrorEventHandler FileSizeError;
+        /// <summary>
+        /// 传送文件比例
+        /// </summary>
+        public event ReturnVal SendFileRate;
+        /// <summary>
+        /// 接收文件比例
+        /// </summary>
+        public event ReturnVal RecieveFileRate;
         #endregion
 
 
@@ -141,6 +168,10 @@ namespace OES.Net
                 file.Write(buffer, 0, byteRead);
                 Array.Clear(buffer, 0, 1024);
                 byteRead = data_ns.Read(buffer, 0, 1024);
+                if (RecieveFileRate != null)
+                {
+                    RecieveFileRate(1.0 - total / fileLength);
+                }
             }
 
             data_ns.Dispose();
@@ -173,6 +204,7 @@ namespace OES.Net
             {
                 FileSendBegin(this, null);
             }
+            long totle=0L;
             int byteRead;
             Byte[] buffer = new Byte[1024];
             FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
@@ -183,6 +215,11 @@ namespace OES.Net
                 data_ns.Write(buffer, 0, byteRead);
                 Array.Clear(buffer, 0, 1024);
                 byteRead = file.Read(buffer, 0, 1024);
+                totle+=byteRead;
+                if (SendFileRate != null)
+                {
+                    SendFileRate(totle / fileLength);
+                }
             }
 
             data_ns.Dispose();
@@ -198,4 +235,5 @@ namespace OES.Net
                 portRecycle(this);
         }
     }
+    public delegate void ReturnVal(double rate);
 }

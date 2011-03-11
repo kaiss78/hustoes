@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OES.Model;
 using OES.Error;
+using OES.Net;
 
 namespace OES
 {   
@@ -146,8 +147,8 @@ namespace OES
             if (RARHelper.Exists())
             {
                 RARHelper.CompressRAR(Config.stuPath, student.ID + ".rar", Config.stuPath, password);
-                Program.Client.paperPath = Config.stuPath + student.ID + ".rar";
-                Program.Client.sendData();
+                ClientEvt.Answer = Config.stuPath + student.ID + ".rar";
+                ClientEvt.Client.SendFile();
             }
             else
             {

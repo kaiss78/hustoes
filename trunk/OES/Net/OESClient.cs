@@ -242,7 +242,7 @@ namespace OES.Net
         /// </summary>
         public void SendFileMsg()
         {
-            FileInfo fi=new FileInfo(port.filePath);
+            FileInfo fi=new FileInfo(port.FilePath);
             string tmsg = "cmd#2#"+fi.Length.ToString();
             WriteMsg(tmsg);
         }

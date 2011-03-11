@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OES.Net;
 
 namespace OES
 {
@@ -17,38 +18,29 @@ namespace OES
             InitializeComponent();
             timer1.Interval = 1000;
             progressBar1.Maximum = 1000;
+            ClientEvt.Client.Port.SendFileRate += new ReturnVal(Port_SendFileRate);
+            ClientEvt.Client.Port.FileSendEnd += new EventHandler(Port_FileSendEnd);
+        }
+
+        void Port_FileSendEnd(object sender, EventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                ClientControl.WaitingForm = null;
+                ClientControl.LoginForm.Show();
+                this.Hide();
+            }));
+        }
+
+        void Port_SendFileRate(double rate)
+        {
+            progressBar1.Value = (int)(1000 * rate);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             
             //timer1.Stop();
-        }
-
-        public void HandInOver(object sender, EventArgs e)
-        {
-            this.Invoke(new MethodInvoker(() =>
-                {
-                    ClientControl.WaitingForm = null;
-                    ClientControl.LoginForm.Show();
-                    this.Hide();
-                }));
-        }
-
-        public void addProgress()
-        {
-            this.CreateControl();
-            this.Invoke(new MethodInvoker(() =>
-            {
-                if (this.progressBar1.Value + perPackage > 1000)
-                {
-                    this.progressBar1.Value = 1000;
-                }
-                else
-                {
-                    this.progressBar1.Value += perPackage;
-                }
-            }));
         }
         private void WaitingForm_Load(object sender, EventArgs e)
         {
