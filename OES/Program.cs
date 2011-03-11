@@ -8,7 +8,6 @@ namespace OES
     static class Program
     {
         public static Config config = new Config(System.Environment.CurrentDirectory + @"\config.ini");
-        public static Net.OESClient Client;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -17,10 +16,9 @@ namespace OES
         {
             try
             {
-                Client = new OES.Net.OESClient();
-                Client.server = Config.server;
-                Client.portNum = Config.portNum;
-                if (!Client.InitializeClient())
+                Net.ClientEvt.Client.server = Config.server;
+                Net.ClientEvt.Client.portNum = Config.portNum;
+                if (!Net.ClientEvt.Client.InitializeClient())
                 {
                     MessageBox.Show("");
                 }
