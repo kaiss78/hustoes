@@ -41,14 +41,14 @@ namespace OES
             //string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
             //strConnection += "initial catalog=OESDB;Server=localhost;";
             //strConnection += "Connect Timeout=30"; 
-            string strConnection = "Trusted_Connection=SSPI;";
-            strConnection += "initial catalog=OESDB;Server=localhost;";
-            strConnection += "Connect Timeout=30";
+            //string strConnection = "Trusted_Connection=SSPI;";
+            //strConnection += "initial catalog=OESDB;Server=localhost;";
+            //strConnection += "Connect Timeout=30";
 
             //string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
 
-            //string strConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=G:\C#\OESserver\DB File\OESDB.mdf;
-              //                          Integrated Security=True;Connect Timeout=30;User Instance=True";
+            string strConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=G:\C#\OESserver\DB File\OESDB.mdf;
+                                       Integrated Security=True;Connect Timeout=30;User Instance=True";
 
             sqlcon.ConnectionString = strConnection;
 
@@ -1314,7 +1314,7 @@ namespace OES
 
         #endregion
 
-        #region 编程题有关方法(部分填空题、修改题的方法也在内)
+        #region 编程题有关方法
 
         //增加编程的综合体型
         public void AddFunProgram(string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)
@@ -1795,7 +1795,8 @@ namespace OES
         }
 
         #endregion
-        #region
+
+        #region 分数管理
        // -- Description:	查询某个班级某次考试的所有成绩
         private List<Score> DataSetToScore(DataSet p_DataSet)
         {
