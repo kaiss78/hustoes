@@ -49,11 +49,53 @@ namespace OESMonitor
 
         private void OESMonitor_Load(object sender, EventArgs e)
         {
-            Net.MessageSupervisor.mainForm = this;
-            Net.MessageSupervisor.targetFrm = cl;
             cl.Show();
-            Program.server = new Net.OESServer();
-            Program.server.OnAccepted += AddComputer;
+           
+            ServerEvt.Server.AcceptedClient += new EventHandler(Server_AcceptedClient);
+            ServerEvt.Server.FileReceiveEnd += new DataPortEventHandler(Server_FileReceiveEnd);
+            ServerEvt.Server.FileSendEnd += new DataPortEventHandler(Server_FileSendEnd);
+            ServerEvt.Server.SendDataReady += new ClientEventHandel(Server_SendDataReady);
+            ServerEvt.Server.StartServer();
+        }
+
+        void Server_SendDataReady(Client client, string msg)
+        {
+            foreach (Computer c in Computer.ComputerList)
+            {
+                if (c.Client == client)
+                {
+                    client.port.FilePath = "D:/EXAM001.rar";
+                }
+            }
+        }
+
+        
+
+        void Server_FileSendEnd(DataPort dataPort)
+        {
+            foreach (Computer c in Computer.ComputerList)
+            {
+                if (c.Client.port == dataPort)
+                {
+                    c.State = 5;
+                }
+            }
+        }
+
+        void Server_FileReceiveEnd(DataPort dataPort)
+        {
+            foreach (Computer c in Computer.ComputerList)
+            {
+                if (c.Client.port == dataPort)
+                {
+                    c.State = 4;
+                }
+            }
+        }
+
+        void Server_AcceptedClient(object sender, EventArgs e)
+        {
+            AddComputer((Client)sender);
         }
     }
 }
