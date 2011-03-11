@@ -73,22 +73,27 @@ namespace OESMonitor.Net
         public event ClientEventHandel ReceiveDataReady;
         /// <summary>
         /// 文件传输开始
+        /// 注意：本事件在StartServer()前定义有效
         /// </summary>
         public event DataPortEventHandler FileSendBegin;
         /// <summary>
         /// 文件传输结束
+        /// 注意：本事件在StartServer()前定义有效
         /// </summary>
         public event DataPortEventHandler FileSendEnd;
         /// <summary>
         /// 文件接收开始
+        /// 注意：本事件在StartServer()前定义有效
         /// </summary>
         public event DataPortEventHandler FileReceiveBegin;
         /// <summary>
         /// 文件接收结束
+        /// 注意：本事件在StartServer()前定义有效
         /// </summary>
         public event DataPortEventHandler FileReceiveEnd;
         /// <summary>
         /// 接收客户端数据端口连接请求
+        /// 注意：本事件在StartServer()前定义有效
         /// </summary>
         public event DataPortEventHandler AcceptedDataPort;
 
