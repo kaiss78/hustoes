@@ -42,6 +42,14 @@ namespace OESMonitor.Net
         /// </summary>
         public event ClientEventHandel ReceivedDataRequest;
         /// <summary>
+        /// 准备发送数据（设置filePath）
+        /// </summary>
+        public event ClientEventHandel SendDataReady;
+        /// <summary>
+        /// 准备接收数据（设置filePath）
+        /// </summary>
+        public event ClientEventHandel ReceiveDataReady;
+        /// <summary>
         /// 接收到数据请求消息 客户端--->服务端
         /// </summary>
         public event ClientEventHandel ReceivedDataSubmit;
@@ -53,11 +61,15 @@ namespace OESMonitor.Net
         /// 消息发送完成.第一个参数为String类型,表示发送出去的消息内容
         /// </summary>
         public event ClientEventHandel WrittenMsg;
+        /// <summary>
+        /// 客户端断开连接
+        /// </summary>
+        public event EventHandler DisConnect;
         #endregion
         /// <summary>
         /// 客户端数据端口
         /// </summary>
-        private DataPort port;
+        public DataPort port;
 
         public DataPort Port
         {
@@ -72,7 +84,14 @@ namespace OESMonitor.Net
                 port.FileSizeError += new ErrorEventHandler(port_FileSizeError);
             }
         }
-        
+
+        public string ClientIp
+        {
+            get
+            {
+                return client.Client.RemoteEndPoint.ToString();
+            }
+        }
 
         /// <summary>
         /// Client构造函数
@@ -109,9 +128,9 @@ namespace OESMonitor.Net
                 ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
             }
             catch
-            {           
-                //this.EndConnection();
-                //this.EndService();                
+            {
+                if (DisConnect != null)
+                    DisConnect(null, null);
             }
         }
 
@@ -184,7 +203,9 @@ namespace OESMonitor.Net
         /// </summary>
         public void sendData()
         {
-            WriteMsg(SendFileMsg(port.filePath));
+            if (SendDataReady != null)
+                SendDataReady(this,null);
+            WriteMsg(SendFileMsg(port.FilePath));
         }
 
         /// <summary>
@@ -192,6 +213,8 @@ namespace OESMonitor.Net
         /// </summary>
         public void fetchData()
         {
+            if (ReceiveDataReady != null)
+                ReceiveDataReady(this, null);
             WriteMsg(RecieveFileMsg());
         }
 

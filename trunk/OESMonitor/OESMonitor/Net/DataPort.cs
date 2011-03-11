@@ -32,7 +32,26 @@ namespace OESMonitor.Net
         //接收数据还是发送数据
         public bool IsSend = false;
         //接收和发送时的文件路径
-        public string filePath = "F:\\abc";
+        private string filePath = "";
+        public string FilePath
+        {
+            get
+            {
+                return filePath;
+            }
+            set
+            {
+                filePath = value;
+                if (File.Exists(filePath))
+                {
+                    fileLength = new FileInfo(filePath).Length;
+                }
+                else
+                {
+                    fileLength = 0;
+                }
+            }
+        }
         //文件大小
         public long fileLength = 0;
 
@@ -67,6 +86,14 @@ namespace OESMonitor.Net
         /// 文件传输大小错误(一般为网络中丢包)
         /// </summary>
         public event ErrorEventHandler FileSizeError;
+        /// <summary>
+        /// 文件发送过程中出错(一般为客户端断开连接)
+        /// </summary>
+        public event ErrorEventHandler FileSendError;
+        /// <summary>
+        /// 文件接收过程中出错(一般为客户端断开连接)
+        /// </summary>
+        public event ErrorEventHandler FileReceiveError;
         #endregion
 
         /// <summary>
@@ -131,41 +158,49 @@ namespace OESMonitor.Net
         /// </summary>
         private void ReceiveData()
         {
-            if (FileReceiveBegin != null)
+            try
             {
-                FileReceiveBegin(this);
-            }
-            long total = fileLength;
-            int byteRead;
-            Byte[] buffer = new Byte[1024];
-            FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write);
-            byteRead = data_ns.Read(buffer, 0, 1024);
-
-            while (byteRead > 0)
-            {
-                total -= byteRead;
-                file.Write(buffer, 0, byteRead);
-                Array.Clear(buffer, 0, 1024);
-                byteRead = data_ns.Read(buffer, 0, 1024);
-            }
-
-            data_ns.Dispose();
-            dataTrans.Close();
-            file.Close();
-
-            if (FileReceiveEnd != null)
-            {
-                FileReceiveEnd(this);
-            }
-
-            if (portRecycle != null)
-                portRecycle(this);
-            if (total != 0L)
-            {
-                if (FileSizeError != null)
+                if (FileReceiveBegin != null)
                 {
-                    FileSizeError(this, null);
+                    FileReceiveBegin(this);
                 }
+                long total = fileLength;
+                int byteRead;
+                Byte[] buffer = new Byte[1024];
+                FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+                byteRead = data_ns.Read(buffer, 0, 1024);
+
+                while (byteRead > 0)
+                {
+                    total -= byteRead;
+                    file.Write(buffer, 0, byteRead);
+                    Array.Clear(buffer, 0, 1024);
+                    byteRead = data_ns.Read(buffer, 0, 1024);
+                }
+
+                data_ns.Dispose();
+                dataTrans.Close();
+                file.Close();
+
+                if (FileReceiveEnd != null)
+                {
+                    FileReceiveEnd(this);
+                }
+
+                if (portRecycle != null)
+                    portRecycle(this);
+                if (total != 0L)
+                {
+                    if (FileSizeError != null)
+                    {
+                        FileSizeError(this, null);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                if (FileSendError != null)
+                    FileSendError(this, new ErrorEventArgs(ex));
             }
         }
 
@@ -174,33 +209,41 @@ namespace OESMonitor.Net
         /// </summary>
         private void SendData()
         {
-            if (FileSendBegin != null)
+            try
             {
-                FileSendBegin(this);
-            }
-            int byteRead;
-            Byte[] buffer = new Byte[1024];
-            FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                if (FileSendBegin != null)
+                {
+                    FileSendBegin(this);
+                }
+                int byteRead;
+                Byte[] buffer = new Byte[1024];
+                FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
 
-            byteRead = file.Read(buffer, 0, 1024);
-            while (byteRead > 0)
-            {
-                data_ns.Write(buffer, 0, byteRead);
-                Array.Clear(buffer, 0, 1024);
                 byteRead = file.Read(buffer, 0, 1024);
+                while (byteRead > 0)
+                {
+                    data_ns.Write(buffer, 0, byteRead);
+                    Array.Clear(buffer, 0, 1024);
+                    byteRead = file.Read(buffer, 0, 1024);
+                }
+
+                data_ns.Dispose();
+                dataTrans.Close();
+                file.Close();
+
+                if (FileSendEnd != null)
+                {
+                    FileSendEnd(this);
+                }
+
+                if (portRecycle != null)
+                    portRecycle(this);
             }
-
-            data_ns.Dispose();
-            dataTrans.Close();
-            file.Close();
-
-            if (FileSendEnd != null)
+            catch(Exception ex)
             {
-                FileSendEnd(this);
+                if (FileReceiveError != null)
+                    FileReceiveError(this, new ErrorEventArgs(ex));
             }
-
-            if (portRecycle != null)
-                portRecycle(this);
         }
     }
     public delegate void DataPortEventHandler(DataPort dataPort);

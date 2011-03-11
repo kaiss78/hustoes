@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OESMonitor.Model;
+using System.IO;
 
 namespace OESMonitor
 {
@@ -131,45 +132,27 @@ namespace OESMonitor
             set 
             {
                 client = value;
-                client.TestStarted += new global::OESMonitor.Net.Client.StartTest(client_TestStarted);
-                client.LoginValidating += new global::OESMonitor.Net.Client.ValidateLogin(client_LoginValidating);
-                client.LoginSuccess += new global::OESMonitor.Net.Client.SimpleFun(client_LoginSuccess);
-                client.ClientCrashed += new global::OESMonitor.Net.Client.SimpleFun(client_ClientCrashed);
-                client.AnswerHanded += new global::OESMonitor.Net.Client.SimpleFun(client_AnswerHanded);
-                client.PaperDelivered += new global::OESMonitor.Net.Client.SimpleFun(client_PaperDelivered);
-                client.AnswerHanding += new global::OESMonitor.Net.Client.SimpleFun(client_AnswerHanding);
-                client.PaperDelivering += new global::OESMonitor.Net.Client.SimpleFun(client_PaperDelivering);
-                client.LogoutSuccess += new global::OESMonitor.Net.Client.SimpleFun(client_LogoutSuccess);
+                client.ReceivedTxt += new global::OESMonitor.Net.ClientEventHandel(client_ReceivedTxt);
+                client.DisConnect += new EventHandler(client_DisConnect);
+                client.ReceiveDataReady += new global::OESMonitor.Net.ClientEventHandel(client_ReceiveDataReady);
             }
         }
 
+        void client_ReceiveDataReady(global::OESMonitor.Net.Client client, string msg)
+        {
+            if (!Directory.Exists("D:/" + "EXAM001"))
+            {
+                Directory.CreateDirectory("D:/" + "EXAM001");
+            }
+            client.port.FilePath = "D:/" + "EXAM001/"+Student.ID+".rar";
+        }
+
+       
+
+
         #region 填充client事件
-        void client_PaperDelivering()
-        {
-            //this.Client.paperPath=
-        }
 
-        void client_LogoutSuccess()
-        {
-            this.State = 1;
-        }
-
-        void client_AnswerHanding()
-        {
-            this.Client.fileName = this.Student.ID + ".rar";
-        }
-
-        void client_PaperDelivered()
-        {
-            this.State = 5;
-        }
-
-        void client_AnswerHanded()
-        {
-            this.State = 4;
-        }
-
-        void client_ClientCrashed()
+        void client_DisConnect(object sender, EventArgs e)
         {
             if (this.State != 4)
             {
@@ -178,16 +161,74 @@ namespace OESMonitor
             }
         }
 
+        void client_ReceivedTxt(global::OESMonitor.Net.Client client, string msg)
+        {
+            string[] msgs = msg.Split('$');
+            if (msgs[0] == "oes")
+            {
+                switch (msgs[1])
+                {
+                    case "0":
+                        string paperName="";
+                        if (client_LoginValidating(msgs[2], msgs[3], msgs[4], out paperName))
+                        {
+                            client.SendTxt("oes$1$1$" + paperName);
+                            client_LoginSuccess();
+                        }
+                        else
+                        {
+                            client.SendTxt("oes$1$0");
+                        }
+                        break;
+                    case "2":
+                        switch (msgs[2])
+                        {
+                            case "0":
+                                client_TestStarted(0);
+                                break;
+                            case "1":
+                                client_TestStarted(1);
+                                break;
+                            case "2":
+                                client_TestStarted(2);
+                                break;
+                            case "3":
+                                if (client_ValidateTeaPass(msgs[3]))
+                                {
+                                    client.SendTxt("oes$2$4");
+                                    client_TestStarted(3);
+                                }
+                                break;
+                            default :
+                                break;
+                        }
+                        break;
+                    case "3":
+                        client_LogoutSuccess();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+
+        void client_LogoutSuccess()
+        {
+            this.State = 1;
+        }
+
         void client_LoginSuccess()
         {
             this.State = 2;
         }
 
-        bool client_LoginValidating(string name, string id, string pwd)
+        bool client_LoginValidating(string name, string id, string pwd,out string paper)
         {
             this.Student = new Student(name, "", id, pwd);
             //if()
-                return false;
+            paper = "EXAM001.rar";
+                return true;
         }
 
         void client_TestStarted(int reason)
@@ -209,6 +250,17 @@ namespace OESMonitor
             }
         }
 
+        bool client_ValidateTeaPass(string psw)
+        {
+            if (psw == "123")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
 
         private Student student = new Student("", "", "", "");
@@ -241,9 +293,9 @@ namespace OESMonitor
             this.BorderStyle = BorderStyle.FixedSingle;
             ComputerState.getInstance().setStudent(student);
             ComputerState.getInstance().setState(lab.Text);
-            if (client.clientInfo() != "")
+            if (client.ClientIp != "")
             {
-                ComputerState.getInstance().setIpPort(client.clientInfo().Split(':')[0], Convert.ToInt32(client.clientInfo().Split(':')[1]));
+                ComputerState.getInstance().setIpPort(client.ClientIp.Split(':')[0], Convert.ToInt32(client.ClientIp.Split(':')[1]));
             }
             else
             {

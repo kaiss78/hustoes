@@ -79,6 +79,7 @@
     <Compile Include="Net\Client.cs" />
     <Compile Include="Net\DataPort.cs" />
     <Compile Include="Net\OESServer.cs" />
+    <Compile Include="Net\ServerEvt.cs" />
     <Compile Include="OESData.cs" />
     <Compile Include="Model\OfficeExcel.cs" />
     <Compile Include="Model\OfficePowerPoint.cs" />

@@ -63,7 +63,14 @@ namespace OESMonitor.Net
         /// 消息发送完成.第一个参数为String类型,表示发送出去的消息内容
         /// </summary>
         public event ClientEventHandel WrittenMsg;
-
+        /// <summary>
+        /// 准备发送数据（设置filePath）
+        /// </summary>
+        public event ClientEventHandel SendDataReady;
+        /// <summary>
+        /// 准备接收数据（设置filePath）
+        /// </summary>
+        public event ClientEventHandel ReceiveDataReady;
         /// <summary>
         /// 文件传输开始
         /// </summary>
@@ -84,6 +91,7 @@ namespace OESMonitor.Net
         /// 接收客户端数据端口连接请求
         /// </summary>
         public event DataPortEventHandler AcceptedDataPort;
+
         #endregion
         #region 出错事件定义
         
@@ -259,13 +267,16 @@ namespace OESMonitor.Net
                 client.ReceivedTxt += this.ReceivedTxt;
             if (this.WrittenMsg != null)
                 client.WrittenMsg += this.WrittenMsg;
-           
+            if (this.SendDataReady != null)
+                client.SendDataReady += this.SendDataReady;
+            if (this.ReceiveDataReady != null)
+                client.ReceiveDataReady += this.ReceiveDataReady;
             clients.Add(client);
 
             listener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), listener);
             if (AcceptedClient != null)
             {
-                AcceptedClient(this, null);
+                AcceptedClient(client, null);
             }
         }
         /// <summary>
