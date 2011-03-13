@@ -163,57 +163,102 @@ namespace OES.UControl
         //装载题目预览
         public void newpl()
         {
-            if (aProMan.Controls.Contains(aProList))
+            if (!ProMan.isediting)
             {
-                aProMan.aProList.Dispose();
-            }
+                if (aProMan.Controls.Contains(aProList))
+                {
+                    aProMan.aProList.Dispose();
+                }
 
-            switch (aProMan.ProType)
-            {
-                case 0:
-                    Loadpl(InfoControl.OesData.FindChoiceByUnit(Convert.ToInt32(click_num)), 0);
-                    aProList = new ProList(aProMan);
-                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
-                    aProMan.aProList = aProList;
-                    aProMan.Controls.Add(aProList);
-                    break;
-                case 1:
-                    Loadpl(InfoControl.OesData.FindCompletionByUnit2(Convert.ToInt32(click_num)), 1);
-                    aProList = new ProList(aProMan);
-                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
-                    aProMan.aProList = aProList;
-                    aProMan.Controls.Add(aProList);
-                    break;
-                case 2:
-                    Loadpl(InfoControl.OesData.FindTofByUnit(Convert.ToInt32(click_num)), 2);
-                    aProList = new ProList(aProMan);
-                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
-                    aProMan.aProList = aProList;
-                    aProMan.Controls.Add(aProList);
-                    break;
-                case 3:
-                    Loadpl(InfoControl.OesData.FindExcelProblemContent(), 3);
-                    aProList = new ProList(aProMan);
-                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
-                    aProMan.aProList = aProList;
-                    aProMan.Controls.Add(aProList);
-                    break;
-                case 4:
-                    Loadpl(InfoControl.OesData.FindPowerPointProblemContent(), 3);
-                    aProList = new ProList(aProMan);
-                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
-                    aProMan.aProList = aProList;
-                    aProMan.Controls.Add(aProList);
-                    break;
-                case 5:
-                    Loadpl(InfoControl.OesData.FindWordProblemContent(), 3);
-                    aProList = new ProList(aProMan);
-                    aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
-                    aProMan.aProList = aProList;
-                    aProMan.Controls.Add(aProList);
-                    break;
-                default:
-                    break;
+                switch (aProMan.ProType)
+                {
+                    case 0:
+                        Loadpl(InfoControl.OesData.FindChoiceByUnit(Convert.ToInt32(click_num)), 0);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 1:
+                        Loadpl(InfoControl.OesData.FindCompletionByUnit2(Convert.ToInt32(click_num)), 1);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 2:
+                        Loadpl(InfoControl.OesData.FindTofByUnit(Convert.ToInt32(click_num)), 2);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 3:
+                        Loadpl(InfoControl.OesData.FindExcelProblemContent(), 3);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 4:
+                        Loadpl(InfoControl.OesData.FindPowerPointProblemContent(), 4);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 5:
+                        Loadpl(InfoControl.OesData.FindWordProblemContent(), 5);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 6:
+                        Loadpl(InfoControl.OesData.FindCCompletionProblemContent(), 6);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 7:
+                        Loadpl(InfoControl.OesData.FindCModificationProblemContent(), 7);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 8:
+                        Loadpl(InfoControl.OesData.FindCFunProblemContent(), 8);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 9:
+                        Loadpl(InfoControl.OesData.FindCppCompletionProblemContent(), 9);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 10:
+                        Loadpl(InfoControl.OesData.FindCppModificationProblemContent(), 10);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    case 11:
+                        Loadpl(InfoControl.OesData.FindCppFunProblemContent(), 11);
+                        aProList = new ProList(aProMan);
+                        aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
+                        aProMan.aProList = aProList;
+                        aProMan.Controls.Add(aProList);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 

@@ -52,7 +52,7 @@ namespace OES
         }
 
         static public void HideAllPanel()
-        {
+        {            
             foreach (UserPanel up in panelList)
             {
                 up.Visible = false;
@@ -61,21 +61,27 @@ namespace OES
 
         static public void ChangPanel(int x)
         {
-            HideAllPanel();
-            switch (x)
+            if (!ProMan.isediting)
             {
-                case 12:                    
-                case 13:
-                case 14:
-                case 15:
-                case 16: 
-                case 17:
-                case 19:                    
-                    panelList[x].ReLoad();
-                    break;
-                default:
-                    panelList[x].ReLoad(x);
-                    break;
+                HideAllPanel();
+                switch (x)
+                {
+                    case 12:
+                    case 13:
+                    case 14:
+                    case 15:
+                    case 16:
+                    case 19:
+                        panelList[x].ReLoad();
+                        break;
+                    default:
+                        panelList[x].ReLoad(x);
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("请先保存当前编辑页面");
             }
         }
 

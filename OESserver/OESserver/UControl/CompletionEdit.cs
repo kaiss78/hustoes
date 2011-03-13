@@ -67,7 +67,8 @@ namespace OES.UControl
             aProMan.bottomPanel.Show();
             aProMan.titlePanel.Show();
             aProMan.aProList.Show();
-            this.Hide(); 
+            this.Hide();
+            ProMan.isediting = false;
         }
 
         //提取标准答案
@@ -96,6 +97,7 @@ namespace OES.UControl
             aProMan.bottomPanel.Show();
             aProMan.titlePanel.Show();
             this.Hide();
+            ProMan.isediting = false;
             aProMan.aChptList.newpl();
         }
     }

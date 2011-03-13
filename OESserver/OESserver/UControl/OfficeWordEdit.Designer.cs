@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.procon = new System.Windows.Forms.RichTextBox();
             this.title = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.ansbrowse = new System.Windows.Forms.Button();
+            this.probrowse = new System.Windows.Forms.Button();
+            this.anspath = new System.Windows.Forms.RichTextBox();
+            this.propath = new System.Windows.Forms.RichTextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -48,7 +48,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.procon);
             this.groupBox1.Location = new System.Drawing.Point(35, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(514, 223);
@@ -56,13 +56,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "题干";
             // 
-            // richTextBox1
+            // procon
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(501, 196);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.procon.Location = new System.Drawing.Point(7, 21);
+            this.procon.Name = "procon";
+            this.procon.Size = new System.Drawing.Size(501, 196);
+            this.procon.TabIndex = 0;
+            this.procon.Text = "";
             // 
             // title
             // 
@@ -83,10 +83,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.00035F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.richTextBox3, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.richTextBox2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ansbrowse, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.probrowse, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.anspath, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.propath, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(42, 317);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -105,14 +105,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "答案路径";
             // 
-            // richTextBox3
-            // 
-            this.richTextBox3.Location = new System.Drawing.Point(112, 48);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(335, 39);
-            this.richTextBox3.TabIndex = 9;
-            this.richTextBox3.Text = "";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -123,33 +115,41 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "原题路径";
             // 
-            // button2
+            // ansbrowse
             // 
-            this.button2.Location = new System.Drawing.Point(453, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 39);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "浏览";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ansbrowse.Location = new System.Drawing.Point(453, 48);
+            this.ansbrowse.Name = "ansbrowse";
+            this.ansbrowse.Size = new System.Drawing.Size(45, 39);
+            this.ansbrowse.TabIndex = 11;
+            this.ansbrowse.Text = "浏览";
+            this.ansbrowse.UseVisualStyleBackColor = true;
+            this.ansbrowse.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // probrowse
             // 
-            this.button1.Location = new System.Drawing.Point(453, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 39);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "浏览";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.probrowse.Location = new System.Drawing.Point(453, 3);
+            this.probrowse.Name = "probrowse";
+            this.probrowse.Size = new System.Drawing.Size(45, 39);
+            this.probrowse.TabIndex = 12;
+            this.probrowse.Text = "浏览";
+            this.probrowse.UseVisualStyleBackColor = true;
+            this.probrowse.Click += new System.EventHandler(this.button1_Click);
             // 
-            // richTextBox2
+            // anspath
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(112, 3);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(335, 39);
-            this.richTextBox2.TabIndex = 13;
-            this.richTextBox2.Text = "";
+            this.anspath.Location = new System.Drawing.Point(112, 48);
+            this.anspath.Name = "anspath";
+            this.anspath.Size = new System.Drawing.Size(335, 39);
+            this.anspath.TabIndex = 9;
+            this.anspath.Text = "";
+            // 
+            // propath
+            // 
+            this.propath.Location = new System.Drawing.Point(112, 3);
+            this.propath.Name = "propath";
+            this.propath.Size = new System.Drawing.Size(335, 39);
+            this.propath.TabIndex = 13;
+            this.propath.Text = "";
             // 
             // button5
             // 
@@ -159,6 +159,7 @@
             this.button5.TabIndex = 5;
             this.button5.Text = "保存";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -168,6 +169,7 @@
             this.button6.TabIndex = 6;
             this.button6.Text = "取消";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // OfficeWordEdit
             // 
@@ -192,17 +194,17 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox procon;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button ansbrowse;
+        private System.Windows.Forms.RichTextBox anspath;
+        private System.Windows.Forms.Button probrowse;
+        private System.Windows.Forms.RichTextBox propath;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }
