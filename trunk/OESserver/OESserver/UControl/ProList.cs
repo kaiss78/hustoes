@@ -163,12 +163,13 @@ namespace OES.UControl
             change(Convert.ToInt32(((Label)sender).Tag), aProMan.ProType);
         }
 
-
+        //调用加载函数，控制控件隐藏现实的转换
         void change(int id,int pt)
         {
             click_proid = Convert.ToString(id);
             loadpro(id, pt);
             aProMan.EditList[pt].Show();
+            ProMan.isediting = true;
             for (int i=0; i < 12 && i != pt; i++)
             {
                 aProMan.EditList[i].Hide();
@@ -176,7 +177,7 @@ namespace OES.UControl
         }
 
         
-
+        //加载函数，加载问题编辑界面的原始数据
         void loadpro(int id,int pt)
         {
             
@@ -193,6 +194,42 @@ namespace OES.UControl
                 case 2:
                     aProMan.aJudgeEdit.isnew = false;
                     aProMan.aJudgeEdit.fill(InfoControl.OesData.FindTofById(id.ToString()));
+                    break;
+                case 3:
+                    aProMan.aOfficeExcelEdit.isnew = false;
+                    aProMan.aOfficeExcelEdit.fill(InfoControl.OesData.FindOfficeExcelById(id.ToString(),"2"));
+                    break;
+                case 4:
+                    aProMan.aOfficePowerpointEdit.isnew = false;
+                    aProMan.aOfficePowerpointEdit.fill(InfoControl.OesData.FindOfficePowerPointById(id.ToString(), "3"));
+                    break;
+                case 5:
+                    aProMan.aOfficeWordEdit.isnew = false;
+                    aProMan.aOfficeWordEdit.fill(InfoControl.OesData.FindOfficeWordById(id.ToString(), "1"));
+                    break;
+                case 6:
+                    aProMan.aCCompletionEdit.isnew = false;
+                    aProMan.aCCompletionEdit.fill(InfoControl.OesData.FindCompletionProgramById(id.ToString()));
+                    break;
+                case 7:
+                    aProMan.aCModifEdit.isnew = false;
+                    aProMan.aCModifEdit.fill(InfoControl.OesData.FindModificationProgramById(id.ToString()));
+                    break;
+                case 8:
+                    aProMan.aCFuctionEdit.isnew = false;
+                    aProMan.aCFuctionEdit.fill(InfoControl.OesData.FindFunProgramById(id.ToString()));
+                    break;
+                case 9:
+                    aProMan.aCppCompletionEdit.isnew = false;
+                    aProMan.aCppCompletionEdit.fill(InfoControl.OesData.FindCompletionProgramById(id.ToString()));
+                    break;
+                case 10:
+                    aProMan.aCppModifEdit.isnew = false;
+                    aProMan.aCppModifEdit.fill(InfoControl.OesData.FindModificationProgramById(id.ToString()));
+                    break;
+                case 11:
+                    aProMan.aCppFuctionEdit.isnew = false;
+                    aProMan.aCppFuctionEdit.fill(InfoControl.OesData.FindFunProgramById(id.ToString()));
                     break;
                 default:
                     break;

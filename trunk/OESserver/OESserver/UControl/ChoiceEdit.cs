@@ -37,14 +37,6 @@ namespace OES.UControl
 
         }
 
-        
-        private void button6_Click(object sender, EventArgs e)
-        {
-            aProMan.bottomPanel.Show();
-            aProMan.titlePanel.Show();
-            aProMan.aProList.Show();
-            this.Hide();          
-        }
         //填充进题目信息
         public void fill(List<Choice> achoice)
         {
@@ -146,10 +138,20 @@ namespace OES.UControl
             aProMan.bottomPanel.Show();
             aProMan.titlePanel.Show();
             this.Hide();
+            ProMan.isediting = false;
             aProMan.aChptList.newpl();
         }
 
 
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            aProMan.bottomPanel.Show();
+            aProMan.titlePanel.Show();
+            aProMan.aProList.Show();
+            this.Hide();
+            ProMan.isediting = false;
+        }
 
     }
 }

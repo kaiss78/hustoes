@@ -15,7 +15,11 @@ namespace OES.UPanel
         public static int TpHeight;
         public static int PlWidth;
         public static int BpHeight;
+        
+        public static bool isediting=false;//标识是否正在编辑题目
+
         private readonly List<Label> titleList = new List<Label>();
+
         public Panel bottomPanel = new Panel();
         public Panel titlePanel = new Panel();
         public int ProType;
@@ -23,15 +27,15 @@ namespace OES.UPanel
         public ChoiceEdit aChoiceEdit;
         public CompletionEdit aCompletionEdit;
         public JudgeEdit aJudgeEdit;
-        public OfficeExcelEdit aOfficeExcelEdit = new OfficeExcelEdit();
-        public OfficePowerpointEdit aOfficePowerpointEdit = new OfficePowerpointEdit();
-        public OfficeWordEdit aOfficeWordEdit = new OfficeWordEdit();
-        public CCompletionEdit aCCompletionEdit = new CCompletionEdit();
-        public CModifEdit aCModifEdit = new CModifEdit();
-        public CFuctionEdit aCFuctionEdit = new CFuctionEdit();
-        public CppCompletionEdit aCppCompletionEdit = new CppCompletionEdit();
-        public CppModifEdit aCppModifEdit = new CppModifEdit();
-        public CppFuctionEdit aCppFuctionEdit = new CppFuctionEdit();
+        public OfficeExcelEdit aOfficeExcelEdit;
+        public OfficePowerpointEdit aOfficePowerpointEdit;
+        public OfficeWordEdit aOfficeWordEdit;
+        public CCompletionEdit aCCompletionEdit;
+        public CModifEdit aCModifEdit;
+        public CFuctionEdit aCFuctionEdit;
+        public CppCompletionEdit aCppCompletionEdit;
+        public CppModifEdit aCppModifEdit;
+        public CppFuctionEdit aCppFuctionEdit ;
 
         public ProMan()
         {
@@ -40,7 +44,16 @@ namespace OES.UPanel
             aChoiceEdit = new ChoiceEdit(this);
             aCompletionEdit = new CompletionEdit(this);
             aJudgeEdit = new JudgeEdit(this);
-            
+            aOfficeExcelEdit = new OfficeExcelEdit(this);
+            aOfficePowerpointEdit = new OfficePowerpointEdit(this);
+            aOfficeWordEdit = new OfficeWordEdit(this);
+            aCCompletionEdit = new CCompletionEdit(this);
+            aCModifEdit = new CModifEdit(this);
+            aCFuctionEdit = new CFuctionEdit(this);
+            aCppCompletionEdit = new CppCompletionEdit(this);
+            aCppModifEdit = new CppModifEdit(this);
+            aCppFuctionEdit = new CppFuctionEdit(this);
+
             ClWidth = (int)(Width * 0.2);
             PlWidth = (int)(Width * 0.8);
             
@@ -211,6 +224,8 @@ namespace OES.UPanel
                 aCppFuctionEdit.Location = new Point(ClWidth, 0);
                 this.Controls.Add(aCppFuctionEdit);
                 EditList.Add(aCppFuctionEdit);
+
+
                 
             }
            
@@ -281,8 +296,81 @@ namespace OES.UPanel
                     EditList[pt] = aJudgeEdit;
                     aJudgeEdit.isnew = true;
                     break;
+                case 3:
+                    aOfficeExcelEdit.Dispose();
+                    aOfficeExcelEdit = new OfficeExcelEdit(this);
+                    aOfficeExcelEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aOfficeExcelEdit);
+                    EditList[pt] = aOfficeExcelEdit;
+                    aOfficeExcelEdit.isnew = true;
+                    break;
+                case 4:
+                    aOfficePowerpointEdit.Dispose();
+                    aOfficePowerpointEdit = new OfficePowerpointEdit(this);
+                    aOfficePowerpointEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aOfficePowerpointEdit);
+                    EditList[pt] = aOfficePowerpointEdit;
+                    aOfficePowerpointEdit.isnew = true;
+                    break;
+                case 5:
+                    aOfficeWordEdit.Dispose();
+                    aOfficeWordEdit = new OfficeWordEdit(this);
+                    aOfficeWordEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aOfficeWordEdit);
+                    EditList[pt] = aOfficeWordEdit;
+                    aOfficeWordEdit.isnew = true;
+                    break;
+                case 6:
+                    aCCompletionEdit.Dispose();
+                    aCCompletionEdit = new CCompletionEdit(this);
+                    aCCompletionEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aCCompletionEdit);
+                    EditList[pt] = aCCompletionEdit;
+                    aCCompletionEdit.isnew = true;
+                    break;
+                case 7:
+                    aCModifEdit.Dispose();
+                    aCModifEdit = new CModifEdit(this);
+                    aCModifEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aCModifEdit);
+                    EditList[pt] = aCModifEdit;
+                    aCModifEdit.isnew = true;
+                    break;
+                case 8:
+                    aCFuctionEdit.Dispose();
+                    aCFuctionEdit = new CFuctionEdit(this);
+                    aCFuctionEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aCFuctionEdit);
+                    EditList[pt] = aCFuctionEdit;
+                    aCFuctionEdit.isnew = true;
+                    break;
+                case 9:
+                    aCppCompletionEdit.Dispose();
+                    aCppCompletionEdit = new CppCompletionEdit(this);
+                    aCppCompletionEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aCppCompletionEdit);
+                    EditList[pt] = aCppCompletionEdit;
+                    aCppCompletionEdit.isnew = true;
+                    break;
+                case 10:
+                    aCppModifEdit.Dispose();
+                    aCppModifEdit = new CppModifEdit(this);
+                    aCppModifEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aCppModifEdit);
+                    EditList[pt] = aCppModifEdit;
+                    aCppModifEdit.isnew = true;
+                    break;
+                case 11:
+                    aCppFuctionEdit.Dispose();
+                    aCppFuctionEdit = new CppFuctionEdit(this);
+                    aCppFuctionEdit.Location = new Point(ClWidth, 0);
+                    this.Controls.Add(aCppFuctionEdit);
+                    EditList[pt] = aCppFuctionEdit;
+                    aCppFuctionEdit.isnew = true;
+                    break;
             }
             EditList[pt].Show();
+            isediting = true;
             for (int i = 0; i < 12 && i != pt; i++)
             {
                 EditList[i].Hide();
@@ -311,6 +399,42 @@ namespace OES.UPanel
                             InfoControl.OesData.DeleteTofById(aProList.acheckproList[i].proid);
                             aProList.acheckproList.RemoveAt(i);
                             break;
+                        case 3:
+                            InfoControl.OesData.DeleteOffice(aProList.acheckproList[i].proid,"2");
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 4:
+                            InfoControl.OesData.DeleteOffice(aProList.acheckproList[i].proid, "3");
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 5:
+                            InfoControl.OesData.DeleteOffice(aProList.acheckproList[i].proid, "1");
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 6:
+                            InfoControl.OesData.DeleteCompletionModificationProgram(aProList.acheckproList[i].proid, "1");
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 7:
+                            InfoControl.OesData.DeleteCompletionModificationProgram(aProList.acheckproList[i].proid, "2");
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 8:
+                            InfoControl.OesData.DeleteFunProgram(aProList.acheckproList[i].proid);
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 9:
+                            InfoControl.OesData.DeleteCompletionModificationProgram(aProList.acheckproList[i].proid, "1");
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 10:
+                            InfoControl.OesData.DeleteCompletionModificationProgram(aProList.acheckproList[i].proid, "2");
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
+                        case 11:
+                            InfoControl.OesData.DeleteFunProgram(aProList.acheckproList[i].proid);
+                            aProList.acheckproList.RemoveAt(i);
+                            break;
                         default:
                             break;
                     }
@@ -321,34 +445,35 @@ namespace OES.UPanel
         //从题型panel传入的题型作处理，分0,1,2有章节，其余没有
         override public void ReLoad(int x)
         {
+            
+                ProType = x;
+                if (Controls.Contains(aProList))
+                {
+                    aProList.Dispose();
+                }
+                if (ProType < 3)
+                {
+                    aChptList.Dispose();
+                    aChptList = new ChptList(this);
+                    aChptList.Size = new Size(ClWidth, Height);
+                    Controls.Add(aChptList);
+                    aChptList.Show();
+                    HideList();
+                    this.Visible = true;
+                }
+                else
+                {
+                    aChptList.Hide();
+                    aProList = new ProList(this);
+                    aProList.SetBounds(ClWidth, TpHeight, PlWidth, PlHeight);
 
-            ProType = x;
-            if (Controls.Contains(aProList))
-            {
-                aProList.Dispose();
-            }
-            if (ProType < 3)
-            {
-                aChptList.Dispose();                
-                aChptList = new ChptList(this);
-                aChptList.Size = new Size(ClWidth, Height);
-                Controls.Add(aChptList);
-                aChptList.Show();
-                HideList();                            
-                this.Visible = true;
-            }
-            else
-            {
-                aChptList.Hide();
-                aProList = new ProList(this);
-                aProList.SetBounds(ClWidth, TpHeight, PlWidth, PlHeight);
-                
-                aChptList.newpl();
-                HideList();
-                Controls.Add(aProList);
-                aProList.Show();
-                this.Visible = true;
-            }
+                    aChptList.newpl();
+                    HideList();
+                    Controls.Add(aProList);
+                    aProList.Show();
+                    this.Visible = true;
+                }
+            
         }
 
         public void HideList()
