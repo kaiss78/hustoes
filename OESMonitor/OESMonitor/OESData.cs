@@ -5,8 +5,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Reflection;
-using OESMonitor.Model;
 using System.Data;
+using OESMonitor.Model;
 
 namespace OESMonitor
 {
@@ -38,7 +38,6 @@ namespace OESMonitor
         private bool DataBind()
         {
             sqlcon = new SqlConnection();
- 
             string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\My Documents\\Visual Studio 2008\\Projects\\OESserver\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
 
             sqlcon.ConnectionString = strConnection;
@@ -1194,7 +1193,7 @@ namespace OESMonitor
         }
 
         //按Id查询OfficeWord题目
-        public List<OfficeWord> FindOfficeWordById(string Id, string Sort)
+        public List<OfficeWord> FindOfficeWordById(string Id,string Sort)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
@@ -1207,11 +1206,11 @@ namespace OESMonitor
 
 
         //按Id查询OfficeExcel题目
-        public List<OfficeExcel> FindOfficeExcelById(string Id, string Sort)
+        public List<OfficeExcel> FindOfficeExcelById(string Id,string Sort)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2,Sort, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             excel = DataSetToListOfficeExcel(Ds);
@@ -1220,11 +1219,11 @@ namespace OESMonitor
 
 
         //按Id查询OfficePowerPointl题目
-        public List<OfficePowerPoint> FindOfficePowerPointById(string Id, string Sort)
+        public List<OfficePowerPoint> FindOfficePowerPointById(string Id,string Sort)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2,Sort , ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             powerPoint = DataSetToListOfficePowerPoint(Ds);
@@ -1252,7 +1251,6 @@ namespace OESMonitor
             problemList = DataSetToProblemList(Ds);
             return problemList;
         }
-
         //-- Description:   查找PowerPoint试题的ID和题目
         public List<Problem> FindPowerPointProblemContent()
         {
@@ -1509,7 +1507,7 @@ namespace OESMonitor
         }
 
         //查询指定Id的修改题
-        public List<PModif> FindModificationProgramById(string Id, string Sort)
+        public List<PModif> FindModificationProgramById(string Id)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
