@@ -85,8 +85,9 @@ namespace OES.UPanel
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (Convert.ToBoolean(MessageBox.Show("确定删除记录", "确认删除", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)))
-            {
+
+            if (MessageBox.Show("确定删除记录", "确认删除", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {                
                 for (int i = 0; i < paperListDataTable.Rows.Count; i++)
                 {
                     if ((bool)paperListDataTable.Rows[i][0])
@@ -98,7 +99,5 @@ namespace OES.UPanel
                 InitList();
             }
         }
-
-
     }
 }
