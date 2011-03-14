@@ -69,6 +69,7 @@ namespace OES.UPanel
         override public void ReLoad()
         {
             this.Visible = true;
+           
             for (int i = 0; i < 9; i++)
             {
                 flag[i] = 1;
