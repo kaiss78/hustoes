@@ -334,6 +334,20 @@ namespace OESMonitor.Net
                 }
             }
         }
+        /// <summary>
+        /// 请求文件的客户端队列清空
+        /// </summary>
+        public void ClearRequestingQueue()
+        {
+            RequestingQueue.Clear();
+        }
+        /// <summary>
+        /// 上传文件的客户端队列清空
+        /// </summary>
+        public void ClearSubmitingQueue()
+        {
+            SubmitingQueue.Clear();
+        }
 
     }
 }
