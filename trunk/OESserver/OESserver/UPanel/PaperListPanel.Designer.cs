@@ -152,21 +152,17 @@
             // btnFind
             // 
             this.btnFind.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFind.Location = new System.Drawing.Point(634, 12);
-            this.btnFind.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFind.Location = new System.Drawing.Point(633, 11);
+            this.btnFind.Margin = new System.Windows.Forms.Padding(1);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(96, 31);
+            this.btnFind.Size = new System.Drawing.Size(98, 33);
             this.btnFind.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnFind.StateCommon.Border.Rounding = 14;
-            this.btnFind.StateCommon.Content.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.btnFind.StateCommon.Border.Rounding = 16;
+            this.btnFind.StateCommon.Border.Width = 1;
             this.btnFind.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
-            this.btnFind.StateCommon.Content.ShortText.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
-            this.btnFind.StateCommon.Content.ShortText.ColorAngle = 0F;
-            this.btnFind.StateCommon.Content.ShortText.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
             this.btnFind.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnFind.StateCommon.Content.ShortText.MultiLineH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.btnFind.TabIndex = 7;
             this.btnFind.Values.Text = "查询";
             // 
