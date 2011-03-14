@@ -23,7 +23,8 @@ namespace OESMonitor.Net
 
         void Server_ReceivedTxt(Client client, string msg)
         {
-           
+            string[] msgs = msg.Split('$');
+
         }
 
         void Server_ReceivedMsg(Client client, string msg)
