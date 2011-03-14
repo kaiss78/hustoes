@@ -64,7 +64,6 @@ namespace OES.UPanel
         private void Count_Click(object sender, EventArgs e)
         {
             this.count();
-            MessageBox.Show(TestTime.Text);
         }
 
         override public void ReLoad()
@@ -109,7 +108,7 @@ namespace OES.UPanel
                 }
                 if (CppPro.Checked)
                 {
-                    programstate = 2;
+                    programstate = 1;
                 }
             }
             else
