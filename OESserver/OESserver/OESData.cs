@@ -1839,7 +1839,7 @@ namespace OES
         #region 章节管理
 
         //添加章节，UnitName具体的章节名字，例如“故障恢复” Unit 例子：1-12；
-        public void AddUnit(string UnitName,int Unit,int TypeId)
+        public void AddUnit(string UnitName,int Unit)
         {
             string A = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[2];
