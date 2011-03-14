@@ -65,13 +65,13 @@ namespace OES.UPanel
             btnChoice.Visible = InfoControl.TmpPaper.choice.Capacity > 0;
             btnJudge.Visible = InfoControl.TmpPaper.judge.Capacity > 0;
             btnCompletion.Visible = InfoControl.TmpPaper.completion.Capacity > 0;
-
             btnWord.Visible = InfoControl.TmpPaper.officeWord.exist;
             btnPPT.Visible = InfoControl.TmpPaper.officePPT.exist;
             btnExcel.Visible = InfoControl.TmpPaper.officeExcel.exist;
             btnPModif.Visible = InfoControl.TmpPaper.pModif.exist;
             btnPCompletion.Visible = InfoControl.TmpPaper.pCompletion.exist;
             btnPFunction.Visible = InfoControl.TmpPaper.pFunction.exist;
+            ItemPanel.Controls.Clear();            
         }
 
         private void BtnProType_Click(object sender, EventArgs e)
