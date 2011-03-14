@@ -107,7 +107,6 @@ namespace OES
         public DataSet RunProc(string procName, SqlParameter[] prams, DataSet Ds)
         {
             SqlCommand Cmd = CreateCmd(procName, prams);
-
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
 
             try
@@ -1699,7 +1698,6 @@ namespace OES
             SqlParameter[] ddlparam = new SqlParameter[1];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
             
-            //RunProc("FindChoiceByUnit", ddlparam, Ds);
             SqlCommand Cmd = CreateCmd("DeletePaper", ddlparam);
             try
             {
@@ -1840,20 +1838,18 @@ namespace OES
 
         #region 章节管理
 
-        //添加章节，UnitName具体的章节名字，例如“故障恢复” Unit 例子：1-12；TypeId 0,1,2分别表示填空选择判断
+        //添加章节，UnitName具体的章节名字，例如“故障恢复” Unit 例子：1-12；
         public void AddUnit(string UnitName,int Unit,int TypeId)
         {
             string A = Unit.ToString();
-            string B = TypeId.ToString();
-            SqlParameter[] ddlparam = new SqlParameter[3];
+            SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@UnitName", SqlDbType.VarChar, 100, UnitName, ParameterDirection.Input);
             ddlparam[1] = CreateParam("@Unit", SqlDbType.Int, 5, A, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@TypeId", SqlDbType.Int, 5, B, ParameterDirection.Input);
            
             DataBind();
             SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 cmd.Parameters.Add(ddlparam[i]);
             }
@@ -1863,19 +1859,17 @@ namespace OES
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.ToString());
+                throw e;
             }
         }
 
-        //Description:	给定Type( 0,1,2分别表示填空选择判断的标号)，列出所有相应题型的所有章节名
-        public List<Unit> FindUnit(int TypeId)
+        //Description:	列出所有章节名
+        public List<Unit> FindUnit()
         {
-
             List<Unit> UnitList = new List<Unit>();
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@TypeId", SqlDbType.Int, 3, TypeId.ToString(), ParameterDirection.Input);
             Ds = new DataSet();
-            RunProc("FindUnit", ddlparam, Ds);
+            try { RunProc("FindUnit", null, Ds); }
+            catch (Exception Ex) { throw Ex; }
             UnitList = DataSetToListString(Ds);
             return UnitList;
         }
@@ -2003,7 +1997,7 @@ namespace OES
         {
             SqlParameter[] ddlparam = new SqlParameter[1];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-
+            DataBind();
             //RunProc("FindChoiceByUnit", ddlparam, Ds);
             SqlCommand Cmd = CreateCmd("DeleteTeacherById", ddlparam);
             try

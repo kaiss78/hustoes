@@ -90,14 +90,14 @@ namespace OES.UControl
             Controls.Add(mainPanel);
             btnHeight = Height/(count + 1);
             totalpage = ((chpt_num/count) + 1);
-            chpt_num = InfoControl.OesData.FindUnit(aProMan.ProType).Count;
+            chpt_num = InfoControl.OesData.FindUnit().Count;
             
 
             //list赋初值
             for (int i = 0; i < chpt_num; i++)
             {
-                chpt_name.Add(InfoControl.OesData.FindUnit(aProMan.ProType)[i].UnitName);
-                chpt_ID.Add(Convert.ToInt32(InfoControl.OesData.FindUnit(aProMan.ProType)[i].UnitId));
+                chpt_name.Add(InfoControl.OesData.FindUnit()[i].UnitName);
+                chpt_ID.Add(Convert.ToInt32(InfoControl.OesData.FindUnit()[i].UnitId));
             }
 
             var last = new Button();
