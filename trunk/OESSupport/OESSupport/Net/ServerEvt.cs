@@ -10,37 +10,45 @@ namespace OESMonitor.Net
         public OESServer Server = new OESServer();
         public ServerEvt()
         {
+            Server.ip = System.Net.IPAddress.Parse("115.156.227.238");
             Server.AcceptedClient += new EventHandler(Server_AcceptedClient);
             Server.FileReceiveEnd += new DataPortEventHandler(Server_FileReceiveEnd);
             Server.FileSendEnd += new DataPortEventHandler(Server_FileSendEnd);
             Server.SendDataReady += new ClientEventHandel(Server_SendDataReady);
             Server.ReceivedMsg += new ClientEventHandel(Server_ReceivedMsg);
+            Server.ReceivedTxt += new ClientEventHandel(Server_ReceivedTxt);
             Server.StartServer();
+           
+        }
+
+        void Server_ReceivedTxt(Client client, string msg)
+        {
+           
         }
 
         void Server_ReceivedMsg(Client client, string msg)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(msg);
         }
 
         void Server_SendDataReady(Client client, string msg)
         {
-            throw new NotImplementedException();
+            
         }
 
         void Server_FileSendEnd(DataPort dataPort)
         {
-            throw new NotImplementedException();
+            
         }
 
         void Server_FileReceiveEnd(DataPort dataPort)
         {
-            throw new NotImplementedException();
+            
         }
 
         void Server_AcceptedClient(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
