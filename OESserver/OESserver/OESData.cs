@@ -38,17 +38,7 @@ namespace OES
         private bool DataBind()
         {
             sqlcon = new SqlConnection();
-            //string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
-            //strConnection += "initial catalog=OESDB;Server=localhost;";
-            //strConnection += "Connect Timeout=30"; 
-            //string strConnection = "Trusted_Connection=SSPI;";
-            //strConnection += "initial catalog=OESDB;Server=localhost;";
-            //strConnection += "Connect Timeout=30";
-
-            //string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
-
-            string strConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=G:\C#\OESserver\DB File\OESDB.mdf;
-                                       Integrated Security=True;Connect Timeout=30;User Instance=True";
+            string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
 
             sqlcon.ConnectionString = strConnection;
 
@@ -1688,7 +1678,6 @@ namespace OES
             {
                 MessageBox.Show(e.ToString());
             }
-            MessageBox.Show(Id.Value.ToString());
             return Id.Value.ToString();
         }
 

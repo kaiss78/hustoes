@@ -8,6 +8,16 @@ namespace OES
 {
     public class InfoControl
     {
+        public static List<int> ChoiceList=new List<int>();
+        public static List<int> JudgeList = new List<int>();
+        public static List<int> CompletionList = new List<int>();
+        public static int WordID = 0;
+        public static int PPTID = 0;
+        public static int ExcelID = 0;
+        public static int PCompletionID = 0;
+        public static int PJudgeID = 0;
+        public static int PModifID = 0;
+
         private static OESData oesData = null;
         public static OESData OesData
         {
