@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.Linq;
+ 
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -41,7 +41,7 @@ namespace OES.UControl
                 temp1.AutoSize = true;
                 temp1.ForeColor = Color.White;
                 temp1.BackColor = Color.Transparent;
-                temp1.Font = new Font(new FontFamily("微软雅黑"),11,FontStyle.Bold);
+                temp1.Font = new Font(new FontFamily("宋体"),11,FontStyle.Bold);
                 
                 Button temp = new Button();
                 temp.Width = (int)(this.Width );
