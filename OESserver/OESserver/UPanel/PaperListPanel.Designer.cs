@@ -28,41 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaperListPanel));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PaperListDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
-            this.FindText = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.btnFind = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.cbtnFindByYear = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
+            this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.kryptonCheckSet1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.cbtnFindByTime = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
+            this.cbtnFindByName = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 7;
+            this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnDel, 5, 2);
-            this.tableLayoutPanel1.Controls.Add(this.FindText, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnFind, 5, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 5, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnDel, 6, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByYear, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByTime, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByName, 3, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
@@ -71,13 +80,13 @@
             // 
             // groupBox1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 5);
+            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 6);
             this.groupBox1.Controls.Add(this.PaperListDGV);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 78);
+            this.groupBox1.Location = new System.Drawing.Point(13, 123);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(716, 575);
+            this.groupBox1.Size = new System.Drawing.Size(716, 530);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "试卷列表";
@@ -103,7 +112,7 @@
             this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.PaperListDGV.RowTemplate.Height = 23;
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PaperListDGV.Size = new System.Drawing.Size(710, 550);
+            this.PaperListDGV.Size = new System.Drawing.Size(710, 505);
             this.PaperListDGV.TabIndex = 0;
             this.PaperListDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellDoubleClick);
             this.PaperListDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellClick);
@@ -112,7 +121,7 @@
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEdit.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnEdit.Location = new System.Drawing.Point(534, 47);
+            this.btnEdit.Location = new System.Drawing.Point(534, 92);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(96, 26);
@@ -124,7 +133,7 @@
             // 
             this.btnDel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDel.Location = new System.Drawing.Point(634, 47);
+            this.btnDel.Location = new System.Drawing.Point(634, 92);
             this.btnDel.Margin = new System.Windows.Forms.Padding(2);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(96, 26);
@@ -133,38 +142,43 @@
             this.btnDel.UseVisualStyleBackColor = true;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
-            // FindText
+            // cbtnFindByYear
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.FindText, 3);
-            this.FindText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FindText.Location = new System.Drawing.Point(12, 12);
-            this.FindText.Margin = new System.Windows.Forms.Padding(2);
-            this.FindText.Name = "FindText";
-            this.FindText.Size = new System.Drawing.Size(518, 31);
-            this.FindText.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.FindText.StateCommon.Border.Rounding = 16;
-            this.FindText.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.FindText.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
-            this.FindText.TabIndex = 6;
+            this.cbtnFindByYear.Location = new System.Drawing.Point(13, 93);
+            this.cbtnFindByYear.Name = "cbtnFindByYear";
+            this.cbtnFindByYear.Size = new System.Drawing.Size(46, 24);
+            this.cbtnFindByYear.TabIndex = 6;
+            this.cbtnFindByYear.Values.Text = "按年";
             // 
-            // btnFind
+            // ribbonButton1
             // 
-            this.btnFind.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFind.Location = new System.Drawing.Point(633, 11);
-            this.btnFind.Margin = new System.Windows.Forms.Padding(1);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(98, 33);
-            this.btnFind.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnFind.StateCommon.Border.Rounding = 16;
-            this.btnFind.StateCommon.Border.Width = 1;
-            this.btnFind.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
-            this.btnFind.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnFind.TabIndex = 7;
-            this.btnFind.Values.Text = "查询";
+            this.ribbonButton1.AltKey = null;
+            this.ribbonButton1.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Down;
+            this.ribbonButton1.DropDownArrowSize = new System.Drawing.Size(5, 3);
+            this.ribbonButton1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.Image")));
+            this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
+            this.ribbonButton1.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
+            this.ribbonButton1.Tag = null;
+            this.ribbonButton1.Text = null;
+            this.ribbonButton1.ToolTip = null;
+            this.ribbonButton1.ToolTipImage = null;
+            this.ribbonButton1.ToolTipTitle = null;
+            // 
+            // cbtnFindByTime
+            // 
+            this.cbtnFindByTime.Location = new System.Drawing.Point(93, 93);
+            this.cbtnFindByTime.Name = "cbtnFindByTime";
+            this.cbtnFindByTime.Size = new System.Drawing.Size(74, 24);
+            this.cbtnFindByTime.TabIndex = 7;
+            this.cbtnFindByTime.Values.Text = "按时间段";
+            // 
+            // cbtnFindByName
+            // 
+            this.cbtnFindByName.Location = new System.Drawing.Point(173, 93);
+            this.cbtnFindByName.Name = "cbtnFindByName";
+            this.cbtnFindByName.Size = new System.Drawing.Size(74, 24);
+            this.cbtnFindByName.TabIndex = 8;
+            this.cbtnFindByName.Values.Text = "按试卷名";
             // 
             // PaperListPanel
             // 
@@ -174,9 +188,9 @@
             this.Name = "PaperListPanel";
             this.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -188,7 +202,10 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView PaperListDGV;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox FindText;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnFind;
+        private System.Windows.Forms.RibbonButton ribbonButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckSet kryptonCheckSet1;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton cbtnFindByYear;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton cbtnFindByTime;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckButton cbtnFindByName;
     }
 }
