@@ -39,8 +39,7 @@
             this.btnDel = new System.Windows.Forms.Button();
             this.cbtnFindByYear = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.cbtnFindByTime = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.cbtnFindByName = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.cbtnFindByName = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();        
             this.csFind = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -167,20 +166,6 @@
             this.cbtnFindByName.TabIndex = 8;
             this.cbtnFindByName.Values.Text = "按试卷名";
             // 
-            // ribbonButton1
-            // 
-            this.ribbonButton1.AltKey = null;
-            this.ribbonButton1.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Down;
-            this.ribbonButton1.DropDownArrowSize = new System.Drawing.Size(5, 3);
-            this.ribbonButton1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.Image")));
-            this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
-            this.ribbonButton1.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
-            this.ribbonButton1.Tag = null;
-            this.ribbonButton1.Text = null;
-            this.ribbonButton1.ToolTip = null;
-            this.ribbonButton1.ToolTipImage = null;
-            this.ribbonButton1.ToolTipTitle = null;
-            // 
             // csFind
             // 
             this.csFind.AllowUncheck = true;
@@ -211,7 +196,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView PaperListDGV;
-        private System.Windows.Forms.RibbonButton ribbonButton1;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckSet csFind;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckButton cbtnFindByYear;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckButton cbtnFindByTime;
