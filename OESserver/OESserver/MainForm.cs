@@ -15,7 +15,10 @@ namespace OES
         public ClassManage classManage;
         public TeacherManage teacherManage;
         public ScoreManage scoreManage;
+        public ProManCho proManCho;
+
         private PanelControl panelControl;
+       
 
         public MainForm()
         {
@@ -28,6 +31,8 @@ namespace OES
             classManage=new ClassManage();             //班级管理界面
             teacherManage = new TeacherManage();   //教师管理界面            
             scoreManage=new ScoreManage();           //成绩管理界面
+            proManCho=new ProManCho();                 //题目选择界面
+
             MainPanel.Controls.Add(proMan);
             MainPanel.Controls.Add(paperInfo);
             MainPanel.Controls.Add(paperListPanel);            
@@ -36,6 +41,7 @@ namespace OES
             MainPanel.Controls.Add(teacherManage);
             MainPanel.Controls.Add(paperEditPanel);
             MainPanel.Controls.Add(scoreManage);
+            MainPanel.Controls.Add(proManCho);
 
             PanelControl.init(this);
             PanelControl.HideAllPanel();

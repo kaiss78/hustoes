@@ -64,7 +64,6 @@
             this.ItemText.StateCommon.Border.Rounding = 15;
             this.ItemText.TabIndex = 0;
             this.ItemText.Values.Text = "Text";
-            this.ItemText.Click += new System.EventHandler(this.ItemText_Click);
             // 
             // ItemNo
             // 
