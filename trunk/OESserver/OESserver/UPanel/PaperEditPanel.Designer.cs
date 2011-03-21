@@ -31,13 +31,13 @@
             this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnChoice = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnJudge = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnCompletion = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnWord = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnPPT = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnJudge = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnExcel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnPModif = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnPPT = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnWord = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnPCompletion = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnPModif = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnPFunction = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ControlPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.ItemPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -74,13 +74,13 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.btnChoice);
-            this.flowLayoutPanel1.Controls.Add(this.btnJudge);
             this.flowLayoutPanel1.Controls.Add(this.btnCompletion);
-            this.flowLayoutPanel1.Controls.Add(this.btnWord);
-            this.flowLayoutPanel1.Controls.Add(this.btnPPT);
+            this.flowLayoutPanel1.Controls.Add(this.btnJudge);
             this.flowLayoutPanel1.Controls.Add(this.btnExcel);
-            this.flowLayoutPanel1.Controls.Add(this.btnPModif);
+            this.flowLayoutPanel1.Controls.Add(this.btnPPT);
+            this.flowLayoutPanel1.Controls.Add(this.btnWord);
             this.flowLayoutPanel1.Controls.Add(this.btnPCompletion);
+            this.flowLayoutPanel1.Controls.Add(this.btnPModif);
             this.flowLayoutPanel1.Controls.Add(this.btnPFunction);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -114,37 +114,11 @@
             this.btnChoice.Values.Text = "选择题";
             this.btnChoice.Click += new System.EventHandler(this.BtnProType_Click);
             // 
-            // btnJudge
-            // 
-            this.btnJudge.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnJudge.Location = new System.Drawing.Point(3, 37);
-            this.btnJudge.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.btnJudge.Name = "btnJudge";
-            this.btnJudge.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
-            this.btnJudge.Size = new System.Drawing.Size(212, 32);
-            this.btnJudge.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnJudge.StateCommon.Border.Rounding = 14;
-            this.btnJudge.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.btnJudge.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnJudge.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnJudge.StateNormal.Border.Rounding = 14;
-            this.btnJudge.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.btnJudge.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnJudge.TabIndex = 10;
-            this.btnJudge.Tag = "1";
-            this.btnJudge.Values.Text = "判断题";
-            this.btnJudge.Click += new System.EventHandler(this.BtnProType_Click);
-            // 
             // btnCompletion
             // 
             this.btnCompletion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCompletion.Location = new System.Drawing.Point(3, 71);
+            this.btnCompletion.Location = new System.Drawing.Point(3, 37);
             this.btnCompletion.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btnCompletion.Name = "btnCompletion";
             this.btnCompletion.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
@@ -161,36 +135,62 @@
             this.btnCompletion.StateNormal.Border.Rounding = 14;
             this.btnCompletion.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.btnCompletion.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCompletion.TabIndex = 11;
-            this.btnCompletion.Tag = "2";
+            this.btnCompletion.TabIndex = 10;
+            this.btnCompletion.Tag = "1";
             this.btnCompletion.Values.Text = "填空题";
             this.btnCompletion.Click += new System.EventHandler(this.BtnProType_Click);
             // 
-            // btnWord
+            // btnJudge
             // 
-            this.btnWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.btnJudge.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWord.Location = new System.Drawing.Point(3, 105);
-            this.btnWord.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.btnWord.Name = "btnWord";
-            this.btnWord.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
-            this.btnWord.Size = new System.Drawing.Size(212, 32);
-            this.btnWord.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            this.btnJudge.Location = new System.Drawing.Point(3, 71);
+            this.btnJudge.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnJudge.Name = "btnJudge";
+            this.btnJudge.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.btnJudge.Size = new System.Drawing.Size(212, 32);
+            this.btnJudge.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnWord.StateCommon.Border.Rounding = 14;
-            this.btnWord.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.btnWord.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnWord.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            this.btnJudge.StateCommon.Border.Rounding = 14;
+            this.btnJudge.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnJudge.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnJudge.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnWord.StateNormal.Border.Rounding = 14;
-            this.btnWord.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.btnWord.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnWord.TabIndex = 12;
-            this.btnWord.Tag = "3";
-            this.btnWord.Values.Text = "Office-Word题";
-            this.btnWord.Click += new System.EventHandler(this.BtnProType_Click);
+            this.btnJudge.StateNormal.Border.Rounding = 14;
+            this.btnJudge.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnJudge.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnJudge.TabIndex = 11;
+            this.btnJudge.Tag = "2";
+            this.btnJudge.Values.Text = "判断题";
+            this.btnJudge.Click += new System.EventHandler(this.BtnProType_Click);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcel.Location = new System.Drawing.Point(3, 105);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.btnExcel.Size = new System.Drawing.Size(212, 32);
+            this.btnExcel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnExcel.StateCommon.Border.Rounding = 14;
+            this.btnExcel.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnExcel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnExcel.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnExcel.StateNormal.Border.Rounding = 14;
+            this.btnExcel.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnExcel.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnExcel.TabIndex = 12;
+            this.btnExcel.Tag = "3";
+            this.btnExcel.Values.Text = "Office-Excel题";
+            this.btnExcel.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnPPT
             // 
@@ -217,36 +217,62 @@
             this.btnPPT.Values.Text = "Office-PPT题";
             this.btnPPT.Click += new System.EventHandler(this.BtnProType_Click);
             // 
-            // btnExcel
+            // btnWord
             // 
-            this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.btnWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcel.Location = new System.Drawing.Point(3, 173);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
-            this.btnExcel.Size = new System.Drawing.Size(212, 32);
-            this.btnExcel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            this.btnWord.Location = new System.Drawing.Point(3, 173);
+            this.btnWord.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnWord.Name = "btnWord";
+            this.btnWord.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.btnWord.Size = new System.Drawing.Size(212, 32);
+            this.btnWord.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnExcel.StateCommon.Border.Rounding = 14;
-            this.btnExcel.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.btnExcel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnExcel.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            this.btnWord.StateCommon.Border.Rounding = 14;
+            this.btnWord.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnWord.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnWord.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnExcel.StateNormal.Border.Rounding = 14;
-            this.btnExcel.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.btnExcel.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnExcel.TabIndex = 14;
-            this.btnExcel.Tag = "5";
-            this.btnExcel.Values.Text = "Office-Excel题";
-            this.btnExcel.Click += new System.EventHandler(this.BtnProType_Click);
+            this.btnWord.StateNormal.Border.Rounding = 14;
+            this.btnWord.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnWord.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnWord.TabIndex = 14;
+            this.btnWord.Tag = "5";
+            this.btnWord.Values.Text = "Office-Word题";
+            this.btnWord.Click += new System.EventHandler(this.BtnProType_Click);
+            // 
+            // btnPCompletion
+            // 
+            this.btnPCompletion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPCompletion.Location = new System.Drawing.Point(3, 207);
+            this.btnPCompletion.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnPCompletion.Name = "btnPCompletion";
+            this.btnPCompletion.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.btnPCompletion.Size = new System.Drawing.Size(212, 32);
+            this.btnPCompletion.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnPCompletion.StateCommon.Border.Rounding = 14;
+            this.btnPCompletion.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnPCompletion.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnPCompletion.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnPCompletion.StateNormal.Border.Rounding = 14;
+            this.btnPCompletion.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnPCompletion.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnPCompletion.TabIndex = 14;
+            this.btnPCompletion.Tag = "6";
+            this.btnPCompletion.Values.Text = "程序填空题";
+            this.btnPCompletion.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnPModif
             // 
             this.btnPModif.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPModif.Location = new System.Drawing.Point(3, 207);
+            this.btnPModif.Location = new System.Drawing.Point(3, 241);
             this.btnPModif.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.btnPModif.Name = "btnPModif";
             this.btnPModif.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
@@ -264,35 +290,9 @@
             this.btnPModif.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.btnPModif.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnPModif.TabIndex = 15;
-            this.btnPModif.Tag = "6";
+            this.btnPModif.Tag = "7";
             this.btnPModif.Values.Text = "程序改错题";
             this.btnPModif.Click += new System.EventHandler(this.BtnProType_Click);
-            // 
-            // btnPCompletion
-            // 
-            this.btnPCompletion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPCompletion.Location = new System.Drawing.Point(3, 241);
-            this.btnPCompletion.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-            this.btnPCompletion.Name = "btnPCompletion";
-            this.btnPCompletion.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
-            this.btnPCompletion.Size = new System.Drawing.Size(212, 32);
-            this.btnPCompletion.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnPCompletion.StateCommon.Border.Rounding = 14;
-            this.btnPCompletion.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.btnPCompletion.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPCompletion.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnPCompletion.StateNormal.Border.Rounding = 14;
-            this.btnPCompletion.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.btnPCompletion.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPCompletion.TabIndex = 16;
-            this.btnPCompletion.Tag = "7";
-            this.btnPCompletion.Values.Text = "程序填空题";
-            this.btnPCompletion.Click += new System.EventHandler(this.BtnProType_Click);
             // 
             // btnPFunction
             // 
@@ -315,7 +315,7 @@
             this.btnPFunction.StateNormal.Border.Rounding = 14;
             this.btnPFunction.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
             this.btnPFunction.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPFunction.TabIndex = 17;
+            this.btnPFunction.TabIndex = 16;
             this.btnPFunction.Tag = "8";
             this.btnPFunction.Values.Text = "程序综合题";
             this.btnPFunction.Click += new System.EventHandler(this.BtnProType_Click);

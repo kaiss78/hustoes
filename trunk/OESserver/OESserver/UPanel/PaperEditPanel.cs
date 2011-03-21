@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 using OES.Model;
 using OES.UControl;
 using OES.XMLFile;
@@ -19,6 +20,7 @@ namespace OES.UPanel
         public List<IdScoreType> proIDList;
         private ProblemItem tmpItem;
         public List<ProblemItem> ItemList;
+        public int protype;
 
         public PaperEditPanel()
         {
@@ -35,6 +37,8 @@ namespace OES.UPanel
                 tmpItem.ItemText.Text = "-";
                 tmpItem.Margin = new System.Windows.Forms.Padding(0);
                 tmpItem.Padding = new System.Windows.Forms.Padding(0);
+                tmpItem.ItemText.Tag = ItemList.Count + 1;
+                tmpItem.ItemText.Click += new EventHandler(ItemText_Click);                    
                 ItemList.Add(tmpItem);
                 ItemPanel.Controls.Add(tmpItem);
             }
@@ -52,6 +56,11 @@ namespace OES.UPanel
                     ItemList[i].ItemText.Text = proList[i].problem;
                 }
             }
+        }
+
+        void ItemText_Click(object sender, EventArgs e)
+        {
+            PanelControl.ChangPanel(18,protype);
         }
 
         public void loadPaper()
@@ -76,20 +85,23 @@ namespace OES.UPanel
 
         private void BtnProType_Click(object sender, EventArgs e)
         {
-            switch (Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton)sender).Tag))
+            protype = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton) sender).Tag);
+            switch (protype)
             {
                 case 0:
                     LoadPro(InfoControl.TmpPaper.choice);
                     break;
                 case 1:
-                    LoadPro(InfoControl.TmpPaper.judge);
+                    LoadPro(InfoControl.TmpPaper.completion);
                     break;
                 case 2:
-                    LoadPro(InfoControl.TmpPaper.completion);
+                    LoadPro(InfoControl.TmpPaper.judge);
                     break;
                 default:
                     break;
             }
         }
+
+        
     }
 }

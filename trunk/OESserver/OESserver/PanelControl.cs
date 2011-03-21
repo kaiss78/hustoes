@@ -46,8 +46,11 @@ namespace OES
             panelList[17] = mf.scoreManage;
             mf.scoreManage.PanelID = 17;
 
-            panelList[PanelNumber-1] = mf.paperEditPanel;                        
-            mf.paperEditPanel.PanelID = PanelNumber-1;
+            panelList[18] = mf.proManCho;
+            mf.proManCho.PanelID = 18;
+
+            panelList[19] = mf.paperEditPanel;                        
+            mf.paperEditPanel.PanelID = 19;
             
         }
 
@@ -70,7 +73,7 @@ namespace OES
                     case 13:
                     case 14:
                     case 15:
-                    case 16:
+                    case 16:                    
                     case 19:
                         panelList[x].ReLoad();
                         break;
@@ -88,7 +91,9 @@ namespace OES
         static public void ChangPanel(int x, int y)
         {
             HideAllPanel();
+            MessageBox.Show(x.ToString() + " " + y.ToString());
             panelList[x].ReLoad(y);
         }
+
     }
 }

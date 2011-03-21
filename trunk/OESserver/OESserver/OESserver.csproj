@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E4EFF3E5-EB11-47EE-AB20-B7AC00AE82FB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -226,6 +226,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ProManCho.resx">
       <DependentUpon>ProManCho.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ScoreManage.resx">
       <DependentUpon>ScoreManage.cs</DependentUpon>

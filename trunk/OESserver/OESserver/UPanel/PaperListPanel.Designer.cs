@@ -192,8 +192,8 @@
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel2.Controls.Add(this.year, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.paperName, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.startTime, 2, 0);
@@ -236,7 +236,7 @@
             this.paperName.Location = new System.Drawing.Point(150, 0);
             this.paperName.Margin = new System.Windows.Forms.Padding(0);
             this.paperName.Name = "paperName";
-            this.paperName.Size = new System.Drawing.Size(212, 29);
+            this.paperName.Size = new System.Drawing.Size(292, 29);
             this.paperName.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -248,9 +248,9 @@
             // 
             this.startTime.CalendarTodayDate = new System.DateTime(2011, 3, 19, 0, 0, 0, 0);
             this.startTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.startTime.Location = new System.Drawing.Point(365, 3);
+            this.startTime.Location = new System.Drawing.Point(445, 3);
             this.startTime.Name = "startTime";
-            this.startTime.Size = new System.Drawing.Size(174, 29);
+            this.startTime.Size = new System.Drawing.Size(134, 29);
             this.startTime.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.startTime.TabIndex = 2;
             // 
@@ -258,9 +258,9 @@
             // 
             this.endTime.CalendarTodayDate = new System.DateTime(2011, 3, 19, 0, 0, 0, 0);
             this.endTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.endTime.Location = new System.Drawing.Point(545, 3);
+            this.endTime.Location = new System.Drawing.Point(585, 3);
             this.endTime.Name = "endTime";
-            this.endTime.Size = new System.Drawing.Size(174, 29);
+            this.endTime.Size = new System.Drawing.Size(134, 29);
             this.endTime.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.endTime.TabIndex = 3;
             // 
