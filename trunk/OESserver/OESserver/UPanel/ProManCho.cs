@@ -6,7 +6,7 @@ using OES.Properties;
 
 namespace OES.UPanel
 {
-    public partial class ProMan : UserPanel
+    public partial class ProManCho : ProMan
     {
         public ProList aProList;
         public ChptList aChptList;
@@ -37,7 +37,7 @@ namespace OES.UPanel
         public CppModifEdit aCppModifEdit;
         public CppFuctionEdit aCppFuctionEdit ;
 
-        public ProMan()
+        public ProManCho()
         {
             InitializeComponent();
 
@@ -77,58 +77,6 @@ namespace OES.UPanel
             bottomPanel.BackColor = Color.Transparent;
             Controls.Add(bottomPanel);
 
-            //底部按钮
-            Button select = new Button();
-            select.Height = 60;
-            select.Width = 110;
-            select.Location = new Point(30, 5);
-            select.Text = "全部标记";
-            select.ForeColor = Color.White;
-            select.BackColor = Color.RoyalBlue;
-            select.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
-            select.TextAlign = ContentAlignment.MiddleCenter;
-            bottomPanel.Controls.Add(select);
-            select.FlatStyle = FlatStyle.Standard;
-            select.MouseClick += new MouseEventHandler(select_MouseClick);
-
-            Button cselect = new Button();
-            cselect.Height = 60;
-            cselect.Width = 110;
-            cselect.Location = new Point(160, 5);
-            cselect.Text = "取消全标";
-            cselect.ForeColor = Color.White;
-            cselect.BackColor = Color.RoyalBlue;
-            cselect.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
-            cselect.TextAlign = ContentAlignment.MiddleCenter;
-            bottomPanel.Controls.Add(cselect);
-            cselect.FlatStyle = FlatStyle.Standard;
-            cselect.MouseClick += new MouseEventHandler(cselect_MouseClick);
-
-            Button delete = new Button();
-            delete.Height = 60;
-            delete.Width = 110;
-            delete.Location = new Point(290, 5);
-            delete.Text = "删除标项";
-            delete.ForeColor = Color.White;
-            delete.BackColor = Color.RoyalBlue;
-            delete.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
-            delete.TextAlign = ContentAlignment.MiddleCenter;
-            bottomPanel.Controls.Add(delete);
-            delete.FlatStyle = FlatStyle.Standard;
-            delete.MouseClick += new MouseEventHandler(delete_MouseClick);
-
-            Button add = new Button();
-            add.Height = 60;
-            add.Width = 110;
-            add.Location = new Point(420,5);
-            add.Text = "添加题目";
-            add.ForeColor = Color.White;
-            add.BackColor = Color.RoyalBlue;
-            add.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
-            add.TextAlign = ContentAlignment.MiddleCenter;
-            bottomPanel.Controls.Add(add);
-            add.FlatStyle = FlatStyle.Standard;
-            add.MouseClick += new MouseEventHandler(add_MouseClick);
 
             titlePanel.SetBounds(ClWidth,0, PlWidth,TpHeight);
             titlePanel.BackColor = Color.Transparent;
@@ -149,7 +97,7 @@ namespace OES.UPanel
             titleList[1].Width = ProList.numWidth;
             titleList[2].Width = ProList.proWidth;
 
-            titleList[0].Text = "勾选";
+            titleList[0].Text = "选题";
             titleList[1].Text = "ID";
             titleList[2].Text = "题干";
 
@@ -231,37 +179,34 @@ namespace OES.UPanel
            
 
             EditList.Add(aChoiceEdit);
+
+            //底部panel显示当前题号
+            Label NextNo = new Label();
+            NextNo.Height = 60;
+            NextNo.Width = 110;
+            NextNo.Location = new Point(30, 5);
+            NextNo.Text = "当前序号";
+            NextNo.ForeColor = Color.White;
+            NextNo.BackColor = Color.RoyalBlue;
+            NextNo.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
+            NextNo.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(NextNo);
+            NextNo.FlatStyle = FlatStyle.Standard;
+
+            Label NextNoCon = new Label();
+            NextNoCon.Height = 60;
+            NextNoCon.Width = 110;
+            NextNoCon.Location = new Point(150, 5);
+            NextNoCon.Text = "";
+            NextNoCon.ForeColor = Color.White;
+            NextNoCon.BackColor = Color.RoyalBlue;
+            NextNoCon.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
+            NextNoCon.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(NextNoCon);
+            NextNoCon.FlatStyle = FlatStyle.Standard;
         }
 
-        void add_MouseClick(object sender, MouseEventArgs e)
-        {
-            newedit(ProType);
-        }
-
-        void delete_MouseClick(object sender, MouseEventArgs e)
-        {
-            delete();
-            aChptList.newpl();
-        }
-
-        void cselect_MouseClick(object sender, MouseEventArgs e)
-        {
-            for (int i = 0; i < aProList.acheckproList.Count; i++)
-            {
-                aProList.acheckproList[i].selected = false;
-                aProList.checkList[i].BackgroundImage = Resources.circle_black;
-
-            }
-        }
-
-        void select_MouseClick(object sender, MouseEventArgs e)
-        {
-            for (int i = 0; i < aProList.acheckproList.Count; i++)
-            {
-                aProList.acheckproList[i].selected = true;
-                aProList.checkList[i].BackgroundImage = Resources.circle_red;
-            }
-        }
+        
 
         public void newedit(int pt)
         {
@@ -379,69 +324,7 @@ namespace OES.UPanel
             
         }
 
-        public void delete()
-        {
-            for (int i = 0; i < aProList.acheckproList.Count; i++)
-            {
-                if (aProList.acheckproList[i].selected)
-                {
-                    switch (ProType)
-                    { 
-                        case 0:
-                            InfoControl.OesData.DeleteChoiceById(aProList.acheckproList[i].proid);
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 1:
-                            InfoControl.OesData.DeleteCompletionById(aProList.acheckproList[i].proid);
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 2:
-                            InfoControl.OesData.DeleteTofById(aProList.acheckproList[i].proid);
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 3:
-                            InfoControl.OesData.DeleteOffice(aProList.acheckproList[i].proid,"2");
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 4:
-                            InfoControl.OesData.DeleteOffice(aProList.acheckproList[i].proid, "3");
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 5:
-                            InfoControl.OesData.DeleteOffice(aProList.acheckproList[i].proid, "1");
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 6:
-                            InfoControl.OesData.DeleteCompletionModificationProgram(aProList.acheckproList[i].proid, "1");
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 7:
-                            InfoControl.OesData.DeleteCompletionModificationProgram(aProList.acheckproList[i].proid, "2");
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 8:
-                            InfoControl.OesData.DeleteFunProgram(aProList.acheckproList[i].proid);
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 9:
-                            InfoControl.OesData.DeleteCompletionModificationProgram(aProList.acheckproList[i].proid, "1");
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 10:
-                            InfoControl.OesData.DeleteCompletionModificationProgram(aProList.acheckproList[i].proid, "2");
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        case 11:
-                            InfoControl.OesData.DeleteFunProgram(aProList.acheckproList[i].proid);
-                            aProList.acheckproList.RemoveAt(i);
-                            break;
-                        default:
-                            break;
-                    }
-                    
-                }
-            }
-        }
+ 
         //从题型panel传入的题型作处理，分0,1,2有章节，其余没有
         override public void ReLoad(int x)
         {
