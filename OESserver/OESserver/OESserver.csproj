@@ -196,6 +196,14 @@
       <DependentUpon>TeacherAdd.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ChptListCho.resx">
+      <DependentUpon>ChptListCho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ProListCho.resx">
+      <DependentUpon>ProListCho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ClassManage.resx">
       <DependentUpon>ClassManage.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -215,6 +223,9 @@
     <EmbeddedResource Include="UPanel\ProMan.resx">
       <DependentUpon>ProMan.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ProManCho.resx">
+      <DependentUpon>ProManCho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ScoreManage.resx">
       <DependentUpon>ScoreManage.cs</DependentUpon>
@@ -374,6 +385,18 @@
     <Compile Include="UControl\TeacherAdd.Designer.cs">
       <DependentUpon>TeacherAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="UControl\ChptListCho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ChptListCho.Designer.cs">
+      <DependentUpon>ChptListCho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ProListCho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ProListCho.Designer.cs">
+      <DependentUpon>ProListCho.cs</DependentUpon>
+    </Compile>
     <Compile Include="UPanel\ClassManage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -403,6 +426,12 @@
     </Compile>
     <Compile Include="UPanel\ProMan.Designer.cs">
       <DependentUpon>ProMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\ProManCho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ProManCho.Designer.cs">
+      <DependentUpon>ProManCho.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\ScoreManage.cs">
       <SubType>UserControl</SubType>
