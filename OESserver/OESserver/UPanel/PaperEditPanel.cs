@@ -21,6 +21,7 @@ namespace OES.UPanel
         private ProblemItem tmpItem;
         public List<ProblemItem> ItemList;
         public int protype;
+        public int value;
 
         public PaperEditPanel()
         {
@@ -51,6 +52,7 @@ namespace OES.UPanel
             {
 
                 ItemList[i].ItemText.Text = "-";
+                ItemList[i].Visible = true;
                 if (!proList[i].Equals(null))
                 {
                     ItemList[i].ItemText.Text = proList[i].problem;
@@ -58,9 +60,17 @@ namespace OES.UPanel
             }
         }
 
-        void ItemText_Click(object sender, EventArgs e)
+       public int getProID()
         {
-            PanelControl.ChangPanel(18,protype);
+           if(value!=0)
+           {
+               for (int i = 0; i < ItemList.Count; i++)
+               {
+                   if (ItemList[i].ItemText.Text == "-")
+                       return (i + 1);
+               }
+           }
+           return value;
         }
 
         public void loadPaper()
@@ -80,7 +90,7 @@ namespace OES.UPanel
             btnPModif.Visible = InfoControl.TmpPaper.pModif.exist;
             btnPCompletion.Visible = InfoControl.TmpPaper.pCompletion.exist;
             btnPFunction.Visible = InfoControl.TmpPaper.pFunction.exist;
-            ItemPanel.Controls.Clear();            
+            //ItemPanel.Controls.Clear();            
         }
 
         private void BtnProType_Click(object sender, EventArgs e)
@@ -101,7 +111,10 @@ namespace OES.UPanel
                     break;
             }
         }
-
-        
+        void ItemText_Click(object sender, EventArgs e)
+        {
+            value = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton) sender).Tag);
+            PanelControl.ChangPanel(18, protype);
+        }
     }
 }

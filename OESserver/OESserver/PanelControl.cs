@@ -73,7 +73,8 @@ namespace OES
                     case 13:
                     case 14:
                     case 15:
-                    case 16:                    
+                    case 16:
+                    case 17:
                     case 19:
                         panelList[x].ReLoad();
                         break;
@@ -94,6 +95,10 @@ namespace OES
             MessageBox.Show(x.ToString() + " " + y.ToString());
             panelList[x].ReLoad(y);
         }
-
+        static public void ReturnToPaper()
+        {
+            HideAllPanel();
+            panelList[19].Show();
+        }
     }
 }
