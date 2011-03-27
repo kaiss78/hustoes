@@ -7,16 +7,25 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using OESMonitor.Model;
+using System.IO;
+using System.Diagnostics;
 
 namespace OESMonitor
 {
     public partial class ComputerState : UserControl
     {
         private static ComputerState instance=new ComputerState();
+        public static string ansPath = "";
         private ComputerState()
         {
             InitializeComponent();
             instance = this;
+            InfoClear();
+        }
+        public void InfoClear()
+        {
+            button1.Hide();
+            
             this.NameLab.Text = "";
             this.IdLab.Text = "";
             this.PortLab.Text = "";
@@ -44,6 +53,14 @@ namespace OESMonitor
             this.Invoke(new MethodInvoker(() =>
             {
                 StateLab.Text = state;
+                if (state == "已交卷")
+                {
+                    button1.Show();
+                }
+                else
+                {
+                    button1.Hide();
+                }
             }));
         }
         public static ComputerState getInstance()
@@ -55,6 +72,18 @@ namespace OESMonitor
             else
             {
                 return instance;
+            }
+        }
+       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(ansPath))
+            {
+                Process.Start(ansPath);
+            }
+            else
+            {
+                MessageBox.Show("路径无效");
             }
         }
     }
