@@ -149,8 +149,36 @@ namespace OES.UPanel
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            //InfoControl.OesData.findp
-            MessageBox.Show(this.startTime.Value.Date.ToString());
+            InitDT();
+            object[] values = new object[5];
+            paperList=InfoControl.OesData.FindPaperByTwoDates(startTime.Value, endTime.Value);
+            for (int i = 0; i < paperList.Count; i++)
+            {
+                values[0] = false;
+                values[1] = paperList[i].paperID;
+                values[2] = paperList[i].paperName;
+                values[3] = paperList[i].createTime;
+                values[4] = paperList[i].author;
+                paperListDataTable.Rows.Add(values);
+            }
+
+            PaperListDGV.DataSource = paperListDataTable;
+            PaperListDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            PaperListDGV.Columns[0].FillWeight = 5;
+            PaperListDGV.Columns[1].FillWeight = 12;
+            PaperListDGV.Columns[2].FillWeight = 45;
+            PaperListDGV.Columns[3].FillWeight = 20;
+            PaperListDGV.Columns[4].FillWeight = 18;
+
+            PaperListDGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            PaperListDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            PaperListDGV.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+            PaperListDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+            PaperListDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            //MessageBox.Show(this.startTime.Value.Date.ToString());
+
         }
     }
 }

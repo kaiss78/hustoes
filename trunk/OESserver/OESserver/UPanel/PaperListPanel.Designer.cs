@@ -142,7 +142,7 @@
             this.startTime.CalendarTodayDate = new System.DateTime(2011, 3, 19, 0, 0, 0, 0);
             this.startTime.CustomFormat = "yyyy/MM/dd";
             this.startTime.Dock = System.Windows.Forms.DockStyle.Left;
-            this.startTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.startTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.startTime.Location = new System.Drawing.Point(339, 3);
             this.startTime.Name = "startTime";
             this.startTime.ShowUpDown = true;
@@ -157,7 +157,7 @@
             this.endTime.CalendarTodayDate = new System.DateTime(2011, 3, 19, 0, 0, 0, 0);
             this.endTime.CustomFormat = "yyyy/MM/dd";
             this.endTime.Dock = System.Windows.Forms.DockStyle.Left;
-            this.endTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.endTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.endTime.Location = new System.Drawing.Point(479, 3);
             this.endTime.Name = "endTime";
             this.endTime.ShowUpDown = true;
