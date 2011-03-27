@@ -14,15 +14,22 @@ namespace OES.UPanel
     {
         private DataTable paperListDataTable;
         public Paper paper=new Paper();
-        public List<Paper> paperList;    
-        public void InitList()
+        public List<Paper> paperList;
+        private int findtype = 1;
+
+        public void InitDT()
         {
-            paperListDataTable=new DataTable("PaperList");
+            paperListDataTable = new DataTable("PaperList");
             paperListDataTable.Columns.Add("选中", typeof(bool));
             paperListDataTable.Columns.Add("试卷ID");
             paperListDataTable.Columns.Add("试卷名称");
             paperListDataTable.Columns.Add("组卷时间");
             paperListDataTable.Columns.Add("作者");
+        }
+
+        public void InitList()
+        {
+            InitDT();
             object[] values = new object[5];
 
             paperList = InfoControl.OesData.FindPaper();
@@ -98,6 +105,51 @@ namespace OES.UPanel
                 }
                 InitList();
             }
+        }
+
+        private void changeFindType(int findtype)
+        {
+            this.year.Visible = false;
+            this.paperName.Visible = false;
+            this.startTime.Visible = false;
+            this.endTime.Visible = false;
+            switch(findtype)
+            {
+                case 1:
+                    this.year.Visible = true;
+                    break;
+                case 2:
+                    this.paperName.Visible = true;
+                    break;
+                case 3:
+                    this.startTime.Visible = true;
+                    this.endTime.Visible = true;
+                    break;
+            }
+        }
+
+        private void cbtnFindByYear_Click(object sender, EventArgs e)
+        {
+ 
+            findtype = 1;
+            changeFindType(findtype);
+        }
+
+        private void cbtnFindByTime_Click(object sender, EventArgs e)
+        {
+            findtype = 3;
+            changeFindType(findtype);
+        }
+
+        private void cbtnFindByName_Click(object sender, EventArgs e)
+        {
+            findtype = 2;
+            changeFindType(findtype);
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            InfoControl.OesData.findp
         }
     }
 }
