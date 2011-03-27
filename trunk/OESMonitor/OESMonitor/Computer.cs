@@ -20,7 +20,24 @@ namespace OESMonitor
             get { return Computer.computerList; }
             //set { Computer.computerList = value; }
         }
-       
+
+        private static List<Computer> completeList = new List<Computer>();
+
+        public static List<Computer> CompleteList
+        {
+            get { return Computer.completeList; }
+            //set { Computer.completeList = value; }
+        }
+        private static List<Computer> errorList = new List<Computer>();
+
+        public static List<Computer> ErrorList
+        {
+            get { return Computer.errorList; }
+            //set { Computer.errorList = value; }
+        }
+
+        public event ErrorEventHandler OnErrorConnect;
+
         private int state=0;
 
         public int State
@@ -157,7 +174,9 @@ namespace OESMonitor
             if (this.State != 4)
             {
                 this.State = 0;
+                errorList.Add(this);
                 Computer.Del(this);
+                OnErrorConnect(this, null);
             }
         }
 

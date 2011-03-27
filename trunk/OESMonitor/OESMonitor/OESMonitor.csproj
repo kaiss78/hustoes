@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseIp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseIp.Designer.cs">
+      <DependentUpon>ChooseIp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Choice.cs" />
     <Compile Include="Model\Classes.cs" />
     <Compile Include="CommandLine.cs">
@@ -92,6 +98,9 @@
     <Compile Include="PaperControl\PaperControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChooseIp.resx">
+      <DependentUpon>ChooseIp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommandLine.resx">
       <DependentUpon>CommandLine.cs</DependentUpon>
     </EmbeddedResource>
