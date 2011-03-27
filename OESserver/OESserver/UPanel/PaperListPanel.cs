@@ -149,7 +149,8 @@ namespace OES.UPanel
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            InfoControl.OesData.findp
+            //InfoControl.OesData.findp
+            MessageBox.Show(this.startTime.Value.Date.ToString());
         }
     }
 }
