@@ -129,7 +129,7 @@ namespace OESMonitor.Net
             catch
             {
                 if (DisConnect != null)
-                    DisConnect(null, null);
+                    DisConnect(this, null);
             }
         }
 
