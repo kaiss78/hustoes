@@ -135,6 +135,9 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Model\Unit.cs" />
+    <Compile Include="SupportNet\ClientEvt.cs" />
+    <Compile Include="SupportNet\DataPort.cs" />
+    <Compile Include="SupportNet\OESClient.cs" />
     <Compile Include="XMLFile\XMLAssistant.cs" />
     <Compile Include="XMLFile\XMLControl.cs" />
     <Compile Include="PaperControl\XMLtoTXT.cs" />

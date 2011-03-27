@@ -176,5 +176,6 @@ namespace OESMonitor
         {
             ComputerState.getInstance().InfoClear();
         }
+
     }
 }
