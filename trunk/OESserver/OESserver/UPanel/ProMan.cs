@@ -153,9 +153,9 @@ namespace OES.UPanel
             titleList[1].Text = "ID";
             titleList[2].Text = "题干";
 
-            titleList[0].ForeColor = Color.White;
-            titleList[1].ForeColor = Color.White;
-            titleList[2].ForeColor = Color.White;
+            titleList[0].ForeColor = Color.IndianRed;
+            titleList[1].ForeColor = Color.IndianRed;
+            titleList[2].ForeColor = Color.IndianRed;
 
             titleList[0].Location = new Point(0, 0);
             titleList[1].Location = new Point(ProList.choWidth, 0);
