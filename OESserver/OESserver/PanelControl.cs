@@ -59,6 +59,7 @@ namespace OES
             foreach (UserPanel up in panelList)
             {
                 up.Visible = false;
+
             }
         }
 

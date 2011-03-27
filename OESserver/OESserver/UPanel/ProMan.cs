@@ -161,7 +161,7 @@ namespace OES.UPanel
             titleList[1].Location = new Point(ProList.choWidth, 0);
             titleList[2].Location = new Point((ProList.choWidth + ProList.numWidth), 0);
 
-            
+            HideTBPanel();//隐藏掉头底两个panel
 
 
             {
@@ -230,7 +230,6 @@ namespace OES.UPanel
             }
            
 
-            EditList.Add(aChoiceEdit);
         }
 
         void add_MouseClick(object sender, MouseEventArgs e)
@@ -458,6 +457,7 @@ namespace OES.UPanel
                     aChptList.Size = new Size(ClWidth, Height);
                     Controls.Add(aChptList);
                     aChptList.Show();
+                    ShowTBPanel();
                     HideList();
                     this.Visible = true;
                 }
@@ -468,12 +468,25 @@ namespace OES.UPanel
                     aProList.SetBounds(ClWidth, TpHeight, PlWidth, PlHeight);
 
                     aChptList.newpl();
+                    ShowTBPanel();
                     HideList();
                     Controls.Add(aProList);
                     aProList.Show();
                     this.Visible = true;
                 }
             
+        }
+
+        public void HideTBPanel()
+        {
+            titlePanel.Hide();
+            bottomPanel.Hide();
+        }
+
+        public void ShowTBPanel()
+        {
+            titlePanel.Show();
+            bottomPanel.Show();
         }
 
         public void HideList()

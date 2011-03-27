@@ -178,8 +178,6 @@ namespace OES.UPanel
             }
            
 
-            EditList.Add(aChoiceEdit);
-
             //底部panel显示当前题号
             Label NextNo = new Label();
             NextNo.Height = 60;
@@ -341,6 +339,7 @@ namespace OES.UPanel
                     aChptList.Size = new Size(ClWidth, Height);
                     Controls.Add(aChptList);
                     aChptList.Show();
+                    ShowTBPanel();
                     HideList();
                     this.Visible = true;
                 }
@@ -351,12 +350,25 @@ namespace OES.UPanel
                     aProList.SetBounds(ClWidth, TpHeight, PlWidth, PlHeight);
 
                     aChptList.newpl();
+                    ShowTBPanel();
                     HideList();
                     Controls.Add(aProList);
                     aProList.Show();
                     this.Visible = true;
                 }
             
+        }
+
+        public void HideTBPanel()
+        {
+            titlePanel.Hide();
+            bottomPanel.Hide();
+        }
+
+        public void ShowTBPanel()
+        {
+            titlePanel.Show();
+            bottomPanel.Show();
         }
 
         public void HideList()
