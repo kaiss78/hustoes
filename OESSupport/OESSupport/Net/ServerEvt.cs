@@ -48,36 +48,54 @@ namespace OESMonitor.Net
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.Word + msgs[4];
                                     break;
                                 case "2":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.Excel + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.Word + msgs[4];
                                     break;
                                 case "3":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.PowerPoint + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.Excel + msgs[4];
                                     break;
                                 case "4":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CCompletion + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.Excel + msgs[4];
                                     break;
                                 case "5":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CModification + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.PowerPoint + msgs[4];
                                     break;
                                 case "6":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CFunction + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.PowerPoint + msgs[4];
                                     break;
                                 case "7":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CppCompletion + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CCompletion + msgs[4];
                                     break;
                                 case "8":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CppModification + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CModification + msgs[4];
                                     break;
                                 case "9":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CppFunction + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CFunction + msgs[4];
                                     break;
                                 case "A":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbCompletion + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CFunction + msgs[4];
                                     break;
                                 case "B":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbModification + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CppCompletion + msgs[4];
                                     break;
                                 case "C":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CppModification + msgs[4];
+                                    break;
+                                case "D":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CppFunction + msgs[4];
+                                    break;
+                                case "E":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.CppFunction + msgs[4];
+                                    break;
+                                case "F":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbCompletion + msgs[4];
+                                    break;
+                                case "G":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbModification + msgs[4];
+                                    break;
+                                case "H":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbCunction + msgs[4];
+                                    break;
+                                case "I":
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbCunction + msgs[4];
                                     break;
                             }
@@ -92,40 +110,58 @@ namespace OESMonitor.Net
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getPaper(msgs[4]);
                                     break;
                                 case "1":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getWord(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getWordA(msgs[4]);
                                     break;
                                 case "2":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getExcel(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getWordB(msgs[4]);
                                     break;
                                 case "3":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getPowerPoint(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getExcelA(msgs[4]);
                                     break;
                                 case "4":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCCompletion(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getExcelB(msgs[4]);
                                     break;
                                 case "5":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCModification(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getPowerPointA(msgs[4]);
                                     break;
                                 case "6":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCFunction(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getPowerPointB(msgs[4]);
                                     break;
                                 case "7":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCppCompletion(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCCompletion(msgs[4]);
                                     break;
                                 case "8":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCppModification(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCModification(msgs[4]);
                                     break;
                                 case "9":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCppFunction(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCFunctionA(msgs[4]);
                                     break;
                                 case "A":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getVbCompletion(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCFunctionB(msgs[4]);
                                     break;
                                 case "B":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getVbModification(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCppCompletion(msgs[4]);
                                     break;
                                 case "C":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getVbFunction(msgs[4]);
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCppModification(msgs[4]);
+                                    break;
+                                case "D":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCppFunctionA(msgs[4]);
+                                    break;
+                                case "E":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getCppFunctionB(msgs[4]);
+                                    break;
+                                case "F":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getVbCompletion(msgs[4]);
+                                    break;
+                                case "G":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getVbModification(msgs[4]);
+                                    break;
+                                case "H":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getVbFunctionA(msgs[4]);
+                                    break;
+                                case "I":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = DataControl.getVbFunctionB(msgs[4]);
                                     break;
                             }
                         }

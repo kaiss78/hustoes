@@ -12,17 +12,32 @@ namespace OESSupport.DB
 
             return "";
         }
-        public static string getWord(string id)
+        public static string getWordA(string id)
         {
 
             return "";
         }
-        public static string getExcel(string id)
+        public static string getWordB(string id)
         {
 
             return "";
         }
-        public static string getPowerPoint(string id)
+        public static string getExcelA(string id)
+        {
+
+            return "";
+        }
+        public static string getExcelB(string id)
+        {
+
+            return "";
+        }
+        public static string getPowerPointA(string id)
+        {
+
+            return "";
+        }
+        public static string getPowerPointB(string id)
         {
 
             return "";
@@ -37,7 +52,12 @@ namespace OESSupport.DB
 
             return "";
         }
-        public static string getCFunction(string id)
+        public static string getCFunctionA(string id)
+        {
+
+            return "";
+        }
+        public static string getCFunctionB(string id)
         {
 
             return "";
@@ -52,7 +72,12 @@ namespace OESSupport.DB
 
             return "";
         }
-        public static string getCppFunction(string id)
+        public static string getCppFunctionA(string id)
+        {
+
+            return "";
+        }
+        public static string getCppFunctionB(string id)
         {
 
             return "";
@@ -67,7 +92,12 @@ namespace OESSupport.DB
 
             return "";
         }
-        public static string getVbFunction(string id)
+        public static string getVbFunctionA(string id)
+        {
+
+            return "";
+        }
+        public static string getVbFunctionB(string id)
         {
 
             return "";
