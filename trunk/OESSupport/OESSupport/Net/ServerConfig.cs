@@ -18,25 +18,22 @@ DataPortNum=20";
         private static ServerConfig instence=null;
         private ServerConfig()
         {
-            if (File.Exists(ConfName))
-            {
-                using (StreamReader sr = new StreamReader(ConfName))
-                {
-                    dirc.Clear();
-                    string[] eachLine = sr.ReadToEnd().Split('\n');
-                    foreach (string line in eachLine)
-                    {
-                        string[] sep = line.Split('=');
-                        dirc.Add(sep[0].Trim(), sep[1].Trim());
-                    }
-                }
-            }
-            else
+            if (!File.Exists(ConfName))
             {
                 using (StreamWriter sr = new StreamWriter(ConfName))
                 {
                     dirc.Clear();
                     sr.Write(FileTemplate);
+                }
+            }
+            using (StreamReader sr = new StreamReader(ConfName))
+            {
+                dirc.Clear();
+                string[] eachLine = sr.ReadToEnd().Split('\n');
+                foreach (string line in eachLine)
+                {
+                    string[] sep = line.Split('=');
+                    dirc.Add(sep[0].Trim(), sep[1].Trim());
                 }
             }
         }
