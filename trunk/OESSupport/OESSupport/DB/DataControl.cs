@@ -10,7 +10,7 @@ namespace OESSupport.DB
         public static string getPaper(string id)
         {
 
-            return "";
+            return "D:\\EXAM001\\U123456789.rar";
         }
         public static string getWordA(string id)
         {
