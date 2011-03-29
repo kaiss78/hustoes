@@ -31,7 +31,7 @@ namespace OESMonitor.Net
         //线程同步锁
         private object syncLock = new object();
         //数据端口预定个数
-        private int portsRequest = 20;      
+        private int portsRequest = ServerConfig.DataPortNum;      
 
 
         #region 运行事件定义
@@ -121,10 +121,10 @@ namespace OESMonitor.Net
         /// </summary>
         public void StartServer()
         {
-            
+            ip = ServerConfig.HostIp;
             if (ip != null)
             {
-                listener = new TcpListener(ip, 30000);     //固定服务端监听端口           
+                listener = new TcpListener(ip, ServerConfig.HostPort);     //固定服务端监听端口           
                 listener.Start();
                 listener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), listener);
                 InitializeDataPorts();
