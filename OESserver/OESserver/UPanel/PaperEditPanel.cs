@@ -89,7 +89,7 @@ namespace OES.UPanel
             btnExcel.Visible = InfoControl.TmpPaper.officeExcel.exist;
             btnPModif.Visible = InfoControl.TmpPaper.pModif.exist;
             btnPCompletion.Visible = InfoControl.TmpPaper.pCompletion.exist;
-            btnPFunction.Visible = InfoControl.TmpPaper.pFunction.exist;
+            btnPFunction.Visible = InfoControl.TmpPaper.pFunction.exist;            
             //ItemPanel.Controls.Clear();            
         }
 
