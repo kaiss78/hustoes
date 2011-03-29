@@ -15,7 +15,7 @@ namespace OESMonitor.SupportNet
             conf=new Config();
             Client = new OESClient();
             Client.server = conf.DBIP;
-            Client.portNum = 20001;
+            Client.portNum = 30000;
             Client.ReceivedTxt += new EventHandler(Client_ReceivedTxt);
             Client.InitializeClient();
         }
