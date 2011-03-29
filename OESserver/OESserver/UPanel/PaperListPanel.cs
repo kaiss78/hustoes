@@ -62,7 +62,7 @@ namespace OES.UPanel
 
         public PaperListPanel()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         override public void ReLoad()
@@ -99,7 +99,7 @@ namespace OES.UPanel
                 {
                     if ((bool)paperListDataTable.Rows[i][0])
                     {
-                        //MessageBox.Show("DELETE * FROM tb_Book WHERE BID=" + BookTable.Rows[i][1]);                                                
+                        //MessageBox.Show("DELETE * FROM tb_Book WHERE BID=" + BookTable.Rows[i][1]);
                         InfoControl.OesData.DeletePaper(paperListDataTable.Rows[i]["试卷ID"].ToString());
                     }
                 }
@@ -175,9 +175,7 @@ namespace OES.UPanel
             PaperListDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
             PaperListDGV.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
             PaperListDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-            PaperListDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            //MessageBox.Show(this.startTime.Value.Date.ToString());
+            PaperListDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;            
 
         }
     }
