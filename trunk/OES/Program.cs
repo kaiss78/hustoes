@@ -16,8 +16,8 @@ namespace OES
         {
             try
             {
-                Net.ClientEvt.Client.server = Config.server;
-                Net.ClientEvt.Client.portNum = Config.portNum;
+                //Net.ClientEvt.Client.server = Config.server;
+                //Net.ClientEvt.Client.portNum = Config.portNum;
                 if (!Net.ClientEvt.Client.InitializeClient())
                 {
                     MessageBox.Show("");
