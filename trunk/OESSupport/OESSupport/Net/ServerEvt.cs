@@ -14,7 +14,6 @@ namespace OESMonitor.Net
         
         public ServerEvt()
         {
-            Server.ip = System.Net.IPAddress.Parse("115.156.227.99");
             Server.AcceptedClient += new EventHandler(Server_AcceptedClient);
             Server.FileReceiveEnd += new DataPortEventHandler(Server_FileReceiveEnd);
             Server.FileSendEnd += new DataPortEventHandler(Server_FileSendEnd);
