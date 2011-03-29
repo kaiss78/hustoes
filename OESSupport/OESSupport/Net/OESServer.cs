@@ -121,7 +121,8 @@ namespace OESMonitor.Net
         /// </summary>
         public void StartServer()
         {
-            ip = ServerConfig.HostIp;
+            if(ip==null)
+                ip = ServerConfig.HostIp;
             if (ip != null)
             {
                 listener = new TcpListener(ip, ServerConfig.HostPort);     //固定服务端监听端口           
