@@ -159,6 +159,7 @@ namespace OESMonitor.Net
                     Thread thread = new Thread(ReceiveData);
                     thread.Start();
                 }
+                dataListener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), dataListener);
             }
         }
         /// <summary>

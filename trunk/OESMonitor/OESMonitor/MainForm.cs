@@ -177,5 +177,11 @@ namespace OESMonitor
             ComputerState.getInstance().InfoClear();
         }
 
+        private void btnGetPaperFromDB_Click(object sender, EventArgs e)
+        {
+            PaperChooseForm pcf = new PaperChooseForm();
+            pcf.Show();
+        }
+
     }
 }

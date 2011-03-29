@@ -42,9 +42,9 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnGetPaperFromDB = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -110,10 +110,10 @@
             // 
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.flowLayoutPanel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(618, 447);
+            this.tabPage2.Size = new System.Drawing.Size(618, 445);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "考试完成考生";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -141,10 +141,10 @@
             // 
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.flowLayoutPanel3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(618, 447);
+            this.tabPage3.Size = new System.Drawing.Size(618, 445);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "断开连接考生";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -206,15 +206,15 @@
             this.tabPage5.Text = "考卷选择";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox1
+            // btnGetPaperFromDB
             // 
-            this.checkedListBox1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.HorizontalScrollbar = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(18, 34);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(493, 436);
-            this.checkedListBox1.TabIndex = 0;
+            this.btnGetPaperFromDB.Location = new System.Drawing.Point(553, 441);
+            this.btnGetPaperFromDB.Name = "btnGetPaperFromDB";
+            this.btnGetPaperFromDB.Size = new System.Drawing.Size(278, 29);
+            this.btnGetPaperFromDB.TabIndex = 2;
+            this.btnGetPaperFromDB.Text = "从数据库获取获取试卷>>>";
+            this.btnGetPaperFromDB.UseVisualStyleBackColor = true;
+            this.btnGetPaperFromDB.Click += new System.EventHandler(this.btnGetPaperFromDB_Click);
             // 
             // label4
             // 
@@ -225,14 +225,15 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "本场考试试卷列表";
             // 
-            // btnGetPaperFromDB
+            // checkedListBox1
             // 
-            this.btnGetPaperFromDB.Location = new System.Drawing.Point(553, 441);
-            this.btnGetPaperFromDB.Name = "btnGetPaperFromDB";
-            this.btnGetPaperFromDB.Size = new System.Drawing.Size(278, 29);
-            this.btnGetPaperFromDB.TabIndex = 2;
-            this.btnGetPaperFromDB.Text = "从数据库获取获取试卷>>>";
-            this.btnGetPaperFromDB.UseVisualStyleBackColor = true;
+            this.checkedListBox1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.HorizontalScrollbar = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(18, 34);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(493, 436);
+            this.checkedListBox1.TabIndex = 0;
             // 
             // OESMonitor
             // 
