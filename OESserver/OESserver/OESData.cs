@@ -38,7 +38,8 @@ namespace OES
         private bool DataBind()
         {
             sqlcon = new SqlConnection();
-            string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"G:\\Documents\\Visual Studio 2008\\Projects\\OESserver\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
+
+            string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
 
             sqlcon.ConnectionString = strConnection;
 
@@ -1318,7 +1319,7 @@ namespace OES
             ddlparam[6] = CreateParam("@Out2", SqlDbType.VarChar, 100, Out2, ParameterDirection.Input);
             ddlparam[7] = CreateParam("@Out3", SqlDbType.VarChar, 100, Out3, ParameterDirection.Input);
             ddlparam[8] = CreateParam("@CorrectC", SqlDbType.VarChar, 100, CorrectC, ParameterDirection.Input);
-            ddlparam[9] = CreateParam("@Kind", SqlDbType.Bit, 1, Kind, ParameterDirection.Input);
+            ddlparam[9] = CreateParam("@Kind", SqlDbType.Bit, 1, (Kind == "0" ? false : true), ParameterDirection.Input);
 
             DataBind();
             SqlCommand cmd = new SqlCommand("AddFunProgram", sqlcon);
@@ -1368,7 +1369,7 @@ namespace OES
             ddlparam[6] = CreateParam("@Out2", SqlDbType.VarChar, 100, Out2, ParameterDirection.Input);
             ddlparam[7] = CreateParam("@Out3", SqlDbType.VarChar, 100, Out3, ParameterDirection.Input);
             ddlparam[8] = CreateParam("@CorrectC", SqlDbType.VarChar, 100, CorrectC, ParameterDirection.Input);
-            ddlparam[9] = CreateParam("@Kind", SqlDbType.Bit, 1, Kind, ParameterDirection.Input);
+            ddlparam[9] = CreateParam("@Kind", SqlDbType.Bit, 1, (Kind == "0" ? false : true), ParameterDirection.Input);
 
             ddlparam[10] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
 
@@ -1427,10 +1428,10 @@ namespace OES
             ddlparam[3] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@K2", SqlDbType.VarChar, 100, K2, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@K3", SqlDbType.VarChar, 100, K3, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@Kind", SqlDbType.Bit, 1, Kind, ParameterDirection.Input);
+            ddlparam[6] = CreateParam("@Kind", SqlDbType.Bit, 1, (Kind == "0" ? false : true), ParameterDirection.Input);
 
             DataBind();
-            SqlCommand cmd = new SqlCommand("FindFunProgramById", sqlcon);
+            SqlCommand cmd = new SqlCommand("AddCompletionModificationProgram", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
             for (int i = 0; i < 7; i++)
             {
@@ -1442,7 +1443,7 @@ namespace OES
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.ToString());
+                throw e;
             }
         }
 
@@ -1461,7 +1462,7 @@ namespace OES
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.ToString());
+                throw e;
             }
         }
 
@@ -1475,7 +1476,7 @@ namespace OES
             ddlparam[3] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@K2", SqlDbType.VarChar, 100, K2, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@K3", SqlDbType.VarChar, 100, K3, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@Kind", SqlDbType.Bit, 1, Kind, ParameterDirection.Input);
+            ddlparam[6] = CreateParam("@Kind", SqlDbType.Bit, 1, (Kind == "0" ? false : true), ParameterDirection.Input);
             ddlparam[7] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
 
 
@@ -1779,6 +1780,20 @@ namespace OES
             RunProc("FindPaperById", ddlparam, Ds);
             paper = DataSetToListPaper(Ds);
             return paper;
+        }
+
+        //查找两个日期中的试卷
+        public List<Paper> FindPaperByTwoDates(DateTime std, DateTime edd)
+        {
+            Ds = new DataSet();
+            List<Paper> paperList = new List<Paper>();
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@StartDate", SqlDbType.DateTime, 0, std, ParameterDirection.Input);
+            dp[1] = CreateParam("EndDate", SqlDbType.DateTime, 0, edd, ParameterDirection.Input);
+            try { RunProc("FindPaperByTwoDates", dp, Ds); }
+            catch { throw; }
+            paperList = DataSetToListPaper(Ds);
+            return paperList;
         }
 
         #endregion
