@@ -14,7 +14,7 @@ namespace OESMonitor.Net
         
         public ServerEvt()
         {
-            Server.ip = System.Net.IPAddress.Parse("115.156.227.238");
+            Server.ip = System.Net.IPAddress.Parse("115.156.227.99");
             Server.AcceptedClient += new EventHandler(Server_AcceptedClient);
             Server.FileReceiveEnd += new DataPortEventHandler(Server_FileReceiveEnd);
             Server.FileSendEnd += new DataPortEventHandler(Server_FileSendEnd);
@@ -180,10 +180,10 @@ namespace OESMonitor.Net
                         Program.TeacherList.Add(new Teacher("Monitor", client));
                         client.DisConnect += new EventHandler(client_DisConnect);
                         string temp = "monitor$1";
-                        foreach (Paper p in DataControl.getPaperList())
-                        {
-                            temp += "$" + p.id + "$" + p.name;
-                        }
+                        //foreach (Paper p in DataControl.getPaperList())
+                        //{
+                        //    temp += "$" + p.id + "$" + p.name;
+                        //}
                         client.SendTxt(temp);
                         break;
                     case "2":
