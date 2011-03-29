@@ -57,6 +57,7 @@ namespace OES.UControl
             //判断动态生成题目列表
             for (int i = 0; i < ChptList.pro_num; i++)
             {
+                //勾选按钮生成
                 var checkButton = new Button();
                 checkButton.Height = btnHeight;
                 checkButton.Width = choWidth;
