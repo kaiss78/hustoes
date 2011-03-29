@@ -24,9 +24,9 @@ namespace OES.Net
         //字符串类型的原始消息
         private string raw_msg = String.Empty;
         //服务器地址
-        public string server = "222.20.59.63"; 
+        public string server = ClientConfig.RemoteIp.ToString(); 
         //服务器端口
-        public int portNum = 20000;
+        public int portNum = ClientConfig.RemotePort;
         //客户端数据端口
         private DataPort port;
         /// <summary>

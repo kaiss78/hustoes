@@ -95,6 +95,7 @@
     <Compile Include="Model\Problem.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="DAO\ReadTxt.cs" />
+    <Compile Include="Net\ClientConfig.cs" />
     <Compile Include="Net\ClientEvt.cs" />
     <Compile Include="Net\DataPort.cs" />
     <Compile Include="Net\OESClient.cs" />
@@ -335,6 +336,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Resources\handin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
