@@ -135,6 +135,7 @@ namespace OES.UPanel
             Judge tmpJudge = new Judge();
             tmpJudge.problemId = -1;
             tmpJudge.problem = "-";
+
             for (int i = 0; i < InfoControl.TmpPaper.choice.Capacity; i++)
             {
                 InfoControl.TmpPaper.choice.Add(tmpChoice);
@@ -148,11 +149,17 @@ namespace OES.UPanel
                 InfoControl.TmpPaper.judge.Add(tmpJudge);
             }
             InfoControl.TmpPaper.officeWord.exist = flag[3] == 1;
+            InfoControl.TmpPaper.officeWord.problemId = -1;
             InfoControl.TmpPaper.officeExcel.exist = flag[4] == 1;
+            InfoControl.TmpPaper.officeExcel.problemId = -1;
             InfoControl.TmpPaper.officePPT.exist = flag[5] == 1;
+            InfoControl.TmpPaper.officePPT.problemId = -1;
             InfoControl.TmpPaper.pCompletion.exist = flag[6] == 1;
+            InfoControl.TmpPaper.pCompletion.problemId = -1;
             InfoControl.TmpPaper.pModif.exist = flag[7] == 1;
+            InfoControl.TmpPaper.pModif.problemId = -1;
             InfoControl.TmpPaper.pFunction.exist = flag[8] == 1;
+            InfoControl.TmpPaper.pFunction.problemId = -1;
 
             XMLControl.CreatePaperXML(InfoControl.TmpPaper.paperPath, InfoControl.TmpPaper.paperID);
             PanelControl.ChangPanel(19);

@@ -17,6 +17,7 @@ namespace OES
         public static int PCompletionID = 0;
         public static int PJudgeID = 0;
         public static int PModifID = 0;
+        public static int Value = 0;
 
         private static OESData oesData = null;
         public static OESData OesData
@@ -50,6 +51,8 @@ namespace OES
             }
             set { InfoControl.paper = value; }
         }
+
+
 
         #region 窗体逻辑控制
         private static LoginForm loginForm = null;
