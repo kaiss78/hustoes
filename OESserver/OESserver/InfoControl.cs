@@ -53,31 +53,12 @@ namespace OES
         {
             int tmp = InfoControl.Value;            
             if (InfoControl.Value  != 0)
-            { 
-                switch (type)
-                {                       
-                    case 0:
-                        for (int i=0; i < InfoControl.TmpPaper.choice.Count; i++)
-                        {
-                            if (InfoControl.TmpPaper.choice[i].problemId == -1)
-                                return (i + 1);
-                        }
-                        break;
-                    case 1:
-                        for (int i = 0; i < InfoControl.TmpPaper.completion.Count; i++)
-                        {
-                            if (InfoControl.TmpPaper.completion[i].problemId == -1)
-                                return (i + 1);
-                        }
-                        break;
-                    case 2:
-                        for (int i = 0; i < InfoControl.TmpPaper.completion.Count; i++)
-                        {
-                            if (InfoControl.TmpPaper.completion[i].problemId == -1)
-                                return (i + 1);
-                        }
-                        break;
-                }
+            {
+                for (int i = 0; i < InfoControl.TmpPaper.ProList[type].Count; i++)
+                {
+                    if (InfoControl.TmpPaper.ProList[type][i].problemId == -1)
+                        return (i + 1);
+                }                
                 
             }
             return tmp;
@@ -85,22 +66,12 @@ namespace OES
 
         public static void SetProblem(int type,int num,int ProID)
         {
-            switch (type)
-                {                       
-                    case 0:
-                    //InfoControl.TmpPaper.
-                        break;
-                    case 1:
- 
-                        break;
-                    case 2:
-
-                        break;
-                }
+            InfoControl.TmpPaper.ProList[type][num].problemId = ProID;
         }
 
         public static void DelProblem(int type, int num)
-        { 
+        {
+            InfoControl.TmpPaper.ProList[type][num].problemId = -1;
         }
 
         #region 窗体逻辑控制
