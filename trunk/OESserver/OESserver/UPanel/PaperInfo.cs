@@ -122,9 +122,13 @@ namespace OES.UPanel
             InfoControl.TmpPaper.programState = programstate;
             InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
 
-            InfoControl.TmpPaper.ProList[0] = new List<Problem>(Convert.ToInt32(countList[0].Text));
-            InfoControl.TmpPaper.ProList[1] = new List<Problem>(Convert.ToInt32(countList[1].Text));
-            InfoControl.TmpPaper.ProList[2] = new List<Problem>(Convert.ToInt32(countList[2].Text));
+            InfoControl.TmpPaper.choice = new List<Problem>(Convert.ToInt32(countList[0].Text));
+            InfoControl.TmpPaper.completion = new List<Problem>(Convert.ToInt32(countList[1].Text));
+            InfoControl.TmpPaper.judge  = new List<Problem>(Convert.ToInt32(countList[2].Text));
+
+            InfoControl.TmpPaper.ProList[0] = InfoControl.TmpPaper.choice;
+            InfoControl.TmpPaper.ProList[1] = InfoControl.TmpPaper.completion;
+            InfoControl.TmpPaper.ProList[2] = InfoControl.TmpPaper.judge;
 
             Problem tmpPro = new Problem();
             tmpPro.problemId = -1;
@@ -134,11 +138,11 @@ namespace OES.UPanel
             {
                 InfoControl.TmpPaper.ProList[0].Add(tmpPro);
             }
-            for (int i = 0; i < InfoControl.TmpPaper.completion.Capacity; i++)
+            for (int i = 0; i < InfoControl.TmpPaper.ProList[1].Capacity; i++)
             {
                 InfoControl.TmpPaper.ProList[1].Add(tmpPro);
             }
-            for (int i = 0; i < InfoControl.TmpPaper.judge.Capacity; i++)
+            for (int i = 0; i < InfoControl.TmpPaper.ProList[2].Capacity; i++)
             {
                 InfoControl.TmpPaper.ProList[2].Add(tmpPro);
             }
