@@ -21,17 +21,20 @@ namespace OESMonitor
 
         void Client_ReceivedTxt(object sender, EventArgs e)
         {
-            supportServer.Client.SendTxt("monitor$2$10");
+            supportServer.Client.SendTxt("monitor$2$1");
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             supportServer.Client.SendTxt("monitor$0");
+            //supportServer.Client.SendTxt("server$4$1");
+            //supportServer.Client.SendTxt("server$2$1$1$2");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            supportServer.Client.Port.FilePath = "F:\\abc.rar";
+            supportServer.Client.Port.FilePath = "F:\\abc.xml";
             supportServer.Client.ReceiveFile();
         }
     }
