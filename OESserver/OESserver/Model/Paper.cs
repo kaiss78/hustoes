@@ -26,7 +26,7 @@ namespace OES.Model
         public PFunction pFunction;
         public PModif pModif;
         public List<Problem> problemList;
-        public List<Problem>[] ProList = new List<Problem>[3];
+        public List<Program>[] ProList = new List<Problem>[3];
 
         public Paper()
         {
