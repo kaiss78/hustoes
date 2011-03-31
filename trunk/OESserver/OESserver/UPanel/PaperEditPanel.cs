@@ -60,19 +60,6 @@ namespace OES.UPanel
             }
         }
 
-       public int getProID()
-        {
-           if(value!=0)
-           {
-               for (int i = 0; i < ItemList.Count; i++)
-               {
-                   if (ItemList[i].ItemText.Text == "-")
-                       return (i + 1);
-               }
-           }
-           return value;
-        }
-
         public void loadPaper()
         {
             proIDList = XMLControl.ReadPaper(this.paper.paperPath);
