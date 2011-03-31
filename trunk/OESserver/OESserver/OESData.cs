@@ -39,7 +39,7 @@ namespace OES
         {
             sqlcon = new SqlConnection();
 
-            string strConnection = "Data Source=LUOKANGQI-PC;AttachDbFilename=\"F:\\C#\\OESserver\\DB File\\OESDB.mdf\";Integrated Security=True";
+            string strConnection = "Data Source=LUOKANGQI-PC;Initial Catalog=OESDB;Integrated Security=True";
 
             sqlcon.ConnectionString = strConnection;
 
@@ -1796,6 +1796,42 @@ namespace OES
             return paperList;
         }
 
+        //查找某一年的试卷
+        public List<Paper> FindPaperByYear(string year)
+        {
+            Ds = new DataSet();
+            List<Paper> paperList = new List<Paper>();
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@StartDate", SqlDbType.DateTime, 0, Convert.ToDateTime(year + "/01/01"), ParameterDirection.Input);
+            dp[1] = CreateParam("@EndDate", SqlDbType.DateTime, 0, Convert.ToDateTime(year + "/12/31"), ParameterDirection.Input);
+            try { RunProc("FindPaperByTwoDates", dp, Ds); }
+            catch { throw; }
+            paperList = DataSetToListPaper(Ds);
+            return paperList;
+        }
+
+        //-- Description:	列出试卷,按照测试时间>当前时间
+        public List<Paper> FindPaperByTestDate()
+        {
+            Ds = new DataSet();
+            List<Paper> paperList = new List<Paper>();
+            //RunProc("FindChoice", null, Ds);
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindPaperByTestDate", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex;
+            }
+            paperList = DataSetToListPaper2(Ds);
+            return paperList;
+        }
+
         #endregion
 
         #region 分数管理
@@ -1951,27 +1987,7 @@ namespace OES
             }
             return true;
         }
-        //-- Description:	列出试卷,按照测试时间>当前时间
-        public List<Paper> FindPaperByTestDate()
-        {
-            Ds = new DataSet();
-            List<Paper> paperList = new List<Paper>();
-            //RunProc("FindChoice", null, Ds);
-            DataBind();
-            SqlCommand Cmd = new SqlCommand("FindPaperByTestDate", sqlcon);
-            Cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-            try
-            {
-                Da.Fill(Ds);
-            }
-            catch (Exception Ex)
-            {
-                throw Ex;
-            }
-            paperList = DataSetToListPaper2(Ds);
-            return paperList;
-        }
+        
 
 #endregion
 
