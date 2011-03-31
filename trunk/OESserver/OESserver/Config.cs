@@ -32,9 +32,9 @@ namespace OES
                  {
                      inipath = "config.ini";                     
                      sw.WriteLine("[path]");
-                     sw.WriteLine(@"TempPaperPath=D:\OES\TempPaper");
-                     Directory.CreateDirectory(@"D:\OES\TempPaper");
-                     TempPaperPath = @"TempPaperPath=D:\OES\TempPaper";
+                     sw.WriteLine(@"TempPaperPath=D:\OES\TempPaper\");
+                     Directory.CreateDirectory(@"D:\OES\TempPaper\");
+                     TempPaperPath = @"D:\OES\TempPaper\";
                  } 
              }             
          }
