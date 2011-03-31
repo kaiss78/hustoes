@@ -122,13 +122,25 @@ namespace OES.UPanel
             InfoControl.TmpPaper.programState = programstate;
             InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
 
-            InfoControl.TmpPaper.choice = new List<Problem>(Convert.ToInt32(countList[0].Text));
-            InfoControl.TmpPaper.completion = new List<Problem>(Convert.ToInt32(countList[1].Text));
-            InfoControl.TmpPaper.judge  = new List<Problem>(Convert.ToInt32(countList[2].Text));
+            InfoControl.TmpPaper.choice = new List<Choice>(Convert.ToInt32(countList[0].Text));
+            InfoControl.TmpPaper.completion = new List<Completion>(Convert.ToInt32(countList[1].Text));
+            InfoControl.TmpPaper.judge = new List<Judge>(Convert.ToInt32(countList[2].Text));
 
-            InfoControl.TmpPaper.ProList[0] = InfoControl.TmpPaper.choice;
-            InfoControl.TmpPaper.ProList[1] = InfoControl.TmpPaper.completion;
-            InfoControl.TmpPaper.ProList[2] = InfoControl.TmpPaper.judge;
+            InfoControl.TmpPaper.ProList[0] = new List<Problem>();
+            foreach (Choice c in InfoControl.TmpPaper.choice)
+            {
+                InfoControl.TmpPaper.ProList[0].Add(c);
+            }
+            InfoControl.TmpPaper.ProList[1] = new List<Problem>();
+            foreach (Completion c in InfoControl.TmpPaper.completion)
+            {
+                InfoControl.TmpPaper.ProList[1].Add(c);
+            }
+            InfoControl.TmpPaper.ProList[2] = new List<Problem>();
+            foreach (Judge c in InfoControl.TmpPaper.judge)
+            {
+                InfoControl.TmpPaper.ProList[2].Add(c);
+            }
 
             Problem tmpPro = new Problem();
             tmpPro.problemId = -1;
