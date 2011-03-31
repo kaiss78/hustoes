@@ -113,7 +113,7 @@ namespace OESMonitor.Net
         /// </summary>
         public OESServer()
         {
-            RetrieveHostIpv4Address();
+            //RetrieveHostIpv4Address();
         }
         /// <summary>
         /// 开启监听(开启服务端)
