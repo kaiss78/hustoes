@@ -170,7 +170,7 @@ namespace OES.UPanel
             InfoControl.TmpPaper.pModif.problemId = -1;
             InfoControl.TmpPaper.pFunction.exist = flag[8] == 1;
             InfoControl.TmpPaper.pFunction.problemId = -1;
-
+            MessageBox.Show(InfoControl.TmpPaper.paperPath);
             XMLControl.CreatePaperXML(InfoControl.TmpPaper.paperPath, InfoControl.TmpPaper.paperID);
             PanelControl.ChangPanel(19);
         }        
