@@ -39,7 +39,7 @@ namespace OES
         {
             sqlcon = new SqlConnection();
 
-            string strConnection = @"Data Source=MICROSOF-290932;Initial Catalog=OESDB;Integrated Security=True";
+            string strConnection = "Data Source=LUOKANGQI-PC;AttachDbFilename=\"F:\\C#\\OESserver\\DB File\\OESDB.mdf\";Integrated Security=True";
 
             sqlcon.ConnectionString = strConnection;
 
