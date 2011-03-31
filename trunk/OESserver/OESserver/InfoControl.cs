@@ -52,7 +52,37 @@ namespace OES
             set { InfoControl.paper = value; }
         }
 
-
+        public static int GetProID(int type)
+        {
+            if (InfoControl.Value  != 0)
+            {
+                switch (type)
+                {
+                    case 0:
+                        for (int i=0; i < InfoControl.TmpPaper.choice.Count; i++)
+                        {
+                            if (InfoControl.TmpPaper.choice[i].problemId == -1)
+                                return (i + 1);
+                        }
+                        break;
+                    case 1:
+                        for (int i = 0; i < InfoControl.TmpPaper.completion.Count; i++)
+                        {
+                            if (InfoControl.TmpPaper.completion[i].problemId == -1)
+                                return (i + 1);
+                        }
+                        break;
+                    case 2:
+                        for (int i = 0; i < InfoControl.TmpPaper.completion.Count; i++)
+                        {
+                            if (InfoControl.TmpPaper.completion[i].problemId == -1)
+                                return (i + 1);
+                        }
+                        break;
+                }
+            }
+            return InfoControl.Value;
+        }
 
         #region 窗体逻辑控制
         private static LoginForm loginForm = null;
