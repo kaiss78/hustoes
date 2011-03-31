@@ -7,10 +7,7 @@ using OES.Model;
 namespace OES
 {
     public class InfoControl
-    {
-        public static List<int> ChoiceList=new List<int>();
-        public static List<int> JudgeList = new List<int>();
-        public static List<int> CompletionList = new List<int>();
+    {        
         public static int WordID = 0;
         public static int PPTID = 0;
         public static int ExcelID = 0;
@@ -54,10 +51,11 @@ namespace OES
 
         public static int GetProID(int type)
         {
+            int tmp = InfoControl.Value;            
             if (InfoControl.Value  != 0)
-            {
+            { 
                 switch (type)
-                {
+                {                       
                     case 0:
                         for (int i=0; i < InfoControl.TmpPaper.choice.Count; i++)
                         {
@@ -80,8 +78,29 @@ namespace OES
                         }
                         break;
                 }
+                
             }
-            return InfoControl.Value;
+            return tmp;
+        }
+
+        public static void SetProblem(int type,int num,int ProID)
+        {
+            switch (type)
+                {                       
+                    case 0:
+                    //InfoControl.TmpPaper.
+                        break;
+                    case 1:
+ 
+                        break;
+                    case 2:
+
+                        break;
+                }
+        }
+
+        public static void DelProblem(int type, int num)
+        { 
         }
 
         #region 窗体逻辑控制
