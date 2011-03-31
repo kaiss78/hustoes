@@ -49,7 +49,7 @@ namespace OES
             set { InfoControl.paper = value; }
         }
 
-        public static int GetProID(int type)
+        public static int GetProNum(int type)
         {
             int tmp = InfoControl.Value;            
             if (InfoControl.Value  != 0)
@@ -70,7 +70,7 @@ namespace OES
 
         public static void DelProblem(int type, int num)
         {
-            InfoControl.TmpPaper.ProList[type][num].problemId = -1;
+            InfoControl.TmpPaper.ProList[type][num].problemId = -1;            
         }
 
         #region 窗体逻辑控制
