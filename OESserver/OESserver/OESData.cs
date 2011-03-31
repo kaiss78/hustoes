@@ -1777,7 +1777,8 @@ namespace OES
             SqlParameter[] ddlparam = new SqlParameter[1];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
             Ds = new DataSet();
-            RunProc("FindPaperById", ddlparam, Ds);
+            try { RunProc("FindPaperById", ddlparam, Ds); }
+            catch { throw; }
             paper = DataSetToListPaper(Ds);
             return paper;
         }
