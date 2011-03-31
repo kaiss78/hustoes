@@ -59,7 +59,6 @@ namespace OES
                     if (InfoControl.TmpPaper.ProList[type][i].problemId == -1)
                         return (i + 1);
                 }                
-                
             }
             return tmp;
         }

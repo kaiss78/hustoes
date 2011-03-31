@@ -83,20 +83,7 @@ namespace OES.UPanel
         private void BtnProType_Click(object sender, EventArgs e)
         {
             protype = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton) sender).Tag);
-            switch (protype)
-            {
-                case 0:
-                    LoadPro(InfoControl.TmpPaper.choice);
-                    break;
-                case 1:
-                    LoadPro(InfoControl.TmpPaper.completion);
-                    break;
-                case 2:
-                    LoadPro(InfoControl.TmpPaper.judge);
-                    break;
-                default:
-                    break;
-            }
+            LoadPro(InfoControl.TmpPaper.ProList[protype]);
         }
         void ItemText_Click(object sender, EventArgs e)
         {
