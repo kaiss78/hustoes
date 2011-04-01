@@ -32,6 +32,14 @@ namespace OES
 
         #endregion
 
+        #region 常量定义
+        public const int SORT_WORD = 1;
+        public const int SORT_EXCEL = 2;
+        public const int SORT_PPT = 3;
+        public const int KIND_CPP = 0;
+        public const int KIND_C = 1;
+        #endregion
+
         #region 数据库基本控制
 
         //数据库连接
@@ -1124,9 +1132,9 @@ namespace OES
 
         #endregion
 
-        #region office类题目有关的方法
+        #region office类题目有关的方法 sort传的值为1,2,3，字符串的形式，分别表示Word，Excel，PPT三类大题(就没人敢写个Const Int?)
 
-        //增加office类题目   sort传的值为1,2,3，字符串的形式，分别表示Word，Excel，PPT三类大题
+        //增加office类题目   
         public void AddOffice(string Problem_Content, string Answer_Path, string File_Path, string Sort)
         {
             SqlParameter[] ddlparam = new SqlParameter[4];
@@ -1218,11 +1226,11 @@ namespace OES
         }
 
         //按Id查询OfficeWord题目
-        public List<OfficeWord> FindOfficeWordById(string Id,string Sort)
+        public List<OfficeWord> FindOfficeWordById(string Id)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, SORT_WORD, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             word = DataSetToListOfficeWord(Ds);
@@ -1231,11 +1239,11 @@ namespace OES
 
 
         //按Id查询OfficeExcel题目
-        public List<OfficeExcel> FindOfficeExcelById(string Id,string Sort)
+        public List<OfficeExcel> FindOfficeExcelById(string Id)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2,Sort, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2,SORT_EXCEL, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             excel = DataSetToListOfficeExcel(Ds);
@@ -1243,12 +1251,12 @@ namespace OES
         }
 
 
-        //按Id查询OfficePowerPointl题目
-        public List<OfficePowerPoint> FindOfficePowerPointById(string Id,string Sort)
+        //按Id查询OfficePowerPoint题目
+        public List<OfficePowerPoint> FindOfficePowerPointById(string Id)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2,Sort , ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, SORT_PPT, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             powerPoint = DataSetToListOfficePowerPoint(Ds);
@@ -1308,7 +1316,7 @@ namespace OES
 
         #endregion
 
-        #region 编程题有关方法
+        #region 编程题有关方法 kind = 1 ---> C    kind = 0 ---> C++
 
         //增加编程的综合体型
         public void AddFunProgram(string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)
