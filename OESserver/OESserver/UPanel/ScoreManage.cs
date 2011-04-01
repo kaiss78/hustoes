@@ -41,11 +41,11 @@ namespace OES.UPanel
             comboDept.SelectedIndex = 0;
 
             //在combox中显示paper信息
-            paper = InfoControl.OesData.FindAllPaper();
-            object[] obp = new object[paper.Count];
-            for (int i = 0; i < paper.Count; i++)
-                obp[i] = paper[i];
-            comboPaper.Items.AddRange(obp);
+            //paper = InfoControl.OesData.FindAllPaper();
+            //object[] obp = new object[paper.Count];
+            //for (int i = 0; i < paper.Count; i++)
+              //  obp[i] = paper[i];
+            //comboPaper.Items.AddRange(obp);
             comboDept.SelectedIndex = 0;
 
         }
@@ -69,6 +69,7 @@ namespace OES.UPanel
         {
             showClassInDept(comboDept.Text);
         }
+
         private void getScoreTable(List<Score> data)
         {
             dt = new DataTable("Score");

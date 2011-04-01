@@ -709,7 +709,11 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "GenerateDate")
                         problem.createTime = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "TeacherName")
-                        problem.author = (string)p_Data.Rows[j][i];
+                    {
+                        try
+                        { problem.author = (string)p_Data.Rows[j][i]; }
+                        catch { problem.author = ""; }
+                    }
                     if (p_Data.Columns[i].ToString() == "ProgramState")
                         problem.programState = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "TestDate")

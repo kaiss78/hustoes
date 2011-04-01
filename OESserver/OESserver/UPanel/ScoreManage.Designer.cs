@@ -100,6 +100,7 @@
             // 
             // comboPaper
             // 
+            this.comboPaper.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPaper.FormattingEnabled = true;
             this.comboPaper.Location = new System.Drawing.Point(130, 64);
             this.comboPaper.Name = "comboPaper";
@@ -108,6 +109,7 @@
             // 
             // comboClass
             // 
+            this.comboClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboClass.FormattingEnabled = true;
             this.comboClass.Location = new System.Drawing.Point(478, 15);
             this.comboClass.Name = "comboClass";
@@ -116,6 +118,7 @@
             // 
             // comboDept
             // 
+            this.comboDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDept.FormattingEnabled = true;
             this.comboDept.Location = new System.Drawing.Point(130, 16);
             this.comboDept.Name = "comboDept";
