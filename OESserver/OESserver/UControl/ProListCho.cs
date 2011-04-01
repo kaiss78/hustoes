@@ -198,15 +198,15 @@ namespace OES.UControl
                     break;
                 case 3:
                     aProMan.aOfficeExcelEdit.isnew = false;
-                    aProMan.aOfficeExcelEdit.fill(InfoControl.OesData.FindOfficeExcelById(id.ToString(),"2"));
+                    aProMan.aOfficeExcelEdit.fill(InfoControl.OesData.FindOfficeExcelById(id.ToString()));
                     break;
                 case 4:
                     aProMan.aOfficePowerpointEdit.isnew = false;
-                    aProMan.aOfficePowerpointEdit.fill(InfoControl.OesData.FindOfficePowerPointById(id.ToString(), "3"));
+                    aProMan.aOfficePowerpointEdit.fill(InfoControl.OesData.FindOfficePowerPointById(id.ToString()));
                     break;
                 case 5:
                     aProMan.aOfficeWordEdit.isnew = false;
-                    aProMan.aOfficeWordEdit.fill(InfoControl.OesData.FindOfficeWordById(id.ToString(), "1"));
+                    aProMan.aOfficeWordEdit.fill(InfoControl.OesData.FindOfficeWordById(id.ToString()));
                     break;
                 case 6:
                     aProMan.aCCompletionEdit.isnew = false;
