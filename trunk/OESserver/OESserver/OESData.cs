@@ -1811,6 +1811,19 @@ namespace OES
             return paperList;
         }
 
+        //按标题查找试卷，模糊查询
+        public List<Paper> FindPaperByTitle(string title)
+        {
+            Ds = new DataSet();
+            List<Paper> paperList = new List<Paper>();
+            SqlParameter[] dp = new SqlParameter[1];
+            dp[0] = CreateParam("@Title", SqlDbType.VarChar, 50, title, ParameterDirection.Input);
+            try { RunProc("FindPaperByTitle", dp, Ds); }
+            catch { throw; }
+            paperList = DataSetToListPaper(Ds);
+            return paperList;
+        }
+
         //-- Description:	列出试卷,按照测试时间>当前时间
         public List<Paper> FindPaperByTestDate()
         {
