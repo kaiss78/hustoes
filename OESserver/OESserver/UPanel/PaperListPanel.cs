@@ -151,7 +151,18 @@ namespace OES.UPanel
         {
             InitDT();
             object[] values = new object[5];
-            paperList=InfoControl.OesData.FindPaperByTwoDates(startTime.Value, endTime.Value);
+            switch(findtype)
+            {
+                case 1:
+                    paperList = InfoControl.OesData.FindPaperByYear(Convert.ToString(year.Value));
+                    break;
+                case 2:
+                    paperList = InfoControl.OesData.FindPaperByTitle(paperName.Text);
+                    break;
+                case 3:
+                    paperList = InfoControl.OesData.FindPaperByTwoDates(startTime.Value, endTime.Value);
+                    break;
+            }
             for (int i = 0; i < paperList.Count; i++)
             {
                 values[0] = false;
