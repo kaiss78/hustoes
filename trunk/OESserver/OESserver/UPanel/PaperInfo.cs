@@ -126,6 +126,31 @@ namespace OES.UPanel
             InfoControl.TmpPaper.completion = new List<Completion>(Convert.ToInt32(countList[1].Text));
             InfoControl.TmpPaper.judge = new List<Judge>(Convert.ToInt32(countList[2].Text));
 
+            Choice tmpChoice = new Choice();
+            tmpChoice.problemId = -1;
+            tmpChoice.problem = "-";
+
+            Completion tmpCompletion = new Completion();
+            tmpCompletion.problemId = -1;
+            tmpCompletion.problem = "-";
+
+            Judge tmpJudge = new Judge();
+            tmpJudge.problemId = -1;
+            tmpJudge.problem = "-";
+
+            for (int i = 0; i < InfoControl.TmpPaper.choice.Capacity; i++)
+            {
+                InfoControl.TmpPaper.choice.Add(tmpChoice);
+            }
+            for (int i = 0; i < InfoControl.TmpPaper.completion.Capacity; i++)
+            {
+                InfoControl.TmpPaper.completion.Add(tmpCompletion);
+            }
+            for (int i = 0; i < InfoControl.TmpPaper.judge.Capacity; i++)
+            {
+                InfoControl.TmpPaper.judge.Add(tmpJudge);
+            }
+
             InfoControl.TmpPaper.ProList[0] = new List<Problem>();
             foreach (Choice c in InfoControl.TmpPaper.choice)
             {
@@ -142,22 +167,8 @@ namespace OES.UPanel
                 InfoControl.TmpPaper.ProList[2].Add(c);
             }
 
-            Problem tmpPro = new Problem();
-            tmpPro.problemId = -1;
-            tmpPro.problem = "-";
 
-            for (int i = 0; i < InfoControl.TmpPaper.ProList[0].Capacity; i++)
-            {
-                InfoControl.TmpPaper.ProList[0].Add(tmpPro);
-            }
-            for (int i = 0; i < InfoControl.TmpPaper.ProList[1].Capacity; i++)
-            {
-                InfoControl.TmpPaper.ProList[1].Add(tmpPro);
-            }
-            for (int i = 0; i < InfoControl.TmpPaper.ProList[2].Capacity; i++)
-            {
-                InfoControl.TmpPaper.ProList[2].Add(tmpPro);
-            }
+
             InfoControl.TmpPaper.officeWord.exist = flag[3] == 1;
             InfoControl.TmpPaper.officeWord.problemId = -1;
             InfoControl.TmpPaper.officeExcel.exist = flag[4] == 1;

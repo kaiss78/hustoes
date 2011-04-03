@@ -30,8 +30,8 @@ namespace OES.UPanel
         }
 
         public void LoadPro<T>(List<T> proList) where T : Problem
-        {                        
-            while (proList.Capacity > ItemList.Count)
+        {
+            while (proList.Count > ItemList.Count)
             {
                 tmpItem = new ProblemItem();
                 tmpItem.ItemNo.Text = (ItemList.Count+1).ToString();
@@ -43,12 +43,12 @@ namespace OES.UPanel
                 ItemList.Add(tmpItem);
                 ItemPanel.Controls.Add(tmpItem);
             }
-            while (proList.Capacity < ItemList.Count)
+            while (proList.Count < ItemList.Count)
             {
                 ItemPanel.Controls.Remove(ItemList[ItemList.Count-1]);
                 ItemList.RemoveAt(ItemList.Count-1);                
             }
-            for (int i = 0; i < proList.Capacity; i++)
+            for (int i = 0; i < proList.Count; i++)
             {
 
                 ItemList[i].ItemText.Text = "-";
