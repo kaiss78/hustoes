@@ -47,7 +47,7 @@ namespace OESMonitor
         {
             sqlcon = new SqlConnection();
 
-            string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
+            string strConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=F:\OESDB\OESDB.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
             sqlcon.ConnectionString = strConnection;
 
