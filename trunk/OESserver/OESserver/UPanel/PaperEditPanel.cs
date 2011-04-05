@@ -68,9 +68,9 @@ namespace OES.UPanel
         override public void ReLoad()
         {
             this.Visible = true;
-            btnChoice.Visible = InfoControl.TmpPaper.choice.Capacity > 0;
-            btnJudge.Visible = InfoControl.TmpPaper.judge.Capacity > 0;
-            btnCompletion.Visible = InfoControl.TmpPaper.completion.Capacity > 0;
+            btnChoice.Visible = InfoControl.TmpPaper.ProList[0].Count > 0;
+            btnJudge.Visible = InfoControl.TmpPaper.ProList[2].Count > 0;
+            btnCompletion.Visible = InfoControl.TmpPaper.ProList[1].Count > 0;
             btnWord.Visible = InfoControl.TmpPaper.officeWord.exist;
             btnPPT.Visible = InfoControl.TmpPaper.officePPT.exist;
             btnExcel.Visible = InfoControl.TmpPaper.officeExcel.exist;
