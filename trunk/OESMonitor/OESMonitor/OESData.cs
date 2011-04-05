@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Reflection;
-using System.Data;
 using OESMonitor.Model;
+using System.Data;
 
 namespace OESMonitor
 {
@@ -32,13 +32,22 @@ namespace OESMonitor
 
         #endregion
 
+        #region 常量定义
+        public const int SORT_WORD = 1;
+        public const int SORT_EXCEL = 2;
+        public const int SORT_PPT = 3;
+        public const int KIND_CPP = 0;
+        public const int KIND_C = 1;
+        #endregion
+
         #region 数据库基本控制
 
         //数据库连接
         private bool DataBind()
         {
             sqlcon = new SqlConnection();
-            string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\My Documents\\Visual Studio 2008\\Projects\\OESserver\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
+
+            string strConnection = "Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Documents and Settings\\Administrator\\桌面\\OESserver\\OESserver\\OESDB.mdf\";Integrated Security=True;Connect Timeout=30;User Instance=True";
 
             sqlcon.ConnectionString = strConnection;
 
@@ -87,7 +96,7 @@ namespace OESMonitor
             }
             return param;
         }
-
+        
         /// <summary>
         /// 运行存储过程,返回dataset
         /// </summary>
@@ -97,7 +106,6 @@ namespace OESMonitor
         public DataSet RunProc(string procName, SqlParameter[] prams, DataSet Ds)
         {
             SqlCommand Cmd = CreateCmd(procName, prams);
-
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
 
             try
@@ -165,6 +173,27 @@ namespace OESMonitor
                 }
 
                 result.Add(problem);
+            }
+            return result;
+        }
+
+        private List<String> DataSetPaperToList(DataSet p_DataSet)
+        {
+            DataTable p_Data = p_DataSet.Tables[0];
+            // 返回值初始化   
+            List<String> result = new List<String>();
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                string str = "";
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "Title")
+                        str = (String)p_Data.Rows[j][i];
+
+                }
+
+                result.Add(str);
             }
             return result;
         }
@@ -688,7 +717,11 @@ namespace OESMonitor
                     if (p_Data.Columns[i].ToString() == "GenerateDate")
                         problem.createTime = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "TeacherName")
-                        problem.author = (string)p_Data.Rows[j][i];
+                    {
+                        try
+                        { problem.author = (string)p_Data.Rows[j][i]; }
+                        catch { problem.author = ""; }
+                    }
                     if (p_Data.Columns[i].ToString() == "ProgramState")
                         problem.programState = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "TestDate")
@@ -709,7 +742,7 @@ namespace OESMonitor
             string str = "";
             for (int i = 0; i < ans.Count; i++)
             {
-                str = ans[i] + ",";
+                str = ans.ElementAt(i) + ",";
             }
             return str;
         }
@@ -753,7 +786,7 @@ namespace OESMonitor
         {
             string unit = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
+            ddlparam[0] = CreateParam("@Unit", SqlDbType.Int,5, unit, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindChoiceByUnit", ddlparam, Ds);
             results = DataSetToList(Ds);
@@ -1099,9 +1132,9 @@ namespace OESMonitor
 
         #endregion
 
-        #region office类题目有关的方法
+        #region office类题目有关的方法 sort传的值为1,2,3，字符串的形式，分别表示Word，Excel，PPT三类大题(就没人敢写个Const Int?)
 
-        //增加office类题目   sort传的值为1,2,3，字符串的形式，分别表示Word，Excel，PPT三类大题
+        //增加office类题目   
         public void AddOffice(string Problem_Content, string Answer_Path, string File_Path, string Sort)
         {
             SqlParameter[] ddlparam = new SqlParameter[4];
@@ -1193,11 +1226,11 @@ namespace OESMonitor
         }
 
         //按Id查询OfficeWord题目
-        public List<OfficeWord> FindOfficeWordById(string Id, string Sort)
+        public List<OfficeWord> FindOfficeWordById(string Id)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, SORT_WORD, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             word = DataSetToListOfficeWord(Ds);
@@ -1206,11 +1239,11 @@ namespace OESMonitor
 
 
         //按Id查询OfficeExcel题目
-        public List<OfficeExcel> FindOfficeExcelById(string Id, string Sort)
+        public List<OfficeExcel> FindOfficeExcelById(string Id)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2,SORT_EXCEL, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             excel = DataSetToListOfficeExcel(Ds);
@@ -1218,12 +1251,12 @@ namespace OESMonitor
         }
 
 
-        //按Id查询OfficePowerPointl题目
-        public List<OfficePowerPoint> FindOfficePowerPointById(string Id, string Sort)
+        //按Id查询OfficePowerPoint题目
+        public List<OfficePowerPoint> FindOfficePowerPointById(string Id)
         {
             SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, SORT_PPT, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindOfficeById", ddlparam, Ds);
             powerPoint = DataSetToListOfficePowerPoint(Ds);
@@ -1283,7 +1316,7 @@ namespace OESMonitor
 
         #endregion
 
-        #region 编程题有关方法
+        #region 编程题有关方法 kind = 1 ---> C    kind = 0 ---> C++
 
         //增加编程的综合体型
         public void AddFunProgram(string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)
@@ -1298,7 +1331,7 @@ namespace OESMonitor
             ddlparam[6] = CreateParam("@Out2", SqlDbType.VarChar, 100, Out2, ParameterDirection.Input);
             ddlparam[7] = CreateParam("@Out3", SqlDbType.VarChar, 100, Out3, ParameterDirection.Input);
             ddlparam[8] = CreateParam("@CorrectC", SqlDbType.VarChar, 100, CorrectC, ParameterDirection.Input);
-            ddlparam[9] = CreateParam("@Kind", SqlDbType.Bit, 1, Kind, ParameterDirection.Input);
+            ddlparam[9] = CreateParam("@Kind", SqlDbType.Bit, 1, (Kind == "0" ? false : true), ParameterDirection.Input);
 
             DataBind();
             SqlCommand cmd = new SqlCommand("AddFunProgram", sqlcon);
@@ -1348,7 +1381,7 @@ namespace OESMonitor
             ddlparam[6] = CreateParam("@Out2", SqlDbType.VarChar, 100, Out2, ParameterDirection.Input);
             ddlparam[7] = CreateParam("@Out3", SqlDbType.VarChar, 100, Out3, ParameterDirection.Input);
             ddlparam[8] = CreateParam("@CorrectC", SqlDbType.VarChar, 100, CorrectC, ParameterDirection.Input);
-            ddlparam[9] = CreateParam("@Kind", SqlDbType.Bit, 1, Kind, ParameterDirection.Input);
+            ddlparam[9] = CreateParam("@Kind", SqlDbType.Bit, 1, (Kind == "0" ? false : true), ParameterDirection.Input);
 
             ddlparam[10] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
 
@@ -1407,10 +1440,10 @@ namespace OESMonitor
             ddlparam[3] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@K2", SqlDbType.VarChar, 100, K2, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@K3", SqlDbType.VarChar, 100, K3, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@Kind", SqlDbType.Bit, 1, Kind, ParameterDirection.Input);
+            ddlparam[6] = CreateParam("@Kind", SqlDbType.Bit, 1, (Kind == "0" ? false : true), ParameterDirection.Input);
 
             DataBind();
-            SqlCommand cmd = new SqlCommand("FindFunProgramById", sqlcon);
+            SqlCommand cmd = new SqlCommand("AddCompletionModificationProgram", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
             for (int i = 0; i < 7; i++)
             {
@@ -1422,7 +1455,7 @@ namespace OESMonitor
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.ToString());
+                throw e;
             }
         }
 
@@ -1441,7 +1474,7 @@ namespace OESMonitor
             }
             catch (SqlException e)
             {
-                MessageBox.Show(e.ToString());
+                throw e;
             }
         }
 
@@ -1455,7 +1488,7 @@ namespace OESMonitor
             ddlparam[3] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@K2", SqlDbType.VarChar, 100, K2, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@K3", SqlDbType.VarChar, 100, K3, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@Kind", SqlDbType.Bit, 1, Kind, ParameterDirection.Input);
+            ddlparam[6] = CreateParam("@Kind", SqlDbType.Bit, 1, (Kind == "0" ? false : true), ParameterDirection.Input);
             ddlparam[7] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
 
 
@@ -1620,14 +1653,14 @@ namespace OESMonitor
             int intId;
             //using (SqlConnection connection = new SqlConnection(sqlcon))
             DataBind();
-            SqlCommand com = new SqlCommand(query, sqlcon);
-            //connection.Open();
-            SqlDataReader reader = com.ExecuteReader();
+                SqlCommand com = new SqlCommand(query, sqlcon);
+                //connection.Open();
+                SqlDataReader reader = com.ExecuteReader();
 
-            reader.Read();
-            id = reader[0].ToString();
-            reader.Close();
-
+                reader.Read();
+                id = reader[0].ToString();
+                reader.Close();
+          
             intId = Convert.ToInt32(id);
             intId = intId + 1;
             Paper_Path = Paper_Path + intId.ToString() + ".xml";
@@ -1638,7 +1671,7 @@ namespace OESMonitor
             ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@ProgramState", SqlDbType.Int, 5, ProgramState, ParameterDirection.Input);
-
+           
             DataBind();
             SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -1658,7 +1691,6 @@ namespace OESMonitor
             {
                 MessageBox.Show(e.ToString());
             }
-            MessageBox.Show(Id.Value.ToString());
             return Id.Value.ToString();
         }
 
@@ -1667,8 +1699,7 @@ namespace OESMonitor
         {
             SqlParameter[] ddlparam = new SqlParameter[1];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-
-            //RunProc("FindChoiceByUnit", ddlparam, Ds);
+            
             SqlCommand Cmd = CreateCmd("DeletePaper", ddlparam);
             try
             {
@@ -1681,7 +1712,7 @@ namespace OESMonitor
         }
 
         //修改Paper记录  ,ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
-        public void UpdatePaper(string Id, string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id, int ProgramState)
+        public void UpdatePaper(string Id, string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id,int ProgramState)
         {
             SqlParameter[] ddlparam = new SqlParameter[7];
             ddlparam[0] = CreateParam("@GenerateDate", SqlDbType.DateTime, 20, GenerateDate, ParameterDirection.Input);
@@ -1689,7 +1720,7 @@ namespace OESMonitor
             ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, Paper_Path, ParameterDirection.Input);
             ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
-
+            
             ddlparam[5] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
             ddlparam[6] = CreateParam("@ProgramState", SqlDbType.Int, 5, Id, ParameterDirection.Input);
 
@@ -1704,13 +1735,37 @@ namespace OESMonitor
                 MessageBox.Show(e.ToString());
             }
         }
-        //列出所有的Paper记录
+        //纯粹列出所有的Paper记录
+        public List<String> FindAllPaper()
+        {
+            List<String> results = new List<String>();
+            Ds = new DataSet();
+            //RunProc("FindChoice", null, Ds);
+
+            DataBind();
+            SqlCommand Cmd = new SqlCommand("FindAllPaper", sqlcon);
+            Cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+            try
+            {
+                Da.Fill(Ds);
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.ToString());
+                throw Ex;
+            }
+            results = DataSetPaperToList(Ds);
+            return results;
+
+        }
+        //列出所有的Paper记录,其中将相关的出试卷的老师信息也查找出来
         public List<Paper> FindPaper()
         {
             List<Paper> results = new List<Paper>();
             Ds = new DataSet();
             //RunProc("FindChoice", null, Ds);
-
+           
             DataBind();
             SqlCommand Cmd = new SqlCommand("FindPaper", sqlcon);
             Cmd.CommandType = CommandType.StoredProcedure;
@@ -1734,107 +1789,53 @@ namespace OESMonitor
             SqlParameter[] ddlparam = new SqlParameter[1];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
             Ds = new DataSet();
-            RunProc("FindPaperById", ddlparam, Ds);
+            try { RunProc("FindPaperById", ddlparam, Ds); }
+            catch { throw; }
             paper = DataSetToListPaper(Ds);
             return paper;
         }
 
-        #endregion
-
-        #region 章节管理
-
-        //添加章节，UnitName具体的章节名字，例如“故障恢复” Unit 例子：1-12；TypeId 0,1,2分别表示填空选择判断
-        public void AddUnit(string UnitName, int Unit, int TypeId)
+        //查找两个日期中的试卷
+        public List<Paper> FindPaperByTwoDates(DateTime std, DateTime edd)
         {
-            string A = Unit.ToString();
-            string B = TypeId.ToString();
-            SqlParameter[] ddlparam = new SqlParameter[3];
-            ddlparam[0] = CreateParam("@UnitName", SqlDbType.VarChar, 100, UnitName, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Unit", SqlDbType.Int, 5, A, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@TypeId", SqlDbType.Int, 5, B, ParameterDirection.Input);
-
-            DataBind();
-            SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 3; i++)
-            {
-                cmd.Parameters.Add(ddlparam[i]);
-            }
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
-
-        //Description:	给定Type( 0,1,2分别表示填空选择判断的标号)，列出所有相应题型的所有章节名
-        public List<Unit> FindUnit(int TypeId)
-        {
-
-            List<Unit> UnitList = new List<Unit>();
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@TypeId", SqlDbType.Int, 3, TypeId.ToString(), ParameterDirection.Input);
             Ds = new DataSet();
-            RunProc("FindUnit", ddlparam, Ds);
-            UnitList = DataSetToListString(Ds);
-            return UnitList;
+            List<Paper> paperList = new List<Paper>();
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@StartDate", SqlDbType.DateTime, 0, std, ParameterDirection.Input);
+            dp[1] = CreateParam("EndDate", SqlDbType.DateTime, 0, edd, ParameterDirection.Input);
+            try { RunProc("FindPaperByTwoDates", dp, Ds); }
+            catch { throw; }
+            paperList = DataSetToListPaper(Ds);
+            return paperList;
         }
 
-        #endregion
-
-        #region 考试、试卷管理
-
-        //-- Description:	根据试卷号返回试卷具体文件地址
-        public string FindPaperPathByPaperId(string Id)
+        //查找某一年的试卷
+        public List<Paper> FindPaperByYear(string year)
         {
-
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-
-            DataBind();
-            SqlCommand cmd = new SqlCommand("FindPaperPathByPaperId", sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 1; i++)
-            {
-                cmd.Parameters.Add(ddlparam[i]);
-            }
-            SqlParameter Paper_Path = new SqlParameter("@Paper_Path", SqlDbType.VarChar, 100);
-            Paper_Path.Direction = ParameterDirection.Output;// 设置为输出参数
-            cmd.Parameters.Add(Paper_Path);
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-            MessageBox.Show(Paper_Path.Value.ToString());
-            return Paper_Path.Value.ToString();
-
-        }
-        //-- Description:	验证学生可否参加考试,返回false 表示验证不通过，true，验证通过
-        public bool CheckStudent(string StudentName, string StudentId, string Password)
-        {
-            SqlParameter[] ddlparam = new SqlParameter[3];
-            ddlparam[0] = CreateParam("@StudentName", SqlDbType.VarChar, 50, StudentName, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@StudentId", SqlDbType.VarChar, 50, StudentId, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Password", SqlDbType.VarChar, 50, Password, ParameterDirection.Input);
-
             Ds = new DataSet();
-            RunProc("CheckStudent", ddlparam, Ds);
-
-            DataTable p_Data = Ds.Tables[0];
-            if (p_Data.Columns.Count < 1)
-            {
-                return false;
-            }
-            return true;
+            List<Paper> paperList = new List<Paper>();
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@StartDate", SqlDbType.DateTime, 0, Convert.ToDateTime(year + "/01/01"), ParameterDirection.Input);
+            dp[1] = CreateParam("@EndDate", SqlDbType.DateTime, 0, Convert.ToDateTime(year + "/12/31"), ParameterDirection.Input);
+            try { RunProc("FindPaperByTwoDates", dp, Ds); }
+            catch { throw; }
+            paperList = DataSetToListPaper(Ds);
+            return paperList;
         }
+
+        //按标题查找试卷，模糊查询
+        public List<Paper> FindPaperByTitle(string title)
+        {
+            Ds = new DataSet();
+            List<Paper> paperList = new List<Paper>();
+            SqlParameter[] dp = new SqlParameter[1];
+            dp[0] = CreateParam("@Title", SqlDbType.VarChar, 50, title, ParameterDirection.Input);
+            try { RunProc("FindPaperByTitle", dp, Ds); }
+            catch { throw; }
+            paperList = DataSetToListPaper(Ds);
+            return paperList;
+        }
+
         //-- Description:	列出试卷,按照测试时间>当前时间
         public List<Paper> FindPaperByTestDate()
         {
@@ -1859,6 +1860,163 @@ namespace OESMonitor
 
         #endregion
 
+        #region 分数管理
+       // -- Description:	查询某个班级某次考试的所有成绩
+        private List<Score> DataSetToScore(DataSet p_DataSet)
+        {
+            DataTable p_Data = p_DataSet.Tables[0];
+            // 返回值初始化   
+            List<Score> result = new List<Score>();
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Score problem = new Score();
+                for (int i = 0; i < p_Data.Columns.Count; i++)
+                {
+                    // 数据库NULL值单独处理   
+                    if (p_Data.Columns[i].ToString() == "StudentName")
+                        problem.stuName = (string)(p_Data.Rows[j][i]);
+                    if (p_Data.Columns[i].ToString() == "ClassName")
+                        problem.stuClassName = (string)p_Data.Rows[j][i];
+                    if (p_Data.Columns[i].ToString() == "TotalScore")
+                        problem.score = (string)p_Data.Rows[j][i];
+
+
+                }
+
+                result.Add(problem);
+            }
+            return result;
+        }
+        
+
+        public List<Score> FindScoreByClassPaper(string ClassName,string Title)
+        {
+            SqlParameter[] ddlparam = new SqlParameter[2];
+            ddlparam[0] = CreateParam("@ClassName", SqlDbType.VarChar, 50, ClassName, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
+            Ds = new DataSet();
+            RunProc("FindScoreByClassPaper", ddlparam, Ds);
+            List<Score> score = new List<Score>();
+            score= DataSetToScore(Ds);
+            return score;
+        }
+        #endregion
+
+        #region 章节管理
+
+        //添加章节，UnitName具体的章节名字，例如“故障恢复” Unit 例子：1-12；
+        public void AddUnit(string UnitName,int Unit)
+        {
+            string A = Unit.ToString();
+            SqlParameter[] ddlparam = new SqlParameter[2];
+            ddlparam[0] = CreateParam("@UnitName", SqlDbType.VarChar, 100, UnitName, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Unit", SqlDbType.Int, 5, A, ParameterDirection.Input);
+           
+            DataBind();
+            SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 2; i++)
+            {
+                cmd.Parameters.Add(ddlparam[i]);
+            }
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+        }
+
+        //Description:	列出所有章节名
+        public List<Unit> FindUnit()
+        {
+            List<Unit> UnitList = new List<Unit>();
+            Ds = new DataSet();
+            try { RunProc("FindUnit", null, Ds); }
+            catch (Exception Ex) { throw Ex; }
+            UnitList = DataSetToListString(Ds);
+            return UnitList;
+        }
+
+        //Description:  删除某个章节
+        public void DeleteUnit(int Unit)
+        {
+            SqlParameter[] dp = new SqlParameter[1];
+            dp[0] = CreateParam("@Unit", SqlDbType.Int, 11, Unit, ParameterDirection.Input);
+            SqlCommand cmd = CreateCmd("DeleteUnit", dp);
+            try { cmd.ExecuteNonQuery(); }
+            catch (Exception ex) { throw ex; }
+        }
+
+        //Description:  修改某个章节
+        public void UpdateUnit(int Unit, string UnitName)
+        {
+            SqlParameter[] dp = new SqlParameter[2];
+            dp[0] = CreateParam("@Unit", SqlDbType.Int, 11, Unit, ParameterDirection.Input);
+            dp[1] = CreateParam("@UnitName", SqlDbType.VarChar, 50, UnitName, ParameterDirection.Input);
+            SqlCommand cmd = CreateCmd("UpdateUnit", dp);
+            try { cmd.ExecuteNonQuery(); }
+            catch (Exception ex) { throw ex; }
+        }
+
+        #endregion
+
+        #region 考试、试卷管理
+
+        //-- Description:	根据试卷号返回试卷具体文件地址
+        public string FindPaperPathByPaperId(string Id)
+        {
+            
+            SqlParameter[] ddlparam = new SqlParameter[1];
+            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+            
+            DataBind();
+            SqlCommand cmd = new SqlCommand("FindPaperPathByPaperId", sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < 1; i++)
+            {
+                cmd.Parameters.Add(ddlparam[i]);
+            }
+            SqlParameter Paper_Path = new SqlParameter("@Paper_Path", SqlDbType.VarChar, 100);
+            Paper_Path.Direction = ParameterDirection.Output;// 设置为输出参数
+            cmd.Parameters.Add(Paper_Path);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            MessageBox.Show(Paper_Path.Value.ToString());
+            return Paper_Path.Value.ToString();
+
+        }
+        //-- Description:	验证学生可否参加考试,返回false 表示验证不通过，true，验证通过
+        public bool CheckStudent(string StudentName ,string  StudentId ,string Password )
+        {
+            SqlParameter[] ddlparam = new SqlParameter[3];
+            ddlparam[0] = CreateParam("@StudentName", SqlDbType.VarChar, 50, StudentName, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@StudentId", SqlDbType.VarChar, 50, StudentId, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Password", SqlDbType.VarChar, 50, Password, ParameterDirection.Input);
+
+            Ds = new DataSet();
+            RunProc("CheckStudent", ddlparam, Ds);
+
+            DataTable p_Data = Ds.Tables[0];
+            if (p_Data.Columns.Count < 1)
+            {
+                return false;
+            }
+            return true;
+        }
+        
+
+#endregion
+
         #region 教师信息管理
 
         //-- Description:	查找Teacher的所有信息，通过Teacher的LoginName
@@ -1876,14 +2034,14 @@ namespace OESMonitor
         //-- Description:	增加教师信息
         public void AddTeacher(string TeacherName, string Password, int Permission, string UserName)
         {
-
+            
             SqlParameter[] ddlparam = new SqlParameter[4];
             ddlparam[0] = CreateParam("@TeacherName", SqlDbType.VarChar, 50, TeacherName, ParameterDirection.Input);
 
             ddlparam[1] = CreateParam("@Password", SqlDbType.VarChar, 200, Password, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Permission", SqlDbType.Int, 2, Permission.ToString(), ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Permission", SqlDbType.Int , 2, Permission.ToString(), ParameterDirection.Input);
             ddlparam[3] = CreateParam("@UserName", SqlDbType.VarChar, 50, UserName, ParameterDirection.Input);
-
+            
             DataBind();
             SqlCommand cmd = new SqlCommand("AddTeacher", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -1900,13 +2058,13 @@ namespace OESMonitor
                 MessageBox.Show(e.ToString());
             }
         }
+        
         //-- Description:	按照Id删除教师信息
-
         public void DeleteTeacherById(string Id)
         {
             SqlParameter[] ddlparam = new SqlParameter[1];
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-
+            DataBind();
             //RunProc("FindChoiceByUnit", ddlparam, Ds);
             SqlCommand Cmd = CreateCmd("DeleteTeacherById", ddlparam);
             try
@@ -1935,7 +2093,7 @@ namespace OESMonitor
         //-- Description:	修改教师记录的信息
         public void UpdateTeacherById(string Id, string TeacherName, string Password, int Permission, string UserName)
         {
-
+            
             SqlParameter[] ddlparam = new SqlParameter[5];
 
             ddlparam[0] = CreateParam("@TeacherName", SqlDbType.VarChar, 50, TeacherName, ParameterDirection.Input);
@@ -1944,7 +2102,7 @@ namespace OESMonitor
             ddlparam[2] = CreateParam("@Permission", SqlDbType.Int, 2, Permission.ToString(), ParameterDirection.Input);
             ddlparam[3] = CreateParam("@UserName", SqlDbType.VarChar, 50, UserName, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-
+            
             SqlCommand Cmd = CreateCmd("UpdateTeacherById", ddlparam);
             try
             {
@@ -2044,7 +2202,7 @@ namespace OESMonitor
             for (int i = 0; i < 2; i++)
                 cmd.Parameters.Add(dp[i]);
             SqlDataAdapter Da = new SqlDataAdapter(cmd);
-            try
+            try 
             {
                 Da.Fill(Ds);
                 DataTable dt = Ds.Tables[0];
@@ -2325,7 +2483,7 @@ namespace OESMonitor
         }
 
         //-- Description:   批量导入学生
-        public void AddManyStudents(string dept, string className, List<string[]> value)
+        public void  AddManyStudents(string dept, string className, List<string[]> value)
         {
             SqlTransaction tx = sqlcon.BeginTransaction();
             string classId = AddClassByImport(dept, className);
