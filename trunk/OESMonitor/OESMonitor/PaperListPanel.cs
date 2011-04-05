@@ -63,6 +63,7 @@ namespace OES.UPanel
         public PaperListPanel()
         {
             InitializeComponent();
+            InitList();
             changeFindType(findtype);               //一开始是按年份查询
         }
 

@@ -678,7 +678,6 @@ namespace OESMonitor
                         problem.permission = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "UserName")
                         problem.UserName = (string)p_Data.Rows[j][i];
-
                 }
                 result.Add(problem);
             }
