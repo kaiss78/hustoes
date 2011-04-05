@@ -133,7 +133,7 @@ namespace OES
                 Directory.CreateDirectory(Config.stuPath);
             }
 
-            if (!File.Exists(ClientControl.student + "k.key"))
+            if (!File.Exists(Config.stuPath + "k.key"))
             {
                 OES.DAO.MD5File.GenerateSecurityFile("Initial");
             }
