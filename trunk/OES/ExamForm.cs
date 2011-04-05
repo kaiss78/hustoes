@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using OES.Model;
 using System.IO;
 using OES.Net;
+using OES.DAO;
 
 namespace OES
 {
@@ -63,8 +64,8 @@ namespace OES
 
         private void Start_Click(object sender, EventArgs e)
         {
-            //检查是否可以恢复考试
-            if (File.Exists(Config.stuPath + "studentAns.xml"))
+            //检查是否可以开始考试
+            if (!File.Exists(Config.stuPath + "k.key") || !MD5File.CheckMD5("Initial"))
             {
                 Error.ErrorControl.ShowError(OES.Error.ErrorType.ExistAnsXML);
             }
@@ -80,6 +81,7 @@ namespace OES
                 ClientControl.MainForm.Show();
                 this.Dispose();
                 ClientEvt.beginExam(0, "");
+                MD5File.GenerateSecurityFile("Begin" + ClientControl.student.ID);
             }
          
         }
@@ -130,12 +132,17 @@ namespace OES
             {
                 Directory.CreateDirectory(Config.stuPath);
             }
+
+            if (!File.Exists(ClientControl.student + "k.key"))
+            {
+                OES.DAO.MD5File.GenerateSecurityFile("Initial");
+            }
         }
 
         private void Resume_Click(object sender, EventArgs e)
         {
             //检查是否可以恢复考试
-            if (File.Exists(Config.stuPath + "studentAns.xml"))
+            if (!File.Exists(Config.stuPath + "k.key") || !MD5File.CheckMD5("Begin"+ClientControl.student.ID))
             {
                 Error.ErrorControl.ShowError(OES.Error.ErrorType.ExistAnsXML);
             }

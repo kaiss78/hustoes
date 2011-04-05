@@ -29,6 +29,7 @@ namespace OES
                 ClientControl.WaitingForm = null;
                 ClientControl.LoginForm.Show();
                 this.Hide();
+                OES.DAO.MD5File.GenerateSecurityFile("End");
             }));
         }
 
