@@ -167,8 +167,6 @@ namespace OES.UPanel
                 InfoControl.TmpPaper.ProList[2].Add(c);
             }
 
-
-
             InfoControl.TmpPaper.officeWord.exist = flag[3] == 1;
             InfoControl.TmpPaper.officeWord.problemId = -1;
             InfoControl.TmpPaper.officeExcel.exist = flag[4] == 1;

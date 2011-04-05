@@ -66,6 +66,12 @@ namespace OES.UPanel
             changeFindType(findtype);               //一开始是按年份查询
         }
 
+        override public void ReLoad()
+        {
+            this.Visible = true;
+            InitList();
+        }
+
          private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RIndex = e.RowIndex;
