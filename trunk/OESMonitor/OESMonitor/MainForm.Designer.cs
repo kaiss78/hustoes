@@ -42,7 +42,7 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.btnGetPaperFromDB = new System.Windows.Forms.Button();
+            this.btnGetPaperFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label4 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.tabControl1.SuspendLayout();
@@ -213,7 +213,7 @@
             this.btnGetPaperFromDB.Size = new System.Drawing.Size(278, 29);
             this.btnGetPaperFromDB.TabIndex = 2;
             this.btnGetPaperFromDB.Text = "从数据库获取获取试卷>>>";
-            this.btnGetPaperFromDB.UseVisualStyleBackColor = true;
+            //this.btnGetPaperFromDB.UseVisualStyleBackColor = true;
             this.btnGetPaperFromDB.Click += new System.EventHandler(this.btnGetPaperFromDB_Click);
             // 
             // label4
@@ -276,7 +276,7 @@
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Button btnGetPaperFromDB;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnGetPaperFromDB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
 
