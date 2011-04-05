@@ -16,10 +16,7 @@ namespace OES
         public TeacherManage teacherManage;
         public ScoreManage scoreManage;
         public ProManCho proManCho;
-
-        private PanelControl panelControl;
-       
-
+              
         public MainForm()
         {
             InitializeComponent();
