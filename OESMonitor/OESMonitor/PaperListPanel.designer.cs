@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.year = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
-            this.paperName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.startTime = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.endTime = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.btnFind = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PaperListDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.cbtnFindByYear = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.cbtnFindByTime = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.cbtnFindByName = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.csFind = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.year = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+            this.paperName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.startTime = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.endTime = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.btnFind = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.csFind)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,23 +62,99 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByYear, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByTime, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByName, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByYear, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByTime, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByName, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 6);
+            this.groupBox1.Controls.Add(this.PaperListDGV);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox1.Location = new System.Drawing.Point(13, 78);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(716, 575);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "试卷列表";
+            // 
+            // PaperListDGV
+            // 
+            this.PaperListDGV.AllowUserToAddRows = false;
+            this.PaperListDGV.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.PaperListDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PaperListDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.PaperListDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorMini;
+            this.PaperListDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.PaperListDGV.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.PaperListDGV.Location = new System.Drawing.Point(3, 22);
+            this.PaperListDGV.Name = "PaperListDGV";
+            this.PaperListDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+            this.PaperListDGV.ReadOnly = true;
+            this.PaperListDGV.RowHeadersVisible = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.PaperListDGV.RowTemplate.Height = 23;
+            this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.PaperListDGV.Size = new System.Drawing.Size(710, 550);
+            this.PaperListDGV.TabIndex = 0;
+            this.PaperListDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellDoubleClick);
+            this.PaperListDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellClick);
+            // 
+            // cbtnFindByYear
+            // 
+            this.cbtnFindByYear.Checked = true;
+            this.cbtnFindByYear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnFindByYear.Location = new System.Drawing.Point(13, 13);
+            this.cbtnFindByYear.Name = "cbtnFindByYear";
+            this.cbtnFindByYear.Size = new System.Drawing.Size(69, 24);
+            this.cbtnFindByYear.TabIndex = 6;
+            this.cbtnFindByYear.Values.Text = "按年";
+            this.cbtnFindByYear.Click += new System.EventHandler(this.cbtnFindByYear_Click);
+            // 
+            // cbtnFindByTime
+            // 
+            this.cbtnFindByTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnFindByTime.Location = new System.Drawing.Point(88, 13);
+            this.cbtnFindByTime.Name = "cbtnFindByTime";
+            this.cbtnFindByTime.Size = new System.Drawing.Size(69, 24);
+            this.cbtnFindByTime.TabIndex = 7;
+            this.cbtnFindByTime.Values.Text = "按时间段";
+            this.cbtnFindByTime.Click += new System.EventHandler(this.cbtnFindByTime_Click);
+            // 
+            // cbtnFindByName
+            // 
+            this.cbtnFindByName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbtnFindByName.Location = new System.Drawing.Point(163, 13);
+            this.cbtnFindByName.Name = "cbtnFindByName";
+            this.cbtnFindByName.Size = new System.Drawing.Size(69, 24);
+            this.cbtnFindByName.TabIndex = 8;
+            this.cbtnFindByName.Values.Text = "按试卷名";
+            this.cbtnFindByName.Click += new System.EventHandler(this.cbtnFindByName_Click);
+            // 
+            // csFind
+            // 
+            this.csFind.CheckButtons.Add(this.cbtnFindByTime);
+            this.csFind.CheckButtons.Add(this.cbtnFindByName);
+            this.csFind.CheckButtons.Add(this.cbtnFindByYear);
+            this.csFind.CheckedButton = this.cbtnFindByYear;
             // 
             // flowLayoutPanel1
             // 
@@ -89,11 +165,11 @@
             this.flowLayoutPanel1.Controls.Add(this.endTime);
             this.flowLayoutPanel1.Controls.Add(this.btnFind);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 10);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 40);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(722, 35);
-            this.flowLayoutPanel1.TabIndex = 9;
+            this.flowLayoutPanel1.TabIndex = 10;
             // 
             // year
             // 
@@ -175,84 +251,6 @@
             this.btnFind.StateCommon.Border.Width = 1;
             this.btnFind.TabIndex = 8;
             this.btnFind.Values.Text = "查询";
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
-            // groupBox1
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 6);
-            this.groupBox1.Controls.Add(this.PaperListDGV);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 78);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(716, 575);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "试卷列表";
-            // 
-            // PaperListDGV
-            // 
-            this.PaperListDGV.AllowUserToAddRows = false;
-            this.PaperListDGV.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.PaperListDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PaperListDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
-            this.PaperListDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorMini;
-            this.PaperListDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.PaperListDGV.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.PaperListDGV.Location = new System.Drawing.Point(3, 22);
-            this.PaperListDGV.Name = "PaperListDGV";
-            this.PaperListDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
-            this.PaperListDGV.ReadOnly = true;
-            this.PaperListDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.PaperListDGV.RowTemplate.Height = 23;
-            this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PaperListDGV.Size = new System.Drawing.Size(710, 550);
-            this.PaperListDGV.TabIndex = 0;
-            this.PaperListDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellDoubleClick);
-            this.PaperListDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellClick);
-            // 
-            // cbtnFindByYear
-            // 
-            this.cbtnFindByYear.Checked = true;
-            this.cbtnFindByYear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnFindByYear.Location = new System.Drawing.Point(13, 48);
-            this.cbtnFindByYear.Name = "cbtnFindByYear";
-            this.cbtnFindByYear.Size = new System.Drawing.Size(69, 24);
-            this.cbtnFindByYear.TabIndex = 6;
-            this.cbtnFindByYear.Values.Text = "按年";
-            this.cbtnFindByYear.Click += new System.EventHandler(this.cbtnFindByYear_Click);
-            // 
-            // cbtnFindByTime
-            // 
-            this.cbtnFindByTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnFindByTime.Location = new System.Drawing.Point(88, 48);
-            this.cbtnFindByTime.Name = "cbtnFindByTime";
-            this.cbtnFindByTime.Size = new System.Drawing.Size(69, 24);
-            this.cbtnFindByTime.TabIndex = 7;
-            this.cbtnFindByTime.Values.Text = "按时间段";
-            this.cbtnFindByTime.Click += new System.EventHandler(this.cbtnFindByTime_Click);
-            // 
-            // cbtnFindByName
-            // 
-            this.cbtnFindByName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnFindByName.Location = new System.Drawing.Point(163, 48);
-            this.cbtnFindByName.Name = "cbtnFindByName";
-            this.cbtnFindByName.Size = new System.Drawing.Size(69, 24);
-            this.cbtnFindByName.TabIndex = 8;
-            this.cbtnFindByName.Values.Text = "按试卷名";
-            this.cbtnFindByName.Click += new System.EventHandler(this.cbtnFindByName_Click);
-            // 
-            // csFind
-            // 
-            this.csFind.CheckButtons.Add(this.cbtnFindByTime);
-            this.csFind.CheckButtons.Add(this.cbtnFindByName);
-            this.csFind.CheckButtons.Add(this.cbtnFindByYear);
-            this.csFind.CheckedButton = this.cbtnFindByYear;
             // 
             // PaperListPanel
             // 
@@ -262,11 +260,11 @@
             this.Name = "PaperListPanel";
             this.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.csFind)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
