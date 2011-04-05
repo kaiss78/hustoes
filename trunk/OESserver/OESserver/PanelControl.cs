@@ -94,6 +94,7 @@ namespace OES
         {
             HideAllPanel();
             MessageBox.Show(x.ToString() + " " + y.ToString());
+            panelList[x].HideAll();
             panelList[x].ReLoad(y);
         }
         static public void ReturnToPaper()

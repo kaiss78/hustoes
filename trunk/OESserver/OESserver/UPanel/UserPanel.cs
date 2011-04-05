@@ -25,6 +25,9 @@ namespace OES.UPanel
         virtual public void ReLoad(int x)
         {
         }
+        virtual public void HideAll()
+        {
+        }
         virtual public void ReLoad(Paper x)
         {
         }
