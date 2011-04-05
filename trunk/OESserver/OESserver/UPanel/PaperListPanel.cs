@@ -62,17 +62,11 @@ namespace OES.UPanel
 
         public PaperListPanel()
         {
-            InitializeComponent();
+            InitializeComponent();            
             changeFindType(findtype);               //一开始是按年份查询
         }
 
-        override public void ReLoad()
-        {
-            this.Visible = true;
-            InitList();
-        }
-
-        private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+         private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RIndex = e.RowIndex;
             if(RIndex>-1)
@@ -99,8 +93,7 @@ namespace OES.UPanel
                 for (int i = 0; i < paperListDataTable.Rows.Count; i++)
                 {
                     if ((bool)paperListDataTable.Rows[i][0])
-                    {
-                        //MessageBox.Show("DELETE * FROM tb_Book WHERE BID=" + BookTable.Rows[i][1]);
+                    {                        
                         InfoControl.OesData.DeletePaper(paperListDataTable.Rows[i]["试卷ID"].ToString());
                     }
                 }
