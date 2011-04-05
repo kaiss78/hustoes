@@ -69,8 +69,8 @@ namespace OES.UPanel
         {
             this.Visible = true;
             btnChoice.Visible = InfoControl.TmpPaper.ProList[0].Count > 0;
-            btnJudge.Visible = InfoControl.TmpPaper.ProList[2].Count > 0;
             btnCompletion.Visible = InfoControl.TmpPaper.ProList[1].Count > 0;
+            btnJudge.Visible = InfoControl.TmpPaper.ProList[2].Count > 0;            
             btnWord.Visible = InfoControl.TmpPaper.officeWord.exist;
             btnPPT.Visible = InfoControl.TmpPaper.officePPT.exist;
             btnExcel.Visible = InfoControl.TmpPaper.officeExcel.exist;
