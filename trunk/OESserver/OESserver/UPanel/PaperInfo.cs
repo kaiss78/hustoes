@@ -77,6 +77,9 @@ namespace OES.UPanel
                 scoreList[i].Text = "0";
             }
             CppPro.Checked = true;
+            this.ChoiceCount.Text = "0";
+            this.JudgeCount.Text = "0";
+            this.CompletionCount.Text = "0";
             countList[0].Enabled = true;
             countList[1].Enabled = true;
             countList[2].Enabled = true;
