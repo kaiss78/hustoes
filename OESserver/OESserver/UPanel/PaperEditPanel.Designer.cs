@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.kryptonSplitContainer1 = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnChoice = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnCompletion = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -61,6 +63,8 @@
             // 
             // kryptonSplitContainer1.Panel1
             // 
+            this.kryptonSplitContainer1.Panel1.Controls.Add(this.btnSave);
+            this.kryptonSplitContainer1.Panel1.Controls.Add(this.btnCancel);
             this.kryptonSplitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
             // 
             // kryptonSplitContainer1.Panel2
@@ -69,6 +73,56 @@
             this.kryptonSplitContainer1.Size = new System.Drawing.Size(742, 666);
             this.kryptonSplitContainer1.SplitterDistance = 220;
             this.kryptonSplitContainer1.TabIndex = 0;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(5, 595);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.btnSave.Size = new System.Drawing.Size(212, 32);
+            this.btnSave.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnSave.StateCommon.Border.Rounding = 14;
+            this.btnSave.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnSave.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnSave.StateNormal.Border.Rounding = 14;
+            this.btnSave.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnSave.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Tag = "8";
+            this.btnSave.Values.Text = "保存";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(4, 629);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
+            this.btnCancel.Size = new System.Drawing.Size(212, 32);
+            this.btnCancel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnCancel.StateCommon.Border.Rounding = 14;
+            this.btnCancel.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCancel.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnCancel.StateNormal.Border.Rounding = 14;
+            this.btnCancel.StateNormal.Content.Padding = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnCancel.StateNormal.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Tag = "8";
+            this.btnCancel.Values.Text = "取消";
             // 
             // flowLayoutPanel1
             // 
@@ -82,10 +136,9 @@
             this.flowLayoutPanel1.Controls.Add(this.btnPCompletion);
             this.flowLayoutPanel1.Controls.Add(this.btnPModif);
             this.flowLayoutPanel1.Controls.Add(this.btnPFunction);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 666);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(220, 313);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnChoice
@@ -378,5 +431,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPFunction;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel ControlPanel;
         private System.Windows.Forms.FlowLayoutPanel ItemPanel;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCancel;
     }
 }

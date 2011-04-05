@@ -180,9 +180,7 @@ namespace OES.UPanel
             InfoControl.TmpPaper.pModif.exist = flag[7] == 1;
             InfoControl.TmpPaper.pModif.problemId = -1;
             InfoControl.TmpPaper.pFunction.exist = flag[8] == 1;
-            InfoControl.TmpPaper.pFunction.problemId = -1;
-            MessageBox.Show(InfoControl.TmpPaper.paperPath);
-            XMLControl.CreatePaperXML(InfoControl.TmpPaper.paperPath, InfoControl.TmpPaper.paperID);
+            InfoControl.TmpPaper.pFunction.problemId = -1;                        
             PanelControl.ChangPanel(19);
         }        
     }
