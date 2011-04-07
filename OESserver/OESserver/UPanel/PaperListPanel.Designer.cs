@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.year = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
@@ -64,23 +64,22 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 5, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnDel, 6, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByYear, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByTime, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByName, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 5, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnDel, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByYear, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByTime, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cbtnFindByName, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -93,7 +92,7 @@
             this.flowLayoutPanel1.Controls.Add(this.endTime);
             this.flowLayoutPanel1.Controls.Add(this.btnFind);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 10);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 40);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(722, 35);
@@ -114,7 +113,7 @@
             0,
             0});
             this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(80, 30);
+            this.year.Size = new System.Drawing.Size(80, 25);
             this.year.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.year.TabIndex = 4;
             this.year.Value = new decimal(new int[] {
@@ -146,7 +145,7 @@
             this.startTime.Location = new System.Drawing.Point(339, 3);
             this.startTime.Name = "startTime";
             this.startTime.ShowUpDown = true;
-            this.startTime.Size = new System.Drawing.Size(134, 30);
+            this.startTime.Size = new System.Drawing.Size(134, 24);
             this.startTime.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.startTime.TabIndex = 6;
             this.startTime.UseWaitCursor = true;
@@ -161,21 +160,21 @@
             this.endTime.Location = new System.Drawing.Point(479, 3);
             this.endTime.Name = "endTime";
             this.endTime.ShowUpDown = true;
-            this.endTime.Size = new System.Drawing.Size(134, 30);
+            this.endTime.Size = new System.Drawing.Size(134, 24);
             this.endTime.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.endTime.TabIndex = 7;
             this.endTime.ValueNullable = new System.DateTime(2011, 3, 27, 0, 0, 0, 0);
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(617, 1);
-            this.btnFind.Margin = new System.Windows.Forms.Padding(1);
+            this.btnFind.Location = new System.Drawing.Point(618, 1);
+            this.btnFind.Margin = new System.Windows.Forms.Padding(2, 1, 2, 2);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(99, 34);
+            this.btnFind.Size = new System.Drawing.Size(80, 32);
             this.btnFind.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnFind.StateCommon.Border.Rounding = 14;
+            this.btnFind.StateCommon.Border.Rounding = 15;
             this.btnFind.StateCommon.Border.Width = 1;
             this.btnFind.TabIndex = 8;
             this.btnFind.Values.Text = "查询";
@@ -198,9 +197,9 @@
             // 
             this.PaperListDGV.AllowUserToAddRows = false;
             this.PaperListDGV.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.PaperListDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PaperListDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.PaperListDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorMini;
@@ -211,8 +210,8 @@
             this.PaperListDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.PaperListDGV.ReadOnly = true;
             this.PaperListDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.PaperListDGV.RowTemplate.Height = 23;
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaperListDGV.Size = new System.Drawing.Size(710, 550);
@@ -224,7 +223,7 @@
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEdit.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnEdit.Location = new System.Drawing.Point(534, 47);
+            this.btnEdit.Location = new System.Drawing.Point(534, 12);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(96, 26);
@@ -236,7 +235,7 @@
             // 
             this.btnDel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDel.Location = new System.Drawing.Point(634, 47);
+            this.btnDel.Location = new System.Drawing.Point(634, 12);
             this.btnDel.Margin = new System.Windows.Forms.Padding(2);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(96, 26);
@@ -249,7 +248,7 @@
             // 
             this.cbtnFindByYear.Checked = true;
             this.cbtnFindByYear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnFindByYear.Location = new System.Drawing.Point(13, 48);
+            this.cbtnFindByYear.Location = new System.Drawing.Point(13, 13);
             this.cbtnFindByYear.Name = "cbtnFindByYear";
             this.cbtnFindByYear.Size = new System.Drawing.Size(69, 24);
             this.cbtnFindByYear.TabIndex = 6;
@@ -259,7 +258,7 @@
             // cbtnFindByTime
             // 
             this.cbtnFindByTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnFindByTime.Location = new System.Drawing.Point(88, 48);
+            this.cbtnFindByTime.Location = new System.Drawing.Point(88, 13);
             this.cbtnFindByTime.Name = "cbtnFindByTime";
             this.cbtnFindByTime.Size = new System.Drawing.Size(69, 24);
             this.cbtnFindByTime.TabIndex = 7;
@@ -269,7 +268,7 @@
             // cbtnFindByName
             // 
             this.cbtnFindByName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbtnFindByName.Location = new System.Drawing.Point(163, 48);
+            this.cbtnFindByName.Location = new System.Drawing.Point(163, 13);
             this.cbtnFindByName.Name = "cbtnFindByName";
             this.cbtnFindByName.Size = new System.Drawing.Size(69, 24);
             this.cbtnFindByName.TabIndex = 8;
