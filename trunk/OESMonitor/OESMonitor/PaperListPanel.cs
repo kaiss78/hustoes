@@ -85,11 +85,7 @@ namespace OES.UPanel
 
         private void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int RIndex = e.RowIndex;
-            if (RIndex > -1)
-            {
-                MessageBox.Show(RIndex.ToString());
-            }
+
         }
 
         private void btnDel_Click(object sender, EventArgs e)
