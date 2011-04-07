@@ -32,9 +32,42 @@ namespace OESMonitor
             paperListDataTable.Columns.Add("作者");
             PaperListDGV.DataSource = paperListDataTable;
             PaperListDGV.CellClick+=new DataGridViewCellEventHandler(PaperListDGV_CellClick);
+            PaperListDGV.CellDoubleClick += new DataGridViewCellEventHandler(PaperListDGV_CellDoubleClick);
             PaperListDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+            btnRemove.MouseEnter += new EventHandler(btnRemove_MouseEnter);
+            btnRemove.MouseLeave += new EventHandler(radioButton1_MouseLeave);
+            btnRemove.Click+=new EventHandler(btnRemove_Click);
+            btnGetPaperFromDB.MouseEnter += new EventHandler(btnGetPaperFromDB_MouseEnter);
+            btnGetPaperFromDB.MouseLeave += new EventHandler(radioButton1_MouseLeave);
         }
+
+        void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex!=-1)
+                radioButton3.Text = radioButton3.Text.Split('-')[0] + '-' + paperListDataTable.Rows[e.RowIndex][1];
+        }
+
+        void btnGetPaperFromDB_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"打开新的窗口，到数据库里面取需要考试的试卷";
+        }
+
+        void btnRemove_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"从当前试卷列表中将选中的试卷移除";
+        }
+
+        void btnRemove_Click(object sender, System.EventArgs e)
+        {
+            for (int i = PaperListDGV.Rows.Count-1; i >=0 ; i--)
+            {
+                if ((bool)PaperListDGV.Rows[i].Cells[0].Value == true)
+                {
+                    paperListDataTable.Rows.RemoveAt(i);
+                }
+            }
+        }
+
         private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RIndex = e.RowIndex;
@@ -201,6 +234,28 @@ namespace OESMonitor
         {
             PaperChooseForm pcf = new PaperChooseForm();
             pcf.Show();
+        }
+
+        private void radioButton1_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"顺序选取试卷";
+        }
+
+        private void radioButton2_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"随机选取试卷";
+        }
+
+        private void radioButton3_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"通过双击
+选取其中一份试卷
+当前选择的试卷为：";
+        }
+
+        private void radioButton1_MouseLeave(object sender, EventArgs e)
+        {
+            helpLabel.Text = "";
         }
 
     }

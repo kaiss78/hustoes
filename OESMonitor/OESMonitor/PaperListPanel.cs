@@ -107,7 +107,7 @@ namespace OES.UPanel
 
         private void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void btnDel_Click(object sender, EventArgs e)
