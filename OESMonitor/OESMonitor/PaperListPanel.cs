@@ -7,6 +7,7 @@ using OESMonitor.PaperControl;
 using System.Text;
 using System.Windows.Forms;
 using OESMonitor.Model;
+using OESMonitor;
 
 namespace OES.UPanel
 {
@@ -16,6 +17,7 @@ namespace OES.UPanel
         public Paper paper=new Paper();
         public List<Paper> paperList;
         private int findtype = 1;
+        public PaperChooseForm parent;
 
         public void InitDT()
         {
@@ -25,6 +27,26 @@ namespace OES.UPanel
             paperListDataTable.Columns.Add("试卷名称");
             paperListDataTable.Columns.Add("组卷时间");
             paperListDataTable.Columns.Add("作者");
+            btnSelect.Click += new EventHandler(btnSelect_Click);
+        }
+
+        
+        void btnSelect_Click(object sender, EventArgs e)
+        {
+            for(int i=0;i<PaperListDGV.Rows.Count;i++)
+            {
+                if ((bool)PaperListDGV.Rows[i].Cells[0].Value == true)
+                {
+                    object[] values = new object[5];
+                    values[0] = paperListDataTable.Rows[i][0];
+                    values[1] = paperListDataTable.Rows[i][1];
+                    values[2] = paperListDataTable.Rows[i][2];
+                    values[3] = paperListDataTable.Rows[i][3];
+                    values[4] = paperListDataTable.Rows[i][4];
+                    OESMonitor.OESMonitor.paperListDataTable.Rows.Add(values);
+                }
+            }
+            parent.Close();
         }
 
         public void InitList()
@@ -99,6 +121,7 @@ namespace OES.UPanel
                     {
                         //MessageBox.Show("DELETE * FROM tb_Book WHERE BID=" + BookTable.Rows[i][1]);
                         PaperControl.OesData.DeletePaper(paperListDataTable.Rows[i]["试卷ID"].ToString());
+                        
                     }
                 }
                 InitList();

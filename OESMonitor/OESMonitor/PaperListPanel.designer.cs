@@ -126,7 +126,7 @@
             this.paperName.Location = new System.Drawing.Point(86, 0);
             this.paperName.Margin = new System.Windows.Forms.Padding(0);
             this.paperName.Name = "paperName";
-            this.paperName.Size = new System.Drawing.Size(250, 29);
+            this.paperName.Size = new System.Drawing.Size(250, 26);
             this.paperName.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -258,6 +258,9 @@
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btnSelect.StateCommon.Border.Rounding = 12;
             this.btnSelect.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelect.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btnSelect.StateNormal.Border.Rounding = 12;
             this.btnSelect.TabIndex = 11;
             this.btnSelect.Values.Text = "选择试卷";

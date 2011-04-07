@@ -17,6 +17,7 @@ namespace OESMonitor
             InitializeComponent();
             supportServer = new ClientEvt();
             supportServer.Client.ReceivedTxt += new EventHandler(Client_ReceivedTxt);
+            paperListPanel1.parent = this;
         }
 
         void Client_ReceivedTxt(object sender, EventArgs e)
@@ -37,6 +38,7 @@ namespace OESMonitor
             supportServer.Client.Port.FilePath = "F:\\abc.xml";
             supportServer.Client.ReceiveFile();
         }
+
         public void LoadPaper(int id,int tid)
         {
             supportServer.Client.SendTxt("server$2$0$"+tid.ToString()+"$"+id.ToString());
