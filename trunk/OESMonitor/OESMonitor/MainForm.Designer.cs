@@ -44,9 +44,16 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.btnGetPaperFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.helpLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.PaperListDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.btnGetPaperFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -54,6 +61,8 @@
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,8 +207,11 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.groupBox2);
+            this.tabPage5.Controls.Add(this.groupBox1);
             this.tabPage5.Controls.Add(this.PaperListDGV);
             this.tabPage5.Controls.Add(this.btnGetPaperFromDB);
+            this.tabPage5.Controls.Add(this.btnRemove);
             this.tabPage5.Controls.Add(this.label4);
             this.tabPage5.Location = new System.Drawing.Point(25, 4);
             this.tabPage5.Name = "tabPage5";
@@ -209,23 +221,77 @@
             this.tabPage5.Text = "考卷选择";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // btnGetPaperFromDB
+            // groupBox2
             // 
-            this.btnGetPaperFromDB.Location = new System.Drawing.Point(553, 441);
-            this.btnGetPaperFromDB.Name = "btnGetPaperFromDB";
-            this.btnGetPaperFromDB.Size = new System.Drawing.Size(278, 29);
-            this.btnGetPaperFromDB.TabIndex = 2;
-            this.btnGetPaperFromDB.Values.Text = "从数据库获取获取试卷>>>";
-            this.btnGetPaperFromDB.Click += new System.EventHandler(this.btnGetPaperFromDB_Click);
+            this.groupBox2.Controls.Add(this.helpLabel);
+            this.groupBox2.Location = new System.Drawing.Point(580, 191);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(211, 114);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "帮助";
             // 
-            // label4
+            // helpLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 14);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "本场考试试卷列表";
+            this.helpLabel.AutoEllipsis = true;
+            this.helpLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.helpLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.helpLabel.Location = new System.Drawing.Point(3, 19);
+            this.helpLabel.Name = "helpLabel";
+            this.helpLabel.Size = new System.Drawing.Size(205, 92);
+            this.helpLabel.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Location = new System.Drawing.Point(580, 34);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(211, 150);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "试卷随机方式";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(41, 108);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(158, 18);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "用单一试卷-双击试卷";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.MouseLeave += new System.EventHandler(this.radioButton1_MouseLeave);
+            this.radioButton3.MouseEnter += new System.EventHandler(this.radioButton3_MouseEnter);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(41, 70);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(109, 18);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "随机选取试卷";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.MouseLeave += new System.EventHandler(this.radioButton1_MouseLeave);
+            this.radioButton2.MouseEnter += new System.EventHandler(this.radioButton2_MouseEnter);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(41, 32);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(109, 18);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "顺序选取试卷";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.MouseLeave += new System.EventHandler(this.radioButton1_MouseLeave);
+            this.radioButton1.MouseEnter += new System.EventHandler(this.radioButton1_MouseEnter);
             // 
             // PaperListDGV
             // 
@@ -250,6 +316,33 @@
             this.PaperListDGV.Size = new System.Drawing.Size(527, 434);
             this.PaperListDGV.TabIndex = 3;
             // 
+            // btnGetPaperFromDB
+            // 
+            this.btnGetPaperFromDB.Location = new System.Drawing.Point(580, 400);
+            this.btnGetPaperFromDB.Name = "btnGetPaperFromDB";
+            this.btnGetPaperFromDB.Size = new System.Drawing.Size(250, 50);
+            this.btnGetPaperFromDB.TabIndex = 2;
+            this.btnGetPaperFromDB.Values.Text = "从数据库获取获取试卷>>>";
+            this.btnGetPaperFromDB.Click += new System.EventHandler(this.btnGetPaperFromDB_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(580, 320);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(120, 50);
+            this.btnRemove.TabIndex = 3;
+            this.btnRemove.Values.Text = "移除选中试卷";
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 14);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "本场考试试卷列表";
+            // 
             // OESMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -271,10 +364,15 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
+
+        
 
         #endregion
 
@@ -293,8 +391,15 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnGetPaperFromDB;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRemove;
         private System.Windows.Forms.Label label4;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView PaperListDGV;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label helpLabel;
 
     }
 }
