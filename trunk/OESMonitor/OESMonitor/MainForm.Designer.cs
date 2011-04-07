@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,7 +46,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.btnGetPaperFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.PaperListDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -52,6 +54,7 @@
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -195,9 +198,9 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.PaperListDGV);
             this.tabPage5.Controls.Add(this.btnGetPaperFromDB);
             this.tabPage5.Controls.Add(this.label4);
-            this.tabPage5.Controls.Add(this.checkedListBox1);
             this.tabPage5.Location = new System.Drawing.Point(25, 4);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -212,8 +215,7 @@
             this.btnGetPaperFromDB.Name = "btnGetPaperFromDB";
             this.btnGetPaperFromDB.Size = new System.Drawing.Size(278, 29);
             this.btnGetPaperFromDB.TabIndex = 2;
-            this.btnGetPaperFromDB.Text = "从数据库获取获取试卷>>>";
-            //this.btnGetPaperFromDB.UseVisualStyleBackColor = true;
+            this.btnGetPaperFromDB.Values.Text = "从数据库获取获取试卷>>>";
             this.btnGetPaperFromDB.Click += new System.EventHandler(this.btnGetPaperFromDB_Click);
             // 
             // label4
@@ -225,15 +227,28 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "本场考试试卷列表";
             // 
-            // checkedListBox1
+            // PaperListDGV
             // 
-            this.checkedListBox1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.HorizontalScrollbar = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(18, 34);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(493, 436);
-            this.checkedListBox1.TabIndex = 0;
+            this.PaperListDGV.AllowUserToAddRows = false;
+            this.PaperListDGV.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.PaperListDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.PaperListDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorMini;
+            this.PaperListDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.PaperListDGV.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.PaperListDGV.Location = new System.Drawing.Point(18, 34);
+            this.PaperListDGV.Name = "PaperListDGV";
+            this.PaperListDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+            this.PaperListDGV.ReadOnly = true;
+            this.PaperListDGV.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.PaperListDGV.RowTemplate.Height = 23;
+            this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.PaperListDGV.Size = new System.Drawing.Size(527, 434);
+            this.PaperListDGV.TabIndex = 3;
             // 
             // OESMonitor
             // 
@@ -256,6 +271,7 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,7 +294,7 @@
         private System.Windows.Forms.TabPage tabPage5;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnGetPaperFromDB;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView PaperListDGV;
 
     }
 }

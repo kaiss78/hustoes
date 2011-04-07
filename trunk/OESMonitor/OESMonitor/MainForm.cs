@@ -17,13 +17,33 @@ namespace OESMonitor
         CommandLine cl = new CommandLine();
         Config config = new Config();
         List<IPAddress> alternativeIp = new List<IPAddress>();
-
+        public static DataTable paperListDataTable;
+        
         public OESMonitor()
         {
             InitializeComponent();
             panel1.Controls.Add( ComputerState.getInstance());
+            
+            paperListDataTable = new DataTable("PaperList");
+            paperListDataTable.Columns.Add("选中", typeof(bool));
+            paperListDataTable.Columns.Add("试卷ID");
+            paperListDataTable.Columns.Add("试卷名称");
+            paperListDataTable.Columns.Add("组卷时间");
+            paperListDataTable.Columns.Add("作者");
+            PaperListDGV.DataSource = paperListDataTable;
+            PaperListDGV.CellClick+=new DataGridViewCellEventHandler(PaperListDGV_CellClick);
+            PaperListDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            
         }
+        private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RIndex = e.RowIndex;
+            if (RIndex > -1)
+            {
+                paperListDataTable.Rows[RIndex][0] = !Convert.ToBoolean(paperListDataTable.Rows[RIndex][0]);
+            }
 
+        }
         private void RetrieveHostIpv4Address()
         {
             //获得所有的ip地址，包括ipv6和ipv4
