@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.year = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
@@ -43,8 +43,8 @@
             this.cbtnFindByYear = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.cbtnFindByTime = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
             this.cbtnFindByName = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
-            this.csFind = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
             this.btnSelect = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.csFind = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -194,9 +194,9 @@
             // 
             this.PaperListDGV.AllowUserToAddRows = false;
             this.PaperListDGV.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.PaperListDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PaperListDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.PaperListDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorMini;
@@ -207,8 +207,8 @@
             this.PaperListDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.PaperListDGV.ReadOnly = true;
             this.PaperListDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.PaperListDGV.RowTemplate.Height = 23;
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaperListDGV.Size = new System.Drawing.Size(710, 550);
@@ -247,13 +247,6 @@
             this.cbtnFindByName.Values.Text = "按试卷名";
             this.cbtnFindByName.Click += new System.EventHandler(this.cbtnFindByName_Click);
             // 
-            // csFind
-            // 
-            this.csFind.CheckButtons.Add(this.cbtnFindByTime);
-            this.csFind.CheckButtons.Add(this.cbtnFindByName);
-            this.csFind.CheckButtons.Add(this.cbtnFindByYear);
-            this.csFind.CheckedButton = this.cbtnFindByYear;
-            // 
             // btnSelect
             // 
             this.btnSelect.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -261,12 +254,21 @@
             this.btnSelect.Margin = new System.Windows.Forms.Padding(1);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(98, 28);
-            this.btnSelect.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            this.btnSelect.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnSelect.StateCommon.Border.Rounding = 12;
+            this.btnSelect.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelect.StateNormal.Border.Rounding = 12;
             this.btnSelect.TabIndex = 11;
             this.btnSelect.Values.Text = "选择试卷";
+            // 
+            // csFind
+            // 
+            this.csFind.CheckButtons.Add(this.cbtnFindByTime);
+            this.csFind.CheckButtons.Add(this.cbtnFindByName);
+            this.csFind.CheckButtons.Add(this.cbtnFindByYear);
+            this.csFind.CheckedButton = this.cbtnFindByYear;
             // 
             // PaperListPanel
             // 
