@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using OES.Net;
+using System.IO;
 
 namespace OES
 {
@@ -30,6 +31,7 @@ namespace OES
                 ClientControl.LoginForm.Show();
                 this.Hide();
                 OES.DAO.MD5File.GenerateSecurityFile("End");
+                Directory.Delete(Config.paperPath,true);
             }));
         }
 
