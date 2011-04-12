@@ -21,11 +21,20 @@ namespace OESMonitor.Net
             Server.ReceiveDataReady += new ClientEventHandel(Server_ReceiveDataReady);
             Server.ReceivedMsg += new ClientEventHandel(Server_ReceivedMsg);
             Server.ReceivedTxt += new ClientEventHandel(Server_ReceivedTxt);
+            Server.WrittenMsg += new ClientEventHandel(Server_WrittenMsg);
             Server.StartServer();
            
         }
 
-        
+        void Server_WrittenMsg(Client client, string msg)
+        {
+            Console.WriteLine("Send:\t"+msg);
+        }
+
+        void Server_ReceivedMsg(Client client, string msg)
+        {
+            Console.WriteLine("Recieve:\t"+msg);
+        }
 
         void Server_ReceivedTxt(Client client, string msg)
         {
@@ -204,10 +213,7 @@ namespace OESMonitor.Net
             }
         }
 
-        void Server_ReceivedMsg(Client client, string msg)
-        {
-            Console.WriteLine(msg);
-        }
+
 
         void Server_SendDataReady(Client client, string msg)
         {

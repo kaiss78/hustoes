@@ -66,11 +66,11 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Model\Unit.cs" />
+    <Compile Include="Net\OESServer.cs" />
     <Compile Include="Net\ServerConfig.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="Net\Client.cs" />
     <Compile Include="Net\DataPort.cs" />
-    <Compile Include="Net\OESServer.cs" />
     <Compile Include="Net\ServerEvt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
