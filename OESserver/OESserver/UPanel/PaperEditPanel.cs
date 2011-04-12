@@ -22,11 +22,22 @@ namespace OES.UPanel
         public List<ProblemItem> ItemList;
         public int protype;
         public int value;
+        private ProPreview propanel;
 
         public PaperEditPanel()
         {
             InitializeComponent();
-            ItemList = new List<ProblemItem>();
+            ItemList = new List<ProblemItem>();            
+            propanel = new ProPreview();
+            ItemPanel.Controls.Add(propanel);
+        }
+
+        public void HideAllItem()
+        {
+            for (int i = 0; i < ItemList.Count; i++)
+            {
+                ItemList[i].Visible = false;
+            }
         }
 
         public void LoadPro<T>(List<T> proList) where T : Problem
@@ -83,7 +94,16 @@ namespace OES.UPanel
         private void BtnProType_Click(object sender, EventArgs e)
         {
             protype = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton) sender).Tag);
-            LoadPro(InfoControl.TmpPaper.ProList[protype]);
+            if (protype < 3)
+            {
+                propanel.Visible = false;
+                LoadPro(InfoControl.TmpPaper.ProList[protype]);
+            }
+            else
+            {
+                HideAllItem();
+                propanel.Visible = true;
+            }
         }
         void ItemText_Click(object sender, EventArgs e)
         {
