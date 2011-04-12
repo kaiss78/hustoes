@@ -39,7 +39,7 @@
             this.kryptonRichTextBox1.Margin = new System.Windows.Forms.Padding(5);
             this.kryptonRichTextBox1.Name = "kryptonRichTextBox1";
             this.kryptonRichTextBox1.ReadOnly = true;
-            this.kryptonRichTextBox1.Size = new System.Drawing.Size(511, 554);
+            this.kryptonRichTextBox1.Size = new System.Drawing.Size(507, 554);
             this.kryptonRichTextBox1.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.kryptonRichTextBox1.TabIndex = 0;
             this.kryptonRichTextBox1.Text = "Text";
@@ -67,15 +67,16 @@
             this.btnSelectPro.TabIndex = 2;
             this.btnSelectPro.Values.Text = "选择题目";
             // 
-            // CProPreview
+            // ProPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnSelectPro);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.kryptonRichTextBox1);
-            this.Name = "CProPreview";
-            this.Size = new System.Drawing.Size(517, 666);
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Name = "ProPreview";
+            this.Size = new System.Drawing.Size(515, 666);
             this.ResumeLayout(false);
             this.PerformLayout();
 

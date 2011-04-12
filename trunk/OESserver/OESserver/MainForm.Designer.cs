@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.xpPanelGroup1 = new UIComponents.XPPanelGroup();
             this.xpPanel3 = new UIComponents.XPPanel(127);
+            this.scoreManlbl = new System.Windows.Forms.LinkLabel();
             this.techManlbl = new System.Windows.Forms.LinkLabel();
             this.classManlbl = new System.Windows.Forms.LinkLabel();
             this.stuManlbl = new System.Windows.Forms.LinkLabel();
@@ -51,7 +52,6 @@
             this.JudgeLbl = new System.Windows.Forms.LinkLabel();
             this.completionLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.scoreManlbl = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
@@ -70,7 +70,7 @@
             this.xpPanelGroup1.Location = new System.Drawing.Point(0, 0);
             this.xpPanelGroup1.Name = "xpPanelGroup1";
             this.xpPanelGroup1.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelGroup1.PanelGradient")));
-            this.xpPanelGroup1.Size = new System.Drawing.Size(200, 666);
+            this.xpPanelGroup1.Size = new System.Drawing.Size(200, 667);
             this.xpPanelGroup1.TabIndex = 0;
             // 
             // xpPanel3
@@ -101,6 +101,19 @@
             this.xpPanel3.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanel3.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel3.VertAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // scoreManlbl
+            // 
+            this.scoreManlbl.AutoSize = true;
+            this.scoreManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.scoreManlbl.Location = new System.Drawing.Point(7, 92);
+            this.scoreManlbl.Name = "scoreManlbl";
+            this.scoreManlbl.Size = new System.Drawing.Size(69, 19);
+            this.scoreManlbl.TabIndex = 5;
+            this.scoreManlbl.TabStop = true;
+            this.scoreManlbl.Tag = "17";
+            this.scoreManlbl.Text = "成绩管理";
+            this.scoreManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // techManlbl
             // 
@@ -381,33 +394,21 @@
             // 
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(200, 0);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(0);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(742, 666);
+            this.MainPanel.Size = new System.Drawing.Size(744, 667);
             this.MainPanel.TabIndex = 1;
-            // 
-            // scoreManlbl
-            // 
-            this.scoreManlbl.AutoSize = true;
-            this.scoreManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.scoreManlbl.Location = new System.Drawing.Point(7, 92);
-            this.scoreManlbl.Name = "scoreManlbl";
-            this.scoreManlbl.Size = new System.Drawing.Size(69, 19);
-            this.scoreManlbl.TabIndex = 5;
-            this.scoreManlbl.TabStop = true;
-            this.scoreManlbl.Tag = "17";
-            this.scoreManlbl.Text = "成绩管理";
-            this.scoreManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 666);
+            this.ClientSize = new System.Drawing.Size(944, 667);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.xpPanelGroup1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(950, 700);
-            this.MinimumSize = new System.Drawing.Size(950, 700);
+            this.MaximumSize = new System.Drawing.Size(960, 705);
+            this.MinimumSize = new System.Drawing.Size(960, 705);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OES服务端";
