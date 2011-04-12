@@ -54,6 +54,7 @@
             this.btnGetPaperFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -79,9 +80,9 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.panel1.Location = new System.Drawing.Point(652, 31);
+            this.panel1.Location = new System.Drawing.Point(652, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(184, 447);
+            this.panel1.Size = new System.Drawing.Size(184, 409);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -195,6 +196,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.tabControl1);
             this.tabPage4.Controls.Add(this.panel1);
             this.tabPage4.Location = new System.Drawing.Point(25, 4);
@@ -261,10 +263,12 @@
             this.radioButton3.Size = new System.Drawing.Size(158, 18);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.TabStop = true;
+            this.radioButton3.Tag = "2";
             this.radioButton3.Text = "用单一试卷-双击试卷";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.MouseLeave += new System.EventHandler(this.radioButton1_MouseLeave);
             this.radioButton3.MouseEnter += new System.EventHandler(this.radioButton3_MouseEnter);
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -274,10 +278,12 @@
             this.radioButton2.Size = new System.Drawing.Size(109, 18);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
+            this.radioButton2.Tag = "1";
             this.radioButton2.Text = "随机选取试卷";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.MouseLeave += new System.EventHandler(this.radioButton1_MouseLeave);
             this.radioButton2.MouseEnter += new System.EventHandler(this.radioButton2_MouseEnter);
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -288,10 +294,12 @@
             this.radioButton1.Size = new System.Drawing.Size(109, 18);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
+            this.radioButton1.Tag = "0";
             this.radioButton1.Text = "顺序选取试卷";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.MouseLeave += new System.EventHandler(this.radioButton1_MouseLeave);
             this.radioButton1.MouseEnter += new System.EventHandler(this.radioButton1_MouseEnter);
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // PaperListDGV
             // 
@@ -342,6 +350,16 @@
             this.label4.Size = new System.Drawing.Size(119, 14);
             this.label4.TabIndex = 1;
             this.label4.Text = "本场考试试卷列表";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(652, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(184, 30);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "开始考试";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // OESMonitor
             // 
@@ -400,6 +418,7 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label helpLabel;
+        private System.Windows.Forms.Button button1;
 
     }
 }
