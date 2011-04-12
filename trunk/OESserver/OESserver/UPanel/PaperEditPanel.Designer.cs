@@ -48,7 +48,6 @@
             this.kryptonSplitContainer1.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel2)).BeginInit();
             this.kryptonSplitContainer1.Panel2.SuspendLayout();
-            this.kryptonSplitContainer1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ControlPanel)).BeginInit();
             this.ControlPanel.SuspendLayout();
@@ -61,13 +60,13 @@
             this.kryptonSplitContainer1.Location = new System.Drawing.Point(0, 0);
             this.kryptonSplitContainer1.Name = "kryptonSplitContainer1";
             // 
-            // kryptonSplitContainer1.Panel1
+            // 
             // 
             this.kryptonSplitContainer1.Panel1.Controls.Add(this.btnSave);
             this.kryptonSplitContainer1.Panel1.Controls.Add(this.btnCancel);
             this.kryptonSplitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
             // 
-            // kryptonSplitContainer1.Panel2
+            // 
             // 
             this.kryptonSplitContainer1.Panel2.Controls.Add(this.ControlPanel);
             this.kryptonSplitContainer1.Size = new System.Drawing.Size(742, 666);
@@ -407,7 +406,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel2)).EndInit();
             this.kryptonSplitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).EndInit();
-            this.kryptonSplitContainer1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ControlPanel)).EndInit();
             this.ControlPanel.ResumeLayout(false);
