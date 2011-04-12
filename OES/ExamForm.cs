@@ -26,7 +26,7 @@ namespace OES
         void Port_RecieveFileRate(double rate)
         {
             this.CreateControl();
-            this.Invoke(new MethodInvoker(() =>
+            this.progressBar1.Invoke(new MethodInvoker(() =>
             {
                 this.progressBar1.Value = (int)(1000 * rate);
             }));
