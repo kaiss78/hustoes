@@ -17,6 +17,28 @@ namespace OESMonitor
         CommandLine cl = new CommandLine();
         Config config = new Config();
         List<IPAddress> alternativeIp = new List<IPAddress>();
+        int paperDeliverMode = 0;
+        bool isStartExam = false;
+
+        public bool IsStartExam
+        {
+            get { return isStartExam; }
+            set 
+            {
+                isStartExam = value;
+                if (isStartExam)
+                {
+                    ServerEvt.Server.IsPortAvailable = true;
+                    button1.Text = "停止发卷";
+                }
+                else
+                {
+                    ServerEvt.Server.IsPortAvailable = false;
+                    button1.Text = "开始考试";
+                }
+            }
+        }
+
         public static DataTable paperListDataTable;
         
         public OESMonitor()
@@ -163,7 +185,8 @@ namespace OESMonitor
             ServerEvt.Server.FileReceiveEnd += new DataPortEventHandler(Server_FileReceiveEnd);
             ServerEvt.Server.FileSendEnd += new DataPortEventHandler(Server_FileSendEnd);
             ServerEvt.Server.SendDataReady += new ClientEventHandel(Server_SendDataReady);
-
+            ServerEvt.Server.ReceivedMsg += new ClientEventHandel(Server_ReceivedMsg);
+            ServerEvt.Server.WrittenMsg += new ClientEventHandel(Server_WrittenMsg);
             RetrieveHostIpv4Address();
             if (alternativeIp.Count == 0)
             {
@@ -178,7 +201,18 @@ namespace OESMonitor
             {
                 ServerEvt.Server.StartServer();
             }
+            IsStartExam = false;
 
+        }
+
+        void Server_WrittenMsg(Client client, string msg)
+        {
+            cl.showMessage("Read:\t"+msg);
+        }
+
+        void Server_ReceivedMsg(Client client, string msg)
+        {
+            cl.showMessage("Write:\t"+msg);
         }
 
         void Server_SendDataReady(Client client, string msg)
@@ -256,6 +290,28 @@ namespace OESMonitor
         private void radioButton1_MouseLeave(object sender, EventArgs e)
         {
             helpLabel.Text = "";
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as RadioButton).Checked)
+            {
+                paperDeliverMode = Int32.Parse((sender as RadioButton).Tag.ToString());
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (!isStartExam)
+            {
+                
+                IsStartExam = true;
+            }
+            else
+            {
+                
+                IsStartExam = false;
+            }
         }
 
     }
