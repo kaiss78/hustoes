@@ -123,6 +123,10 @@
       <DependentUpon>ClassFind.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ProPreview.resx">
+      <DependentUpon>ProPreview.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UControl\ProblemItem.resx">
       <DependentUpon>ProblemItem.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -276,6 +280,12 @@
     </Compile>
     <Compile Include="UControl\ClassFind.Designer.cs">
       <DependentUpon>ClassFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ProPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ProPreview.Designer.cs">
+      <DependentUpon>ProPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="UControl\ProblemItem.cs">
       <SubType>UserControl</SubType>
