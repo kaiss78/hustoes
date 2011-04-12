@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using OESMonitor.SupportNet;
+using System.Threading;
 
 namespace OESMonitor
 {
@@ -22,7 +23,7 @@ namespace OESMonitor
 
         void Client_ReceivedTxt(object sender, EventArgs e)
         {
-            supportServer.Client.SendTxt("monitor$2$1");
+            //supportServer.Client.SendTxt("monitor$2$1");
             
         }
 
@@ -190,6 +191,11 @@ namespace OESMonitor
         public void SaveVbFunctionB(int id,int tid)
         {
             supportServer.Client.SendTxt("server$0$I$" + tid.ToString() + "$" + id.ToString());
+        }
+
+        private void PaperChooseForm_Load(object sender, EventArgs e)
+        {
+            supportServer.Client.SendTxt("monitor$0");
         }
     }
 }
