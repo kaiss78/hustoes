@@ -48,6 +48,7 @@
             this.Controls.Add(this.paperListPanel1);
             this.Name = "PaperChooseForm";
             this.Text = "PaperChooseForm";
+            this.Load += new System.EventHandler(this.PaperChooseForm_Load);
             this.ResumeLayout(false);
 
         }
