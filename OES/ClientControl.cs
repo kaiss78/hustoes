@@ -23,7 +23,8 @@ namespace OES
         {
             get 
             {
-                if (loginForm == null || loginForm.IsDisposed) { LoginForm = new LoginForm(); }
+                if (loginForm == null || loginForm.IsDisposed) { LoginForm = new LoginForm();}
+                loginForm.CreateControl();
                 return ClientControl.loginForm; 
             }
             set { ClientControl.loginForm = value; }
@@ -36,7 +37,8 @@ namespace OES
             get
             {
 
-                if (examForm == null || examForm.IsDisposed) { ExamForm = new ExamForm(); }
+                if (examForm == null || examForm.IsDisposed) { ExamForm = new ExamForm();}
+                examForm.CreateControl();
                 return ClientControl.examForm; 
             }
             set { ClientControl.examForm = value; }
@@ -47,7 +49,8 @@ namespace OES
         {
             get 
             {
-                if (controlBar == null || controlBar.IsDisposed) { ControlBar = new ControlBar(); }
+                if (controlBar == null || controlBar.IsDisposed) { ControlBar = new ControlBar();}
+                controlBar.CreateControl();
                 return ClientControl.controlBar; 
             }
             set { ClientControl.controlBar = value; }
@@ -58,7 +61,8 @@ namespace OES
         {
             get 
             {
-                if (mainForm == null || mainForm.IsDisposed) { MainForm = new MainForm(); }
+                if (mainForm == null || mainForm.IsDisposed) { MainForm = new MainForm();}
+                mainForm.CreateControl();
                 return ClientControl.mainForm; 
             }
             set { ClientControl.mainForm = value; }
@@ -69,7 +73,8 @@ namespace OES
         {
             get 
             {
-                if (waitingForm == null || waitingForm.IsDisposed) { WaitingForm = new WaitingForm(); }   
+                if (waitingForm == null || waitingForm.IsDisposed) { WaitingForm = new WaitingForm();}
+                waitingForm.CreateControl();
                 return ClientControl.waitingForm; 
             }
             set { ClientControl.waitingForm = value; }
@@ -81,7 +86,8 @@ namespace OES
         {
             get 
             {
-                if (teaPassForm == null|| teaPassForm.IsDisposed) { TeaPassForm = new TeaPassForm(); }
+                if (teaPassForm == null || teaPassForm.IsDisposed) { TeaPassForm = new TeaPassForm();} 
+                teaPassForm.CreateControl(); 
                 return ClientControl.teaPassForm; 
             }
             set { ClientControl.teaPassForm = value; }

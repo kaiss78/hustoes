@@ -96,6 +96,12 @@
     <Compile Include="Model\Problem.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="DAO\ReadTxt.cs" />
+    <Compile Include="NetState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NetState.Designer.cs">
+      <DependentUpon>NetState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Net\ClientConfig.cs" />
     <Compile Include="Net\ClientEvt.cs" />
     <Compile Include="Net\DataPort.cs" />
@@ -170,6 +176,9 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetState.resx">
+      <DependentUpon>NetState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeaPassForm.resx">
       <DependentUpon>TeaPassForm.cs</DependentUpon>
