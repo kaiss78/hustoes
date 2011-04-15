@@ -46,7 +46,14 @@ namespace OESMonitor.Net
                 }
             }
         }
-
+        //当前数据端口数量
+        public int PortCurNum
+        {
+            get
+            {
+                return PortQueue.Count;
+            }
+        }
 
         #region 运行事件定义
         /// <summary>
@@ -245,7 +252,8 @@ namespace OESMonitor.Net
         /// <param name="port"></param>
         private void PortRecycler(DataPort port)
         {
-            PortQueue.Enqueue(port);
+            if(!PortQueue.Contains(port))
+                PortQueue.Enqueue(port);
             ProvideClientService();
         }
 
