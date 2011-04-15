@@ -19,14 +19,16 @@ namespace OES
         public ExamForm()
         {
             InitializeComponent();
+            ClientEvt.Client.Port.FileReceiveEnd -= Port_FileReceiveEnd;
+            ClientEvt.Client.Port.RecieveFileRate -= Port_RecieveFileRate;
             ClientEvt.Client.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
             ClientEvt.Client.Port.RecieveFileRate += new ReturnVal(Port_RecieveFileRate);
+            
         }
 
         void Port_RecieveFileRate(double rate)
         {
-            this.CreateControl();
-            this.progressBar1.Invoke(new MethodInvoker(() =>
+            ClientControl.ExamForm.progressBar1.Invoke(new MethodInvoker(() =>
             {
                 this.progressBar1.Value = (int)(1000 * rate);
             }));
@@ -86,7 +88,7 @@ namespace OES
          
         }
         string restore="";
-        private void ExamForm_Load(object sender, EventArgs e)
+        public void ExamForm_Load(object sender, EventArgs e)
         {
 
             progressBar1.CreateControl();

@@ -15,19 +15,20 @@ namespace OES
         public TeaPassForm()
         {
             InitializeComponent();
+            ClientEvt.ConfirmReStart -= ClientEvt_ConfirmReStart;
             ClientEvt.ConfirmReStart += new EventHandler(ClientEvt_ConfirmReStart);
         }
 
         void ClientEvt_ConfirmReStart(object sender, EventArgs e)
         {
-            this.Invoke(new MethodInvoker(() =>
+            ClientControl.TeaPassForm.Invoke(new MethodInvoker(() =>
             {
                 ClientControl.paper.ReadPaper();
 
                 ClientControl.isResume = false;
                 ClientControl.ControlBar.Show();
                 ClientControl.MainForm.Show();
-                this.Dispose();
+                ClientControl.TeaPassForm.Dispose();
                 ClientControl.TeaPassForm = null;
             }));
 

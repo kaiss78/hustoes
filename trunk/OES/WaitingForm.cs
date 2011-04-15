@@ -29,6 +29,7 @@ namespace OES
             {
                 ClientControl.WaitingForm = null;
                 ClientControl.LoginForm.Show();
+                ClientControl.LoginForm.SetNetState(0);
                 this.Hide();
                 OES.DAO.MD5File.GenerateSecurityFile("End");
                 Directory.Delete(Config.paperPath,true);

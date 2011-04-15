@@ -13,6 +13,7 @@ namespace OES.Net
       
         public static void validStudent(string name, string id, string pwd)
         {
+            Net.ClientEvt.Client.ReceivedTxt -= Client_ReceivedTxt;
             Net.ClientEvt.Client.ReceivedTxt += new EventHandler(Client_ReceivedTxt);
             Client.SendTxt("oes$0$" + name + "$" + id + "$" + pwd);
         }
