@@ -29,12 +29,14 @@ namespace OESMonitor
                 if (isStartExam)
                 {
                     ServerEvt.Server.IsPortAvailable = true;
-                    button1.Text = "停止发卷";
+                    button1.Text = "停止发卷/收卷";
+                    timer_PortCounter.Start();
                 }
                 else
                 {
                     ServerEvt.Server.IsPortAvailable = false;
-                    button1.Text = "开始考试";
+                    button1.Text = "开始考试/收卷";
+                    timer_PortCounter.Stop();
                 }
             }
         }
@@ -44,6 +46,9 @@ namespace OESMonitor
         public OESMonitor()
         {
             InitializeComponent();
+
+            timer_PortCounter.Interval = 1000;
+
             panel1.Controls.Add( ComputerState.getInstance());
             
             paperListDataTable = new DataTable("PaperList");
@@ -207,12 +212,12 @@ namespace OESMonitor
 
         void Server_WrittenMsg(Client client, string msg)
         {
-            cl.showMessage("Read:\t"+msg);
+            cl.showMessage("Write:\t"+msg);
         }
 
         void Server_ReceivedMsg(Client client, string msg)
         {
-            cl.showMessage("Write:\t"+msg);
+            cl.showMessage("Read:\t"+msg);
         }
 
         void Server_SendDataReady(Client client, string msg)
@@ -241,13 +246,13 @@ namespace OESMonitor
 
         void Server_FileReceiveEnd(DataPort dataPort)
         {
-            foreach (Computer c in Computer.ComputerList)
+            for (int i = Computer.ComputerList.Count - 1; i >= 0;i-- )
             {
-                if (c.Client.port == dataPort)
+                if (Computer.ComputerList[i].Client.port == dataPort)
                 {
-                    c.State = 4;
-                    Computer.CompleteList.Add(c);
-                    Computer.ComputerList.Remove(c);
+                    Computer.ComputerList[i].State = 4;
+                    //Computer.CompleteList.Add(c);
+                    Computer.ComputerList.Remove(Computer.ComputerList[i]);
                     UpdateList();
                     UpdateCompleteList();
                 }
@@ -312,6 +317,11 @@ namespace OESMonitor
                 
                 IsStartExam = false;
             }
+        }
+
+        private void timer_PortCounter_Tick(object sender, EventArgs e)
+        {
+            lab_DataPortCount.Text = Net.ServerEvt.Server.PortCurNum.ToString();
         }
 
     }
