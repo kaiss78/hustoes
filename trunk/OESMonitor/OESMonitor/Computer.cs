@@ -309,6 +309,14 @@ namespace OESMonitor
             {
                 c.BorderStyle = BorderStyle.None;
             }
+            foreach (Computer c in completeList)
+            {
+                c.BorderStyle = BorderStyle.None;
+            }
+            foreach (Computer c in errorList)
+            {
+                c.BorderStyle = BorderStyle.None;
+            }
             this.BorderStyle = BorderStyle.FixedSingle;
             ComputerState.getInstance().setStudent(student);
             ComputerState.getInstance().setState(lab.Text);
