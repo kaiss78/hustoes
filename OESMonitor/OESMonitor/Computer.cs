@@ -157,11 +157,11 @@ namespace OESMonitor
 
         void client_ReceiveDataReady(global::OESMonitor.Net.Client client, string msg)
         {
-            if (!Directory.Exists("D:/" + "EXAM001"))
+            if (!Directory.Exists(PaperControl.PaperControl.OESConfig.stuAns))
             {
-                Directory.CreateDirectory("D:/" + "EXAM001");
+                Directory.CreateDirectory(PaperControl.PaperControl.OESConfig.stuAns);
             }
-            client.port.FilePath = "D:/" + "EXAM001/"+Student.ID+".rar";
+            client.port.FilePath = PaperControl.PaperControl.OESConfig.stuAns + Student.ID + ".rar";
         }
 
        

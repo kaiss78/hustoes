@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using OESMonitor.Model;
 using System.IO;
 using System.Diagnostics;
+using OESMonitor.PaperControl;
 
 namespace OESMonitor
 {
@@ -56,6 +57,7 @@ namespace OESMonitor
                 if (state == "已交卷")
                 {
                     button1.Show();
+                    ansPath = PaperControl.PaperControl.OESConfig.stuAns+IdLab.Text+".rar";
                 }
                 else
                 {

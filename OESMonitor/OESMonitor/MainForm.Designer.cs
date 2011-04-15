@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.helpLabel = new System.Windows.Forms.Label();
@@ -54,7 +56,9 @@
             this.btnGetPaperFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lab_DataPortCount = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.timer_PortCounter = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,7 +86,7 @@
             this.panel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel1.Location = new System.Drawing.Point(652, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(184, 409);
+            this.panel1.Size = new System.Drawing.Size(184, 385);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -196,6 +200,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.lab_DataPortCount);
             this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.tabControl1);
             this.tabPage4.Controls.Add(this.panel1);
@@ -206,6 +212,16 @@
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "考试状态";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(652, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(184, 30);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "开始考试/收卷";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // tabPage5
             // 
@@ -305,9 +321,9 @@
             // 
             this.PaperListDGV.AllowUserToAddRows = false;
             this.PaperListDGV.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.PaperListDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.PaperListDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorMini;
             this.PaperListDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
@@ -317,8 +333,8 @@
             this.PaperListDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.PaperListDGV.ReadOnly = true;
             this.PaperListDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.PaperListDGV.RowTemplate.Height = 23;
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaperListDGV.Size = new System.Drawing.Size(527, 434);
@@ -351,15 +367,27 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "本场考试试卷列表";
             // 
-            // button1
+            // lab_DataPortCount
             // 
-            this.button1.Location = new System.Drawing.Point(652, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(184, 30);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "开始考试";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.lab_DataPortCount.AutoSize = true;
+            this.lab_DataPortCount.Location = new System.Drawing.Point(763, 459);
+            this.lab_DataPortCount.Name = "lab_DataPortCount";
+            this.lab_DataPortCount.Size = new System.Drawing.Size(35, 14);
+            this.lab_DataPortCount.TabIndex = 6;
+            this.lab_DataPortCount.Text = "未知";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(652, 459);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 14);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "数据端口数量：";
+            // 
+            // timer_PortCounter
+            // 
+            this.timer_PortCounter.Tick += new System.EventHandler(this.timer_PortCounter_Tick);
             // 
             // OESMonitor
             // 
@@ -380,6 +408,7 @@
             this.tabPage3.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -419,6 +448,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label helpLabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lab_DataPortCount;
+        private System.Windows.Forms.Timer timer_PortCounter;
 
     }
 }
