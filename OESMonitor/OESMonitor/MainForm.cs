@@ -251,7 +251,7 @@ namespace OESMonitor
                 if (Computer.ComputerList[i].Client.port == dataPort)
                 {
                     Computer.ComputerList[i].State = 4;
-                    //Computer.CompleteList.Add(c);
+                    Computer.CompleteList.Add(Computer.ComputerList[i]);
                     Computer.ComputerList.Remove(Computer.ComputerList[i]);
                     UpdateList();
                     UpdateCompleteList();
