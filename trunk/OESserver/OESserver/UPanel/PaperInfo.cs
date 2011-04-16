@@ -127,6 +127,16 @@ namespace OES.UPanel
             InfoControl.TmpPaper.completion = new List<Completion>(Convert.ToInt32(countList[1].Text));
             InfoControl.TmpPaper.judge = new List<Judge>(Convert.ToInt32(countList[2].Text));
 
+            InfoControl.TmpPaper.score_choice =Convert.ToInt32(this.ChoiceWeight);
+            InfoControl.TmpPaper.score_completion = Convert.ToInt32(this.CompletionWeight);
+            InfoControl.TmpPaper.score_judge = Convert.ToInt32(this.JudgeWeight);
+            InfoControl.TmpPaper.score_officeExcel = Convert.ToInt32(this.ExcelWeight);
+            InfoControl.TmpPaper.score_officePPT = Convert.ToInt32(this.PPTWeight);
+            InfoControl.TmpPaper.score_officeWord = Convert.ToInt32(this.WordWeight);
+            InfoControl.TmpPaper.score_pCompletion = Convert.ToInt32(this.PCompletionWeight);
+            InfoControl.TmpPaper.score_pFunction = Convert.ToInt32(this.PFunctionWeight);
+            InfoControl.TmpPaper.score_pModif = Convert.ToInt32(this.PModifWeight);
+
             for (int i = 0; i < InfoControl.TmpPaper.choice.Capacity; i++)
             {
                 Choice tmpChoice = new Choice();
@@ -148,7 +158,6 @@ namespace OES.UPanel
                 tmpJudge.problem = "-";
                 InfoControl.TmpPaper.judge.Add(tmpJudge);
             }
-
             InfoControl.TmpPaper.ProList[0] = new List<Problem>();
             foreach (Choice c in InfoControl.TmpPaper.choice)
             {

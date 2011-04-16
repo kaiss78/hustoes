@@ -14,6 +14,17 @@ namespace OES.Model
         public string author = "";
         public string testTime = "";
         public string paperPath = "";
+
+        public int score_choice = 0;
+        public int score_completion = 0;
+        public int score_judge = 0;
+        public int score_officeExcel = 0;
+        public int score_officePPT = 0;
+        public int score_officeWord = 0;
+        public int score_pCompletion = 0;
+        public int score_pFunction = 0;
+        public int score_pModif = 0;
+
         //ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
         public int programState = 0;
         public List<Choice> choice;
@@ -42,7 +53,6 @@ namespace OES.Model
             officeExcel = new OfficeExcel();
         }
             
-
         public void Add(Problem p)
         {
             if (p is Choice)
