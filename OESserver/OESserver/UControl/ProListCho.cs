@@ -200,23 +200,24 @@ namespace OES.UControl
                 aProMan.CurrentNoCon.Text = currentProNo;
                 ((Button)butn).Text = aProMan.CurrentNoCon.Text;
 
-            }
-            InfoControl.Value = -1;
-            InfoControl.SetProblem(aProMan.ProType, Convert.ToInt32((aProMan.CurrentNoCon.Text)) - 1, Convert.ToInt32((acheckproList[(int)((Button)butn).Tag].proid)));
-            acheckproList[(int)((Button)butn).Tag].selected = true;
-            aProMan.checkProNoList[chptNo][(int)((Button)butn).Tag] = currentProNo;
-            
-            nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
-            if (nextProNo != "-1")
-            {
-                aProMan.NextNoCon.Text = nextProNo;
-            }
-            else
-            {
-                nextProNo = "";
-                aProMan.NextNoCon.Text = "";
+
+                InfoControl.Value = -1;
+                InfoControl.SetProblem(aProMan.ProType, Convert.ToInt32((aProMan.CurrentNoCon.Text)) - 1, Convert.ToInt32((acheckproList[(int)((Button)butn).Tag].proid)));
+                aProMan.checkProNoList[chptNo][(int)((Button)butn).Tag] = currentProNo;
+                nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
+                if (nextProNo != "-1")
+                {
+                    aProMan.checkProNoList[chptNo][(int)((Button)butn).Tag] = currentProNo;
+                    aProMan.NextNoCon.Text = nextProNo;
+                }
+                else
+                {
+                    nextProNo = "";
+                    aProMan.NextNoCon.Text = "";
+                }
             }
         }
+
 
         void temp_MouseClick(object sender, MouseEventArgs e)
         {
