@@ -115,7 +115,7 @@ namespace OES.UPanel
             titleList[2].Location = new Point((ProList.choWidth + ProList.numWidth), 0);
 
             //初始化创建checkProNoList12项
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 13; i++)
             { 
                 List<String> temp =new List<String>();
                 checkProNoList.Add(temp);
@@ -255,7 +255,7 @@ namespace OES.UPanel
         {
             this.Hide();
             HideTBPanelCho();
-
+            PanelControl.ReturnToPaper();
         }
 
         public void HideTBPanelCho()
