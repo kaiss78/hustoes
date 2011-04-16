@@ -110,5 +110,14 @@ namespace OES.UPanel
             InfoControl.Value = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton)sender).Tag);
             PanelControl.ChangPanel(18, protype);
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            XMLControl.CreatePaperXML(Config.TempPaperPath,InfoControl.TmpPaper.paperID);
+            for(int i=0;i<InfoControl.TmpPaper.ProList[0].Count;i++)
+            {
+//                XMLControl.AddProblemToPaper(ProblemType.Choice,InfoControl.TmpPaper.ProList[0][i].problemId,InfoControl.TmpPaper.)
+            }            
+        }
     }
 }
