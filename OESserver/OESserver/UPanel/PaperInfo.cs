@@ -127,15 +127,15 @@ namespace OES.UPanel
             InfoControl.TmpPaper.completion = new List<Completion>(Convert.ToInt32(countList[1].Text));
             InfoControl.TmpPaper.judge = new List<Judge>(Convert.ToInt32(countList[2].Text));
 
-            InfoControl.TmpPaper.score_choice =Convert.ToInt32(this.ChoiceWeight);
-            InfoControl.TmpPaper.score_completion = Convert.ToInt32(this.CompletionWeight);
-            InfoControl.TmpPaper.score_judge = Convert.ToInt32(this.JudgeWeight);
-            InfoControl.TmpPaper.score_officeExcel = Convert.ToInt32(this.ExcelWeight);
-            InfoControl.TmpPaper.score_officePPT = Convert.ToInt32(this.PPTWeight);
-            InfoControl.TmpPaper.score_officeWord = Convert.ToInt32(this.WordWeight);
-            InfoControl.TmpPaper.score_pCompletion = Convert.ToInt32(this.PCompletionWeight);
-            InfoControl.TmpPaper.score_pFunction = Convert.ToInt32(this.PFunctionWeight);
-            InfoControl.TmpPaper.score_pModif = Convert.ToInt32(this.PModifWeight);
+            InfoControl.TmpPaper.score_choice =Convert.ToInt32(this.ChoiceWeight.Text);
+            InfoControl.TmpPaper.score_completion = Convert.ToInt32(this.CompletionWeight.Text);
+            InfoControl.TmpPaper.score_judge = Convert.ToInt32(this.JudgeWeight.Text);
+            InfoControl.TmpPaper.score_officeExcel = Convert.ToInt32(this.ExcelWeight.Text);
+            InfoControl.TmpPaper.score_officePPT = Convert.ToInt32(this.PPTWeight.Text);
+            InfoControl.TmpPaper.score_officeWord = Convert.ToInt32(this.WordWeight.Text);
+            InfoControl.TmpPaper.score_pCompletion = Convert.ToInt32(this.PCompletionWeight.Text);
+            InfoControl.TmpPaper.score_pFunction = Convert.ToInt32(this.PFunctionWeight.Text);
+            InfoControl.TmpPaper.score_pModif = Convert.ToInt32(this.PModifWeight.Text);
 
             for (int i = 0; i < InfoControl.TmpPaper.choice.Capacity; i++)
             {
