@@ -51,7 +51,7 @@ namespace OES.UControl
             mainPanel.Width = Width;
             Controls.Add(mainPanel);
 
-            chptNo = aProMan.aChptList.chpt_num;
+            chptNo = Convert.ToInt32(ChptListCho.click_num);
 
             totalpage = ((ChptListCho.pro_num / count) + 1);
             
@@ -184,15 +184,17 @@ namespace OES.UControl
         //点选已亮的checkbutton时的加载事件
         public void loadProNoifSel(object butn)
         {
+            InfoControl.DelProblem(aProMan.ProType, Convert.ToInt32(((Button)butn).Text) - 1);
             ((Button)butn).Text = "";
-            InfoControl.DelProblem(aProMan.ProType, (int)((Button)butn).Tag);
-            acheckproList[(int)((Button)butn).Tag].selected = false;       
+            aProMan.checkProNoList[chptNo][(int)((Button)butn).Tag] = "-1";
+            nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
+            aProMan.NextNoCon.Text = nextProNo;
         }
 
         //点选未亮的checkbutton时的加载事件
         public void loadProNoifNoSel(object butn)
-        {     
-            if (currentProNo !=nextProNo)
+        {
+            if (nextProNo != "")
             {
                 currentProNo = nextProNo;
                 aProMan.CurrentNoCon.Text = currentProNo;
@@ -211,8 +213,8 @@ namespace OES.UControl
             }
             else
             {
-                nextProNo = currentProNo;
-                aProMan.NextNoCon.Text = nextProNo;
+                nextProNo = "";
+                aProMan.NextNoCon.Text = "";
             }
         }
 
