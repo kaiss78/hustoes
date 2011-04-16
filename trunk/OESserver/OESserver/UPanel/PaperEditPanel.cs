@@ -113,7 +113,7 @@ namespace OES.UPanel
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            XMLControl.CreatePaperXML(Config.TempPaperPath,InfoControl.TmpPaper.paperID);
+            XMLControl.CreatePaperXML(Config.TempPaperPath + InfoControl.TmpPaper.paperID+".xml", InfoControl.TmpPaper.paperID);
             for(int i=0;i<InfoControl.TmpPaper.ProList[0].Count;i++)
             {
                 XMLControl.AddProblemToPaper(ProblemType.Choice, InfoControl.TmpPaper.ProList[0][i].problemId, InfoControl.TmpPaper.score_choice);
@@ -150,6 +150,7 @@ namespace OES.UPanel
             {
                 XMLControl.AddProblemToPaper(ProblemType.ProgramFun, InfoControl.TmpPaper.pFunction.problemId, InfoControl.TmpPaper.score_pFunction);
             }
+            PanelControl.ReturnToMain();
         }
     }
 }

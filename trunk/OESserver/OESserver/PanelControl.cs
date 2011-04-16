@@ -103,5 +103,9 @@ namespace OES
             HideAllPanel();
             panelList[19].Show();
         }
+        static public void ReturnToMain()
+        {
+            HideAllPanel();
+        }
     }
 }
