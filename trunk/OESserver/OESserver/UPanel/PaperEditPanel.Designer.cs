@@ -99,6 +99,7 @@
             this.btnSave.TabIndex = 18;
             this.btnSave.Tag = "8";
             this.btnSave.Values.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 

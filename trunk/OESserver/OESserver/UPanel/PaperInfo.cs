@@ -4,8 +4,6 @@ using System.Windows.Forms;
 using OES.XMLFile;
 using OES.Model;
 
-//using OES.XMLFile;
-
 namespace OES.UPanel
 {
     public partial class PaperInfo : UserPanel
@@ -128,11 +126,6 @@ namespace OES.UPanel
             InfoControl.TmpPaper.choice = new List<Choice>(Convert.ToInt32(countList[0].Text));
             InfoControl.TmpPaper.completion = new List<Completion>(Convert.ToInt32(countList[1].Text));
             InfoControl.TmpPaper.judge = new List<Judge>(Convert.ToInt32(countList[2].Text));
-
-
-
-
-
 
             for (int i = 0; i < InfoControl.TmpPaper.choice.Capacity; i++)
             {
