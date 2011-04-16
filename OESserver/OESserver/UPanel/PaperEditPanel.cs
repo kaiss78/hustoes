@@ -116,7 +116,7 @@ namespace OES.UPanel
             XMLControl.CreatePaperXML(Config.TempPaperPath,InfoControl.TmpPaper.paperID);
             for(int i=0;i<InfoControl.TmpPaper.ProList[0].Count;i++)
             {
-//                XMLControl.AddProblemToPaper(ProblemType.Choice,InfoControl.TmpPaper.ProList[0][i].problemId,InfoControl.TmpPaper.)
+                XMLControl.AddProblemToPaper(ProblemType.Choice, InfoControl.TmpPaper.ProList[0][i].problemId, InfoControl.TmpPaper.score_choice);
             }            
         }
     }
