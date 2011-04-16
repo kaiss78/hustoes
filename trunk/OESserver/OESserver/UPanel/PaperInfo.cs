@@ -129,28 +129,30 @@ namespace OES.UPanel
             InfoControl.TmpPaper.completion = new List<Completion>(Convert.ToInt32(countList[1].Text));
             InfoControl.TmpPaper.judge = new List<Judge>(Convert.ToInt32(countList[2].Text));
 
-            Choice tmpChoice = new Choice();
-            tmpChoice.problemId = -1;
-            tmpChoice.problem = "-";
 
-            Completion tmpCompletion = new Completion();
-            tmpCompletion.problemId = -1;
-            tmpCompletion.problem = "-";
 
-            Judge tmpJudge = new Judge();
-            tmpJudge.problemId = -1;
-            tmpJudge.problem = "-";
+
+
 
             for (int i = 0; i < InfoControl.TmpPaper.choice.Capacity; i++)
             {
+                Choice tmpChoice = new Choice();
+                tmpChoice.problemId = -1;
+                tmpChoice.problem = "-";
                 InfoControl.TmpPaper.choice.Add(tmpChoice);
             }
             for (int i = 0; i < InfoControl.TmpPaper.completion.Capacity; i++)
             {
+                Completion tmpCompletion = new Completion();
+                tmpCompletion.problemId = -1;
+                tmpCompletion.problem = "-";
                 InfoControl.TmpPaper.completion.Add(tmpCompletion);
             }
             for (int i = 0; i < InfoControl.TmpPaper.judge.Capacity; i++)
             {
+                Judge tmpJudge = new Judge();
+                tmpJudge.problemId = -1;
+                tmpJudge.problem = "-";
                 InfoControl.TmpPaper.judge.Add(tmpJudge);
             }
 

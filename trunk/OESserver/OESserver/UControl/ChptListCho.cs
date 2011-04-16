@@ -24,13 +24,13 @@ namespace OES.UControl
         public int page = 1;
         public int totalpage = 1;
         public static int pro_num = 0;
-        ProMan aProMan;
+        ProManCho aProMan;
         public string selectedchpt;
         public static string click_num="0";
         public static string click_name = "";
-        ProList aProList;
+        ProListCho aProList;
 
-        public ChptListCho(ProMan pm)
+        public ChptListCho(ProManCho pm)
         {
             InitializeComponent();
             aProMan = pm;
@@ -137,7 +137,7 @@ namespace OES.UControl
                         temp.BackColor = Color.Transparent;
                         temp.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
                         temp.Location = new Point(0, (int) (btnHeight*(i + 0.8)));
-                        temp.BackgroundImage = Resources.title;
+                        temp.BackgroundImage = Resources.btnbg1;//背景图片
                         temp.BackgroundImageLayout = ImageLayout.Stretch;
                         mainPanel.Controls.Add(temp);
                         subPanel.Add(temp);
@@ -174,84 +174,84 @@ namespace OES.UControl
                 {
                     case 0:
                         Loadpl(InfoControl.OesData.FindChoiceByUnit(Convert.ToInt32(click_num)), 0);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 1:
                         Loadpl(InfoControl.OesData.FindCompletionByUnit2(Convert.ToInt32(click_num)), 1);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 2:
                         Loadpl(InfoControl.OesData.FindTofByUnit(Convert.ToInt32(click_num)), 2);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 3:
                         Loadpl(InfoControl.OesData.FindExcelProblemContent(), 3);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 4:
                         Loadpl(InfoControl.OesData.FindPowerPointProblemContent(), 4);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 5:
                         Loadpl(InfoControl.OesData.FindWordProblemContent(), 5);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 6:
                         Loadpl(InfoControl.OesData.FindCCompletionProblemContent(), 6);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 7:
                         Loadpl(InfoControl.OesData.FindCModificationProblemContent(), 7);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 8:
                         Loadpl(InfoControl.OesData.FindCFunProblemContent(), 8);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 9:
                         Loadpl(InfoControl.OesData.FindCppCompletionProblemContent(), 9);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 10:
                         Loadpl(InfoControl.OesData.FindCppModificationProblemContent(), 10);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
                         break;
                     case 11:
                         Loadpl(InfoControl.OesData.FindCppFunProblemContent(), 11);
-                        aProList = new ProList(aProMan);
+                        aProList = new ProListCho(aProMan);
                         aProList.SetBounds(ProMan.ClWidth, ProMan.TpHeight, ProMan.PlWidth, ProMan.PlHeight);
                         aProMan.aProList = aProList;
                         aProMan.Controls.Add(aProList);
@@ -259,10 +259,12 @@ namespace OES.UControl
                     default:
                         break;
                 }
+
+                aProList.loadAllProNo();
             }
         }
 
-        //prolist赋初值
+        //prolist赋初值+checklist加载函数的调用
         public void Loadpl(List<Problem> pl,int pt)
         {
             choiceproL.Clear();
@@ -274,9 +276,7 @@ namespace OES.UControl
             {
                 achoicepro = new choicepro(pl[i].problemId.ToString(), pl[i].problem);
                 choiceproL.Add(achoicepro);
-            }
-                     
-
+            }           
             
         }
 

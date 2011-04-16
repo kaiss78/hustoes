@@ -107,7 +107,7 @@ namespace OES.UPanel
         }
         void ItemText_Click(object sender, EventArgs e)
         {
-            value = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton) sender).Tag);
+            InfoControl.Value = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton)sender).Tag);
             PanelControl.ChangPanel(18, protype);
         }
     }
