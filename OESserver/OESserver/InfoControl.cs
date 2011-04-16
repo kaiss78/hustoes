@@ -52,7 +52,7 @@ namespace OES
         public static int GetProNum(int type)
         {
             int tmp = InfoControl.Value;            
-            if (InfoControl.Value  != 0)
+            if (InfoControl.Value  == -1)
             {
                 for (int i = 0; i < InfoControl.TmpPaper.ProList[type].Count; i++)
                 {

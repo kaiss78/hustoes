@@ -3,18 +3,21 @@ using System.Windows.Forms;
 using OES.UControl;
 using System.Collections.Generic;
 using OES.Properties;
+using System;
 
 namespace OES.UPanel
 {
     public partial class ProManCho : ProMan
     {
-        public ProList aProList;
-        public ChptList aChptList;
+        public ProListCho aProList;
+        public ChptListCho aChptList;
         public static int ClWidth;
         public static int PlHeight;
         public static int TpHeight;
         public static int PlWidth;
         public static int BpHeight;
+
+        public List<List<String>> checkProNoList = new List<List<String>>();
         
         public static bool isediting=false;//标识是否正在编辑题目
 
@@ -22,6 +25,8 @@ namespace OES.UPanel
 
         public Panel bottomPanel = new Panel();
         public Panel titlePanel = new Panel();
+        public Label CurrentNoCon;
+        public Label NextNoCon;
         public int ProType;
         public List<UserControl> EditList=new List<UserControl>();
         public ChoiceEdit aChoiceEdit;
@@ -58,18 +63,18 @@ namespace OES.UPanel
             PlWidth = (int)(Width * 0.8);
             
             BpHeight = (int)(Height * 0.1);
-            TpHeight = (int)((Height*0.9)/ ProList.count);
-            ProList.btnHeight = TpHeight;
+            TpHeight = (int)((Height*0.9)/ ProList.count);  
             PlHeight = (int)(Height*0.9 - TpHeight);
-            ProList.listWidth = (int)(PlWidth * 0.973);
-            ProList.choWidth = (int)(PlWidth * 0.1);
-            ProList.numWidth = (int)(PlWidth * 0.1);
-            ProList.proWidth = (int)(PlWidth * 0.773);
+            ProListCho.btnHeight = TpHeight;
+            ProListCho.listWidth = (int)(PlWidth * 0.973);
+            ProListCho.choWidth = (int)(PlWidth * 0.1);
+            ProListCho.numWidth = (int)(PlWidth * 0.1);
+            ProListCho.proWidth = (int)(PlWidth * 0.773);
 
             ProType=0;
 
-            
-            aChptList = new ChptList(this);
+
+            aChptList = new ChptListCho(this);
             aChptList.Size = new Size(ClWidth, Height);
             Controls.Add(aChptList);
             
@@ -109,12 +114,16 @@ namespace OES.UPanel
             titleList[1].Location = new Point(ProList.choWidth, 0);
             titleList[2].Location = new Point((ProList.choWidth + ProList.numWidth), 0);
 
-            
-
+            //初始化创建checkProNoList12项
+            for (int i = 0; i < 12; i++)
+            { 
+                List<String> temp =new List<String>();
+                checkProNoList.Add(temp);
+            }
 
             {
                 aChoiceEdit.Hide();
-                aChoiceEdit.Location = new Point(ClWidth,0);
+                aChoiceEdit.Location = new Point(ClWidth, 0);
                 this.Controls.Add(aChoiceEdit);
                 EditList.Add(aChoiceEdit);
 
@@ -174,16 +183,40 @@ namespace OES.UPanel
                 EditList.Add(aCppFuctionEdit);
 
 
-                
+
             }
            
 
             //底部panel显示当前题号
+            Label CurrentNo = new Label();
+            CurrentNo.Height = 40;
+            CurrentNo.Width = 100;
+            CurrentNo.Location = new Point(15, 10);
+            CurrentNo.Text = "当前序号";
+            CurrentNo.ForeColor = Color.White;
+            CurrentNo.BackColor = Color.RoyalBlue;
+            CurrentNo.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
+            CurrentNo.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(CurrentNo);
+            CurrentNo.FlatStyle = FlatStyle.Standard;
+
+            CurrentNoCon = new Label();
+            CurrentNoCon.Height = 40;
+            CurrentNoCon.Width = 100;
+            CurrentNoCon.Location = new Point(130, 10);
+            CurrentNoCon.Text = "";
+            CurrentNoCon.ForeColor = Color.White;
+            CurrentNoCon.BackColor = Color.RoyalBlue;
+            CurrentNoCon.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
+            CurrentNoCon.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(CurrentNoCon);
+            CurrentNoCon.FlatStyle = FlatStyle.Standard;
+
             Label NextNo = new Label();
-            NextNo.Height = 60;
-            NextNo.Width = 110;
-            NextNo.Location = new Point(30, 5);
-            NextNo.Text = "当前序号";
+            NextNo.Height = 40;
+            NextNo.Width = 100;
+            NextNo.Location = new Point(245, 10);
+            NextNo.Text = "下题序号";
             NextNo.ForeColor = Color.White;
             NextNo.BackColor = Color.RoyalBlue;
             NextNo.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
@@ -191,10 +224,10 @@ namespace OES.UPanel
             bottomPanel.Controls.Add(NextNo);
             NextNo.FlatStyle = FlatStyle.Standard;
 
-            Label NextNoCon = new Label();
-            NextNoCon.Height = 60;
-            NextNoCon.Width = 110;
-            NextNoCon.Location = new Point(150, 5);
+            NextNoCon = new Label();
+            NextNoCon.Height = 40;
+            NextNoCon.Width = 100;
+            NextNoCon.Location = new Point(360, 10);
             NextNoCon.Text = "";
             NextNoCon.ForeColor = Color.White;
             NextNoCon.BackColor = Color.RoyalBlue;
@@ -202,9 +235,40 @@ namespace OES.UPanel
             NextNoCon.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(NextNoCon);
             NextNoCon.FlatStyle = FlatStyle.Standard;
+
+            //底部panel返回按钮
+            Button backtoPlp = new Button();
+            backtoPlp.Height = 40;
+            backtoPlp.Width = 100;
+            backtoPlp.Location = new Point(475, 10);
+            backtoPlp.Text = "返回组题";
+            backtoPlp.ForeColor = Color.White;
+            backtoPlp.BackColor = Color.RoyalBlue;
+            backtoPlp.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
+            backtoPlp.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(backtoPlp);
+            backtoPlp.FlatStyle = FlatStyle.Standard;
+            backtoPlp.MouseClick += new MouseEventHandler(backtoPlp_MouseClick);
         }
 
-        
+        void backtoPlp_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Hide();
+            HideTBPanelCho();
+
+        }
+
+        public void HideTBPanelCho()
+        {
+            titlePanel.Hide();
+            bottomPanel.Hide();
+        }
+
+        public void ShowTBPanelCho()
+        {
+            titlePanel.Show();
+            bottomPanel.Show();
+        }
 
         public void newedit(int pt)
         {
@@ -335,7 +399,7 @@ namespace OES.UPanel
                 if (ProType < 3)
                 {
                     aChptList.Dispose();
-                    aChptList = new ChptList(this);
+                    aChptList = new ChptListCho(this);
                     aChptList.Size = new Size(ClWidth, Height);
                     Controls.Add(aChptList);
                     aChptList.Show();
@@ -346,7 +410,7 @@ namespace OES.UPanel
                 else
                 {
                     aChptList.Hide();
-                    aProList = new ProList(this);
+                    aProList = new ProListCho(this);
                     aProList.SetBounds(ClWidth, TpHeight, PlWidth, PlHeight);
 
                     aChptList.newpl();

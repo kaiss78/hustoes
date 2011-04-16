@@ -59,8 +59,9 @@ namespace OES
             foreach (UserPanel up in panelList)
             {
                 up.Visible = false;
-
+                
             }
+
         }
 
         static public void ChangPanel(int x)

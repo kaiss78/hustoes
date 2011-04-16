@@ -489,6 +489,21 @@ namespace OES.UPanel
             bottomPanel.Show();
         }
 
+        override public void HideAll()
+        {
+            titlePanel.Hide();
+            bottomPanel.Hide();
+            if (this.Controls.Contains(aProList))
+            {
+                aProList.Hide();
+            }
+            if (this.Controls.Contains(aChptList))
+            {
+                aChptList.Hide();
+            }
+            
+        }
+
         public void HideList()
         {
             for (int i = 0; i < 12; i++)
