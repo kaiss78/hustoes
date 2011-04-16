@@ -117,7 +117,39 @@ namespace OES.UPanel
             for(int i=0;i<InfoControl.TmpPaper.ProList[0].Count;i++)
             {
                 XMLControl.AddProblemToPaper(ProblemType.Choice, InfoControl.TmpPaper.ProList[0][i].problemId, InfoControl.TmpPaper.score_choice);
-            }            
+            }
+            for (int i = 0; i < InfoControl.TmpPaper.ProList[1].Count; i++)
+            {
+                XMLControl.AddProblemToPaper(ProblemType.Completion, InfoControl.TmpPaper.ProList[1][i].problemId, InfoControl.TmpPaper.score_completion);
+            }
+            for (int i = 0; i < InfoControl.TmpPaper.ProList[2].Count; i++)
+            {
+                XMLControl.AddProblemToPaper(ProblemType.Tof, InfoControl.TmpPaper.ProList[2][i].problemId, InfoControl.TmpPaper.score_judge);
+            }
+            if (InfoControl.TmpPaper.officeWord.problemId != -1)
+            {
+                XMLControl.AddProblemToPaper(ProblemType.Word, InfoControl.TmpPaper.officeWord.problemId, InfoControl.TmpPaper.score_officeWord);
+            }
+            if (InfoControl.TmpPaper.officeExcel.problemId != -1)
+            {
+                XMLControl.AddProblemToPaper(ProblemType.Excel, InfoControl.TmpPaper.officeExcel.problemId, InfoControl.TmpPaper.score_officeExcel);
+            }
+            if (InfoControl.TmpPaper.officePPT.problemId != -1)
+            {
+                XMLControl.AddProblemToPaper(ProblemType.PowerPoint, InfoControl.TmpPaper.officePPT.problemId, InfoControl.TmpPaper.score_officePPT);
+            }
+            if (InfoControl.TmpPaper.pCompletion.problemId != -1)
+            {
+                XMLControl.AddProblemToPaper(ProblemType.ProgramCompletion, InfoControl.TmpPaper.pCompletion.problemId, InfoControl.TmpPaper.score_pCompletion);
+            }
+            if (InfoControl.TmpPaper.pModif.problemId != -1)
+            {
+                XMLControl.AddProblemToPaper(ProblemType.ProgramModification, InfoControl.TmpPaper.pModif.problemId, InfoControl.TmpPaper.score_pModif);
+            }
+            if (InfoControl.TmpPaper.pFunction.problemId != -1)
+            {
+                XMLControl.AddProblemToPaper(ProblemType.ProgramFun, InfoControl.TmpPaper.pFunction.problemId, InfoControl.TmpPaper.score_pFunction);
+            }
         }
     }
 }
