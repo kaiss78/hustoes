@@ -30,7 +30,8 @@ namespace OES.UPanel
             ItemList = new List<ProblemItem>();            
             propanel = new ProPreview();
             propanel.btnSelectPro.Click += new EventHandler(SelectPro_Click);
-            ItemPanel.Controls.Add(propanel);
+            propanel.Visible = false;
+            ItemPanel.Controls.Add(propanel);            
         }
 
         public void HideAllItem()
@@ -94,6 +95,10 @@ namespace OES.UPanel
         private void BtnProType_Click(object sender, EventArgs e)
         {
             protype = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton) sender).Tag);
+            if ((InfoControl.TmpPaper.programState == 1) && (protype > 5))
+            {
+                protype = protype + 3;
+            }
             if (protype < 3)
             {
                 propanel.Visible = false;
@@ -108,13 +113,20 @@ namespace OES.UPanel
 
         private void SelectPro_Click(object sender, EventArgs e)
         {
-            PanelControl.ChangPanel(18, protype);
+            if (protype > 8)
+            {
+                PanelControl.ChangPanel(18, protype-3);
+            }
+            else
+            {
+                PanelControl.ChangPanel(18, protype);
+            }
         }
 
         void ItemText_Click(object sender, EventArgs e)
         {
             InfoControl.Value = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton)sender).Tag);
-            PanelControl.ChangPanel(18, protype);
+            PanelControl.ChangPanel(18, protype);            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
