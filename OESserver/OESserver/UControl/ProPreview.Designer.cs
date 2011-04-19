@@ -86,6 +86,6 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSelectPro;
+        public ComponentFactory.Krypton.Toolkit.KryptonButton btnSelectPro;
     }
 }
