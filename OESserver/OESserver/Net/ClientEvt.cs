@@ -13,35 +13,38 @@ namespace OES.Net
 
         static void Client_ReceivedTxt(object sender, EventArgs e)
         {
-            string[] msgs=sender.ToString().Split('$');
-            if (msgs[0] == "oes")
-            {
-                switch (msgs[1])
-                {
-                    case "1":
-                        switch (msgs[2])
-                        {
-                            case "1":
-                                if (LoginReturn != null)
-                                {
-                                    LoginReturn(msgs[3], null);
-                                }
-                                break;
-                            case "0":
-                                if (LoginReturn != null)
-                                {
-                                    LoginReturn(null, null);
-                                }
-                                break;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
+            //string[] msgs=sender.ToString().Split('$');
+            //if (msgs[0] == "server")
+            //{
+            //    switch (msgs[1])
+            //    {
+            //        case "1":
+            //            switch (msgs[2])
+            //            {
+            //                case "1":
+            //                    if (LoginReturn != null)
+            //                    {
+            //                        LoginReturn(msgs[3], null);
+            //                    }
+            //                    break;
+            //                case "0":
+            //                    if (LoginReturn != null)
+            //                    {
+            //                        LoginReturn(null, null);
+            //                    }
+            //                    break;
+            //            }
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //}
         }
 
-
+        public void Login(int tid)
+        {
+            Client.SendTxt("server$4$"+tid.ToString());
+        }
         public void LoadPaper(int id, int tid)
         {
              Client.SendTxt("server$2$0$" + tid.ToString() + "$" + id.ToString());
