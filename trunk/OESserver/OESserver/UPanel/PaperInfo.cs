@@ -173,19 +173,37 @@ namespace OES.UPanel
             {
                 InfoControl.TmpPaper.ProList[2].Add(c);
             }
-
+            
             InfoControl.TmpPaper.officeWord.exist = flag[3] == 1;
             InfoControl.TmpPaper.officeWord.problemId = -1;
+            InfoControl.TmpPaper.ProList[3] = new List<Problem>();
+            InfoControl.TmpPaper.ProList[3].Add(InfoControl.TmpPaper.officeWord);
+
             InfoControl.TmpPaper.officeExcel.exist = flag[4] == 1;
             InfoControl.TmpPaper.officeExcel.problemId = -1;
+            InfoControl.TmpPaper.ProList[4] = new List<Problem>();
+            InfoControl.TmpPaper.ProList[4].Add(InfoControl.TmpPaper.officeExcel);
+
             InfoControl.TmpPaper.officePPT.exist = flag[5] == 1;
             InfoControl.TmpPaper.officePPT.problemId = -1;
+            InfoControl.TmpPaper.ProList[5] = new List<Problem>();
+            InfoControl.TmpPaper.ProList[5].Add(InfoControl.TmpPaper.officePPT);
+
             InfoControl.TmpPaper.pCompletion.exist = flag[6] == 1;
             InfoControl.TmpPaper.pCompletion.problemId = -1;
+            InfoControl.TmpPaper.ProList[6] = new List<Problem>();
+            InfoControl.TmpPaper.ProList[6].Add(InfoControl.TmpPaper.pCompletion);
+
             InfoControl.TmpPaper.pModif.exist = flag[7] == 1;
             InfoControl.TmpPaper.pModif.problemId = -1;
+            InfoControl.TmpPaper.ProList[7] = new List<Problem>();
+            InfoControl.TmpPaper.ProList[7].Add(InfoControl.TmpPaper.officeWord);
+
             InfoControl.TmpPaper.pFunction.exist = flag[8] == 1;
-            InfoControl.TmpPaper.pFunction.problemId = -1;                        
+            InfoControl.TmpPaper.pFunction.problemId = -1;
+            InfoControl.TmpPaper.ProList[8] = new List<Problem>();
+            InfoControl.TmpPaper.ProList[8].Add(InfoControl.TmpPaper.officeWord);
+        
             PanelControl.ChangPanel(19);
         }        
     }
