@@ -29,14 +29,9 @@ namespace OES.UPanel
             InitializeComponent();
             ItemList = new List<ProblemItem>();            
             propanel = new ProPreview();
-            propanel.btnSelectPro.Click += new EventHandler(btnSelectPro_Click);
+            propanel.btnSelectPro.Click += new EventHandler(SelectPro_Click);
             ItemPanel.Controls.Add(propanel);
 
-        }
-
-        void btnSelectPro_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         public void HideAllItem()
