@@ -47,7 +47,7 @@ namespace OES
         {
             sqlcon = new SqlConnection();
 
-            string strConnection = "Data Source=LUOKANGQI-PC;Initial Catalog=OESDB;Integrated Security=True";
+            string strConnection = "Data Source=211.69.197.115;Initial Catalog=OESDB;User ID=oes;Password=123456";
 
             sqlcon.ConnectionString = strConnection;
 
