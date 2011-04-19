@@ -51,6 +51,10 @@ namespace OES
 
         public static int GetProNum(int type)
         {
+            if (type > 3)
+            {
+                return 0;
+            }
             int tmp = InfoControl.Value;            
             if (InfoControl.Value  == -1)
             {

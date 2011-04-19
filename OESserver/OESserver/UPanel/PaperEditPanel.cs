@@ -31,7 +31,6 @@ namespace OES.UPanel
             propanel = new ProPreview();
             propanel.btnSelectPro.Click += new EventHandler(SelectPro_Click);
             ItemPanel.Controls.Add(propanel);
-
         }
 
         public void HideAllItem()
@@ -63,7 +62,6 @@ namespace OES.UPanel
             }
             for (int i = 0; i < proList.Count; i++)
             {
-
                 ItemList[i].ItemText.Text = "-";
                 ItemList[i].Visible = true;
                 if (!proList[i].Equals(null))
@@ -83,17 +81,15 @@ namespace OES.UPanel
             this.Visible = true;
             btnChoice.Visible = InfoControl.TmpPaper.ProList[0].Count > 0;
             btnCompletion.Visible = InfoControl.TmpPaper.ProList[1].Count > 0;
-            btnJudge.Visible = InfoControl.TmpPaper.ProList[2].Count > 0;            
+            btnJudge.Visible = InfoControl.TmpPaper.ProList[2].Count > 0;
             btnWord.Visible = InfoControl.TmpPaper.officeWord.exist;
             btnPPT.Visible = InfoControl.TmpPaper.officePPT.exist;
             btnExcel.Visible = InfoControl.TmpPaper.officeExcel.exist;
             btnPModif.Visible = InfoControl.TmpPaper.pModif.exist;
             btnPCompletion.Visible = InfoControl.TmpPaper.pCompletion.exist;
-            btnPFunction.Visible = InfoControl.TmpPaper.pFunction.exist;            
-            //ItemPanel.Controls.Clear();            
+            btnPFunction.Visible = InfoControl.TmpPaper.pFunction.exist;
+            //ItemPanel.Controls.Clear();
         }
-
-
 
         private void BtnProType_Click(object sender, EventArgs e)
         {
