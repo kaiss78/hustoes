@@ -67,9 +67,10 @@ namespace OES
             return tmp;
         }
 
-        public static void SetProblem(int type,int num,int ProID)
+        public static void SetProblem(int type,int num,int ProID,string ProInfo)
         {
             InfoControl.TmpPaper.ProList[type][num].problemId = ProID;
+            InfoControl.TmpPaper.ProList[type][num].problemId = ProInfo;
         }
 
         public static void DelProblem(int type, int num)
