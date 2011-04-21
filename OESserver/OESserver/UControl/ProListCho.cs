@@ -204,7 +204,7 @@ namespace OES.UControl
                 InfoControl.Value = -1;
                 InfoControl.SetProblem(aProMan.ProType, Convert.ToInt32((aProMan.CurrentNoCon.Text)) - 1, 
                     Convert.ToInt32((acheckproList[(int)((Button)butn).Tag].proid)),
-                    ChptListCho.choiceproL[Convert.ToInt32((acheckproList[(int)((Button)butn).Tag].proid))].pro);
+                    ChptListCho.choiceproL[(int)((Button)butn).Tag].pro);
                 aProMan.checkProNoList[chptNo][(int)((Button)butn).Tag] = currentProNo;
                 nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
                 if (nextProNo != "-1")
