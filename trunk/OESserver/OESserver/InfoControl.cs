@@ -50,11 +50,16 @@ namespace OES
             set { InfoControl.paper = value; }
         }
 
+        /// <summary>
+        /// 获取下一题题号
+        /// </summary>
+        /// <param name="type">题目类型</param>
+        /// <returns>题号</returns>
         public static int GetProNum(int type)
         {
             if (type > 3)
             {
-                return 0;
+                return 1;
             }
             int tmp = InfoControl.Value;            
             if (InfoControl.Value  == -1)
