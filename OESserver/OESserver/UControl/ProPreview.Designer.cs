@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.kryptonRichTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
+            this.ProText = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btnSelectPro = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.SuspendLayout();
             // 
-            // kryptonRichTextBox1
+            // ProText
             // 
-            this.kryptonRichTextBox1.Location = new System.Drawing.Point(3, 52);
-            this.kryptonRichTextBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.kryptonRichTextBox1.Name = "kryptonRichTextBox1";
-            this.kryptonRichTextBox1.ReadOnly = true;
-            this.kryptonRichTextBox1.Size = new System.Drawing.Size(507, 554);
-            this.kryptonRichTextBox1.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.kryptonRichTextBox1.TabIndex = 0;
-            this.kryptonRichTextBox1.Text = "Text";
+            this.ProText.Location = new System.Drawing.Point(3, 52);
+            this.ProText.Margin = new System.Windows.Forms.Padding(5);
+            this.ProText.Name = "ProText";
+            this.ProText.ReadOnly = true;
+            this.ProText.Size = new System.Drawing.Size(507, 554);
+            this.ProText.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ProText.TabIndex = 0;
+            this.ProText.Text = "Text";
             // 
             // kryptonLabel1
             // 
@@ -73,7 +73,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnSelectPro);
             this.Controls.Add(this.kryptonLabel1);
-            this.Controls.Add(this.kryptonRichTextBox1);
+            this.Controls.Add(this.ProText);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ProPreview";
             this.Size = new System.Drawing.Size(515, 666);
@@ -84,7 +84,7 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
+        public ComponentFactory.Krypton.Toolkit.KryptonRichTextBox ProText;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         public ComponentFactory.Krypton.Toolkit.KryptonButton btnSelectPro;
     }

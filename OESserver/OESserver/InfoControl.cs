@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OES.Model;
+using OES.UPanel;
 
 namespace OES
 {
@@ -80,11 +81,13 @@ namespace OES
             {
                 InfoControl.TmpPaper.ProList[type - 3][num].problemId = ProID;
                 InfoControl.TmpPaper.ProList[type - 3][num].problem = ProInfo;
+                PaperEditPanel.propanel.ProText.Text = ProInfo;
             }
             else 
             {
                 InfoControl.TmpPaper.ProList[type][num].problemId = ProID;
                 InfoControl.TmpPaper.ProList[type][num].problem = ProInfo;
+                PaperEditPanel.ItemList[num].ItemText.Text= ProInfo;
             }
         }
 
@@ -98,10 +101,12 @@ namespace OES
             if (type > 8)
             {
                 InfoControl.TmpPaper.ProList[type-3][num].problemId = -1;
+                PaperEditPanel.propanel.ProText.Text = "-";
             }
             else
             {
-                InfoControl.TmpPaper.ProList[type][num].problemId = -1;            
+                InfoControl.TmpPaper.ProList[type][num].problemId = -1;
+                PaperEditPanel.ItemList[num].ItemText.Text = "-";
             }
         }
 

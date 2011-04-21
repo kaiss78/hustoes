@@ -19,10 +19,11 @@ namespace OES.UPanel
         public OESData oesData;
         public List<IdScoreType> proIDList;
         private ProblemItem tmpItem;
-        public List<ProblemItem> ItemList;
+        static public List<ProblemItem> ItemList;
+        static public ProPreview propanel;
         public int protype;
         public int value;
-        private ProPreview propanel;
+        
 
         public PaperEditPanel()
         {
