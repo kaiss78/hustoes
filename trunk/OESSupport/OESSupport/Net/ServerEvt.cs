@@ -101,10 +101,10 @@ namespace OESMonitor.Net
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbModification + msgs[4];
                                     break;
                                 case "H":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbCunction + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbFunction + msgs[4];
                                     break;
                                 case "I":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbCunction + msgs[4];
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.VbFunction + msgs[4];
                                     break;
                             }
                         }
