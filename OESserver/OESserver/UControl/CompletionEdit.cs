@@ -63,14 +63,7 @@ namespace OES.UControl
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            aProMan.bottomPanel.Show();
-            aProMan.titlePanel.Show();
-            aProMan.aProList.Show();
-            this.Hide();
-            ProMan.isediting = false;
-        }
+
 
         //提取标准答案
         private List<string> AnswerString()
@@ -95,11 +88,39 @@ namespace OES.UControl
             }
             
             MessageBox.Show("保存成功！");
-            aProMan.bottomPanel.Show();
-            aProMan.titlePanel.Show();
+            if (aProMan is ProManCho)
+            {
+                (aProMan as ProManCho).bottomPanel.Show();
+                (aProMan as ProManCho).titlePanel.Show();
+                (aProMan as ProManCho).aChptList.newpl();
+            }
+            else
+            {
+                aProMan.bottomPanel.Show();
+                aProMan.titlePanel.Show();
+                aProMan.aChptList.newpl();
+            }
+
             this.Hide();
             ProMan.isediting = false;
-            aProMan.aChptList.newpl();
+        }   
+        
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //进行判断，区分proman和promancho
+            if (aProMan is ProManCho)
+            {
+                (aProMan as ProManCho).bottomPanel.Show();
+                (aProMan as ProManCho).titlePanel.Show();
+            }
+            else
+            {
+                aProMan.bottomPanel.Show();
+                aProMan.titlePanel.Show();
+                aProMan.aProList.Show();
+            }
+            this.Hide();
+            ProMan.isediting = false;
         }
     }
 }
