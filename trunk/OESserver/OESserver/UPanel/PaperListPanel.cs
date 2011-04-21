@@ -41,7 +41,7 @@ namespace OES.UPanel
                 values[1] = paperList[i].paperID;
                 values[2] = paperList[i].paperName;
                 values[3] = paperList[i].createTime;
-                values[4] = paperList[i].author;
+                values[4] = paperList[i].author;                
                 paperListDataTable.Rows.Add(values);
             }
                                     
@@ -90,7 +90,8 @@ namespace OES.UPanel
             if (RIndex > -1)
             {
                 //XMLControl.ReadPaper();
-
+                MessageBox.Show(paperList[RIndex].paperPath);
+                
             }
         }
 

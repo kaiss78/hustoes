@@ -59,7 +59,18 @@ namespace OES
         {
             if (type > 2)
             {
-                return 1;
+                if (type > 8)
+                {
+                    type = type - 3;
+                }
+                if (InfoControl.TmpPaper.ProList[type][0].problemId == -1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return -1;
+                }
             }
             int tmp = InfoControl.Value;            
             if (InfoControl.Value  == -1)
