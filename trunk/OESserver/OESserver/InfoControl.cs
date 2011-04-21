@@ -57,7 +57,7 @@ namespace OES
         /// <returns>题号</returns>
         public static int GetProNum(int type)
         {
-            if (type > 3)
+            if (type > 2)
             {
                 return 1;
             }
