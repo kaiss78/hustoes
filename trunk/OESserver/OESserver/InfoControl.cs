@@ -86,13 +86,20 @@ namespace OES
             {
                 InfoControl.TmpPaper.ProList[type - 3][num].problemId = ProID;
                 InfoControl.TmpPaper.ProList[type - 3][num].problem = ProInfo;
-                PaperEditPanel.propanel.ProText.Text = ProInfo;
+                
             }
             else 
             {
                 InfoControl.TmpPaper.ProList[type][num].problemId = ProID;
                 InfoControl.TmpPaper.ProList[type][num].problem = ProInfo;
-                PaperEditPanel.ItemList[num].ItemText.Text= ProInfo;
+            }
+            if (type > 2)
+            {
+                PaperEditPanel.propanel.ProText.Text = ProInfo;
+            }
+            else
+            {
+                PaperEditPanel.ItemList[num].ItemText.Text = ProInfo;
             }
         }
 
@@ -105,12 +112,18 @@ namespace OES
         {
             if (type > 8)
             {
-                InfoControl.TmpPaper.ProList[type-3][num].problemId = -1;
+                InfoControl.TmpPaper.ProList[type-3][num].problemId = -1;                
+            }
+            else
+            {
+                InfoControl.TmpPaper.ProList[type][num].problemId = -1;                
+            }
+            if (type > 2)
+            {
                 PaperEditPanel.propanel.ProText.Text = "-";
             }
             else
             {
-                InfoControl.TmpPaper.ProList[type][num].problemId = -1;
                 PaperEditPanel.ItemList[num].ItemText.Text = "-";
             }
         }
