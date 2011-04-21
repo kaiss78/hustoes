@@ -67,15 +67,42 @@ namespace OES
             return tmp;
         }
 
+        /// <summary>
+        ///设置题目
+        /// </summary>
+        /// <param name="type">题目类型</param>
+        /// <param name="num">题号</param>
+        /// <param name="ProID">题目ID</param>
+        /// <param name="ProInfo">题目内容</param>
         public static void SetProblem(int type,int num,int ProID,string ProInfo)
         {
-            InfoControl.TmpPaper.ProList[type][num].problemId = ProID;
-            InfoControl.TmpPaper.ProList[type][num].problem = ProInfo;
+            if (type > 8)
+            {
+                InfoControl.TmpPaper.ProList[type - 3][num].problemId = ProID;
+                InfoControl.TmpPaper.ProList[type - 3][num].problem = ProInfo;
+            }
+            else 
+            {
+                InfoControl.TmpPaper.ProList[type][num].problemId = ProID;
+                InfoControl.TmpPaper.ProList[type][num].problem = ProInfo;
+            }
         }
 
+        /// <summary>
+        /// 删除题目
+        /// </summary>
+        /// <param name="type">题目类型</param>
+        /// <param name="num">题号</param>
         public static void DelProblem(int type, int num)
         {
-            InfoControl.TmpPaper.ProList[type][num].problemId = -1;            
+            if (type > 8)
+            {
+                InfoControl.TmpPaper.ProList[type-3][num].problemId = -1;
+            }
+            else
+            {
+                InfoControl.TmpPaper.ProList[type][num].problemId = -1;            
+            }
         }
 
         #region 窗体逻辑控制
