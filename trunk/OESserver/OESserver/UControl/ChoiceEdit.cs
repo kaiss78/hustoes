@@ -135,25 +135,40 @@ namespace OES.UControl
                 InfoControl.OesData.AddChoice( procon.Text, Atxt.Text, Btxt.Text, Ctxt.Text, Dtxt.Text, answer, Convert.ToInt32(ChptList.click_num));
             }
             MessageBox.Show("保存成功！");
-            aProMan.bottomPanel.Show();
-            aProMan.titlePanel.Show();
+            if (aProMan is ProManCho)
+            {
+                (aProMan as ProManCho).bottomPanel.Show();
+                (aProMan as ProManCho).titlePanel.Show();
+                (aProMan as ProManCho).aChptList.newpl();
+            }
+            else
+            {
+                aProMan.bottomPanel.Show();
+                aProMan.titlePanel.Show();
+                aProMan.aChptList.newpl();
+            }
+           
             this.Hide();
             ProMan.isediting = false;
-            aProMan.aChptList.newpl();
+            
         }
 
 
 
         private void button6_Click(object sender, EventArgs e)
-        {
-            aProMan.bottomPanel.Show();
-            aProMan.titlePanel.Show();
-
+        {   
             //进行判断，区分proman和promancho
             if (aProMan is ProManCho)
-                (aProMan as ProManCho).aProList.Show();
+            {
+                (aProMan as ProManCho).bottomPanel.Show();
+                (aProMan as ProManCho).titlePanel.Show();
+            }
             else
+            {
+                aProMan.bottomPanel.Show();
+                aProMan.titlePanel.Show();
                 aProMan.aProList.Show();
+            }
             this.Hide();
             ProMan.isediting = false;
         }
