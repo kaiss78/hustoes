@@ -44,8 +44,11 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lab_DataPortCount = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.downloadButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.helpLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -56,8 +59,6 @@
             this.btnGetPaperFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.lab_DataPortCount = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.timer_PortCounter = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -213,6 +214,24 @@
             this.tabPage4.Text = "考试状态";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(652, 459);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 14);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "数据端口数量：";
+            // 
+            // lab_DataPortCount
+            // 
+            this.lab_DataPortCount.AutoSize = true;
+            this.lab_DataPortCount.Location = new System.Drawing.Point(763, 459);
+            this.lab_DataPortCount.Name = "lab_DataPortCount";
+            this.lab_DataPortCount.Size = new System.Drawing.Size(35, 14);
+            this.lab_DataPortCount.TabIndex = 6;
+            this.lab_DataPortCount.Text = "未知";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(652, 31);
@@ -225,6 +244,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.downloadButton);
             this.tabPage5.Controls.Add(this.groupBox2);
             this.tabPage5.Controls.Add(this.groupBox1);
             this.tabPage5.Controls.Add(this.PaperListDGV);
@@ -238,6 +258,15 @@
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "考卷选择";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // downloadButton
+            // 
+            this.downloadButton.Location = new System.Drawing.Point(707, 320);
+            this.downloadButton.Name = "downloadButton";
+            this.downloadButton.Size = new System.Drawing.Size(123, 50);
+            this.downloadButton.TabIndex = 6;
+            this.downloadButton.Values.Text = "下载试卷";
+            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
             // groupBox2
             // 
@@ -367,24 +396,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "本场考试试卷列表";
             // 
-            // lab_DataPortCount
-            // 
-            this.lab_DataPortCount.AutoSize = true;
-            this.lab_DataPortCount.Location = new System.Drawing.Point(763, 459);
-            this.lab_DataPortCount.Name = "lab_DataPortCount";
-            this.lab_DataPortCount.Size = new System.Drawing.Size(35, 14);
-            this.lab_DataPortCount.TabIndex = 6;
-            this.lab_DataPortCount.Text = "未知";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(652, 459);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 14);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "数据端口数量：";
-            // 
             // timer_PortCounter
             // 
             this.timer_PortCounter.Tick += new System.EventHandler(this.timer_PortCounter_Tick);
@@ -451,6 +462,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lab_DataPortCount;
         private System.Windows.Forms.Timer timer_PortCounter;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton downloadButton;
 
     }
 }

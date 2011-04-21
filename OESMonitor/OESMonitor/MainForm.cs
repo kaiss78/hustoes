@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using OESMonitor.Net;
 using OESMonitor.PaperControl;
 using System.Net;
+using System.IO;
 
 namespace OESMonitor
 {
@@ -42,11 +43,15 @@ namespace OESMonitor
         }
 
         public static DataTable paperListDataTable;
-        
+
+        public  SupportNet.ClientEvt supportServer;
+
         public OESMonitor()
         {
             InitializeComponent();
 
+            supportServer = new SupportNet.ClientEvt();
+            
             timer_PortCounter.Interval = 1000;
 
             panel1.Controls.Add( ComputerState.getInstance());
@@ -68,6 +73,7 @@ namespace OESMonitor
             btnGetPaperFromDB.MouseLeave += new EventHandler(radioButton1_MouseLeave);
         }
 
+        
         void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex!=-1)
@@ -309,8 +315,24 @@ namespace OESMonitor
         {
             if (!isStartExam)
             {
-                
-                IsStartExam = true;
+                bool isExistPaper = true;
+                downloadPaperList.Clear();
+                foreach (DataRow dr in paperListDataTable.Rows)
+                {
+                    string id = dr[1].ToString();
+                    if (!File.Exists(config.tmpPaper + id + ".rar"))
+                    {
+                        isExistPaper = false;
+                        downloadPaperList.Add(id);
+                    }
+                }
+                if (isExistPaper)
+                    IsStartExam = true;
+                else
+                {
+                    tabControl2.SelectedIndex = 1;
+                    helpLabel.Text = "您还有部分试卷未下载，请点击“下载试卷”";
+                }
             }
             else
             {
@@ -318,10 +340,32 @@ namespace OESMonitor
                 IsStartExam = false;
             }
         }
-
+        List<string> downloadPaperList = new List<string>();
         private void timer_PortCounter_Tick(object sender, EventArgs e)
         {
             lab_DataPortCount.Text = Net.ServerEvt.Server.PortCurNum.ToString();
+        }
+
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            bool isExistPaper = true;
+            downloadPaperList.Clear();
+            foreach (DataRow dr in paperListDataTable.Rows)
+            {
+                string id = dr[1].ToString();
+                if (!File.Exists(config.tmpPaper + id + ".rar"))
+                {
+                    isExistPaper = false;
+                    downloadPaperList.Add(id);
+                }
+            }
+            if (!isExistPaper)
+            {
+                foreach (string id in downloadPaperList)
+                {
+                    supportServer.LoadPaper(Convert.ToInt32(id), 0);
+                }
+            }
         }
 
     }

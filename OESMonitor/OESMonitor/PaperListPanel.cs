@@ -33,17 +33,29 @@ namespace OES.UPanel
         
         void btnSelect_Click(object sender, EventArgs e)
         {
+            bool isExist = false;
             for(int i=0;i<PaperListDGV.Rows.Count;i++)
             {
                 if ((bool)PaperListDGV.Rows[i].Cells[0].Value == true)
                 {
+                    isExist = false;
                     object[] values = new object[5];
                     values[0] = paperListDataTable.Rows[i][0];
                     values[1] = paperListDataTable.Rows[i][1];
                     values[2] = paperListDataTable.Rows[i][2];
                     values[3] = paperListDataTable.Rows[i][3];
                     values[4] = paperListDataTable.Rows[i][4];
-                    OESMonitor.OESMonitor.paperListDataTable.Rows.Add(values);
+
+                    foreach (DataRow dr in OESMonitor.OESMonitor.paperListDataTable.Rows)
+                    {
+                        if (dr[1].ToString() == values[1].ToString())
+                        {
+                            isExist = true;
+                        }
+                        
+                    }
+                    if(!isExist)
+                        OESMonitor.OESMonitor.paperListDataTable.Rows.Add(values);
                 }
             }
             parent.Close();
