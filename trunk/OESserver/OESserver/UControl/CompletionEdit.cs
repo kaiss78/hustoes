@@ -27,6 +27,7 @@ namespace OES.UControl
             flowLayoutPanel1.Controls.Add(temp);
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             RichTextBox temp=new RichTextBox();
