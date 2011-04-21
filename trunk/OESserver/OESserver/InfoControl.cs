@@ -70,7 +70,7 @@ namespace OES
         public static void SetProblem(int type,int num,int ProID,string ProInfo)
         {
             InfoControl.TmpPaper.ProList[type][num].problemId = ProID;
-            InfoControl.TmpPaper.ProList[type][num].problemId = ProInfo;
+            InfoControl.TmpPaper.ProList[type][num].problem = ProInfo;
         }
 
         public static void DelProblem(int type, int num)

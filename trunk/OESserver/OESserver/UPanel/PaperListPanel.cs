@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.Model;
+using OES.XMLFile;
 
 namespace OES.UPanel
 {
@@ -82,12 +83,14 @@ namespace OES.UPanel
             
         }
 
+        //跳转到试卷编辑
         private void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int RIndex = e.RowIndex;
             if (RIndex > -1)
             {
-                MessageBox.Show(RIndex.ToString());
+                //XMLControl.ReadPaper();
+
             }
         }
 
