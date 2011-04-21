@@ -15,7 +15,7 @@ namespace OES.UControl
 {
     public partial class ChoiceEdit : UserControl
     {
-        ProMan aProMan;
+        public ProMan aProMan;
         public string answer;
         public bool isnew = false; 
 
@@ -148,7 +148,12 @@ namespace OES.UControl
         {
             aProMan.bottomPanel.Show();
             aProMan.titlePanel.Show();
-            aProMan.aProList.Show();
+
+            //进行判断，区分proman和promancho
+            if (aProMan is ProManCho)
+                (aProMan as ProManCho).aProList.Show();
+            else
+                aProMan.aProList.Show();
             this.Hide();
             ProMan.isediting = false;
         }
