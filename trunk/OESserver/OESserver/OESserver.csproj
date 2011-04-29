@@ -285,6 +285,12 @@
     <Compile Include="UControl\ClassFind.Designer.cs">
       <DependentUpon>ClassFind.cs</DependentUpon>
     </Compile>
+    <Compile Include="UControl\PointEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\PointEdit.Designer.cs">
+      <DependentUpon>PointEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="UControl\ProPreview.cs">
       <SubType>UserControl</SubType>
     </Compile>
