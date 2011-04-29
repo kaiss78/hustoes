@@ -18,7 +18,6 @@ namespace testExcel
             InitializeComponent();
         }
 
-
         Excel.Application excel;
         Excel.Workbook xls;
         Excel.Worksheet ws;
@@ -47,9 +46,14 @@ namespace testExcel
             { }
         }
 
-        private void testExcel_Load(object sender, EventArgs e)
+        public void testExcel_Load(object sender, EventArgs e)
+        { 
+        
+        }
+
+        public void loadExcel(string name)
         {
-            string file = @"D:\Test\Test.xls";
+            string file = name;
             excel = new Excel.Application();
             xls = excel.Workbooks.Open(file, nullobj, nullobj, 
                 nullobj, nullobj, nullobj, nullobj, nullobj, 
