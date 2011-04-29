@@ -118,7 +118,7 @@ namespace OES.UControl
                 checkList.Add(checkButton);
                 checkCho acheck = new checkCho(false, ChptListCho.choiceproL[i].num);
                 acheckproList.Add(acheck);
-                aProMan.checkProNoList[chptNo].Add("-1");
+                aProMan.checkProNoList[aProMan.ProType][chptNo].Add("-1");
                                       
                 temp.MouseClick +=new MouseEventHandler(temp_MouseClick);
                 templ2.MouseClick += new MouseEventHandler(templ2_MouseClick);
@@ -149,7 +149,7 @@ namespace OES.UControl
         //勾选题目进试卷的checkbutton事件
         void checkButton_MouseClick(object sender, MouseEventArgs e)
         {
-            if (aProMan.checkProNoList[chptNo][(int)((Button)sender).Tag] != "-1")
+            if (aProMan.checkProNoList[aProMan.ProType][chptNo][(int)((Button)sender).Tag] != "-1")
             {
                 loadProNoifSel(sender);       
             }
@@ -164,9 +164,9 @@ namespace OES.UControl
         { 
             for (int i = 0; i < acheckproList.Count; i++)
             {
-                if (aProMan.checkProNoList[chptNo][i] != "-1")
+                if (aProMan.checkProNoList[aProMan.ProType][chptNo][i] != "-1")
                 {
-                    checkList[i].Text = aProMan.checkProNoList[chptNo][i];
+                    checkList[i].Text = aProMan.checkProNoList[aProMan.ProType][chptNo][i];
                 }
             }
             nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
@@ -186,7 +186,7 @@ namespace OES.UControl
         {
             InfoControl.DelProblem(aProMan.ProType, Convert.ToInt32(((Button)butn).Text) - 1);
             ((Button)butn).Text = "";
-            aProMan.checkProNoList[chptNo][(int)((Button)butn).Tag] = "-1";
+            aProMan.checkProNoList[aProMan.ProType][chptNo][(int)((Button)butn).Tag] = "-1";
             nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
             aProMan.NextNoCon.Text = nextProNo;
         }
@@ -205,11 +205,11 @@ namespace OES.UControl
                 InfoControl.SetProblem(aProMan.ProType, Convert.ToInt32((aProMan.CurrentNoCon.Text)) - 1, 
                     Convert.ToInt32((acheckproList[(int)((Button)butn).Tag].proid)),
                     ChptListCho.choiceproL[(int)((Button)butn).Tag].pro);
-                aProMan.checkProNoList[chptNo][(int)((Button)butn).Tag] = currentProNo;
+                aProMan.checkProNoList[aProMan.ProType][chptNo][(int)((Button)butn).Tag] = currentProNo;
                 nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
                 if (nextProNo != "-1")
                 {
-                    aProMan.checkProNoList[chptNo][(int)((Button)butn).Tag] = currentProNo;
+                    aProMan.checkProNoList[aProMan.ProType][chptNo][(int)((Button)butn).Tag] = currentProNo;
                     aProMan.NextNoCon.Text = nextProNo;
                 }
                 else

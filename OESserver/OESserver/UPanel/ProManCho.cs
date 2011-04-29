@@ -17,7 +17,7 @@ namespace OES.UPanel
         public static int PlWidth;
         public static int BpHeight;
 
-        public List<List<String>> checkProNoList = new List<List<String>>();
+        public List<List<List<String>>> checkProNoList = new List<List<List<String>>>();
         
         public static bool isediting=false;//标识是否正在编辑题目
 
@@ -117,8 +117,13 @@ namespace OES.UPanel
             //初始化创建checkProNoList12项
             for (int i = 0; i < 13; i++)
             { 
-                List<String> temp =new List<String>();
-                checkProNoList.Add(temp);
+                List<List<String>> temp =new List<List<String>>();
+                for (int j = 0; j < 50; j++)
+                {
+                    List<String> subtemp = new List<String>();
+                    temp.Add(subtemp);
+                }
+                    checkProNoList.Add(temp);
             }
 
             {
