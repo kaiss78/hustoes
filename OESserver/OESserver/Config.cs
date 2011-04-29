@@ -11,6 +11,9 @@ namespace OES
     public class Config
     {        
         public static string TempPaperPath;
+        public static string ExcelPath;
+        public static string WordPath;
+        public static string PPTPath;
         public static bool allowScore;
         public static string inipath;
         [DllImport("kernel32")]
@@ -25,16 +28,28 @@ namespace OES
              if(ExistINIFile())
              {
                  TempPaperPath = this.IniReadValue("path", "TempPaperPath")+"\\";
+                 ExcelPath = this.IniReadValue("path", "ExcelPath") + "\\";
+                 WordPath = this.IniReadValue("path", "WordPath") + "\\";
+                 PPTPath = this.IniReadValue("path", "PPTPath") + "\\";                 
              }
              else
              {
                  using (StreamWriter sw = new StreamWriter(File.Create("config.ini")))
                  {
-                     inipath = "config.ini";                     
+                     inipath = "config.ini"; 
                      sw.WriteLine("[path]");
                      sw.WriteLine(@"TempPaperPath=D:\OES\TempPaper\");
+                     sw.WriteLine(@"ExcelPath=D:\OES\Excel\");
+                     sw.WriteLine(@"WordPath=D:\OES\Word\");
+                     sw.WriteLine(@"PPTPath=D:\OES\PPT\"); 
                      Directory.CreateDirectory(@"D:\OES\TempPaper\");
+                     Directory.CreateDirectory(@"D:\OES\Excel\");
+                     Directory.CreateDirectory(@"D:\OES\Word\");
+                     Directory.CreateDirectory(@"D:\OES\PPT\");
                      TempPaperPath = @"D:\OES\TempPaper\";
+                     ExcelPath = @"D:\OES\Excel\";
+                     WordPath = @"D:\OES\Word\";
+                     PPTPath = @"D:\OES\PPT\";
                  } 
              }             
          }
