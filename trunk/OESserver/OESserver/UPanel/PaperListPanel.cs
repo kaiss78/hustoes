@@ -89,7 +89,7 @@ namespace OES.UPanel
             int RIndex = e.RowIndex;
             if (RIndex > -1)
             {
-                //XMLControl.ReadPaper();
+                XMLControl.ReadPaper(paperList[RIndex].paperPath);
                 MessageBox.Show(paperList[RIndex].paperPath);
                 
             }

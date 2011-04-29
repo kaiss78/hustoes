@@ -27,7 +27,7 @@ namespace OES.XMLFile
         }
         public static List<IdScoreType> ReadPaper(string filePath)
         {
-            paperXML = new XMLAssistant(filePath, XMLType.Paper, 0);
+            paperXML = new XMLAssistant(filePath, XMLType.Paper, "0");
             return paperXML.Get();
         }
     }
