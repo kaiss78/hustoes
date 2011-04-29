@@ -162,6 +162,7 @@ namespace OES.UControl
             {
                 (aProMan as ProManCho).bottomPanel.Show();
                 (aProMan as ProManCho).titlePanel.Show();
+                (aProMan as ProManCho).aProList.Show();
             }
             else
             {
