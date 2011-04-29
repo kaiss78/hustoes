@@ -28,10 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.testExcel1 = new testExcel.testExcel();
+            this.SuspendLayout();
+            // 
+            // testExcel1
+            // 
+            this.testExcel1.Location = new System.Drawing.Point(0, 3);
+            this.testExcel1.Name = "testExcel1";
+            this.testExcel1.Size = new System.Drawing.Size(417, 510);
+            this.testExcel1.TabIndex = 0;
+            // 
+            // PointEdit
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.testExcel1);
+            this.Name = "PointEdit";
+            this.Size = new System.Drawing.Size(394, 521);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private testExcel.testExcel testExcel1;
     }
 }
