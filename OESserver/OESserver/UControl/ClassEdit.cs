@@ -26,7 +26,7 @@ namespace OES.UControl
             comboTeacher.Items.AddRange(ClassManage.comboInfo);
             comboTeacher.SelectedIndex = ClassManage.teacherList.Count;
             for (int i = 0; i < ClassManage.teacherList.Count; i++)
-                if (currentClass.teacherUserName == ClassManage.teacherList[i].UserName)
+                if (currentClass.teacherUserName == ClassManage.teacherList[i].TeacherName)
                 {
                     comboTeacher.SelectedIndex = i;
                     break;
