@@ -41,16 +41,28 @@ namespace OES
                      sw.WriteLine(@"TempPaperPath=D:\OES\TempPaper\");
                      sw.WriteLine(@"ExcelPath=D:\OES\Excel\");
                      sw.WriteLine(@"WordPath=D:\OES\Word\");
-                     sw.WriteLine(@"PPTPath=D:\OES\PPT\"); 
-                     Directory.CreateDirectory(@"D:\OES\TempPaper\");
-                     Directory.CreateDirectory(@"D:\OES\Excel\");
-                     Directory.CreateDirectory(@"D:\OES\Word\");
-                     Directory.CreateDirectory(@"D:\OES\PPT\");
+                     sw.WriteLine(@"PPTPath=D:\OES\PPT\");                                                                                     
                      TempPaperPath = @"D:\OES\TempPaper\";
                      ExcelPath = @"D:\OES\Excel\";
                      WordPath = @"D:\OES\Word\";
                      PPTPath = @"D:\OES\PPT\";
-                 } 
+                 }
+                 if (!Directory.Exists(TempPaperPath))
+                 {
+                     Directory.CreateDirectory(@"D:\OES\TempPaper\");
+                 }
+                 if (!Directory.Exists(ExcelPath))
+                 {
+                     Directory.CreateDirectory(@"D:\OES\Excel\");
+                 }
+                 if (!Directory.Exists(WordPath))
+                 {
+                     Directory.CreateDirectory(@"D:\OES\Word\");
+                 }
+                 if (!Directory.Exists(PPTPath))
+                 {
+                     Directory.CreateDirectory(@"D:\OES\PPT\");
+                 }
              }             
          }
 
