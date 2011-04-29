@@ -14,6 +14,7 @@ namespace OES.UControl
     public partial class OfficeExcelEdit : UserControl
     {
         ProMan aProMan;
+        public PointEdit aPointEdit;
         public bool isnew = false;
         public OfficeExcelEdit(ProMan pm)
         {
@@ -89,6 +90,11 @@ namespace OES.UControl
             }
             this.Hide();
             ProMan.isediting = false;
+        }
+
+        private void pointEdit_Click(object sender, EventArgs e)
+        {
+            aPointEdit = new PointEdit(this);
         }
 
     }
