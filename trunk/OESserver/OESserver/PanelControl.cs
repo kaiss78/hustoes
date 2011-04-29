@@ -94,7 +94,6 @@ namespace OES
         static public void ChangPanel(int x, int y)
         {
             HideAllPanel();
-            MessageBox.Show(x.ToString() + " " + y.ToString());
             panelList[x].HideAll();
             panelList[x].ReLoad(y);
         }
