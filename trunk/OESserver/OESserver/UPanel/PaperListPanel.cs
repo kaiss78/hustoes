@@ -17,7 +17,7 @@ namespace OES.UPanel
         public Paper paper=new Paper();
         public List<Paper> paperList;
         private int findtype = 1;
-
+        private List<IdScoreType> ISTList;
         public void InitDT()
         {
             paperListDataTable = new DataTable("PaperList");
@@ -79,18 +79,75 @@ namespace OES.UPanel
             if(RIndex>-1)
             {
                 paperListDataTable.Rows[RIndex][0] = !Convert.ToBoolean(paperListDataTable.Rows[RIndex][0]);
-            }
-            
+            }            
         }
 
         //跳转到试卷编辑
         private void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Problem pro;
             int RIndex = e.RowIndex;
             if (RIndex > -1)
             {
-                XMLControl.ReadPaper(paperList[RIndex].paperPath);
-                MessageBox.Show(paperList[RIndex].paperPath);                
+                ISTList = XMLControl.ReadPaper(paperList[RIndex].paperPath);
+                InfoControl.TmpPaper = new Paper();
+                InfoControl.TmpPaper.programState = paperList[RIndex].programState;
+                InfoControl.TmpPaper.createTime = paperList[RIndex].createTime;
+                InfoControl.TmpPaper.author = paperList[RIndex].author;
+                for (int i = 0; i < ISTList.Count; i++)
+                {
+                    pro = new Problem();
+                    pro.problemId = ISTList[i].id;
+                    switch (ISTList[i].pt)
+                    {
+                        case ProblemType.Choice:
+                            pro.problem=InfoControl.OesData.FindChoiceById(ISTList[i].id.ToString())[0].problem;
+                            InfoControl.TmpPaper.ProList[0].Add(pro);
+                            InfoControl.TmpPaper.score_choice = ISTList[i].score;
+                            break;
+                        case ProblemType.Completion:
+                            pro.problem = InfoControl.OesData.FindCompletionById(ISTList[i].id.ToString())[0].problem;
+                            InfoControl.TmpPaper.ProList[1].Add(pro);
+                            InfoControl.TmpPaper.score_completion = ISTList[i].score;
+                            break;
+                        case ProblemType.Tof:
+                            pro.problem = InfoControl.OesData.FindTofById(ISTList[i].id.ToString())[0].problem;
+                            InfoControl.TmpPaper.ProList[2].Add(pro);
+                            InfoControl.TmpPaper.score_judge = ISTList[i].score;
+                            break;
+                        case ProblemType.Excel:
+                            pro.problem = InfoControl.OesData.FindOfficeExcelById(ISTList[i].id.ToString())[0].problem;
+                            InfoControl.TmpPaper.ProList[3].Add(pro);
+                            InfoControl.TmpPaper.score_officeExcel = ISTList[i].score;
+                            break;
+                        case ProblemType.PowerPoint:
+                            pro.problem = InfoControl.OesData.FindOfficePowerPointById(ISTList[i].id.ToString())[0].problem;
+                            InfoControl.TmpPaper.ProList[4].Add(pro);
+                            InfoControl.TmpPaper.score_officePPT = ISTList[i].score;
+                            break;
+                        case ProblemType.Word:
+                            pro.problem = InfoControl.OesData.FindOfficeWordById(ISTList[i].id.ToString())[0].problem;
+                            InfoControl.TmpPaper.ProList[5].Add(pro);
+                            InfoControl.TmpPaper.score_officeWord = ISTList[i].score;
+                            break;
+                        case ProblemType.ProgramCompletion:
+                            pro.problem = InfoControl.OesData.FindCompletionById(ISTList[i].id.ToString())[0].problem;
+                            InfoControl.TmpPaper.ProList[6].Add(pro);
+                            InfoControl.TmpPaper.score_pCompletion = ISTList[i].score;
+                            break;
+                        case ProblemType.ProgramModification:
+                            pro.problem = InfoControl.OesData.FindModificationProgramById(ISTList[i].id.ToString())[0].problem;
+                            InfoControl.TmpPaper.ProList[7].Add(pro);
+                            InfoControl.TmpPaper.score_pModif = ISTList[i].score;
+                            break;
+                        case ProblemType.ProgramFun:
+                            pro.problem = InfoControl.OesData.FindFunProgramById(ISTList[i].id.ToString())[0].problem;
+                            InfoControl.TmpPaper.ProList[8].Add(pro);
+                            InfoControl.TmpPaper.score_pFunction = ISTList[i].score;
+                            break;
+                    }
+                    //InfoControl.TmpPaper;
+                }
             }
         }
 
