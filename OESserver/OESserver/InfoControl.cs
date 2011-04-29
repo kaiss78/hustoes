@@ -96,8 +96,7 @@ namespace OES
             if (type > 8)
             {
                 InfoControl.TmpPaper.ProList[type - 3][num].problemId = ProID;
-                InfoControl.TmpPaper.ProList[type - 3][num].problem = ProInfo;
-                
+                InfoControl.TmpPaper.ProList[type - 3][num].problem = ProInfo;                
             }
             else 
             {
