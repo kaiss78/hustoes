@@ -18,9 +18,6 @@ namespace OES.UControl
             aOfficeExcelEdit = exl;
         }
 
-        private void testExcel1_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }
