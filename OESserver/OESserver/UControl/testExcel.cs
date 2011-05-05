@@ -547,11 +547,14 @@ namespace testExcel
         private void btnComplete_Click(object sender, EventArgs e)
         {
             CloseExcel();
+            this.Dispose();
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             CloseExcel();
+            this.Dispose();
         }
     }
 }

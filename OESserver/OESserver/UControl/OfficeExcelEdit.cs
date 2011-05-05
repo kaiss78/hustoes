@@ -95,6 +95,18 @@ namespace OES.UControl
         private void pointEdit_Click(object sender, EventArgs e)
         {
             aPointEdit = new PointEdit(this);
+            aPointEdit.Location = new Point(ProMan.ClWidth, 0);
+            if (aProMan is ProManCho)
+            {
+                (aProMan as ProManCho).Controls.Add(aPointEdit);
+            }
+            else
+            { 
+                aProMan.Controls.Add(aPointEdit);
+            }
+            
+            this.Hide();           
+            aPointEdit.Show();
         }
 
     }

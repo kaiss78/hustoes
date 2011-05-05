@@ -30,41 +30,31 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageText = new System.Windows.Forms.TabPage();
-            this.groupPoint = new System.Windows.Forms.GroupBox();
-            this.checkSort = new System.Windows.Forms.CheckBox();
-            this.checkColWidth = new System.Windows.Forms.CheckBox();
-            this.checkRowHeight = new System.Windows.Forms.CheckBox();
-            this.checkNumPattern = new System.Windows.Forms.CheckBox();
-            this.checkBorder = new System.Windows.Forms.CheckBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.checkName = new System.Windows.Forms.CheckBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.checkSubTotal = new System.Windows.Forms.CheckBox();
-            this.checkSheet = new System.Windows.Forms.CheckBox();
-            this.checkSize = new System.Windows.Forms.CheckBox();
-            this.checkInteriorPattern = new System.Windows.Forms.CheckBox();
-            this.checkBold = new System.Windows.Forms.CheckBox();
-            this.checkForecolor = new System.Windows.Forms.CheckBox();
-            this.checkAlign = new System.Windows.Forms.CheckBox();
-            this.checkFormula = new System.Windows.Forms.CheckBox();
-            this.checkUnderline = new System.Windows.Forms.CheckBox();
-            this.checkValue = new System.Windows.Forms.CheckBox();
-            this.checkItalic = new System.Windows.Forms.CheckBox();
-            this.checkMerge = new System.Windows.Forms.CheckBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioSheet = new System.Windows.Forms.RadioButton();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textPos = new System.Windows.Forms.TextBox();
-            this.radioRegion = new System.Windows.Forms.RadioButton();
-            this.radioCell = new System.Windows.Forms.RadioButton();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboWorksheet = new System.Windows.Forms.ComboBox();
-            this.textLuPos = new System.Windows.Forms.TextBox();
-            this.textRdPos = new System.Windows.Forms.TextBox();
+            this.groupPoint = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkSheet = new System.Windows.Forms.CheckBox();
+            this.checkAlign = new System.Windows.Forms.CheckBox();
+            this.checkColWidth = new System.Windows.Forms.CheckBox();
+            this.checkSort = new System.Windows.Forms.CheckBox();
+            this.checkRowHeight = new System.Windows.Forms.CheckBox();
+            this.checkSize = new System.Windows.Forms.CheckBox();
+            this.checkNumPattern = new System.Windows.Forms.CheckBox();
+            this.checkMerge = new System.Windows.Forms.CheckBox();
+            this.checkFormula = new System.Windows.Forms.CheckBox();
+            this.checkName = new System.Windows.Forms.CheckBox();
+            this.checkValue = new System.Windows.Forms.CheckBox();
+            this.checkSubTotal = new System.Windows.Forms.CheckBox();
+            this.checkBold = new System.Windows.Forms.CheckBox();
+            this.checkItalic = new System.Windows.Forms.CheckBox();
+            this.checkBorder = new System.Windows.Forms.CheckBox();
+            this.checkInteriorPattern = new System.Windows.Forms.CheckBox();
+            this.checkUnderline = new System.Windows.Forms.CheckBox();
+            this.checkForecolor = new System.Windows.Forms.CheckBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
+            this.btnComplete = new System.Windows.Forms.Button();
             this.tabPageGraph = new System.Windows.Forms.TabPage();
             this.groupGraphPoint = new System.Windows.Forms.GroupBox();
             this.checkGraphName = new System.Windows.Forms.CheckBox();
@@ -84,415 +74,363 @@
             this.comboSheet = new System.Windows.Forms.ComboBox();
             this.comboChartInSheet = new System.Windows.Forms.ComboBox();
             this.radioChartInSheet = new System.Windows.Forms.RadioButton();
-            this.btnComplete = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.radioSheet = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.textLuPos = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textRdPos = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.textPos = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboWorksheet = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.radioRegion = new System.Windows.Forms.RadioButton();
+            this.radioCell = new System.Windows.Forms.RadioButton();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPageText.SuspendLayout();
-            this.groupPoint.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupPoint.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tabPageGraph.SuspendLayout();
             this.groupGraphPoint.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPageText);
             this.tabControl1.Controls.Add(this.tabPageGraph);
-            this.tabControl1.Location = new System.Drawing.Point(19, 16);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(340, 443);
+            this.tabControl1.Size = new System.Drawing.Size(593, 666);
             this.tabControl1.TabIndex = 38;
             // 
             // tabPageText
             // 
-            this.tabPageText.Controls.Add(this.groupPoint);
-            this.tabPageText.Controls.Add(this.groupBox2);
+            this.tabPageText.Controls.Add(this.flowLayoutPanel1);
+            this.tabPageText.Controls.Add(this.btnCancel);
             this.tabPageText.Controls.Add(this.buttonOK);
-            this.tabPageText.Location = new System.Drawing.Point(4, 22);
+            this.tabPageText.Controls.Add(this.btnComplete);
+            this.tabPageText.Location = new System.Drawing.Point(4, 21);
             this.tabPageText.Name = "tabPageText";
             this.tabPageText.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageText.Size = new System.Drawing.Size(332, 417);
+            this.tabPageText.Size = new System.Drawing.Size(585, 641);
             this.tabPageText.TabIndex = 0;
             this.tabPageText.Text = "文字考点";
             this.tabPageText.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.groupBox2);
+            this.flowLayoutPanel1.Controls.Add(this.groupPoint);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 6);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(576, 541);
+            this.flowLayoutPanel1.TabIndex = 40;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tableLayoutPanel2);
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(564, 279);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "文字定位";
+            // 
             // groupPoint
             // 
-            this.groupPoint.Controls.Add(this.checkSort);
-            this.groupPoint.Controls.Add(this.checkColWidth);
-            this.groupPoint.Controls.Add(this.checkRowHeight);
-            this.groupPoint.Controls.Add(this.checkNumPattern);
-            this.groupPoint.Controls.Add(this.checkBorder);
-            this.groupPoint.Controls.Add(this.label16);
-            this.groupPoint.Controls.Add(this.checkName);
-            this.groupPoint.Controls.Add(this.label15);
-            this.groupPoint.Controls.Add(this.checkSubTotal);
-            this.groupPoint.Controls.Add(this.checkSheet);
-            this.groupPoint.Controls.Add(this.checkSize);
-            this.groupPoint.Controls.Add(this.checkInteriorPattern);
-            this.groupPoint.Controls.Add(this.checkBold);
-            this.groupPoint.Controls.Add(this.checkForecolor);
-            this.groupPoint.Controls.Add(this.checkAlign);
-            this.groupPoint.Controls.Add(this.checkFormula);
-            this.groupPoint.Controls.Add(this.checkUnderline);
-            this.groupPoint.Controls.Add(this.checkValue);
-            this.groupPoint.Controls.Add(this.checkItalic);
-            this.groupPoint.Controls.Add(this.checkMerge);
-            this.groupPoint.Location = new System.Drawing.Point(12, 206);
+            this.groupPoint.Controls.Add(this.tableLayoutPanel1);
+            this.groupPoint.Location = new System.Drawing.Point(3, 288);
             this.groupPoint.Name = "groupPoint";
-            this.groupPoint.Size = new System.Drawing.Size(309, 171);
-            this.groupPoint.TabIndex = 1;
+            this.groupPoint.Size = new System.Drawing.Size(570, 226);
+            this.groupPoint.TabIndex = 2;
             this.groupPoint.TabStop = false;
             this.groupPoint.Text = "考点选项";
             // 
-            // checkSort
+            // tableLayoutPanel1
             // 
-            this.checkSort.AutoSize = true;
-            this.checkSort.Location = new System.Drawing.Point(11, 88);
-            this.checkSort.Name = "checkSort";
-            this.checkSort.Size = new System.Drawing.Size(48, 16);
-            this.checkSort.TabIndex = 47;
-            this.checkSort.Text = "排序";
-            this.checkSort.UseVisualStyleBackColor = true;
-            // 
-            // checkColWidth
-            // 
-            this.checkColWidth.AutoSize = true;
-            this.checkColWidth.Location = new System.Drawing.Point(110, 134);
-            this.checkColWidth.Name = "checkColWidth";
-            this.checkColWidth.Size = new System.Drawing.Size(48, 16);
-            this.checkColWidth.TabIndex = 46;
-            this.checkColWidth.Text = "列宽";
-            this.checkColWidth.UseVisualStyleBackColor = true;
-            // 
-            // checkRowHeight
-            // 
-            this.checkRowHeight.AutoSize = true;
-            this.checkRowHeight.Location = new System.Drawing.Point(11, 134);
-            this.checkRowHeight.Name = "checkRowHeight";
-            this.checkRowHeight.Size = new System.Drawing.Size(48, 16);
-            this.checkRowHeight.TabIndex = 45;
-            this.checkRowHeight.Text = "行高";
-            this.checkRowHeight.UseVisualStyleBackColor = true;
-            // 
-            // checkNumPattern
-            // 
-            this.checkNumPattern.AutoSize = true;
-            this.checkNumPattern.Location = new System.Drawing.Point(209, 88);
-            this.checkNumPattern.Name = "checkNumPattern";
-            this.checkNumPattern.Size = new System.Drawing.Size(72, 16);
-            this.checkNumPattern.TabIndex = 44;
-            this.checkNumPattern.Text = "数字格式";
-            this.checkNumPattern.UseVisualStyleBackColor = true;
-            // 
-            // checkBorder
-            // 
-            this.checkBorder.AutoSize = true;
-            this.checkBorder.Location = new System.Drawing.Point(110, 64);
-            this.checkBorder.Name = "checkBorder";
-            this.checkBorder.Size = new System.Drawing.Size(72, 16);
-            this.checkBorder.TabIndex = 41;
-            this.checkBorder.Text = "边框样式";
-            this.checkBorder.UseVisualStyleBackColor = true;
-            // 
-            // label16
-            // 
-            this.label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label16.Location = new System.Drawing.Point(15, 107);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(270, 2);
-            this.label16.TabIndex = 40;
-            this.label16.Text = "label16";
-            // 
-            // checkName
-            // 
-            this.checkName.AutoSize = true;
-            this.checkName.Location = new System.Drawing.Point(209, 20);
-            this.checkName.Name = "checkName";
-            this.checkName.Size = new System.Drawing.Size(72, 16);
-            this.checkName.TabIndex = 13;
-            this.checkName.Text = "字体名称";
-            this.checkName.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label15.Location = new System.Drawing.Point(15, 83);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(270, 2);
-            this.label15.TabIndex = 39;
-            this.label15.Text = "label15";
-            // 
-            // checkSubTotal
-            // 
-            this.checkSubTotal.AutoSize = true;
-            this.checkSubTotal.Location = new System.Drawing.Point(110, 88);
-            this.checkSubTotal.Name = "checkSubTotal";
-            this.checkSubTotal.Size = new System.Drawing.Size(72, 16);
-            this.checkSubTotal.TabIndex = 29;
-            this.checkSubTotal.Text = "分类汇总";
-            this.checkSubTotal.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.Controls.Add(this.checkSheet, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.checkAlign, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.checkColWidth, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.checkSort, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.checkRowHeight, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.checkSize, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.checkNumPattern, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.checkMerge, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.checkFormula, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.checkName, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.checkValue, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.checkSubTotal, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.checkBold, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.checkItalic, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.checkBorder, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.checkInteriorPattern, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.checkUnderline, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.checkForecolor, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 17);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(564, 206);
+            this.tableLayoutPanel1.TabIndex = 48;
             // 
             // checkSheet
             // 
             this.checkSheet.AutoSize = true;
-            this.checkSheet.Location = new System.Drawing.Point(11, 20);
+            this.checkSheet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkSheet.Location = new System.Drawing.Point(3, 3);
             this.checkSheet.Name = "checkSheet";
-            this.checkSheet.Size = new System.Drawing.Size(84, 16);
+            this.checkSheet.Size = new System.Drawing.Size(182, 28);
             this.checkSheet.TabIndex = 27;
             this.checkSheet.Text = "工作表名称";
             this.checkSheet.UseVisualStyleBackColor = true;
             // 
-            // checkSize
-            // 
-            this.checkSize.AutoSize = true;
-            this.checkSize.Location = new System.Drawing.Point(110, 20);
-            this.checkSize.Name = "checkSize";
-            this.checkSize.Size = new System.Drawing.Size(48, 16);
-            this.checkSize.TabIndex = 2;
-            this.checkSize.Text = "字号";
-            this.checkSize.UseVisualStyleBackColor = true;
-            // 
-            // checkInteriorPattern
-            // 
-            this.checkInteriorPattern.AutoSize = true;
-            this.checkInteriorPattern.Location = new System.Drawing.Point(209, 64);
-            this.checkInteriorPattern.Name = "checkInteriorPattern";
-            this.checkInteriorPattern.Size = new System.Drawing.Size(72, 16);
-            this.checkInteriorPattern.TabIndex = 9;
-            this.checkInteriorPattern.Text = "底纹样式";
-            this.checkInteriorPattern.UseVisualStyleBackColor = true;
-            // 
-            // checkBold
-            // 
-            this.checkBold.AutoSize = true;
-            this.checkBold.Location = new System.Drawing.Point(11, 42);
-            this.checkBold.Name = "checkBold";
-            this.checkBold.Size = new System.Drawing.Size(72, 16);
-            this.checkBold.TabIndex = 3;
-            this.checkBold.Text = "粗体情况";
-            this.checkBold.UseVisualStyleBackColor = true;
-            // 
-            // checkForecolor
-            // 
-            this.checkForecolor.AutoSize = true;
-            this.checkForecolor.Location = new System.Drawing.Point(11, 64);
-            this.checkForecolor.Name = "checkForecolor";
-            this.checkForecolor.Size = new System.Drawing.Size(72, 16);
-            this.checkForecolor.TabIndex = 5;
-            this.checkForecolor.Text = "字体颜色";
-            this.checkForecolor.UseVisualStyleBackColor = true;
-            // 
             // checkAlign
             // 
             this.checkAlign.AutoSize = true;
-            this.checkAlign.Location = new System.Drawing.Point(209, 134);
+            this.checkAlign.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkAlign.Location = new System.Drawing.Point(379, 173);
             this.checkAlign.Name = "checkAlign";
-            this.checkAlign.Size = new System.Drawing.Size(72, 16);
+            this.checkAlign.Size = new System.Drawing.Size(182, 30);
             this.checkAlign.TabIndex = 18;
             this.checkAlign.Text = "对齐方式";
             this.checkAlign.UseVisualStyleBackColor = true;
             // 
-            // checkFormula
+            // checkColWidth
             // 
-            this.checkFormula.AutoSize = true;
-            this.checkFormula.Location = new System.Drawing.Point(110, 112);
-            this.checkFormula.Name = "checkFormula";
-            this.checkFormula.Size = new System.Drawing.Size(48, 16);
-            this.checkFormula.TabIndex = 22;
-            this.checkFormula.Text = "公式";
-            this.checkFormula.UseVisualStyleBackColor = true;
+            this.checkColWidth.AutoSize = true;
+            this.checkColWidth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkColWidth.Location = new System.Drawing.Point(191, 173);
+            this.checkColWidth.Name = "checkColWidth";
+            this.checkColWidth.Size = new System.Drawing.Size(182, 30);
+            this.checkColWidth.TabIndex = 46;
+            this.checkColWidth.Text = "列宽";
+            this.checkColWidth.UseVisualStyleBackColor = true;
             // 
-            // checkUnderline
+            // checkSort
             // 
-            this.checkUnderline.AutoSize = true;
-            this.checkUnderline.Location = new System.Drawing.Point(209, 42);
-            this.checkUnderline.Name = "checkUnderline";
-            this.checkUnderline.Size = new System.Drawing.Size(84, 16);
-            this.checkUnderline.TabIndex = 6;
-            this.checkUnderline.Text = "下划线情况";
-            this.checkUnderline.UseVisualStyleBackColor = true;
+            this.checkSort.AutoSize = true;
+            this.checkSort.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkSort.Location = new System.Drawing.Point(3, 105);
+            this.checkSort.Name = "checkSort";
+            this.checkSort.Size = new System.Drawing.Size(182, 28);
+            this.checkSort.TabIndex = 47;
+            this.checkSort.Text = "排序";
+            this.checkSort.UseVisualStyleBackColor = true;
             // 
-            // checkValue
+            // checkRowHeight
             // 
-            this.checkValue.AutoSize = true;
-            this.checkValue.Location = new System.Drawing.Point(11, 112);
-            this.checkValue.Name = "checkValue";
-            this.checkValue.Size = new System.Drawing.Size(48, 16);
-            this.checkValue.TabIndex = 21;
-            this.checkValue.Text = "数值";
-            this.checkValue.UseVisualStyleBackColor = true;
+            this.checkRowHeight.AutoSize = true;
+            this.checkRowHeight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkRowHeight.Location = new System.Drawing.Point(3, 173);
+            this.checkRowHeight.Name = "checkRowHeight";
+            this.checkRowHeight.Size = new System.Drawing.Size(182, 30);
+            this.checkRowHeight.TabIndex = 45;
+            this.checkRowHeight.Text = "行高";
+            this.checkRowHeight.UseVisualStyleBackColor = true;
             // 
-            // checkItalic
+            // checkSize
             // 
-            this.checkItalic.AutoSize = true;
-            this.checkItalic.Location = new System.Drawing.Point(110, 42);
-            this.checkItalic.Name = "checkItalic";
-            this.checkItalic.Size = new System.Drawing.Size(72, 16);
-            this.checkItalic.TabIndex = 7;
-            this.checkItalic.Text = "斜体情况";
-            this.checkItalic.UseVisualStyleBackColor = true;
+            this.checkSize.AutoSize = true;
+            this.checkSize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkSize.Location = new System.Drawing.Point(191, 3);
+            this.checkSize.Name = "checkSize";
+            this.checkSize.Size = new System.Drawing.Size(182, 28);
+            this.checkSize.TabIndex = 2;
+            this.checkSize.Text = "字号";
+            this.checkSize.UseVisualStyleBackColor = true;
+            // 
+            // checkNumPattern
+            // 
+            this.checkNumPattern.AutoSize = true;
+            this.checkNumPattern.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkNumPattern.Location = new System.Drawing.Point(379, 105);
+            this.checkNumPattern.Name = "checkNumPattern";
+            this.checkNumPattern.Size = new System.Drawing.Size(182, 28);
+            this.checkNumPattern.TabIndex = 44;
+            this.checkNumPattern.Text = "数字格式";
+            this.checkNumPattern.UseVisualStyleBackColor = true;
             // 
             // checkMerge
             // 
             this.checkMerge.AutoSize = true;
-            this.checkMerge.Location = new System.Drawing.Point(209, 112);
+            this.checkMerge.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkMerge.Location = new System.Drawing.Point(379, 139);
             this.checkMerge.Name = "checkMerge";
-            this.checkMerge.Size = new System.Drawing.Size(84, 16);
+            this.checkMerge.Size = new System.Drawing.Size(182, 28);
             this.checkMerge.TabIndex = 8;
             this.checkMerge.Text = "单元格合并";
             this.checkMerge.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // checkFormula
             // 
-            this.groupBox2.Controls.Add(this.radioSheet);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.textPos);
-            this.groupBox2.Controls.Add(this.radioRegion);
-            this.groupBox2.Controls.Add(this.radioCell);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.comboWorksheet);
-            this.groupBox2.Controls.Add(this.textLuPos);
-            this.groupBox2.Controls.Add(this.textRdPos);
-            this.groupBox2.Location = new System.Drawing.Point(12, 9);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(309, 191);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "文字定位";
+            this.checkFormula.AutoSize = true;
+            this.checkFormula.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkFormula.Location = new System.Drawing.Point(191, 139);
+            this.checkFormula.Name = "checkFormula";
+            this.checkFormula.Size = new System.Drawing.Size(182, 28);
+            this.checkFormula.TabIndex = 22;
+            this.checkFormula.Text = "公式";
+            this.checkFormula.UseVisualStyleBackColor = true;
             // 
-            // radioSheet
+            // checkName
             // 
-            this.radioSheet.AutoSize = true;
-            this.radioSheet.Location = new System.Drawing.Point(15, 160);
-            this.radioSheet.Name = "radioSheet";
-            this.radioSheet.Size = new System.Drawing.Size(215, 16);
-            this.radioSheet.TabIndex = 45;
-            this.radioSheet.TabStop = true;
-            this.radioSheet.Text = "只选中工作表(不选中任何单元格！)";
-            this.radioSheet.UseVisualStyleBackColor = true;
+            this.checkName.AutoSize = true;
+            this.checkName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkName.Location = new System.Drawing.Point(379, 3);
+            this.checkName.Name = "checkName";
+            this.checkName.Size = new System.Drawing.Size(182, 28);
+            this.checkName.TabIndex = 13;
+            this.checkName.Text = "字体名称";
+            this.checkName.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // checkValue
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(163, 136);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 12);
-            this.label13.TabIndex = 44;
-            this.label13.Text = "右下角:";
+            this.checkValue.AutoSize = true;
+            this.checkValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkValue.Location = new System.Drawing.Point(3, 139);
+            this.checkValue.Name = "checkValue";
+            this.checkValue.Size = new System.Drawing.Size(182, 28);
+            this.checkValue.TabIndex = 21;
+            this.checkValue.Text = "数值";
+            this.checkValue.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // checkSubTotal
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(20, 136);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 12);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "左上角:";
+            this.checkSubTotal.AutoSize = true;
+            this.checkSubTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkSubTotal.Location = new System.Drawing.Point(191, 105);
+            this.checkSubTotal.Name = "checkSubTotal";
+            this.checkSubTotal.Size = new System.Drawing.Size(182, 28);
+            this.checkSubTotal.TabIndex = 29;
+            this.checkSubTotal.Text = "分类汇总";
+            this.checkSubTotal.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // checkBold
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 118);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(179, 12);
-            this.label11.TabIndex = 42;
-            this.label11.Text = "请分别输入区域左上角与右下角:";
+            this.checkBold.AutoSize = true;
+            this.checkBold.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBold.Location = new System.Drawing.Point(3, 37);
+            this.checkBold.Name = "checkBold";
+            this.checkBold.Size = new System.Drawing.Size(182, 28);
+            this.checkBold.TabIndex = 3;
+            this.checkBold.Text = "粗体情况";
+            this.checkBold.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // checkItalic
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 70);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(143, 12);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "请输入单元格坐标(如A3):";
+            this.checkItalic.AutoSize = true;
+            this.checkItalic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkItalic.Location = new System.Drawing.Point(191, 37);
+            this.checkItalic.Name = "checkItalic";
+            this.checkItalic.Size = new System.Drawing.Size(182, 28);
+            this.checkItalic.TabIndex = 7;
+            this.checkItalic.Text = "斜体情况";
+            this.checkItalic.UseVisualStyleBackColor = true;
             // 
-            // textPos
+            // checkBorder
             // 
-            this.textPos.Location = new System.Drawing.Point(168, 64);
-            this.textPos.Name = "textPos";
-            this.textPos.Size = new System.Drawing.Size(113, 21);
-            this.textPos.TabIndex = 41;
+            this.checkBorder.AutoSize = true;
+            this.checkBorder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBorder.Location = new System.Drawing.Point(191, 71);
+            this.checkBorder.Name = "checkBorder";
+            this.checkBorder.Size = new System.Drawing.Size(182, 28);
+            this.checkBorder.TabIndex = 41;
+            this.checkBorder.Text = "边框样式";
+            this.checkBorder.UseVisualStyleBackColor = true;
             // 
-            // radioRegion
+            // checkInteriorPattern
             // 
-            this.radioRegion.AutoSize = true;
-            this.radioRegion.Location = new System.Drawing.Point(15, 94);
-            this.radioRegion.Name = "radioRegion";
-            this.radioRegion.Size = new System.Drawing.Size(107, 16);
-            this.radioRegion.TabIndex = 40;
-            this.radioRegion.TabStop = true;
-            this.radioRegion.Text = "选中单元格区域";
-            this.radioRegion.UseVisualStyleBackColor = true;
+            this.checkInteriorPattern.AutoSize = true;
+            this.checkInteriorPattern.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkInteriorPattern.Location = new System.Drawing.Point(379, 71);
+            this.checkInteriorPattern.Name = "checkInteriorPattern";
+            this.checkInteriorPattern.Size = new System.Drawing.Size(182, 28);
+            this.checkInteriorPattern.TabIndex = 9;
+            this.checkInteriorPattern.Text = "底纹样式";
+            this.checkInteriorPattern.UseVisualStyleBackColor = true;
             // 
-            // radioCell
+            // checkUnderline
             // 
-            this.radioCell.AutoSize = true;
-            this.radioCell.Location = new System.Drawing.Point(15, 46);
-            this.radioCell.Name = "radioCell";
-            this.radioCell.Size = new System.Drawing.Size(107, 16);
-            this.radioCell.TabIndex = 39;
-            this.radioCell.TabStop = true;
-            this.radioCell.Text = "选中单个单元格";
-            this.radioCell.UseVisualStyleBackColor = true;
+            this.checkUnderline.AutoSize = true;
+            this.checkUnderline.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkUnderline.Location = new System.Drawing.Point(379, 37);
+            this.checkUnderline.Name = "checkUnderline";
+            this.checkUnderline.Size = new System.Drawing.Size(182, 28);
+            this.checkUnderline.TabIndex = 6;
+            this.checkUnderline.Text = "下划线情况";
+            this.checkUnderline.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // checkForecolor
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 23);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 12);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "请选择工作表:";
+            this.checkForecolor.AutoSize = true;
+            this.checkForecolor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkForecolor.Location = new System.Drawing.Point(3, 71);
+            this.checkForecolor.Name = "checkForecolor";
+            this.checkForecolor.Size = new System.Drawing.Size(182, 28);
+            this.checkForecolor.TabIndex = 5;
+            this.checkForecolor.Text = "字体颜色";
+            this.checkForecolor.UseVisualStyleBackColor = true;
             // 
-            // comboWorksheet
+            // btnCancel
             // 
-            this.comboWorksheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboWorksheet.FormattingEnabled = true;
-            this.comboWorksheet.Location = new System.Drawing.Point(107, 18);
-            this.comboWorksheet.Name = "comboWorksheet";
-            this.comboWorksheet.Size = new System.Drawing.Size(174, 20);
-            this.comboWorksheet.TabIndex = 26;
-            // 
-            // textLuPos
-            // 
-            this.textLuPos.Location = new System.Drawing.Point(73, 133);
-            this.textLuPos.Name = "textLuPos";
-            this.textLuPos.Size = new System.Drawing.Size(69, 21);
-            this.textLuPos.TabIndex = 23;
-            // 
-            // textRdPos
-            // 
-            this.textRdPos.Location = new System.Drawing.Point(216, 133);
-            this.textRdPos.Name = "textRdPos";
-            this.textRdPos.Size = new System.Drawing.Size(69, 21);
-            this.textRdPos.TabIndex = 24;
+            this.btnCancel.Location = new System.Drawing.Point(313, 594);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(117, 32);
+            this.btnCancel.TabIndex = 39;
+            this.btnCancel.Text = "放弃添加";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(193, 383);
+            this.buttonOK.Location = new System.Drawing.Point(451, 553);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(128, 28);
-            this.buttonOK.TabIndex = 25;
+            this.buttonOK.Size = new System.Drawing.Size(128, 35);
+            this.buttonOK.TabIndex = 41;
             this.buttonOK.Text = "添加文字考点";
             this.buttonOK.UseVisualStyleBackColor = true;
+            // 
+            // btnComplete
+            // 
+            this.btnComplete.Location = new System.Drawing.Point(451, 594);
+            this.btnComplete.Name = "btnComplete";
+            this.btnComplete.Size = new System.Drawing.Size(128, 32);
+            this.btnComplete.TabIndex = 26;
+            this.btnComplete.Text = "完成添加";
+            this.btnComplete.UseVisualStyleBackColor = true;
+            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // tabPageGraph
             // 
             this.tabPageGraph.Controls.Add(this.groupGraphPoint);
             this.tabPageGraph.Controls.Add(this.buttonGraph);
             this.tabPageGraph.Controls.Add(this.groupBox1);
-            this.tabPageGraph.Location = new System.Drawing.Point(4, 22);
+            this.tabPageGraph.Location = new System.Drawing.Point(4, 21);
             this.tabPageGraph.Name = "tabPageGraph";
             this.tabPageGraph.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGraph.Size = new System.Drawing.Size(332, 417);
+            this.tabPageGraph.Size = new System.Drawing.Size(585, 641);
             this.tabPageGraph.TabIndex = 1;
             this.tabPageGraph.Text = "图表考点";
             this.tabPageGraph.UseVisualStyleBackColor = true;
@@ -688,47 +626,218 @@
             this.radioChartInSheet.Text = "作为工作表内嵌的图表";
             this.radioChartInSheet.UseVisualStyleBackColor = true;
             // 
-            // btnComplete
+            // radioSheet
             // 
-            this.btnComplete.Location = new System.Drawing.Point(137, 465);
-            this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(108, 32);
-            this.btnComplete.TabIndex = 26;
-            this.btnComplete.Text = "完成添加";
-            this.btnComplete.UseVisualStyleBackColor = true;
-            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
+            this.radioSheet.AutoSize = true;
+            this.radioSheet.Location = new System.Drawing.Point(3, 225);
+            this.radioSheet.Name = "radioSheet";
+            this.radioSheet.Size = new System.Drawing.Size(215, 16);
+            this.radioSheet.TabIndex = 45;
+            this.radioSheet.TabStop = true;
+            this.radioSheet.Text = "只选中工作表(不选中任何单元格！)";
+            this.radioSheet.UseVisualStyleBackColor = true;
             // 
-            // btnCancel
+            // label11
             // 
-            this.btnCancel.Location = new System.Drawing.Point(251, 465);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 32);
-            this.btnCancel.TabIndex = 39;
-            this.btnCancel.Text = "放弃添加";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 148);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(179, 12);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "请分别输入区域左上角与右下角:";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 4;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.Controls.Add(this.label12, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textRdPos, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label13, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textLuPos, 1, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 188);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(549, 31);
+            this.tableLayoutPanel5.TabIndex = 48;
+            // 
+            // textLuPos
+            // 
+            this.textLuPos.Location = new System.Drawing.Point(140, 3);
+            this.textLuPos.Name = "textLuPos";
+            this.textLuPos.Size = new System.Drawing.Size(118, 21);
+            this.textLuPos.TabIndex = 23;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(277, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(47, 12);
+            this.label13.TabIndex = 44;
+            this.label13.Text = "右下角:";
+            // 
+            // textRdPos
+            // 
+            this.textRdPos.Location = new System.Drawing.Point(414, 3);
+            this.textRdPos.Name = "textRdPos";
+            this.textRdPos.Size = new System.Drawing.Size(109, 21);
+            this.textRdPos.TabIndex = 24;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(47, 12);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "左上角:";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.textPos, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 77);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(549, 31);
+            this.tableLayoutPanel4.TabIndex = 47;
+            // 
+            // textPos
+            // 
+            this.textPos.Location = new System.Drawing.Point(277, 3);
+            this.textPos.Name = "textPos";
+            this.textPos.Size = new System.Drawing.Size(191, 21);
+            this.textPos.TabIndex = 41;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(143, 12);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "请输入单元格坐标(如A3):";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.comboWorksheet, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(549, 31);
+            this.tableLayoutPanel3.TabIndex = 46;
+            // 
+            // comboWorksheet
+            // 
+            this.comboWorksheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboWorksheet.FormattingEnabled = true;
+            this.comboWorksheet.Location = new System.Drawing.Point(277, 3);
+            this.comboWorksheet.Name = "comboWorksheet";
+            this.comboWorksheet.Size = new System.Drawing.Size(179, 20);
+            this.comboWorksheet.TabIndex = 26;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 12);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "请选择工作表:";
+            // 
+            // radioRegion
+            // 
+            this.radioRegion.AutoSize = true;
+            this.radioRegion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioRegion.Location = new System.Drawing.Point(3, 114);
+            this.radioRegion.Name = "radioRegion";
+            this.radioRegion.Size = new System.Drawing.Size(549, 31);
+            this.radioRegion.TabIndex = 40;
+            this.radioRegion.TabStop = true;
+            this.radioRegion.Text = "选中单元格区域";
+            this.radioRegion.UseVisualStyleBackColor = true;
+            // 
+            // radioCell
+            // 
+            this.radioCell.AutoSize = true;
+            this.radioCell.Location = new System.Drawing.Point(3, 40);
+            this.radioCell.Name = "radioCell";
+            this.radioCell.Size = new System.Drawing.Size(107, 16);
+            this.radioCell.TabIndex = 39;
+            this.radioCell.TabStop = true;
+            this.radioCell.Text = "选中单个单元格";
+            this.radioCell.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.radioCell, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.radioRegion, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.radioSheet, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.label11, 0, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 11);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 7;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.14835F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(555, 262);
+            this.tableLayoutPanel2.TabIndex = 46;
             // 
             // testExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.tabControl1);
             this.Name = "testExcel";
-            this.Size = new System.Drawing.Size(417, 514);
+            this.Size = new System.Drawing.Size(593, 666);
             this.Load += new System.EventHandler(this.testExcel_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageText.ResumeLayout(false);
-            this.groupPoint.ResumeLayout(false);
-            this.groupPoint.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupPoint.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tabPageGraph.ResumeLayout(false);
             this.groupGraphPoint.ResumeLayout(false);
             this.groupGraphPoint.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -737,41 +846,6 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageText;
-        private System.Windows.Forms.GroupBox groupPoint;
-        private System.Windows.Forms.CheckBox checkSort;
-        private System.Windows.Forms.CheckBox checkColWidth;
-        private System.Windows.Forms.CheckBox checkRowHeight;
-        private System.Windows.Forms.CheckBox checkNumPattern;
-        private System.Windows.Forms.CheckBox checkBorder;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox checkName;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.CheckBox checkSubTotal;
-        private System.Windows.Forms.CheckBox checkSheet;
-        private System.Windows.Forms.CheckBox checkSize;
-        private System.Windows.Forms.CheckBox checkInteriorPattern;
-        private System.Windows.Forms.CheckBox checkBold;
-        private System.Windows.Forms.CheckBox checkForecolor;
-        private System.Windows.Forms.CheckBox checkAlign;
-        private System.Windows.Forms.CheckBox checkFormula;
-        private System.Windows.Forms.CheckBox checkUnderline;
-        private System.Windows.Forms.CheckBox checkValue;
-        private System.Windows.Forms.CheckBox checkItalic;
-        private System.Windows.Forms.CheckBox checkMerge;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioSheet;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textPos;
-        private System.Windows.Forms.RadioButton radioRegion;
-        private System.Windows.Forms.RadioButton radioCell;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboWorksheet;
-        private System.Windows.Forms.TextBox textLuPos;
-        private System.Windows.Forms.TextBox textRdPos;
-        private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.TabPage tabPageGraph;
         private System.Windows.Forms.GroupBox groupGraphPoint;
         private System.Windows.Forms.CheckBox checkGraphName;
@@ -793,5 +867,44 @@
         private System.Windows.Forms.RadioButton radioChartInSheet;
         private System.Windows.Forms.Button btnComplete;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupPoint;
+        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.CheckBox checkSort;
+        private System.Windows.Forms.CheckBox checkColWidth;
+        private System.Windows.Forms.CheckBox checkRowHeight;
+        private System.Windows.Forms.CheckBox checkNumPattern;
+        private System.Windows.Forms.CheckBox checkBorder;
+        private System.Windows.Forms.CheckBox checkName;
+        private System.Windows.Forms.CheckBox checkSubTotal;
+        private System.Windows.Forms.CheckBox checkSheet;
+        private System.Windows.Forms.CheckBox checkSize;
+        private System.Windows.Forms.CheckBox checkInteriorPattern;
+        private System.Windows.Forms.CheckBox checkBold;
+        private System.Windows.Forms.CheckBox checkForecolor;
+        private System.Windows.Forms.CheckBox checkAlign;
+        private System.Windows.Forms.CheckBox checkFormula;
+        private System.Windows.Forms.CheckBox checkUnderline;
+        private System.Windows.Forms.CheckBox checkValue;
+        private System.Windows.Forms.CheckBox checkItalic;
+        private System.Windows.Forms.CheckBox checkMerge;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.RadioButton radioCell;
+        private System.Windows.Forms.RadioButton radioRegion;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboWorksheet;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textPos;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textRdPos;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textLuPos;
+        private System.Windows.Forms.RadioButton radioSheet;
+        private System.Windows.Forms.Label label11;
     }
 }
