@@ -1711,6 +1711,24 @@ namespace OES
             }
         }
 
+        //修改Paper记录，参数是Paper编号和一个Paper对象
+        public void UpdatePaper(string Id, Paper p)
+        {
+            SqlParameter[] dp = new SqlParameter[7];
+            SqlParameter[] ddlparam = new SqlParameter[7];
+            ddlparam[0] = CreateParam("@GenerateDate", SqlDbType.DateTime, 20, p.createTime, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@TestDate", SqlDbType.DateTime, 20, p.testTime, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, p.paperPath, ParameterDirection.Input);
+            ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, p.paperName, ParameterDirection.Input);
+            ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, p.author, ParameterDirection.Input);
+            ddlparam[5] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+            ddlparam[6] = CreateParam("@ProgramState", SqlDbType.Int, 5, p.programState, ParameterDirection.Input);
+
+            SqlCommand Cmd = CreateCmd("UpdatePaper", ddlparam);
+            try { Cmd.ExecuteNonQuery(); }
+            catch { throw; }
+        }
+        
         //修改Paper记录  ,ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
         public void UpdatePaper(string Id, string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id,int ProgramState)
         {
@@ -1720,20 +1738,12 @@ namespace OES
             ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, Paper_Path, ParameterDirection.Input);
             ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
-            
             ddlparam[5] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@ProgramState", SqlDbType.Int, 5, Id, ParameterDirection.Input);
-
-
+            ddlparam[6] = CreateParam("@ProgramState", SqlDbType.Int, 5, ProgramState, ParameterDirection.Input);
+            
             SqlCommand Cmd = CreateCmd("UpdatePaper", ddlparam);
-            try
-            {
-                Cmd.ExecuteNonQuery();
-            }
-            catch (SqlException e)
-            {
-                MessageBox.Show(e.ToString());
-            }
+            try { Cmd.ExecuteNonQuery(); }
+            catch { throw; }
         }
         //纯粹列出所有的Paper记录
         public List<String> FindAllPaper()
