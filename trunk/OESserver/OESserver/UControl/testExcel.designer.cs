@@ -32,6 +32,22 @@
             this.tabPageText = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.radioCell = new System.Windows.Forms.RadioButton();
+            this.radioRegion = new System.Windows.Forms.RadioButton();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboWorksheet = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.textPos = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textRdPos = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textLuPos = new System.Windows.Forms.TextBox();
+            this.radioSheet = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupPoint = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.checkSheet = new System.Windows.Forms.CheckBox();
@@ -52,9 +68,7 @@
             this.checkInteriorPattern = new System.Windows.Forms.CheckBox();
             this.checkUnderline = new System.Windows.Forms.CheckBox();
             this.checkForecolor = new System.Windows.Forms.CheckBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
-            this.btnComplete = new System.Windows.Forms.Button();
             this.tabPageGraph = new System.Windows.Forms.TabPage();
             this.groupGraphPoint = new System.Windows.Forms.GroupBox();
             this.checkGraphName = new System.Windows.Forms.CheckBox();
@@ -74,35 +88,19 @@
             this.comboSheet = new System.Windows.Forms.ComboBox();
             this.comboChartInSheet = new System.Windows.Forms.ComboBox();
             this.radioChartInSheet = new System.Windows.Forms.RadioButton();
-            this.radioSheet = new System.Windows.Forms.RadioButton();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.textLuPos = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textRdPos = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.textPos = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboWorksheet = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.radioRegion = new System.Windows.Forms.RadioButton();
-            this.radioCell = new System.Windows.Forms.RadioButton();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPageText.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.groupPoint.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPageGraph.SuspendLayout();
             this.groupGraphPoint.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -112,19 +110,17 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(593, 666);
+            this.tabControl1.Size = new System.Drawing.Size(593, 625);
             this.tabControl1.TabIndex = 38;
             // 
             // tabPageText
             // 
             this.tabPageText.Controls.Add(this.flowLayoutPanel1);
-            this.tabPageText.Controls.Add(this.btnCancel);
             this.tabPageText.Controls.Add(this.buttonOK);
-            this.tabPageText.Controls.Add(this.btnComplete);
             this.tabPageText.Location = new System.Drawing.Point(4, 21);
             this.tabPageText.Name = "tabPageText";
             this.tabPageText.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageText.Size = new System.Drawing.Size(585, 641);
+            this.tabPageText.Size = new System.Drawing.Size(585, 600);
             this.tabPageText.TabIndex = 0;
             this.tabPageText.Text = "文字考点";
             this.tabPageText.UseVisualStyleBackColor = true;
@@ -147,6 +143,190 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "文字定位";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.radioCell, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.radioRegion, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.radioSheet, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.label11, 0, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 11);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 7;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.14835F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(555, 262);
+            this.tableLayoutPanel2.TabIndex = 46;
+            // 
+            // radioCell
+            // 
+            this.radioCell.AutoSize = true;
+            this.radioCell.Location = new System.Drawing.Point(3, 40);
+            this.radioCell.Name = "radioCell";
+            this.radioCell.Size = new System.Drawing.Size(107, 16);
+            this.radioCell.TabIndex = 39;
+            this.radioCell.TabStop = true;
+            this.radioCell.Text = "选中单个单元格";
+            this.radioCell.UseVisualStyleBackColor = true;
+            // 
+            // radioRegion
+            // 
+            this.radioRegion.AutoSize = true;
+            this.radioRegion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioRegion.Location = new System.Drawing.Point(3, 114);
+            this.radioRegion.Name = "radioRegion";
+            this.radioRegion.Size = new System.Drawing.Size(549, 31);
+            this.radioRegion.TabIndex = 40;
+            this.radioRegion.TabStop = true;
+            this.radioRegion.Text = "选中单元格区域";
+            this.radioRegion.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.comboWorksheet, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(549, 31);
+            this.tableLayoutPanel3.TabIndex = 46;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 12);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "请选择工作表:";
+            // 
+            // comboWorksheet
+            // 
+            this.comboWorksheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboWorksheet.FormattingEnabled = true;
+            this.comboWorksheet.Location = new System.Drawing.Point(277, 3);
+            this.comboWorksheet.Name = "comboWorksheet";
+            this.comboWorksheet.Size = new System.Drawing.Size(179, 20);
+            this.comboWorksheet.TabIndex = 26;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.textPos, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 77);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(549, 31);
+            this.tableLayoutPanel4.TabIndex = 47;
+            // 
+            // textPos
+            // 
+            this.textPos.Location = new System.Drawing.Point(277, 3);
+            this.textPos.Name = "textPos";
+            this.textPos.Size = new System.Drawing.Size(191, 21);
+            this.textPos.TabIndex = 41;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(143, 12);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "请输入单元格坐标(如A3):";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 4;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.Controls.Add(this.label12, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textRdPos, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label13, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.textLuPos, 1, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 188);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(549, 31);
+            this.tableLayoutPanel5.TabIndex = 48;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(47, 12);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "左上角:";
+            // 
+            // textRdPos
+            // 
+            this.textRdPos.Location = new System.Drawing.Point(414, 3);
+            this.textRdPos.Name = "textRdPos";
+            this.textRdPos.Size = new System.Drawing.Size(109, 21);
+            this.textRdPos.TabIndex = 24;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(277, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(47, 12);
+            this.label13.TabIndex = 44;
+            this.label13.Text = "右下角:";
+            // 
+            // textLuPos
+            // 
+            this.textLuPos.Location = new System.Drawing.Point(140, 3);
+            this.textLuPos.Name = "textLuPos";
+            this.textLuPos.Size = new System.Drawing.Size(118, 21);
+            this.textLuPos.TabIndex = 23;
+            // 
+            // radioSheet
+            // 
+            this.radioSheet.AutoSize = true;
+            this.radioSheet.Location = new System.Drawing.Point(3, 225);
+            this.radioSheet.Name = "radioSheet";
+            this.radioSheet.Size = new System.Drawing.Size(215, 16);
+            this.radioSheet.TabIndex = 45;
+            this.radioSheet.TabStop = true;
+            this.radioSheet.Text = "只选中工作表(不选中任何单元格！)";
+            this.radioSheet.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 148);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(179, 12);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "请分别输入区域左上角与右下角:";
             // 
             // groupPoint
             // 
@@ -393,16 +573,6 @@
             this.checkForecolor.Text = "字体颜色";
             this.checkForecolor.UseVisualStyleBackColor = true;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(313, 594);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(117, 32);
-            this.btnCancel.TabIndex = 39;
-            this.btnCancel.Text = "放弃添加";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // buttonOK
             // 
             this.buttonOK.Location = new System.Drawing.Point(451, 553);
@@ -411,16 +581,6 @@
             this.buttonOK.TabIndex = 41;
             this.buttonOK.Text = "添加文字考点";
             this.buttonOK.UseVisualStyleBackColor = true;
-            // 
-            // btnComplete
-            // 
-            this.btnComplete.Location = new System.Drawing.Point(451, 594);
-            this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(128, 32);
-            this.btnComplete.TabIndex = 26;
-            this.btnComplete.Text = "完成添加";
-            this.btnComplete.UseVisualStyleBackColor = true;
-            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // tabPageGraph
             // 
@@ -626,202 +786,26 @@
             this.radioChartInSheet.Text = "作为工作表内嵌的图表";
             this.radioChartInSheet.UseVisualStyleBackColor = true;
             // 
-            // radioSheet
-            // 
-            this.radioSheet.AutoSize = true;
-            this.radioSheet.Location = new System.Drawing.Point(3, 225);
-            this.radioSheet.Name = "radioSheet";
-            this.radioSheet.Size = new System.Drawing.Size(215, 16);
-            this.radioSheet.TabIndex = 45;
-            this.radioSheet.TabStop = true;
-            this.radioSheet.Text = "只选中工作表(不选中任何单元格！)";
-            this.radioSheet.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 148);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(179, 12);
-            this.label11.TabIndex = 42;
-            this.label11.Text = "请分别输入区域左上角与右下角:";
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 4;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.Controls.Add(this.label12, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.textRdPos, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label13, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.textLuPos, 1, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 188);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(549, 31);
-            this.tableLayoutPanel5.TabIndex = 48;
-            // 
-            // textLuPos
-            // 
-            this.textLuPos.Location = new System.Drawing.Point(140, 3);
-            this.textLuPos.Name = "textLuPos";
-            this.textLuPos.Size = new System.Drawing.Size(118, 21);
-            this.textLuPos.TabIndex = 23;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(277, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 12);
-            this.label13.TabIndex = 44;
-            this.label13.Text = "右下角:";
-            // 
-            // textRdPos
-            // 
-            this.textRdPos.Location = new System.Drawing.Point(414, 3);
-            this.textRdPos.Name = "textRdPos";
-            this.textRdPos.Size = new System.Drawing.Size(109, 21);
-            this.textRdPos.TabIndex = 24;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 12);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "左上角:";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.textPos, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label10, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 77);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(549, 31);
-            this.tableLayoutPanel4.TabIndex = 47;
-            // 
-            // textPos
-            // 
-            this.textPos.Location = new System.Drawing.Point(277, 3);
-            this.textPos.Name = "textPos";
-            this.textPos.Size = new System.Drawing.Size(191, 21);
-            this.textPos.TabIndex = 41;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(143, 12);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "请输入单元格坐标(如A3):";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.comboWorksheet, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(549, 31);
-            this.tableLayoutPanel3.TabIndex = 46;
-            // 
-            // comboWorksheet
-            // 
-            this.comboWorksheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboWorksheet.FormattingEnabled = true;
-            this.comboWorksheet.Location = new System.Drawing.Point(277, 3);
-            this.comboWorksheet.Name = "comboWorksheet";
-            this.comboWorksheet.Size = new System.Drawing.Size(179, 20);
-            this.comboWorksheet.TabIndex = 26;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 12);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "请选择工作表:";
-            // 
-            // radioRegion
-            // 
-            this.radioRegion.AutoSize = true;
-            this.radioRegion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioRegion.Location = new System.Drawing.Point(3, 114);
-            this.radioRegion.Name = "radioRegion";
-            this.radioRegion.Size = new System.Drawing.Size(549, 31);
-            this.radioRegion.TabIndex = 40;
-            this.radioRegion.TabStop = true;
-            this.radioRegion.Text = "选中单元格区域";
-            this.radioRegion.UseVisualStyleBackColor = true;
-            // 
-            // radioCell
-            // 
-            this.radioCell.AutoSize = true;
-            this.radioCell.Location = new System.Drawing.Point(3, 40);
-            this.radioCell.Name = "radioCell";
-            this.radioCell.Size = new System.Drawing.Size(107, 16);
-            this.radioCell.TabIndex = 39;
-            this.radioCell.TabStop = true;
-            this.radioCell.Text = "选中单个单元格";
-            this.radioCell.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.radioCell, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.radioRegion, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.radioSheet, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.label11, 0, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 11);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.30861F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.14835F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(555, 262);
-            this.tableLayoutPanel2.TabIndex = 46;
-            // 
             // testExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Name = "testExcel";
-            this.Size = new System.Drawing.Size(593, 666);
+            this.Size = new System.Drawing.Size(593, 631);
             this.Load += new System.EventHandler(this.testExcel_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageText.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.groupPoint.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -830,14 +814,6 @@
             this.groupGraphPoint.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -865,8 +841,6 @@
         private System.Windows.Forms.ComboBox comboSheet;
         private System.Windows.Forms.ComboBox comboChartInSheet;
         private System.Windows.Forms.RadioButton radioChartInSheet;
-        private System.Windows.Forms.Button btnComplete;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupPoint;

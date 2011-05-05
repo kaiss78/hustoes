@@ -31,7 +31,7 @@ namespace testExcel
         int[] worksheetIndex;           //工作表在整个工作簿的索引
         int[] chartIndex;               //图表在整个工作簿的索引
 
-        void CloseExcel()
+        public void CloseExcel()
         {
             try
             { 
@@ -544,17 +544,17 @@ namespace testExcel
             return cnt;
         }
 
-        private void btnComplete_Click(object sender, EventArgs e)
-        {
-            CloseExcel();
-            this.Dispose();
+        //private void btnComplete_Click(object sender, EventArgs e)
+        //{
+        //    CloseExcel();
+        //    this.Dispose();
 
-        }
+        //}
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            CloseExcel();
-            this.Dispose();
-        }
+        //private void btnCancel_Click(object sender, EventArgs e)
+        //{
+        //    CloseExcel();
+        //    this.Dispose();
+        //}
     }
 }
