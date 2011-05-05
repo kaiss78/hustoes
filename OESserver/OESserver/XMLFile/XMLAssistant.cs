@@ -202,12 +202,12 @@ namespace OES.XMLFile
             foreach (ProblemType pt in ProblemTypeCollection)
             {
                 XmlNode xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
-                foreach (XmlNode xnn in xn.ChildNodes)
+                for (int s = 0; s < xn.ChildNodes.Count; )
                 {
                     IdScoreType ist = new IdScoreType();
-                    ist.id = Convert.ToInt32(xnn.ChildNodes.Item(0).ChildNodes.Item(0).Value);
+                    ist.id = Convert.ToInt32(xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value);
                     ist.pt = pt;
-                    ist.score = Convert.ToInt32(xnn.ChildNodes.Item(0).ChildNodes.Item(1).Value);
+                    ist.score = Convert.ToInt32(xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value);
                     list.Add(ist);
                 }
             }
