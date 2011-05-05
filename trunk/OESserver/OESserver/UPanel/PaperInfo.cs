@@ -9,9 +9,8 @@ namespace OES.UPanel
     public partial class PaperInfo : UserPanel
     {
         public List<TextBox> scoreList = new List<TextBox>(9);
-        public List<TextBox> countList = new List<TextBox>(3);
-        public int[] flag = new int[9];
-        public OESData oesData;
+        public List<TextBox> countList = new List<TextBox>(3);        
+        public int[] flag = new int[9];        
         public int programstate;
 
         public PaperInfo()
@@ -78,6 +77,7 @@ namespace OES.UPanel
             this.ChoiceCount.Text = "0";
             this.JudgeCount.Text = "0";
             this.CompletionCount.Text = "0";
+            this.PaperName.Text = "";
             countList[0].Enabled = true;
             countList[1].Enabled = true;
             countList[2].Enabled = true;
@@ -87,17 +87,49 @@ namespace OES.UPanel
         override public void ReLoad(Paper p)
         {
             this.Visible = true;
+            this.PaperName.Text = InfoControl.TmpPaper.paperName;
+           // this.TestTime.Value =Convert.ToDateTime( InfoControl.TmpPaper.testTime);
+            for (int i = 0; i < 3; i++)
+            {
+                if (InfoControl.TmpPaper.ProList[i].Count > 0)
+                {
+                    countList[i].Text = InfoControl.TmpPaper.ProList[i].Count.ToString();
+                }
+                else
+                {
+                    countList[i].Text = "0";
+                }
+            }
+            for (int i = 0; i < 9; i++)
+            {
+                if (InfoControl.TmpPaper.ProList[i].Count > 0)
+                {
+                    scoreList[i].Text = InfoControl.TmpPaper.ProList[i][0].score.ToString();
+                    flag[i] = 1;
+                }
+                else
+                {
+                    scoreList[i].Text = "0";
+                    flag[i] = 0;                    
+                }
+                setButton(i);
+            }
+        }
+
+        private void setButton(int x)
+        {            
+            scoreList[x].Enabled = Convert.ToBoolean(flag[x]);
+            if (x < 3)
+            {
+                countList[x].Enabled = Convert.ToBoolean(flag[x]);
+            }
         }
 
         private void CountButton_Click(object sender, EventArgs e)
         {
             int x = this.GetTag((Control)sender);
             flag[x] = 1 - flag[x];
-            scoreList[x].Enabled = Convert.ToBoolean(flag[x]);
-            if (x < 3)
-            {
-                countList[x].Enabled = Convert.ToBoolean(flag[x]);
-            }
+            this.setButton(x);
         }
 
         private void OK_Click(object sender, EventArgs e)
@@ -117,17 +149,9 @@ namespace OES.UPanel
             {
                 programstate = 0;
             }
-
-            InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text, InfoControl.User.Id, programstate);
             InfoControl.TmpPaper.paperName = PaperName.Text;
             InfoControl.TmpPaper.programState = programstate;
-            InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
-
-            InfoControl.TmpPaper.choice = new List<Choice>(Convert.ToInt32(countList[0].Text));
-            InfoControl.TmpPaper.completion = new List<Completion>(Convert.ToInt32(countList[1].Text));
-            InfoControl.TmpPaper.judge = new List<Judge>(Convert.ToInt32(countList[2].Text));
-
-            InfoControl.TmpPaper.score_choice =Convert.ToInt32(this.ChoiceWeight.Text);
+            InfoControl.TmpPaper.score_choice = Convert.ToInt32(this.ChoiceWeight.Text);
             InfoControl.TmpPaper.score_completion = Convert.ToInt32(this.CompletionWeight.Text);
             InfoControl.TmpPaper.score_judge = Convert.ToInt32(this.JudgeWeight.Text);
             InfoControl.TmpPaper.score_officeExcel = Convert.ToInt32(this.ExcelWeight.Text);
@@ -137,79 +161,49 @@ namespace OES.UPanel
             InfoControl.TmpPaper.score_pFunction = Convert.ToInt32(this.PFunctionWeight.Text);
             InfoControl.TmpPaper.score_pModif = Convert.ToInt32(this.PModifWeight.Text);
 
-            for (int i = 0; i < InfoControl.TmpPaper.choice.Capacity; i++)
+            if (InfoControl.TmpPaper.paperID == "-")
             {
-                Choice tmpChoice = new Choice();
-                tmpChoice.problemId = -1;
-                tmpChoice.problem = "-";
-                InfoControl.TmpPaper.choice.Add(tmpChoice);
-            }
-            for (int i = 0; i < InfoControl.TmpPaper.completion.Capacity; i++)
-            {
-                Completion tmpCompletion = new Completion();
-                tmpCompletion.problemId = -1;
-                tmpCompletion.problem = "-";
-                InfoControl.TmpPaper.completion.Add(tmpCompletion);
-            }
-            for (int i = 0; i < InfoControl.TmpPaper.judge.Capacity; i++)
-            {
-                Judge tmpJudge = new Judge();
-                tmpJudge.problemId = -1;
-                tmpJudge.problem = "-";
-                InfoControl.TmpPaper.judge.Add(tmpJudge);
-            }
-            InfoControl.TmpPaper.ProList[0] = new List<Problem>();
-            foreach (Choice c in InfoControl.TmpPaper.choice)
-            {
-                InfoControl.TmpPaper.ProList[0].Add(c);
-            }
-            InfoControl.TmpPaper.ProList[1] = new List<Problem>();
-            foreach (Completion c in InfoControl.TmpPaper.completion)
-            {
-                InfoControl.TmpPaper.ProList[1].Add(c);
-            }
-            InfoControl.TmpPaper.ProList[2] = new List<Problem>();
-            foreach (Judge c in InfoControl.TmpPaper.judge)
-            {
-                InfoControl.TmpPaper.ProList[2].Add(c);
-            }
+                InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text, InfoControl.User.Id, programstate);
+                InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < Convert.ToInt32(this.countList[i].Text); j++)
+                    {
+                        Problem tmpPro = new Problem();
+                        tmpPro.problemId = -1;
+                        tmpPro.problem = "-";
+                        InfoControl.TmpPaper.ProList[i].Add(tmpPro);
+                    }
+                }
+                for (int i = 3; i < 9; i++)
+                {
+                    Problem tmpPro = new Problem();
+                    tmpPro.problemId = -1;
+                    tmpPro.problem = "-";
+                    InfoControl.TmpPaper.ProList[i].Add(tmpPro);
+                }
+                InfoControl.TmpPaper.officeExcel = new OfficeExcel();
+                InfoControl.TmpPaper.officeExcel.exist = flag[4] == 1;
+            
+                InfoControl.TmpPaper.officePPT = new OfficePowerPoint();
+                InfoControl.TmpPaper.officePPT.exist = flag[5] == 1;
 
-            InfoControl.TmpPaper.officeExcel = new OfficeExcel();
-            InfoControl.TmpPaper.officeExcel.exist = flag[4] == 1;
-            InfoControl.TmpPaper.officeExcel.problemId = -1;
-            InfoControl.TmpPaper.ProList[3] = new List<Problem>();
-            InfoControl.TmpPaper.ProList[3].Add(InfoControl.TmpPaper.officeExcel);
+                InfoControl.TmpPaper.officeWord = new OfficeWord();
+                InfoControl.TmpPaper.officeWord.exist = flag[3] == 1;
+                InfoControl.TmpPaper.officeWord.problemId = -1;
 
-            InfoControl.TmpPaper.officePPT = new OfficePowerPoint();
-            InfoControl.TmpPaper.officePPT.exist = flag[5] == 1;
-            InfoControl.TmpPaper.officePPT.problemId = -1;
-            InfoControl.TmpPaper.ProList[4] = new List<Problem>();
-            InfoControl.TmpPaper.ProList[4].Add(InfoControl.TmpPaper.officePPT);
+                InfoControl.TmpPaper.pCompletion = new PCompletion();
+                InfoControl.TmpPaper.pCompletion.exist = flag[6] == 1;
+   
+                InfoControl.TmpPaper.pModif = new PModif();
+                InfoControl.TmpPaper.pModif.exist = flag[7] == 1;
 
-            InfoControl.TmpPaper.officeWord = new OfficeWord();
-            InfoControl.TmpPaper.officeWord.exist = flag[3] == 1;
-            InfoControl.TmpPaper.officeWord.problemId = -1;
-            InfoControl.TmpPaper.ProList[5] = new List<Problem>();
-            InfoControl.TmpPaper.ProList[5].Add(InfoControl.TmpPaper.officeWord);
-
-            InfoControl.TmpPaper.pCompletion = new PCompletion();
-            InfoControl.TmpPaper.pCompletion.exist = flag[6] == 1;
-            InfoControl.TmpPaper.pCompletion.problemId = -1;
-            InfoControl.TmpPaper.ProList[6] = new List<Problem>();
-            InfoControl.TmpPaper.ProList[6].Add(InfoControl.TmpPaper.pCompletion);
-
-            InfoControl.TmpPaper.pModif = new PModif();
-            InfoControl.TmpPaper.pModif.exist = flag[7] == 1;
-            InfoControl.TmpPaper.pModif.problemId = -1;
-            InfoControl.TmpPaper.ProList[7] = new List<Problem>();
-            InfoControl.TmpPaper.ProList[7].Add(InfoControl.TmpPaper.officeWord);
-
-            InfoControl.TmpPaper.pFunction = new PFunction();
-            InfoControl.TmpPaper.pFunction.exist = flag[8] == 1;
-            InfoControl.TmpPaper.pFunction.problemId = -1;
-            InfoControl.TmpPaper.ProList[8] = new List<Problem>();
-            InfoControl.TmpPaper.ProList[8].Add(InfoControl.TmpPaper.officeWord);
-        
+                InfoControl.TmpPaper.pFunction = new PFunction();
+                InfoControl.TmpPaper.pFunction.exist = flag[8] == 1;
+            }
+            else
+            { 
+            }        
             PanelControl.ChangPanel(19);
         }        
     }

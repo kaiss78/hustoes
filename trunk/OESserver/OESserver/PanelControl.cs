@@ -72,12 +72,16 @@ namespace OES
                 switch (x)
                 {
                     case 12:
-                    case 13:
+                    
                     case 14:
                     case 15:
                     case 16:
                     case 17:
                     case 19:
+                        panelList[x].ReLoad();
+                        break;
+                    case 13:
+                        InfoControl.TmpPaper = new OES.Model.Paper();
                         panelList[x].ReLoad();
                         break;
                     default:
@@ -102,6 +106,14 @@ namespace OES
             HideAllPanel();
             panelList[19].Show();
         }
+
+        static public void EditPaper()
+        {
+            HideAllPanel();
+            panelList[12].Show();
+            panelList[12].ReLoad(InfoControl.TmpPaper);
+        }
+
         static public void ReturnToMain()
         {
             HideAllPanel();

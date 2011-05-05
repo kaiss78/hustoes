@@ -91,22 +91,30 @@ namespace OES.UPanel
             {
                 ISTList = XMLControl.ReadPaper(paperList[RIndex].paperPath);
                 InfoControl.TmpPaper = new Paper();
+                InfoControl.TmpPaper.paperName = paperList[RIndex].paperName;
                 InfoControl.TmpPaper.programState = paperList[RIndex].programState;
                 InfoControl.TmpPaper.createTime = paperList[RIndex].createTime;
+                InfoControl.TmpPaper.testTime = paperList[RIndex].testTime;
                 InfoControl.TmpPaper.author = paperList[RIndex].author;
+                for (int i = 0; i < 9; i++)
+                {
+                    InfoControl.TmpPaper.ProList[i] = new List<Problem>();
+                }
                 for (int i = 0; i < ISTList.Count; i++)
                 {
                     pro = new Problem();
                     pro.problemId = ISTList[i].id;
+                    pro.score = ISTList[i].score;
                     switch (ISTList[i].pt)
-                    {
+                    {                            
                         case ProblemType.Choice:
-                            pro.problem=InfoControl.OesData.FindChoiceById(ISTList[i].id.ToString())[0].problem;
+                            pro.problem = InfoControl.OesData.FindChoiceById(ISTList[i].id.ToString())[0].problem;                            
                             InfoControl.TmpPaper.ProList[0].Add(pro);
                             InfoControl.TmpPaper.score_choice = ISTList[i].score;
                             break;
                         case ProblemType.Completion:
                             pro.problem = InfoControl.OesData.FindCompletionById(ISTList[i].id.ToString())[0].problem;
+
                             InfoControl.TmpPaper.ProList[1].Add(pro);
                             InfoControl.TmpPaper.score_completion = ISTList[i].score;
                             break;
@@ -146,8 +154,8 @@ namespace OES.UPanel
                             InfoControl.TmpPaper.score_pFunction = ISTList[i].score;
                             break;
                     }
-                    //InfoControl.TmpPaper;
                 }
+                PanelControl.EditPaper();
             }
         }
 

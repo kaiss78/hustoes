@@ -51,6 +51,11 @@ namespace OES.Model
             pFunction = new PFunction();
             problemList = new List<Problem>();
             officeExcel = new OfficeExcel();
+            for (int i = 0; i < 9; i++)
+            {
+                ProList[i] = new List<Problem>();
+            }
+            paperID = "-";
         }
             
         public void Add(Problem p)
