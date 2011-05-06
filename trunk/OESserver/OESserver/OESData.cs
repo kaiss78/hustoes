@@ -750,20 +750,26 @@ namespace OES
 
         #region 选择题有关的方法
 
+        public void AddManyChoices(List<string[]> lst)
+        {
+            SqlTransaction tx = sqlcon.BeginTransaction();
+            foreach (string[] str in lst)
+                AddChoice(str[0], str[1], str[2], str[3], str[4], str[5], int.Parse(str[6]));
+            tx.Commit();
+        }
+
         //向数据库中添加选择题
         public void AddChoice(string Problem_Content, string A, string B, string C, string D, string Answer, int Unit)
         {
             string unit = Unit.ToString();
             SqlParameter[] ddlparam = new SqlParameter[8];
             ddlparam[0] = CreateParam("@Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
-
             ddlparam[1] = CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input);
             ddlparam[2] = CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input);
             ddlparam[3] = CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input);
             ddlparam[4] = CreateParam("@D", SqlDbType.VarChar, 100, D, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
             ddlparam[6] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
-
             DataBind();
             SqlCommand cmd = new SqlCommand("AddChoice", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
