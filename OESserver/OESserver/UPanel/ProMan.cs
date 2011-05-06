@@ -23,6 +23,7 @@ namespace OES.UPanel
         public Panel bottomPanel = new Panel();
         public Panel titlePanel = new Panel();
         public int ProType;
+        public AddbyBatch aAddbyBatch;
         public List<UserControl> EditList=new List<UserControl>();
         public ChoiceEdit aChoiceEdit;
         public CompletionEdit aCompletionEdit;
@@ -79,56 +80,82 @@ namespace OES.UPanel
 
             //底部按钮
             Button select = new Button();
-            select.Height = 60;
-            select.Width = 110;
-            select.Location = new Point(30, 5);
+            select.Height = 50;
+            select.Width = 80;
+            select.Location = new Point(25, 8);
             select.Text = "全部标记";
             select.ForeColor = Color.White;
             select.BackColor = Color.RoyalBlue;
-            select.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
+            select.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
             select.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(select);
             select.FlatStyle = FlatStyle.Standard;
             select.MouseClick += new MouseEventHandler(select_MouseClick);
 
             Button cselect = new Button();
-            cselect.Height = 60;
-            cselect.Width = 110;
-            cselect.Location = new Point(160, 5);
+            cselect.Height = 50;
+            cselect.Width = 80;
+            cselect.Location = new Point(115, 8);
             cselect.Text = "取消全标";
             cselect.ForeColor = Color.White;
             cselect.BackColor = Color.RoyalBlue;
-            cselect.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
+            cselect.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
             cselect.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(cselect);
             cselect.FlatStyle = FlatStyle.Standard;
             cselect.MouseClick += new MouseEventHandler(cselect_MouseClick);
 
             Button delete = new Button();
-            delete.Height = 60;
-            delete.Width = 110;
-            delete.Location = new Point(290, 5);
+            delete.Height = 50;
+            delete.Width = 80;
+            delete.Location = new Point(205,8);
             delete.Text = "删除标项";
             delete.ForeColor = Color.White;
             delete.BackColor = Color.RoyalBlue;
-            delete.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
+            delete.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
             delete.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(delete);
             delete.FlatStyle = FlatStyle.Standard;
             delete.MouseClick += new MouseEventHandler(delete_MouseClick);
 
             Button add = new Button();
-            add.Height = 60;
-            add.Width = 110;
-            add.Location = new Point(420,5);
+            add.Height = 50;
+            add.Width = 80;
+            add.Location = new Point(295,8);
             add.Text = "添加题目";
             add.ForeColor = Color.White;
             add.BackColor = Color.RoyalBlue;
-            add.Font = new Font(new FontFamily("微软雅黑"), 13, FontStyle.Bold);
+            add.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
             add.TextAlign = ContentAlignment.MiddleCenter;
             bottomPanel.Controls.Add(add);
             add.FlatStyle = FlatStyle.Standard;
             add.MouseClick += new MouseEventHandler(add_MouseClick);
+
+            Button addmore = new Button();
+            addmore.Height = 50;
+            addmore.Width = 80;
+            addmore.Location = new Point(385,8);
+            addmore.Text = "批量导入";
+            addmore.ForeColor = Color.White;
+            addmore.BackColor = Color.RoyalBlue;
+            addmore.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            addmore.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(addmore);
+            addmore.FlatStyle = FlatStyle.Standard;
+            addmore.MouseClick += new MouseEventHandler(addmore_MouseClick);
+
+            Button addChpt = new Button();
+            addChpt.Height = 50;
+            addChpt.Width = 80;
+            addChpt.Location = new Point(475,8);
+            addChpt.Text = "添加章节";
+            addChpt.ForeColor = Color.White;
+            addChpt.BackColor = Color.RoyalBlue;
+            addChpt.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
+            addChpt.TextAlign = ContentAlignment.MiddleCenter;
+            bottomPanel.Controls.Add(addChpt);
+            addChpt.FlatStyle = FlatStyle.Standard;
+            addChpt.MouseClick += new MouseEventHandler(addChpt_MouseClick);
 
             titlePanel.SetBounds(ClWidth,0, PlWidth,TpHeight);
             titlePanel.BackColor = Color.Transparent;
@@ -232,6 +259,21 @@ namespace OES.UPanel
 
         }
 
+        void addChpt_MouseClick(object sender, MouseEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        void addmore_MouseClick(object sender, MouseEventArgs e)
+        {
+            aAddbyBatch = new AddbyBatch(this);
+            aAddbyBatch.Location = new Point(ProMan.ClWidth, 0);
+            this.Controls.Add(aAddbyBatch);
+            aAddbyBatch.Show();
+            aProList.Hide();
+            HideTBPanel();
+        }
+
         void add_MouseClick(object sender, MouseEventArgs e)
         {
             newedit(ProType);
@@ -264,8 +306,7 @@ namespace OES.UPanel
 
         public void newedit(int pt)
         {
-            
-            aProList.Hide();
+            aProList.Hide();            
             bottomPanel.Hide();
             titlePanel.Hide();
 

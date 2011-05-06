@@ -151,6 +151,7 @@ namespace OES.UControl
                     }
                 }
             }
+            //temp_MouseClick(subPanel[0], null);
         }
 
         void temp_MouseClick(object sender, MouseEventArgs e)
