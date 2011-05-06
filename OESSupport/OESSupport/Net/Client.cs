@@ -7,7 +7,7 @@ using System.Collections;
 using System.Threading;
 using System.IO;
 
-namespace OESMonitor.Net
+namespace OESSupport.Net
 {
     public class Client
     {

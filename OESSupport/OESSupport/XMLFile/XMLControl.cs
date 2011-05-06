@@ -6,7 +6,7 @@ using System.IO;
 using System.Diagnostics;
 using OES.Model;
 
-namespace OESMonitor.XMLFile
+namespace OESSupport.XMLFile
 {
     class XMLControl
     {

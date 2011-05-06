@@ -7,7 +7,7 @@ using System.Collections;
 using System.Net.NetworkInformation;
 using System.Threading;
 
-namespace OESMonitor.Net
+namespace OESSupport.Net
 {
     public class OESServer
     {

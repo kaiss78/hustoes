@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using OES;
 
-namespace OESMonitor.PaperControl
+namespace OESSupport.PaperControl
 {
     public class PaperControl
     {

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using OES.Model;
-using OESMonitor.XMLFile;
-using OESSupport.Config;
+using OESSupport.XMLFile;
+using OESSupport.Configuration;
 
-namespace OESMonitor.PaperControl
+namespace OESSupport.PaperControl
 {
     public class XMLtoTXT
     {

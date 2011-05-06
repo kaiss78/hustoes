@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OESSupport;
-using OESSupport.Config;
+using OESSupport.Configuration;
 
-namespace OESMonitor.Net
+namespace OESSupport.Net
 {
     public class ServerEvt
     {
@@ -48,7 +48,7 @@ namespace OESMonitor.Net
                             switch (msgs[2])
                             {
                                 case "0":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath =Config.Root+ Config.Paper + msgs[4]+".xml";
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.Root+ Config.Paper + msgs[4]+".xml";
                                     break;
                                 case "1":
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.Root + Config.Root + Config.Word + "a" + msgs[4] + ".doc";
