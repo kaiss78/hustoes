@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace OES.CVSHelper
+namespace OES.CSVHelper
 {
     public class CSVImporter
     {

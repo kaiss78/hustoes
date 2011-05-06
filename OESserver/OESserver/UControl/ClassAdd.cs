@@ -74,7 +74,7 @@ namespace OES.UControl
             List<string[]> dataList;
             try
             {
-                dataList = CVSHelper.CSVImporter.getObjectInCSV(textFile.Text, 3);
+                dataList = CSVHelper.CSVImporter.getObjectInCSV(textFile.Text, 3);
             }
             catch
             {
