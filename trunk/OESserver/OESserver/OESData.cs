@@ -722,6 +722,11 @@ namespace OES
                         { problem.author = (string)p_Data.Rows[j][i]; }
                         catch { problem.author = ""; }
                     }
+                    if (p_Data.Columns[i].ToString() == "Teacher_Id")
+                    {
+                        try { problem.authorId = (p_Data.Rows[j][i]).ToString(); }
+                        catch { problem.authorId = ""; }
+                    }
                     if (p_Data.Columns[i].ToString() == "ProgramState")
                         problem.programState = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "TestDate")
@@ -1726,7 +1731,7 @@ namespace OES
             ddlparam[1] = CreateParam("@TestDate", SqlDbType.DateTime, 20, p.testTime, ParameterDirection.Input);
             ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, p.paperPath, ParameterDirection.Input);
             ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, p.paperName, ParameterDirection.Input);
-            ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, p.author, ParameterDirection.Input);
+            ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, p.authorId, ParameterDirection.Input);
             ddlparam[5] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
             ddlparam[6] = CreateParam("@ProgramState", SqlDbType.Int, 5, p.programState, ParameterDirection.Input);
 
@@ -1751,6 +1756,7 @@ namespace OES
             try { Cmd.ExecuteNonQuery(); }
             catch { throw; }
         }
+        
         //纯粹列出所有的Paper记录
         public List<String> FindAllPaper()
         {
@@ -1799,6 +1805,7 @@ namespace OES
             return results;
 
         }
+        
         //按Id查找Paper记录 
         public List<Paper> FindPaperById(string Id)
         {
