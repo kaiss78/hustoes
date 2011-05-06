@@ -43,7 +43,7 @@ namespace OESMonitor.PaperControl
 
                 xmlelem = root.CreateElement("TmpPaper");                
                 xmlnode.AppendChild(xmlelem);
-                xmltext = root.CreateTextNode(@"D:\OES\Paper\");
+                xmltext = root.CreateTextNode(@"D:\OES\TempPaper\");
                 xmlelem.AppendChild(xmltext);
 
                 xmlelem = root.CreateElement("DBInfo");

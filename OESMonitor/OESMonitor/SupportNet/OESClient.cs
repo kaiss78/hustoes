@@ -43,6 +43,14 @@ namespace OESMonitor.SupportNet
                 port = value;
             }
         }
+        /// <summary>
+        /// 远程文件命令列表
+        /// </summary>
+        private List<string> remoteCmd = new List<string>();
+        /// <summary>
+        /// 本地存储文件路径列表
+        /// </summary>
+        private List<string> localPath = new List<string>();
 
         #region 事件定义
         /// <summary>
@@ -81,6 +89,27 @@ namespace OESMonitor.SupportNet
         /// 与服务端断开连接(一般为服务端网络出现问题)
         /// </summary>
         public event ErrorEventHandler DisConnectError;
+        /// <summary>
+        /// 返回当前列表中文件剩余数量
+        /// </summary>
+        public event FileListSize FileListCount;
+        /// <summary>
+        /// 文件列表发送开始
+        /// </summary>
+        public event Action FileListSendStart;
+        /// <summary>
+        /// 文件列表发送完毕
+        /// </summary>
+        public event Action FileListSendEnd;
+        /// <summary>
+        /// 文件列表接收开始
+        /// </summary>
+        public event Action FileListRecieveStart;
+        /// <summary>
+        /// 文件列表接收完毕
+        /// </summary>
+        public event Action FileListRecieveEnd;
+        
         #endregion
 
 
@@ -313,5 +342,112 @@ namespace OESMonitor.SupportNet
             {
             }
         }
+
+        /// <summary>
+        /// 发送文件列表
+        /// </summary>
+        /// <param name="remoteCmd">远程文件命令列表</param>
+        /// <param name="localPath">本地文件路径列表</param>
+        public void SendFileList(List<string> remoteCmd, List<string> localPath)
+        {
+            if (FileListSendStart != null)
+                FileListSendStart();
+
+            this.remoteCmd = remoteCmd;
+            this.localPath = localPath;
+            this.Port.FileSendEnd += new EventHandler(Port_FileSendEnd);
+            
+            if (remoteCmd.Count != localPath.Count) return;
+
+            if (remoteCmd.Count == 0 || localPath.Count == 0) return;
+
+            this.SendTxt(remoteCmd[0]);
+            this.Port.FilePath = localPath[0];
+            this.SendFile();
+
+            remoteCmd.RemoveAt(0);
+            localPath.RemoveAt(0);
+            
+            if(FileListCount!=null)
+                FileListCount(remoteCmd.Count);
+        }
+        
+        private void Port_FileSendEnd(object sender, EventArgs e)
+        {
+            if (remoteCmd.Count != localPath.Count) return;
+
+            if (remoteCmd.Count != 0)
+            {
+                this.SendTxt(remoteCmd[0]);
+                this.Port.FilePath = localPath[0];
+                this.SendFile();
+
+                remoteCmd.RemoveAt(0);
+                localPath.RemoveAt(0);
+
+                if (FileListCount != null)
+                    FileListCount(remoteCmd.Count);
+            }
+            else
+            {
+                this.Port.FileSendEnd -= Port_FileSendEnd;
+                if (FileListSendEnd != null)
+                    FileListSendEnd();
+            }
+        }
+        /// <summary>
+        /// 接收文件列表
+        /// </summary>
+        /// <param name="remoteCmd">远程文件命令列表</param>
+        /// <param name="localPath">本地文件路径列表</param>
+        public void ReceiveFileList(List<string> remoteCmd, List<string> localPath)
+        {
+            if (FileListRecieveStart != null)
+                FileListRecieveStart();
+
+            this.remoteCmd = remoteCmd;
+            this.localPath = localPath;
+            this.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
+
+            if (remoteCmd.Count != localPath.Count) return;
+
+            if (remoteCmd.Count == 0 || localPath.Count == 0) return;
+
+            this.SendTxt(remoteCmd[0]);
+            this.Port.FilePath = localPath[0];
+            this.ReceiveFile();
+
+            remoteCmd.RemoveAt(0);
+            localPath.RemoveAt(0);
+
+            if (FileListCount != null)
+                FileListCount(remoteCmd.Count);
+        }
+
+        private void Port_FileReceiveEnd(object sender, EventArgs e)
+        {
+            if (remoteCmd.Count != localPath.Count) return;
+
+            if (remoteCmd.Count != 0)
+            {
+                this.SendTxt(remoteCmd[0]);
+                this.Port.FilePath = localPath[0];
+                this.ReceiveFile();
+
+                remoteCmd.RemoveAt(0);
+                localPath.RemoveAt(0);
+
+                if (FileListCount != null)
+                    FileListCount(remoteCmd.Count);
+            }
+            else
+            {
+                this.Port.FileReceiveEnd-=Port_FileReceiveEnd;
+
+                if (FileListRecieveEnd != null)
+                    FileListRecieveEnd();
+            }
+        }
     }
+    public delegate void FileListSize(int count);
 }

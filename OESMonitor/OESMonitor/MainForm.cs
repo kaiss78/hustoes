@@ -10,13 +10,14 @@ using OESMonitor.Net;
 using OESMonitor.PaperControl;
 using System.Net;
 using System.IO;
+using Sup=OESMonitor.SupportNet ;
 
 namespace OESMonitor
 {
     public partial class OESMonitor : Form
     {
         CommandLine cl = new CommandLine();
-        Config config = new Config();
+        public static Config config = new Config();
         List<IPAddress> alternativeIp = new List<IPAddress>();
         int paperDeliverMode = 0;
         bool isStartExam = false;
@@ -51,7 +52,11 @@ namespace OESMonitor
             InitializeComponent();
 
             supportServer = new SupportNet.ClientEvt();
-            
+
+            supportServer.Client.FileListRecieveStart += new Action(Client_FileListRecieveStart);
+            supportServer.Client.FileListRecieveEnd += new Action(Client_FileListRecieveEnd);
+            supportServer.Client.FileListCount += new global::OESMonitor.SupportNet.FileListSize(Client_FileListCount);
+            supportServer.Client.Port.RecieveFileRate += new global::OESMonitor.SupportNet.ReturnVal(Port_RecieveFileRate);
             timer_PortCounter.Interval = 1000;
 
             panel1.Controls.Add( ComputerState.getInstance());
@@ -71,8 +76,9 @@ namespace OESMonitor
             btnRemove.Click+=new EventHandler(btnRemove_Click);
             btnGetPaperFromDB.MouseEnter += new EventHandler(btnGetPaperFromDB_MouseEnter);
             btnGetPaperFromDB.MouseLeave += new EventHandler(radioButton1_MouseLeave);
+            downloadButton.MouseEnter += new EventHandler(downloadButton_MouseEnter);
+            downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
         }
-
         
         void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -80,6 +86,7 @@ namespace OESMonitor
                 radioButton3.Text = radioButton3.Text.Split('-')[0] + '-' + paperListDataTable.Rows[e.RowIndex][1];
         }
 
+        #region 文字功能提示
         void btnGetPaperFromDB_MouseEnter(object sender, EventArgs e)
         {
             helpLabel.Text = @"打开新的窗口，到数据库里面取需要考试的试卷";
@@ -90,26 +97,36 @@ namespace OESMonitor
             helpLabel.Text = @"从当前试卷列表中将选中的试卷移除";
         }
 
-        void btnRemove_Click(object sender, System.EventArgs e)
+        void downloadButton_MouseEnter(object sender, EventArgs e)
         {
-            for (int i = PaperListDGV.Rows.Count-1; i >=0 ; i--)
-            {
-                if ((bool)PaperListDGV.Rows[i].Cells[0].Value == true)
-                {
-                    paperListDataTable.Rows.RemoveAt(i);
-                }
-            }
+            helpLabel.Text = @"从服务器下载试卷到本机";
         }
 
-        private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void radioButton1_MouseEnter(object sender, EventArgs e)
         {
-            int RIndex = e.RowIndex;
-            if (RIndex > -1)
-            {
-                paperListDataTable.Rows[RIndex][0] = !Convert.ToBoolean(paperListDataTable.Rows[RIndex][0]);
-            }
-
+            helpLabel.Text = @"顺序选取试卷";
         }
+
+        private void radioButton2_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"随机选取试卷";
+        }
+
+        private void radioButton3_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"通过双击
+选取其中一份试卷
+当前选择的试卷为：";
+        }
+
+        private void radioButton1_MouseLeave(object sender, EventArgs e)
+        {
+            helpLabel.Text = "";
+        }
+
+        #endregion
+
+       
         private void RetrieveHostIpv4Address()
         {
             //获得所有的ip地址，包括ipv6和ipv4
@@ -124,7 +141,7 @@ namespace OESMonitor
             }
         }
 
-        //添加一个电脑
+        #region 添加一个电脑
         public void AddComputer(Client client)
         {
             this.Invoke(new MethodInvoker(() =>
@@ -139,6 +156,7 @@ namespace OESMonitor
                 UpdateList();
             }));
         }
+        #endregion
 
         void com_OnErrorConnect(object sender, System.IO.ErrorEventArgs e)
         {
@@ -182,11 +200,119 @@ namespace OESMonitor
         }
         #endregion
 
+        #region 按钮点击事件
+        void btnRemove_Click(object sender, System.EventArgs e)
+        {
+            for (int i = PaperListDGV.Rows.Count - 1; i >= 0; i--)
+            {
+                if ((bool)PaperListDGV.Rows[i].Cells[0].Value == true)
+                {
+                    paperListDataTable.Rows.RemoveAt(i);
+                }
+            }
+        }
+
+        private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RIndex = e.RowIndex;
+            if (RIndex > -1)
+            {
+                paperListDataTable.Rows[RIndex][0] = !Convert.ToBoolean(paperListDataTable.Rows[RIndex][0]);
+            }
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             
             flowLayoutPanel1.Controls.Add(new Computer());
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (!isStartExam)
+            {
+                bool isExistPaper = true;
+                foreach (DataRow dr in paperListDataTable.Rows)
+                {
+                    string id = dr[1].ToString();
+                    if (!File.Exists(config.tmpPaper + id + ".rar"))
+                    {
+                        isExistPaper = false;
+                    }
+                }
+                if (isExistPaper)
+                    IsStartExam = true;
+                else
+                {
+                    tabControl2.SelectedIndex = 1;
+                    helpLabel.Text = "您还有部分试卷未下载，请点击“下载试卷”";
+                }
+            }
+            else
+            {
+
+                IsStartExam = false;
+            }
+        }
+
+        public List<string> localPath = new List<string>();
+        public List<string> remoteCmd = new List<string>();
+
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            bool isExistPaper = true;
+            foreach (DataRow dr in paperListDataTable.Rows)
+            {
+                string id = dr[1].ToString();
+                if (!File.Exists(config.tmpPaper + id + ".rar"))
+                {
+                    isExistPaper = false;
+                    localPath.Add(config.tmpPaper + id + ".rar");
+                    remoteCmd.Add(supportServer.LoadPaperPkg(Convert.ToInt32(id), 0));
+                }
+            }
+            if (!isExistPaper)
+            {
+                supportServer.Client.ReceiveFileList(remoteCmd, localPath);
+            }
+        }
+
+        void Client_FileListRecieveEnd()
+        {
+            this.Invoke(new Action(() =>
+            {
+                this.Enabled = true;
+                FileListWaiting.Instance.Close();
+            }));
+
+        }
+
+        void Client_FileListRecieveStart()
+        {
+            this.Invoke(new Action(() =>
+            {
+                this.Enabled = false;
+                FileListWaiting.Instance.Show();
+            }));
+        }
+
+        void Port_RecieveFileRate(double rate)
+        {
+            this.Invoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setProcessBar((int)rate * 1000);
+            }));
+        }
+
+        void Client_FileListCount(int count)
+        {
+            this.Invoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setText(count);
+            }));
+        }
+
+        #endregion
 
         private void OESMonitor_Load(object sender, EventArgs e)
         {
@@ -281,27 +407,7 @@ namespace OESMonitor
             pcf.Show();
         }
 
-        private void radioButton1_MouseEnter(object sender, EventArgs e)
-        {
-            helpLabel.Text = @"顺序选取试卷";
-        }
-
-        private void radioButton2_MouseEnter(object sender, EventArgs e)
-        {
-            helpLabel.Text = @"随机选取试卷";
-        }
-
-        private void radioButton3_MouseEnter(object sender, EventArgs e)
-        {
-            helpLabel.Text = @"通过双击
-选取其中一份试卷
-当前选择的试卷为：";
-        }
-
-        private void radioButton1_MouseLeave(object sender, EventArgs e)
-        {
-            helpLabel.Text = "";
-        }
+       
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -311,62 +417,13 @@ namespace OESMonitor
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            if (!isStartExam)
-            {
-                bool isExistPaper = true;
-                downloadPaperList.Clear();
-                foreach (DataRow dr in paperListDataTable.Rows)
-                {
-                    string id = dr[1].ToString();
-                    if (!File.Exists(config.tmpPaper + id + ".rar"))
-                    {
-                        isExistPaper = false;
-                        downloadPaperList.Add(id);
-                    }
-                }
-                if (isExistPaper)
-                    IsStartExam = true;
-                else
-                {
-                    tabControl2.SelectedIndex = 1;
-                    helpLabel.Text = "您还有部分试卷未下载，请点击“下载试卷”";
-                }
-            }
-            else
-            {
-                
-                IsStartExam = false;
-            }
-        }
-        List<string> downloadPaperList = new List<string>();
+       
+        
         private void timer_PortCounter_Tick(object sender, EventArgs e)
         {
             lab_DataPortCount.Text = Net.ServerEvt.Server.PortCurNum.ToString();
         }
 
-        private void downloadButton_Click(object sender, EventArgs e)
-        {
-            bool isExistPaper = true;
-            downloadPaperList.Clear();
-            foreach (DataRow dr in paperListDataTable.Rows)
-            {
-                string id = dr[1].ToString();
-                if (!File.Exists(config.tmpPaper + id + ".rar"))
-                {
-                    isExistPaper = false;
-                    downloadPaperList.Add(id);
-                }
-            }
-            if (!isExistPaper)
-            {
-                foreach (string id in downloadPaperList)
-                {
-                    supportServer.LoadPaper(Convert.ToInt32(id), 0);
-                }
-            }
-        }
-
+        
     }
 }
