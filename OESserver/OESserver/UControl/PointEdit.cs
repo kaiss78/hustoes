@@ -16,7 +16,7 @@ namespace OES.UControl
         {
             InitializeComponent();
             aOfficeExcelEdit = exl;
-            try { openExcelFile(@"F:\Excel\ExcelFile\lkq.xls"); }
+            try { openExcelFile(aOfficeExcelEdit.anspathPointEdit); }
             catch 
             {
                 MessageBox.Show("打开文件失败！", "添加考点", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -34,7 +34,7 @@ namespace OES.UControl
             //TODO: Upload File To Server.
             MessageBox.Show("上传完成！(加方法......)");
             testExcel1.CloseExcel();
-            //TODO: 界面跳转
+            aOfficeExcelEdit.Show();//TODO: 界面跳转
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace OES.UControl
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 testExcel1.CloseExcel();
-                //TODO: 界面跳转
+                aOfficeExcelEdit.Show();//TODO: 界面跳转
             }
         }
 
