@@ -100,7 +100,6 @@
     <Compile Include="Net\OESServer.cs" />
     <Compile Include="Net\ServerConfig.cs" />
     <Compile Include="Net\ServerEvt.cs" />
-    <Compile Include="OESData.cs" />
     <Compile Include="Model\OfficeExcel.cs" />
     <Compile Include="Model\OfficePowerPoint.cs" />
     <Compile Include="Model\OfficeWord.cs" />
@@ -109,6 +108,7 @@
     <Compile Include="Model\PFunction.cs" />
     <Compile Include="Model\PModif.cs" />
     <Compile Include="Model\Problem.cs" />
+    <Compile Include="OESData.cs" />
     <Compile Include="PaperChooseForm.cs">
       <SubType>Form</SubType>
     </Compile>
