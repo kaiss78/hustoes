@@ -8,7 +8,6 @@ namespace OESMonitor
 {
      static class Program
     {
-        public static Net.OESServer server ;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
