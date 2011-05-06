@@ -71,7 +71,7 @@ namespace OES
                 HideAllPanel();
                 switch (x)
                 {
-                    case 12:
+                    case 13:
                     
                     case 14:
                     case 15:
@@ -80,7 +80,7 @@ namespace OES
                     case 19:
                         panelList[x].ReLoad();
                         break;
-                    case 13:
+                    case 12:
                         InfoControl.TmpPaper = new OES.Model.Paper();
                         panelList[x].ReLoad();
                         break;

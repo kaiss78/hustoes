@@ -540,7 +540,7 @@
             this.PPT.Name = "PPT";
             this.PPT.Size = new System.Drawing.Size(34, 37);
             this.PPT.TabIndex = 27;
-            this.PPT.Tag = "5";
+            this.PPT.Tag = "4";
             this.PPT.UseVisualStyleBackColor = true;
             this.PPT.Click += new System.EventHandler(this.CountButton_Click);
             // 
@@ -551,7 +551,7 @@
             this.Excel.Name = "Excel";
             this.Excel.Size = new System.Drawing.Size(34, 37);
             this.Excel.TabIndex = 26;
-            this.Excel.Tag = "4";
+            this.Excel.Tag = "3";
             this.Excel.UseVisualStyleBackColor = true;
             this.Excel.Click += new System.EventHandler(this.CountButton_Click);
             // 
@@ -562,7 +562,7 @@
             this.Word.Name = "Word";
             this.Word.Size = new System.Drawing.Size(34, 37);
             this.Word.TabIndex = 25;
-            this.Word.Tag = "3";
+            this.Word.Tag = "5";
             this.Word.UseVisualStyleBackColor = true;
             this.Word.Click += new System.EventHandler(this.CountButton_Click);
             // 
