@@ -16,6 +16,7 @@ namespace OES.UControl
         ProMan aProMan;
         public PointEdit aPointEdit;
         public bool isnew = false;
+        public string anspathPointEdit;
         public OfficeExcelEdit(ProMan pm)
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace OES.UControl
             if (openFileDialog2.ShowDialog() == DialogResult.OK)
             {
                 anspath.Text = (openFileDialog2.FileName);
+                anspathPointEdit = anspath.Text;
             }
         }
 
@@ -81,6 +83,7 @@ namespace OES.UControl
             {
                 (aProMan as ProManCho).bottomPanel.Show();
                 (aProMan as ProManCho).titlePanel.Show();
+                (aProMan as ProManCho).aProList.Show();
             }
             else
             {
