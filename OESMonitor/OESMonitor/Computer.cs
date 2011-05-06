@@ -245,9 +245,13 @@ namespace OESMonitor
         bool client_LoginValidating(string name, string id, string pwd,out string paper)
         {
             this.Student = new Student(name, "", id, pwd);
-            //if()
-            paper = "EXAM001.rar";
+            if (PaperControl.PaperControl.OesData.ValidateStudentInfo(id, name, pwd))
+            {
+                paper = "EXAM001.rar";
                 return true;
+            }
+            paper = "";
+            return false;
         }
 
         void client_TestStarted(int reason)
