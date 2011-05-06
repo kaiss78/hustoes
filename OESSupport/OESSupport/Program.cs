@@ -12,6 +12,7 @@ namespace OESSupport
         public static List<Teacher> TeacherList = new List<Teacher>();
         static void Main(string[] args)
         {
+            Config.Config.InitConfig();
             while(Console.ReadLine() != "exit")
             {
             }
