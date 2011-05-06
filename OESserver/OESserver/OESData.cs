@@ -2455,6 +2455,19 @@ namespace OES
 
         #region 学生信息管理
 
+        //-- Description:   验证学生信息是否正确
+        public bool ValidateStudentInfo(string studentId, string studentName, string password)
+        {
+            DataSet Ds = new DataSet();
+            SqlParameter[] dp = new SqlParameter[3];
+            dp[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, studentId, ParameterDirection.Input);
+            dp[1] = CreateParam("@StudentName", SqlDbType.VarChar, 50, studentName, ParameterDirection.Input);
+            dp[2] = CreateParam("@Password", SqlDbType.VarChar, 50, studentName, ParameterDirection.Input);
+            try { RunProc("ValidateStudentInfo", dp, Ds); }
+            catch { throw; }
+            return Ds.Tables[0].Rows.Count > 0;
+        }
+
         //-- Description:   添加学生 输入学院、班级信息.
         public void AddStudent(string id, string name, string dept, string className, string password)
         {
