@@ -96,8 +96,8 @@ namespace OES.UPanel
                 InfoControl.TmpPaper.programState = paperList[RIndex].programState;
                 InfoControl.TmpPaper.createTime = paperList[RIndex].createTime;
                 InfoControl.TmpPaper.testTime = paperList[RIndex].testTime;
-                InfoControl.TmpPaper.testTime = paperList[RIndex].testTime;
                 InfoControl.TmpPaper.author = paperList[RIndex].author;
+                InfoControl.TmpPaper.authorId = paperList[RIndex].authorId;
                 for (int i = 0; i < 9; i++)
                 {
                     InfoControl.TmpPaper.ProList[i] = new List<Problem>();
