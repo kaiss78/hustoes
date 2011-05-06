@@ -55,16 +55,16 @@ namespace OESSupport.PaperControl
                         prostr[2] = prostr[2] + judge.problem + "\r\n";    
                         break;
                     case ProblemType.Excel:
-                        officeexcel = PaperControl.OesData.FindOfficeExcelById(problem.id.ToString(),"2")[0];
+                        officeexcel = PaperControl.OesData.FindOfficeExcelById(problem.id.ToString())[0];
                         prostr[3] = prostr[3] + officeexcel.problem + "\r\n";    
 
                         break;
                     case ProblemType.PowerPoint:
-                        officeppt = PaperControl.OesData.FindOfficePowerPointById(problem.id.ToString(), "3")[0];
+                        officeppt = PaperControl.OesData.FindOfficePowerPointById(problem.id.ToString())[0];
                         prostr[4] = prostr[4] + officeppt.problem + "\r\n";    
                         break;       
                     case ProblemType.Word:
-                        officeword = PaperControl.OesData.FindOfficeWordById(problem.id.ToString(), "1")[0];
+                        officeword = PaperControl.OesData.FindOfficeWordById(problem.id.ToString())[0];
                         prostr[5] = prostr[5] + officeword.problem + "\r\n"; 
                         break;
                     case ProblemType.ProgramCompletion:

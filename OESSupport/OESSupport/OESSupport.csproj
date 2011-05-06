@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\Config.cs" />
-    <Compile Include="PaperControl\OESData.cs" />
     <Compile Include="Model\Choice.cs" />
     <Compile Include="Model\Classes.cs" />
     <Compile Include="Model\Completion.cs" />
@@ -71,6 +70,7 @@
     <Compile Include="Net\Client.cs" />
     <Compile Include="Net\DataPort.cs" />
     <Compile Include="Net\ServerEvt.cs" />
+    <Compile Include="PaperControl\OESData.cs" />
     <Compile Include="PaperControl\PaperControl.cs" />
     <Compile Include="PaperControl\XMLtoTXT.cs" />
     <Compile Include="Program.cs" />
