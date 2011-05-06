@@ -75,6 +75,7 @@ namespace OES.UControl
                 aProMan.bottomPanel.Show();
                 aProMan.titlePanel.Show();
                 aProMan.aChptList.newpl();
+                aProMan.aProList.Show();
             }
 
             this.Hide();

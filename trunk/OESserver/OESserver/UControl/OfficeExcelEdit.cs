@@ -64,12 +64,14 @@ namespace OES.UControl
                 (aProMan as ProManCho).bottomPanel.Show();
                 (aProMan as ProManCho).titlePanel.Show();
                 (aProMan as ProManCho).aChptList.newpl();
+                (aProMan as ProManCho).aProList.Show();
             }
             else
             {
                 aProMan.bottomPanel.Show();
                 aProMan.titlePanel.Show();
                 aProMan.aChptList.newpl();
+                aProMan.aProList.Show();
             }
 
             this.Hide();
@@ -84,6 +86,7 @@ namespace OES.UControl
                 (aProMan as ProManCho).bottomPanel.Show();
                 (aProMan as ProManCho).titlePanel.Show();
                 (aProMan as ProManCho).aProList.Show();
+
             }
             else
             {
