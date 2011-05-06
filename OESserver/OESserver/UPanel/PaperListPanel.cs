@@ -91,9 +91,11 @@ namespace OES.UPanel
             {
                 ISTList = XMLControl.ReadPaper(paperList[RIndex].paperPath);
                 InfoControl.TmpPaper = new Paper();
-                InfoControl.TmpPaper.paperName = paperList[RIndex].paperName;
+                InfoControl.TmpPaper.paperID = paperList[RIndex].paperID;
+                InfoControl.TmpPaper.paperName = paperList[RIndex].paperName;               
                 InfoControl.TmpPaper.programState = paperList[RIndex].programState;
                 InfoControl.TmpPaper.createTime = paperList[RIndex].createTime;
+                InfoControl.TmpPaper.testTime = paperList[RIndex].testTime;
                 InfoControl.TmpPaper.testTime = paperList[RIndex].testTime;
                 InfoControl.TmpPaper.author = paperList[RIndex].author;
                 for (int i = 0; i < 9; i++)

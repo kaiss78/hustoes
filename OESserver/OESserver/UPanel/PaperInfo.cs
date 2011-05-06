@@ -24,9 +24,9 @@ namespace OES.UPanel
             scoreList.Add(ChoiceWeight);
             scoreList.Add(CompletionWeight);
             scoreList.Add(JudgeWeight);
-            scoreList.Add(WordWeight);
             scoreList.Add(ExcelWeight);
             scoreList.Add(PPTWeight);
+            scoreList.Add(WordWeight);
             scoreList.Add(PCompletionWeight);
             scoreList.Add(PModifWeight);
             scoreList.Add(PFunctionWeight);
@@ -154,12 +154,6 @@ namespace OES.UPanel
             InfoControl.TmpPaper.score_choice = Convert.ToInt32(this.ChoiceWeight.Text);
             InfoControl.TmpPaper.score_completion = Convert.ToInt32(this.CompletionWeight.Text);
             InfoControl.TmpPaper.score_judge = Convert.ToInt32(this.JudgeWeight.Text);
-            InfoControl.TmpPaper.score_officeExcel = Convert.ToInt32(this.ExcelWeight.Text);
-            InfoControl.TmpPaper.score_officePPT = Convert.ToInt32(this.PPTWeight.Text);
-            InfoControl.TmpPaper.score_officeWord = Convert.ToInt32(this.WordWeight.Text);
-            InfoControl.TmpPaper.score_pCompletion = Convert.ToInt32(this.PCompletionWeight.Text);
-            InfoControl.TmpPaper.score_pFunction = Convert.ToInt32(this.PFunctionWeight.Text);
-            InfoControl.TmpPaper.score_pModif = Convert.ToInt32(this.PModifWeight.Text);
 
             if (InfoControl.TmpPaper.paperID == "-")
             {
@@ -172,38 +166,42 @@ namespace OES.UPanel
                         Problem tmpPro = new Problem();
                         tmpPro.problemId = -1;
                         tmpPro.problem = "-";
+                        tmpPro.score = Convert.ToInt32(scoreList[i].Text);
                         InfoControl.TmpPaper.ProList[i].Add(tmpPro);
                     }
                 }
-                for (int i = 3; i < 9; i++)
+            }
+            else
+            {
+                InfoControl.OesData.UpdatePaper(InfoControl.TmpPaper.paperID, InfoControl.TmpPaper);
+                for (int i = 0; i < 3; i++)
+                {
+                    while (InfoControl.TmpPaper.ProList[i].Count < Convert.ToInt32(this.countList[i].Text))
+                    {
+                        Problem tmpPro = new Problem();
+                        tmpPro.problemId = -1;
+                        tmpPro.problem = "-";
+                        tmpPro.score = Convert.ToInt32(scoreList[i].Text);
+                        InfoControl.TmpPaper.ProList[i].Add(tmpPro);
+                    }
+                    while (InfoControl.TmpPaper.ProList[i].Count > Convert.ToInt32(this.countList[i].Text))
+                    {
+                        InfoControl.TmpPaper.ProList[i].RemoveAt(InfoControl.TmpPaper.ProList[i].Count);
+                    }
+                }
+            }
+            for (int i = 3; i < 9; i++)
+            {
+                if (InfoControl.TmpPaper.ProList[i].Count < 1)
                 {
                     Problem tmpPro = new Problem();
                     tmpPro.problemId = -1;
                     tmpPro.problem = "-";
+                    tmpPro.exist = (flag[i] == 1);
+                    tmpPro.score = Convert.ToInt32(scoreList[i].Text);
                     InfoControl.TmpPaper.ProList[i].Add(tmpPro);
                 }
-                InfoControl.TmpPaper.officeExcel = new OfficeExcel();
-                InfoControl.TmpPaper.officeExcel.exist = flag[4] == 1;
-            
-                InfoControl.TmpPaper.officePPT = new OfficePowerPoint();
-                InfoControl.TmpPaper.officePPT.exist = flag[5] == 1;
-
-                InfoControl.TmpPaper.officeWord = new OfficeWord();
-                InfoControl.TmpPaper.officeWord.exist = flag[3] == 1;
-                InfoControl.TmpPaper.officeWord.problemId = -1;
-
-                InfoControl.TmpPaper.pCompletion = new PCompletion();
-                InfoControl.TmpPaper.pCompletion.exist = flag[6] == 1;
-   
-                InfoControl.TmpPaper.pModif = new PModif();
-                InfoControl.TmpPaper.pModif.exist = flag[7] == 1;
-
-                InfoControl.TmpPaper.pFunction = new PFunction();
-                InfoControl.TmpPaper.pFunction.exist = flag[8] == 1;
             }
-            else
-            { 
-            }        
             PanelControl.ChangPanel(19);
         }        
     }

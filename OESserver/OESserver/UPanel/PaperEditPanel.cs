@@ -23,7 +23,9 @@ namespace OES.UPanel
         static public ProPreview propanel;
         public int protype;
         public int value;
-        
+        private readonly ProblemType[] PT ={ ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, 
+                                                                      ProblemType.Excel, ProblemType.PowerPoint, ProblemType.Word, 
+                                                                      ProblemType.ProgramCompletion, ProblemType.ProgramModification, ProblemType.ProgramFun };
 
         public PaperEditPanel()
         {
@@ -84,12 +86,13 @@ namespace OES.UPanel
             btnChoice.Visible = InfoControl.TmpPaper.ProList[0].Count > 0;
             btnCompletion.Visible = InfoControl.TmpPaper.ProList[1].Count > 0;
             btnJudge.Visible = InfoControl.TmpPaper.ProList[2].Count > 0;
-            btnWord.Visible = InfoControl.TmpPaper.officeWord.exist;
-            btnPPT.Visible = InfoControl.TmpPaper.officePPT.exist;
-            btnExcel.Visible = InfoControl.TmpPaper.officeExcel.exist;
-            btnPModif.Visible = InfoControl.TmpPaper.pModif.exist;
-            btnPCompletion.Visible = InfoControl.TmpPaper.pCompletion.exist;
-            btnPFunction.Visible = InfoControl.TmpPaper.pFunction.exist;
+
+            btnExcel.Visible = InfoControl.TmpPaper.ProList[3][0].exist;
+            btnPPT.Visible = InfoControl.TmpPaper.ProList[4][0].exist;
+            btnWord.Visible = InfoControl.TmpPaper.ProList[5][0].exist;
+            btnPCompletion.Visible = InfoControl.TmpPaper.ProList[6][0].exist;
+            btnPModif.Visible = InfoControl.TmpPaper.ProList[7][0].exist;
+            btnPFunction.Visible = InfoControl.TmpPaper.ProList[8][0].exist;
             //ItemPanel.Controls.Clear();
         }
 
@@ -133,41 +136,15 @@ namespace OES.UPanel
         private void btnSave_Click(object sender, EventArgs e)
         {
             XMLControl.CreatePaperXML(Config.TempPaperPath + InfoControl.TmpPaper.paperID+".xml", InfoControl.TmpPaper.paperID);
-            for(int i=0;i<InfoControl.TmpPaper.ProList[0].Count;i++)
+            for (int k = 0; k < 9; k++)
             {
-                XMLControl.AddProblemToPaper(ProblemType.Choice, InfoControl.TmpPaper.ProList[0][i].problemId, InfoControl.TmpPaper.score_choice);
-            }
-            for (int i = 0; i < InfoControl.TmpPaper.ProList[1].Count; i++)
-            {
-                XMLControl.AddProblemToPaper(ProblemType.Completion, InfoControl.TmpPaper.ProList[1][i].problemId, InfoControl.TmpPaper.score_completion);
-            }
-            for (int i = 0; i < InfoControl.TmpPaper.ProList[2].Count; i++)
-            {
-                XMLControl.AddProblemToPaper(ProblemType.Tof, InfoControl.TmpPaper.ProList[2][i].problemId, InfoControl.TmpPaper.score_judge);
-            }
-            if (InfoControl.TmpPaper.officeWord.problemId != -1)
-            {
-                XMLControl.AddProblemToPaper(ProblemType.Word, InfoControl.TmpPaper.officeWord.problemId, InfoControl.TmpPaper.score_officeWord);
-            }
-            if (InfoControl.TmpPaper.officeExcel.problemId != -1)
-            {
-                XMLControl.AddProblemToPaper(ProblemType.Excel, InfoControl.TmpPaper.officeExcel.problemId, InfoControl.TmpPaper.score_officeExcel);
-            }
-            if (InfoControl.TmpPaper.officePPT.problemId != -1)
-            {
-                XMLControl.AddProblemToPaper(ProblemType.PowerPoint, InfoControl.TmpPaper.officePPT.problemId, InfoControl.TmpPaper.score_officePPT);
-            }
-            if (InfoControl.TmpPaper.pCompletion.problemId != -1)
-            {
-                XMLControl.AddProblemToPaper(ProblemType.ProgramCompletion, InfoControl.TmpPaper.pCompletion.problemId, InfoControl.TmpPaper.score_pCompletion);
-            }
-            if (InfoControl.TmpPaper.pModif.problemId != -1)
-            {
-                XMLControl.AddProblemToPaper(ProblemType.ProgramModification, InfoControl.TmpPaper.pModif.problemId, InfoControl.TmpPaper.score_pModif);
-            }
-            if (InfoControl.TmpPaper.pFunction.problemId != -1)
-            {
-                XMLControl.AddProblemToPaper(ProblemType.ProgramFun, InfoControl.TmpPaper.pFunction.problemId, InfoControl.TmpPaper.score_pFunction);
+                for (int i = 0; i < InfoControl.TmpPaper.ProList[k].Count; i++)
+                {
+                    if (InfoControl.TmpPaper.ProList[k][i].problemId != -1)
+                    {
+                        XMLControl.AddProblemToPaper(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId, InfoControl.TmpPaper.ProList[k][i].score);
+                    }
+                }
             }
             PanelControl.ReturnToMain();
         }
