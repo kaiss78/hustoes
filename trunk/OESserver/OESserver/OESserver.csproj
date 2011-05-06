@@ -222,6 +222,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UControl\testExcel.resx">
       <DependentUpon>testExcel.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ClassManage.resx">
       <DependentUpon>ClassManage.cs</DependentUpon>
