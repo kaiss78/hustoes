@@ -11,6 +11,7 @@ namespace OESSupport.Config
     {
         public static string Root = "";
         public static string Paper = "";
+        public static string PaperPkg = "";
         public static string Word = "";
         public static string Excel = "";
         public static string PowerPoint = "";
@@ -25,10 +26,10 @@ namespace OESSupport.Config
         public static string VbFunction = "";
 
         private static XmlDocument root = new XmlDocument();
-        private XmlElement xmlelem;
-        private XmlNode xmlnode;
-        private XmlNode xmltext;
-        public Config()
+        private static XmlElement xmlelem;
+        private static XmlNode xmlnode;
+        private static XmlNode xmltext;
+        public static void InitConfig()
         {
             if (File.Exists("Config.xml"))
             {
@@ -55,9 +56,15 @@ namespace OESSupport.Config
                 xmltext = root.CreateTextNode(@"Paper\");
                 xmlelem.AppendChild(xmltext);
 
+                xmlelem = root.CreateElement("PaperPkg");
+                xmlnode.AppendChild(xmlelem);
+                xmltext = root.CreateTextNode(@"PaperPkg\");
+                xmlelem.AppendChild(xmltext);
+
                 xmlelem = root.CreateElement("Word");
                 xmlnode.AppendChild(xmlelem);
-                xmlnode = root.SelectSingleNode(@"Word\");
+                xmltext = root.CreateTextNode(@"Word\");
+                xmlelem.AppendChild(xmltext);
 
                 xmlelem = root.CreateElement("Excel");
                 xmlnode.AppendChild(xmlelem);
@@ -74,7 +81,7 @@ namespace OESSupport.Config
                 xmltext = root.CreateTextNode(@"CCompletion\");
                 xmlelem.AppendChild(xmltext);
 
-                xmlelem = root.CreateElement(" CModification");
+                xmlelem = root.CreateElement("CModification");
                 xmlnode.AppendChild(xmlelem);
                 xmltext = root.CreateTextNode(@"CModification\");
                 xmlelem.AppendChild(xmltext);
@@ -85,7 +92,7 @@ namespace OESSupport.Config
                 xmltext = root.CreateTextNode(@"CFunction\");
                 xmlelem.AppendChild(xmltext);
 
-                xmlelem = root.CreateElement(" CModification");
+                xmlelem = root.CreateElement("CModification");
                 xmlnode.AppendChild(xmlelem);
                 xmltext = root.CreateTextNode(@"CppCompletion\");
                 xmlelem.AppendChild(xmltext);
@@ -100,22 +107,22 @@ namespace OESSupport.Config
                 xmltext = root.CreateTextNode(@"CCompletion\");
                 xmlelem.AppendChild(xmltext);
 
-                xmlelem = root.CreateElement(" CppFunction");
+                xmlelem = root.CreateElement("CppFunction");
                 xmlnode.AppendChild(xmlelem);
                 xmltext = root.CreateTextNode(@"CppFunction\");
                 xmlelem.AppendChild(xmltext);
 
-                xmlelem = root.CreateElement(" VbCompletion");
+                xmlelem = root.CreateElement("VbCompletion");
                 xmlnode.AppendChild(xmlelem);
                 xmltext = root.CreateTextNode(@"VbCompletion\");
                 xmlelem.AppendChild(xmltext);
 
-                xmlelem = root.CreateElement(" VbModification");
+                xmlelem = root.CreateElement("VbModification");
                 xmlnode.AppendChild(xmlelem);
                 xmltext = root.CreateTextNode(@"VbModification\");
                 xmlelem.AppendChild(xmltext);
 
-                xmlelem = root.CreateElement(" VbFunction");
+                xmlelem = root.CreateElement("VbFunction");
                 xmlnode.AppendChild(xmlelem);
                 xmltext = root.CreateTextNode(@"VbFunction\");
                 xmlelem.AppendChild(xmltext);
@@ -124,6 +131,7 @@ namespace OESSupport.Config
             }
             Root = root.SelectSingleNode("Config//Root").ChildNodes.Item(0).InnerText;
             Paper = root.SelectSingleNode("Config//Paper").ChildNodes.Item(0).InnerText;
+            PaperPkg = root.SelectSingleNode("Config//PaperPkg").ChildNodes.Item(0).InnerText;
             Word = root.SelectSingleNode("Config//Word").ChildNodes.Item(0).InnerText;
             Excel = root.SelectSingleNode("Config//Excel").ChildNodes.Item(0).InnerText;
             PowerPoint = root.SelectSingleNode("Config//PowerPoint").ChildNodes.Item(0).InnerText;
