@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Xml;
 
-namespace OESSupport.Config
+namespace OESSupport.Configuration
 {
     public class Config
     {

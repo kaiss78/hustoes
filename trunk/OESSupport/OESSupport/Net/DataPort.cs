@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using System.IO;
 using System.Threading;
 
-namespace OESMonitor.Net
+namespace OESSupport.Net
 {
     public class DataPort
     {

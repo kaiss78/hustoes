@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using OESMonitor.Net;
+using OESSupport.Net;
 
 namespace OESSupport
 {
@@ -12,7 +12,7 @@ namespace OESSupport
         public static List<Teacher> TeacherList = new List<Teacher>();
         static void Main(string[] args)
         {
-            Config.Config.InitConfig();
+            Configuration.Config.InitConfig();
             while(Console.ReadLine() != "exit")
             {
             }

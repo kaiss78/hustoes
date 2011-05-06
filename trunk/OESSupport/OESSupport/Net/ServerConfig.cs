@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Net;
 
-namespace OESMonitor.Net
+namespace OESSupport.Net
 {
     public class ServerConfig
     {
