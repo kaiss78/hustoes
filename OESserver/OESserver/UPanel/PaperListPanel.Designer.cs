@@ -113,7 +113,7 @@
             0,
             0});
             this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(80, 25);
+            this.year.Size = new System.Drawing.Size(80, 29);
             this.year.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.year.TabIndex = 4;
             this.year.Value = new decimal(new int[] {
@@ -128,7 +128,7 @@
             this.paperName.Location = new System.Drawing.Point(86, 0);
             this.paperName.Margin = new System.Windows.Forms.Padding(0);
             this.paperName.Name = "paperName";
-            this.paperName.Size = new System.Drawing.Size(250, 29);
+            this.paperName.Size = new System.Drawing.Size(250, 26);
             this.paperName.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -145,7 +145,7 @@
             this.startTime.Location = new System.Drawing.Point(339, 3);
             this.startTime.Name = "startTime";
             this.startTime.ShowUpDown = true;
-            this.startTime.Size = new System.Drawing.Size(134, 24);
+            this.startTime.Size = new System.Drawing.Size(134, 29);
             this.startTime.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.startTime.TabIndex = 6;
             this.startTime.UseWaitCursor = true;
@@ -160,7 +160,7 @@
             this.endTime.Location = new System.Drawing.Point(479, 3);
             this.endTime.Name = "endTime";
             this.endTime.ShowUpDown = true;
-            this.endTime.Size = new System.Drawing.Size(134, 24);
+            this.endTime.Size = new System.Drawing.Size(134, 29);
             this.endTime.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.endTime.TabIndex = 7;
             this.endTime.ValueNullable = new System.DateTime(2011, 3, 27, 0, 0, 0, 0);
