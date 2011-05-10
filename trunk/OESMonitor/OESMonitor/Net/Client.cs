@@ -24,6 +24,8 @@ namespace OESMonitor.Net
         private string raw_msg = String.Empty;
         //得到的消息
         public string msg;
+        //消息末尾字符
+        public char EndOfMsg = '`';
 
         #region 事件定义
         /// <summary>
@@ -139,63 +141,69 @@ namespace OESMonitor.Net
         /// </summary>
         private void DispatchMessage()
         {
-            string[] messages;
-            char[] sparator = new char[] { '#' };
+             string raw_msgs = System.Text.Encoding.Default.GetString(buffer, 0, buffer.Length).Trim('\0');
+             foreach (string onemsg in raw_msgs.Split(EndOfMsg))
+             {
+                 if (!String.IsNullOrEmpty(onemsg))
+                 {
+                     string[] messages;
+                     char[] sparator = new char[] { '#' };
 
-            raw_msg = System.Text.Encoding.Default.GetString(buffer, 0, buffer.Length).Trim('\0');
-            Array.Clear(buffer, 0, bufferSize);
+                     raw_msg = onemsg;
+                     Array.Clear(buffer, 0, bufferSize);
 
-            if (ReceivedMsg != null)
-            {
-                ReceivedMsg(this,raw_msg);
-            }
+                     if (ReceivedMsg != null)
+                     {
+                         ReceivedMsg(this, raw_msg);
+                     }
 
-            messages = raw_msg.Split(sparator, StringSplitOptions.RemoveEmptyEntries);
+                     messages = raw_msg.Split(sparator, StringSplitOptions.RemoveEmptyEntries);
 
-            switch (messages[0])
-            {
-                case "cmd":                             //命令
-                    switch (messages[1])
-                    {
-                        case "0":                       //申请数据端口
-                            switch (messages[2])
-                            {
-                                case "0":               //上传文件
-                                    if (ReceivedDataSubmit != null)
-                                    {
-                                        ReceivedDataSubmit(this, raw_msg);
-                                    }
-                                    MessageScheduler(this, 0);
-                                    break;
-                                case "1":               //下载文件
-                                    if (ReceivedDataRequest != null)
-                                    {
-                                        ReceivedDataRequest(this, raw_msg);
-                                    }
-                                    MessageScheduler(this, 1);
-                                    break;
-                            }
-                            break;
-                        case "2":
-                            port.fileLength = Int64.Parse(messages[2]);
-                            break;
-                        case "-1":
-                            MessageScheduler(this, -1);
-                            break;
-                        default :
-                            break;
-                    }
-                    break;
-                case "txt":
-                    if (ReceivedTxt != null)
-                    {
-                        ReceivedTxt(this,messages[1]);
-                    }
-                    break;
-                default:
-                    break;
-            }
-            
+                     switch (messages[0])
+                     {
+                         case "cmd":                             //命令
+                             switch (messages[1])
+                             {
+                                 case "0":                       //申请数据端口
+                                     switch (messages[2])
+                                     {
+                                         case "0":               //上传文件
+                                             if (ReceivedDataSubmit != null)
+                                             {
+                                                 ReceivedDataSubmit(this, raw_msg);
+                                             }
+                                             MessageScheduler(this, 0);
+                                             break;
+                                         case "1":               //下载文件
+                                             if (ReceivedDataRequest != null)
+                                             {
+                                                 ReceivedDataRequest(this, raw_msg);
+                                             }
+                                             MessageScheduler(this, 1);
+                                             break;
+                                     }
+                                     break;
+                                 case "2":
+                                     port.fileLength = Int64.Parse(messages[2]);
+                                     break;
+                                 case "-1":
+                                     MessageScheduler(this, -1);
+                                     break;
+                                 default:
+                                     break;
+                             }
+                             break;
+                         case "txt":
+                             if (ReceivedTxt != null)
+                             {
+                                 ReceivedTxt(this, messages[1]);
+                             }
+                             break;
+                         default:
+                             break;
+                     }
+                 }
+             }
         }
 
         /// <summary>
@@ -259,7 +267,7 @@ namespace OESMonitor.Net
         /// <param name="msg"></param>
         private void WriteMsg(String msg)
         {
-            byte[] tBuffer = System.Text.Encoding.Default.GetBytes(msg);
+            byte[] tBuffer = System.Text.Encoding.Default.GetBytes(msg+EndOfMsg);
             try
             {
                 ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
