@@ -10,7 +10,7 @@ namespace OES.UPanel
     {
         public List<TextBox> scoreList = new List<TextBox>(9);
         public List<TextBox> countList = new List<TextBox>(3);        
-        public int[] flag = new int[9];        
+        public int[] flag = new int[12];        
         public int programstate;
 
         public PaperInfo()
@@ -100,7 +100,7 @@ namespace OES.UPanel
                     countList[i].Text = "0";
                 }
             }
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 12; i++)
             {
                 if (InfoControl.TmpPaper.ProList[i].Count > 0)
                 {

@@ -112,6 +112,15 @@ namespace OES.UPanel
             {
                 HideAllItem();
                 propanel.Visible = true;
+                if (protype > 8)
+                {
+                    propanel.ProText.Text = InfoControl.TmpPaper.ProList[protype-3][0].problem;
+                }
+                else 
+                {
+                    propanel.ProText.Text = InfoControl.TmpPaper.ProList[protype][0].problem;
+                }
+                
             }
         }
 

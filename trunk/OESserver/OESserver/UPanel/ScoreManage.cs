@@ -110,8 +110,6 @@ namespace OES.UPanel
            // MessageBox.Show(comboClass.SelectedItem);
             MessageBox.Show(Paper);
             getScoreTable(InfoControl.OesData.FindScoreByClassPaper(Class, Paper));
-
         }
-
     }
 }

@@ -37,7 +37,7 @@ namespace OES.Model
         public PFunction pFunction;
         public PModif pModif;
         public List<Problem> problemList;
-        public List<Problem>[] ProList = new List<Problem>[9];
+        public List<Problem>[] ProList = new List<Problem>[12];
 
         public Paper()
         {
@@ -51,7 +51,7 @@ namespace OES.Model
             pFunction = new PFunction();
             problemList = new List<Problem>();
             officeExcel = new OfficeExcel();
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 12; i++)
             {
                 ProList[i] = new List<Problem>();
             }
