@@ -14,7 +14,7 @@ namespace OES.UPanel
     public partial class PaperListPanel : UserPanel
     {
         private DataTable paperListDataTable;
-        public Paper paper=new Paper();
+        public Paper paper = new Paper();
         public List<Paper> paperList;
         private int findtype = 1;
         private List<IdScoreType> ISTList;
@@ -34,20 +34,20 @@ namespace OES.UPanel
             object[] values = new object[5];
 
             paperList = InfoControl.OesData.FindPaper();
-            
+
             for (int i = 0; i < paperList.Count; i++)
             {
                 values[0] = false;
                 values[1] = paperList[i].paperID;
                 values[2] = paperList[i].paperName;
                 values[3] = paperList[i].createTime;
-                values[4] = paperList[i].author;                
+                values[4] = paperList[i].author;
                 paperListDataTable.Rows.Add(values);
             }
-                                    
+
             PaperListDGV.DataSource = paperListDataTable;
             PaperListDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+
             PaperListDGV.Columns[0].FillWeight = 5;
             PaperListDGV.Columns[1].FillWeight = 12;
             PaperListDGV.Columns[2].FillWeight = 45;
@@ -63,7 +63,7 @@ namespace OES.UPanel
 
         public PaperListPanel()
         {
-            InitializeComponent();            
+            InitializeComponent();
             changeFindType(findtype);               //一开始是按年份查询
         }
 
@@ -73,13 +73,13 @@ namespace OES.UPanel
             InitList();
         }
 
-         private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RIndex = e.RowIndex;
-            if(RIndex>-1)
+            if (RIndex > -1)
             {
                 paperListDataTable.Rows[RIndex][0] = !Convert.ToBoolean(paperListDataTable.Rows[RIndex][0]);
-            }            
+            }
         }
 
         //跳转到试卷编辑
@@ -92,7 +92,7 @@ namespace OES.UPanel
                 ISTList = XMLControl.ReadPaper(paperList[RIndex].paperPath);
                 InfoControl.TmpPaper = new Paper();
                 InfoControl.TmpPaper.paperID = paperList[RIndex].paperID;
-                InfoControl.TmpPaper.paperName = paperList[RIndex].paperName;               
+                InfoControl.TmpPaper.paperName = paperList[RIndex].paperName;
                 InfoControl.TmpPaper.programState = paperList[RIndex].programState;
                 InfoControl.TmpPaper.createTime = paperList[RIndex].createTime;
                 InfoControl.TmpPaper.testTime = paperList[RIndex].testTime;
@@ -108,9 +108,9 @@ namespace OES.UPanel
                     pro.problemId = ISTList[i].id;
                     pro.score = ISTList[i].score;
                     switch (ISTList[i].pt)
-                    {                            
+                    {
                         case ProblemType.Choice:
-                            pro.problem = InfoControl.OesData.FindChoiceById(ISTList[i].id.ToString())[0].problem;                            
+                            pro.problem = InfoControl.OesData.FindChoiceById(ISTList[i].id.ToString())[0].problem;
                             InfoControl.TmpPaper.ProList[0].Add(pro);
                             InfoControl.TmpPaper.score_choice = ISTList[i].score;
                             break;
@@ -165,11 +165,11 @@ namespace OES.UPanel
         {
 
             if (MessageBox.Show("确定删除记录", "确认删除", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-            {                
+            {
                 for (int i = 0; i < paperListDataTable.Rows.Count; i++)
                 {
                     if ((bool)paperListDataTable.Rows[i][0])
-                    {                        
+                    {
                         InfoControl.OesData.DeletePaper(paperListDataTable.Rows[i]["试卷ID"].ToString());
                     }
                 }
@@ -183,7 +183,7 @@ namespace OES.UPanel
             this.paperName.Visible = false;
             this.startTime.Visible = false;
             this.endTime.Visible = false;
-            switch(findtype)
+            switch (findtype)
             {
                 case 1:
                     this.year.Visible = true;
@@ -200,7 +200,7 @@ namespace OES.UPanel
 
         private void cbtnFindByYear_Click(object sender, EventArgs e)
         {
- 
+
             findtype = 1;
             changeFindType(findtype);
         }
@@ -221,7 +221,7 @@ namespace OES.UPanel
         {
             InitDT();
             object[] values = new object[5];
-            switch(findtype)
+            switch (findtype)
             {
                 case 1:
                     paperList = InfoControl.OesData.FindPaperByYear(Convert.ToString(year.Value));
@@ -256,8 +256,72 @@ namespace OES.UPanel
             PaperListDGV.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
             PaperListDGV.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
             PaperListDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-            PaperListDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;            
+            PaperListDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
 
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {            
+            InfoControl.TmpPaper = InfoControl.OesData.FindPaperById(PaperListDGV.SelectedRows[0].Cells[1].Value.ToString())[0];
+            List<IdScoreType> tmpList = XMLControl.ReadPaper(InfoControl.TmpPaper.paperPath);
+            for (int i = 0; i < 9; i++)
+            {
+                InfoControl.TmpPaper.ProList[i] = new List<Problem>();
+            }
+            Problem tmpPro;
+            foreach (IdScoreType pro in tmpList)
+            {
+                tmpPro = new Problem();
+                switch (pro.pt)
+                {
+                    case ProblemType.Choice:                        
+                        tmpPro=InfoControl.OesData.FindChoiceById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[0].Add(tmpPro);
+                        InfoControl.TmpPaper.score_choice = pro.score;
+                        break;
+                    case ProblemType.Tof:
+                        tmpPro = InfoControl.OesData.FindTofById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[2].Add(tmpPro);
+                        InfoControl.TmpPaper.score_judge = pro.score;
+                        break;
+                    case ProblemType.Completion:
+                        tmpPro = InfoControl.OesData.FindCompletionById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[1].Add(tmpPro);
+                        InfoControl.TmpPaper.score_completion = pro.score;
+                        break;
+                    case ProblemType.Word:
+                        tmpPro = InfoControl.OesData.FindOfficeWordById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[5].Add(tmpPro);
+                        InfoControl.TmpPaper.score_officeWord = pro.score;
+                        break;
+                    case ProblemType.PowerPoint:
+                        tmpPro = InfoControl.OesData.FindOfficePowerPointById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[4].Add(tmpPro);
+                        InfoControl.TmpPaper.score_officePPT = pro.score;
+                        break;
+                    case ProblemType.Excel:
+                        tmpPro = InfoControl.OesData.FindOfficeExcelById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[3].Add(tmpPro);
+                        InfoControl.TmpPaper.score_officeExcel = pro.score;
+                        break;
+                    case ProblemType.ProgramModification:
+                        tmpPro = InfoControl.OesData.FindModificationProgramById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[7].Add(tmpPro);
+                        InfoControl.TmpPaper.score_pModif = pro.score;
+                        break;
+                    case ProblemType.ProgramCompletion:
+                        tmpPro = InfoControl.OesData.FindCompletionProgramById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[6].Add(tmpPro);
+                        InfoControl.TmpPaper.score_pCompletion = pro.score;
+                        break;
+                    case ProblemType.ProgramFun:
+                        tmpPro = InfoControl.OesData.FindFunProgramById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[8].Add(tmpPro);
+                        InfoControl.TmpPaper.score_pFunction = pro.score;
+                        break;
+                }
+            }
+            PanelControl.EditPaper();
         }
     }
 }
