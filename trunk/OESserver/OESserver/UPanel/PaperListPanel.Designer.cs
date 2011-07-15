@@ -230,6 +230,7 @@
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "编辑试卷";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDel
             // 

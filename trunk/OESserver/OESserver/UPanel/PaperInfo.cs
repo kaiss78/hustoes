@@ -100,7 +100,7 @@ namespace OES.UPanel
                     countList[i].Text = "0";
                 }
             }
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 9; i++)
             {
                 if (InfoControl.TmpPaper.ProList[i].Count > 0)
                 {
