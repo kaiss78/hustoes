@@ -16,7 +16,12 @@ namespace OES.UControl
         public AddChapter(ProMan pm)
         {
             InitializeComponent();
+
             aProMan = pm;
+            foreach (var chptName in aProMan.aChptList.chpt_name)
+            {
+                cmbChptLst.Items.Add(chptName);
+            }
             switch (aProMan.ProType)
             { 
                 case 0:
@@ -63,9 +68,13 @@ namespace OES.UControl
         private void btnAdd_Click(object sender, EventArgs e)
         {
             InfoControl.OesData.AddUnit(rtxtNewChapterName.Text); 
-            MessageBox.Show("添加成功！");
             rtxtNewChapterName.Text = null;
             aProMan.aChptList.RefreshChptLst();
+            cmbChptLst.Items.Clear();
+            foreach (var chptName in aProMan.aChptList.chpt_name)
+            {
+                cmbChptLst.Items.Add(chptName);
+            }           
         }
 
 
@@ -74,6 +83,41 @@ namespace OES.UControl
             this.Dispose();
             aProMan.aProList.Show();
             aProMan.ShowTBPanel();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            InfoControl.OesData.DeleteUnit((int)txtSelectedChptName.Tag);
+            aProMan.aChptList.RefreshChptLst();
+            txtSelectedChptName.Text = null;
+            cmbChptLst.Items.Clear();
+            foreach (var chptName in aProMan.aChptList.chpt_name)
+            {
+                cmbChptLst.Items.Add(chptName);
+            }      
+        }
+
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            InfoControl.OesData.UpdateUnit((int)txtSelectedChptName.Tag, txtSelectedChptName.Text);
+            aProMan.aChptList.RefreshChptLst();
+            cmbChptLst.Items.Clear();
+            foreach (var chptName in aProMan.aChptList.chpt_name)
+            {
+                cmbChptLst.Items.Add(chptName);
+            }      
+        }
+
+        private void cmbChptLst_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtSelectedChptName.Text = cmbChptLst.SelectedItem.ToString();
+            txtSelectedChptName.Tag = aProMan.aChptList.chpt_ID[cmbChptLst.SelectedIndex];
+            cmbChptLst.Items.Clear();
+            foreach (var chptName in aProMan.aChptList.chpt_name)
+            {
+                cmbChptLst.Items.Add(chptName);
+            }           
         }
     }
 }

@@ -149,7 +149,7 @@ namespace OES.UPanel
             addChpt.Height = 50;
             addChpt.Width = 80;
             addChpt.Location = new Point(475,8);
-            addChpt.Text = "添加章节";
+            addChpt.Text = "章节管理";
             addChpt.ForeColor = Color.White;
             addChpt.BackColor = Color.RoyalBlue;
             addChpt.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
