@@ -9,8 +9,8 @@ namespace OES.UPanel
     public partial class PaperInfo : UserPanel
     {
         public List<TextBox> scoreList = new List<TextBox>(9);
-        public List<TextBox> countList = new List<TextBox>(3);        
-        public int[] flag = new int[12];        
+        public List<TextBox> countList = new List<TextBox>(3);
+        public int[] flag = new int[12];
         public int programstate;
 
         public PaperInfo()
@@ -66,7 +66,7 @@ namespace OES.UPanel
         override public void ReLoad()
         {
             this.Visible = true;
-           
+
             for (int i = 0; i < 9; i++)
             {
                 flag[i] = 1;
@@ -88,7 +88,7 @@ namespace OES.UPanel
         {
             this.Visible = true;
             this.PaperName.Text = InfoControl.TmpPaper.paperName;
-           // this.TestTime.Value =Convert.ToDateTime( InfoControl.TmpPaper.testTime);
+            // this.TestTime.Value =Convert.ToDateTime( InfoControl.TmpPaper.testTime);
             for (int i = 0; i < 3; i++)
             {
                 if (InfoControl.TmpPaper.ProList[i].Count > 0)
@@ -110,14 +110,23 @@ namespace OES.UPanel
                 else
                 {
                     scoreList[i].Text = "0";
-                    flag[i] = 0;                    
+                    flag[i] = 0;
                 }
                 setButton(i);
+            }
+            for (int i = 0; i < 9; i++)
+            {
+                scoreList[i].Enabled = true;
+                scoreList[i].Text = InfoControl.TmpPaper.ProList[i][0].score.ToString();
+                if (i < 3)
+                {
+                    countList[i].Text = InfoControl.TmpPaper.ProList[i].Count.ToString();
+                }
             }
         }
 
         private void setButton(int x)
-        {            
+        {
             scoreList[x].Enabled = Convert.ToBoolean(flag[x]);
             if (x < 3)
             {
@@ -203,7 +212,7 @@ namespace OES.UPanel
                 }
             }
             PanelControl.ChangPanel(19);
-        }        
+        }
     }
 
 }

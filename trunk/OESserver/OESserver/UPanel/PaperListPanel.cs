@@ -272,6 +272,8 @@ namespace OES.UPanel
             foreach (IdScoreType pro in tmpList)
             {
                 tmpPro = new Problem();
+                tmpPro.problemId = pro.id;
+                tmpPro.score = pro.score;
                 switch (pro.pt)
                 {
                     case ProblemType.Choice:                        
