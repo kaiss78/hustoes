@@ -272,8 +272,7 @@ namespace OES.UPanel
             foreach (IdScoreType pro in tmpList)
             {
                 tmpPro = new Problem();
-                tmpPro.problemId = pro.id;
-                tmpPro.score = pro.score;
+
                 switch (pro.pt)
                 {
                     case ProblemType.Choice:                        
@@ -322,6 +321,8 @@ namespace OES.UPanel
                         InfoControl.TmpPaper.score_pFunction = pro.score;
                         break;
                 }
+                tmpPro.problemId = pro.id;
+                tmpPro.score = pro.score;
             }
             PanelControl.EditPaper();
         }
