@@ -60,38 +60,43 @@ namespace OES.UControl
             {
                 for (int i = 0; i < count; i++)
                 {
-                    subPanel[i].Controls[0].Text = chpt_name[((page - 1)*count + i)];
+                    
+                    subPanel[i].Text = chpt_name[((page - 1)*count + i)];
+                    subPanel[i].Tag = chpt_ID[((page - 1) * count + i)];
                 }
             }
             else
             {
                 for (int i = 0; i < chpt_name.Count - count*(totalpage - 1); i++)
                 {
-                    subPanel[i].Controls[0].Text = chpt_name[((totalpage - 1)*count + i)];
+                    subPanel[i].Text = chpt_name[((totalpage - 1)*count + i)];
+                    subPanel[i].Tag = chpt_ID[((totalpage - 1) * count + i)];
                 }
                 for (int i = chpt_name.Count - count*(totalpage - 1); i < count; i++)
                 {
-                    subPanel[i].Controls[0].Text = "";
+                    subPanel[i].Text = "";
+                    subPanel[i].Tag = null;
                 }
             }
         }
 
-
-
-        
-
-        private void ChptList_Resize(object sender, EventArgs e)
+        //刷新函数
+        public void RefreshChptLst()
         {
-            Controls.Clear();
-            
+
             mainPanel = new Panel();
             mainPanel.Height = Height;
             mainPanel.Width = Width;
+            Controls.Clear();
             Controls.Add(mainPanel);
-            btnHeight = Height/(count + 1);
-            totalpage = ((chpt_num/count) + 1);
+            btnHeight = Height / (count + 1);
             chpt_num = InfoControl.OesData.FindUnit().Count;
-            
+            totalpage = ((chpt_num / count) + 1);
+
+            //chpt_name.Clear();
+            //chpt_ID.Clear();
+
+
 
             //list赋初值
             for (int i = 0; i < chpt_num; i++)
@@ -102,7 +107,7 @@ namespace OES.UControl
 
             var last = new Button();
             last.Width = (Width);
-            last.Height = (int)(btnHeight/(1.2));
+            last.Height = (int)(btnHeight / (1.2));
             last.Location = new Point(0, 0);
             last.BackgroundImage = Resources.last;
             last.BackgroundImageLayout = ImageLayout.Stretch;
@@ -113,7 +118,7 @@ namespace OES.UControl
 
             var next = new Button();
             next.Width = (Width);
-            next.Height = (int)(btnHeight/(1.2));
+            next.Height = (int)(btnHeight / (1.2));
             next.Location = new Point(0, Height - next.Height);
             next.BackgroundImage = Resources.next;
             next.BackgroundImageLayout = ImageLayout.Stretch;
@@ -136,7 +141,7 @@ namespace OES.UControl
                         temp.ForeColor = Color.White;
                         temp.BackColor = Color.Transparent;
                         temp.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
-                        temp.Location = new Point(0, (int) (btnHeight*(i + 0.8)));
+                        temp.Location = new Point(0, (int)(btnHeight * (i + 0.8)));
                         temp.BackgroundImage = Resources.btnbg1;//按钮背景图片
                         temp.BackgroundImageLayout = ImageLayout.Stretch;
                         mainPanel.Controls.Add(temp);
@@ -151,7 +156,14 @@ namespace OES.UControl
                     }
                 }
             }
-            temp_MouseClick(subPanel[0],null);
+            temp_MouseClick(subPanel[0], null);
+        }
+
+        
+        //章节条变化时刷新（调用刷新函数）
+        private void ChptList_Resize(object sender, EventArgs e)
+        {
+            RefreshChptLst();
         }
 
         void temp_MouseClick(object sender, MouseEventArgs e)
