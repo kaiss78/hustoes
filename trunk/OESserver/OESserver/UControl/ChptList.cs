@@ -11,9 +11,9 @@ namespace OES.UControl
     public partial class ChptList : UserControl
     {
         public static List<choicepro> choiceproL = new List<choicepro>();
-        private readonly List<String> chpt_name = new List<string>();
+        public  List<String> chpt_name = new List<string>();
         private readonly List<Button> subPanel = new List<Button>();
-        private readonly List<int> chpt_ID = new List<int>();
+        public List<int> chpt_ID = new List<int>();
         private readonly List<int> subPanelStatus = new List<int>();
         private choicepro achoicepro;
 
@@ -93,8 +93,8 @@ namespace OES.UControl
             chpt_num = InfoControl.OesData.FindUnit().Count;
             totalpage = ((chpt_num / count) + 1);
 
-            //chpt_name.Clear();
-            //chpt_ID.Clear();
+            chpt_name.Clear();
+            chpt_ID.Clear();
 
 
 
