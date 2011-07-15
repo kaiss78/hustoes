@@ -16,6 +16,7 @@ namespace OES
         public static string PPTPath;
         public static bool allowScore;
         public static string inipath;
+        public static string serverIP;
         [DllImport("kernel32")]
         private static extern bool WritePrivateProfileString(string section, string key, string val, string filePath);
         [DllImport("kernel32")]
@@ -30,7 +31,8 @@ namespace OES
                  TempPaperPath = this.IniReadValue("path", "TempPaperPath")+"\\";
                  ExcelPath = this.IniReadValue("path", "ExcelPath") + "\\";
                  WordPath = this.IniReadValue("path", "WordPath") + "\\";
-                 PPTPath = this.IniReadValue("path", "PPTPath") + "\\";                 
+                 PPTPath = this.IniReadValue("path", "PPTPath") + "\\";
+                 serverIP = this.IniReadValue("IP", "ServerIP") + "\\";
              }
              else
              {
@@ -41,11 +43,14 @@ namespace OES
                      sw.WriteLine(@"TempPaperPath=D:\OES\TempPaper\");
                      sw.WriteLine(@"ExcelPath=D:\OES\Excel\");
                      sw.WriteLine(@"WordPath=D:\OES\Word\");
-                     sw.WriteLine(@"PPTPath=D:\OES\PPT\");                                                                                     
+                     sw.WriteLine(@"PPTPath=D:\OES\PPT\");
+                     sw.WriteLine("[IP]");
+                     sw.WriteLine(@"ServerIP=211.69.197.115");
                      TempPaperPath = @"D:\OES\TempPaper\";
                      ExcelPath = @"D:\OES\Excel\";
                      WordPath = @"D:\OES\Word\";
                      PPTPath = @"D:\OES\PPT\";
+                     serverIP = "211.69.197.115";
                  }
                  if (!Directory.Exists(TempPaperPath))
                  {
