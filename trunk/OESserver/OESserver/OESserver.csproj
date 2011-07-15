@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E4EFF3E5-EB11-47EE-AB20-B7AC00AE82FB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -224,6 +224,10 @@
       <DependentUpon>testExcel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\AddChapter.resx">
+      <DependentUpon>AddChapter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ClassManage.resx">
       <DependentUpon>ClassManage.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -441,6 +445,12 @@
     </Compile>
     <Compile Include="UControl\testExcel.designer.cs">
       <DependentUpon>testExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\AddChapter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\AddChapter.Designer.cs">
+      <DependentUpon>AddChapter.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\ClassManage.cs">
       <SubType>UserControl</SubType>

@@ -1927,18 +1927,16 @@ namespace OES
 
         #region 章节管理
 
-        //添加章节，UnitName具体的章节名字，例如“故障恢复” Unit 例子：1-12；
-        public void AddUnit(string UnitName,int Unit)
+        //添加章节，UnitName具体的章节名字，例如“故障恢复”
+        public void AddUnit(string UnitName)
         {
-            string A = Unit.ToString();
-            SqlParameter[] ddlparam = new SqlParameter[2];
+            SqlParameter[] ddlparam = new SqlParameter[1];
             ddlparam[0] = CreateParam("@UnitName", SqlDbType.VarChar, 100, UnitName, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Unit", SqlDbType.Int, 5, A, ParameterDirection.Input);
            
             DataBind();
-            SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
+            SqlCommand cmd = new SqlCommand("AddUnit", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 1; i++)
             {
                 cmd.Parameters.Add(ddlparam[i]);
             }

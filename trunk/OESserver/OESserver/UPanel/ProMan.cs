@@ -24,6 +24,7 @@ namespace OES.UPanel
         public Panel titlePanel = new Panel();
         public int ProType;
         public AddbyBatch aAddbyBatch;
+        public AddChapter aAddChapter;
         public List<UserControl> EditList=new List<UserControl>();
         public ChoiceEdit aChoiceEdit;
         public CompletionEdit aCompletionEdit;
@@ -261,7 +262,12 @@ namespace OES.UPanel
 
         void addChpt_MouseClick(object sender, MouseEventArgs e)
         {
-            throw new System.NotImplementedException();
+            aAddChapter = new AddChapter(this);
+            aAddChapter.Location = new Point(ProMan.ClWidth, 0);
+            this.Controls.Add(aAddChapter);
+            aAddChapter.Show();
+            aProList.Hide();
+            HideTBPanel();
         }
 
         void addmore_MouseClick(object sender, MouseEventArgs e)
