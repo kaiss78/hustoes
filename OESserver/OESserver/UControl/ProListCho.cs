@@ -142,9 +142,9 @@ namespace OES.UControl
             {
                 for (int i = 0; i < acheckproList.Count; i++)
                 {
-                    if (InfoControl.TmpPaper.ProList[proType][j].ToString() == acheckproList[i].proid)
+                    if (InfoControl.TmpPaper.ProList[proType][j].problemId.ToString() == acheckproList[i].proid)
                     {
-                        checkList[i].Text = (i + 1).ToString();
+                        checkList[i].Text = (j + 1).ToString();
                     }
                 }
             }
