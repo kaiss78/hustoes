@@ -93,6 +93,7 @@ namespace OES.UPanel
             btnPCompletion.Visible = InfoControl.TmpPaper.ProList[6][0].problemId != -1;
             btnPModif.Visible = InfoControl.TmpPaper.ProList[7][0].problemId != -1;
             btnPFunction.Visible = InfoControl.TmpPaper.ProList[8][0].problemId != -1;
+            
             //ItemPanel.Controls.Clear();
         }
 
