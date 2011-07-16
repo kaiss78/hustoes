@@ -106,13 +106,13 @@ namespace OES.UControl
             {
                 (aProMan as ProManCho).Controls.Add(aPointEdit);
             }
-            else
-            { 
-                aProMan.Controls.Add(aPointEdit);
-            }
-            
-            this.Hide();           
-            aPointEdit.Show();
+            else 
+                if(aPointEdit.isLoaded)
+                {                 
+                    aProMan.Controls.Add(aPointEdit);
+                    this.Hide();
+                    aPointEdit.Show();
+                }            
         }
 
     }
