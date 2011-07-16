@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OES.Model;
 using OES.UPanel;
+using OES.XMLFile;
 
 namespace OES
 {
@@ -82,6 +83,71 @@ namespace OES
                 }                
             }
             return tmp;
+        }
+
+        public void  getTmpPaper(string paperID)
+        {
+            Problem tmpPro;
+            TmpPaper = OesData.FindPaperById(paperID)[0];
+            List<IdScoreType> tmpList = XMLControl.ReadPaper(TmpPaper.paperPath);
+            for (int i = 0; i < 9; i++)
+            {
+                TmpPaper.ProList[i] = new List<Problem>();
+            }            
+            foreach (IdScoreType pro in tmpList)
+            {
+                tmpPro = new Problem();
+                switch (pro.pt)
+                {
+                    case ProblemType.Choice:
+                        tmpPro = InfoControl.OesData.FindChoiceById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[0].Add(tmpPro);
+                        InfoControl.TmpPaper.score_choice = pro.score;
+                        break;
+                    case ProblemType.Tof:
+                        tmpPro = InfoControl.OesData.FindTofById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[2].Add(tmpPro);
+                        InfoControl.TmpPaper.score_judge = pro.score;
+                        break;
+                    case ProblemType.Completion:
+                        tmpPro = InfoControl.OesData.FindCompletionById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[1].Add(tmpPro);
+                        InfoControl.TmpPaper.score_completion = pro.score;
+                        break;
+                    case ProblemType.Word:
+                        tmpPro = InfoControl.OesData.FindOfficeWordById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[5].Add(tmpPro);
+                        InfoControl.TmpPaper.score_officeWord = pro.score;
+                        break;
+                    case ProblemType.PowerPoint:
+                        tmpPro = InfoControl.OesData.FindOfficePowerPointById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[4].Add(tmpPro);
+                        InfoControl.TmpPaper.score_officePPT = pro.score;
+                        break;
+                    case ProblemType.Excel:
+                        tmpPro = InfoControl.OesData.FindOfficeExcelById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[3].Add(tmpPro);
+                        InfoControl.TmpPaper.score_officeExcel = pro.score;
+                        break;
+                    case ProblemType.ProgramModification:
+                        tmpPro = InfoControl.OesData.FindModificationProgramById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[7].Add(tmpPro);
+                        InfoControl.TmpPaper.score_pModif = pro.score;
+                        break;
+                    case ProblemType.ProgramCompletion:
+                        tmpPro = InfoControl.OesData.FindCompletionProgramById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[6].Add(tmpPro);
+                        InfoControl.TmpPaper.score_pCompletion = pro.score;
+                        break;
+                    case ProblemType.ProgramFun:
+                        tmpPro = InfoControl.OesData.FindFunProgramById(pro.id.ToString())[0];
+                        InfoControl.TmpPaper.ProList[8].Add(tmpPro);
+                        InfoControl.TmpPaper.score_pFunction = pro.score;
+                        break;
+                }
+                tmpPro.problemId = pro.id;
+                tmpPro.score = pro.score;
+            }
         }
 
         /// <summary>

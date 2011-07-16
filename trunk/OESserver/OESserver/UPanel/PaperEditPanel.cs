@@ -87,12 +87,12 @@ namespace OES.UPanel
             btnCompletion.Visible = InfoControl.TmpPaper.ProList[1].Count > 0;
             btnJudge.Visible = InfoControl.TmpPaper.ProList[2].Count > 0;
 
-            btnExcel.Visible = InfoControl.TmpPaper.ProList[3][0].exist;
-            btnPPT.Visible = InfoControl.TmpPaper.ProList[4][0].exist;
-            btnWord.Visible = InfoControl.TmpPaper.ProList[5][0].exist;
-            btnPCompletion.Visible = InfoControl.TmpPaper.ProList[6][0].exist;
-            btnPModif.Visible = InfoControl.TmpPaper.ProList[7][0].exist;
-            btnPFunction.Visible = InfoControl.TmpPaper.ProList[8][0].exist;
+            btnExcel.Visible = InfoControl.TmpPaper.ProList[3][0].problemId != -1;
+            btnPPT.Visible = InfoControl.TmpPaper.ProList[4][0].problemId != -1;
+            btnWord.Visible = InfoControl.TmpPaper.ProList[5][0].problemId != -1;
+            btnPCompletion.Visible = InfoControl.TmpPaper.ProList[6][0].problemId != -1;
+            btnPModif.Visible = InfoControl.TmpPaper.ProList[7][0].problemId != -1;
+            btnPFunction.Visible = InfoControl.TmpPaper.ProList[8][0].problemId != -1;
             //ItemPanel.Controls.Clear();
         }
 
