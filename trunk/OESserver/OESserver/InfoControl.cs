@@ -85,7 +85,7 @@ namespace OES
             return tmp;
         }
 
-        public void  getTmpPaper(string paperID)
+        public static void  getTmpPaper(string paperID)
         {
             Problem tmpPro;
             TmpPaper = OesData.FindPaperById(paperID)[0];
