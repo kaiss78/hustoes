@@ -12,13 +12,19 @@ namespace OES.UControl
     public partial class PointEdit : UserControl
     {
         public OfficeExcelEdit aOfficeExcelEdit;
+        public Boolean isLoaded;
         public PointEdit(OfficeExcelEdit exl)
         {
             InitializeComponent();
             aOfficeExcelEdit = exl;
-            try { openExcelFile(aOfficeExcelEdit.anspathPointEdit); }
+            try 
+            {
+                openExcelFile(aOfficeExcelEdit.anspathPointEdit);
+                isLoaded = true; 
+            }
             catch 
             {
+                isLoaded = false;
                 MessageBox.Show("打开文件失败！", "添加考点", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //界面跳转
             }
@@ -35,6 +41,7 @@ namespace OES.UControl
             MessageBox.Show("上传完成！(加方法......)");
             testExcel1.CloseExcel();
             aOfficeExcelEdit.Show();//TODO: 界面跳转
+            this.Dispose();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -44,6 +51,7 @@ namespace OES.UControl
             {
                 testExcel1.CloseExcel();
                 aOfficeExcelEdit.Show();//TODO: 界面跳转
+                this.Dispose();
             }
         }
 
