@@ -130,18 +130,21 @@ namespace OES.UControl
         }
         
         //checkbutton加载已选题号列表,遍历查找，此处可优化
-        void loadchecklist(List<Choice> pronolist)
+        void loadchecklist(int proType)
         {
             aProMan.NextNoCon.Text = InfoControl.GetProNum(aProMan.ProType).ToString();
             for (int i = 0; i < acheckproList.Count; i++)
             {
                 checkList[i].Text = "";
             }
-            for (int i = 0; i < acheckproList.Count; i++)
+            for (int j = 0; j < InfoControl.TmpPaper.ProList[proType].Count; j++)
             {
-                if (InfoControl.TmpPaper.choice[i].problemId.ToString() == acheckproList[i].proid)
+                for (int i = 0; i < acheckproList.Count; i++)
                 {
-                    checkList[i].Text = (i + 1).ToString();
+                    if (InfoControl.TmpPaper.ProList[proType][j].ToString() == acheckproList[i].proid)
+                    {
+                        checkList[i].Text = (i + 1).ToString();
+                    }
                 }
             }
         }
