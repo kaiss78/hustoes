@@ -126,7 +126,8 @@ namespace OES.UControl
                 checkButton.MouseClick += new MouseEventHandler(checkButton_MouseClick);
                  
             }
-
+            loadchecklist(aProMan.ProType);
+            
         }
         
         //checkbutton加载已选题号列表,遍历查找，此处可优化
