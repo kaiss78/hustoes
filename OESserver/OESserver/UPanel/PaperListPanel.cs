@@ -261,7 +261,7 @@ namespace OES.UPanel
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
-        {            
+        {
             InfoControl.TmpPaper = InfoControl.OesData.FindPaperById(PaperListDGV.SelectedRows[0].Cells[1].Value.ToString())[0];
             List<IdScoreType> tmpList = XMLControl.ReadPaper(InfoControl.TmpPaper.paperPath);
             for (int i = 0; i < 9; i++)
@@ -275,8 +275,8 @@ namespace OES.UPanel
 
                 switch (pro.pt)
                 {
-                    case ProblemType.Choice:                        
-                        tmpPro=InfoControl.OesData.FindChoiceById(pro.id.ToString())[0];
+                    case ProblemType.Choice:
+                        tmpPro = InfoControl.OesData.FindChoiceById(pro.id.ToString())[0];
                         InfoControl.TmpPaper.ProList[0].Add(tmpPro);
                         InfoControl.TmpPaper.score_choice = pro.score;
                         break;
