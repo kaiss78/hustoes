@@ -130,7 +130,7 @@ namespace OES.UControl
         }
         
         //checkbutton加载已选题号列表,遍历查找，此处可优化
-        void loadchecklist(int proType)
+        public void loadchecklist(int proType)
         {
             aProMan.NextNoCon.Text = InfoControl.GetProNum(aProMan.ProType).ToString();
             for (int i = 0; i < acheckproList.Count; i++)
