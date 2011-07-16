@@ -105,7 +105,7 @@ namespace OES.UControl
                 temp.Height = btnHeight;
                 temp.Tag = ChptListCho.choiceproL[i].num;
                 temp.Location = new Point(choWidth, (btnHeight * i));
-                temp.BackgroundImage = Resources.btnbg1;
+                temp.BackgroundImage = Resources.btnmaobi;
                 temp.BackgroundImageLayout = ImageLayout.Stretch;
                 mainPanel.Controls.Add(temp);
                 subPanel.Add(temp);
