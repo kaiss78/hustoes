@@ -506,6 +506,8 @@ namespace OES.UPanel
                     aChptList.Show();
                     ShowTBPanel();
                     HideList();
+                    if (aAddChapter != null)
+                        aAddChapter.Dispose();
                     this.Visible = true;
                 }
                 else
@@ -517,6 +519,8 @@ namespace OES.UPanel
                     aChptList.newpl();
                     ShowTBPanel();
                     HideList();
+                    if (aAddChapter != null)
+                        aAddChapter.Dispose();
                     Controls.Add(aProList);
                     aProList.Show();
                     this.Visible = true;

@@ -32,7 +32,7 @@ namespace OES.UControl
 
         private void openExcelFile(string fileName)
         {
-            testExcel1.loadExcel(fileName);
+            testExcel1.loadExcel(fileName,"C:\test.xml");
         }
 
         private void btnComplete_Click(object sender, EventArgs e)

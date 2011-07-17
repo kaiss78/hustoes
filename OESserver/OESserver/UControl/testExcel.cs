@@ -51,7 +51,7 @@ namespace testExcel
         
         }
 
-        public void loadExcel(string name)
+        public void loadExcel(string name,string xmlPath)
         {
             string file = name;
             excel = new Excel.Application();
@@ -97,7 +97,7 @@ namespace testExcel
             radioCell.Checked = true;
             radioSingleChart.Checked = true;
 
-            oxml = new OfficeXML("test.xml");
+            oxml = new OfficeXML(xmlPath);
         }
 
         private List<string> Test(Excel.SeriesCollection sc)

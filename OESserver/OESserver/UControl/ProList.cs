@@ -163,7 +163,7 @@ namespace OES.UControl
             change(Convert.ToInt32(((Label)sender).Tag), aProMan.ProType);
         }
 
-        //调用加载函数，控制控件隐藏现实的转换
+        //调用加载函数，控制控件隐藏与显示的转换
         void change(int id,int pt)
         {
             click_proid = Convert.ToString(id);

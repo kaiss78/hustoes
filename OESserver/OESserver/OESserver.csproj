@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.TeamSystem.Data.UnitTesting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
@@ -136,6 +137,9 @@
       <DependentUpon>PointEdit.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\PointEditPpt.resx">
+      <DependentUpon>PointEditPpt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UControl\ProPreview.resx">
       <DependentUpon>ProPreview.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -228,6 +232,9 @@
       <DependentUpon>AddChapter.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\testPowerpoint.resx">
+      <DependentUpon>testPowerpoint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ClassManage.resx">
       <DependentUpon>ClassManage.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -313,6 +320,12 @@
     </Compile>
     <Compile Include="UControl\PointEdit.Designer.cs">
       <DependentUpon>PointEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\PointEditPpt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\PointEditPpt.Designer.cs">
+      <DependentUpon>PointEditPpt.cs</DependentUpon>
     </Compile>
     <Compile Include="UControl\ProPreview.cs">
       <SubType>UserControl</SubType>
@@ -451,6 +464,12 @@
     </Compile>
     <Compile Include="UControl\AddChapter.Designer.cs">
       <DependentUpon>AddChapter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\testPowerpoint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\testPowerpoint.designer.cs">
+      <DependentUpon>testPowerpoint.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\ClassManage.cs">
       <SubType>UserControl</SubType>

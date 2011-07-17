@@ -42,6 +42,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.pointEdit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -171,10 +172,21 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // pointEdit
+            // 
+            this.pointEdit.Location = new System.Drawing.Point(187, 566);
+            this.pointEdit.Name = "pointEdit";
+            this.pointEdit.Size = new System.Drawing.Size(104, 60);
+            this.pointEdit.TabIndex = 8;
+            this.pointEdit.Text = "编辑考点";
+            this.pointEdit.UseVisualStyleBackColor = true;
+            this.pointEdit.Click += new System.EventHandler(this.pointEdit_Click);
+            // 
             // OfficePowerpointEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pointEdit);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -206,5 +218,6 @@
         private System.Windows.Forms.Button probrowse;
         private System.Windows.Forms.RichTextBox propath;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.Button pointEdit;
     }
 }
