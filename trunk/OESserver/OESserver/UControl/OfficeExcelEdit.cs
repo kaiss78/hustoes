@@ -35,7 +35,6 @@ namespace OES.UControl
             if (openFileDialog2.ShowDialog() == DialogResult.OK)
             {
                 anspath.Text = (openFileDialog2.FileName);
-                anspathPointEdit = anspath.Text;
             }
         }
 
@@ -100,6 +99,7 @@ namespace OES.UControl
 
         private void pointEdit_Click(object sender, EventArgs e)
         {
+            anspathPointEdit = anspath.Text;
             aPointEdit = new PointEdit(this);
             aPointEdit.Location = new Point(ProMan.ClWidth, 0);
             if (aProMan is ProManCho)

@@ -14,7 +14,9 @@ namespace OES.UControl
     public partial class OfficePowerpointEdit : UserControl
     {
         ProMan aProMan;
+        PointEditPpt aPointEditPpt;
         public bool isnew = false;
+        public string anspathPointEdit;
         public OfficePowerpointEdit(ProMan pm)
         {
             InitializeComponent();
@@ -92,6 +94,24 @@ namespace OES.UControl
             }
             this.Hide();
             ProMan.isediting = false;
+        }
+
+        private void pointEdit_Click(object sender, EventArgs e)
+        {
+            anspathPointEdit = anspath.Text;
+            aPointEditPpt = new PointEditPpt(this);
+            aPointEditPpt.Location = new Point(ProMan.ClWidth, 0);
+            if (aProMan is ProManCho)
+            {
+                (aProMan as ProManCho).Controls.Add(aPointEditPpt);
+            }
+            else
+                if (aPointEditPpt.isLoaded)
+                {
+                    aProMan.Controls.Add(aPointEditPpt);
+                    this.Hide();
+                    aPointEditPpt.Show();
+                }            
         }
     }
 }
