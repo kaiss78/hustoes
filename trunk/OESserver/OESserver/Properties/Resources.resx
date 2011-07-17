@@ -130,6 +130,9 @@
   <data name="btnmaobi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnmaobi.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="chptbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chptbtn.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="circle_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle_black.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
