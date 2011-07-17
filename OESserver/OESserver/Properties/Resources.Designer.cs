@@ -88,6 +88,13 @@ namespace OES.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap chptbtn {
+            get {
+                object obj = ResourceManager.GetObject("chptbtn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap circle_black {
             get {
                 object obj = ResourceManager.GetObject("circle_black", resourceCulture);

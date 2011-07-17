@@ -142,7 +142,7 @@ namespace OES.UControl
                         temp.BackColor = Color.Transparent;
                         temp.Font = new Font(new FontFamily("微软雅黑"), 11, FontStyle.Bold);
                         temp.Location = new Point(0, (int)(btnHeight * (i + 0.8)));
-                        temp.BackgroundImage = Resources.btnbg1;//按钮背景图片
+                        temp.BackgroundImage = Resources.chptbtn;//按钮背景图片
                         temp.BackgroundImageLayout = ImageLayout.Stretch;
                         mainPanel.Controls.Add(temp);
                         subPanel.Add(temp);
