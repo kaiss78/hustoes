@@ -14,7 +14,7 @@ namespace OES.UControl
         private readonly List<Button> subPanel = new List<Button>();
         private readonly List<int> subPanelStatus = new List<int>();
         private readonly List<Label> titleList = new List<Label>();
-        public List<Button> checkList = new List<Button>();
+        public List<Button> checkList = new List<Button>();//存放勾选按钮的列表，勾选按钮tag值为序号
         public List<check> acheckproList = new List<check>();
     
         public static int btnHeight;
