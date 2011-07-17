@@ -145,6 +145,7 @@ namespace OES.UControl
                     if (InfoControl.TmpPaper.ProList[proType][j].problemId.ToString() == acheckproList[i].proid)
                     {
                         checkList[i].Text = (j + 1).ToString();
+                        aProMan.checkProNoList[aProMan.ProType][chptNo][i] = checkList[i].Text;
                     }
                 }
             }
@@ -165,7 +166,9 @@ namespace OES.UControl
 
         //加载已存的已勾选题号，在checkbutton列上显示
         public void loadAllProNo()
-        { 
+        {
+            aProMan.NextNoCon.Text = null;
+            aProMan.CurrentNoCon.Text = null;
             for (int i = 0; i < acheckproList.Count; i++)
             {
                 if (aProMan.checkProNoList[aProMan.ProType][chptNo][i] != "-1")
@@ -174,14 +177,16 @@ namespace OES.UControl
                 }
             }
             nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
+            currentProNo = InfoControl.Value.ToString();
             if (nextProNo != "-1")
             {
+                aProMan.CurrentNoCon.Text =currentProNo;
                 aProMan.NextNoCon.Text = nextProNo;
             }
-            else
-            {
-                aProMan.NextNoCon.Text = currentProNo;
-            }
+            //else
+            //{
+            //    aProMan.NextNoCon.Text = currentProNo;
+            //}
         }
 
 
@@ -190,15 +195,18 @@ namespace OES.UControl
         {
             InfoControl.DelProblem(aProMan.ProType, Convert.ToInt32(((Button)butn).Text) - 1);
             ((Button)butn).Text = "";
+            currentProNo = aProMan.checkProNoList[aProMan.ProType][chptNo][(int)((Button)butn).Tag];
+            aProMan.CurrentNoCon.Text = currentProNo;
             aProMan.checkProNoList[aProMan.ProType][chptNo][(int)((Button)butn).Tag] = "-1";
             nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
             aProMan.NextNoCon.Text = nextProNo;
+            
         }
 
         //点选未亮的checkbutton时的加载事件
         public void loadProNoifNoSel(object butn)
         {
-            if (nextProNo != "")
+            if (nextProNo != "-1")
             {
                 currentProNo = nextProNo;
                 aProMan.CurrentNoCon.Text = currentProNo;
@@ -206,8 +214,8 @@ namespace OES.UControl
 
 
                 InfoControl.Value = -1;
-                InfoControl.SetProblem(aProMan.ProType, Convert.ToInt32((aProMan.CurrentNoCon.Text)) - 1, 
-                    Convert.ToInt32((acheckproList[(int)((Button)butn).Tag].proid)),
+                InfoControl.SetProblem(aProMan.ProType, Convert.ToInt32((aProMan.CurrentNoCon.Text)) - 1,
+                    Convert.ToInt32(currentProNo),
                     ChptListCho.choiceproL[(int)((Button)butn).Tag].pro);
                 aProMan.checkProNoList[aProMan.ProType][chptNo][(int)((Button)butn).Tag] = currentProNo;
                 nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
@@ -218,7 +226,7 @@ namespace OES.UControl
                 }
                 else
                 {
-                    nextProNo = "";
+                    aProMan.NextNoCon.Text = "";
                     aProMan.NextNoCon.Text = "";
                 }
             }
