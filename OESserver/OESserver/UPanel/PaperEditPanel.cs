@@ -129,10 +129,12 @@ namespace OES.UPanel
         {
             if (protype > 8)
             {
+                InfoControl.Value = 0;
                 PanelControl.ChangPanel(18, protype-3);
             }
             else
             {
+                InfoControl.Value = 0;
                 PanelControl.ChangPanel(18, protype);
             }
         }

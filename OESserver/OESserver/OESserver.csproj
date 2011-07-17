@@ -586,6 +586,12 @@
     <None Include="Resources\next.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\btnbgmaobi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnmaobi.png" />
+  </ItemGroup>
+  <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -595,6 +601,7 @@
       <Isolated>False</Isolated>
     </COMReference>
   </ItemGroup>
+
   <ItemGroup>
     <None Include="Resources\btnbgmaobi.png" />
   </ItemGroup>
@@ -604,6 +611,7 @@
   <ItemGroup>
     <None Include="Resources\btnmaobi.png" />
   </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
