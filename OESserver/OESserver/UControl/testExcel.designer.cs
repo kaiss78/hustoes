@@ -70,31 +70,31 @@
             this.checkForecolor = new System.Windows.Forms.CheckBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.tabPageGraph = new System.Windows.Forms.TabPage();
-            this.buttonGraph = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.radioSingleChart = new System.Windows.Forms.RadioButton();
-            this.comboChart = new System.Windows.Forms.ComboBox();
-            this.comboSheet = new System.Windows.Forms.ComboBox();
             this.comboChartInSheet = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboChart = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboSheet = new System.Windows.Forms.ComboBox();
+            this.radioSingleChart = new System.Windows.Forms.RadioButton();
             this.radioChartInSheet = new System.Windows.Forms.RadioButton();
             this.groupGraphPoint = new System.Windows.Forms.GroupBox();
-            this.checkGraphName = new System.Windows.Forms.CheckBox();
-            this.checkGraphLegend = new System.Windows.Forms.CheckBox();
-            this.checkGraphLabel = new System.Windows.Forms.CheckBox();
-            this.checkGraphValue = new System.Windows.Forms.CheckBox();
-            this.checkGraphType = new System.Windows.Forms.CheckBox();
-            this.checkGraphTitle = new System.Windows.Forms.CheckBox();
-            this.checkGraphPosition = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkGraphValue = new System.Windows.Forms.CheckBox();
+            this.checkGraphName = new System.Windows.Forms.CheckBox();
+            this.checkGraphType = new System.Windows.Forms.CheckBox();
+            this.checkGraphPosition = new System.Windows.Forms.CheckBox();
+            this.checkGraphLabel = new System.Windows.Forms.CheckBox();
+            this.checkGraphLegend = new System.Windows.Forms.CheckBox();
+            this.checkGraphTitle = new System.Windows.Forms.CheckBox();
+            this.buttonGraph = new System.Windows.Forms.Button();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPageText.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -108,11 +108,11 @@
             this.tabPageGraph.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupGraphPoint.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
+            this.groupGraphPoint.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -594,6 +594,7 @@
             this.buttonOK.TabIndex = 41;
             this.buttonOK.Text = "添加文字考点";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // tabPageGraph
             // 
@@ -606,15 +607,6 @@
             this.tabPageGraph.TabIndex = 1;
             this.tabPageGraph.Text = "图表考点";
             this.tabPageGraph.UseVisualStyleBackColor = true;
-            // 
-            // buttonGraph
-            // 
-            this.buttonGraph.Location = new System.Drawing.Point(448, 488);
-            this.buttonGraph.Name = "buttonGraph";
-            this.buttonGraph.Size = new System.Drawing.Size(128, 28);
-            this.buttonGraph.TabIndex = 32;
-            this.buttonGraph.Text = "添加图表考点";
-            this.buttonGraph.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel2
             // 
@@ -634,172 +626,6 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "图表定位";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 12);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "请选择图表:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 12);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "请选择工作表:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 12);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "请选择工作表:";
-            // 
-            // radioSingleChart
-            // 
-            this.radioSingleChart.AutoSize = true;
-            this.radioSingleChart.Location = new System.Drawing.Point(3, 3);
-            this.radioSingleChart.Name = "radioSingleChart";
-            this.radioSingleChart.Size = new System.Drawing.Size(143, 16);
-            this.radioSingleChart.TabIndex = 0;
-            this.radioSingleChart.TabStop = true;
-            this.radioSingleChart.Text = "作为单个工作表的图表";
-            this.radioSingleChart.UseVisualStyleBackColor = true;
-            // 
-            // comboChart
-            // 
-            this.comboChart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboChart.FormattingEnabled = true;
-            this.comboChart.Location = new System.Drawing.Point(282, 3);
-            this.comboChart.Name = "comboChart";
-            this.comboChart.Size = new System.Drawing.Size(181, 20);
-            this.comboChart.TabIndex = 32;
-            // 
-            // comboSheet
-            // 
-            this.comboSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboSheet.FormattingEnabled = true;
-            this.comboSheet.Location = new System.Drawing.Point(282, 3);
-            this.comboSheet.Name = "comboSheet";
-            this.comboSheet.Size = new System.Drawing.Size(181, 20);
-            this.comboSheet.TabIndex = 30;
-            // 
-            // comboChartInSheet
-            // 
-            this.comboChartInSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboChartInSheet.FormattingEnabled = true;
-            this.comboChartInSheet.Location = new System.Drawing.Point(282, 3);
-            this.comboChartInSheet.Name = "comboChartInSheet";
-            this.comboChartInSheet.Size = new System.Drawing.Size(181, 20);
-            this.comboChartInSheet.TabIndex = 31;
-            // 
-            // radioChartInSheet
-            // 
-            this.radioChartInSheet.AutoSize = true;
-            this.radioChartInSheet.Location = new System.Drawing.Point(3, 95);
-            this.radioChartInSheet.Name = "radioChartInSheet";
-            this.radioChartInSheet.Size = new System.Drawing.Size(143, 16);
-            this.radioChartInSheet.TabIndex = 1;
-            this.radioChartInSheet.TabStop = true;
-            this.radioChartInSheet.Text = "作为工作表内嵌的图表";
-            this.radioChartInSheet.UseVisualStyleBackColor = true;
-            // 
-            // groupGraphPoint
-            // 
-            this.groupGraphPoint.Controls.Add(this.tableLayoutPanel11);
-            this.groupGraphPoint.Location = new System.Drawing.Point(3, 259);
-            this.groupGraphPoint.Name = "groupGraphPoint";
-            this.groupGraphPoint.Size = new System.Drawing.Size(570, 208);
-            this.groupGraphPoint.TabIndex = 35;
-            this.groupGraphPoint.TabStop = false;
-            this.groupGraphPoint.Text = "考点选项";
-            // 
-            // checkGraphName
-            // 
-            this.checkGraphName.AutoSize = true;
-            this.checkGraphName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkGraphName.Location = new System.Drawing.Point(3, 144);
-            this.checkGraphName.Name = "checkGraphName";
-            this.checkGraphName.Size = new System.Drawing.Size(276, 41);
-            this.checkGraphName.TabIndex = 39;
-            this.checkGraphName.Text = "工作表名称";
-            this.checkGraphName.UseVisualStyleBackColor = false;
-            // 
-            // checkGraphLegend
-            // 
-            this.checkGraphLegend.AutoSize = true;
-            this.checkGraphLegend.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkGraphLegend.Location = new System.Drawing.Point(285, 50);
-            this.checkGraphLegend.Name = "checkGraphLegend";
-            this.checkGraphLegend.Size = new System.Drawing.Size(276, 41);
-            this.checkGraphLegend.TabIndex = 38;
-            this.checkGraphLegend.Text = "图例位置";
-            this.checkGraphLegend.UseVisualStyleBackColor = false;
-            // 
-            // checkGraphLabel
-            // 
-            this.checkGraphLabel.AutoSize = true;
-            this.checkGraphLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkGraphLabel.Location = new System.Drawing.Point(3, 97);
-            this.checkGraphLabel.Name = "checkGraphLabel";
-            this.checkGraphLabel.Size = new System.Drawing.Size(276, 41);
-            this.checkGraphLabel.TabIndex = 37;
-            this.checkGraphLabel.Text = "数据标志";
-            this.checkGraphLabel.UseVisualStyleBackColor = false;
-            // 
-            // checkGraphValue
-            // 
-            this.checkGraphValue.AutoSize = true;
-            this.checkGraphValue.Checked = true;
-            this.checkGraphValue.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkGraphValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkGraphValue.Enabled = false;
-            this.checkGraphValue.Location = new System.Drawing.Point(3, 3);
-            this.checkGraphValue.Name = "checkGraphValue";
-            this.checkGraphValue.Size = new System.Drawing.Size(276, 41);
-            this.checkGraphValue.TabIndex = 34;
-            this.checkGraphValue.Text = "图表数值(必选)";
-            this.checkGraphValue.UseVisualStyleBackColor = false;
-            // 
-            // checkGraphType
-            // 
-            this.checkGraphType.AutoSize = true;
-            this.checkGraphType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkGraphType.Location = new System.Drawing.Point(285, 3);
-            this.checkGraphType.Name = "checkGraphType";
-            this.checkGraphType.Size = new System.Drawing.Size(276, 41);
-            this.checkGraphType.TabIndex = 36;
-            this.checkGraphType.Text = "图表类型";
-            this.checkGraphType.UseVisualStyleBackColor = false;
-            // 
-            // checkGraphTitle
-            // 
-            this.checkGraphTitle.AutoSize = true;
-            this.checkGraphTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkGraphTitle.Location = new System.Drawing.Point(3, 50);
-            this.checkGraphTitle.Name = "checkGraphTitle";
-            this.checkGraphTitle.Size = new System.Drawing.Size(276, 41);
-            this.checkGraphTitle.TabIndex = 33;
-            this.checkGraphTitle.Text = "图表标题";
-            this.checkGraphTitle.UseVisualStyleBackColor = false;
-            // 
-            // checkGraphPosition
-            // 
-            this.checkGraphPosition.AutoSize = true;
-            this.checkGraphPosition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkGraphPosition.Location = new System.Drawing.Point(285, 97);
-            this.checkGraphPosition.Name = "checkGraphPosition";
-            this.checkGraphPosition.Size = new System.Drawing.Size(276, 41);
-            this.checkGraphPosition.TabIndex = 35;
-            this.checkGraphPosition.Text = "图表放置坐标";
-            this.checkGraphPosition.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel6
             // 
@@ -823,6 +649,40 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(564, 230);
             this.tableLayoutPanel6.TabIndex = 36;
             // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.label8, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.comboChartInSheet, 1, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 187);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(558, 40);
+            this.tableLayoutPanel10.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 12);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "请选择图表:";
+            // 
+            // comboChartInSheet
+            // 
+            this.comboChartInSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboChartInSheet.FormattingEnabled = true;
+            this.comboChartInSheet.Location = new System.Drawing.Point(282, 3);
+            this.comboChartInSheet.Name = "comboChartInSheet";
+            this.comboChartInSheet.Size = new System.Drawing.Size(181, 20);
+            this.comboChartInSheet.TabIndex = 31;
+            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 2;
@@ -835,21 +695,27 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(558, 40);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
-            // tableLayoutPanel8
+            // label6
             // 
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanel8.TabIndex = 0;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 12);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "请选择工作表:";
+            // 
+            // comboChart
+            // 
+            this.comboChart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboChart.FormattingEnabled = true;
+            this.comboChart.Location = new System.Drawing.Point(282, 3);
+            this.comboChart.Name = "comboChart";
+            this.comboChart.Size = new System.Drawing.Size(181, 20);
+            this.comboChart.TabIndex = 32;
             // 
             // tableLayoutPanel9
             // 
@@ -863,25 +729,59 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(558, 40);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
-            // tableLayoutPanel10
+            // label7
             // 
-            this.tableLayoutPanel10.ColumnCount = 2;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.comboChartInSheet, 1, 0);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 187);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 1;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(558, 40);
-            this.tableLayoutPanel10.TabIndex = 1;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 12);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "请选择工作表:";
+            // 
+            // comboSheet
+            // 
+            this.comboSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboSheet.FormattingEnabled = true;
+            this.comboSheet.Location = new System.Drawing.Point(282, 3);
+            this.comboSheet.Name = "comboSheet";
+            this.comboSheet.Size = new System.Drawing.Size(181, 20);
+            this.comboSheet.TabIndex = 30;
+            // 
+            // radioSingleChart
+            // 
+            this.radioSingleChart.AutoSize = true;
+            this.radioSingleChart.Location = new System.Drawing.Point(3, 3);
+            this.radioSingleChart.Name = "radioSingleChart";
+            this.radioSingleChart.Size = new System.Drawing.Size(143, 16);
+            this.radioSingleChart.TabIndex = 0;
+            this.radioSingleChart.TabStop = true;
+            this.radioSingleChart.Text = "作为单个工作表的图表";
+            this.radioSingleChart.UseVisualStyleBackColor = true;
+            // 
+            // radioChartInSheet
+            // 
+            this.radioChartInSheet.AutoSize = true;
+            this.radioChartInSheet.Location = new System.Drawing.Point(3, 95);
+            this.radioChartInSheet.Name = "radioChartInSheet";
+            this.radioChartInSheet.Size = new System.Drawing.Size(143, 16);
+            this.radioChartInSheet.TabIndex = 1;
+            this.radioChartInSheet.TabStop = true;
+            this.radioChartInSheet.Text = "作为工作表内嵌的图表";
+            this.radioChartInSheet.UseVisualStyleBackColor = true;
+            // 
+            // groupGraphPoint
+            // 
+            this.groupGraphPoint.Controls.Add(this.tableLayoutPanel11);
+            this.groupGraphPoint.Location = new System.Drawing.Point(3, 259);
+            this.groupGraphPoint.Name = "groupGraphPoint";
+            this.groupGraphPoint.Size = new System.Drawing.Size(570, 208);
+            this.groupGraphPoint.TabIndex = 35;
+            this.groupGraphPoint.TabStop = false;
+            this.groupGraphPoint.Text = "考点选项";
             // 
             // tableLayoutPanel11
             // 
@@ -906,6 +806,107 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(564, 188);
             this.tableLayoutPanel11.TabIndex = 40;
+            // 
+            // checkGraphValue
+            // 
+            this.checkGraphValue.AutoSize = true;
+            this.checkGraphValue.Checked = true;
+            this.checkGraphValue.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkGraphValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkGraphValue.Enabled = false;
+            this.checkGraphValue.Location = new System.Drawing.Point(3, 3);
+            this.checkGraphValue.Name = "checkGraphValue";
+            this.checkGraphValue.Size = new System.Drawing.Size(276, 41);
+            this.checkGraphValue.TabIndex = 34;
+            this.checkGraphValue.Text = "图表数值(必选)";
+            this.checkGraphValue.UseVisualStyleBackColor = false;
+            // 
+            // checkGraphName
+            // 
+            this.checkGraphName.AutoSize = true;
+            this.checkGraphName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkGraphName.Location = new System.Drawing.Point(3, 144);
+            this.checkGraphName.Name = "checkGraphName";
+            this.checkGraphName.Size = new System.Drawing.Size(276, 41);
+            this.checkGraphName.TabIndex = 39;
+            this.checkGraphName.Text = "工作表名称";
+            this.checkGraphName.UseVisualStyleBackColor = false;
+            // 
+            // checkGraphType
+            // 
+            this.checkGraphType.AutoSize = true;
+            this.checkGraphType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkGraphType.Location = new System.Drawing.Point(285, 3);
+            this.checkGraphType.Name = "checkGraphType";
+            this.checkGraphType.Size = new System.Drawing.Size(276, 41);
+            this.checkGraphType.TabIndex = 36;
+            this.checkGraphType.Text = "图表类型";
+            this.checkGraphType.UseVisualStyleBackColor = false;
+            // 
+            // checkGraphPosition
+            // 
+            this.checkGraphPosition.AutoSize = true;
+            this.checkGraphPosition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkGraphPosition.Location = new System.Drawing.Point(285, 97);
+            this.checkGraphPosition.Name = "checkGraphPosition";
+            this.checkGraphPosition.Size = new System.Drawing.Size(276, 41);
+            this.checkGraphPosition.TabIndex = 35;
+            this.checkGraphPosition.Text = "图表放置坐标";
+            this.checkGraphPosition.UseVisualStyleBackColor = false;
+            // 
+            // checkGraphLabel
+            // 
+            this.checkGraphLabel.AutoSize = true;
+            this.checkGraphLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkGraphLabel.Location = new System.Drawing.Point(3, 97);
+            this.checkGraphLabel.Name = "checkGraphLabel";
+            this.checkGraphLabel.Size = new System.Drawing.Size(276, 41);
+            this.checkGraphLabel.TabIndex = 37;
+            this.checkGraphLabel.Text = "数据标志";
+            this.checkGraphLabel.UseVisualStyleBackColor = false;
+            // 
+            // checkGraphLegend
+            // 
+            this.checkGraphLegend.AutoSize = true;
+            this.checkGraphLegend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkGraphLegend.Location = new System.Drawing.Point(285, 50);
+            this.checkGraphLegend.Name = "checkGraphLegend";
+            this.checkGraphLegend.Size = new System.Drawing.Size(276, 41);
+            this.checkGraphLegend.TabIndex = 38;
+            this.checkGraphLegend.Text = "图例位置";
+            this.checkGraphLegend.UseVisualStyleBackColor = false;
+            // 
+            // checkGraphTitle
+            // 
+            this.checkGraphTitle.AutoSize = true;
+            this.checkGraphTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkGraphTitle.Location = new System.Drawing.Point(3, 50);
+            this.checkGraphTitle.Name = "checkGraphTitle";
+            this.checkGraphTitle.Size = new System.Drawing.Size(276, 41);
+            this.checkGraphTitle.TabIndex = 33;
+            this.checkGraphTitle.Text = "图表标题";
+            this.checkGraphTitle.UseVisualStyleBackColor = false;
+            // 
+            // buttonGraph
+            // 
+            this.buttonGraph.Location = new System.Drawing.Point(448, 488);
+            this.buttonGraph.Name = "buttonGraph";
+            this.buttonGraph.Size = new System.Drawing.Size(128, 28);
+            this.buttonGraph.TabIndex = 32;
+            this.buttonGraph.Text = "添加图表考点";
+            this.buttonGraph.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel8.TabIndex = 0;
             // 
             // testExcel
             // 
@@ -933,15 +934,15 @@
             this.tabPageGraph.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupGraphPoint.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel10.PerformLayout();
+            this.groupGraphPoint.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
             this.ResumeLayout(false);

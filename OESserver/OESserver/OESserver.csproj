@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E4EFF3E5-EB11-47EE-AB20-B7AC00AE82FB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -38,6 +38,7 @@
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.TeamSystem.Data.UnitTesting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
@@ -141,6 +142,9 @@
       <DependentUpon>PointEditPpt.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\PointEditWord.resx">
+      <DependentUpon>PointEditWord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UControl\ProPreview.resx">
       <DependentUpon>ProPreview.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -237,6 +241,9 @@
       <DependentUpon>testPowerpoint.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControl\testWord.resx">
+      <DependentUpon>testWord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ClassManage.resx">
       <DependentUpon>ClassManage.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -328,6 +335,12 @@
     </Compile>
     <Compile Include="UControl\PointEditPpt.Designer.cs">
       <DependentUpon>PointEditPpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\PointEditWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\PointEditWord.Designer.cs">
+      <DependentUpon>PointEditWord.cs</DependentUpon>
     </Compile>
     <Compile Include="UControl\ProPreview.cs">
       <SubType>UserControl</SubType>
@@ -473,6 +486,12 @@
     <Compile Include="UControl\testPowerpoint.designer.cs">
       <DependentUpon>testPowerpoint.cs</DependentUpon>
     </Compile>
+    <Compile Include="UControl\testWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\testWord.designer.cs">
+      <DependentUpon>testWord.cs</DependentUpon>
+    </Compile>
     <Compile Include="UPanel\ClassManage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -601,7 +620,6 @@
       <Isolated>False</Isolated>
     </COMReference>
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Resources\btnbgmaobi.png" />
   </ItemGroup>
@@ -611,7 +629,6 @@
   <ItemGroup>
     <None Include="Resources\btnmaobi.png" />
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -13,6 +13,7 @@ namespace OES.UControl
     {
         public OfficeExcelEdit aOfficeExcelEdit;
         public Boolean isLoaded;
+        public string xmlPath = Config.ExcelPath + "t" + ProList.click_proid + ".xml"; 
         public PointEdit(OfficeExcelEdit exl)
         {
             InitializeComponent();
@@ -32,12 +33,13 @@ namespace OES.UControl
 
         private void openExcelFile(string fileName)
         {
-            testExcel1.loadExcel(fileName,"C:\test.xml");
+            testExcel1.loadExcel(fileName, xmlPath);
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            //TODO: Upload File To Server.
+            InfoControl.ClientObj.SaveExcelT(Convert.ToInt16(ProList.click_proid), Convert.ToInt16(InfoControl.User.Id));
+            InfoControl.ClientObj.SendFiles();//TODO: Upload File To Server.填方法上传xml
             MessageBox.Show("上传完成！(加方法......)");
             testExcel1.CloseExcel();
             aOfficeExcelEdit.Show();//TODO: 界面跳转

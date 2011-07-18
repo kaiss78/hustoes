@@ -9,18 +9,23 @@ using System.Windows.Forms;
 
 namespace OES.UControl
 {
-    public partial class PointEditPpt : UserControl
+    public partial class PointEditWord : UserControl
     {
-        public OfficePowerpointEdit aOfficePowerpointEdit;
-        public Boolean isLoaded;
-        public string xmlPath = Config.PPTPath + "t" + ProList.click_proid + ".xml"; 
-        public PointEditPpt(OfficePowerpointEdit ppt)
+        public PointEditWord()
         {
             InitializeComponent();
-            aOfficePowerpointEdit = ppt;
+        }
+
+        public OfficeWordEdit aOfficeWordEdit;
+        public Boolean isLoaded;
+        public string xmlPath = Config.PPTPath + "t" + ProList.click_proid + ".xml";
+        public PointEditWord(OfficeWordEdit word)
+        {
+            InitializeComponent();
+            aOfficeWordEdit = word;
             try 
             {
-                testPowerpoint1.LoadPowerpoint(aOfficePowerpointEdit.anspathPointEdit, xmlPath);
+                testWord1.LoadWord(aOfficeWordEdit.anspathPointEdit, xmlPath);
                 isLoaded = true; 
             }
             catch 
@@ -32,24 +37,23 @@ namespace OES.UControl
         }
 
 
-
-        private void btnCancel_Click_1(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("您当前编辑的考点未保存，是否确认退出？", "确认操作",
-               MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+   MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                testPowerpoint1.ClosePPT();
-                aOfficePowerpointEdit.Show();//TODO: 界面跳转
+                testWord1.CloseDocument();
+                testWord1.Show();//TODO: 界面跳转
                 this.Dispose();
             }
         }
 
-        private void btnComplete_Click_1(object sender, EventArgs e)
+        private void btnComplete_Click(object sender, EventArgs e)
         {
             //TODO: Upload File To Server.
             MessageBox.Show("上传完成！(加方法......)");
-            testPowerpoint1.ClosePPT();
-            aOfficePowerpointEdit.Show();//TODO: 界面跳转
+            testWord1.CloseDocument();
+            testWord1.Show();//TODO: 界面跳转
             this.Dispose();
         }
     }

@@ -35,6 +35,11 @@ namespace OES.Net
         public void SendFiles()
         {
             Client.SendFileList(remoteCom, localPath);
+            Client.FileListSendEnd += new Action(Client_FileListSendEnd);
+        }
+
+        void Client_FileListSendEnd()
+        {
             remoteCom.Clear();
             localPath.Clear();
         }
@@ -42,6 +47,12 @@ namespace OES.Net
         public void ReceiveFiles()
         {
             Client.ReceiveFileList(remoteCom, localPath);
+            Client.FileListRecieveEnd += new Action(Client_FileListRecieveEnd);
+            
+        }
+
+        void Client_FileListRecieveEnd()
+        {
             remoteCom.Clear();
             localPath.Clear();
         }
