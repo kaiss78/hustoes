@@ -20,8 +20,6 @@ namespace OESMonitor.SupportNet
             Client.InitializeClient();
         }
 
-       
-
         void Client_ConnectedServer(object sender, EventArgs e)
         {
             Client.SendTxt("monitor$0");
