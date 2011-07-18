@@ -5,11 +5,22 @@ using System.Text;
 using OES.Model;
 using OES.UPanel;
 using OES.XMLFile;
+using OES.Net;
 
 namespace OES
 {
     public class InfoControl
-    {        
+    {
+        //这里是网络部分接口
+        private static ClientEvt clientObj = new ClientEvt();
+
+        public static ClientEvt ClientObj
+        {
+            get { return InfoControl.clientObj; }
+            set { InfoControl.clientObj = value; }
+        }
+        //--------------------------
+
         public static int WordID = 0;
         public static int PPTID = 0;
         public static int ExcelID = 0;
