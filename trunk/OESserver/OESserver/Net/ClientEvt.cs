@@ -2,6 +2,7 @@
 using System.Collections.Generic;
  
 using System.Text;
+using System.IO;
 
 namespace OES.Net
 {
@@ -314,6 +315,112 @@ namespace OES.Net
             Client.Port.FilePath = Config.FunctionPath + "p" + id.ToString() + ".vb";
             Client.SendTxt("server$0$L$" + tid.ToString() + "$" + id.ToString());
             Client.SendFile();
+        }
+    }
+    public class FileConvertHelper
+    {
+        public enum ProblemEnum
+        {
+            Paper,
+            WordA,
+            WordP,
+            WordT,
+            ExcelA,
+            ExcelP,
+            ExcelT,
+            PowerPointA,
+            PowerPointP,
+            PowerPointT,
+            CCompletion,
+            CModification,
+            CFunctionA,
+            CFunctionP,
+            CppCompletion,
+            CppModification,
+            CppFunctionA,
+            CppFunctionP,
+            VbCompletion,
+            VbModification,
+            VbFunctionA,
+            VbFunctionP
+        }
+        /// <summary>
+        /// 执行文件拷贝，并改变名称
+        /// </summary>
+        /// <param name="fromFile">原始文件路径</param>
+        /// <param name="problemId">问题Id</param>
+        /// <param name="problemType">问题类型</param>
+        public static void Execute(String fromFile, int problemId, ProblemEnum problemType)
+        {
+            switch (problemType)
+            {
+                case ProblemEnum.Paper:
+                    File.Copy(fromFile, Config.TempPaperPath + problemId.ToString() + ".xml");
+                    break;
+                case ProblemEnum.WordA:
+                    File.Copy(fromFile, Config.WordPath + "a" + problemId.ToString() + ".doc");
+                    break;
+                case ProblemEnum.WordP:
+                    File.Copy(fromFile, Config.WordPath + "p" + problemId.ToString() + ".doc");
+                    break;
+                case ProblemEnum.WordT:
+                    File.Copy(fromFile, Config.WordPath + "t" + problemId.ToString() + ".xml");
+                    break;
+                case ProblemEnum.ExcelA:
+                    File.Copy(fromFile, Config.ExcelPath + "a" + problemId.ToString() + ".xls");
+                    break;
+                case ProblemEnum.ExcelP:
+                    File.Copy(fromFile, Config.ExcelPath + "p" + problemId.ToString() + ".xls");
+                    break;
+                case ProblemEnum.ExcelT:
+                    File.Copy(fromFile, Config.ExcelPath + "t" + problemId.ToString() + ".xml");
+                    break;
+                case ProblemEnum.PowerPointA:
+                    File.Copy(fromFile, Config.PPTPath + "a" + problemId.ToString() + ".ppt");
+                    break;
+                case ProblemEnum.PowerPointP:
+                    File.Copy(fromFile, Config.PPTPath + "p" + problemId.ToString() + ".ppt");
+                    break;
+                case ProblemEnum.PowerPointT:
+                    File.Copy(fromFile, Config.PPTPath + "t" + problemId.ToString() + ".xml");
+                    break;
+                case ProblemEnum.CCompletion:
+                    File.Copy(fromFile, Config.CompletionPath + problemId.ToString() + ".c");
+                    break;
+                case ProblemEnum.CModification:
+                    File.Copy(fromFile, Config.ModificationPath + problemId.ToString() + ".c");
+                    break;
+                case ProblemEnum.CFunctionA:
+                    File.Copy(fromFile, Config.FunctionPath + "a" + problemId.ToString() + ".c");
+                    break;
+                case ProblemEnum.CFunctionP:
+                    File.Copy(fromFile, Config.FunctionPath + "p" + problemId.ToString() + ".c");
+                    break;
+                case ProblemEnum.CppCompletion:
+                    File.Copy(fromFile, Config.CompletionPath + problemId.ToString() + ".cpp");
+                    break;
+                case ProblemEnum.CppModification:
+                    File.Copy(fromFile, Config.ModificationPath + problemId.ToString() + ".cpp");
+                    break;
+                case ProblemEnum.CppFunctionA:
+                    File.Copy(fromFile, Config.FunctionPath + "a" + problemId.ToString() + ".cpp");
+                    break;
+                case ProblemEnum.CppFunctionP:
+                    File.Copy(fromFile, Config.FunctionPath + "p" + problemId.ToString() + ".cpp");
+                    break;
+                case ProblemEnum.VbCompletion:
+                    File.Copy(fromFile, Config.CompletionPath + problemId.ToString() + ".vb");
+                    break;
+                case ProblemEnum.VbModification:
+                    File.Copy(fromFile, Config.ModificationPath + problemId.ToString() + ".vb");
+                    break;
+                case ProblemEnum.VbFunctionA:
+                    File.Copy(fromFile, Config.FunctionPath + "a" + problemId.ToString() + ".vb");
+                    break;
+                case ProblemEnum.VbFunctionP:
+                    File.Copy(fromFile, Config.FunctionPath + "p" + problemId.ToString() + ".vb");
+                    break;
+            }
         }
     }
 }
