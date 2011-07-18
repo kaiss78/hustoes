@@ -12,11 +12,24 @@ namespace OES.Net
         public static event EventHandler LoginReturn;
         List<string> remoteCom=new List<string>() ;
         List<string> localPath=new List<string>();
+        public static Boolean isOver=false;
 
         public ClientEvt()
         {
             Client.InitializeClient();
             Client.ReceivedTxt+=new EventHandler(Client_ReceivedTxt);
+            Client.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
+            Client.Port.FileSendEnd += new EventHandler(Port_FileSendEnd);
+        }
+
+        void Port_FileSendEnd(object sender, EventArgs e)
+        {
+            isOver = true;
+        }
+
+        void Port_FileReceiveEnd(object sender, EventArgs e)
+        {
+            isOver = true;
         }
 
         public void SendFiles()
@@ -69,6 +82,7 @@ namespace OES.Net
         }
         public void LoadPaper(int id, int tid)
         {
+            isOver=false;
             Client.Port.FilePath = Config.TempPaperPath  + id.ToString() + ".xml";
             Client.SendTxt("server$2$0$" + tid.ToString() + "$" + id.ToString());
             Client.ReceiveFile();
@@ -200,6 +214,7 @@ namespace OES.Net
         }
         public void SavePaper(int id, int tid)
         {
+            isOver = false;
             Client.Port.FilePath = Config.TempPaperPath + id.ToString() + ".xml";
             Client.SendTxt("server$0$0$" + tid.ToString() + "$" + id.ToString());
             Client.SendFile();
