@@ -1,6 +1,6 @@
-﻿namespace testPowerPoint
+﻿namespace testWordApp
 {
-    partial class testPowerpoint
+    partial class testWord
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -35,41 +35,39 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(294, 418);
+            this.btnOK.Location = new System.Drawing.Point(293, 420);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(259, 34);
-            this.btnOK.TabIndex = 7;
+            this.btnOK.TabIndex = 11;
             this.btnOK.Text = "添加考点";
             this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // testPointView
             // 
-            this.testPointView.Location = new System.Drawing.Point(7, 8);
+            this.testPointView.Location = new System.Drawing.Point(6, 6);
             this.testPointView.Name = "testPointView";
             this.testPointView.Size = new System.Drawing.Size(281, 448);
-            this.testPointView.TabIndex = 5;
+            this.testPointView.TabIndex = 9;
             this.testPointView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.testPointView_AfterSelect);
             // 
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.HorizontalScrollbar = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(294, 8);
+            this.checkedListBox1.Location = new System.Drawing.Point(293, 6);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(259, 404);
-            this.checkedListBox1.TabIndex = 4;
+            this.checkedListBox1.TabIndex = 8;
             // 
-            // testPowerpoint
+            // testWord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.testPointView);
             this.Controls.Add(this.checkedListBox1);
-            this.Name = "testPowerpoint";
-            this.Size = new System.Drawing.Size(567, 468);
-            this.Load += new System.EventHandler(this.testPowerpoint_Load);
+            this.Name = "testWord";
+            this.Size = new System.Drawing.Size(558, 462);
             this.ResumeLayout(false);
 
         }

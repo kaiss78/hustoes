@@ -42,6 +42,9 @@
             this.button6 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.btnCommit = new System.Windows.Forms.Button();
+            this.pointEdit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -153,7 +156,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(312, 566);
+            this.button5.Location = new System.Drawing.Point(178, 444);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(104, 60);
             this.button5.TabIndex = 5;
@@ -171,10 +174,43 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(313, 444);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(104, 60);
+            this.btnLoad.TabIndex = 11;
+            this.btnLoad.Text = "下载";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // btnCommit
+            // 
+            this.btnCommit.Location = new System.Drawing.Point(439, 444);
+            this.btnCommit.Name = "btnCommit";
+            this.btnCommit.Size = new System.Drawing.Size(104, 60);
+            this.btnCommit.TabIndex = 10;
+            this.btnCommit.Text = "上传";
+            this.btnCommit.UseVisualStyleBackColor = true;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
+            // 
+            // pointEdit
+            // 
+            this.pointEdit.Location = new System.Drawing.Point(42, 444);
+            this.pointEdit.Name = "pointEdit";
+            this.pointEdit.Size = new System.Drawing.Size(104, 60);
+            this.pointEdit.TabIndex = 12;
+            this.pointEdit.Text = "编辑考点";
+            this.pointEdit.UseVisualStyleBackColor = true;
+            this.pointEdit.Click += new System.EventHandler(this.pointEdit_Click);
+            // 
             // OfficeWordEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pointEdit);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -206,5 +242,8 @@
         private System.Windows.Forms.Button probrowse;
         private System.Windows.Forms.RichTextBox propath;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Button btnCommit;
+        private System.Windows.Forms.Button pointEdit;
     }
 }
