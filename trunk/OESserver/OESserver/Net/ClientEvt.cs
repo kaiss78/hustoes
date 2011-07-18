@@ -370,70 +370,70 @@ namespace OES.Net
             switch (problemType)
             {
                 case ProblemEnum.Paper:
-                    File.Copy(fromFile, Config.TempPaperPath + problemId.ToString() + ".xml");
+                    File.Copy(fromFile, Config.TempPaperPath + problemId.ToString() + ".xml",true);
                     break;
                 case ProblemEnum.WordA:
-                    File.Copy(fromFile, Config.WordPath + "a" + problemId.ToString() + ".doc");
+                    File.Copy(fromFile, Config.WordPath + "a" + problemId.ToString() + ".doc", true);
                     break;
                 case ProblemEnum.WordP:
-                    File.Copy(fromFile, Config.WordPath + "p" + problemId.ToString() + ".doc");
+                    File.Copy(fromFile, Config.WordPath + "p" + problemId.ToString() + ".doc", true);
                     break;
                 case ProblemEnum.WordT:
-                    File.Copy(fromFile, Config.WordPath + "t" + problemId.ToString() + ".xml");
+                    File.Copy(fromFile, Config.WordPath + "t" + problemId.ToString() + ".xml", true);
                     break;
                 case ProblemEnum.ExcelA:
-                    File.Copy(fromFile, Config.ExcelPath + "a" + problemId.ToString() + ".xls");
+                    File.Copy(fromFile, Config.ExcelPath + "a" + problemId.ToString() + ".xls", true);
                     break;
                 case ProblemEnum.ExcelP:
-                    File.Copy(fromFile, Config.ExcelPath + "p" + problemId.ToString() + ".xls");
+                    File.Copy(fromFile, Config.ExcelPath + "p" + problemId.ToString() + ".xls", true);
                     break;
                 case ProblemEnum.ExcelT:
-                    File.Copy(fromFile, Config.ExcelPath + "t" + problemId.ToString() + ".xml");
+                    File.Copy(fromFile, Config.ExcelPath + "t" + problemId.ToString() + ".xml", true);
                     break;
                 case ProblemEnum.PowerPointA:
-                    File.Copy(fromFile, Config.PPTPath + "a" + problemId.ToString() + ".ppt");
+                    File.Copy(fromFile, Config.PPTPath + "a" + problemId.ToString() + ".ppt", true);
                     break;
                 case ProblemEnum.PowerPointP:
-                    File.Copy(fromFile, Config.PPTPath + "p" + problemId.ToString() + ".ppt");
+                    File.Copy(fromFile, Config.PPTPath + "p" + problemId.ToString() + ".ppt", true);
                     break;
                 case ProblemEnum.PowerPointT:
-                    File.Copy(fromFile, Config.PPTPath + "t" + problemId.ToString() + ".xml");
+                    File.Copy(fromFile, Config.PPTPath + "t" + problemId.ToString() + ".xml", true);
                     break;
                 case ProblemEnum.CCompletion:
-                    File.Copy(fromFile, Config.CompletionPath + problemId.ToString() + ".c");
+                    File.Copy(fromFile, Config.CompletionPath + problemId.ToString() + ".c", true);
                     break;
                 case ProblemEnum.CModification:
-                    File.Copy(fromFile, Config.ModificationPath + problemId.ToString() + ".c");
+                    File.Copy(fromFile, Config.ModificationPath + problemId.ToString() + ".c", true);
                     break;
                 case ProblemEnum.CFunctionA:
-                    File.Copy(fromFile, Config.FunctionPath + "a" + problemId.ToString() + ".c");
+                    File.Copy(fromFile, Config.FunctionPath + "a" + problemId.ToString() + ".c", true);
                     break;
                 case ProblemEnum.CFunctionP:
-                    File.Copy(fromFile, Config.FunctionPath + "p" + problemId.ToString() + ".c");
+                    File.Copy(fromFile, Config.FunctionPath + "p" + problemId.ToString() + ".c", true);
                     break;
                 case ProblemEnum.CppCompletion:
-                    File.Copy(fromFile, Config.CompletionPath + problemId.ToString() + ".cpp");
+                    File.Copy(fromFile, Config.CompletionPath + problemId.ToString() + ".cpp", true);
                     break;
                 case ProblemEnum.CppModification:
-                    File.Copy(fromFile, Config.ModificationPath + problemId.ToString() + ".cpp");
+                    File.Copy(fromFile, Config.ModificationPath + problemId.ToString() + ".cpp", true);
                     break;
                 case ProblemEnum.CppFunctionA:
-                    File.Copy(fromFile, Config.FunctionPath + "a" + problemId.ToString() + ".cpp");
+                    File.Copy(fromFile, Config.FunctionPath + "a" + problemId.ToString() + ".cpp", true);
                     break;
                 case ProblemEnum.CppFunctionP:
-                    File.Copy(fromFile, Config.FunctionPath + "p" + problemId.ToString() + ".cpp");
+                    File.Copy(fromFile, Config.FunctionPath + "p" + problemId.ToString() + ".cpp", true);
                     break;
                 case ProblemEnum.VbCompletion:
-                    File.Copy(fromFile, Config.CompletionPath + problemId.ToString() + ".vb");
+                    File.Copy(fromFile, Config.CompletionPath + problemId.ToString() + ".vb", true);
                     break;
                 case ProblemEnum.VbModification:
-                    File.Copy(fromFile, Config.ModificationPath + problemId.ToString() + ".vb");
+                    File.Copy(fromFile, Config.ModificationPath + problemId.ToString() + ".vb", true);
                     break;
                 case ProblemEnum.VbFunctionA:
-                    File.Copy(fromFile, Config.FunctionPath + "a" + problemId.ToString() + ".vb");
+                    File.Copy(fromFile, Config.FunctionPath + "a" + problemId.ToString() + ".vb", true);
                     break;
                 case ProblemEnum.VbFunctionP:
-                    File.Copy(fromFile, Config.FunctionPath + "p" + problemId.ToString() + ".vb");
+                    File.Copy(fromFile, Config.FunctionPath + "p" + problemId.ToString() + ".vb", true);
                     break;
             }
         }
