@@ -163,6 +163,7 @@ namespace OES.Net
         }
         public void SavePaper(int id, int tid)
         {
+            Client.Port.FilePath = Config.TempPaperPath + id.ToString() + ".xml";
             Client.SendTxt("server$0$0$" + tid.ToString() + "$" + id.ToString());
             Client.SendFile();
         }
