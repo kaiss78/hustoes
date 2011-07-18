@@ -100,6 +100,8 @@ namespace OES
         {
             Problem tmpPro;
             TmpPaper = OesData.FindPaperById(paperID)[0];
+            InfoControl.clientObj.LoadPaper(Convert.ToInt32(TmpPaper.paperID),Convert.ToInt32(User.Id));
+            TmpPaper.paperPath = Config.TempPaperPath + TmpPaper.paperID + ".xml";
             List<IdScoreType> tmpList = XMLControl.ReadPaper(TmpPaper.paperPath);
             for (int i = 0; i < 9; i++)
             {
