@@ -156,6 +156,7 @@ namespace OES.UPanel
                     }
                 }
             }
+            InfoControl.ClientObj.SavePaper(Convert.ToInt32(InfoControl.TmpPaper.paperID),Convert.ToInt32(InfoControl.User.Id));
             PanelControl.ReturnToMain();
         }
     }
