@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using OESSupport;
 using OESSupport.Configuration;
+using System.IO;
+using OESSupport.PaperControl;
 
 namespace OESSupport.Net
 {
@@ -193,6 +195,10 @@ namespace OESSupport.Net
                                     break;
                                 case "M":
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Config.Root + Config.PaperPkg + msgs[4] + ".rar";
+                                    if (!File.Exists(Teacher.FindTeacherByClient(Program.TeacherList, client).filepath))
+                                    {
+                                        XMLtoTXT.xmltotxt(Config.Root + Config.Paper + msgs[4] + ".xml");
+                                    }
                                     break;
                             }
                             
