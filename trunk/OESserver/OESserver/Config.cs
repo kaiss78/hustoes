@@ -14,6 +14,9 @@ namespace OES
         public static string ExcelPath;
         public static string WordPath;
         public static string PPTPath;
+        public static string CompletionPath;
+        public static string FunctionPath;
+        public static string ModificationPath;
         public static bool allowScore;
         public static string inipath;
         public static string serverIP;
@@ -32,6 +35,9 @@ namespace OES
                  ExcelPath = this.IniReadValue("path", "ExcelPath") + "\\";
                  WordPath = this.IniReadValue("path", "WordPath") + "\\";
                  PPTPath = this.IniReadValue("path", "PPTPath") + "\\";
+                 CompletionPath = this.IniReadValue("path", "CompletionPath") + "\\";
+                 FunctionPath = this.IniReadValue("path", "FunctionPath") + "\\";
+                 ModificationPath = this.IniReadValue("path", "ModificationPath") + "\\";
                  serverIP = this.IniReadValue("IP", "ServerIP") + "\\";
              }
              else
@@ -44,6 +50,9 @@ namespace OES
                      sw.WriteLine(@"ExcelPath=D:\OES\Excel\");
                      sw.WriteLine(@"WordPath=D:\OES\Word\");
                      sw.WriteLine(@"PPTPath=D:\OES\PPT\");
+                     sw.WriteLine(@"CompletionPath=D:\OES\Completion\");
+                     sw.WriteLine(@"FunctionPath =D:\OES\Function\");
+                     sw.WriteLine(@"ModificationPath=D:\OES\Modification\");
                      sw.WriteLine("[IP]");
                      sw.WriteLine(@"ServerIP=211.69.197.115");
                      TempPaperPath = @"D:\OES\TempPaper\";
@@ -67,6 +76,18 @@ namespace OES
                  if (!Directory.Exists(PPTPath))
                  {
                      Directory.CreateDirectory(@"D:\OES\PPT\");
+                 }
+                 if (!Directory.Exists(CompletionPath))
+                 {
+                     Directory.CreateDirectory(@"D:\OES\CompletionPath\");
+                 }
+                 if (!Directory.Exists(FunctionPath))
+                 {
+                     Directory.CreateDirectory(@"D:\OES\FunctionPath\");
+                 }
+                 if (!Directory.Exists(ModificationPath))
+                 {
+                     Directory.CreateDirectory(@"D:\OES\ModificationPath\");
                  }
              }             
          }
