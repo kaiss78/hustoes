@@ -27,6 +27,7 @@ namespace OES
             {
                 if (Password.Text == InfoControl.User.password)
                 {
+                    InfoControl.ClientObj.Login(Convert.ToInt32(InfoControl.User.Id));
                     InfoControl.MainForm.Show();
                     this.Hide();
                 }
