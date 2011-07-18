@@ -9,7 +9,13 @@ namespace OES.Net
     {
         public static OESClient Client = new OESClient();
         public static event EventHandler LoginReturn;
-    
+
+
+        public ClientEvt()
+        {
+            Client.InitializeClient();
+            Client.ReceivedTxt+=new EventHandler(Client_ReceivedTxt);
+        }
 
         static void Client_ReceivedTxt(object sender, EventArgs e)
         {
