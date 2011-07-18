@@ -72,6 +72,7 @@
     <Compile Include="Net\ServerEvt.cs" />
     <Compile Include="PaperControl\OESData.cs" />
     <Compile Include="PaperControl\PaperControl.cs" />
+    <Compile Include="PaperControl\RARHelper.cs" />
     <Compile Include="PaperControl\XMLtoTXT.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
