@@ -52,6 +52,7 @@ namespace OES
         }
 
         private static Paper paper = null;
+
         public static Paper TmpPaper
         {
             get

@@ -54,12 +54,12 @@ namespace OES
                      sw.WriteLine(@"FunctionPath =D:\OES\Function\");
                      sw.WriteLine(@"ModificationPath=D:\OES\Modification\");
                      sw.WriteLine("[IP]");
-                     sw.WriteLine(@"ServerIP=211.69.197.115");
+                     sw.WriteLine(@"ServerIP=211.69.197.116");
                      TempPaperPath = @"D:\OES\TempPaper\";
                      ExcelPath = @"D:\OES\Excel\";
                      WordPath = @"D:\OES\Word\";
                      PPTPath = @"D:\OES\PPT\";
-                     serverIP = "211.69.197.115";
+                     serverIP = "211.69.197.116";
                  }
                  if (!Directory.Exists(TempPaperPath))
                  {

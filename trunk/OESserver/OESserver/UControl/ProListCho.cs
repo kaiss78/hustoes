@@ -203,6 +203,29 @@ namespace OES.UControl
             
         }
 
+        //解决Bug的究极方案。。。Yan回来重写！！！
+        private string BugLeap(Button butn)
+        {
+            int xuhao=-1;
+            for(xuhao=0;xuhao<butn.Parent.Controls.Count;xuhao++ )
+            {
+                if (butn.Parent.Controls[xuhao] == butn)
+                {
+                    break;
+                }
+            }
+            if (xuhao != -1)
+            {
+                return butn.Parent.Controls[xuhao - 1].Controls[0].Text.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Yan's Bug!");
+                return "-1";
+            }
+        }
+
+
         //点选未亮的checkbutton时的加载事件
         public void loadProNoifNoSel(object butn)
         {
@@ -214,8 +237,8 @@ namespace OES.UControl
 
 
                 InfoControl.Value = -1;
-                InfoControl.SetProblem(aProMan.ProType, Convert.ToInt32((aProMan.CurrentNoCon.Text)) - 1,
-                    Convert.ToInt32(currentProNo),
+                InfoControl.SetProblem(aProMan.ProType,Convert.ToInt32((aProMan.CurrentNoCon.Text)) - 1, 
+                     Convert.ToInt32(BugLeap(butn as Button)),                  //Convert.ToInt32(currentProNo),  The Yan's Huge BUG
                     ChptListCho.choiceproL[(int)((Button)butn).Tag].pro);
                 aProMan.checkProNoList[aProMan.ProType][chptNo][(int)((Button)butn).Tag] = currentProNo;
                 nextProNo = InfoControl.GetProNum(aProMan.ProType).ToString();
