@@ -28,64 +28,74 @@ namespace OESSupport.PaperControl
         
         static public void xmltotxt(string xmlpath)
         {
+            
+
             problemList = XMLControl.ReadPaper(xmlpath);
             paperid = XMLControl.getPaperId(xmlpath);
             for(int i=0;i<9;i++)
             {
                 prostr[i] = "";
             }
+            
+            string paperpath = "";
+            string filepath = "";
+            paperpath = Config.Root+Config.PaperPkg + paperid + "\\";
+            Directory.CreateDirectory(paperpath);
+
             foreach (IdScoreType problem in problemList)
             {
                 switch(problem.pt)
                 {
                     case ProblemType.Choice:
                         choice = PaperControl.OesData.FindChoiceById(problem.id.ToString())[0];
-                        prostr[0] = prostr[0] + choice.problem + "\r\n";
-                        prostr[0] = prostr[0] + choice.optionA + "\r\n";
-                        prostr[0] = prostr[0] + choice.optionB + "\r\n";
-                        prostr[0] = prostr[0] + choice.optionC + "\r\n";
-                        prostr[0] = prostr[0] + choice.optionD + "\r\n";                        
+                        prostr[0] = prostr[0] + choice.problem + "\n";
+                        prostr[0] = prostr[0] + choice.optionA + "\n";
+                        prostr[0] = prostr[0] + choice.optionB + "\n";
+                        prostr[0] = prostr[0] + choice.optionC + "\n";
+                        prostr[0] = prostr[0] + choice.optionD + "\n";                        
                         break;
                     case ProblemType.Completion:
                         completion = PaperControl.OesData.FindCompletionById(problem.id.ToString())[0];
-                        prostr[1] = prostr[1] + completion.problem + "\r\n";                        
+                        prostr[1] = prostr[1] + completion.problem + "\n";                        
                         break;
                     case ProblemType.Tof:
                         judge = PaperControl.OesData.FindTofById(problem.id.ToString())[0];
-                        prostr[2] = prostr[2] + judge.problem + "\r\n";    
+                        prostr[2] = prostr[2] + judge.problem + "\n";    
                         break;
                     case ProblemType.Excel:
                         officeexcel = PaperControl.OesData.FindOfficeExcelById(problem.id.ToString())[0];
-                        prostr[3] = prostr[3] + officeexcel.problem + "\r\n";    
-
+                        prostr[3] = prostr[3] + officeexcel.problem + "\n";
+                        File.Copy(Config.Root + Config.Excel + "p" + problem.id.ToString() + ".xls", paperpath + "f" + ".xls",true);
                         break;
                     case ProblemType.PowerPoint:
                         officeppt = PaperControl.OesData.FindOfficePowerPointById(problem.id.ToString())[0];
-                        prostr[4] = prostr[4] + officeppt.problem + "\r\n";    
+                        prostr[4] = prostr[4] + officeppt.problem + "\n";
+                        File.Copy(Config.Root + Config.PowerPoint + "p" + problem.id.ToString() + ".ppt", paperpath + "e" + ".ppt",true);
                         break;       
                     case ProblemType.Word:
                         officeword = PaperControl.OesData.FindOfficeWordById(problem.id.ToString())[0];
-                        prostr[5] = prostr[5] + officeword.problem + "\r\n"; 
+                        prostr[5] = prostr[5] + officeword.problem + "\n";
+                        File.Copy(Config.Root + Config.Word + "p" + problem.id.ToString() + ".doc", paperpath + "d" + ".doc", true);
                         break;
                     case ProblemType.ProgramCompletion:
                         pcompletion = PaperControl.OesData.FindCompletionProgramById(problem.id.ToString())[0];
-                        prostr[6] = prostr[6] + pcompletion.problem + "\r\n";
+                        prostr[6] = prostr[6] + pcompletion.problem + "\n";
+                        File.Copy(Config.Root + Config.CCompletion + "p" + problem.id.ToString() + ".c", paperpath + "g" + ".c", true);
                         break;
                     case ProblemType.ProgramModification:
                         pmodif=PaperControl.OesData.FindModificationProgramById(problem.id.ToString())[0];
-                        prostr[7] = prostr[7] + pmodif.problem + "\r\n";
+                        prostr[7] = prostr[7] + pmodif.problem + "\n";
+                        File.Copy(Config.Root + Config.CModification + "p" + problem.id.ToString() + ".c", paperpath + "h" + ".c", true);
                         break;
                     case ProblemType.ProgramFun:
                         pfunction = PaperControl.OesData.FindFunProgramById(problem.id.ToString())[0];
-                        prostr[8] = prostr[8] + pfunction.problem + "\r\n";
+                        prostr[8] = prostr[8] + pfunction.problem + "\n";
+                        File.Copy(Config.Root + Config.CFunction + "p" + problem.id.ToString() + ".c", paperpath + "i" + ".c", true);
                         break;
                 }
             }
  
-            string paperpath="";
-            string filepath="";
-            paperpath = Config.PaperPkg + paperid+"\\";
-            Directory.CreateDirectory(paperpath);
+            
             for(int i=0;i<9;i++)
             {
                 if(prostr[i]!="")
@@ -97,7 +107,7 @@ namespace OESSupport.PaperControl
                     sw.Close();
                 }
             }
-            RARHelper.CompressRAR(paperpath, paperid, Config.PaperPkg, "123456");
+            RARHelper.CompressRAR(paperpath, paperid, Config.Root+Config.PaperPkg, "123456");
         }
     }
 }
