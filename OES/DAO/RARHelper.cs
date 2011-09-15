@@ -49,7 +49,7 @@ namespace OES
                     return false;
                 }
 
-                if (File.Exists(unRarPatch + rarName) == false)
+                if (File.Exists(rarPatch + rarName) == false)
                 {
                     return false;//要解压的文件夹不存在
                 }
@@ -64,7 +64,7 @@ namespace OES
                 #region 开始解压文件
                 if (password != "")
                 {
-                    the_Info = "x -p" + password + "\"" + rarName + "\" \"" + unRarPatch + "\" -y";
+                    the_Info = "x -p" + password + " \"" + rarName + "\" \"" + unRarPatch + "\" -y";
                 }
                 else
                 {

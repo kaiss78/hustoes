@@ -8,7 +8,7 @@ namespace OES.Model
 {
     class Paper
     {
-        public static string pName = "EXAM001";
+        public static string pName = "51";
         public List<Choice> choice;
         public List<Completion> completion;
         public List<Judge> judge;

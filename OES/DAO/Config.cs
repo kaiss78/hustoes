@@ -16,7 +16,7 @@ namespace OES
         public static string server;
         public static int portNum;
         public static bool allowScore;
-        private static string inipath = "OesConfig.ini";
+        private static string inipath = "Config.ini";
 
         public static string Inipath
         {
