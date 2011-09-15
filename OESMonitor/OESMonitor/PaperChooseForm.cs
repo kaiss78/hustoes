@@ -12,7 +12,7 @@ namespace OESMonitor
 {
     public partial class PaperChooseForm : Form
     {
-        public ClientEvt supportServer;
+        public ClientEvt supportServer=new ClientEvt();
         public PaperChooseForm()
         {
             InitializeComponent();
@@ -43,6 +43,7 @@ namespace OESMonitor
 
         private void PaperChooseForm_Load(object sender, EventArgs e)
         {
+
             supportServer.Client.SendTxt("monitor$0");
         }
     }

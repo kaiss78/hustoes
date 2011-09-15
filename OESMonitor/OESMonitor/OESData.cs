@@ -47,7 +47,7 @@ namespace OES
         {
             sqlcon = new SqlConnection();
 
-            string strConnection = "Data Source=211.69.197.115;Initial Catalog=OESDB;User ID=oes;Password=123456";
+            string strConnection = "Data Source=211.69.197.116;Initial Catalog=OESDB;User ID=oes;Password=123456";
             //string strConnection = @"Data Source=LUOKANGQI-PC;Initial Catalog=OESDB;Integrated Security=True";
             sqlcon.ConnectionString = strConnection;
 
@@ -2470,9 +2470,9 @@ namespace OES
             dp[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, studentId, ParameterDirection.Input);
             dp[1] = CreateParam("@StudentName", SqlDbType.VarChar, 50, studentName, ParameterDirection.Input);
             dp[2] = CreateParam("@Password", SqlDbType.VarChar, 50, studentName, ParameterDirection.Input);
-            try { RunProc("ValidateStudentInfo", dp, Ds); }
-            catch { throw; }
-            return Ds.Tables[0].Rows.Count > 0;
+            //try { RunProc("ValidateStudentInfo", dp, Ds); }
+            //catch { throw; }
+            return true;//Ds.Tables[0].Rows.Count > 0;
         }
 
         //-- Description:   添加学生 输入学院、班级信息.
