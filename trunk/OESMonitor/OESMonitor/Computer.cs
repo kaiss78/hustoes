@@ -247,7 +247,7 @@ namespace OESMonitor
             this.Student = new Student(name, "", id, pwd);
             if (PaperControl.PaperControl.OesData.ValidateStudentInfo(id, name, pwd))
             {
-                paper = "EXAM001.rar";
+                paper = "51.rar";
                 return true;
             }
             paper = "";

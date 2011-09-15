@@ -358,7 +358,7 @@ namespace OESMonitor
             {
                 if (c.Client == client)
                 {
-                    client.port.FilePath = "D:/EXAM001.rar";
+                    client.port.FilePath = config.tmpPaper+"51.rar";
                 }
             }
         }
