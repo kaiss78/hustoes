@@ -44,7 +44,7 @@ namespace OES
             }));
             if (RARHelper.Exists())
             {
-                RARHelper.UnCompressRAR(Config.PaperPath, Config.PaperPath, restore, true, "");
+                RARHelper.UnCompressRAR(Config.paperPath, Config.PaperPath, restore, true, "123456");
             }
             else
             {
@@ -102,8 +102,10 @@ namespace OES
 
             Config.paperPath = Config.PaperPath + ClientEvt.Paper.Replace(".rar", "")+ @"\";
             ClientEvt.Paper = Config.PaperPath + ClientEvt.Paper;
+            
             if (!ExistPaper())
             {
+                if (!Directory.Exists(Config.paperPath)) Directory.CreateDirectory(Config.paperPath);
                 ClientEvt.Client.ReceiveFile();
             }
             else

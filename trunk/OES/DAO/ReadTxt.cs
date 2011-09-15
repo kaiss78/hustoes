@@ -15,7 +15,7 @@ namespace OES
             path = path + "a.txt";
             if (File.Exists(path))
             {                                
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     String st;
                     String[] s;
@@ -23,7 +23,7 @@ namespace OES
                     int i;
                     st = sr.ReadToEnd();
                     s = st.Split('\n');
-                    for (i = 0; i < s.Length; i = i + 5)
+                    for (i = 0; i < s.Length-1; i = i + 5)
                     {
                         choice = new Choice(s[i], s[i + 1], s[i + 2], s[i + 3], s[i + 4]);
                         choice.orderId = i / 5;
@@ -39,7 +39,7 @@ namespace OES
             path = path + "b.txt";
             if (File.Exists(path))
             {                                
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     String st;
                     String[] s;
@@ -47,7 +47,7 @@ namespace OES
                     int i;
                     st = sr.ReadToEnd();
                     s = st.Split('\n');
-                    for (i = 0; i < s.Length; i = i + 1)
+                    for (i = 0; i < s.Length-1; i = i + 1)
                     {
                         completion = new Completion(s[i]);
                         completion.orderId = i;
@@ -63,7 +63,7 @@ namespace OES
             path = path + "c.txt";
             if (File.Exists(path))
             {                
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     String st;
                     String[] s;
@@ -71,7 +71,7 @@ namespace OES
                     int i;
                     st = sr.ReadToEnd();
                     s = st.Split('\n');
-                    for (i = 0; i < s.Length; i = i + 1)
+                    for (i = 0; i < s.Length-1; i = i + 1)
                     {
                         judge = new Judge(s[i]);
                         judge.orderId = i;
@@ -87,7 +87,7 @@ namespace OES
             path = path + "h.txt";
             if (File.Exists(path))
             {                
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     String st;
                     PCompletion pCompletion;
@@ -104,7 +104,7 @@ namespace OES
             path = path + "g.txt";
             if (File.Exists(path))
             {                
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     String st;
                     PModif pModif;
@@ -121,7 +121,7 @@ namespace OES
             path = path + "i.txt";
             if (File.Exists(path))
             {                
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     String st;
                     PFunction pFunction;
@@ -138,7 +138,7 @@ namespace OES
             path = path + "d.txt";
             if (File.Exists(path))
             {
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     String st;
                     OfficeWord oWord;
@@ -155,7 +155,7 @@ namespace OES
             path = path + "e.txt";
             if (File.Exists(path))
             {
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     String st;
                     OfficePowerPoint oPPT;
@@ -172,7 +172,7 @@ namespace OES
             path = path + "f.txt";
             if (File.Exists(path))
             {
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.GetEncoding("GB2312")))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     String st;
                     OfficeExcel oExcel;
