@@ -98,7 +98,7 @@ namespace OESConfig
                 }
                 else
                 {
-                    setXMLDetail(index, value);
+                    setXMLDetail(index, value);//如果value为空，则删除该节点!
                 }
             }
         }
