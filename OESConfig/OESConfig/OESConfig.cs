@@ -92,7 +92,14 @@ namespace OESConfig
             }
             set
             {
-                setXMLDetail(index, value);
+                if (String.IsNullOrEmpty(index))
+                {
+                    log.Error("Index is Null or Empty.");
+                }
+                else
+                {
+                    setXMLDetail(index, value);
+                }
             }
         }
 
@@ -133,6 +140,7 @@ namespace OESConfig
         private void Set(XmlNode e,string value)
         {
             e.ChildNodes.Item(0).Value = value;
+            xd.Save(filePath);
         }
 
         /// <summary>
@@ -146,6 +154,17 @@ namespace OESConfig
             XmlElement xe = xd.CreateElement(index);
             xe.AppendChild(xd.CreateTextNode(value));
             e.AppendChild(xe);
+            xd.Save(filePath);
+        }
+
+        /// <summary>
+        /// 删除一个节点
+        /// </summary>
+        /// <param name="e">父节点</param>
+        /// <param name="index">子节点名称</param>
+        private void Del(XmlNode e,string index)
+        {
+            e.RemoveChild(Find(e, index));
             xd.Save(filePath);
         }
 
@@ -180,16 +199,25 @@ namespace OESConfig
         private void setXMLDetail(string index, string value)
         {
             XmlNode xn;
-            xn = Find(xd.ChildNodes.Item(1), index);
-            if (xn == null)
+            if (String.IsNullOrEmpty(value))
             {
-                Add(xd.ChildNodes.Item(1),index, value);
-                log.Warn("The node can not found, but we create one.");
+                xn=xd.ChildNodes.Item(1);
+                if(xn!=null)
+                    Del(xn, index);
             }
             else
             {
-                Set(xn, value);
-                log.Info("Config string set!");
+                xn = Find(xd.ChildNodes.Item(1), index);
+                if (xn == null)
+                {
+                    Add(xd.ChildNodes.Item(1), index, value);
+                    log.Warn("The node can not found, but we create one.");
+                }
+                else
+                {
+                    Set(xn, value);
+                    log.Info("Config string set!");
+                }
             }
         }
 
@@ -208,5 +236,15 @@ namespace OESConfig
             }
             return dict;
         }
+
+        /// <summary>
+        /// 清空配置文件
+        /// </summary>
+        public void Clear()
+        {
+            xd.RemoveAll();
+        }
+
+        
     }
 }

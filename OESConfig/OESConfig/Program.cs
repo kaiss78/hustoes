@@ -9,7 +9,7 @@ namespace OESConfig
         static OESConfig config = new OESConfig("con1.xml");
         static void Main(string[] args)
         {
-            config["ip"] = "123456";
+            config["ip"] = "";
             Console.WriteLine(config["port"]);
             Dictionary<string,string> a= config.GetAllConfig();
         }
