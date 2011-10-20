@@ -11,6 +11,7 @@ namespace OESConfig
         {
             config["ip"] = "123456";
             Console.WriteLine(config["port"]);
+            Dictionary<string,string> a= config.GetAllConfig();
         }
     }
 }

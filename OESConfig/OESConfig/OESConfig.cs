@@ -20,7 +20,15 @@ namespace OESConfig
         /// 构造函数
         /// </summary>
         /// <param name="fileName">xml配置文件名</param>
-        public OESConfig(string fileName)
+        public OESConfig(string fileName):this(fileName,null)
+        {
+        }
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="fileName">xml配置文件名</param>
+        /// <param name="defsetting">默认配置</param>
+        public OESConfig(string fileName,string[][] defsetting)
         {
             filePath = Environment.CurrentDirectory+"\\"+fileName;
             if (String.IsNullOrEmpty(fileName))
@@ -60,6 +68,13 @@ namespace OESConfig
                     xmlelem = xd.CreateElement("", "ROOT", "");
                     xd.AppendChild(xmlelem);
                     log.Warn("The file is not exist, but we create one.");
+                }
+            }
+            if (defsetting != null)
+            {
+                foreach (string[] s in defsetting)
+                {
+                    this[s[0]] = s[1];
                 }
             }
         }
@@ -178,5 +193,20 @@ namespace OESConfig
             }
         }
 
+        /// <summary>
+        /// 获取当前文件中的所有配置
+        /// </summary>
+        /// <returns>所有配置的一个Dictionary</returns>
+        public Dictionary<string,string> GetAllConfig()
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            XmlNode e = xd.ChildNodes.Item(1);
+            if (e.ChildNodes == null) return dict;
+            foreach (XmlNode xn in e.ChildNodes)
+            {
+                dict.Add(xn.Name, xn.ChildNodes.Item(0).Value);
+            }
+            return dict;
+        }
     }
 }
