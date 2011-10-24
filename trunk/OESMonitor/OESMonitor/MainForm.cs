@@ -357,7 +357,7 @@ namespace OESMonitor
             {
                 if (c.Client == client)
                 {
-                    client.port.FilePath = PaperControl.PathConfig["TmpPaper"] + "51.rar";
+                    client.Port.FilePath = PaperControl.PathConfig["TmpPaper"] + "51.rar";
                 }
             }
         }
@@ -368,7 +368,7 @@ namespace OESMonitor
         {
             foreach (Computer c in Computer.ComputerList)
             {
-                if (c.Client.port == dataPort)
+                if (c.Client.Port == dataPort)
                 {
                     c.State = 5;
                 }
@@ -379,7 +379,7 @@ namespace OESMonitor
         {
             for (int i = Computer.ComputerList.Count - 1; i >= 0;i-- )
             {
-                if (Computer.ComputerList[i].Client.port == dataPort)
+                if (Computer.ComputerList[i].Client.Port == dataPort)
                 {
                     Computer.ComputerList[i].State = 4;
                     Computer.CompleteList.Add(Computer.ComputerList[i]);
