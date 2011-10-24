@@ -4,30 +4,19 @@ using System.Collections.Generic;
 using System.Text;
 using OES;
 
-namespace OESMonitor.PaperControl
+namespace OESMonitor
 {
     public class PaperControl
     {
-        private static OESData oesData = null;
-        public static OESData OesData
-        {
-            get
-            {
-                if (oesData == null) { oesData = new OESData(); }
-                return PaperControl.oesData;
-            }
-            set { PaperControl.oesData = value; }
-        }
-
-        private static Config config = null;
-        public static Config OESConfig
-        {
-            get
-            {
-                if(config==null){config=new Config();}
-                return PaperControl.config;
-            }
-            set { PaperControl.config = value; }
-        }
+        public static OESConfig PathConfig = new OESConfig("PathConfig.xml",new string[,]{
+            {"StuAns","C:/OES/Student/"},
+            {"TmpPaper","C:/OES/TmpPaper/"}
+        });
+        public static OESConfig DbConfig = new OESConfig("DbConfig.xml", new string[,]{
+            {"Ip","127.0.0.1"},
+            {"User","oes"},
+            {"Password","123456"}
+        });
+        public static OESData OesData = new OESData();
     }
 }

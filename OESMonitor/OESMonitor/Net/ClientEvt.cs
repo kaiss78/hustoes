@@ -2,7 +2,6 @@
 using System.Collections.Generic;
  
 using System.Text;
-using OESMonitor.PaperControl;
 using ClientNet;
 
 namespace OESMonitor.Net
@@ -10,11 +9,9 @@ namespace OESMonitor.Net
     public class ClientEvt
     {
         public OESClient Client;
-        public Config conf;
       
         public ClientEvt()
         {
-            conf=new Config();
             Client = new OESClient();
             Client.ReceivedTxt += new EventHandler(Client_ReceivedTxt);
             Client.ConnectedServer += new EventHandler(Client_ConnectedServer);

@@ -7,10 +7,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using OESMonitor.Net;
-using OESMonitor.PaperControl;
 using System.Net;
 using System.IO;
-using Sup=OESMonitor.Net ;
 using ServerNet;
 using ClientNet;
 
@@ -19,7 +17,6 @@ namespace OESMonitor
     public partial class OESMonitor : Form
     {
         CommandLine cl = new CommandLine();
-        public static Config config = new Config();
         List<IPAddress> alternativeIp = new List<IPAddress>();
         int paperDeliverMode = 0;
         bool isStartExam = false;
@@ -237,7 +234,7 @@ namespace OESMonitor
                 foreach (DataRow dr in paperListDataTable.Rows)
                 {
                     string id = dr[1].ToString();
-                    if (!File.Exists(config.tmpPaper + id + ".rar"))
+                    if (!File.Exists(PaperControl.PathConfig["TmpPaper"] + id + ".rar"))
                     {
                         isExistPaper = false;
                     }
@@ -266,10 +263,10 @@ namespace OESMonitor
             foreach (DataRow dr in paperListDataTable.Rows)
             {
                 string id = dr[1].ToString();
-                if (!File.Exists(config.tmpPaper + id + ".rar"))
+                if (!File.Exists(PaperControl.PathConfig["TmpPaper"] + id + ".rar"))
                 {
                     isExistPaper = false;
-                    localPath.Add(config.tmpPaper + id + ".rar");
+                    localPath.Add(PaperControl.PathConfig["TmpPaper"] + id + ".rar");
                     remoteCmd.Add(supportServer.LoadPaperPkg(Convert.ToInt32(id), 0));
                 }
             }
@@ -360,7 +357,7 @@ namespace OESMonitor
             {
                 if (c.Client == client)
                 {
-                    client.port.FilePath = config.tmpPaper+"51.rar";
+                    client.port.FilePath = PaperControl.PathConfig["TmpPaper"] + "51.rar";
                 }
             }
         }
