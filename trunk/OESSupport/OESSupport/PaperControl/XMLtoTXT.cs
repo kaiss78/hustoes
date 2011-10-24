@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using OES.Model;
 using OESSupport.XMLFile;
-using OESSupport.Configuration;
+using OESSupport;
 
 namespace OESSupport.PaperControl
 {
@@ -39,7 +39,7 @@ namespace OESSupport.PaperControl
             
             string paperpath = "";
             string filepath = "";
-            paperpath = Config.Root+Config.PaperPkg + paperid + "\\";
+            paperpath = Program.config["Root"]+Program.config["PaperPkg"] + paperid + "\\";
             Directory.CreateDirectory(paperpath);
 
             foreach (IdScoreType problem in problemList)
@@ -65,37 +65,37 @@ namespace OESSupport.PaperControl
                     case ProblemType.Excel:
                         officeexcel = PaperControl.OesData.FindOfficeExcelById(problem.id.ToString())[0];
                         prostr[3] = prostr[3] + officeexcel.problem + "\n";
-                        File.Copy(Config.Root + Config.Excel + "p" + problem.id.ToString() + ".xls", paperpath + "f" + ".xls",true);
+                        File.Copy(Program.config["Root"] + Program.config["Excel"] + "p" + problem.id.ToString() + ".xls", paperpath + "f" + ".xls",true);
                         break;
                     case ProblemType.PowerPoint:
                         officeppt = PaperControl.OesData.FindOfficePowerPointById(problem.id.ToString())[0];
                         prostr[4] = prostr[4] + officeppt.problem + "\n";
-                        File.Copy(Config.Root + Config.PowerPoint + "p" + problem.id.ToString() + ".ppt", paperpath + "e" + ".ppt",true);
+                        File.Copy(Program.config["Root"] + Program.config["PowerPoint"] + "p" + problem.id.ToString() + ".ppt", paperpath + "e" + ".ppt", true);
                         break;       
                     case ProblemType.Word:
                         officeword = PaperControl.OesData.FindOfficeWordById(problem.id.ToString())[0];
                         prostr[5] = prostr[5] + officeword.problem + "\n";
-                        File.Copy(Config.Root + Config.Word + "p" + problem.id.ToString() + ".doc", paperpath + "d" + ".doc", true);
+                        File.Copy(Program.config["Root"] + Program.config["Word"] + "p" + problem.id.ToString() + ".doc", paperpath + "d" + ".doc", true);
                         break;
                     case ProblemType.ProgramCompletion:
                         pcompletion = PaperControl.OesData.FindCompletionProgramById(problem.id.ToString())[0];
                         prostr[6] = prostr[6] + pcompletion.problem + "\n";
-                        File.Copy(Config.Root + Config.CCompletion + "p" + problem.id.ToString() + ".c", paperpath + "g" + ".c", true);
+                        File.Copy(Program.config["Root"] + Program.config["CCompletion"] + "p" + problem.id.ToString() + ".c", paperpath + "g" + ".c", true);
                         break;
                     case ProblemType.ProgramModification:
                         pmodif=PaperControl.OesData.FindModificationProgramById(problem.id.ToString())[0];
                         prostr[7] = prostr[7] + pmodif.problem + "\n";
-                        File.Copy(Config.Root + Config.CModification + "p" + problem.id.ToString() + ".c", paperpath + "h" + ".c", true);
+                        File.Copy(Program.config["Root"] + Program.config["CModification"] + "p" + problem.id.ToString() + ".c", paperpath + "h" + ".c", true);
                         break;
                     case ProblemType.ProgramFun:
                         pfunction = PaperControl.OesData.FindFunProgramById(problem.id.ToString())[0];
                         prostr[8] = prostr[8] + pfunction.problem + "\n";
-                        File.Copy(Config.Root + Config.CFunction + "p" + problem.id.ToString() + ".c", paperpath + "i" + ".c", true);
+                        File.Copy(Program.config["Root"] + Program.config["CFunction"] + "p" + problem.id.ToString() + ".c", paperpath + "i" + ".c", true);
                         break;
                 }
             }
  
-            
+
             for(int i=0;i<9;i++)
             {
                 if(prostr[i]!="")
@@ -107,7 +107,8 @@ namespace OESSupport.PaperControl
                     sw.Close();
                 }
             }
-            RARHelper.CompressRAR(paperpath, paperid, Config.Root+Config.PaperPkg, "123456");
+            RARHelper.CompressRAR(paperpath, paperid, Program.config["PaperPkg"], "123456");
+
         }
     }
 }
