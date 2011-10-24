@@ -28,7 +28,7 @@ namespace OES
         /// </summary>
         /// <param name="fileName">xml配置文件名</param>
         /// <param name="defsetting">默认配置</param>
-        public OESConfig(string fileName,string[][] defsetting)
+        public OESConfig(string fileName,string[,] defsetting)
         {
             filePath = Environment.CurrentDirectory+"\\"+fileName;
             if (String.IsNullOrEmpty(fileName))
@@ -68,15 +68,17 @@ namespace OES
                     xmlelem = xd.CreateElement("", "ROOT", "");
                     xd.AppendChild(xmlelem);
                     log.Warn("The file is not exist, but we create one.");
+
+                    if (defsetting != null)
+                    {
+                        for (int i = 0; i < defsetting.GetLength(0); i++)
+                        {
+                            this[defsetting[i,0]] = defsetting[i,1];
+                        }
+                    }
                 }
             }
-            if (defsetting != null)
-            {
-                foreach (string[] s in defsetting)
-                {
-                    this[s[0]] = s[1];
-                }
-            }
+            
         }
 
         /// <summary>
