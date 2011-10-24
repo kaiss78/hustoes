@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OESConfig
+namespace OES
 {
     class Program
     {

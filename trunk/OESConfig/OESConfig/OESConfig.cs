@@ -5,7 +5,7 @@ using System.Xml;
 using System.IO;
 using log4net;
 
-namespace OESConfig
+namespace OES
 {
     public class OESConfig
     {
