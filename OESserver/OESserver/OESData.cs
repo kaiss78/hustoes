@@ -47,7 +47,7 @@ namespace OES
         {
             sqlcon = new SqlConnection();
 
-            string strConnection = "Data Source=" + Config.serverIP + ";Initial Catalog=OESDB;User ID=oes;Password=123456";
+            string strConnection = "Data Source=" + InfoControl.config["ServerIP"] + ";Initial Catalog=OESDB;User ID=oes;Password=123456";
             //string strConnection = @"Data Source=LUOKANGQI-PC;Initial Catalog=OESDB;Integrated Security=True";
             sqlcon.ConnectionString = strConnection;
 

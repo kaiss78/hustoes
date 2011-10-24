@@ -28,6 +28,19 @@ namespace OES
         public static int PJudgeID = 0;
         public static int PModifID = 0;
         public static int Value = 0;
+        public static OESConfig config = new OESConfig("serverconfig.xml",
+            new string[,] {
+            {"TempPaperPath","D:\\OES\\TempPaper\\"},
+            {"ExcelPath","D:\\OES\\Excel\\"},
+            {"WordPath","D:\\OES\\Word\\"},
+            {"PPTPath","D:\\OES\\PPT\\"},
+            {"CompletionPath","D:\\OES\\Completion\\"},
+            {"FunctionPath","D:\\OES\\Function\\"},
+            {"ModificationPath","D:\\OES\\Modification\\"},
+            {"ServerIP","211.69.197.116"}           
+            });
+
+
 
         private static OESData oesData = null;
         public static OESData OesData
@@ -40,7 +53,7 @@ namespace OES
             set { InfoControl.oesData = value; }
         }
 
-        private static Teacher teacher=null;
+        private static Teacher teacher = null;
         public static Teacher User
         {
             get
@@ -57,7 +70,7 @@ namespace OES
         {
             get
             {
-                if (paper == null){paper = new Paper();}
+                if (paper == null) { paper = new Paper(); }
                 return InfoControl.paper;
             }
             set { InfoControl.paper = value; }
@@ -85,30 +98,30 @@ namespace OES
                     return -1;
                 }
             }
-            int tmp = InfoControl.Value;            
-            if (InfoControl.Value  == -1)
+            int tmp = InfoControl.Value;
+            if (InfoControl.Value == -1)
             {
                 for (int i = 0; i < InfoControl.TmpPaper.ProList[type].Count; i++)
                 {
                     if (InfoControl.TmpPaper.ProList[type][i].problemId == -1)
                         return (i + 1);
-                }                
+                }
             }
             return tmp;
         }
 
-        public static void  getTmpPaper(string paperID)
+        public static void getTmpPaper(string paperID)
         {
             Problem tmpPro;
             TmpPaper = OesData.FindPaperById(paperID)[0];
-            InfoControl.clientObj.LoadPaper(Convert.ToInt32(TmpPaper.paperID),Convert.ToInt32(User.Id));
+            InfoControl.clientObj.LoadPaper(Convert.ToInt32(TmpPaper.paperID), Convert.ToInt32(User.Id));
             while (!ClientEvt.isOver) ;
-            TmpPaper.paperPath = Config.TempPaperPath + TmpPaper.paperID + ".xml";
+            TmpPaper.paperPath = InfoControl.config["TempPaperPath"] + TmpPaper.paperID + ".xml";
             List<IdScoreType> tmpList = XMLControl.ReadPaper(TmpPaper.paperPath);
             for (int i = 0; i < 9; i++)
             {
                 TmpPaper.ProList[i] = new List<Problem>();
-            }            
+            }
             foreach (IdScoreType pro in tmpList)
             {
                 tmpPro = new Problem();
@@ -172,14 +185,14 @@ namespace OES
         /// <param name="num">题号</param>
         /// <param name="ProID">题目ID</param>
         /// <param name="ProInfo">题目内容</param>
-        public static void SetProblem(int type,int num,int ProID,string ProInfo)
+        public static void SetProblem(int type, int num, int ProID, string ProInfo)
         {
             if (type > 8)
             {
                 InfoControl.TmpPaper.ProList[type - 3][num].problemId = ProID;
-                InfoControl.TmpPaper.ProList[type - 3][num].problem = ProInfo;                
+                InfoControl.TmpPaper.ProList[type - 3][num].problem = ProInfo;
             }
-            else 
+            else
             {
                 InfoControl.TmpPaper.ProList[type][num].problemId = ProID;
                 InfoControl.TmpPaper.ProList[type][num].problem = ProInfo;
@@ -203,11 +216,11 @@ namespace OES
         {
             if (type > 8)
             {
-                InfoControl.TmpPaper.ProList[type-3][num].problemId = -1;                
+                InfoControl.TmpPaper.ProList[type - 3][num].problemId = -1;
             }
             else
             {
-                InfoControl.TmpPaper.ProList[type][num].problemId = -1;                
+                InfoControl.TmpPaper.ProList[type][num].problemId = -1;
             }
             if (type > 2)
             {
@@ -230,13 +243,13 @@ namespace OES
             }
             set { InfoControl.loginForm = value; }
         }
-        
+
         private static MainForm mainForm = null;
         public static MainForm MainForm
         {
             get
             {
-                if (mainForm == null || mainForm.IsDisposed) {MainForm = new MainForm();}
+                if (mainForm == null || mainForm.IsDisposed) { MainForm = new MainForm(); }
                 return InfoControl.mainForm;
             }
             set { InfoControl.mainForm = value; }
