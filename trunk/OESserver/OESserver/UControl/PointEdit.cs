@@ -13,7 +13,7 @@ namespace OES.UControl
     {
         public OfficeExcelEdit aOfficeExcelEdit;
         public Boolean isLoaded;
-        public string xmlPath = Config.ExcelPath + "t" + ProList.click_proid + ".xml"; 
+        public string xmlPath = InfoControl.config["ExcelPath"] + "t" + ProList.click_proid + ".xml"; 
         public PointEdit(OfficeExcelEdit exl)
         {
             InitializeComponent();

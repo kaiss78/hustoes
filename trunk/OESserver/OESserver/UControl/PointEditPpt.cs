@@ -13,7 +13,7 @@ namespace OES.UControl
     {
         public OfficePowerpointEdit aOfficePowerpointEdit;
         public Boolean isLoaded;
-        public string xmlPath = Config.PPTPath + "t" + ProList.click_proid + ".xml"; 
+        public string xmlPath = InfoControl.config["PPTPath"] + "t" + ProList.click_proid + ".xml"; 
         public PointEditPpt(OfficePowerpointEdit ppt)
         {
             InitializeComponent();

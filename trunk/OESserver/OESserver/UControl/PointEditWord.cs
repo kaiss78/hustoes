@@ -18,7 +18,7 @@ namespace OES.UControl
 
         public OfficeWordEdit aOfficeWordEdit;
         public Boolean isLoaded;
-        public string xmlPath = Config.PPTPath + "t" + ProList.click_proid + ".xml";
+        public string xmlPath = InfoControl.config["PPTPath"] + "t" + ProList.click_proid + ".xml";
         public PointEditWord(OfficeWordEdit word)
         {
             InitializeComponent();

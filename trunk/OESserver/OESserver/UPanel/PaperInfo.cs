@@ -166,8 +166,8 @@ namespace OES.UPanel
 
             if (InfoControl.TmpPaper.paperID == "-")
             {
-                InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, Config.TempPaperPath, PaperName.Text, InfoControl.User.Id, programstate);
-                InfoControl.TmpPaper.paperPath = Config.TempPaperPath + InfoControl.TmpPaper.paperID + ".xml";
+                InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, InfoControl.config["TempPaperPath"], PaperName.Text, InfoControl.User.Id, programstate);
+                InfoControl.TmpPaper.paperPath = InfoControl.config["TempPaperPath"] + InfoControl.TmpPaper.paperID + ".xml";
                 for (int i = 0; i < 3; i++)
                 {
                     for (int j = 0; j < Convert.ToInt32(this.countList[i].Text); j++)

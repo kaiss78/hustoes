@@ -145,7 +145,7 @@ namespace OES.UPanel
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            XMLControl.CreatePaperXML(Config.TempPaperPath + InfoControl.TmpPaper.paperID+".xml", InfoControl.TmpPaper.paperID);
+            XMLControl.CreatePaperXML(InfoControl.config["TempPaperPath"] + InfoControl.TmpPaper.paperID + ".xml", InfoControl.TmpPaper.paperID);
             for (int k = 0; k < 9; k++)
             {
                 for (int i = 0; i < InfoControl.TmpPaper.ProList[k].Count; i++)
