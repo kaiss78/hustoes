@@ -12,7 +12,9 @@ namespace ServerNet
 {
     public class OESServer
     {
-        //配置文件
+        /// <summary>
+        /// 配置文件
+        /// </summary>
         public static OESConfig Config = new OESConfig("ServerConfig.xml", new string[,]{
             {"HostIp","127.0.0.1"},
             {"HostPort","20000"},
@@ -20,7 +22,9 @@ namespace ServerNet
         });
         //服务端监听
         private TcpListener listener;
-        //服务端Ip
+        /// <summary>
+        /// 服务端Ip
+        /// </summary>
         public IPAddress ip = null;
         //数据端口列表
         private List<DataPort> ports = new List<DataPort>();
@@ -40,7 +44,9 @@ namespace ServerNet
         private int portsRequest = int.Parse(Config["DataPortNum"]);      
         //数据端口准备就绪
         private bool isPortAvailable = false;
-
+        /// <summary>
+        /// 数据端口准备就绪
+        /// </summary>
         public bool IsPortAvailable
         {
             get { return isPortAvailable; }
@@ -53,7 +59,9 @@ namespace ServerNet
                 }
             }
         }
-        //当前数据端口数量
+        /// <summary>
+        /// 当前数据端口数量
+        /// </summary>
         public int PortCurNum
         {
             get

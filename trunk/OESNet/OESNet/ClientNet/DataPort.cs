@@ -11,9 +11,13 @@ namespace ClientNet
 {
     public class DataPort
     {
-        //服务端数据端口端口号
+        /// <summary>
+        /// 服务端数据端口端口号
+        /// </summary>
         public int remotePort;
-        //服务端数据端口IP
+        /// <summary>
+        /// 服务端数据端口IP
+        /// </summary>
         public IPAddress remoteIp;
         //数据端Socket--用于和服务端数据端口通信
         private TcpClient dataTrans;
@@ -23,6 +27,9 @@ namespace ClientNet
         private NetworkStream data_ns;
         //文件路径
         private string filePath = "";
+        /// <summary>
+        /// 文件路径
+        /// </summary>
         public string FilePath
         {
             get
@@ -42,11 +49,17 @@ namespace ClientNet
                 }
             }
         }
-        //文件大小
+        /// <summary>
+        /// 文件大小
+        /// </summary>
         public long fileLength = 0;
-        //是否用于传送数据
-        //false 表示传出数据
-        //true 表示接受数据
+        
+        
+        /// <summary>
+        /// 是否用于传送数据
+        /// false 表示传出数据
+        /// true 表示接受数据
+        /// </summary>
         public bool IsSend = false;
 
         #region 事件定义

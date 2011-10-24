@@ -23,7 +23,9 @@ namespace ServerNet
         private string raw_msg = String.Empty;
         //得到的消息
         public string msg;
-        //消息末尾字符
+        /// <summary>
+        /// 消息末尾字符
+        /// </summary>
         public char EndOfMsg = '`';
 
         #region 事件定义
@@ -70,8 +72,10 @@ namespace ServerNet
         /// <summary>
         /// 客户端数据端口
         /// </summary>
-        public DataPort port;
-
+        private DataPort port;
+        /// <summary>
+        /// 客户端数据端口
+        /// </summary>
         public DataPort Port
         {
             get 
@@ -85,7 +89,9 @@ namespace ServerNet
                 port.FileSizeError += new ErrorEventHandler(port_FileSizeError);
             }
         }
-
+        /// <summary>
+        /// 客户端数据Ip
+        /// </summary>
         public string ClientIp
         {
             get

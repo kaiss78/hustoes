@@ -11,13 +11,21 @@ namespace ServerNet
 {
     public class DataPort
     {
-        //本数据端口端口号
+        /// <summary>
+        /// 本数据端口端口号
+        /// </summary>
         public int localPort;
-        //本机Ip
+        /// <summary>
+        /// 本机Ip
+        /// </summary>
         public IPAddress ip;
-        //客户端数据端口号
+        /// <summary>
+        /// 客户端数据端口号
+        /// </summary>
         public int remotePort;
-        //客户端数据端口Ip
+        /// <summary>
+        /// 客户端数据端口Ip
+        /// </summary>
         public IPAddress remoteIp;
         //客户端数据端口信息
         private EndPoint remoteEndPoint;
@@ -29,10 +37,15 @@ namespace ServerNet
         private TcpClient dataTrans;
         //网络流
         private NetworkStream data_ns;
-        //接收数据还是发送数据
+        /// <summary>
+        /// 接收数据还是发送数据
+        /// </summary>
         public bool IsSend = false;
         //接收和发送时的文件路径
         private string filePath = "";
+        /// <summary>
+        /// 接收和发送时的文件路径
+        /// </summary>
         public string FilePath
         {
             get
@@ -52,7 +65,9 @@ namespace ServerNet
                 }
             }
         }
-        //文件大小
+        /// <summary>
+        /// 文件大小
+        /// </summary>
         public long fileLength = 0;
 
         #region 事件定义

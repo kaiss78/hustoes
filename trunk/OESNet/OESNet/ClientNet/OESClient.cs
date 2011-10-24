@@ -13,7 +13,9 @@ namespace ClientNet
 {
     public class OESClient
     {
-        //配置文件
+        /// <summary>
+        /// 配置文件
+        /// </summary>
         public static OESConfig Config = new OESConfig("ClientConfig.xml", new string[,]{
             {"RemoteIp","127.0.0.1"},
             {"RemotePort","20000"}
@@ -28,11 +30,17 @@ namespace ClientNet
         private NetworkStream ns;
         //字符串类型的原始消息
         private string raw_msg = String.Empty;
-        //服务器地址
+        /// <summary>
+        /// 服务器地址
+        /// </summary>
         public string server = Config["RemoteIp"];
-        //服务器端口
+        /// <summary>
+        /// 服务器端口
+        /// </summary>
         public int portNum = int.Parse(Config["RemotePort"]);
-        //消息末尾字符
+        /// <summary>
+        /// 消息末尾字符
+        /// </summary>
         public char EndOfMsg = '`';
 
         //客户端数据端口
@@ -337,6 +345,10 @@ namespace ClientNet
             try
             {
                 ns.BeginWrite(tBuffer, 0, tBuffer.Length, new AsyncCallback(write_callBack), client);
+                if (WrittenMsg != null)
+                {
+                    WrittenMsg(msg, null);
+                }
             }
             catch (Exception e)
             {
