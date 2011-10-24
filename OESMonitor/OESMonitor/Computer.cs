@@ -162,7 +162,7 @@ namespace OESMonitor
             {
                 Directory.CreateDirectory(PaperControl.PathConfig["StuAns"]);
             }
-            client.port.FilePath = PaperControl.PathConfig["StuAns"] + Student.ID + ".rar";
+            client.Port.FilePath = PaperControl.PathConfig["StuAns"] + Student.ID + ".rar";
         }
 
        
