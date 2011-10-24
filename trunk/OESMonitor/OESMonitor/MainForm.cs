@@ -10,7 +10,9 @@ using OESMonitor.Net;
 using OESMonitor.PaperControl;
 using System.Net;
 using System.IO;
-using Sup=OESMonitor.SupportNet ;
+using Sup=OESMonitor.Net ;
+using ServerNet;
+using ClientNet;
 
 namespace OESMonitor
 {
@@ -45,18 +47,18 @@ namespace OESMonitor
 
         public static DataTable paperListDataTable;
 
-        public  SupportNet.ClientEvt supportServer;
+        public  Net.ClientEvt supportServer;
 
         public OESMonitor()
         {
             InitializeComponent();
 
-            supportServer = new SupportNet.ClientEvt();
+            supportServer = new Net.ClientEvt();
 
             supportServer.Client.FileListRecieveStart += new Action(Client_FileListRecieveStart);
             supportServer.Client.FileListRecieveEnd += new Action(Client_FileListRecieveEnd);
-            supportServer.Client.FileListCount += new global::OESMonitor.SupportNet.FileListSize(Client_FileListCount);
-            supportServer.Client.Port.RecieveFileRate += new global::OESMonitor.SupportNet.ReturnVal(Port_RecieveFileRate);
+            supportServer.Client.FileListCount += new FileListSize(Client_FileListCount);
+            supportServer.Client.Port.RecieveFileRate += new ClientNet.ReturnVal(Port_RecieveFileRate);
             timer_PortCounter.Interval = 1000;
 
             panel1.Controls.Add( ComputerState.getInstance());
@@ -365,7 +367,7 @@ namespace OESMonitor
 
         
 
-        void Server_FileSendEnd(DataPort dataPort)
+        void Server_FileSendEnd(ServerNet.DataPort dataPort)
         {
             foreach (Computer c in Computer.ComputerList)
             {
@@ -376,7 +378,7 @@ namespace OESMonitor
             }
         }
 
-        void Server_FileReceiveEnd(DataPort dataPort)
+        void Server_FileReceiveEnd(ServerNet.DataPort dataPort)
         {
             for (int i = Computer.ComputerList.Count - 1; i >= 0;i-- )
             {
