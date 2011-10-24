@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using OES.Net;
 using System.IO;
+using ClientNet;
 
 namespace OES
 {
