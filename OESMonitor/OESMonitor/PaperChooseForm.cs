@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using OESMonitor.SupportNet;
+using OESMonitor.Net;
 using System.Threading;
 
 namespace OESMonitor

@@ -3,8 +3,9 @@ using System.Collections.Generic;
  
 using System.Text;
 using OESMonitor.PaperControl;
+using ClientNet;
 
-namespace OESMonitor.SupportNet
+namespace OESMonitor.Net
 {
     public class ClientEvt
     {
