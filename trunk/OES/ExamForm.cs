@@ -10,6 +10,7 @@ using OES.Model;
 using System.IO;
 using OES.Net;
 using OES.DAO;
+using ClientNet;
 
 namespace OES
 {
