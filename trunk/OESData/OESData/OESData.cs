@@ -2473,7 +2473,7 @@ namespace OES
             SqlParameter[] dp = new SqlParameter[3];
             dp[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, studentId, ParameterDirection.Input);
             dp[1] = CreateParam("@StudentName", SqlDbType.VarChar, 50, studentName, ParameterDirection.Input);
-            dp[2] = CreateParam("@Password", SqlDbType.VarChar, 50, studentName, ParameterDirection.Input);
+            dp[2] = CreateParam("@Password", SqlDbType.VarChar, 50, password, ParameterDirection.Input);
             try { RunProc("ValidateStudentInfo", dp, Ds); }
             catch { throw; }
             return Ds.Tables[0].Rows.Count > 0;
