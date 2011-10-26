@@ -28,7 +28,7 @@ namespace OES
         public static int PJudgeID = 0;
         public static int PModifID = 0;
         public static int Value = 0;
-        public static OESConfig config = new OESConfig("serverconfig.xml",
+        public static OESConfig config = new OESConfig("PathConfig.xml",
             new string[,] {
             {"TempPaperPath","D:\\OES\\TempPaper\\"},
             {"ExcelPath","D:\\OES\\Excel\\"},
@@ -36,8 +36,7 @@ namespace OES
             {"PPTPath","D:\\OES\\PPT\\"},
             {"CompletionPath","D:\\OES\\Completion\\"},
             {"FunctionPath","D:\\OES\\Function\\"},
-            {"ModificationPath","D:\\OES\\Modification\\"},
-            {"ServerIP","211.69.197.116"}           
+            {"ModificationPath","D:\\OES\\Modification\\"},   
             });
 
 
