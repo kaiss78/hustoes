@@ -6,7 +6,7 @@ using System.Data;
  
 using System.Text;
 using System.Windows.Forms;
-using OESMonitor.Model;
+using OES.Model;
 using System.IO;
 using ServerNet;
 
