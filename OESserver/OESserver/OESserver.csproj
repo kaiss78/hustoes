@@ -42,7 +42,14 @@
     <Reference Include="Microsoft.Office.Interop.Word, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.TeamSystem.Data.UnitTesting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="OESConfig, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="OESConfig, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OESNet\OESNet\bin\x86\Debug\OESConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OESNet\OESNet\bin\x86\Debug\OESNet.dll</HintPath>
+    </Reference>
     <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -95,10 +102,7 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Unit.cs" />
     <Compile Include="Model\Teacher.cs" />
-    <Compile Include="Net\ClientConfig.cs" />
     <Compile Include="Net\ClientEvt.cs" />
-    <Compile Include="Net\DataPort.cs" />
-    <Compile Include="Net\OESClient.cs" />
     <Compile Include="OESData.cs" />
     <Compile Include="PanelControl.cs" />
     <Compile Include="Program.cs" />
