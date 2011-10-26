@@ -12,11 +12,6 @@ namespace OESMonitor
             {"StuAns","C:/OES/Student/"},
             {"TmpPaper","C:/OES/TmpPaper/"}
         });
-        public static OESConfig DbConfig = new OESConfig("DbConfig.xml", new string[,]{
-            {"Ip","127.0.0.1"},
-            {"User","oes"},
-            {"Password","123456"}
-        });
         public static OESData OesData = new OESData();
     }
 }

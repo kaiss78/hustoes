@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.IO;
-using OESMonitor.Model;
+using OES.Model;
 
 namespace OESMonitor.XMLFile
 {
