@@ -11,7 +11,7 @@ namespace OESSupport
     {
         static ServerEvt server=new ServerEvt();
         public static List<Teacher> TeacherList = new List<Teacher>();
-        public static OESConfig config = new OESConfig("serverconfig.xml",
+        public static OESConfig config = new OESConfig("PathConfig.xml",
         new string[,] {
         {"Root","D:\\OES\\DataFiles\\"},
         {"Paper","Paper\\"},
