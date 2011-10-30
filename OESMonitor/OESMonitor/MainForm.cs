@@ -19,7 +19,20 @@ namespace OESMonitor
         CommandLine cl = new CommandLine();
         List<IPAddress> alternativeIp = new List<IPAddress>();
         int paperDeliverMode = 0;
+        /// <summary>
+        /// 若当前为顺序发试卷，表示已经发卷的Id，是循环变化的
+        /// </summary>
+        int currentDeliverId = 0;
+        /// <summary>
+        /// 若当前为随机发试卷，用于产生随机数
+        /// </summary>
+        Random random = new Random(DateTime.Now.Millisecond);
         bool isStartExam = false;
+        /// <summary>
+        /// 当前考试的试卷列表
+        /// </summary>
+        List<int> examPaperIdList = new List<int>();
+
 
         public bool IsStartExam
         {
@@ -30,7 +43,7 @@ namespace OESMonitor
                 if (isStartExam)
                 {
                     ServerEvt.Server.IsPortAvailable = true;
-                    button1.Text = "停止发卷/收卷";
+                    button1.Text = "停止发卷/发卷";
                     timer_PortCounter.Start();
                 }
                 else
@@ -79,11 +92,7 @@ namespace OESMonitor
             downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
         }
         
-        void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.RowIndex!=-1)
-                radioButton3.Text = radioButton3.Text.Split('-')[0] + '-' + paperListDataTable.Rows[e.RowIndex][1];
-        }
+        
 
         #region 文字功能提示
         void btnGetPaperFromDB_MouseEnter(object sender, EventArgs e)
@@ -209,6 +218,22 @@ namespace OESMonitor
                     paperListDataTable.Rows.RemoveAt(i);
                 }
             }
+            updateExamPaperList();//当移除部分试卷后，更新当前考试的试卷列表
+        }
+
+        void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                radioButton3.Text = radioButton3.Text.Split('-')[0] + '-' + paperListDataTable.Rows[e.RowIndex][1];
+                radioButton3.Checked = true;
+                foreach (DataRow dr in paperListDataTable.Rows)
+                {
+                    dr[0] = false;
+                }
+                paperListDataTable.Rows[e.RowIndex][0] = true;
+                updateExamPaperList();//当点击勾选时，更新当前考试的试卷列表
+            }
         }
 
         private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -217,8 +242,19 @@ namespace OESMonitor
             if (RIndex > -1)
             {
                 paperListDataTable.Rows[RIndex][0] = !Convert.ToBoolean(paperListDataTable.Rows[RIndex][0]);
+                updateExamPaperList();//当点击勾选时，更新当前考试的试卷列表
             }
-
+        }
+        /// <summary>
+        /// 更新当前考试的试卷列表
+        /// </summary>
+        private void updateExamPaperList()
+        {
+            foreach (DataRow dr in paperListDataTable.Rows)
+            {
+                if (Convert.ToBoolean(dr[0]))
+                    examPaperIdList.Add(Convert.ToInt32(dr[1].ToString()));
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -316,7 +352,32 @@ namespace OESMonitor
         private void OESMonitor_Load(object sender, EventArgs e)
         {
             cl.Show();
-           
+
+            if (!Directory.Exists(PaperControl.PathConfig["StuAns"]))
+            {
+                try
+                {
+                    Directory.CreateDirectory(PaperControl.PathConfig["StuAns"]);
+                }
+                catch
+                {
+                    MessageBox.Show("无法建立考生答案文件夹");
+                    return;
+                }
+            }
+            if (!Directory.Exists(PaperControl.PathConfig["TmpPaper"]))
+            {
+                try
+                {
+                    Directory.CreateDirectory(PaperControl.PathConfig["TmpPaper"]);
+                }
+                catch
+                {
+                    MessageBox.Show("无法建立临时考卷文件夹");
+                    return;
+                }
+            }
+
             ServerEvt.Server.AcceptedClient += new EventHandler(Server_AcceptedClient);
             ServerEvt.Server.FileReceiveEnd += new DataPortEventHandler(Server_FileReceiveEnd);
             ServerEvt.Server.FileSendEnd += new DataPortEventHandler(Server_FileSendEnd);
@@ -357,7 +418,20 @@ namespace OESMonitor
             {
                 if (c.Client == client)
                 {
-                    client.Port.FilePath = PaperControl.PathConfig["TmpPaper"] + "51.rar";
+                    switch(paperDeliverMode)
+                    {
+                        case 0://顺序发试卷
+                            client.Port.FilePath = PaperControl.PathConfig["TmpPaper"] + examPaperIdList[currentDeliverId].ToString() + ".rar";
+                            currentDeliverId = (currentDeliverId + 1) % examPaperIdList.Count;
+                            break;
+                        case 1://随机抽取试卷
+
+                            client.Port.FilePath = PaperControl.PathConfig["TmpPaper"] + examPaperIdList[random.Next(examPaperIdList.Count)].ToString() + ".rar";
+                            break;
+                        case 2://单一试卷
+                            client.Port.FilePath = PaperControl.PathConfig["TmpPaper"] + examPaperIdList[0].ToString() + ".rar";
+                            break;
+                    }
                 }
             }
         }

@@ -96,8 +96,6 @@ namespace OES.UPanel
         public PaperListPanel()
         {
             InitializeComponent();
-            InitList();
-            changeFindType(findtype);               //一开始是按年份查询
         }
 
         public void ReLoad()
@@ -220,6 +218,12 @@ namespace OES.UPanel
             PaperListDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
             PaperListDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;            
 
+        }
+
+        private void PaperListPanel_Load(object sender, EventArgs e)
+        {
+            InitList();
+            changeFindType(findtype);               //一开始是按年份查询
         }
     }
 }
