@@ -10,8 +10,8 @@ namespace OES
     class Config
     {
         public static OESConfig config = new OESConfig("PathConfig.xml", new string[,]{
-            {"StuPath","C:/Exam/Student"},
-            {"PaperPath","C:/Exam/Paper"}
+            {"StuPath",@"C:\Exam\Student\"},
+            {"PaperPath",@"C:\Exam\Paper\"}
         });
         public static string stuPath;//单个学生路径
         public static string StuPath;//学生文件夹路径
