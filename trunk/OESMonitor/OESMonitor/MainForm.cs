@@ -18,20 +18,20 @@ namespace OESMonitor
     {
         CommandLine cl = new CommandLine();
         List<IPAddress> alternativeIp = new List<IPAddress>();
-        int paperDeliverMode = 0;
+        public static int paperDeliverMode = 0;
         /// <summary>
         /// 若当前为顺序发试卷，表示已经发卷的Id，是循环变化的
         /// </summary>
-        int currentDeliverId = 0;
+        public static int currentDeliverId = 0;
         /// <summary>
         /// 若当前为随机发试卷，用于产生随机数
         /// </summary>
-        Random random = new Random(DateTime.Now.Millisecond);
+        public static Random random = new Random(DateTime.Now.Millisecond);
         bool isStartExam = false;
         /// <summary>
         /// 当前考试的试卷列表
         /// </summary>
-        List<int> examPaperIdList = new List<int>();
+        public static List<int> examPaperIdList = new List<int>();
 
 
         public bool IsStartExam
@@ -83,6 +83,7 @@ namespace OESMonitor
             PaperListDGV.CellClick+=new DataGridViewCellEventHandler(PaperListDGV_CellClick);
             PaperListDGV.CellDoubleClick += new DataGridViewCellEventHandler(PaperListDGV_CellDoubleClick);
             PaperListDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            PaperListDGV.CellValueChanged += new DataGridViewCellEventHandler(PaperListDGV_CellValueChanged);
             btnRemove.MouseEnter += new EventHandler(btnRemove_MouseEnter);
             btnRemove.MouseLeave += new EventHandler(radioButton1_MouseLeave);
             btnRemove.Click+=new EventHandler(btnRemove_Click);
@@ -91,6 +92,8 @@ namespace OESMonitor
             downloadButton.MouseEnter += new EventHandler(downloadButton_MouseEnter);
             downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
         }
+
+        
         
         
 
@@ -245,11 +248,18 @@ namespace OESMonitor
                 updateExamPaperList();//当点击勾选时，更新当前考试的试卷列表
             }
         }
+
+        void PaperListDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            updateExamPaperList();
+        }
+
         /// <summary>
         /// 更新当前考试的试卷列表
         /// </summary>
         private void updateExamPaperList()
         {
+            examPaperIdList.Clear();
             foreach (DataRow dr in paperListDataTable.Rows)
             {
                 if (Convert.ToBoolean(dr[0]))
@@ -418,20 +428,7 @@ namespace OESMonitor
             {
                 if (c.Client == client)
                 {
-                    switch(paperDeliverMode)
-                    {
-                        case 0://顺序发试卷
-                            client.Port.FilePath = PaperControl.PathConfig["TmpPaper"] + examPaperIdList[currentDeliverId].ToString() + ".rar";
-                            currentDeliverId = (currentDeliverId + 1) % examPaperIdList.Count;
-                            break;
-                        case 1://随机抽取试卷
-
-                            client.Port.FilePath = PaperControl.PathConfig["TmpPaper"] + examPaperIdList[random.Next(examPaperIdList.Count)].ToString() + ".rar";
-                            break;
-                        case 2://单一试卷
-                            client.Port.FilePath = PaperControl.PathConfig["TmpPaper"] + examPaperIdList[0].ToString() + ".rar";
-                            break;
-                    }
+                    client.Port.FilePath = c.ExamPaper;
                 }
             }
         }

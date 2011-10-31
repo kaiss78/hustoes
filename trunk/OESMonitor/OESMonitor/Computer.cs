@@ -189,10 +189,9 @@ namespace OESMonitor
                 switch (msgs[1])
                 {
                     case "0":
-                        string paperName="";
-                        if (client_LoginValidating(msgs[2], msgs[3], msgs[4], out paperName))
+                        if (client_LoginValidating(msgs[2], msgs[3], msgs[4]))
                         {
-                            client.SendTxt("oes$1$1$" + paperName);
+                            client.SendTxt("oes$1$1$" + new FileInfo(ExamPaper).Name);
                             client_LoginSuccess();
                         }
                         else
@@ -243,16 +242,38 @@ namespace OESMonitor
             this.State = 2;
         }
 
-        bool client_LoginValidating(string name, string id, string pwd,out string paper)
+        bool client_LoginValidating(string name, string id, string pwd)
         {
             this.Student = new Student(name, "", id, pwd);
             if (PaperControl.OesData.ValidateStudentInfo(id, name, pwd))
             {
-                paper = "51.rar";
+                ExamPaper = getCurrentPaper();
+                if (ExamPaper == "") return false;
                 return true;
             }
-            paper = "";
+            ExamPaper = "";
             return false;
+        }
+
+        string getCurrentPaper()
+        {
+            string temp = "";
+            if (OESMonitor.examPaperIdList.Count == 0) return temp;
+            switch (OESMonitor.paperDeliverMode)
+            {
+                case 0://顺序发试卷
+                    temp= PaperControl.PathConfig["TmpPaper"] + OESMonitor.examPaperIdList[OESMonitor.currentDeliverId].ToString() + ".rar";
+                    OESMonitor.currentDeliverId = (OESMonitor.currentDeliverId + 1) % OESMonitor.examPaperIdList.Count;
+                    break;
+                case 1://随机抽取试卷
+
+                    temp= PaperControl.PathConfig["TmpPaper"] + OESMonitor.examPaperIdList[OESMonitor.random.Next(OESMonitor.examPaperIdList.Count)].ToString() + ".rar";
+                    break;
+                case 2://单一试卷
+                    temp = PaperControl.PathConfig["TmpPaper"] + OESMonitor.examPaperIdList[0].ToString() + ".rar";
+                    break;
+            }
+            return temp;
         }
 
         void client_TestStarted(int reason)
@@ -286,6 +307,19 @@ namespace OESMonitor
             }
         }
         #endregion
+
+        private string examPaper = "";
+        public string ExamPaper
+        {
+            get
+            {
+                return examPaper;
+            }
+            set
+            {
+                examPaper = value;
+            }
+        }
 
         private Student student = new Student("", "", "", "");
 
