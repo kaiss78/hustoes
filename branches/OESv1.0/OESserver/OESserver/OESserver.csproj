@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E4EFF3E5-EB11-47EE-AB20-B7AC00AE82FB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OES</RootNamespace>
+    <AssemblyName>OESserver</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\OESNet\OESNet\bin\x86\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TeamSystem.Data.UnitTesting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="OESConfig, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\OESNet\OESNet\bin\x86\Debug\OESConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="OESData, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\OESData\OESData\bin\x86\Debug\OESData.dll</HintPath>
+    </Reference>
+    <Reference Include="OESModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\OESModel\OESModel\bin\x86\Debug\OESModel.dll</HintPath>
+    </Reference>
+    <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\OESNet\OESNet\bin\x86\Debug\OESNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XPPanel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1a4c9eadd4711d4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CSVHelper\CSVImporter.cs" />
+    <Compile Include="InfoControl.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Net\ClientEvt.cs" />
+    <Compile Include="PanelControl.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\AddbyBatch.resx">
+      <DependentUpon>AddbyBatch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ChptList.resx">
+      <DependentUpon>ChptList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ClassAdd.resx">
+      <DependentUpon>ClassAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ClassEdit.resx">
+      <DependentUpon>ClassEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ClassFind.resx">
+      <DependentUpon>ClassFind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\PointEdit.resx">
+      <DependentUpon>PointEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\PointEditPpt.resx">
+      <DependentUpon>PointEditPpt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\PointEditWord.resx">
+      <DependentUpon>PointEditWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ProPreview.resx">
+      <DependentUpon>ProPreview.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ProblemItem.resx">
+      <DependentUpon>ProblemItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ProList.resx">
+      <DependentUpon>ProList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ChoiceEdit.resx">
+      <DependentUpon>ChoiceEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CompletionEdit.resx">
+      <DependentUpon>CompletionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\JudgeEdit.resx">
+      <DependentUpon>JudgeEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\OfficeWordEdit.resx">
+      <DependentUpon>OfficeWordEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\OfficePowerpointEdit.resx">
+      <DependentUpon>OfficePowerpointEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\OfficeExcelEdit.resx">
+      <DependentUpon>OfficeExcelEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CCompletionEdit.resx">
+      <DependentUpon>CCompletionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CppCompletionEdit.resx">
+      <DependentUpon>CppCompletionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CModifEdit.resx">
+      <DependentUpon>CModifEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CppModifEdit.resx">
+      <DependentUpon>CppModifEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CFuctionEdit.resx">
+      <DependentUpon>CFuctionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\CppFuctionEdit.resx">
+      <DependentUpon>CppFuctionEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\StudentAdd.resx">
+      <DependentUpon>StudentAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\StudentEdit.resx">
+      <DependentUpon>StudentEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\StudentFind.resx">
+      <DependentUpon>StudentFind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\TeacherAdd.resx">
+      <DependentUpon>TeacherAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ChptListCho.resx">
+      <DependentUpon>ChptListCho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\ProListCho.resx">
+      <DependentUpon>ProListCho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\testExcel.resx">
+      <DependentUpon>testExcel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\AddChapter.resx">
+      <DependentUpon>AddChapter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\testPowerpoint.resx">
+      <DependentUpon>testPowerpoint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControl\testWord.resx">
+      <DependentUpon>testWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ClassManage.resx">
+      <DependentUpon>ClassManage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\PaperEditPanel.resx">
+      <DependentUpon>PaperEditPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\PaperListPanel.resx">
+      <DependentUpon>PaperListPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\PaperInfo.resx">
+      <DependentUpon>PaperInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ProMan.resx">
+      <DependentUpon>ProMan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ProManCho.resx">
+      <DependentUpon>ProManCho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ScoreManage.resx">
+      <DependentUpon>ScoreManage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\StudentManage.resx">
+      <DependentUpon>StudentManage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\TeacherManage.resx">
+      <DependentUpon>TeacherManage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UControl\AddbyBatch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\AddbyBatch.Designer.cs">
+      <DependentUpon>AddbyBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ChptList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ChptList.Designer.cs">
+      <DependentUpon>ChptList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ClassAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ClassAdd.Designer.cs">
+      <DependentUpon>ClassAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ClassEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ClassEdit.Designer.cs">
+      <DependentUpon>ClassEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ClassFind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ClassFind.Designer.cs">
+      <DependentUpon>ClassFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\PointEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\PointEdit.Designer.cs">
+      <DependentUpon>PointEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\PointEditPpt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\PointEditPpt.Designer.cs">
+      <DependentUpon>PointEditPpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\PointEditWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\PointEditWord.Designer.cs">
+      <DependentUpon>PointEditWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ProPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ProPreview.Designer.cs">
+      <DependentUpon>ProPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ProblemItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ProblemItem.Designer.cs">
+      <DependentUpon>ProblemItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ProList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ProList.Designer.cs">
+      <DependentUpon>ProList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ChoiceEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ChoiceEdit.Designer.cs">
+      <DependentUpon>ChoiceEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CompletionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CompletionEdit.Designer.cs">
+      <DependentUpon>CompletionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\JudgeEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\JudgeEdit.Designer.cs">
+      <DependentUpon>JudgeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\OfficeWordEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\OfficeWordEdit.Designer.cs">
+      <DependentUpon>OfficeWordEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\OfficePowerpointEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\OfficePowerpointEdit.Designer.cs">
+      <DependentUpon>OfficePowerpointEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\OfficeExcelEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\OfficeExcelEdit.Designer.cs">
+      <DependentUpon>OfficeExcelEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CCompletionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CCompletionEdit.Designer.cs">
+      <DependentUpon>CCompletionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CppCompletionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CppCompletionEdit.Designer.cs">
+      <DependentUpon>CppCompletionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CModifEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CModifEdit.Designer.cs">
+      <DependentUpon>CModifEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CppModifEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CppModifEdit.Designer.cs">
+      <DependentUpon>CppModifEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CFuctionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CFuctionEdit.Designer.cs">
+      <DependentUpon>CFuctionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\CppFuctionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\CppFuctionEdit.Designer.cs">
+      <DependentUpon>CppFuctionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\StudentAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\StudentAdd.Designer.cs">
+      <DependentUpon>StudentAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\StudentEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\StudentEdit.Designer.cs">
+      <DependentUpon>StudentEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\StudentFind.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\StudentFind.Designer.cs">
+      <DependentUpon>StudentFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\TeacherAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\TeacherAdd.Designer.cs">
+      <DependentUpon>TeacherAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ChptListCho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ChptListCho.Designer.cs">
+      <DependentUpon>ChptListCho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\ProListCho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\ProListCho.Designer.cs">
+      <DependentUpon>ProListCho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\testExcel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\testExcel.designer.cs">
+      <DependentUpon>testExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\AddChapter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\AddChapter.Designer.cs">
+      <DependentUpon>AddChapter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\testPowerpoint.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\testPowerpoint.designer.cs">
+      <DependentUpon>testPowerpoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControl\testWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControl\testWord.designer.cs">
+      <DependentUpon>testWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\ClassManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ClassManage.Designer.cs">
+      <DependentUpon>ClassManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\PaperEditPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\PaperEditPanel.Designer.cs">
+      <DependentUpon>PaperEditPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\PaperListPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\PaperListPanel.Designer.cs">
+      <DependentUpon>PaperListPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\PaperInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\PaperInfo.Designer.cs">
+      <DependentUpon>PaperInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\ProMan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ProMan.Designer.cs">
+      <DependentUpon>ProMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\ProManCho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ProManCho.Designer.cs">
+      <DependentUpon>ProManCho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\ScoreManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ScoreManage.Designer.cs">
+      <DependentUpon>ScoreManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\StudentManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\StudentManage.Designer.cs">
+      <DependentUpon>StudentManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\TeacherManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\TeacherManage.Designer.cs">
+      <DependentUpon>TeacherManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\UserPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\UserPanel.Designer.cs">
+      <DependentUpon>UserPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XMLFile\OfficeXML.cs" />
+    <Compile Include="XMLFile\XMLAssistant.cs" />
+    <Compile Include="XMLFile\XMLControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cpt_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnbg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\last.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnbgmaobi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnmaobi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnbgmaobi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chptbtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnmaobi.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
