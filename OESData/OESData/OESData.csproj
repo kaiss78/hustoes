@@ -59,6 +59,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\OESConfig\OESConfig\bin\x86\Debug\OESConfig.dll</HintPath>
     </Reference>
+    <Reference Include="OESModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OESModel\OESModel\bin\x86\Debug\OESModel.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -73,23 +77,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Choice.cs" />
-    <Compile Include="Model\Classes.cs" />
-    <Compile Include="Model\Completion.cs" />
-    <Compile Include="Model\Judge.cs" />
-    <Compile Include="Model\Office.cs" />
-    <Compile Include="Model\OfficeExcel.cs" />
-    <Compile Include="Model\OfficePowerPoint.cs" />
-    <Compile Include="Model\OfficeWord.cs" />
-    <Compile Include="Model\Paper.cs" />
-    <Compile Include="Model\PCompletion.cs" />
-    <Compile Include="Model\PFunction.cs" />
-    <Compile Include="Model\PModif.cs" />
-    <Compile Include="Model\Problem.cs" />
-    <Compile Include="Model\Score.cs" />
-    <Compile Include="Model\Student.cs" />
-    <Compile Include="Model\Teacher.cs" />
-    <Compile Include="Model\Unit.cs" />
     <Compile Include="OESData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
