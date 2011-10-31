@@ -191,6 +191,11 @@
             this.Progress,
             this.Count});
             this.dgvPaperList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPaperList.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
+            this.dgvPaperList.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
+            this.dgvPaperList.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.dgvPaperList.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.dgvPaperList.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.dgvPaperList.Location = new System.Drawing.Point(8, 28);
             this.dgvPaperList.MultiSelect = false;
             this.dgvPaperList.Name = "dgvPaperList";
@@ -213,6 +218,7 @@
             this.PaperID.Name = "PaperID";
             this.PaperID.ReadOnly = true;
             this.PaperID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PaperID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // PaperName
             // 
@@ -222,6 +228,7 @@
             this.PaperName.HeaderText = "试卷名称";
             this.PaperName.Name = "PaperName";
             this.PaperName.ReadOnly = true;
+            this.PaperName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Progress
             // 
@@ -232,6 +239,7 @@
             this.Progress.Name = "Progress";
             this.Progress.ReadOnly = true;
             this.Progress.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Progress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Count
             // 
@@ -241,6 +249,7 @@
             this.Count.HeaderText = "试卷数量";
             this.Count.Name = "Count";
             this.Count.ReadOnly = true;
+            this.Count.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // OESScore
             // 

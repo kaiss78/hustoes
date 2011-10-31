@@ -20,7 +20,7 @@ namespace OESScore
         {
             InitializeComponent();
             tsslPath.Text = ScoreControl.config["PaperPath"];
-            InitList();
+            LoadPaperList();
         }
 
         public List<DirectoryInfo> GetPaper(string path)
@@ -29,32 +29,22 @@ namespace OESScore
             return new DirectoryInfo(path).GetDirectories().ToList<DirectoryInfo>();
         }
 
-        public void InitList()
+        public void AddToDGV(string ID,string Name,string Progress,int count)
         {
 
             object[] values = new object[4];
-            values[0] = "fafd";
-            values[1] = "11";
-            values[2] = false;
-            values[3] = "11";
-            dgvPaperList.Rows.Add(values);
-            dgvPaperList.Rows.Add(values);
+            values[0] = ID;
+            values[1] = Name;
+            values[2] = Progress;
+            values[3] = count;
             dgvPaperList.Rows.Add(values);
         }
-        private void btnBack_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btnSelectPath_Click(object sender, EventArgs e)
+        public void LoadPaperList()
         {
-            string path;
             List<DirectoryInfo> paperList;
             List<Paper> tmpP;
             PaperFolder tmpPF;
-            fbdPaperPath.ShowDialog();
-            ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath;
-            tsslPath.Text = ScoreControl.config["PaperPath"];
             paperList = GetPaper(ScoreControl.config["PaperPath"]);
 
             foreach (DirectoryInfo paper in paperList)
@@ -65,8 +55,24 @@ namespace OESScore
                 {
                     tmpPF.paperInfo = tmpP[0];
                     papers.Add(tmpPF);
+                    AddToDGV(tmpPF.paperInfo.paperID, tmpPF.paperInfo.paperName, "0%", 10);
                 }
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelectPath_Click(object sender, EventArgs e)
+        {
+            string path;
+
+            fbdPaperPath.ShowDialog();
+            ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath;
+            tsslPath.Text = ScoreControl.config["PaperPath"];
+            LoadPaperList();
         }
     }
 }
