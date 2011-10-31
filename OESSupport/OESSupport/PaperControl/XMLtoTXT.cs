@@ -107,7 +107,7 @@ namespace OESSupport.PaperControl
                     sw.Close();
                 }
             }
-            RARHelper.CompressRAR(paperpath, paperid, Program.config["PaperPkg"], "123456");
+            RARHelper.CompressRAR(paperpath, paperid, Program.config["Root"]+Program.config["PaperPkg"], "123456");
 
         }
     }
