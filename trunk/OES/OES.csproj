@@ -79,9 +79,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\OESNet\OESNet\bin\Debug\OESConfig.dll</HintPath>
     </Reference>
-    <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESNet\OESNet\bin\Debug\OESNet.dll</HintPath>
+      <HintPath>..\..\OESNet\OESNet\bin\x86\Debug\OESNet.dll</HintPath>
     </Reference>
     <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />

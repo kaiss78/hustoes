@@ -166,6 +166,7 @@ namespace OES
 
         private void Exit_Click(object sender, EventArgs e)
         {
+            Directory.Delete(Config.paperPath, true);
             ClientControl.LoginForm.Show();
             ClientEvt.logout();
             this.Dispose();
