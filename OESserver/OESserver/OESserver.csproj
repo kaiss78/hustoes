@@ -81,6 +81,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\OESNet\OESNet\bin\x86\Debug\OESNet.dll</HintPath>
     </Reference>
+    <Reference Include="OESXML, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\OESXML\OESXML\bin\x86\Debug\OESXML.dll</HintPath>
+    </Reference>
     <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -572,8 +576,6 @@
       <DependentUpon>UserPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="XMLFile\OfficeXML.cs" />
-    <Compile Include="XMLFile\XMLAssistant.cs" />
-    <Compile Include="XMLFile\XMLControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cpt_btn.png" />
