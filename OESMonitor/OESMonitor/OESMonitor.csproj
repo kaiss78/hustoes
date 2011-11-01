@@ -69,6 +69,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\OESData\OESData\bin\x86\Debug\OESData.dll</HintPath>
     </Reference>
+    <Reference Include="OESModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OESData\OESData\bin\x86\Debug\OESModel.dll</HintPath>
+    </Reference>
     <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\OESNet\OESNet\bin\x86\Debug\OESNet.dll</HintPath>
@@ -194,8 +198,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Net\ClientEvt.cs" />
-    <Compile Include="XMLFile\XMLAssistant.cs" />
-    <Compile Include="XMLFile\XMLControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\20091225234526924.png" />
