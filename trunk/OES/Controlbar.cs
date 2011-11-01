@@ -41,17 +41,17 @@ namespace OES
             if (!ClientControl.isResume)
             {
                 //初始化日志文件
-                XMLControl.CreateLogXML();
-                XMLControl.WriteLogXML(ProblemType.Start, 0, "");
+                XMLControl.CreateLogXML(Config.stuPath);
+                XMLControl.WriteLogXML(Config.stuPath,ProblemType.Start, 0, "");
                 timer1.Start();
             }
             else
             {
                 try
                 {
-                    XMLControl.LoadLogXML();
+                    XMLControl.LoadLogXML(Config.stuPath);
                     ClientControl.paper.Resume();
-                    XMLControl.WriteLogXML(ProblemType.Start, 0, "");
+                    XMLControl.WriteLogXML(Config.stuPath,ProblemType.Start, 0, "");
                     SetTiem(Seconds);
                     //恢复考试，考试时间恢复！！！！！
                     timer1.Start();
@@ -103,7 +103,7 @@ namespace OES
             { seconds--; }
             else
             {
-                XMLControl.WriteLogXML(ProblemType.Blank, 0,"");
+                XMLControl.WriteLogXML(Config.stuPath,ProblemType.Blank, 0, "");
                 seconds = 59;
                 minute--;
             }
@@ -143,7 +143,7 @@ namespace OES
             //this.Dispose();
             
             //生成考生答案xml
-            XMLControl.CreateStudentAnsXML();
+            XMLControl.CreateStudentAnsXML(Config.stuPath, ClientControl.student.ID);
             foreach(Problem p in ClientControl.paper.problemList)
             {
                 XMLControl.studentAnsXML.AddPaperAns(p.type,new Pid_Ans(p.problemId,p.getAns()));
