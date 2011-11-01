@@ -1,6 +1,6 @@
 ﻿namespace OESScore
 {
-    partial class OESScore
+    partial class formOESScore
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ss = new System.Windows.Forms.StatusStrip();
             this.tssla = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslPath = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBack = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSelectPath = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnScore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.fbdPaperPath = new System.Windows.Forms.FolderBrowserDialog();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Progress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaperID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPaperList = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.plDGV = new System.Windows.Forms.Panel();
+            this.dgvPaperTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.PaperID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Progress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fbdPaperPath = new System.Windows.Forms.FolderBrowserDialog();
             this.ss.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPaperList)).BeginInit();
             this.plDGV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPaperTable)).BeginInit();
             this.SuspendLayout();
             // 
             // ss
@@ -88,7 +87,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.Controls.Add(this.btnBack, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
@@ -97,27 +95,13 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(749, 399);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBack.Location = new System.Drawing.Point(619, 364);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(120, 30);
-            this.btnBack.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnBack.StateCommon.Border.Rounding = 15;
-            this.btnBack.TabIndex = 4;
-            this.btnBack.Values.Text = "返回";
             // 
             // flowLayoutPanel2
             // 
@@ -127,7 +111,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(619, 25);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(125, 334);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(125, 369);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnSelectPath
@@ -179,41 +163,52 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1, 1);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
-            // Count
+            // plDGV
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Count.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Count.FillWeight = 20F;
-            this.Count.HeaderText = "试卷数量";
-            this.Count.Name = "Count";
-            this.Count.ReadOnly = true;
-            this.Count.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.plDGV.Controls.Add(this.dgvPaperTable);
+            this.plDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plDGV.Location = new System.Drawing.Point(5, 25);
+            this.plDGV.Margin = new System.Windows.Forms.Padding(0);
+            this.plDGV.Name = "plDGV";
+            this.plDGV.Size = new System.Drawing.Size(614, 369);
+            this.plDGV.TabIndex = 6;
             // 
-            // Progress
+            // dgvPaperTable
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Progress.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Progress.FillWeight = 20F;
-            this.Progress.HeaderText = "进度";
-            this.Progress.Name = "Progress";
-            this.Progress.ReadOnly = true;
-            this.Progress.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Progress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // PaperName
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperName.DefaultCellStyle = dataGridViewCellStyle9;
-            this.PaperName.FillWeight = 50F;
-            this.PaperName.HeaderText = "试卷名称";
-            this.PaperName.Name = "PaperName";
-            this.PaperName.ReadOnly = true;
-            this.PaperName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvPaperTable.AllowUserToAddRows = false;
+            this.dgvPaperTable.AllowUserToResizeColumns = false;
+            this.dgvPaperTable.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPaperTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPaperTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPaperTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PaperID,
+            this.PaperName,
+            this.Progress,
+            this.Count});
+            this.dgvPaperTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPaperTable.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
+            this.dgvPaperTable.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
+            this.dgvPaperTable.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.dgvPaperTable.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.dgvPaperTable.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
+            this.dgvPaperTable.Location = new System.Drawing.Point(0, 0);
+            this.dgvPaperTable.MultiSelect = false;
+            this.dgvPaperTable.Name = "dgvPaperTable";
+            this.dgvPaperTable.ReadOnly = true;
+            this.dgvPaperTable.RowHeadersVisible = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPaperTable.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvPaperTable.RowTemplate.Height = 23;
+            this.dgvPaperTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPaperTable.Size = new System.Drawing.Size(614, 369);
+            this.dgvPaperTable.TabIndex = 5;
+            this.dgvPaperTable.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPaperTable_CellMouseDoubleClick);
             // 
             // PaperID
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperID.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperID.DefaultCellStyle = dataGridViewCellStyle2;
             this.PaperID.FillWeight = 10F;
             this.PaperID.HeaderText = "试卷ID";
             this.PaperID.Name = "PaperID";
@@ -221,56 +216,45 @@
             this.PaperID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.PaperID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // dgvPaperList
+            // PaperName
             // 
-            this.dgvPaperList.AllowUserToAddRows = false;
-            this.dgvPaperList.AllowUserToResizeColumns = false;
-            this.dgvPaperList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPaperList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvPaperList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPaperList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PaperID,
-            this.PaperName,
-            this.Progress,
-            this.Count});
-            this.dgvPaperList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPaperList.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
-            this.dgvPaperList.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
-            this.dgvPaperList.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.dgvPaperList.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.dgvPaperList.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.dgvPaperList.Location = new System.Drawing.Point(0, 0);
-            this.dgvPaperList.MultiSelect = false;
-            this.dgvPaperList.Name = "dgvPaperList";
-            this.dgvPaperList.ReadOnly = true;
-            this.dgvPaperList.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPaperList.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvPaperList.RowTemplate.Height = 23;
-            this.dgvPaperList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPaperList.Size = new System.Drawing.Size(614, 369);
-            this.dgvPaperList.TabIndex = 5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PaperName.FillWeight = 50F;
+            this.PaperName.HeaderText = "试卷名称";
+            this.PaperName.Name = "PaperName";
+            this.PaperName.ReadOnly = true;
+            this.PaperName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // plDGV
+            // Progress
             // 
-            this.plDGV.Controls.Add(this.dgvPaperList);
-            this.plDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plDGV.Location = new System.Drawing.Point(5, 25);
-            this.plDGV.Margin = new System.Windows.Forms.Padding(0);
-            this.plDGV.Name = "plDGV";
-            this.tableLayoutPanel1.SetRowSpan(this.plDGV, 2);
-            this.plDGV.Size = new System.Drawing.Size(614, 369);
-            this.plDGV.TabIndex = 6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Progress.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Progress.FillWeight = 20F;
+            this.Progress.HeaderText = "进度";
+            this.Progress.Name = "Progress";
+            this.Progress.ReadOnly = true;
+            this.Progress.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Progress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // OESScore
+            // Count
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Count.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Count.FillWeight = 20F;
+            this.Count.HeaderText = "试卷数量";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            this.Count.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // formOESScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 421);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.ss);
-            this.Name = "OESScore";
+            this.Name = "formOESScore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "试卷评分";
             this.ss.ResumeLayout(false);
@@ -278,8 +262,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPaperList)).EndInit();
             this.plDGV.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPaperTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,10 +280,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSelectPath;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnScore;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBack;
         private System.Windows.Forms.FolderBrowserDialog fbdPaperPath;
         private System.Windows.Forms.Panel plDGV;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvPaperList;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvPaperTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaperID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaperName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Progress;

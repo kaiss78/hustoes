@@ -15,7 +15,7 @@ namespace OESScore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OESScore());
+            Application.Run(new formOESScore());
         }
     }
 }
