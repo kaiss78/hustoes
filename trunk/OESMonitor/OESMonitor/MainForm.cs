@@ -84,6 +84,7 @@ namespace OESMonitor
             PaperListDGV.CellDoubleClick += new DataGridViewCellEventHandler(PaperListDGV_CellDoubleClick);
             PaperListDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PaperListDGV.CellValueChanged += new DataGridViewCellEventHandler(PaperListDGV_CellValueChanged);
+            PaperListDGV.RowsAdded += new DataGridViewRowsAddedEventHandler(PaperListDGV_RowsAdded);
             btnRemove.MouseEnter += new EventHandler(btnRemove_MouseEnter);
             btnRemove.MouseLeave += new EventHandler(radioButton1_MouseLeave);
             btnRemove.Click+=new EventHandler(btnRemove_Click);
@@ -92,6 +93,8 @@ namespace OESMonitor
             downloadButton.MouseEnter += new EventHandler(downloadButton_MouseEnter);
             downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
         }
+
+        
 
         
         
@@ -155,6 +158,7 @@ namespace OESMonitor
         #region 添加一个电脑
         public void AddComputer(Client client)
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new MethodInvoker(() =>
             {
                 Computer com = new Computer();
@@ -254,6 +258,10 @@ namespace OESMonitor
             updateExamPaperList();
         }
 
+        void PaperListDGV_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            updateExamPaperList();
+        }
         /// <summary>
         /// 更新当前考试的试卷列表
         /// </summary>
@@ -324,6 +332,7 @@ namespace OESMonitor
 
         void Client_FileListRecieveEnd()
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new Action(() =>
             {
                 this.Enabled = true;
@@ -334,6 +343,7 @@ namespace OESMonitor
 
         void Client_FileListRecieveStart()
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new Action(() =>
             {
                 this.Enabled = false;
@@ -343,6 +353,7 @@ namespace OESMonitor
 
         void Port_RecieveFileRate(double rate)
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new Action(() =>
             {
                 FileListWaiting.Instance.setProcessBar((int)rate * 1000);
@@ -351,6 +362,7 @@ namespace OESMonitor
 
         void Client_FileListCount(int count)
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new Action(() =>
             {
                 FileListWaiting.Instance.setText(count);

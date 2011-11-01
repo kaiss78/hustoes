@@ -34,6 +34,7 @@ namespace OESMonitor
         }
         public void setIpPort(string ip, int port)
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new MethodInvoker(() =>
             {
                 IpLab.Text = ip;
@@ -42,6 +43,7 @@ namespace OESMonitor
         }
         public void setStudent(Student s)
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new MethodInvoker(() =>
             {
                 IdLab.Text = s.ID;
@@ -50,6 +52,7 @@ namespace OESMonitor
         }
         public void setState(string state)
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new MethodInvoker(() =>
             {
                 StateLab.Text = state;
