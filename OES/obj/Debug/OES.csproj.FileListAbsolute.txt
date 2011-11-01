@@ -37,3 +37,7 @@ C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\OES\
 C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\OES\obj\Debug\OES.UControl.CustomProgramInfo.resources
 C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\OES\obj\Debug\OES.UControl.CustomWord.resources
 C:\Documents and Settings\Solaryan\My Documents\Visual Studio 2008\Projects\OES\obj\Debug\OES.UControl.ProblemsList.resources
+C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\OES\bin\Debug\OES.exe.config
+C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.csproj.ResolveComReference.cache
+C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.exe
+C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.pdb
