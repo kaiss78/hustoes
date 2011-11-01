@@ -48,6 +48,7 @@ namespace OES
 
         void ClientEvt_LoginReturn(object sender, EventArgs e)
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new MethodInvoker(() =>
                         {
                             if (sender != null)

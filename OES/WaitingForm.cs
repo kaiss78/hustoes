@@ -26,6 +26,7 @@ namespace OES
 
         void Port_FileSendEnd(object sender, EventArgs e)
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new MethodInvoker(() =>
             {
                 ClientControl.WaitingForm = null;
