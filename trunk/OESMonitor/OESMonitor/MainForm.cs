@@ -11,6 +11,7 @@ using System.Net;
 using System.IO;
 using ServerNet;
 using ClientNet;
+using OES;
 
 namespace OESMonitor
 {
@@ -458,13 +459,27 @@ namespace OESMonitor
             }
         }
 
+        /// <summary>
+        /// 当考生答案文件收完后触发
+        /// </summary>
+        /// <param name="dataPort"></param>
         void Server_FileReceiveEnd(ServerNet.DataPort dataPort)
         {
             for (int i = Computer.ComputerList.Count - 1; i >= 0;i-- )
             {
                 if (Computer.ComputerList[i].Client.Port == dataPort)
                 {
+                    //对考生文件解密
+                    if (RARHelper.Exists())
+                    {
+                        RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID+"\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
+                        File.WriteAllText(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\password.txt", Computer.ComputerList[i].Password);
+                    }
                     Computer.ComputerList[i].State = 4;
+                    if(File.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID+".rar"))
+                    {
+                        File.Delete(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar");
+                    }
                     Computer.CompleteList.Add(Computer.ComputerList[i]);
                     Computer.ComputerList.Remove(Computer.ComputerList[i]);
                     UpdateList();

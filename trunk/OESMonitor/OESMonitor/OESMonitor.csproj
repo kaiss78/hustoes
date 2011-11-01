@@ -198,6 +198,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Net\ClientEvt.cs" />
+    <Compile Include="Utility\RARHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\20091225234526924.png" />
