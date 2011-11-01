@@ -24,6 +24,10 @@ namespace OESScore
             InitTable();
         }
 
+
+        /// <summary>
+        /// 初始化表格
+        /// </summary>
         public void InitDT()
         {
             ScoreTable = new DataTable("ScoreTable");            
@@ -32,6 +36,9 @@ namespace OESScore
             ScoreTable.Columns.Add("成绩");            
         }
 
+        /// <summary>
+        /// 填充表格数据
+        /// </summary>
         public void InitTable()
         {
             List<DirectoryInfo> anslist = ScoreControl.GetFolderInfo(folderpath);
@@ -39,8 +46,6 @@ namespace OESScore
             StuAns tmpSA;
             List<Student> tmpS;
             InitDT();
-
-
             foreach (DirectoryInfo ans in anslist)
             {                
                 tmpS = ScoreControl.OesData.FindStudentByStudentId(ans.Name);
@@ -57,15 +62,15 @@ namespace OESScore
             }
 
             dgvPaperTable.DataSource = ScoreTable;
-            //dgvPaperTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPaperTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            //dgvPaperTable.Columns[0].FillWeight =10;
-            //dgvPaperTable.Columns[1].FillWeight = 20;
-            //dgvPaperTable.Columns[2].FillWeight = 45;
+            dgvPaperTable.Columns[0].FillWeight =10;
+            dgvPaperTable.Columns[1].FillWeight = 20;
+            dgvPaperTable.Columns[2].FillWeight = 45;
 
-            //dgvPaperTable.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvPaperTable.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dgvPaperTable.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvPaperTable.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvPaperTable.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvPaperTable.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
 
         }
     }
