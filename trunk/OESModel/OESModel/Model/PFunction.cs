@@ -9,9 +9,10 @@ namespace OES.Model
     {
         public string path, inp1, inp2, inp3, outp1, outp2, outp3,correctC;
         public bool kind;
+        public string stuAnsPath = "";
         public PFunction()
         {
-            type = "程序综合题";
+            type = ProblemType.ProgramFun;
         }
         public PFunction(string p)
         {
@@ -22,7 +23,11 @@ namespace OES.Model
             outp1 = "";
             outp2 = "";
             outp3 = "";
-            type = "程序综合题";
+            type = ProblemType.ProgramFun;
+        }
+        public override string getAns()
+        {
+            return stuAnsPath;
         }
     }
 }

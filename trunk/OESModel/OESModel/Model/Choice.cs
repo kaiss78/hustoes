@@ -19,7 +19,7 @@ namespace OES.Model
         
         public Choice()
         {
-            type = "选择题";
+            type = ProblemType.Choice;
         }
         public Choice(string p, string oa, string ob, string oc, string od)
         {
@@ -30,7 +30,11 @@ namespace OES.Model
             optionD = od;
             stuAns = "";
             ans = "";
-            type = "选择题";
+            type = ProblemType.Choice;
+        }
+        public override string getAns()
+        {
+            return stuAns;
         }
     }
 }

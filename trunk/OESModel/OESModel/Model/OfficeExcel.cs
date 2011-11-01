@@ -11,19 +11,23 @@ namespace OES.Model
         public string ansPath;
         public string stuAnsPath;        
         public OfficeExcel()
-        {            
-            type = "Excel操作题";
+        {
+            type = ProblemType.Excel;
         }
 
         public OfficeExcel(string p)
         {
             problem = p;
-            type = "Excel操作题";
+            type = ProblemType.Excel;
         }
 
         public OfficeExcel(string rawPath, string ansPath, string stuAnsPath):base(rawPath,ansPath,stuAnsPath)
-        { 
-           type = "Excel操作题";
+        {
+            type = ProblemType.Excel;
+        }
+        public override string getAns()
+        {
+            return stuAnsPath;
         }
     }
 }
