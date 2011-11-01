@@ -575,7 +575,6 @@
     <Compile Include="UPanel\UserPanel.Designer.cs">
       <DependentUpon>UserPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="XMLFile\OfficeXML.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cpt_btn.png" />
