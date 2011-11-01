@@ -137,7 +137,6 @@
     <Compile Include="PaperChooseForm.Designer.cs">
       <DependentUpon>PaperChooseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PaperControl\Config.cs" />
     <Compile Include="PaperControl\PaperControl.cs" />
     <Compile Include="PaperListPanel.cs">
       <SubType>UserControl</SubType>
