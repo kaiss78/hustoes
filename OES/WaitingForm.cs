@@ -34,7 +34,8 @@ namespace OES
                 ClientControl.LoginForm.SetNetState(0);
                 this.Hide();
                 OES.DAO.MD5File.GenerateSecurityFile("End");
-                Directory.Delete(Config.paperPath,true);
+                if(Directory.Exists(Config.paperPath))
+                    Directory.Delete(Config.paperPath,true);
             }));
         }
 
