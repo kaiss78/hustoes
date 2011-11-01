@@ -37,6 +37,7 @@ namespace OES
 
         void Port_FileReceiveEnd(object sender, EventArgs e)
         {
+            while (!this.IsHandleCreated) ;
             this.Invoke(new MethodInvoker(() =>
             {
                 Start.Enabled = true;
