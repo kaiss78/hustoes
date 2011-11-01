@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
- 
 using System.Text;
 using System.Xml;
 using System.IO;
@@ -8,7 +7,7 @@ using OES.Model;
 
 namespace OES.XMLFile
 {
-    class XMLAssistant
+    public class XMLAssistant
     {
         private String fileName;
         private XMLType xmlType;
@@ -62,12 +61,12 @@ namespace OES.XMLFile
                         }
                     case XMLType.Paper:
                         {
-                            if (Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Paper") != null)
+                            if (xd.ChildNodes.Item(1).ChildNodes.Count == 0 || Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Paper") == null)
                             {
                                 xmlelem = xd.CreateElement("Paper");
                                 XmlAttribute xa = xd.CreateAttribute("id");
                                 xmlelem.Attributes.Append(xa);
-                                xmlelem.SetAttribute("id", ((string[])o)[0]);
+                                xmlelem.SetAttribute("id", ((string)o));
                                 xmlelem1 = xd.CreateElement("Choice");
                                 xmlelem.AppendChild(xmlelem1);
                                 xmlelem1 = xd.CreateElement("Completion");
@@ -93,7 +92,7 @@ namespace OES.XMLFile
                         }
                     case XMLType.PaperAnswer:
                         {
-                            if (Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Answer") != null)
+                            if (xd.ChildNodes.Item(1).ChildNodes.Count == 0 || Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Answer") == null)
                             {
                                 xmlelem = xd.CreateElement("Answer");
                                 XmlAttribute xa = xd.CreateAttribute("id");
@@ -193,6 +192,12 @@ namespace OES.XMLFile
                 xd.Save(fileName);
             }
         }
+
+        public string getPaperId()
+        {
+            return xd.ChildNodes.Item(1).ChildNodes.Item(0).Attributes["id"].Value.ToString();
+        }
+
         public string Get(ProblemType pt)
         {
             string s = "";
@@ -210,6 +215,26 @@ namespace OES.XMLFile
             }
             s = s.Remove(s.Length - 1);
             return s;
+        }
+
+        List<ProblemType> ProblemTypeCollection = new List<ProblemType>() { ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, ProblemType.Word, ProblemType.Excel, ProblemType.PowerPoint, ProblemType.ProgramCompletion, ProblemType.ProgramModification, ProblemType.ProgramFun };
+
+        public List<IdScoreType> Get()
+        {
+            List<IdScoreType> list = new List<IdScoreType>();
+            foreach (ProblemType pt in ProblemTypeCollection)
+            {
+                XmlNode xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
+                for (int s = 0; s < xn.ChildNodes.Count; )
+                {
+                    IdScoreType ist = new IdScoreType();
+                    ist.id = Convert.ToInt32(xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value);
+                    ist.pt = pt;
+                    ist.score = Convert.ToInt32(xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value);
+                    list.Add(ist);
+                }
+            }
+            return list;
         }
         private XmlNode Find(XmlNode e, String name)
         {
@@ -465,7 +490,7 @@ namespace OES.XMLFile
         }
     }
 
-    enum XMLType
+    public enum XMLType
     {
         StudentScore,
         StudentAnswer,
