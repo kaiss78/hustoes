@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using OES.Model;
 using System.IO;
 using ServerNet;
+using System.Security.Cryptography;
+using OES;
 
 namespace OESMonitor
 {
@@ -49,7 +51,7 @@ namespace OESMonitor
             }
             set 
             {
-
+                while (!this.IsHandleCreated) ;
                 switch (value)
                 {
                     case 0:
@@ -156,6 +158,27 @@ namespace OESMonitor
             }
         }
 
+        private Random random = new Random(DateTime.Now.Millisecond);
+
+        private string password="";
+
+        public string Password
+        {
+            get 
+            {
+                if (password == "")
+                {
+                    
+                   byte[] byt= MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(random.Next(int.MaxValue).ToString().ToCharArray()));
+                   for (int i = 0; i < byt.Length; i++)
+                   {
+                       password += byt[i].ToString("X");
+                   }
+                }
+                return password;
+            }
+        }
+
         void client_ReceiveDataReady(Client client, string msg)
         {
             if (!Directory.Exists(PaperControl.PathConfig["StuAns"]))
@@ -225,6 +248,9 @@ namespace OESMonitor
                     case "3":
                         client_LogoutSuccess();
                         break;
+                    case "4":
+                        client.SendTxt("oes$4$"+Password);
+                        break;
                     default:
                         break;
                 }
@@ -245,6 +271,7 @@ namespace OESMonitor
         bool client_LoginValidating(string name, string id, string pwd)
         {
             this.Student = new Student(name, "", id, pwd);
+            if (Directory.Exists(PaperControl.PathConfig["StuAns"] + id)) return false;
             if (PaperControl.OesData.ValidateStudentInfo(id, name, pwd))
             {
                 ExamPaper = getCurrentPaper();
@@ -297,7 +324,7 @@ namespace OESMonitor
 
         bool client_ValidateTeaPass(string psw)
         {
-            if (psw == "123")
+            if (psw == PaperControl.PwdConfig["Password"])
             {
                 return true;
             }

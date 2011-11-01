@@ -59,7 +59,7 @@ namespace OESMonitor
                 if (state == "已交卷")
                 {
                     button1.Show();
-                    ansPath = PaperControl.PathConfig["StuAns"]+IdLab.Text+".rar";
+                    ansPath = PaperControl.PathConfig["StuAns"]+IdLab.Text+"\\";
                 }
                 else
                 {
@@ -81,7 +81,7 @@ namespace OESMonitor
        
         private void button1_Click(object sender, EventArgs e)
         {
-            if (File.Exists(ansPath))
+            if (Directory.Exists(ansPath))
             {
                 Process.Start(ansPath);
             }
