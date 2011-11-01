@@ -18,6 +18,11 @@ namespace OES.Net
             Client.SendTxt("oes$0$" + name + "$" + id + "$" + pwd);
         }
 
+        public static void getPassword()
+        {
+            Client.SendTxt("oes$4");
+        }
+
         static void Client_ReceivedTxt(object sender, EventArgs e)
         {
             string[] msgs=sender.ToString().Split('$');
@@ -50,6 +55,10 @@ namespace OES.Net
                                 ConfirmReStart(null, null);
                             }
                         }
+                        break;
+                    case "4":
+                        ClientControl.password = msgs[2];
+                        ClientControl.isGetPwd = true;
                         break;
                     default:
                         break;

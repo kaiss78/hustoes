@@ -5,6 +5,8 @@ using System.Text;
 using OES.Model;
 using OES.Error;
 using OES.Net;
+using System.Threading;
+using System.IO;
 
 namespace OES
 {   
@@ -15,6 +17,10 @@ namespace OES
         private static int currentProblemNum = 0;
         public static Boolean isResume = false;
         public static string password = "123456";
+        /// <summary>
+        /// 是否从monitor端获得密码
+        /// </summary>
+        public static bool isGetPwd = false;
 
         #region 窗体逻辑控制
         private static LoginForm loginForm = null;
@@ -152,9 +158,16 @@ namespace OES
         {
             if (RARHelper.Exists())
             {
+                ClientEvt.getPassword();
+                while (!isGetPwd) ;
+                if (File.Exists(Config.stuPath + student.ID + ".rar")) File.Delete(Config.stuPath + student.ID + ".rar");
+                Thread.Sleep(1000);
                 RARHelper.CompressRAR(Config.stuPath, student.ID + ".rar", Config.stuPath, password);
                 ClientEvt.Answer = Config.stuPath + student.ID + ".rar";
                 ClientEvt.Client.SendFile();
+                Thread.Sleep(1000);
+                password = "123456";
+                isGetPwd = false;
             }
             else
             {
