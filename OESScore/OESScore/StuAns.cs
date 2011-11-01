@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using OES.Model;
 
 namespace OESScore
 {
-    class StuAns
+    public class StuAns
     {
-        //List<string> 
+        public Student StuInfo=new Student();
+        public int Score;
     }
 }

@@ -10,5 +10,6 @@ namespace OESScore
     {
         public List<FileInfo> StuList;
         public Paper paperInfo;
+        public DirectoryInfo Path;
     }
 }
