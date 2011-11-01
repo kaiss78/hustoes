@@ -63,9 +63,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\OESData\OESData\bin\x86\Debug\OESData.dll</HintPath>
     </Reference>
+    <Reference Include="OESModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OESData\OESData\bin\x86\Debug\OESModel.dll</HintPath>
+    </Reference>
     <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\OESNet\OESNet\bin\x86\Debug\OESNet.dll</HintPath>
+    </Reference>
+    <Reference Include="OESXML, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OESXML\OESXML\bin\x86\Debug\OESXML.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -90,11 +98,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Teacher.cs" />
-    <Compile Include="XMLFile\XMLAssistant.cs" />
-    <Compile Include="XMLFile\XMLControl.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
