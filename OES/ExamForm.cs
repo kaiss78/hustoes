@@ -118,8 +118,8 @@ namespace OES
             }
             
             string temp = restore.Replace(".rar", "");
-            Paper.pName = temp;
-            this.ExamNo.Text = Paper.pName;
+            ClientControl.paper.paperName = temp;
+            this.ExamNo.Text = ClientControl.paper.paperName;
             this.SName.Text = ClientControl.student.sName;
             this.ID.Text = ClientControl.student.ID;
             Config.stuPath = Config.StuPath + ClientControl.student.ID + @"\";
