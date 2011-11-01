@@ -13,7 +13,7 @@ namespace OES.Model
         public string stuAnsPath;
         public PCompletion()
         {
-            type = "程序填空题";
+            type = ProblemType.ProgramCompletion;
         }
         public PCompletion(string p)
         {
@@ -21,13 +21,17 @@ namespace OES.Model
             ans1 = "";
             ans2 = "";
             ans3 = "";
-            type = "程序填空题";
+            type = ProblemType.ProgramCompletion;
         }
         public PCompletion(string rawPath,string stuAnsPath)
         {
             this.rawPath = rawPath;
             this.stuAnsPath = stuAnsPath;
-            type = "PowerPoint操作题";
+            type = ProblemType.ProgramCompletion;
+        }
+        public override string getAns()
+        {
+            return stuAnsPath;
         }
     }
 }

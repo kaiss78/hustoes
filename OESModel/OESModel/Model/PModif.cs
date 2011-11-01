@@ -9,9 +9,10 @@ namespace OES.Model
     {
         public string path, ans1, ans2, ans3;
         public bool kind;
+        public string stuAnsPath = "";
         public PModif()
         {
-            type = "程序改错题";
+            type = ProblemType.ProgramModification;
         }
         public PModif(string p)
         {
@@ -19,7 +20,11 @@ namespace OES.Model
             ans1 = "";
             ans2 = "";
             ans3 = "";
-            type = "程序改错题";
+            type = ProblemType.ProgramModification;
+        }
+        public override string getAns()
+        {
+            return stuAnsPath;
         }
     }
 }

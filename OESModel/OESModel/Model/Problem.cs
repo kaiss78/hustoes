@@ -11,7 +11,11 @@ namespace OES.Model
         public int problemId;//数据库Id
         public int orderId;//
         public string problem;
-        public string type;
+        public ProblemType type;
         public bool exist;
+        virtual public string getAns()
+        {
+            return "";
+        }
     }
 }
