@@ -106,7 +106,7 @@ namespace OES.UControl
             {
                 this.CheckAns();
                 ClientControl.GetCompletion(proID).stuAns = this.Answer.Text;
-                XMLControl.WriteLogXML(ProblemType.Completion, proID, this.Answer.Text);
+                XMLControl.WriteLogXML(Config.stuPath, ProblemType.Completion, proID, this.Answer.Text);
             }
         }
     }

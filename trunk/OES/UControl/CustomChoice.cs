@@ -108,28 +108,28 @@ namespace OES.UControl
         {
             
             this.CheckAns("A");
-            XMLControl.WriteLogXML(ProblemType.Choice, proID, "A");
+            XMLControl.WriteLogXML(Config.stuPath,ProblemType.Choice, proID, "A");
         }
 
         private void radioButtonB_MouseClick(object sender, MouseEventArgs e)
         {
            
             this.CheckAns("B");
-            XMLControl.WriteLogXML(ProblemType.Choice, proID, "B");
+            XMLControl.WriteLogXML(Config.stuPath, ProblemType.Choice, proID, "B");
         }
 
         private void radioButtonC_MouseClick(object sender, MouseEventArgs e)
         {
             
             this.CheckAns("C");
-            XMLControl.WriteLogXML(ProblemType.Choice, proID, "C");
+            XMLControl.WriteLogXML(Config.stuPath, ProblemType.Choice, proID, "C");
         }
 
         private void radioButtonD_MouseClick(object sender, MouseEventArgs e)
         {
             
             this.CheckAns("D");
-            XMLControl.WriteLogXML(ProblemType.Choice, proID, "D");
+            XMLControl.WriteLogXML(Config.stuPath, ProblemType.Choice, proID, "D");
         }
     }
 

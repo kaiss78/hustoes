@@ -79,9 +79,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\OESNet\OESNet\bin\Debug\OESConfig.dll</HintPath>
     </Reference>
+    <Reference Include="OESModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OESXML\OESXML\bin\x86\Debug\OESModel.dll</HintPath>
+    </Reference>
     <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\OESNet\OESNet\bin\x86\Debug\OESNet.dll</HintPath>
+    </Reference>
+    <Reference Include="OESXML, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OESXML\OESXML\bin\x86\Debug\OESXML.dll</HintPath>
     </Reference>
     <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />
@@ -118,20 +126,9 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Choice.cs" />
-    <Compile Include="Model\Completion.cs" />
     <Compile Include="DAO\Config.cs" />
-    <Compile Include="Model\Judge.cs" />
-    <Compile Include="Model\OfficeExcel.cs" />
-    <Compile Include="Model\OfficePowerPoint.cs" />
-    <Compile Include="Model\OfficeWord.cs" />
-    <Compile Include="Model\Paper.cs" />
-    <Compile Include="Model\PCompletion.cs" />
-    <Compile Include="Model\PModif.cs" />
-    <Compile Include="Model\PFunction.cs" />
-    <Compile Include="Model\Problem.cs" />
-    <Compile Include="Model\Student.cs" />
     <Compile Include="DAO\ReadTxt.cs" />
+    <Compile Include="Model\PaperExt.cs" />
     <Compile Include="NetState.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,7 +173,6 @@
     <Compile Include="UControl\CustomExcel.designer.cs">
       <DependentUpon>CustomExcel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Correct.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,8 +290,6 @@
     <Compile Include="WaitingForm.Designer.cs">
       <DependentUpon>WaitingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="XMLFile\XMLAssistant.cs" />
-    <Compile Include="XMLFile\XMLControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1.jpg" />
