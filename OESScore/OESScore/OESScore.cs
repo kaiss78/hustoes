@@ -67,15 +67,11 @@ namespace OESScore
                     tmpPF.paperInfo = tmpP[0];
                     tmpPF.Path = paper;
                     papers.Add(tmpPF);
-                    AddToDGV(tmpPF.paperInfo.paperID, tmpPF.paperInfo.paperName, "0%", 10);
+                    AddToDGV(tmpPF.paperInfo.paperID, tmpPF.paperInfo.paperName, "0%", ScoreControl.GetFolderInfo(tmpPF.Path.FullName).Count);
                 }
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// 选择路径
@@ -93,6 +89,11 @@ namespace OESScore
             LoadPaperList();
         }
 
+        /// <summary>
+        /// 双击单元格，进入试卷评分界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvPaperTable_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int RIndex = e.RowIndex;
