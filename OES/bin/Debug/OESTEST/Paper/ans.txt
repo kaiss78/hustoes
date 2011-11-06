@@ -1,8 +1,0 @@
-#define PI 3.1416
-double area(double a,double b)
-return a*b;
-
-char scr[MaxLen];  char des[MaxLen];
-for(i=0;str!=NULL && str[i]!=NULL; i++) scr[i]=str[i];
-des[i]=str[strlen-i-1];
-fun(des,scr);

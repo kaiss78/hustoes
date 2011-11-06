@@ -1,5 +1,0 @@
-     使用VC6打开考生文件夹下的源程序文件simp.cpp。 阅读下列函数说明和代码，补充空出的代码。函数fun(char* str, char* str1,char* str2)的功能是将第一个字符串和第二个字符串连接起来，然后放在指针所指的字符串中。
-    例如:str1="abaaeraertAAAA"
-         str2="AAAAasdart"
-    则连接以后的字符串为：str="abaaeraertAAAAAAAAasdart"
-    注意：部分代码已经实现，请勿改动main()函数代码
