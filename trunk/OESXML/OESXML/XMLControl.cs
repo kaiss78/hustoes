@@ -106,6 +106,10 @@ namespace OES.XMLFile
         #region 考试试卷XML
         public static void CreatePaperXML(string filePath, string paperId)
         {
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
             paperXML = new XMLAssistant(filePath, XMLType.Paper, paperId);
         }
         public static void AddProblemToPaper(ProblemType pt, int id, int score)
