@@ -10,13 +10,28 @@ namespace OES.XMLFile
 {
     public class XMLControl
     {
-        public static XMLAssistant paperXML;
-        public static XMLAssistant scoreXML;
+        /// <summary>
+        /// 试卷XML
+        /// </summary>
+        public static XMLAssistant paperXML;    
+        /// <summary>
+        /// 评分XML
+        /// </summary>
+        public static XMLAssistant scoreXML;    
+        /// <summary>
+        /// 考试答案XML
+        /// </summary>
         public static XMLAssistant studentAnsXML;
-        public static XMLAssistant paperAnsXML;
-        public static XMLAssistant logXML;
-        //public static string rootPath = Config.stuPath;
+        /// <summary>
+        /// 试卷答案XML
+        /// </summary>
+        public static XMLAssistant paperAnsXML; 
+        /// <summary>
+        /// 考试日志XML
+        /// </summary>
+        public static XMLAssistant logXML;      
 
+        #region 学生答案XML
         public static void CreateStudentAnsXML(string rootPath,string stuId)
         {
             if (File.Exists(rootPath + "studentAns.xml"))
@@ -25,7 +40,9 @@ namespace OES.XMLFile
             }
             studentAnsXML = new XMLAssistant(rootPath + "studentAns.xml", XMLType.StudentAnswer, new String[] { stuId });
         }
+        #endregion
 
+        #region 考试日志XML
         public static void CreateLogXML(string rootPath)
         {
             if (File.Exists(rootPath + "log.xml"))
@@ -84,7 +101,9 @@ namespace OES.XMLFile
             }
             return "";
         }
+        #endregion
 
+        #region 考试试卷XML
         public static void CreatePaperXML(string filePath, string paperId)
         {
             paperXML = new XMLAssistant(filePath, XMLType.Paper, paperId);
@@ -103,6 +122,30 @@ namespace OES.XMLFile
             paperXML = new XMLAssistant(filePath, XMLType.Paper, 0);
             return paperXML.getPaperId();
         }
+        #endregion
+
+        #region 考生分数XML
+        public static void CreateScoreXML(string path,string paperId, string stuId)
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            scoreXML = new XMLAssistant(path, XMLType.StudentScore, new String[] {paperId, stuId });
+        }
+        #endregion
+
+        #region 试卷答案XML
+        public static void CreatePaperAnsXML(string path, string paperId)
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            paperAnsXML = new XMLAssistant(path, XMLType.StudentScore, new String[] { paperId });
+        }
+        #endregion
+
     }
     public class IdScoreType
     {
