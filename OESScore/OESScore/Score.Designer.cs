@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPaperTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.tableLayoutPanel1.SuspendLayout();
@@ -49,7 +49,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 465);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 476);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dgvPaperTable
@@ -57,8 +57,8 @@
             this.dgvPaperTable.AllowUserToAddRows = false;
             this.dgvPaperTable.AllowUserToResizeColumns = false;
             this.dgvPaperTable.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPaperTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPaperTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPaperTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvPaperTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPaperTable.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
@@ -71,20 +71,21 @@
             this.dgvPaperTable.Name = "dgvPaperTable";
             this.dgvPaperTable.ReadOnly = true;
             this.dgvPaperTable.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPaperTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPaperTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPaperTable.RowTemplate.Height = 23;
             this.dgvPaperTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPaperTable.Size = new System.Drawing.Size(790, 419);
+            this.dgvPaperTable.Size = new System.Drawing.Size(790, 430);
             this.dgvPaperTable.TabIndex = 6;
             // 
             // formScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 465);
+            this.ClientSize = new System.Drawing.Size(796, 476);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "formScore";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "评分";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaperTable)).EndInit();

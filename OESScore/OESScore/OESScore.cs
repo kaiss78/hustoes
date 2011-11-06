@@ -17,7 +17,7 @@ namespace OESScore
         public List<PaperFolder> papers = new List<PaperFolder>();
         private System.Windows.Forms.DataGridViewTextBoxColumn StuID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StuName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Score;        
+        private System.Windows.Forms.DataGridViewTextBoxColumn Score;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvAnsTable;
 
         public formOESScore()
@@ -27,7 +27,7 @@ namespace OESScore
             LoadPaperList();
         }
 
- 
+
         /// <summary>
         /// 往表格中添加试卷信息
         /// </summary>
@@ -56,12 +56,12 @@ namespace OESScore
             List<Paper> tmpP;
             PaperFolder tmpPF;
             paperList = ScoreControl.GetFolderInfo(ScoreControl.config["PaperPath"]);
-
+            dgvPaperTable.Rows.Clear();
             foreach (DirectoryInfo paper in paperList)
             {
-                
+
                 tmpP = ScoreControl.OesData.FindPaperById(paper.Name);
-                if (tmpP != null)
+                if (tmpP.Count > 0)
                 {
                     tmpPF = new PaperFolder();
                     tmpPF.paperInfo = tmpP[0];
@@ -83,9 +83,20 @@ namespace OESScore
         {
             string path;
 
-            fbdPaperPath.ShowDialog();
-            ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath;
-            tsslPath.Text = ScoreControl.config["PaperPath"];
+            if (fbdPaperPath.ShowDialog().Equals(DialogResult.OK))
+            {
+                if (Directory.Exists(fbdPaperPath.SelectedPath))
+                {
+                    ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath;
+                    tsslPath.Text = ScoreControl.config["PaperPath"];
+                }
+                else
+                {
+                    MessageBox.Show("文件夹不存在", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
             LoadPaperList();
         }
 
@@ -99,9 +110,9 @@ namespace OESScore
             int RIndex = e.RowIndex;
             if (RIndex > -1)
             {
-                //MessageBox.Show(papers[RIndex].Path.FullName);
                 formScore formscore = new formScore(papers[RIndex].Path.FullName);
                 formscore.ShowDialog();
+                formscore.Dispose();
             }
         }
     }
