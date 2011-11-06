@@ -187,11 +187,9 @@
             this.Progress,
             this.Count});
             this.dgvPaperTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPaperTable.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
+            this.dgvPaperTable.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.dgvPaperTable.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
             this.dgvPaperTable.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.dgvPaperTable.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.dgvPaperTable.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.dgvPaperTable.Location = new System.Drawing.Point(0, 0);
             this.dgvPaperTable.MultiSelect = false;
             this.dgvPaperTable.Name = "dgvPaperTable";
