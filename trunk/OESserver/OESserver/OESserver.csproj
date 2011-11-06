@@ -71,11 +71,11 @@
     </Reference>
     <Reference Include="OESData, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\OESData\OESData\bin\x86\Debug\OESData.dll</HintPath>
+      <HintPath>..\..\OESData\OESData\bin\x86\Debug\OESData.dll</HintPath>
     </Reference>
     <Reference Include="OESModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\OESXML\OESXML\bin\x86\Debug\OESModel.dll</HintPath>
+      <HintPath>..\..\OESData\OESData\bin\x86\Debug\OESModel.dll</HintPath>
     </Reference>
     <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -83,7 +83,7 @@
     </Reference>
     <Reference Include="OESXML, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\OESXML\OESXML\bin\x86\Debug\OESXML.dll</HintPath>
+      <HintPath>..\..\OESXML\OESXML\bin\x86\Debug\OESXML.dll</HintPath>
     </Reference>
     <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />
