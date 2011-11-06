@@ -11,6 +11,24 @@ namespace OES
 {
     public class OESData
     {
+        public enum ErrorType
+        {
+            etIdNotFound
+        };
+
+        #region 异常处理
+        public void ErrorReport(ErrorType et)
+        {
+            switch (et)
+            { 
+                case ErrorType.etIdNotFound:
+                    break;
+                default:
+                    break;
+            }
+        }
+        #endregion
+
         #region 变量定义
         SqlConnection sqlcon;//定义SQL的链接
         string sqlstring; //定义SQL语句字符串
@@ -1811,7 +1829,7 @@ namespace OES
             return results;
 
         }
-        
+
         //按Id查找Paper记录 
         public List<Paper> FindPaperById(string Id)
         {
@@ -1819,7 +1837,11 @@ namespace OES
             ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
             Ds = new DataSet();
             try { RunProc("FindPaperById", ddlparam, Ds); }
-            catch { throw; }
+            catch (Exception ex)
+            {
+
+                return new List<Paper>();
+            }
             paper = DataSetToListPaper(Ds);
             return paper;
         }
