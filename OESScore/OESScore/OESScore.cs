@@ -35,14 +35,14 @@ namespace OESScore
         /// <param name="Name">试卷名</param>
         /// <param name="Progress">评分进度</param>
         /// <param name="count">考生答案总数</param>
-        public void AddToDGV(string ID, string Name, string Progress, int count)
+        public void AddToDGV(PaperFolder pf)
         {
-
+            DataGridViewProgressBarCell tmp=new DataGridViewProgressBarCell();                        
             object[] values = new object[4];
-            values[0] = ID;
-            values[1] = Name;
-            values[2] = Progress;
-            values[3] = count;
+            values[0] = pf.paperInfo.paperID;
+            values[1] = pf.paperInfo.paperName;
+            values[2] = 50;
+            values[3] = ScoreControl.GetFolderInfo(pf.Path.FullName).Count;
             dgvPaperTable.Rows.Add(values);
         }
 
@@ -67,7 +67,7 @@ namespace OESScore
                     tmpPF.paperInfo = tmpP[0];
                     tmpPF.Path = paper;
                     papers.Add(tmpPF);
-                    AddToDGV(tmpPF.paperInfo.paperID, tmpPF.paperInfo.paperName, "0%", ScoreControl.GetFolderInfo(tmpPF.Path.FullName).Count);
+                    AddToDGV(tmpPF);
                 }
             }
         }
