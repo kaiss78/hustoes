@@ -105,6 +105,7 @@ namespace OES.UPanel
                 if (InfoControl.TmpPaper.ProList[i].Count > 0)
                 {
                     scoreList[i].Text = InfoControl.TmpPaper.ProList[i][0].score.ToString();
+
                     flag[i] = 1;
                 }
                 else
@@ -113,15 +114,6 @@ namespace OES.UPanel
                     flag[i] = 0;
                 }
                 setButton(i);
-            }
-            for (int i = 0; i < 9; i++)
-            {
-                scoreList[i].Enabled = true;
-                scoreList[i].Text = InfoControl.TmpPaper.ProList[i][0].score.ToString();
-                if (i < 3)
-                {
-                    countList[i].Text = InfoControl.TmpPaper.ProList[i].Count.ToString();
-                }
             }
         }
 
