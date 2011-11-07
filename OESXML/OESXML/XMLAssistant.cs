@@ -53,46 +53,80 @@ namespace OES.XMLFile
                     xmlelem = xd.CreateElement("", "ROOT", "");
                     xd.AppendChild(xmlelem);
                 }
-                switch (xmlType)
+                if (o != null)
                 {
-                    case XMLType.Log:
-                        {
-                            break;
-                        }
-                    case XMLType.Paper:
-                        {
-                            if (xd.ChildNodes.Item(1).ChildNodes.Count == 0 || Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Paper") == null)
+                    switch (xmlType)
+                    {
+                        case XMLType.Log:
                             {
-                                xmlelem = xd.CreateElement("Paper");
-                                XmlAttribute xa = xd.CreateAttribute("id");
-                                xmlelem.Attributes.Append(xa);
-                                xmlelem.SetAttribute("id", ((string)o));
-                                xmlelem1 = xd.CreateElement("Choice");
-                                xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("Completion");
-                                xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("Tof");
-                                xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("Word");
-                                xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("Excel");
-                                xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("PowerPoint");
-                                xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("ProgramCompletion");
-                                xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("ProgramModification");
-                                xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("ProgramFun");
-                                xmlelem.AppendChild(xmlelem1);
-                                xd.ChildNodes.Item(1).AppendChild(xmlelem);
+                                break;
                             }
-                            else { }
-                            break;
-                        }
-                    case XMLType.PaperAnswer:
-                        {
-                            if (xd.ChildNodes.Item(1).ChildNodes.Count == 0 || Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Answer") == null)
+                        case XMLType.Paper:
+                            {
+                                if (xd.ChildNodes.Item(1).ChildNodes.Count == 0 || Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Paper") == null)
+                                {
+                                    xmlelem = xd.CreateElement("Paper");
+                                    XmlAttribute xa = xd.CreateAttribute("id");
+                                    xmlelem.Attributes.Append(xa);
+                                    xmlelem.SetAttribute("id", ((string)o));
+                                    xmlelem1 = xd.CreateElement("Choice");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("Completion");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("Tof");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("Word");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("Excel");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("PowerPoint");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("ProgramCompletion");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("ProgramModification");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("ProgramFun");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xd.ChildNodes.Item(1).AppendChild(xmlelem);
+                                }
+                                else { }
+                                break;
+                            }
+                        case XMLType.PaperAnswer:
+                            {
+                                if (xd.ChildNodes.Item(1).ChildNodes.Count == 0 || Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), "Answer") == null)
+                                {
+                                    xmlelem = xd.CreateElement("Answer");
+                                    XmlAttribute xa = xd.CreateAttribute("id");
+                                    xmlelem.Attributes.Append(xa);
+                                    xmlelem.SetAttribute("id", ((string[])o)[0]);
+                                    xa = xd.CreateAttribute("type");
+                                    xmlelem.Attributes.Append(xa);
+                                    xmlelem.SetAttribute("type", "Paper");
+                                    xmlelem1 = xd.CreateElement("Choice");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("Completion");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("Tof");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("Word");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("Excel");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("PowerPoint");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("ProgramCompletion");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("ProgramModification");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xmlelem1 = xd.CreateElement("ProgramFun");
+                                    xmlelem.AppendChild(xmlelem1);
+                                    xd.ChildNodes.Item(1).AppendChild(xmlelem);
+                                }
+                                else { }
+                                break;
+                            }
+                        case XMLType.StudentAnswer:
                             {
                                 xmlelem = xd.CreateElement("Answer");
                                 XmlAttribute xa = xd.CreateAttribute("id");
@@ -100,7 +134,7 @@ namespace OES.XMLFile
                                 xmlelem.SetAttribute("id", ((string[])o)[0]);
                                 xa = xd.CreateAttribute("type");
                                 xmlelem.Attributes.Append(xa);
-                                xmlelem.SetAttribute("type", "Paper");
+                                xmlelem.SetAttribute("type", "Student");
                                 xmlelem1 = xd.CreateElement("Choice");
                                 xmlelem.AppendChild(xmlelem1);
                                 xmlelem1 = xd.CreateElement("Completion");
@@ -120,76 +154,48 @@ namespace OES.XMLFile
                                 xmlelem1 = xd.CreateElement("ProgramFun");
                                 xmlelem.AppendChild(xmlelem1);
                                 xd.ChildNodes.Item(1).AppendChild(xmlelem);
+                                break;
                             }
-                            else { }
-                            break;
-                        }
-                    case XMLType.StudentAnswer:
-                        {
-                            xmlelem = xd.CreateElement("Answer");
-                            XmlAttribute xa = xd.CreateAttribute("id");
-                            xmlelem.Attributes.Append(xa);
-                            xmlelem.SetAttribute("id", ((string[])o)[0]);
-                            xa = xd.CreateAttribute("type");
-                            xmlelem.Attributes.Append(xa);
-                            xmlelem.SetAttribute("type", "Student");
-                            xmlelem1 = xd.CreateElement("Choice");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("Completion");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("Tof");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("Word");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("Excel");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("PowerPoint");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("ProgramCompletion");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("ProgramModification");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("ProgramFun");
-                            xmlelem.AppendChild(xmlelem1);
-                            xd.ChildNodes.Item(1).AppendChild(xmlelem);
-                            break;
-                        }
-                    case XMLType.StudentScore:
-                        {
-                            xmlelem = xd.CreateElement("StudentScore");
-                            XmlAttribute xa = xd.CreateAttribute("paperId");
-                            xmlelem.Attributes.Append(xa);
-                            xmlelem.SetAttribute("paperId", ((string[])o)[0]);
-                            xa = xd.CreateAttribute("studentId");
-                            xmlelem.Attributes.Append(xa);
-                            xmlelem.SetAttribute("studentId", ((string[])o)[1]);
-                            xmlelem1 = xd.CreateElement("Choice");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("Completion");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("Tof");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("Word");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("Excel");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("PowerPoint");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("ProgramCompletion");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("ProgramModification");
-                            xmlelem.AppendChild(xmlelem1);
-                            xmlelem1 = xd.CreateElement("ProgramFun");
-                            xmlelem.AppendChild(xmlelem1);
-                            xd.ChildNodes.Item(1).AppendChild(xmlelem);
-                            break;
-                        }
-                    default:
-                        {
-                            break;
-                        }
+                        case XMLType.StudentScore:
+                            {
+                                xmlelem = xd.CreateElement("StudentScore");
+                                XmlAttribute xa = xd.CreateAttribute("paperId");
+                                xmlelem.Attributes.Append(xa);
+                                xmlelem.SetAttribute("paperId", ((string[])o)[0]);
+                                xa = xd.CreateAttribute("studentId");
+                                xmlelem.Attributes.Append(xa);
+                                xmlelem.SetAttribute("studentId", ((string[])o)[1]);
+                                xmlelem1 = xd.CreateElement("Choice");
+                                xmlelem.AppendChild(xmlelem1);
+                                xmlelem1 = xd.CreateElement("Completion");
+                                xmlelem.AppendChild(xmlelem1);
+                                xmlelem1 = xd.CreateElement("Tof");
+                                xmlelem.AppendChild(xmlelem1);
+                                xmlelem1 = xd.CreateElement("Word");
+                                xmlelem.AppendChild(xmlelem1);
+                                xmlelem1 = xd.CreateElement("Excel");
+                                xmlelem.AppendChild(xmlelem1);
+                                xmlelem1 = xd.CreateElement("PowerPoint");
+                                xmlelem.AppendChild(xmlelem1);
+                                xmlelem1 = xd.CreateElement("ProgramCompletion");
+                                xmlelem.AppendChild(xmlelem1);
+                                xmlelem1 = xd.CreateElement("ProgramModification");
+                                xmlelem.AppendChild(xmlelem1);
+                                xmlelem1 = xd.CreateElement("ProgramFun");
+                                xmlelem.AppendChild(xmlelem1);
+                                xd.ChildNodes.Item(1).AppendChild(xmlelem);
+                                break;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                    xd.Save(fileName);
                 }
-                xd.Save(fileName);
+                else
+                { 
+                }
             }
         }
 

@@ -46,7 +46,7 @@ namespace OES.XMLFile
         }
         public static List<IdAnswerType> ReadStudentAns(string filePath)
         {
-            studentAnsXML = new XMLAssistant(filePath, XMLType.StudentAnswer, new String[] { "0" });
+            studentAnsXML = new XMLAssistant(filePath, XMLType.StudentAnswer, null);
             return studentAnsXML.GetAnswer();
         }
         #endregion
@@ -127,12 +127,12 @@ namespace OES.XMLFile
         }
         public static List<IdScoreType> ReadPaper(string filePath)
         {
-            paperXML = new XMLAssistant(filePath, XMLType.Paper, "0");
+            paperXML = new XMLAssistant(filePath, XMLType.Paper, null);
             return paperXML.GetPaper();
         }
         public static string getPaperId(string filePath)
         {
-            paperXML = new XMLAssistant(filePath, XMLType.Paper, "0");
+            paperXML = new XMLAssistant(filePath, XMLType.Paper, null);
             return paperXML.getPaperId();
         }
         #endregion
@@ -152,7 +152,7 @@ namespace OES.XMLFile
         }
         public static List<IdScoreType> ReadScoreSheet(string filePath)
         {
-            scoreXML = new XMLAssistant(filePath, XMLType.StudentScore, new String[]{"0","0"});
+            scoreXML = new XMLAssistant(filePath, XMLType.StudentScore, null);
             return scoreXML.GetPaper();
         }
         #endregion
@@ -172,7 +172,7 @@ namespace OES.XMLFile
         }
         public static List<IdAnswerType> GetPaperAns(string filePath)
         {
-            paperAnsXML = new XMLAssistant(filePath, XMLType.PaperAnswer, new String[] { "0"});
+            paperAnsXML = new XMLAssistant(filePath, XMLType.PaperAnswer, null);
             return paperAnsXML.GetAnswer();
         }
         #endregion
