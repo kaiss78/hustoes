@@ -219,7 +219,33 @@ namespace OES.XMLFile
 
         List<ProblemType> ProblemTypeCollection = new List<ProblemType>() { ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, ProblemType.Word, ProblemType.Excel, ProblemType.PowerPoint, ProblemType.ProgramCompletion, ProblemType.ProgramModification, ProblemType.ProgramFun };
 
-        public List<IdScoreType> Get()
+        /// <summary>
+        /// 返回考生答案XML的所有内容
+        /// </summary>
+        /// <returns></returns>
+        public List<IdAnswerType> GetAnswer()
+        {
+            List<IdAnswerType> list = new List<IdAnswerType>();
+            foreach (ProblemType pt in ProblemTypeCollection)
+            {
+                XmlNode xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
+                for (int s = 0; s < xn.ChildNodes.Count; )
+                {
+                    IdAnswerType iat = new IdAnswerType();
+                    iat.id = Convert.ToInt32(xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value);
+                    iat.pt = pt;
+                    iat.answer =xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value;
+                    list.Add(iat);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 返回试卷XML的所有内容
+        /// </summary>
+        /// <returns></returns>
+        public List<IdScoreType> GetPaper()
         {
             List<IdScoreType> list = new List<IdScoreType>();
             foreach (ProblemType pt in ProblemTypeCollection)
@@ -352,6 +378,7 @@ namespace OES.XMLFile
             }
             xd.Save(fileName);
         }
+
         public void AddStudentAns(ProblemType pt, Pid_Ans pa)
         {
             XmlNode xn;
