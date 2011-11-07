@@ -119,6 +119,9 @@ namespace OESSupport.Net
                                 case "M":
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["PaperPkg"] + msgs[4] + ".rar";
                                     break;
+                                case "N":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["Paper"] +'A'+ msgs[4] + ".xml";
+                                    break;
                             }
                             
                         }
@@ -193,6 +196,9 @@ namespace OESSupport.Net
                                     break;
                                 case "L":
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["VbFunction"] + "p" + msgs[4] + ".vb";
+                                    break;
+                                case "N":
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["Paper"] +'A'+ msgs[4] + ".xml";
                                     break;
                                 case "M":
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["PaperPkg"] + msgs[4] + ".rar";
