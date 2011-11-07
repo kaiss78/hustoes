@@ -164,7 +164,7 @@ namespace OES.XMLFile
             {
                 File.Delete(path);
             }
-            paperAnsXML = new XMLAssistant(path, XMLType.StudentScore, new String[] { paperId });
+            paperAnsXML = new XMLAssistant(path, XMLType.PaperAnswer, new String[] { paperId });
         }
         public static void AddPaperAns(ProblemType pt, int id, string answer)
         {
