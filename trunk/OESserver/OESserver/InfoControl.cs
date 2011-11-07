@@ -109,11 +109,12 @@ namespace OES
             return tmp;
         }
 
-        public static void getTmpPaper(string paperID)
+        public static void getPaper(string paperID)
         {
             Problem tmpPro;
             TmpPaper = OesData.FindPaperById(paperID)[0];
             InfoControl.clientObj.LoadPaper(Convert.ToInt32(TmpPaper.paperID), Convert.ToInt32(User.Id));
+            InfoControl.clientObj.ReceiveFiles();
             while (!ClientEvt.isOver) ;
             TmpPaper.paperPath = InfoControl.config["TempPaperPath"] + TmpPaper.paperID + ".xml";
             List<IdScoreType> tmpList = XMLControl.ReadPaper(TmpPaper.paperPath);

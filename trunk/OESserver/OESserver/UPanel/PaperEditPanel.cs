@@ -10,6 +10,7 @@ using ComponentFactory.Krypton.Toolkit;
 using OES.Model;
 using OES.UControl;
 using OES.XMLFile;
+using OES.Net;
 
 namespace OES.UPanel
 {
@@ -143,9 +144,48 @@ namespace OES.UPanel
             PanelControl.ChangPanel(18, protype);            
         }
 
+        private string getAnswer(ProblemType t,string ID)
+        {
+            string ans = "";
+            List<Choice> choice;
+            List<Completion> completion;
+            List<Judge> judgt;
+            switch (t)
+            {
+                case ProblemType.Choice:
+                    choice = InfoControl.OesData.FindChoiceById(ID);
+                    if (choice.Count > 0)
+                    {
+                        return choice[0].ans;
+                    }
+                    break;
+                case ProblemType.Tof:
+                    judgt = InfoControl.OesData.FindTofById(ID);
+                    if (judgt.Count > 0)
+                    {
+                        return judgt[0].ans;
+                    }
+                    break;
+                case ProblemType.Completion:
+                    completion = InfoControl.OesData.FindCompletionById(ID);
+                    if (completion.Count > 0)
+                    {
+                        ans = "";
+                        foreach (string st in completion[0].ans)
+                        {
+                            ans = ans + st + "\r\n";
+                        }
+                        return ans;
+                    }
+                    break;
+            }
+            return "";
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             XMLControl.CreatePaperXML(InfoControl.config["TempPaperPath"] + InfoControl.TmpPaper.paperID + ".xml", InfoControl.TmpPaper.paperID);
+            XMLControl.CreatePaperAnsXML(InfoControl.config["TempPaperPath"] + "A" + InfoControl.TmpPaper.paperID + ".xml", InfoControl.TmpPaper.paperID);
             for (int k = 0; k < 9; k++)
             {
                 for (int i = 0; i < InfoControl.TmpPaper.ProList[k].Count; i++)
@@ -153,10 +193,17 @@ namespace OES.UPanel
                     if (InfoControl.TmpPaper.ProList[k][i].problemId != -1)
                     {
                         XMLControl.AddProblemToPaper(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId, InfoControl.TmpPaper.ProList[k][i].score);
+                        if (k < 3)
+                        {
+                            XMLControl.AddPaperAns(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId,getAnswer(PT[k],InfoControl.TmpPaper.ProList[k][i].problemId.ToString()));
+                        }
                     }
                 }
             }
+
             InfoControl.ClientObj.SavePaper(Convert.ToInt32(InfoControl.TmpPaper.paperID),Convert.ToInt32(InfoControl.User.Id));
+            InfoControl.ClientObj.SendFiles();
+            while (!ClientEvt.isOver) ;
             PanelControl.ReturnToMain();
         }
     }
