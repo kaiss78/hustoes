@@ -40,11 +40,11 @@ namespace OES.XMLFile
             }
             studentAnsXML = new XMLAssistant(rootPath + "studentAns.xml", XMLType.StudentAnswer, new String[] { stuId });
         }
-        public static void AddScoreToSheet(ProblemType pt, int id, int score)
+        public static void AddStudentAns(ProblemType pt, int id, int score)
         {
             studentAnsXML.AddScore(pt, new Pid_Score(id, score));
         }
-        public static List<IdScoreType> ReadScoreSheet(string filePath)
+        public static List<IdScoreType> ReadStudentAns(string filePath)
         {
             studentAnsXML = new XMLAssistant(filePath, XMLType.Paper, "0");
             return studentAnsXML.Get();
