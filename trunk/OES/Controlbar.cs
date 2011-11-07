@@ -146,7 +146,7 @@ namespace OES
             XMLControl.CreateStudentAnsXML(Config.stuPath, ClientControl.student.ID);
             foreach(Problem p in ClientControl.paper.problemList)
             {
-                XMLControl.studentAnsXML.AddPaperAns(p.type,new Pid_Ans(p.problemId,p.getAns()));
+                XMLControl.studentAnsXML.AddStudentAns(p.type,new Pid_Ans(p.problemId,p.getAns()));
             }
             // 
             ClientControl.WaitingForm.Show();
