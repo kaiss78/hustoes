@@ -40,14 +40,14 @@ namespace OES.XMLFile
             }
             studentAnsXML = new XMLAssistant(rootPath + "studentAns.xml", XMLType.StudentAnswer, new String[] { stuId });
         }
-        public static void AddStudentAns(ProblemType pt, int id, int score)
+        public static void AddStudentAns(ProblemType pt, int id, string answer)
         {
-            studentAnsXML.AddScore(pt, new Pid_Score(id, score));
+            studentAnsXML.AddStudentAns(pt, new Pid_Ans(id,answer));
         }
-        public static List<IdScoreType> ReadStudentAns(string filePath)
+        public static List<IdAnswerType> ReadStudentAns(string filePath)
         {
-            studentAnsXML = new XMLAssistant(filePath, XMLType.Paper, "0");
-            return studentAnsXML.Get();
+            studentAnsXML = new XMLAssistant(filePath, XMLType.StudentAnswer, new String[] { "0" });
+            return studentAnsXML.GetAnswer();
         }
         #endregion
 
@@ -128,7 +128,7 @@ namespace OES.XMLFile
         public static List<IdScoreType> ReadPaper(string filePath)
         {
             paperXML = new XMLAssistant(filePath, XMLType.Paper, "0");
-            return paperXML.Get();
+            return paperXML.GetPaper();
         }
         public static string getPaperId(string filePath)
         {
@@ -146,6 +146,15 @@ namespace OES.XMLFile
             }
             scoreXML = new XMLAssistant(path, XMLType.StudentScore, new String[] {paperId, stuId });
         }
+        public static void AddScore(ProblemType pt, int id, int score)
+        {
+            scoreXML.AddScore(pt, new Pid_Score(id, score));
+        }
+        public static List<IdScoreType> ReadScoreSheet(string filePath)
+        {
+            scoreXML = new XMLAssistant(filePath, XMLType.StudentScore, new String[]{"0","0"});
+            return scoreXML.GetPaper();
+        }
         #endregion
 
         #region 试卷答案XML
@@ -157,8 +166,32 @@ namespace OES.XMLFile
             }
             paperAnsXML = new XMLAssistant(path, XMLType.StudentScore, new String[] { paperId });
         }
+        public static void AddPaperAns(ProblemType pt, int id, string answer)
+        {
+            paperAnsXML.AddPaperAns(pt, new Pid_Ans(id, answer));
+        }
+        public static List<IdAnswerType> GetPaperAns(string filePath)
+        {
+            paperAnsXML = new XMLAssistant(filePath, XMLType.PaperAnswer, new String[] { "0"});
+            return paperAnsXML.GetAnswer();
+        }
         #endregion
 
+    }
+    public class IdAnswerType
+    {
+        public int id;
+        public ProblemType pt;
+        public string answer;
+        public IdAnswerType()
+        {
+        }
+        public IdAnswerType(int id, ProblemType pt, string answer)
+        {
+            this.id = id;
+            this.pt = pt;
+            this.answer = answer;
+        }
     }
     public class IdScoreType
     {
