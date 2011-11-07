@@ -89,7 +89,7 @@ namespace OES.UPanel
             int RIndex = e.RowIndex;
             if (RIndex > -1)
             {
-                InfoControl.getTmpPaper(paperList[RIndex].paperID);                
+                InfoControl.getPaper(paperList[RIndex].paperID);                
                 PanelControl.EditPaper();
             }
         }
@@ -195,7 +195,7 @@ namespace OES.UPanel
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            InfoControl.getTmpPaper(PaperListDGV.SelectedRows[0].Cells[1].Value.ToString());            
+            InfoControl.getPaper(PaperListDGV.SelectedRows[0].Cells[1].Value.ToString());            
             PanelControl.EditPaper();
         }
     }

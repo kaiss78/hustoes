@@ -13,7 +13,7 @@ namespace OES.Net
         public static event EventHandler LoginReturn;
         List<string> remoteCom=new List<string>() ;
         List<string> localPath=new List<string>();
-        public static Boolean isOver=false;
+        public static Boolean isOver=true;
 
         public ClientEvt()
         {
@@ -25,16 +25,17 @@ namespace OES.Net
 
         void Port_FileSendEnd(object sender, EventArgs e)
         {
-            isOver = true;
+            
         }
 
         void Port_FileReceiveEnd(object sender, EventArgs e)
         {
-            isOver = true;
+            
         }
 
         public void SendFiles()
         {
+            isOver = false;
             Client.SendFileList(remoteCom, localPath);
             Client.FileListSendEnd += new Action(Client_FileListSendEnd);
         }
@@ -43,10 +44,12 @@ namespace OES.Net
         {
             remoteCom.Clear();
             localPath.Clear();
+            isOver = true;
         }
 
         public void ReceiveFiles()
         {
+            isOver = false;
             Client.ReceiveFileList(remoteCom, localPath);
             Client.FileListRecieveEnd += new Action(Client_FileListRecieveEnd);
             
@@ -56,6 +59,7 @@ namespace OES.Net
         {
             remoteCom.Clear();
             localPath.Clear();
+            isOver = true;
         }
 
         static void Client_ReceivedTxt(object sender, EventArgs e)
@@ -94,10 +98,10 @@ namespace OES.Net
         }
         public void LoadPaper(int id, int tid)
         {
-            isOver=false;
-            Client.Port.FilePath = InfoControl.config["TempPaperPath"] + id.ToString() + ".xml";
-            Client.SendTxt("server$2$0$" + tid.ToString() + "$" + id.ToString());
-            Client.ReceiveFile();
+            localPath.Add(InfoControl.config["TempPaperPath"] + id.ToString() + ".xml");
+            remoteCom.Add("server$2$0$" + tid.ToString() + "$" + id.ToString());
+            localPath.Add(InfoControl.config["TempPaperPath"] +'A'+ id.ToString() + ".xml");
+            remoteCom.Add("server$2$N$" + tid.ToString() + "$" + id.ToString());
         }
         public void LoadWordA(int id, int tid)
         {
@@ -222,14 +226,15 @@ namespace OES.Net
         {
             localPath.Add(InfoControl.config["FunctionPath"] + "p" + id.ToString() + ".vb");
             remoteCom.Add("server$2$L$" + tid.ToString() + "$" + id.ToString());
-             
+
         }
         public void SavePaper(int id, int tid)
         {
-            isOver = false;
-            Client.Port.FilePath = InfoControl.config["TempPaperPath"] + id.ToString() + ".xml";
-            Client.SendTxt("server$0$0$" + tid.ToString() + "$" + id.ToString());
-            Client.SendFile();
+            remoteCom.Add("server$0$0$" + tid.ToString() + "$" + id.ToString());
+            remoteCom.Add("server$0$N$" + tid.ToString() + "$" + id.ToString());
+            localPath.Add(InfoControl.config["TempPaperPath"] + id.ToString() + ".xml");
+            localPath.Add(InfoControl.config["TempPaperPath"] + "A" + id.ToString() + ".xml");
+
         }
         public void SaveWordA(int id, int tid)
         {
