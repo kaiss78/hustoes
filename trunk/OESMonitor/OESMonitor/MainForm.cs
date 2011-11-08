@@ -28,13 +28,14 @@ namespace OESMonitor
         /// 若当前为随机发试卷，用于产生随机数
         /// </summary>
         public static Random random = new Random(DateTime.Now.Millisecond);
-        bool isStartExam = false;
         /// <summary>
         /// 当前考试的试卷列表
         /// </summary>
         public static List<int> examPaperIdList = new List<int>();
 
+        public static event Action HandInPaper;
 
+        bool isStartExam = false;
         public bool IsStartExam
         {
             get { return isStartExam; }
@@ -49,9 +50,16 @@ namespace OESMonitor
                 }
                 else
                 {
-                    ServerEvt.Server.IsPortAvailable = false;
                     button1.Text = "开始考试/收卷";
-                    timer_PortCounter.Stop();
+                    if (HandInPaper != null)
+                    {
+                        HandInPaper();
+                    }
+                    else
+                    {
+                        ServerEvt.Server.IsPortAvailable = false;
+                        timer_PortCounter.Stop();
+                    }
                 }
             }
         }
@@ -283,7 +291,7 @@ namespace OESMonitor
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (!isStartExam)
+            if (!IsStartExam)
             {
                 bool isExistPaper = true;
                 foreach (DataRow dr in paperListDataTable.Rows)
