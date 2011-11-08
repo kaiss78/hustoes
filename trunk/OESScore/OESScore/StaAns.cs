@@ -8,7 +8,7 @@ namespace OESScore
 {
     class StaAns
     {
-        public Paper PaperInfo;
+        public string PaperID;
         public List<Answer> Ans;
     }
     
