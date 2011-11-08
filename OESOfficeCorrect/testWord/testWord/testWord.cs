@@ -289,8 +289,6 @@ namespace testWordApp
                     #region 文本框
                     Word.TextFrame tf = ((Word.Shape)obj.o).TextFrame;
                     displayInfo.Add(new DisplayObject("文字", "Text", tf.TextRange.Text));
-                    //displayInfo.Add(new DisplayObject("方向", "Dir", tb.VerticalFlip));
-                    //displayInfo.Add(new DisplayObject("方向", "Dir", tb.ZOrderPosition));
                     displayInfo.Add(new DisplayObject("方向", "Orientation", tf.Orientation));
                     displayInfo.Add(new DisplayObject("字体", "FontName", tf.TextRange.Font.Name));
                     displayInfo.Add(new DisplayObject("字号", "FontSize", tf.TextRange.Font.Size));
