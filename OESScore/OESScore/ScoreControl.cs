@@ -11,7 +11,7 @@ namespace OESScore
 {
     class ScoreControl
     {
-        public static Paper SAns;
+        public static StaAns staAns;
         /// <summary>
         /// 配置文件设置
         /// </summary>
@@ -47,12 +47,30 @@ namespace OESScore
         }
 
 
-        public static void GetStandardAnswer(string path)
+        public static void GetStandardAnswer(string ID,string path)
         {
-
+            Answer ans;
             List<IdScoreType> proList = new List<IdScoreType>();
             List<IdAnswerType> ansList = new List<IdAnswerType>();
+            proList = XMLControl.ReadPaper(path + ID + ".xml");
+            ansList = XMLControl.GetPaperAns(path+"A"+ID+".xml");
+            staAns=new StaAns();
+            staAns.PaperID=ID;
 
+            foreach (IdScoreType pro in proList)
+            {
+                ans = new Answer();
+                ans.ID = pro.id;
+                ans.Score = pro.score;
+                ans.Type = pro.pt;
+                foreach (IdAnswerType a in ansList)
+                {
+                    if ((a.id == pro.id) && (a.pt == pro.pt))
+                    {
+                        ans.Ans = a.answer;
+                    }
+                }
+            }
 
         }
 

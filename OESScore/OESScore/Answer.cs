@@ -8,10 +8,9 @@ namespace OESScore
 {
     public class Answer
     {
-        ProblemType Type;
-        string ID;
-        string Ans;
-        int Score;
-        List<string> AnsList;        
+        public ProblemType Type;
+        public int ID;
+        public string Ans;
+        public int Score;     
     }
 }
