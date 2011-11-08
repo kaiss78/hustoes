@@ -79,9 +79,27 @@ namespace OESScore
 
         }
 
-        private void dgvPaperTable_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private int Mark(int index)
         {
+            int Score=0;
+            foreach (Answer ans in StuList[index].StuAns.Ans)
+            {
+                if ((ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
+                {
+                    Score = Score + ScoreControl.staAns.Ans[ans.ID].Score;
+                }
+            }
+            return Score;
+            
+        }
 
+        private void dgvPaperTable_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {            
+            int RIndex = dgvPaperTable.CurrentRow.Index;
+            if (RIndex > -1)
+            {
+                MessageBox.Show(Mark(RIndex).ToString());
+            }
         }
     }
 }

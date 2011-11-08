@@ -111,7 +111,7 @@ namespace OESScore
             if (RIndex > -1)
             {
                 formScore formscore = new formScore(papers[RIndex].Path.FullName);
-                MessageBox.Show(papers[RIndex].Path.Name + " " + papers[RIndex].Path.FullName);
+                
                 ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
                 
                 formscore.ShowDialog();
@@ -126,7 +126,7 @@ namespace OESScore
             { 
 
             }
-            MessageBox.Show(RIndex.ToString());
+            
             
         }
     }
