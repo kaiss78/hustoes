@@ -111,6 +111,9 @@ namespace OESScore
             if (RIndex > -1)
             {
                 formScore formscore = new formScore(papers[RIndex].Path.FullName);
+                MessageBox.Show(papers[RIndex].Path.Name + " " + papers[RIndex].Path.FullName);
+                ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
+                
                 formscore.ShowDialog();
                 formscore.Dispose();
             }
@@ -119,6 +122,10 @@ namespace OESScore
         private void btnScore_Click(object sender, EventArgs e)
         {
             int RIndex = dgvPaperTable.CurrentRow.Index;
+            if (RIndex > -1)
+            { 
+
+            }
             MessageBox.Show(RIndex.ToString());
             
         }

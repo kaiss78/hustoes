@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPaperTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.tableLayoutPanel1.SuspendLayout();
@@ -57,8 +57,8 @@
             this.dgvPaperTable.AllowUserToAddRows = false;
             this.dgvPaperTable.AllowUserToResizeColumns = false;
             this.dgvPaperTable.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPaperTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPaperTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPaperTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvPaperTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPaperTable.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
@@ -71,12 +71,13 @@
             this.dgvPaperTable.Name = "dgvPaperTable";
             this.dgvPaperTable.ReadOnly = true;
             this.dgvPaperTable.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvPaperTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvPaperTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPaperTable.RowTemplate.Height = 23;
             this.dgvPaperTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPaperTable.Size = new System.Drawing.Size(790, 430);
             this.dgvPaperTable.TabIndex = 6;
+            this.dgvPaperTable.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPaperTable_CellMouseDoubleClick);
             // 
             // formScore
             // 

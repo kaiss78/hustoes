@@ -15,7 +15,7 @@ namespace OESScore
     {
         private DataTable ScoreTable=new DataTable();
         private string folderpath;
-        private List<StuAns> AnsList = new List<StuAns>();
+        private List<StuFolder> StuList = new List<StuFolder>();
 
         public formScore(string path)
         {
@@ -42,8 +42,9 @@ namespace OESScore
         public void InitTable()
         {
             List<DirectoryInfo> anslist = ScoreControl.GetFolderInfo(folderpath);
+            StuList = new List<StuFolder>();
             object[] values = new object[3];
-            StuAns tmpSA;
+            StuFolder tmpSA;
             List<Student> tmpS;
             InitDT();
             foreach (DirectoryInfo ans in anslist)
@@ -51,9 +52,13 @@ namespace OESScore
                 tmpS = ScoreControl.OesData.FindStudentByStudentId(ans.Name);
                 if (tmpS != null)
                 {
-                    tmpSA = new StuAns();
+                    tmpSA = new StuFolder();
                     tmpSA.StuInfo = tmpS[0];
                     tmpSA.Score = 0;
+                    tmpSA.path = ans;
+                    tmpSA.StuAns = new StaAns();
+                    tmpSA.StuAns.Ans = ScoreControl.GetStuAns(ans.FullName);
+                    StuList.Add(tmpSA);
                     values[0] = tmpSA.StuInfo.ID;
                     values[1] = tmpSA.StuInfo.sName;
                     values[2] = tmpSA.Score;
@@ -71,6 +76,11 @@ namespace OESScore
             dgvPaperTable.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvPaperTable.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvPaperTable.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+        }
+
+        private void dgvPaperTable_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
 
         }
     }

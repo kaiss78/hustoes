@@ -52,9 +52,10 @@ namespace OESScore
             Answer ans;
             List<IdScoreType> proList = new List<IdScoreType>();
             List<IdAnswerType> ansList = new List<IdAnswerType>();
-            proList = XMLControl.ReadPaper(path + ID + ".xml");
-            ansList = XMLControl.GetPaperAns(path+"A"+ID+".xml");
+            proList = XMLControl.ReadPaper(path +"\\" +ID + ".xml");
+            ansList = XMLControl.GetPaperAns(path+"\\A"+ID+".xml");
             staAns=new StaAns();
+            staAns.Ans = new List<Answer>();
             staAns.PaperID=ID;
 
             foreach (IdScoreType pro in proList)
@@ -81,7 +82,7 @@ namespace OESScore
             List<Answer> stuAns=new List<Answer>();
             Answer ans;
             List<IdAnswerType> ansList = new List<IdAnswerType>();
-            ansList = XMLControl.GetPaperAns(path + "studentAns.xml");
+            ansList = XMLControl.GetPaperAns(path + "\\studentAns.xml");
             foreach (IdAnswerType pro in ansList)
             {
                 ans = new Answer();
