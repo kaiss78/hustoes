@@ -20,10 +20,8 @@ namespace OES
         public ExamForm()
         {
             InitializeComponent();
-            ClientEvt.Client.Port.FileReceiveEnd -= Port_FileReceiveEnd;
-            ClientEvt.Client.Port.RecieveFileRate -= Port_RecieveFileRate;
-            ClientEvt.Client.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
-            ClientEvt.Client.Port.RecieveFileRate += new ReturnVal(Port_RecieveFileRate);
+            ClientEvt.Client.Port.FileReceiveEnd += this.Port_FileReceiveEnd;
+            ClientEvt.Client.Port.RecieveFileRate += this.Port_RecieveFileRate;
             
         }
 
@@ -170,6 +168,8 @@ namespace OES
             Directory.Delete(Config.paperPath, true);
             ClientControl.LoginForm.Show();
             ClientEvt.logout();
+            ClientEvt.Client.Port.FileReceiveEnd -= this.Port_FileReceiveEnd;
+            ClientEvt.Client.Port.RecieveFileRate -= this.Port_RecieveFileRate;
             this.Dispose();
         }
 

@@ -60,6 +60,9 @@ namespace OES.Net
                         ClientControl.password = msgs[2];
                         ClientControl.isGetPwd = true;
                         break;
+                    case "5":
+                        ClientControl.ControlBar.butHandIn_Click(null, null);
+                        break;
                     default:
                         break;
                 }

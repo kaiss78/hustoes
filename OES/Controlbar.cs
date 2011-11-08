@@ -136,28 +136,31 @@ namespace OES
             }
         }
 
-        private void butHandIn_Click(object sender, EventArgs e)
+        public void butHandIn_Click(object sender, EventArgs e)
         {
            
             //ClientControl.MainForm.Dispose();
             //this.Dispose();
-            
-            //生成考生答案xml
-            XMLControl.CreateStudentAnsXML(Config.stuPath, ClientControl.student.ID);
-            foreach(Problem p in ClientControl.paper.problemList)
-            {
-                XMLControl.studentAnsXML.AddStudentAns(p.type,new Pid_Ans(p.problemId,p.getAns()));
-            }
-            // 
-            ClientControl.WaitingForm.Show();
-            ClientControl.SendInPaper();
-            //提交试题，压缩rar
-            //
+            while (!this.IsHandleCreated) ;
+            this.BeginInvoke(new MethodInvoker(() =>
+                        {
+                            //生成考生答案xml
+                            XMLControl.CreateStudentAnsXML(Config.stuPath, ClientControl.student.ID);
+                            foreach (Problem p in ClientControl.paper.problemList)
+                            {
+                                XMLControl.studentAnsXML.AddStudentAns(p.type, new Pid_Ans(p.problemId, p.getAns()));
+                            }
+                            // 
+                            ClientControl.WaitingForm.Show();
+                            ClientControl.SendInPaper();
+                            //提交试题，压缩rar
+                            //
 
-            ClientControl.MainForm.Dispose();
-            this.Dispose();
-            ClientControl.MainForm = null;
-            ClientControl.ControlBar = null;
+                            ClientControl.MainForm.Dispose();
+                            this.Dispose();
+                            ClientControl.MainForm = null;
+                            ClientControl.ControlBar = null;
+                        }));
             
         }
 
