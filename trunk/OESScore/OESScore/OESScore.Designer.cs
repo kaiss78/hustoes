@@ -280,7 +280,7 @@
             // Progress
             // 
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
             this.Progress.DefaultCellStyle = dataGridViewCellStyle4;
             this.Progress.FillWeight = 20F;
@@ -338,14 +338,14 @@
         private System.Windows.Forms.FolderBrowserDialog fbdPaperPath;
         private System.Windows.Forms.Panel plDGV;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvPaperTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaperID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaperName;
-        private DataGridViewProgressBarColumn Progress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewProgressBarColumn dataGridViewProgressBarColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaperID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaperName;
+        private DataGridViewProgressBarColumn Progress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
     }
 }
 
