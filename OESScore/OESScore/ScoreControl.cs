@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OES;
+using OES.XMLFile;
+using OES.Model;
 using System.IO;
 
 namespace OESScore
 {
     class ScoreControl
     {
+        public static Paper SAns;
         /// <summary>
         /// 配置文件设置
         /// </summary>
@@ -41,6 +44,13 @@ namespace OESScore
         {
 
             return new DirectoryInfo(path).GetDirectories().ToList<DirectoryInfo>();
+        }
+
+
+        public static void GetStandardAnswer(string path)
+        {
+   
+            
         }
 
     }
