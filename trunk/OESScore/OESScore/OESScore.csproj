@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answer.cs" />
     <Compile Include="DataGridViewProgressBarCell.cs" />
     <Compile Include="OESScore.cs">
       <SubType>Form</SubType>
@@ -110,6 +111,7 @@
       <DependentUpon>Score.cs</DependentUpon>
     </Compile>
     <Compile Include="ScoreControl.cs" />
+    <Compile Include="StaAns.cs" />
     <Compile Include="StuAns.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

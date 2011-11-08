@@ -49,8 +49,11 @@ namespace OESScore
 
         public static void GetStandardAnswer(string path)
         {
-   
-            
+
+            List<IdScoreType> proList = new List<IdScoreType>();
+            List<IdAnswerType> ansList = new List<IdAnswerType>();
+
+
         }
 
     }
