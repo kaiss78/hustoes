@@ -95,8 +95,9 @@ namespace OES
                     pCompletion = new PCompletion(st);                    
                     ClientControl.paper.Add(pCompletion);                    
                 }
+                ClientControl.MainForm.addPage(ProblemType.ProgramCompletion);
             }
-            ClientControl.MainForm.addPage(ProblemType.ProgramCompletion);
+            
         }
 
         public static void ReadPModif(string path)
@@ -112,8 +113,9 @@ namespace OES
                     pModif = new PModif(st);
                     ClientControl.paper.Add(pModif);
                 }
+                ClientControl.MainForm.addPage(ProblemType.ProgramModification); 
             }
-            ClientControl.MainForm.addPage(ProblemType.ProgramModification); 
+            
         }
 
         public static void ReadPFunction(string path)
