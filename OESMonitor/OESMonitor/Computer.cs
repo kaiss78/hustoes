@@ -138,9 +138,18 @@ namespace OESMonitor
 
                 }
                 
-                state = value; 
+                state = value;
+                if (state == 3)
+                {
+                    OESMonitor.HandInPaper += this.OESMonitor_HandInPaper;
+                }
+                else
+                {
+                    OESMonitor.HandInPaper -= this.OESMonitor_HandInPaper;
+                }
             }
         }
+
         private Client client;
 
         public Client Client
@@ -189,7 +198,10 @@ namespace OESMonitor
         }
 
        
-
+        void OESMonitor_HandInPaper()
+        {
+            Client.SendTxt("oes$5");
+        }
 
         #region 填充client事件
 
