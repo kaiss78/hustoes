@@ -112,7 +112,7 @@
     </Compile>
     <Compile Include="ScoreControl.cs" />
     <Compile Include="StaAns.cs" />
-    <Compile Include="StuAns.cs" />
+    <Compile Include="StuFolder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

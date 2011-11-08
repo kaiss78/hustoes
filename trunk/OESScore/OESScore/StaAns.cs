@@ -6,7 +6,7 @@ using OES.Model;
 
 namespace OESScore
 {
-    class StaAns
+    public class StaAns
     {
         public string PaperID;
         public List<Answer> Ans;
