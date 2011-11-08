@@ -6,9 +6,10 @@ using OES.Model;
 
 namespace OESScore
 {
-    public class StuAns
+    class StaAns
     {
-        public Student StuInfo=new Student();
-        public int Score;
+        public Paper PaperInfo;
+        public List<Answer> Ans;
     }
+    
 }
