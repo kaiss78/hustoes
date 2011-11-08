@@ -170,7 +170,7 @@ namespace OES.XMLFile
         {
             paperAnsXML.AddPaperAns(pt, new Pid_Ans(id, answer));
         }
-        public static List<IdAnswerType> GetPaperAns(string filePath)
+        public static List<IdAnswerType> ReadPaperAns(string filePath)
         {
             paperAnsXML = new XMLAssistant(filePath, XMLType.PaperAnswer, null);
             return paperAnsXML.GetAnswer();
