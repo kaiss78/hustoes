@@ -47,7 +47,7 @@ namespace OESScore
         }
 
 
-        public static void GetStandardAnswer(string ID,string path)
+        public static void SetStandardAnswer(string ID,string path)
         {
             Answer ans;
             List<IdScoreType> proList = new List<IdScoreType>();
@@ -68,10 +68,29 @@ namespace OESScore
                     if ((a.id == pro.id) && (a.pt == pro.pt))
                     {
                         ans.Ans = a.answer;
+                        break;
                     }
                 }
+                staAns.Ans.Add(ans);
             }
 
+        }
+
+        public static List<Answer> GetStuAns(string path)
+        {
+            List<Answer> stuAns=new List<Answer>();
+            Answer ans;
+            List<IdAnswerType> ansList = new List<IdAnswerType>();
+            ansList = XMLControl.GetPaperAns(path + "studentAns.xml");
+            foreach (IdAnswerType pro in ansList)
+            {
+                ans = new Answer();
+                ans.ID = pro.id;                
+                ans.Type = pro.pt;
+                ans.Ans = pro.answer;
+                stuAns.Add(ans);
+            }
+            return stuAns;
         }
 
     }

@@ -115,5 +115,12 @@ namespace OESScore
                 formscore.Dispose();
             }
         }
+
+        private void btnScore_Click(object sender, EventArgs e)
+        {
+            int RIndex = dgvPaperTable.CurrentRow.Index;
+            MessageBox.Show(RIndex.ToString());
+            
+        }
     }
 }
