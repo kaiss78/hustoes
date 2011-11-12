@@ -137,7 +137,7 @@ namespace ServerNet
             catch
             {
                 if (DisConnect != null)
-                    DisConnect(null, null);
+                    DisConnect(this, null);
             }
         }
 
