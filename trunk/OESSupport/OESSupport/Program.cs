@@ -39,7 +39,7 @@ namespace OESSupport
             if (instance != null)
             {
                 //There   is   another   instance   of   this   process.  
-                HandleRunningInstance(instance);
+                //HandleRunningInstance(instance);
                 return;
             }
             string cmd = Console.ReadLine();
