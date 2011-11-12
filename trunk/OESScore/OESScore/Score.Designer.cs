@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvPaperTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaperTable)).BeginInit();
             this.SuspendLayout();
@@ -41,6 +42,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.dgvPaperTable, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnSave, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -79,6 +81,18 @@
             this.dgvPaperTable.TabIndex = 6;
             this.dgvPaperTable.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPaperTable_CellMouseDoubleClick);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(3, 439);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 30);
+            this.btnSave.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnSave.StateCommon.Border.Rounding = 14;
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Values.Text = "保存";
+            // 
             // formScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -98,5 +112,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvPaperTable;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
     }
 }

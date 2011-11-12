@@ -123,8 +123,9 @@ namespace OESScore
         {
             int RIndex = dgvPaperTable.CurrentRow.Index;
             if (RIndex > -1)
-            { 
-
+            {
+                ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
+                formScore formscore = new formScore(papers[RIndex].Path.FullName);
             }
             
             
