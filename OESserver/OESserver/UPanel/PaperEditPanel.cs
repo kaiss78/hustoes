@@ -173,7 +173,7 @@ namespace OES.UPanel
                         ans = "";
                         foreach (string st in completion[0].ans)
                         {
-                            ans = ans + st + "\r\n";
+                            ans = ans + st + "\n";
                         }
                         return ans;
                     }
