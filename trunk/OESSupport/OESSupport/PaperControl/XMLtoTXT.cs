@@ -92,7 +92,7 @@ namespace OESSupport.PaperControl
                         prostr[8] = prostr[8] + pfunction.problem + "\n";
                         File.Copy(Program.config["Root"] + Program.config["CFunction"] + "p" + problem.id.ToString() + ".c", paperpath + "i" + ".c", true);
                         break;
-                }
+                } 
             }
  
 
