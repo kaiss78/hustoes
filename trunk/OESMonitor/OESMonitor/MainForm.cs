@@ -44,9 +44,15 @@ namespace OESMonitor
                 isStartExam = value;
                 if (isStartExam)
                 {
-                    ServerEvt.Server.IsPortAvailable = true;
-                    button1.Text = "停止发卷/发卷";
-                    timer_PortCounter.Start();
+                    if (examPaperIdList.Count == 0)
+                    {
+                    }
+                    else
+                    {
+                        ServerEvt.Server.IsPortAvailable = true;
+                        button1.Text = "停止发卷/发卷";
+                        timer_PortCounter.Start();
+                    }
                 }
                 else
                 {
@@ -302,12 +308,13 @@ namespace OESMonitor
                         isExistPaper = false;
                     }
                 }
-                if (isExistPaper)
+                if (isExistPaper && examPaperIdList.Count!=0)
                     IsStartExam = true;
                 else
                 {
                     tabControl2.SelectedIndex = 1;
-                    helpLabel.Text = "您还有部分试卷未下载，请点击“下载试卷”";
+                    helpLabel.Text = "您没有选择考试试卷 或者 您还有部分试卷未下载，请点击“下载试卷”";
+                    MessageBox.Show(helpLabel.Text);
                 }
             }
             else
