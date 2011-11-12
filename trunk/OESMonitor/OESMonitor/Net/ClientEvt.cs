@@ -9,13 +9,27 @@ namespace OESMonitor.Net
     public class ClientEvt
     {
         public OESClient Client;
-      
+        public static CommandLine cmdForm = new CommandLine();
         public ClientEvt()
         {
+            cmdForm.Text = "与服务端（support）的通信命令";
             Client = new OESClient();
+            Client.ReceivedMsg += new EventHandler(Client_ReceivedMsg);
+            Client.WrittenMsg += new EventHandler(Client_WrittenMsg);
             Client.ReceivedTxt += new EventHandler(Client_ReceivedTxt);
             Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
             Client.InitializeClient();
+            cmdForm.Show();
+        }
+
+        void Client_ReceivedMsg(object sender, EventArgs e)
+        {
+            cmdForm.showMessage("Read:\t" + sender.ToString());
+        }
+
+        void Client_WrittenMsg(object sender, EventArgs e)
+        {
+            cmdForm.showMessage("Write:\t" + sender.ToString());
         }
 
         void Client_ConnectedServer(object sender, EventArgs e)
@@ -25,7 +39,7 @@ namespace OESMonitor.Net
 
         void Client_ReceivedTxt(object sender, EventArgs e)
         {
-            Console.WriteLine(sender.ToString());
+            
         }
 
         public string LoadPaper(int id, int tid)
