@@ -11,14 +11,34 @@ namespace OES.Model
         public string paperTitle;
         public string score;
         public string stuClassName;
+        public List<Detail> detail;
         public Score()
         {
+            detail = new List<Detail>();
+        }
+        public void addDetail(ProblemType pt,int score)
+        {
+            foreach (Detail dt in detail)
+            {
+                if (dt.PType == pt)
+                {
+                    dt.score += score;
+                    return;
+                }
+            }
+            detail.Add(new Detail(pt, score));
         }
     }
+
     public class Detail
     {
 
-        ProblemType PType;
-        int score;
+        public ProblemType PType;
+        public int score;
+        public Detail(ProblemType pt, int score)
+        {
+            this.PType = pt;
+            this.score = score;
+        }
     }
 }
