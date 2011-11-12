@@ -282,12 +282,19 @@ namespace OESMonitor
 
         bool client_LoginValidating(string name, string id, string pwd)
         {
-            this.Student = new Student(name, "", id, pwd);
             if (Directory.Exists(PaperControl.PathConfig["StuAns"] + id)) return false;
+            foreach (Computer c in computerList)
+            {
+                if (c.student.ID == id)
+                {
+                    return false;
+                }
+            }
             if (PaperControl.OesData.ValidateStudentInfo(id, name, pwd))
             {
                 ExamPaper = getCurrentPaper();
                 if (ExamPaper == "") return false;
+                this.Student = new Student(name, "", id, pwd);
                 return true;
             }
             ExamPaper = "";
