@@ -389,6 +389,7 @@ namespace OESMonitor
 
         private void OESMonitor_Load(object sender, EventArgs e)
         {
+            cl.Text = "与客户端（client）的通信命令";
             cl.Show();
 
             if (!Directory.Exists(PaperControl.PathConfig["StuAns"]))
