@@ -10,7 +10,7 @@ namespace OES.Model
         public string stuAns;
         public int unit;
         public string unitName;
-        public List<string> ans;
+        public List<string> ans;      
         public Completion()
         {
             type = ProblemType.Completion;

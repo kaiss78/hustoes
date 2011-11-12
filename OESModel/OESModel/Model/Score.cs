@@ -15,4 +15,10 @@ namespace OES.Model
         {
         }
     }
+    public class Detail
+    {
+
+        ProblemType PType;
+        int score;
+    }
 }
