@@ -72,7 +72,7 @@ namespace OESMonitor
 
         public static DataTable paperListDataTable;
 
-        public  Net.ClientEvt supportServer;
+        public static Net.ClientEvt supportServer;
 
         public OESMonitor()
         {
