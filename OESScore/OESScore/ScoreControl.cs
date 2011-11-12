@@ -47,16 +47,16 @@ namespace OESScore
         }
 
 
-        public static void SetStandardAnswer(string ID,string path)
+        public static void SetStandardAnswer(string ID, string path)
         {
             Answer ans;
             List<IdScoreType> proList = new List<IdScoreType>();
             List<IdAnswerType> ansList = new List<IdAnswerType>();
-            proList = XMLControl.ReadPaper(path +"\\" +ID + ".xml");
-            ansList = XMLControl.GetPaperAns(path+"\\A"+ID+".xml");
-            staAns=new StaAns();
+            proList = XMLControl.ReadPaper(path + "\\" + ID + ".xml");
+            ansList = XMLControl.GetPaperAns(path + "\\A" + ID + ".xml");
+            staAns = new StaAns();
             staAns.Ans = new List<Answer>();
-            staAns.PaperID=ID;
+            staAns.PaperID = ID;
 
             foreach (IdScoreType pro in proList)
             {
@@ -79,14 +79,14 @@ namespace OESScore
 
         public static List<Answer> GetStuAns(string path)
         {
-            List<Answer> stuAns=new List<Answer>();
+            List<Answer> stuAns = new List<Answer>();
             Answer ans;
             List<IdAnswerType> ansList = new List<IdAnswerType>();
             ansList = XMLControl.GetPaperAns(path + "\\studentAns.xml");
             foreach (IdAnswerType pro in ansList)
             {
                 ans = new Answer();
-                ans.ID = pro.id;                
+                ans.ID = pro.id;
                 ans.Type = pro.pt;
                 ans.Ans = pro.answer;
                 stuAns.Add(ans);

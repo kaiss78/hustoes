@@ -15,7 +15,7 @@ namespace OESScore
     {
         private DataTable ScoreTable=new DataTable();
         private string folderpath;
-        private List<StuFolder> StuList = new List<StuFolder>();
+        private List<StuFolder> StuList = new List<StuFolder>();        
 
         public formScore(string path)
         {
@@ -54,7 +54,7 @@ namespace OESScore
                 {
                     tmpSA = new StuFolder();
                     tmpSA.StuInfo = tmpS[0];
-                    tmpSA.Score = 0;
+                    tmpSA.Score.score = "0";
                     tmpSA.path = ans;
                     tmpSA.StuAns = new StaAns();
                     tmpSA.StuAns.Ans = ScoreControl.GetStuAns(ans.FullName);
@@ -76,23 +76,29 @@ namespace OESScore
             dgvPaperTable.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvPaperTable.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvPaperTable.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
-
         }
 
-        private int Mark(int index)
+        public void MarkAll()
         {
-            int Score=0;
-            foreach (Answer ans in StuList[index].StuAns.Ans)
+            for (int i = 0; i < StuList.Count; i++)
+            {
+                Mark(i);
+            }
+        }
+        public int Mark(int RIndex)
+        {
+            int Score = 0;
+            StuList[RIndex].Score.detail = new List<Detail>();
+            foreach (Answer ans in StuList[RIndex].StuAns.Ans)
             {
                 if ((ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
                 {
                     Score = Score + ScoreControl.staAns.Ans[ans.ID].Score;
+                    StuList[RIndex].Score.addDetail(ans.Type, ScoreControl.staAns.Ans[ans.ID].Score);
                 }
             }
             return Score;
-            
         }
-
         private void dgvPaperTable_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {            
             int RIndex = dgvPaperTable.CurrentRow.Index;

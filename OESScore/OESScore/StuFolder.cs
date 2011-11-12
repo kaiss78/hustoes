@@ -11,7 +11,7 @@ namespace OESScore
     {
         public Student StuInfo=new Student();
         public DirectoryInfo path;
-        public StaAns StuAns;
-        public int Score;
+        public StaAns StuAns;        
+        public Score Score;
     }
 }
