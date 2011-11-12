@@ -226,10 +226,6 @@ namespace OESSupport.Net
                         Program.TeacherList.Add(new Teacher("0", client));
                         client.DisConnect += new EventHandler(client_DisConnect);
                         string temp = "monitor$1";
-                        //foreach (Paper p in DataControl.getPaperList())
-                        //{
-                        //    temp += "$" + p.id + "$" + p.name;
-                        //}
                         client.SendTxt(temp);
                         break;
                     case "2":
@@ -245,6 +241,9 @@ namespace OESSupport.Net
             {
                 if (t.client == sender as Client)
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine(t.ToString() + " Logout...");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.TeacherList.Remove(t);
                     break;
                 }
@@ -265,17 +264,23 @@ namespace OESSupport.Net
 
         void Server_FileSendEnd(DataPort dataPort)
         {
-            
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("File Send End!");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         void Server_FileReceiveEnd(DataPort dataPort)
         {
-            
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("File Receive End!");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         void Server_AcceptedClient(object sender, EventArgs e)
         {
-            
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("A Teacher Login...");
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

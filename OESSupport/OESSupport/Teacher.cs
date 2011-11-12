@@ -29,5 +29,9 @@ namespace OESSupport
             }
             return null;
         }
+        public override string ToString()
+        {
+            return "{Name:" + this.name + " IpPort:" + this.client.ClientIp  + "}";
+        }
     }
 }
