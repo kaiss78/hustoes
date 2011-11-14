@@ -78,7 +78,7 @@
     </Reference>
     <Reference Include="OESModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESData\OESData\bin\x86\Debug\OESModel.dll</HintPath>
+      <HintPath>..\..\..\OESXML\OESXML\bin\x86\Debug\OESModel.dll</HintPath>
     </Reference>
     <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
