@@ -8,14 +8,15 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using OES.Model;
+using OES.XMLFile;
 
 namespace OESScore
 {
     public partial class formScore : Form
     {
-        private DataTable ScoreTable=new DataTable();
+        private DataTable ScoreTable = new DataTable();
         private string folderpath;
-        private List<StuFolder> StuList = new List<StuFolder>();        
+        private List<StuFolder> StuList = new List<StuFolder>();
 
         public formScore(string path)
         {
@@ -30,11 +31,13 @@ namespace OESScore
         /// </summary>
         public void InitDT()
         {
-            ScoreTable = new DataTable("ScoreTable");            
+            ScoreTable = new DataTable("ScoreTable");
             ScoreTable.Columns.Add("学号");
             ScoreTable.Columns.Add("姓名");
-            ScoreTable.Columns.Add("成绩");            
+            ScoreTable.Columns.Add("成绩");
         }
+
+
 
         /// <summary>
         /// 填充表格数据
@@ -48,20 +51,26 @@ namespace OESScore
             List<Student> tmpS;
             InitDT();
             foreach (DirectoryInfo ans in anslist)
-            {                
+            {
                 tmpS = ScoreControl.OesData.FindStudentByStudentId(ans.Name);
                 if (tmpS != null)
                 {
                     tmpSA = new StuFolder();
                     tmpSA.StuInfo = tmpS[0];
+                    tmpSA.Score = new Score();
                     tmpSA.Score.score = "0";
                     tmpSA.path = ans;
                     tmpSA.StuAns = new StaAns();
                     tmpSA.StuAns.Ans = ScoreControl.GetStuAns(ans.FullName);
+                    if (File.Exists(ans.FullName + "\\Result.xml"))
+                    {
+                        tmpSA.ReadResult(ans.FullName + "\\Result.xml");
+                    }
                     StuList.Add(tmpSA);
                     values[0] = tmpSA.StuInfo.ID;
                     values[1] = tmpSA.StuInfo.sName;
-                    values[2] = tmpSA.Score;
+
+                    values[2] = tmpSA.Score.score;
                     ScoreTable.Rows.Add(values);
                 }
             }
@@ -69,7 +78,7 @@ namespace OESScore
             dgvPaperTable.DataSource = ScoreTable;
             dgvPaperTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgvPaperTable.Columns[0].FillWeight =10;
+            dgvPaperTable.Columns[0].FillWeight = 10;
             dgvPaperTable.Columns[1].FillWeight = 20;
             dgvPaperTable.Columns[2].FillWeight = 45;
 
@@ -85,22 +94,28 @@ namespace OESScore
                 Mark(i);
             }
         }
+
         public int Mark(int RIndex)
         {
-            int Score = 0;
-            StuList[RIndex].Score.detail = new List<Detail>();
+            int Score = 0, dScore = 0;
+            StuList[RIndex].Score.sum = new List<Sum>();
+            XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
             foreach (Answer ans in StuList[RIndex].StuAns.Ans)
             {
+                dScore = 0;
                 if ((ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
                 {
-                    Score = Score + ScoreControl.staAns.Ans[ans.ID].Score;
-                    StuList[RIndex].Score.addDetail(ans.Type, ScoreControl.staAns.Ans[ans.ID].Score);
+                    dScore = ScoreControl.staAns.Ans[ans.ID].Score;
+
                 }
+                StuList[RIndex].Score.addDetail(ans.Type, dScore);
+                XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
             }
             return Score;
         }
+
         private void dgvPaperTable_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {            
+        {
             int RIndex = dgvPaperTable.CurrentRow.Index;
             if (RIndex > -1)
             {

@@ -45,7 +45,7 @@ namespace OESScore
 
             return new DirectoryInfo(path).GetDirectories().ToList<DirectoryInfo>();
         }
-
+        
 
         public static void SetStandardAnswer(string ID, string path)
         {
@@ -53,7 +53,7 @@ namespace OESScore
             List<IdScoreType> proList = new List<IdScoreType>();
             List<IdAnswerType> ansList = new List<IdAnswerType>();
             proList = XMLControl.ReadPaper(path + "\\" + ID + ".xml");
-            ansList = XMLControl.GetPaperAns(path + "\\A" + ID + ".xml");
+            ansList = XMLControl.ReadPaperAns(path + "\\A" + ID + ".xml");
             staAns = new StaAns();
             staAns.Ans = new List<Answer>();
             staAns.PaperID = ID;
@@ -82,7 +82,7 @@ namespace OESScore
             List<Answer> stuAns = new List<Answer>();
             Answer ans;
             List<IdAnswerType> ansList = new List<IdAnswerType>();
-            ansList = XMLControl.GetPaperAns(path + "\\studentAns.xml");
+            ansList = XMLControl.ReadPaperAns(path + "\\studentAns.xml");
             foreach (IdAnswerType pro in ansList)
             {
                 ans = new Answer();
