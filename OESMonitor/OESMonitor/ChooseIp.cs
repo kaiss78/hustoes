@@ -19,6 +19,7 @@ namespace OESMonitor
             {
                 comboBox1.Items.Add(i);
             }
+            comboBox1.SelectedIndex = 0;
         }
         public static ChooseIp CurrentForm(List<IPAddress> list)
         {

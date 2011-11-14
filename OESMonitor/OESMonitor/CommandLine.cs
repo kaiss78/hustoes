@@ -17,6 +17,7 @@ namespace OESMonitor
         public CommandLine()
         {
             InitializeComponent();
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
         public void showMessage(string message)
         {
