@@ -60,6 +60,7 @@
             this.btnRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label4 = new System.Windows.Forms.Label();
             this.timer_PortCounter = new System.Windows.Forms.Timer(this.components);
+            this.netState1 = new OES.NetState();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -75,10 +76,11 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 36);
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 33);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(589, 385);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(589, 398);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -93,10 +95,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(21, 21);
+            this.label1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(21, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 12);
+            this.label1.Size = new System.Drawing.Size(63, 14);
             this.label1.TabIndex = 3;
             this.label1.Text = "考试状态";
             // 
@@ -139,20 +141,21 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(21, 21);
+            this.label2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(21, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 12);
+            this.label2.Size = new System.Drawing.Size(63, 14);
             this.label2.TabIndex = 6;
             this.label2.Text = "考试状态";
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(18, 36);
+            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(18, 33);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(589, 385);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(589, 398);
             this.flowLayoutPanel2.TabIndex = 4;
             // 
             // tabPage3
@@ -170,20 +173,21 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(21, 21);
+            this.label3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(21, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 12);
+            this.label3.Size = new System.Drawing.Size(63, 14);
             this.label3.TabIndex = 4;
             this.label3.Text = "考试状态";
             // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.AutoScroll = true;
-            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(18, 36);
+            this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(18, 33);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(589, 385);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(589, 398);
             this.flowLayoutPanel3.TabIndex = 7;
             // 
             // tabControl2
@@ -198,9 +202,11 @@
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(878, 495);
             this.tabControl2.TabIndex = 5;
+            this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.netState1);
             this.tabPage4.Controls.Add(this.label5);
             this.tabPage4.Controls.Add(this.lab_DataPortCount);
             this.tabPage4.Controls.Add(this.button1);
@@ -400,10 +406,21 @@
             // 
             this.timer_PortCounter.Tick += new System.EventHandler(this.timer_PortCounter_Tick);
             // 
+            // netState1
+            // 
+            this.netState1.BackColor = System.Drawing.Color.Transparent;
+            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.netState1.Location = new System.Drawing.Point(636, 3);
+            this.netState1.Name = "netState1";
+            this.netState1.Size = new System.Drawing.Size(213, 26);
+            this.netState1.State = 0;
+            this.netState1.TabIndex = 8;
+            // 
             // OESMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(878, 495);
             this.Controls.Add(this.tabControl2);
@@ -463,6 +480,7 @@
         private System.Windows.Forms.Label lab_DataPortCount;
         private System.Windows.Forms.Timer timer_PortCounter;
         private ComponentFactory.Krypton.Toolkit.KryptonButton downloadButton;
+        private OES.NetState netState1;
 
     }
 }

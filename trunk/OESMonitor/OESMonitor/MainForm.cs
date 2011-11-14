@@ -78,12 +78,18 @@ namespace OESMonitor
         {
             InitializeComponent();
 
+            netState1.ReConnect += new EventHandler(netState1_ReConnect);
+            this.netState1.State = 2;
             supportServer = new Net.ClientEvt();
 
             supportServer.Client.FileListRecieveStart += new Action(Client_FileListRecieveStart);
             supportServer.Client.FileListRecieveEnd += new Action(Client_FileListRecieveEnd);
             supportServer.Client.FileListCount += new FileListSize(Client_FileListCount);
+            supportServer.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
+            supportServer.Client.DisConnectError += new ErrorEventHandler(Client_DisConnectError);
+            supportServer.Client.InitializeClient();
             supportServer.Client.Port.RecieveFileRate += new ClientNet.ReturnVal(Port_RecieveFileRate);
+
             timer_PortCounter.Interval = 1000;
 
             panel1.Controls.Add( ComputerState.getInstance());
@@ -107,6 +113,33 @@ namespace OESMonitor
             btnGetPaperFromDB.MouseLeave += new EventHandler(radioButton1_MouseLeave);
             downloadButton.MouseEnter += new EventHandler(downloadButton_MouseEnter);
             downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
+        }
+
+        void Client_DisConnectError(object sender, ErrorEventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(() => {
+                netState1.State = 0;
+            }));
+        }
+
+        void Client_ConnectedServer(object sender, EventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                netState1.State = 1;
+            }));
+        }
+
+        void netState1_ReConnect(object sender, EventArgs e)
+        {
+            if (netState1.State == 0)
+            {
+                supportServer.Client.InitializeClient();
+            }
+            else
+            {
+                netState1.State = 0;
+            }
         }
 
         
@@ -535,6 +568,18 @@ namespace OESMonitor
         private void timer_PortCounter_Tick(object sender, EventArgs e)
         {
             lab_DataPortCount.Text = Net.ServerEvt.Server.PortCurNum.ToString();
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl2.SelectedIndex == 1 && netState1.State != 1)
+            {
+                tabControl2.SelectedIndex = 0;
+                MessageBox.Show("未连接上服务端!");
+            }
+            else
+            {
+            }
         }
 
         

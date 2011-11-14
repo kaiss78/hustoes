@@ -18,7 +18,6 @@ namespace OESMonitor.Net
             Client.WrittenMsg += new EventHandler(Client_WrittenMsg);
             Client.ReceivedTxt += new EventHandler(Client_ReceivedTxt);
             Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
-            Client.InitializeClient();
             cmdForm.Show();
         }
 
