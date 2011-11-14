@@ -17,12 +17,15 @@ namespace OES.Net
 
         public ClientEvt()
         {
+            
+        }
+        public void Init()
+        {
             Client.InitializeClient();
             Client.ReceivedTxt+=new EventHandler(Client_ReceivedTxt);
             Client.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
             Client.Port.FileSendEnd += new EventHandler(Port_FileSendEnd);
         }
-
         void Port_FileSendEnd(object sender, EventArgs e)
         {
             

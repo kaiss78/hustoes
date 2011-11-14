@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using OES.Model;
 using OES.UPanel;
+using OES.Net;
 
 namespace OES
 {
@@ -45,7 +46,40 @@ namespace OES
 
             PermissionControl();
 
-            this.FormClosed += new FormClosedEventHandler(MainForm_FormClosed); 
+            this.FormClosed += new FormClosedEventHandler(MainForm_FormClosed);
+            netState1.ReConnect += new EventHandler(netState1_ReConnect);
+            ClientEvt.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
+            ClientEvt.Client.DisConnectError += new System.IO.ErrorEventHandler(Client_DisConnectError);
+            InfoControl.ClientObj.Init();
+
+        }
+
+        void Client_DisConnectError(object sender, System.IO.ErrorEventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                netState1.State = 0;
+            }));
+        }
+
+        void Client_ConnectedServer(object sender, EventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                netState1.State = 1;
+            }));
+        }
+
+        void netState1_ReConnect(object sender, EventArgs e)
+        {
+            if (netState1.State == 0)
+            {
+                ClientEvt.Client.InitializeClient();
+            }
+            else
+            {
+                netState1.State = 0;
+            }
         }
 
         //权限控制，根据登录用户的权限，设置不同的功能显示

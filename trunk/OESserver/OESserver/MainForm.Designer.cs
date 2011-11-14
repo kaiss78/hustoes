@@ -52,6 +52,7 @@
             this.JudgeLbl = new System.Windows.Forms.LinkLabel();
             this.completionLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.netState1 = new OES.NetState(10);
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
@@ -63,6 +64,7 @@
             // 
             this.xpPanelGroup1.AutoScroll = true;
             this.xpPanelGroup1.BackColor = System.Drawing.Color.Transparent;
+            this.xpPanelGroup1.Controls.Add(this.netState1);
             this.xpPanelGroup1.Controls.Add(this.xpPanel3);
             this.xpPanelGroup1.Controls.Add(this.xpPanel2);
             this.xpPanelGroup1.Controls.Add(this.PMXP);
@@ -187,7 +189,7 @@
             this.newPapLbl.AutoSize = true;
             this.newPapLbl.Location = new System.Drawing.Point(6, 39);
             this.newPapLbl.Name = "newPapLbl";
-            this.newPapLbl.Size = new System.Drawing.Size(59, 13);
+            this.newPapLbl.Size = new System.Drawing.Size(69, 19);
             this.newPapLbl.TabIndex = 0;
             this.newPapLbl.TabStop = true;
             this.newPapLbl.Tag = "12";
@@ -199,7 +201,7 @@
             this.paperManLbl.AutoSize = true;
             this.paperManLbl.Location = new System.Drawing.Point(6, 58);
             this.paperManLbl.Name = "paperManLbl";
-            this.paperManLbl.Size = new System.Drawing.Size(59, 13);
+            this.paperManLbl.Size = new System.Drawing.Size(69, 19);
             this.paperManLbl.TabIndex = 1;
             this.paperManLbl.TabStop = true;
             this.paperManLbl.Tag = "13";
@@ -251,7 +253,7 @@
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Location = new System.Drawing.Point(6, 245);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(81, 13);
+            this.linkLabel3.Size = new System.Drawing.Size(101, 19);
             this.linkLabel3.TabIndex = 11;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Tag = "11";
@@ -263,7 +265,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Location = new System.Drawing.Point(6, 226);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(81, 13);
+            this.linkLabel2.Size = new System.Drawing.Size(101, 19);
             this.linkLabel2.TabIndex = 10;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Tag = "10";
@@ -275,7 +277,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(6, 207);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(81, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(101, 19);
             this.linkLabel1.TabIndex = 9;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Tag = "9";
@@ -287,7 +289,7 @@
             this.choiceLbl.AutoSize = true;
             this.choiceLbl.Location = new System.Drawing.Point(6, 39);
             this.choiceLbl.Name = "choiceLbl";
-            this.choiceLbl.Size = new System.Drawing.Size(46, 13);
+            this.choiceLbl.Size = new System.Drawing.Size(54, 19);
             this.choiceLbl.TabIndex = 0;
             this.choiceLbl.TabStop = true;
             this.choiceLbl.Tag = "0";
@@ -299,7 +301,7 @@
             this.cfLbl.AutoSize = true;
             this.cfLbl.Location = new System.Drawing.Point(6, 191);
             this.cfLbl.Name = "cfLbl";
-            this.cfLbl.Size = new System.Drawing.Size(67, 13);
+            this.cfLbl.Size = new System.Drawing.Size(79, 19);
             this.cfLbl.TabIndex = 8;
             this.cfLbl.TabStop = true;
             this.cfLbl.Tag = "8";
@@ -311,7 +313,7 @@
             this.cmLbl.AutoSize = true;
             this.cmLbl.Location = new System.Drawing.Point(6, 172);
             this.cmLbl.Name = "cmLbl";
-            this.cmLbl.Size = new System.Drawing.Size(67, 13);
+            this.cmLbl.Size = new System.Drawing.Size(79, 19);
             this.cmLbl.TabIndex = 7;
             this.cmLbl.TabStop = true;
             this.cmLbl.Tag = "7";
@@ -323,7 +325,7 @@
             this.ccLbl.AutoSize = true;
             this.ccLbl.Location = new System.Drawing.Point(6, 153);
             this.ccLbl.Name = "ccLbl";
-            this.ccLbl.Size = new System.Drawing.Size(67, 13);
+            this.ccLbl.Size = new System.Drawing.Size(79, 19);
             this.ccLbl.TabIndex = 6;
             this.ccLbl.TabStop = true;
             this.ccLbl.Tag = "6";
@@ -335,7 +337,7 @@
             this.WordLbl.AutoSize = true;
             this.WordLbl.Location = new System.Drawing.Point(6, 134);
             this.WordLbl.Name = "WordLbl";
-            this.WordLbl.Size = new System.Drawing.Size(46, 13);
+            this.WordLbl.Size = new System.Drawing.Size(54, 19);
             this.WordLbl.TabIndex = 5;
             this.WordLbl.TabStop = true;
             this.WordLbl.Tag = "5";
@@ -347,7 +349,7 @@
             this.pptLbl.AutoSize = true;
             this.pptLbl.Location = new System.Drawing.Point(6, 115);
             this.pptLbl.Name = "pptLbl";
-            this.pptLbl.Size = new System.Drawing.Size(59, 13);
+            this.pptLbl.Size = new System.Drawing.Size(69, 19);
             this.pptLbl.TabIndex = 4;
             this.pptLbl.TabStop = true;
             this.pptLbl.Tag = "4";
@@ -359,7 +361,7 @@
             this.exlLbl.AutoSize = true;
             this.exlLbl.Location = new System.Drawing.Point(6, 96);
             this.exlLbl.Name = "exlLbl";
-            this.exlLbl.Size = new System.Drawing.Size(59, 13);
+            this.exlLbl.Size = new System.Drawing.Size(69, 19);
             this.exlLbl.TabIndex = 3;
             this.exlLbl.TabStop = true;
             this.exlLbl.Tag = "3";
@@ -371,7 +373,7 @@
             this.JudgeLbl.AutoSize = true;
             this.JudgeLbl.Location = new System.Drawing.Point(6, 77);
             this.JudgeLbl.Name = "JudgeLbl";
-            this.JudgeLbl.Size = new System.Drawing.Size(46, 13);
+            this.JudgeLbl.Size = new System.Drawing.Size(54, 19);
             this.JudgeLbl.TabIndex = 2;
             this.JudgeLbl.TabStop = true;
             this.JudgeLbl.Tag = "2";
@@ -383,7 +385,7 @@
             this.completionLbl.AutoSize = true;
             this.completionLbl.Location = new System.Drawing.Point(6, 58);
             this.completionLbl.Name = "completionLbl";
-            this.completionLbl.Size = new System.Drawing.Size(46, 13);
+            this.completionLbl.Size = new System.Drawing.Size(54, 19);
             this.completionLbl.TabIndex = 1;
             this.completionLbl.TabStop = true;
             this.completionLbl.Tag = "1";
@@ -398,6 +400,16 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(744, 667);
             this.MainPanel.TabIndex = 1;
+            // 
+            // netState1
+            // 
+            this.netState1.BackColor = System.Drawing.Color.Transparent;
+            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.netState1.Location = new System.Drawing.Point(-9, 631);
+            this.netState1.Name = "netState1";
+            this.netState1.Size = new System.Drawing.Size(206, 24);
+            this.netState1.State = 0;
+            this.netState1.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -449,6 +461,7 @@
         private System.Windows.Forms.LinkLabel classManlbl;
         private System.Windows.Forms.LinkLabel techManlbl;
         private System.Windows.Forms.LinkLabel scoreManlbl;
+        private NetState netState1;
 
     }
 }

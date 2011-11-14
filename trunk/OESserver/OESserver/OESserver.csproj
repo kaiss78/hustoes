@@ -55,7 +55,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.2.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\OESNet\OESNet\bin\x86\Debug\log4net.dll</HintPath>
@@ -83,7 +86,7 @@
     </Reference>
     <Reference Include="OESXML, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESXML\OESXML\bin\x86\Debug\OESXML.dll</HintPath>
+      <HintPath>..\..\..\OESXML\OESXML\bin\x86\Debug\OESXML.dll</HintPath>
     </Reference>
     <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />
@@ -120,6 +123,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NetState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NetState.designer.cs">
+      <DependentUpon>NetState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Net\ClientEvt.cs" />
     <Compile Include="PanelControl.cs" />
     <Compile Include="Program.cs" />
@@ -131,6 +140,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetState.resx">
+      <DependentUpon>NetState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
