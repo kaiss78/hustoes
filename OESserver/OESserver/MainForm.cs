@@ -47,13 +47,17 @@ namespace OES
             PermissionControl();
 
             this.FormClosed += new FormClosedEventHandler(MainForm_FormClosed);
+
+            #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
             ClientEvt.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
             ClientEvt.Client.DisConnectError += new System.IO.ErrorEventHandler(Client_DisConnectError);
             InfoControl.ClientObj.Init();
+            #endregion
 
         }
 
+        #region 网络连接状态
         void Client_DisConnectError(object sender, System.IO.ErrorEventArgs e)
         {
             this.BeginInvoke(new MethodInvoker(() =>
@@ -81,6 +85,7 @@ namespace OES
                 netState1.State = 0;
             }
         }
+        #endregion
 
         //权限控制，根据登录用户的权限，设置不同的功能显示
         void PermissionControl()
