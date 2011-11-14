@@ -151,10 +151,10 @@ namespace testPowerPoint
                 #region 提取一张幻灯片的信息
                 AddNode(new ItemObject("过渡动画", s.SlideShowTransition, PptType.Transition));         //过渡动画节点
                 AddNode(new ItemObject("幻灯片背景", s.Background, PptType.Background));              //背景节点
-                AddNode(new ItemObject("设计模板", s.Design, PptType.Design));                           //设计模板节点
+                //AddNode(new ItemObject("设计模板", s.Design, PptType.Design));                           //设计模板节点
                 //AddNode(new ItemObject(s.Master.Name, s.Master, PptType.Master));                       //Master节点
                 #region 动画效果属性
-                tmpNode = AddNode(new ItemObject("幻灯片动画效果", null, PptType.Null));                   //动画节点(仅用于分级显示)
+                tmpNode = AddNode(new ItemObject("幻灯片动画效果", null, PptType.Effects));                   //动画节点(仅用于分级显示)
                 Push(tmpNode);
                 int effectCnt = 0;
                 foreach (PowerPoint.Effect effect in s.TimeLine.MainSequence)
@@ -164,7 +164,7 @@ namespace testPowerPoint
                 Pop();
                 #endregion
                 #region 文字及图形属性
-                tmpNode = AddNode(new ItemObject("文字及图形对象", null, PptType.Null));                     //文字及图形区域节点(仅用于分级显示)
+                tmpNode = AddNode(new ItemObject("文字及图形对象", null, PptType.Shapes));                     //文字及图形区域节点(仅用于分级显示)
                 Push(tmpNode);
                 foreach (PowerPoint.Shape shape in s.Shapes)
                 {
@@ -211,7 +211,7 @@ namespace testPowerPoint
                         tmpNode = AddNode(new ItemObject("自定义动画", shape.AnimationSettings, PptType.Animation));
                     if (shape.ActionSettings.Count > 0)
                     {
-                        tmpNode = AddNode(new ItemObject("动作设置", null, PptType.Null));
+                        tmpNode = AddNode(new ItemObject("动作设置", null, PptType.Actions));
                         Push(tmpNode);
                         tmpNode = AddNode(new ItemObject("单击鼠标", shape.ActionSettings[PowerPoint.PpMouseActivation.ppMouseClick], PptType.ClickAction));
                         tmpNode = AddNode(new ItemObject("鼠标划过", shape.ActionSettings[PowerPoint.PpMouseActivation.ppMouseOver], PptType.MoveAction));
@@ -244,105 +244,102 @@ namespace testPowerPoint
             displayInfo.Clear();
             switch (io.type)
             {
+                case PptType.Design:
+                    PowerPoint.Design ds = (PowerPoint.Design)io.o;
+                    displayInfo.Add(new DisplayObject("Name", "Name", ds.Name));
+                    displayInfo.Add(new DisplayObject("HasTM", "HasTM", ds.HasTitleMaster));
+                    displayInfo.Add(new DisplayObject("Index", "Index", ds.Index));
+                    break;
                 case PptType.Slide:
                     #region 幻灯片属性
                     PowerPoint.Slide slide = (PowerPoint.Slide)io.o;
-                    checkedListBox1.Items.Add(new DisplayObject("幻灯片名称", "SlideName", slide.Name));
-                    checkedListBox1.Items.Add(new DisplayObject("幻灯片编号", "SlideIndex", slide.SlideIndex));
-                    checkedListBox1.Items.Add(new DisplayObject("幻灯片版式", "Layout", slide.Layout.ToString()));
+                    displayInfo.Add(new DisplayObject("幻灯片名称", "SlideName", slide.Name));
+                    displayInfo.Add(new DisplayObject("幻灯片编号", "SlideIndex", slide.SlideIndex));
+                    displayInfo.Add(new DisplayObject("幻灯片版式", "Layout", slide.Layout.ToString()));
                     #endregion
-                    break;
-                case PptType.EmbeddedObject:
                     break;
                 case PptType.Location:
                     #region Shape名称、类型与定位属性
                     PowerPoint.Shape shape = (PowerPoint.Shape)io.o;
-                    checkedListBox1.Items.Add(new DisplayObject("名称", "ShapeName", shape.Name));
-                    checkedListBox1.Items.Add(new DisplayObject("类型", "Type", shape.Type));
-                    checkedListBox1.Items.Add(new DisplayObject("上边距", "Top", shape.Top));
-                    checkedListBox1.Items.Add(new DisplayObject("上边距", "Top", shape.Top));
-                    checkedListBox1.Items.Add(new DisplayObject("左边距", "Left", shape.Left));
-                    checkedListBox1.Items.Add(new DisplayObject("高度", "Height", shape.Height));
-                    checkedListBox1.Items.Add(new DisplayObject("宽度", "Width", shape.Width));
-                    //checkedListBox1.Items.Add("Line:" + shape.Line.ToString());
+                    displayInfo.Add(new DisplayObject("名称", "ShapeName", shape.Name));
+                    displayInfo.Add(new DisplayObject("类型", "Type", shape.Type));
+                    displayInfo.Add(new DisplayObject("上边距", "Top", shape.Top));
+                    displayInfo.Add(new DisplayObject("上边距", "Top", shape.Top));
+                    displayInfo.Add(new DisplayObject("左边距", "Left", shape.Left));
+                    displayInfo.Add(new DisplayObject("高度", "Height", shape.Height));
+                    displayInfo.Add(new DisplayObject("宽度", "Width", shape.Width));
+                    //displayInfo.Add("Line:" + shape.Line.ToString());
                     #endregion
                     break;
                 case PptType.WordArt:                   //艺术字的一系列属性
                     #region 艺术字属性
                     PowerPoint.Shape wordart = (PowerPoint.Shape)io.o;
-                    //checkedListBox1.Items.Add(new DisplayObject("文字", "Name", wordart.Name));
-                    //checkedListBox1.Items.Add(new DisplayObject("Type", wordart.Type));
-                    checkedListBox1.Items.Add(new DisplayObject("文字", "Text", wordart.TextEffect.Text));
-                    checkedListBox1.Items.Add(new DisplayObject("粗体", "Bold", wordart.TextEffect.FontBold));
-                    checkedListBox1.Items.Add(new DisplayObject("斜体", "Italic", wordart.TextEffect.FontItalic));
-                    checkedListBox1.Items.Add(new DisplayObject("字体", "FontName", wordart.TextEffect.FontName));
-                    checkedListBox1.Items.Add(new DisplayObject("字号", "FontSize", wordart.TextEffect.FontSize.ToString()));
-                    checkedListBox1.Items.Add(new DisplayObject("对齐方式", "Alignment", wordart.TextEffect.Alignment.ToString()));
-                    //checkedListBox1.Items.Add(new DisplayObject("艺术字格式", "PresetTextEffect", wordart.TextEffect.PresetTextEffect.ToString()));
-                    checkedListBox1.Items.Add(new DisplayObject("艺术字形状", "PresetShape", wordart.TextEffect.PresetShape.ToString()));
-                    checkedListBox1.Items.Add(new DisplayObject("文字是否垂直排列", "RotatedChars", wordart.TextEffect.RotatedChars.ToString()));
-                    checkedListBox1.Items.Add(new DisplayObject("字符间距", "Tracking", wordart.TextEffect.Tracking.ToString()));
-                    //checkedListBox1.Items.Add("是否自动缩紧字符对:" + shape.TextEffect.KernedPairs.ToString());
+                    //displayInfo.Add(new DisplayObject("文字", "Name", wordart.Name));
+                    //displayInfo.Add(new DisplayObject("Type", wordart.Type));
+                    displayInfo.Add(new DisplayObject("文字", "Text", wordart.TextEffect.Text));
+                    displayInfo.Add(new DisplayObject("粗体", "Bold", wordart.TextEffect.FontBold));
+                    displayInfo.Add(new DisplayObject("斜体", "Italic", wordart.TextEffect.FontItalic));
+                    displayInfo.Add(new DisplayObject("字体", "FontName", wordart.TextEffect.FontName));
+                    displayInfo.Add(new DisplayObject("字号", "FontSize", wordart.TextEffect.FontSize.ToString()));
+                    displayInfo.Add(new DisplayObject("对齐方式", "Alignment", wordart.TextEffect.Alignment.ToString()));
+                    //displayInfo.Add(new DisplayObject("艺术字格式", "PresetTextEffect", wordart.TextEffect.PresetTextEffect.ToString()));
+                    displayInfo.Add(new DisplayObject("艺术字形状", "PresetShape", wordart.TextEffect.PresetShape.ToString()));
+                    displayInfo.Add(new DisplayObject("文字是否垂直排列", "RotatedChars", wordart.TextEffect.RotatedChars.ToString()));
+                    displayInfo.Add(new DisplayObject("字符间距", "Tracking", wordart.TextEffect.Tracking.ToString()));
+                    //displayInfo.Add("是否自动缩紧字符对:" + shape.TextEffect.KernedPairs.ToString());
                     #endregion
                     break;
                 case PptType.Background:
                     #region 背景属性
                     PowerPoint.ShapeRange background = (PowerPoint.ShapeRange)io.o;
-                    checkedListBox1.Items.Add(new DisplayObject("填充模式", "FillType", background.Fill.Type));
-                    checkedListBox1.Items.Add(new DisplayObject("背景颜色预设填充类型", "GradientType", background.Fill.PresetGradientType));
-                    checkedListBox1.Items.Add(new DisplayObject("背景颜色预设填充方向", "GradientDegree", background.Fill.GradientStyle));
+                    displayInfo.Add(new DisplayObject("填充模式", "FillType", background.Fill.Type));
+                    displayInfo.Add(new DisplayObject("背景颜色预设填充类型", "GradientType", background.Fill.PresetGradientType));
+                    displayInfo.Add(new DisplayObject("背景颜色预设填充方向", "GradientDegree", background.Fill.GradientStyle));
                     #endregion
-                    break;
-                case PptType.Design:
-                    PowerPoint.Design design = ((PowerPoint.Design)io.o);
-                    //checkedListBox1.Items.Add("Name:" + design.Name);
-                    //checkedListBox1.Items.Add("HasTitleMaster:" + design.HasTitleMaster.ToString());
-                    break;
-                case PptType.Master:
                     break;
                 case PptType.Run:
                     #region 文字块属性
                     PowerPoint.TextRange textrange = (PowerPoint.TextRange)io.o;
-                    checkedListBox1.Items.Add(new DisplayObject("文字", "Text", textrange.Text));
-                    checkedListBox1.Items.Add(new DisplayObject("粗体", "Bold", textrange.Font.Bold));
-                    checkedListBox1.Items.Add(new DisplayObject("斜体", "Italic", textrange.Font.Italic));
-                    checkedListBox1.Items.Add(new DisplayObject("下划线", "Underline", textrange.Font.Underline));
-                    checkedListBox1.Items.Add(new DisplayObject("字体", "FontName", textrange.Font.Name));
-                    checkedListBox1.Items.Add(new DisplayObject("字号", "FontSize", textrange.Font.Size.ToString()));
-                    checkedListBox1.Items.Add(new DisplayObject("字体颜色", "ForeColor", textrange.Font.Color.RGB));
-                    checkedListBox1.Items.Add(new DisplayObject("文字阴影", "Shadow", textrange.Font.Shadow));
-                    checkedListBox1.Items.Add(new DisplayObject("上标", "Superscript", textrange.Font.Superscript));
-                    checkedListBox1.Items.Add(new DisplayObject("下标", "Subscript", textrange.Font.Subscript));
+                    displayInfo.Add(new DisplayObject("文字", "Text", textrange.Text));
+                    displayInfo.Add(new DisplayObject("粗体", "Bold", textrange.Font.Bold));
+                    displayInfo.Add(new DisplayObject("斜体", "Italic", textrange.Font.Italic));
+                    displayInfo.Add(new DisplayObject("下划线", "Underline", textrange.Font.Underline));
+                    displayInfo.Add(new DisplayObject("字体", "FontName", textrange.Font.Name));
+                    displayInfo.Add(new DisplayObject("字号", "FontSize", textrange.Font.Size.ToString()));
+                    displayInfo.Add(new DisplayObject("字体颜色", "ForeColor", textrange.Font.Color.RGB));
+                    displayInfo.Add(new DisplayObject("文字阴影", "Shadow", textrange.Font.Shadow));
+                    displayInfo.Add(new DisplayObject("上标", "Superscript", textrange.Font.Superscript));
+                    displayInfo.Add(new DisplayObject("下标", "Subscript", textrange.Font.Subscript));
                     #endregion
                     break;
                 case PptType.Animation:
                     #region 对象自定义动画属性
                     PowerPoint.AnimationSettings action = (PowerPoint.AnimationSettings)io.o;
-                    checkedListBox1.Items.Add(new DisplayObject("动画顺序", "AnimationOrder", action.AnimationOrder));
-                    checkedListBox1.Items.Add(new DisplayObject("进入动画效果", "EntryEffect", action.EntryEffect));
-                    checkedListBox1.Items.Add(new DisplayObject("动画触发方式", "AdvanceMode", action.AdvanceMode));
+                    displayInfo.Add(new DisplayObject("动画顺序", "AnimationOrder", action.AnimationOrder));
+                    displayInfo.Add(new DisplayObject("进入动画效果", "EntryEffect", action.EntryEffect));
+                    displayInfo.Add(new DisplayObject("动画触发方式", "AdvanceMode", action.AdvanceMode));
                     //OnTime OnClick ModeMixed(混合模式)
-                    checkedListBox1.Items.Add(new DisplayObject("触发计时延迟时间", "AdvanceTime", action.AdvanceTime));
-                    //checkedListBox1.Items.Add("EntryEffect:" + action.PlaySettings.);
+                    displayInfo.Add(new DisplayObject("触发计时延迟时间", "AdvanceTime", action.AdvanceTime));
+                    //displayInfo.Add("EntryEffect:" + action.PlaySettings.);
                     #endregion
                     break;
                 case PptType.Effect:
                     #region 幻灯片动画属性
                         PowerPoint.Effect effect = (PowerPoint.Effect)io.o;
-                        //checkedListBox1.Items.Add("AdvanceMode:" + effect.Behaviors);
-                        //checkedListBox1.Items.Add("AdvanceMode:" + effect.EffectInformation);
-                        //checkedListBox1.Items.Add("AdvanceMode:" + effect.EffectParameters);
-                        checkedListBox1.Items.Add(new DisplayObject("动画名称", "DisplayName", effect.DisplayName));
-                        checkedListBox1.Items.Add(new DisplayObject("动画效果", "EffectType", effect.EffectType));
-                        checkedListBox1.Items.Add(new DisplayObject("是否为退出动画", "Exit", effect.Exit));
-                        checkedListBox1.Items.Add(new DisplayObject("动画顺序", "Index", effect.Index));
-                        checkedListBox1.Items.Add(new DisplayObject("动画所作用的对象名称", "ShapeName", effect.Shape.Name));
-                        checkedListBox1.Items.Add(new DisplayObject("动画运行时间", "Duration", effect.Timing.Duration));
+                        //displayInfo.Add("AdvanceMode:" + effect.Behaviors);
+                        //displayInfo.Add("AdvanceMode:" + effect.EffectInformation);
+                        //displayInfo.Add("AdvanceMode:" + effect.EffectParameters);
+                        displayInfo.Add(new DisplayObject("动画名称", "DisplayName", effect.DisplayName));
+                        displayInfo.Add(new DisplayObject("动画效果", "EffectType", effect.EffectType));
+                        displayInfo.Add(new DisplayObject("是否为退出动画", "Exit", effect.Exit));
+                        displayInfo.Add(new DisplayObject("动画顺序", "Index", effect.Index));
+                        displayInfo.Add(new DisplayObject("动画所作用的对象名称", "ShapeName", effect.Shape.Name));
+                        displayInfo.Add(new DisplayObject("动画运行时间", "Duration", effect.Timing.Duration));
                         try
                         {
-                            checkedListBox1.Items.Add(new DisplayObject("段落", "Paragraph", effect.Paragraph));
-                            checkedListBox1.Items.Add(new DisplayObject("开始区域", "TextRangeStart", effect.TextRangeStart));
-                            checkedListBox1.Items.Add(new DisplayObject("区域长度", "TextRangeLength", effect.TextRangeLength));
+                            displayInfo.Add(new DisplayObject("段落", "Paragraph", effect.Paragraph));
+                            displayInfo.Add(new DisplayObject("开始区域", "TextRangeStart", effect.TextRangeStart));
+                            displayInfo.Add(new DisplayObject("区域长度", "TextRangeLength", effect.TextRangeLength));
                         }
                         catch { }
                         #endregion
@@ -350,55 +347,54 @@ namespace testPowerPoint
                 case PptType.Transition:                    //幻灯片切换的一系列属性
                     #region 幻灯片切换属性
                     PowerPoint.SlideShowTransition transition = (PowerPoint.SlideShowTransition)io.o;
-                    checkedListBox1.Items.Add(new DisplayObject("是否通过点击触发", "AdvanceOnClick", transition.AdvanceOnClick));
-                    checkedListBox1.Items.Add(new DisplayObject("是否设置自动触发动画效果", "AdvanceOnTime", transition.AdvanceOnTime));
-                    checkedListBox1.Items.Add(new DisplayObject("自动触发效果延迟时间", "AdvanceTime", transition.AdvanceTime));
-                    checkedListBox1.Items.Add(new DisplayObject("幻灯片切换效果名称", "EntryEffect", transition.EntryEffect));
-                    checkedListBox1.Items.Add(new DisplayObject("切换速度", "Speed", transition.Speed));
-                    //checkedListBox1.Items.Add("声音:" + transition.SoundEffect.Name);
+                    displayInfo.Add(new DisplayObject("是否通过点击触发", "AdvanceOnClick", transition.AdvanceOnClick));
+                    displayInfo.Add(new DisplayObject("是否设置自动触发动画效果", "AdvanceOnTime", transition.AdvanceOnTime));
+                    displayInfo.Add(new DisplayObject("自动触发效果延迟时间", "AdvanceTime", transition.AdvanceTime));
+                    displayInfo.Add(new DisplayObject("幻灯片切换效果名称", "EntryEffect", transition.EntryEffect));
+                    displayInfo.Add(new DisplayObject("切换速度", "Speed", transition.Speed));
+                    //displayInfo.Add("声音:" + transition.SoundEffect.Name);
                     #endregion
                     break;
                 case PptType.Picture:
                     #region 图片属性
                         PowerPoint.Shape pic = (PowerPoint.Shape)io.o;
                         PowerPoint.PictureFormat pf = pic.PictureFormat;
-                        //checkedListBox1.Items.Add(new DisplayObject("名称", "Name", pic.Name));
-                        //checkedListBox1.Items.Add(new DisplayObject("类型", "Type", pic.Type));
-                        //checkedListBox1.Items.Add(new DisplayObject("高度", "Height", pic.Height.ToString()));
-                        //checkedListBox1.Items.Add(new DisplayObject("宽度", "Width", pic.Width.ToString()));
-                        //checkedListBox1.Items.Add(new DisplayObject("上边距", "Top", pic.Top.ToString()));
-                        //checkedListBox1.Items.Add(new DisplayObject("左边距", "Left", pic.Left.ToString()));
-                        checkedListBox1.Items.Add(new DisplayObject("左裁剪距离", "CropLeft", pf.CropLeft.ToString()));
-                        checkedListBox1.Items.Add(new DisplayObject("上裁剪距离", "CropTop", pf.CropTop.ToString()));
-                        checkedListBox1.Items.Add(new DisplayObject("右裁剪距离", "CropRight", pf.CropRight.ToString()));
-                        checkedListBox1.Items.Add(new DisplayObject("下裁剪距离", "CropBottom", pf.CropBottom.ToString()));
+                        //displayInfo.Add(new DisplayObject("名称", "Name", pic.Name));
+                        //displayInfo.Add(new DisplayObject("类型", "Type", pic.Type));
+                        //displayInfo.Add(new DisplayObject("高度", "Height", pic.Height.ToString()));
+                        //displayInfo.Add(new DisplayObject("宽度", "Width", pic.Width.ToString()));
+                        //displayInfo.Add(new DisplayObject("上边距", "Top", pic.Top.ToString()));
+                        //displayInfo.Add(new DisplayObject("左边距", "Left", pic.Left.ToString()));
+                        displayInfo.Add(new DisplayObject("左裁剪距离", "CropLeft", pf.CropLeft.ToString()));
+                        displayInfo.Add(new DisplayObject("上裁剪距离", "CropTop", pf.CropTop.ToString()));
+                        displayInfo.Add(new DisplayObject("右裁剪距离", "CropRight", pf.CropRight.ToString()));
+                        displayInfo.Add(new DisplayObject("下裁剪距离", "CropBottom", pf.CropBottom.ToString()));
                         #endregion
                     break;
                 case PptType.ThreeD:
                     #region 三维属性
                     PowerPoint.Shape shape3d = (PowerPoint.Shape)io.o;
-                    checkedListBox1.Items.Add(new DisplayObject("三维效果", "ThreeDFormat", shape3d.ThreeD.PresetThreeDFormat));
-                    checkedListBox1.Items.Add(new DisplayObject("照明角度", "LightingDirection", shape3d.ThreeD.PresetLightingDirection));
-                    checkedListBox1.Items.Add(new DisplayObject("照明亮度", "LightingSoftness", shape3d.ThreeD.PresetLightingSoftness));
-                    checkedListBox1.Items.Add(new DisplayObject("表面效果", "Material", shape3d.ThreeD.PresetMaterial));
-                    checkedListBox1.Items.Add(new DisplayObject("图形深度", "Depth", shape3d.ThreeD.Depth));
-                    checkedListBox1.Items.Add(new DisplayObject("延伸方向", "ExtrusionDirection", shape3d.ThreeD.PresetExtrusionDirection));
+                    displayInfo.Add(new DisplayObject("三维效果", "ThreeDFormat", shape3d.ThreeD.PresetThreeDFormat));
+                    displayInfo.Add(new DisplayObject("照明角度", "LightingDirection", shape3d.ThreeD.PresetLightingDirection));
+                    displayInfo.Add(new DisplayObject("照明亮度", "LightingSoftness", shape3d.ThreeD.PresetLightingSoftness));
+                    displayInfo.Add(new DisplayObject("表面效果", "Material", shape3d.ThreeD.PresetMaterial));
+                    displayInfo.Add(new DisplayObject("图形深度", "Depth", shape3d.ThreeD.Depth));
+                    displayInfo.Add(new DisplayObject("延伸方向", "ExtrusionDirection", shape3d.ThreeD.PresetExtrusionDirection));
                     #endregion
                     break;
                 case PptType.ClickAction:
                 case PptType.MoveAction:
                     #region 动作设置
                     PowerPoint.ActionSetting acs = (PowerPoint.ActionSetting)io.o;
-                    //checkedListBox1.Items.Add(new DisplayObject("Verb", "ActionVerb", acs.ActionVerb));
-                    //checkedListBox1.Items.Add(new DisplayObject("AA", "AnimateAction", acs.AnimateAction));
-                    checkedListBox1.Items.Add(new DisplayObject("执行的动作", "Action", acs.Action));
-
+                    //displayInfo.Add(new DisplayObject("Verb", "ActionVerb", acs.ActionVerb));
+                    //displayInfo.Add(new DisplayObject("AA", "AnimateAction", acs.AnimateAction));
+                    displayInfo.Add(new DisplayObject("执行的动作", "Action", acs.Action));
                     if (acs.Action == PowerPoint.PpActionType.ppActionHyperlink)
                     {
                         if (acs.Hyperlink.Address != null)
-                            checkedListBox1.Items.Add(new DisplayObject("超链接地址", "HyperlinkAddr", acs.Hyperlink.Address));
+                            displayInfo.Add(new DisplayObject("超链接地址", "HyperlinkAddr", acs.Hyperlink.Address));
                         if (acs.Hyperlink.SubAddress != null)
-                            checkedListBox1.Items.Add(new DisplayObject("超链接本地地址", "HyperlinkSubAddr", acs.Hyperlink.SubAddress));
+                            displayInfo.Add(new DisplayObject("超链接本地地址", "HyperlinkSubAddr", acs.Hyperlink.SubAddress));
                     }
                     #endregion
                     break;
@@ -494,27 +490,29 @@ namespace testPowerPoint
                 nodeStack.RemoveAt(nodeStack.Count - 1);
                 idx = FindNodeIndex(tmpNode);
                 switch (tmpObj.type)
-                {
-                    case PptType.Transition:
-                        helper.addTransition();
-                        break;
-                    case PptType.Background:
-                        helper.addBackground();
-                        break;
+                {       
                     case PptType.Slide:
                         helper.addSlide(idx + 1);
                         break;
-                    case PptType.Picture:
-                    case PptType.TextContainer:
-                    case PptType.EmbeddedObject:
-                    case PptType.WordArt:
-                        helper.addShape(tmpObj.type.ToString(), idx + 1);
+                    case PptType.Effect:
+                        helper.addEffect(idx + 1);
+                        break;
+                    case PptType.Shape:
+                        helper.addShape(idx + 1);
                         break;
                     case PptType.Run:
                         helper.addRun(idx);
                         break;
-                    case PptType.Effect:
-                        helper.addEffect(idx + 1);
+                    case PptType.Transition:
+                    case PptType.Background:
+                    case PptType.Location:
+                    case PptType.Picture:
+                    case PptType.WordArt:
+                    case PptType.ThreeD:
+                    case PptType.Animation:
+                    case PptType.ClickAction:
+                    case PptType.MoveAction:
+                        helper.addSingleNode(tmpObj.type);
                         break;
                 }
             }
@@ -522,11 +520,11 @@ namespace testPowerPoint
             helper.ClearPath();
             #endregion
             #region Add Leaf Info
-            for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
+            foreach (int checkedIdx in checkedListBox1.CheckedIndices)
             {
                 helper.Path.AddRange(rootList);
-                string str = checkedListBox1.CheckedItems[i].ToString();
-                helper.AddFinalNode(getInfoString(str));
+                string str = displayInfo[checkedIdx].useText;           //最终考点名称
+                helper.AddFinalNode(str);
                 helper.WriteToXml();
             }
             #endregion
@@ -583,15 +581,21 @@ namespace testPowerPoint
         }
 
         #region 添加节点
+
+        public void addSingleNode(PptType pt)
+        {
+            oxml.Path.Add(new OfficeElement(pt.ToString(), "0"));
+        }
+
         public void addSlide(int slideIdx)
         {
             oxml.Path.Add(new OfficeElement("Presentations", "0"));
             oxml.Path.Add(new OfficeElement(PptType.Slide.ToString(), slideIdx.ToString()));
         }
 
-        public void addShape(string shapeName, int shapeIdx)
+        public void addShape(int shapeIdx)
         {
-            oxml.Path.Add(new OfficeElement(shapeName, shapeIdx.ToString()));
+            oxml.Path.Add(new OfficeElement(PptType.Shape.ToString(), shapeIdx.ToString()));
         }
 
         public void addTransition()
@@ -609,9 +613,44 @@ namespace testPowerPoint
             oxml.Path.Add(new OfficeElement(PptType.Effect.ToString(), effectIdx.ToString()));
         }
 
+        public void addLocation()
+        {
+            oxml.Path.Add(new OfficeElement(PptType.Location.ToString(), "0"));
+        }
+
         public void addRun(int runIdx)
         {
             oxml.Path.Add(new OfficeElement(PptType.Run.ToString(), runIdx.ToString()));
+        }
+
+        public void addPicture()
+        {
+            oxml.Path.Add(new OfficeElement(PptType.Picture.ToString(), "0"));
+        }
+
+        public void addWordArt()
+        {
+            oxml.Path.Add(new OfficeElement(PptType.WordArt.ToString(), "0"));
+        }
+
+        public void addThreeD()
+        {
+            oxml.Path.Add(new OfficeElement(PptType.ThreeD.ToString(), "0"));
+        }
+
+        public void addAnimation()
+        {
+            oxml.Path.Add(new OfficeElement(PptType.Animation.ToString(), "0"));
+        }
+
+        public void addClickAction()
+        {
+            oxml.Path.Add(new OfficeElement(PptType.ClickAction.ToString(), "0"));
+        }
+
+        public void addMoveAction()
+        {
+            oxml.Path.Add(new OfficeElement(PptType.MoveAction.ToString(), "0"));
         }
         #endregion
     }
@@ -657,6 +696,7 @@ namespace testPowerPoint
     public enum PptType
     {
         Slide,              //幻灯片
+        Shapes,             //文字图片对象(指示标签)
         TextContainer,      //文字区域
         Background,         //幻灯片背景
         Design,             //?????????
@@ -664,8 +704,10 @@ namespace testPowerPoint
         Run,                //文字块
         ClickAction,        //单击时的动作设置
         MoveAction,         //鼠标划过时的动作设置
+        Actions,            //动作设置(指示标签)
         Animation,          //自定义动画
         Effect,             //动画效果
+        Effects,            //幻灯片动画(指示标签)
         Transition,         //幻灯片切换
         Shape,              //形状（包括图片、文字等信息）
         WordArt,            //艺术字
