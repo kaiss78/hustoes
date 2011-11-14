@@ -78,10 +78,13 @@ namespace OESMonitor
         {
             InitializeComponent();
 
+            #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
             this.netState1.State = 2;
             supportServer = new Net.ClientEvt();
+            #endregion
 
+            #region 网络通信事件加载
             supportServer.Client.FileListRecieveStart += new Action(Client_FileListRecieveStart);
             supportServer.Client.FileListRecieveEnd += new Action(Client_FileListRecieveEnd);
             supportServer.Client.FileListCount += new FileListSize(Client_FileListCount);
@@ -89,6 +92,7 @@ namespace OESMonitor
             supportServer.Client.DisConnectError += new ErrorEventHandler(Client_DisConnectError);
             supportServer.Client.InitializeClient();
             supportServer.Client.Port.RecieveFileRate += new ClientNet.ReturnVal(Port_RecieveFileRate);
+            #endregion
 
             timer_PortCounter.Interval = 1000;
 
@@ -115,6 +119,7 @@ namespace OESMonitor
             downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
         }
 
+        #region 网络连接状态
         void Client_DisConnectError(object sender, ErrorEventArgs e)
         {
             this.BeginInvoke(new MethodInvoker(() => {
@@ -141,12 +146,7 @@ namespace OESMonitor
                 netState1.State = 0;
             }
         }
-
-        
-
-        
-        
-        
+        #endregion
 
         #region 文字功能提示
         void btnGetPaperFromDB_MouseEnter(object sender, EventArgs e)
@@ -187,7 +187,6 @@ namespace OESMonitor
         }
 
         #endregion
-
        
         private void RetrieveHostIpv4Address()
         {
