@@ -11,14 +11,16 @@ namespace OES.Model
         public string paperTitle;
         public string score;
         public string stuClassName;
-        public List<Detail> detail;
+        public List<Sum> sum;
+        public List<IdScoreType> detail;
         public Score()
         {
-            detail = new List<Detail>();
+            detail = new List<IdScoreType>();
+            sum = new List<Sum>();
         }
-        public void addDetail(ProblemType pt,int score)
+        public void addDetail(ProblemType pt, int score)
         {
-            foreach (Detail dt in detail)
+            foreach (Sum dt in sum)
             {
                 if (dt.PType == pt)
                 {
@@ -26,16 +28,16 @@ namespace OES.Model
                     return;
                 }
             }
-            detail.Add(new Detail(pt, score));
+            sum.Add(new Sum(pt, score));
         }
     }
 
-    public class Detail
+    public class Sum
     {
 
         public ProblemType PType;
         public int score;
-        public Detail(ProblemType pt, int score)
+        public Sum(ProblemType pt, int score)
         {
             this.PType = pt;
             this.score = score;
