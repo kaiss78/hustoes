@@ -37,7 +37,6 @@
             this.Password = new System.Windows.Forms.MaskedTextBox();
             this.butLogin = new System.Windows.Forms.Button();
             this.butExit = new System.Windows.Forms.Button();
-
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,14 +130,13 @@
             this.butExit.Text = "退出";
             this.butExit.UseVisualStyleBackColor = true;
             this.butExit.Click += new System.EventHandler(this.button2_Click);
-            
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(797, 350);
- 
             this.Controls.Add(this.butExit);
             this.Controls.Add(this.butLogin);
             this.Controls.Add(this.Password);
