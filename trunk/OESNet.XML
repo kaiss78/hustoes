@@ -1,0 +1,720 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OESNet</name>
+    </assembly>
+    <members>
+        <member name="F:ClientNet.DataPort.remotePort">
+            <summary>
+            服务端数据端口端口号
+            </summary>
+        </member>
+        <member name="F:ClientNet.DataPort.remoteIp">
+            <summary>
+            服务端数据端口IP
+            </summary>
+        </member>
+        <member name="F:ClientNet.DataPort.fileLength">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="F:ClientNet.DataPort.IsSend">
+            <summary>
+            是否用于传送数据
+            false 表示传出数据
+            true 表示接受数据
+            </summary>
+        </member>
+        <member name="M:ClientNet.DataPort.#ctor">
+            <summary>
+            数据端口构造函数 
+            </summary>
+        </member>
+        <member name="M:ClientNet.DataPort.Connect">
+            <summary>
+            数据端口连接服务端
+            </summary>
+            <returns>是否连接成功</returns>
+        </member>
+        <member name="M:ClientNet.DataPort.connect_callBack(System.IAsyncResult)">
+            <summary>
+            数据Socket连接服务器的回调函数
+            </summary>
+            <param name="asy"></param>
+        </member>
+        <member name="M:ClientNet.DataPort.ReceiveData">
+            <summary>
+            接收文件
+            </summary>
+        </member>
+        <member name="M:ClientNet.DataPort.SendData">
+            <summary>
+            传输文件
+            </summary>
+        </member>
+        <member name="P:ClientNet.DataPort.FilePath">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="E:ClientNet.DataPort.FileSendBegin">
+            <summary>
+            文件传输开始
+            </summary>
+        </member>
+        <member name="E:ClientNet.DataPort.FileSendEnd">
+            <summary>
+            文件传输结束
+            </summary>
+        </member>
+        <member name="E:ClientNet.DataPort.FileReceiveBegin">
+            <summary>
+            文件接收开始
+            </summary>
+        </member>
+        <member name="E:ClientNet.DataPort.FileReceiveEnd">
+            <summary>
+            文件接收结束
+            </summary>
+        </member>
+        <member name="E:ClientNet.DataPort.ConnectedDataPort">
+            <summary>
+            数据端口连接上
+            </summary>
+        </member>
+        <member name="E:ClientNet.DataPort.ConnectError">
+            <summary>
+            数据端口连接错误
+            </summary>
+        </member>
+        <member name="E:ClientNet.DataPort.FileSizeError">
+            <summary>
+            文件传输大小错误(一般为网络中丢包)
+            </summary>
+        </member>
+        <member name="E:ClientNet.DataPort.SendFileRate">
+            <summary>
+            传送文件比例
+            </summary>
+        </member>
+        <member name="E:ClientNet.DataPort.RecieveFileRate">
+            <summary>
+            接收文件比例
+            </summary>
+        </member>
+        <member name="T:ClientNet.DataPort.portUsed">
+            <summary>
+            端口收回事件
+            </summary>
+            <param name="port"></param>
+        </member>
+        <member name="F:ServerNet.Client.EndOfMsg">
+            <summary>
+            消息末尾字符
+            </summary>
+        </member>
+        <member name="F:ServerNet.Client.port">
+            <summary>
+            客户端数据端口
+            </summary>
+        </member>
+        <member name="M:ServerNet.Client.#ctor(System.Net.Sockets.TcpClient)">
+            <summary>
+            Client构造函数
+            </summary>
+            <param name="client">以连接好的Socket</param>
+        </member>
+        <member name="M:ServerNet.Client.port_FileSizeError(System.Object,System.IO.ErrorEventArgs)">
+            <summary>
+            文件大小出错,重传
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ServerNet.Client.receive_callBack(System.IAsyncResult)">
+            <summary>
+            Receive回调函数
+            </summary>
+            <param name="asy"></param>
+        </member>
+        <member name="M:ServerNet.Client.DispatchMessage">
+            <summary>
+            内部消息处理函数
+            </summary>
+        </member>
+        <member name="M:ServerNet.Client.sendData">
+            <summary>
+            发出发送文件消息
+            </summary>
+        </member>
+        <member name="M:ServerNet.Client.fetchData">
+            <summary>
+            发出接收文件消息
+            </summary>
+        </member>
+        <member name="M:ServerNet.Client.write_callBack(System.IAsyncResult)">
+            <summary>
+            Write回调函数
+            </summary>
+            <param name="asy"></param>
+        </member>
+        <member name="M:ServerNet.Client.SendFileMsg(System.String)">
+            <summary>
+            传送文件消息
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ServerNet.Client.RecieveFileMsg">
+            <summary>
+            接收文件消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ServerNet.Client.WriteMsg(System.String)">
+            <summary>
+            发送消息
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:ServerNet.Client.SendTxt(System.String)">
+            <summary>
+            文字消息
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:ServerNet.Client.SendResend">
+            <summary>
+            重传消息
+            </summary>
+        </member>
+        <member name="E:ServerNet.Client.ReceivedMsg">
+            <summary>
+            接收到消息
+            </summary>
+        </member>
+        <member name="E:ServerNet.Client.ReceivedDataRequest">
+            <summary>
+            接收到数据发送消息 服务端--->客户端
+            </summary>
+        </member>
+        <member name="E:ServerNet.Client.SendDataReady">
+            <summary>
+            准备发送数据（设置filePath）
+            </summary>
+        </member>
+        <member name="E:ServerNet.Client.ReceiveDataReady">
+            <summary>
+            准备接收数据（设置filePath）
+            </summary>
+        </member>
+        <member name="E:ServerNet.Client.ReceivedDataSubmit">
+            <summary>
+            接收到数据请求消息 客户端--->服务端
+            </summary>
+        </member>
+        <member name="E:ServerNet.Client.ReceivedTxt">
+            <summary>
+            接收到文字消息.第一个参数为String类型,表示收到的消息
+            </summary>
+        </member>
+        <member name="E:ServerNet.Client.WrittenMsg">
+            <summary>
+            消息发送完成.第一个参数为String类型,表示发送出去的消息内容
+            </summary>
+        </member>
+        <member name="E:ServerNet.Client.DisConnect">
+            <summary>
+            客户端断开连接
+            </summary>
+        </member>
+        <member name="P:ServerNet.Client.Port">
+            <summary>
+            客户端数据端口
+            </summary>
+        </member>
+        <member name="P:ServerNet.Client.ClientIp">
+            <summary>
+            客户端数据Ip
+            </summary>
+        </member>
+        <member name="T:ServerNet.Client.MsgFun">
+            <summary>
+            返回到Server处理的信息
+            </summary>
+            <param name="client">活动的Client</param>
+            <param name="type">消息类型</param>
+        </member>
+        <member name="F:ServerNet.DataPort.localPort">
+            <summary>
+            本数据端口端口号
+            </summary>
+        </member>
+        <member name="F:ServerNet.DataPort.ip">
+            <summary>
+            本机Ip
+            </summary>
+        </member>
+        <member name="F:ServerNet.DataPort.remotePort">
+            <summary>
+            客户端数据端口号
+            </summary>
+        </member>
+        <member name="F:ServerNet.DataPort.remoteIp">
+            <summary>
+            客户端数据端口Ip
+            </summary>
+        </member>
+        <member name="F:ServerNet.DataPort.IsSend">
+            <summary>
+            接收数据还是发送数据
+            </summary>
+        </member>
+        <member name="F:ServerNet.DataPort.fileLength">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="M:ServerNet.DataPort.#ctor(System.Net.IPAddress,System.Int32)">
+            <summary>
+            数据端口构造函数
+            </summary>
+            <param name="ip">本机Ip</param>
+            <param name="localPort">端口号</param>
+        </member>
+        <member name="M:ServerNet.DataPort.InitDataPort(System.Net.EndPoint)">
+            <summary>
+            初始化DataPort
+            </summary>
+            <param name="ep">客户端数据端口信息</param>
+        </member>
+        <member name="M:ServerNet.DataPort.accept_callBack(System.IAsyncResult)">
+            <summary>
+            给远程端口发送数据
+            </summary>
+            <param name="asy">异步返回信息</param>
+        </member>
+        <member name="M:ServerNet.DataPort.ReceiveData">
+            <summary>
+            接收文件
+            </summary>
+        </member>
+        <member name="M:ServerNet.DataPort.SendData">
+            <summary>
+            传输文件
+            </summary>
+        </member>
+        <member name="P:ServerNet.DataPort.FilePath">
+            <summary>
+            接收和发送时的文件路径
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.FileSendBegin">
+            <summary>
+            文件传输开始
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.FileSendEnd">
+            <summary>
+            文件传输结束
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.FileReceiveBegin">
+            <summary>
+            文件接收开始
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.FileReceiveEnd">
+            <summary>
+            文件接收结束
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.AcceptedDataPort">
+            <summary>
+            接收客户端数据端口连接请求
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.FileSizeError">
+            <summary>
+            文件传输大小错误(一般为网络中丢包)
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.FileSendError">
+            <summary>
+            文件发送过程中出错(一般为客户端断开连接)
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.FileReceiveError">
+            <summary>
+            文件接收过程中出错(一般为客户端断开连接)
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.SendFileRate">
+            <summary>
+            传送文件比例
+            </summary>
+        </member>
+        <member name="E:ServerNet.DataPort.RecieveFileRate">
+            <summary>
+            接收文件比例
+            </summary>
+        </member>
+        <member name="T:ServerNet.DataPort.portUsed">
+            <summary>
+            端口收回事件
+            </summary>
+            <param name="port">待回收的数据端口</param>
+        </member>
+        <member name="F:ClientNet.OESClient.Config">
+            <summary>
+            配置文件
+            </summary>
+        </member>
+        <member name="F:ClientNet.OESClient.server">
+            <summary>
+            服务器地址
+            </summary>
+        </member>
+        <member name="F:ClientNet.OESClient.portNum">
+            <summary>
+            服务器端口
+            </summary>
+        </member>
+        <member name="F:ClientNet.OESClient.EndOfMsg">
+            <summary>
+            消息末尾字符
+            </summary>
+        </member>
+        <member name="F:ClientNet.OESClient.remoteCmd">
+            <summary>
+            远程文件命令列表
+            </summary>
+        </member>
+        <member name="F:ClientNet.OESClient.localPath">
+            <summary>
+            本地存储文件路径列表
+            </summary>
+        </member>
+        <member name="M:ClientNet.OESClient.#ctor">
+            <summary>
+            OESClient构造函数.会初始化命令端口和数据端口.
+            </summary>
+        </member>
+        <member name="M:ClientNet.OESClient.InitializeClient">
+            <summary>
+            开始连接服务端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClientNet.OESClient.connect_callBack(System.IAsyncResult)">
+            <summary>
+            命令Socket连接服务器的回调函数
+            </summary>
+            <param name="asy">异步返回结果</param>
+        </member>
+        <member name="M:ClientNet.OESClient.receive_callBack(System.IAsyncResult)">
+            <summary>
+            命令Socket接收信息的回调函数
+            </summary>
+            <param name="asy">异步返回结果</param>
+        </member>
+        <member name="M:ClientNet.OESClient.DispatchMessage">
+            <summary>
+            内部消息处理函数
+            cmd#1#0#IP#Port 向客户端请求文件
+            cmd#1#1#IP#Port#FileName#FileSize 向客户端发送文件
+            cmd#-2 客户端上传文件失败,要求重传
+            txt#content 服务端传来的文字消息
+            </summary>
+        </member>
+        <member name="M:ClientNet.OESClient.SendFileMsg">
+            <summary>
+            当客户端需要上传文件时,发送文件大小信息
+            </summary>
+        </member>
+        <member name="M:ClientNet.OESClient.SendFile">
+            <summary>
+            向服务端请求上传文件
+            </summary>
+        </member>
+        <member name="M:ClientNet.OESClient.ReceiveFile">
+            <summary>
+            向服务端请求下载文件
+            </summary>
+        </member>
+        <member name="M:ClientNet.OESClient.SendError(System.String)">
+            <summary>
+            通知服务端客户端出错,请求回收数据端口
+            </summary>
+            <param name="error">错误消息</param>
+        </member>
+        <member name="M:ClientNet.OESClient.SendTxt(System.String)">
+            <summary>
+            想服务端发送文字消息
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:ClientNet.OESClient.WriteMsg(System.String)">
+            <summary>
+            发送命令Socket消息
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:ClientNet.OESClient.write_callBack(System.IAsyncResult)">
+            <summary>
+            命令Socket发送信息的回调函数
+            </summary>
+            <param name="asy">异步返回结果</param>
+        </member>
+        <member name="M:ClientNet.OESClient.SendFileList(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            发送文件列表
+            </summary>
+            <param name="remoteCmd">远程文件命令列表</param>
+            <param name="localPath">本地文件路径列表</param>
+        </member>
+        <member name="M:ClientNet.OESClient.ReceiveFileList(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            接收文件列表
+            </summary>
+            <param name="remoteCmd">远程文件命令列表</param>
+            <param name="localPath">本地文件路径列表</param>
+        </member>
+        <member name="P:ClientNet.OESClient.Port">
+            <summary>
+            客户端数据端口
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.ConnectedServer">
+            <summary>
+            连接上服务器
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.ReceivedMsg">
+            <summary>
+            接收到消息
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.ReceivedDataRequest">
+            <summary>
+            接收到数据请求消息 客户端--->服务端
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.ReceivedDataSubmit">
+            <summary>
+            接收到数据发送消息 服务端--->客户端
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.ReceivedTxt">
+            <summary>
+            接收到文字消息.第一个参数为String类型,表示收到的消息
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.WrittenMsg">
+            <summary>
+            消息发送完成.第一个参数为String类型,表示发送出去的消息内容
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.ConnectError">
+            <summary>
+            客户端连接服务端出现错误,第一个参数为错误信息
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.ReceiveError">
+            <summary>
+            接收时出现错误,第一个参数为错误信息(一般为文件路径不存在)
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.DisConnectError">
+            <summary>
+            与服务端断开连接(一般为服务端网络出现问题)
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.FileListCount">
+            <summary>
+            返回当前列表中文件剩余数量
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.FileListSendStart">
+            <summary>
+            文件列表发送开始
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.FileListSendEnd">
+            <summary>
+            文件列表发送完毕
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.FileListRecieveStart">
+            <summary>
+            文件列表接收开始
+            </summary>
+        </member>
+        <member name="E:ClientNet.OESClient.FileListRecieveEnd">
+            <summary>
+            文件列表接收完毕
+            </summary>
+        </member>
+        <member name="F:ServerNet.OESServer.Config">
+            <summary>
+            配置文件
+            </summary>
+        </member>
+        <member name="F:ServerNet.OESServer.ip">
+            <summary>
+            服务端Ip
+            </summary>
+        </member>
+        <member name="M:ServerNet.OESServer.#ctor">
+            <summary>
+            服务端构造函数,获取本机Ip
+            </summary>
+        </member>
+        <member name="M:ServerNet.OESServer.StartServer">
+            <summary>
+            开启监听(开启服务端)
+            </summary>
+        </member>
+        <member name="M:ServerNet.OESServer.RetrieveHostIpv4Address">
+            <summary>
+            获取本机IP,有时会出错,尤其是有多个Ip
+            </summary>
+        </member>
+        <member name="M:ServerNet.OESServer.InitializeDataPorts">
+            <summary>
+            初始化数据端口
+            </summary>
+        </member>
+        <member name="M:ServerNet.OESServer.SearchSparePort">
+            <summary>
+            搜索当前空闲端口号
+            </summary>
+        </member>
+        <member name="M:ServerNet.OESServer.PortRecycler(ServerNet.DataPort)">
+            <summary>
+            回收数据端口
+            </summary>
+            <param name="port"></param>
+        </member>
+        <member name="M:ServerNet.OESServer.ProvideClientService">
+            <summary>
+            分配端口
+            </summary>
+        </member>
+        <member name="M:ServerNet.OESServer.accept_callBack(System.IAsyncResult)">
+            <summary>
+            Accept回调函数
+            </summary>
+            <param name="asy"></param>
+        </member>
+        <member name="M:ServerNet.OESServer.MessageScheduler(ServerNet.Client,System.Int32)">
+            <summary>
+            服务端消息处理函数
+            </summary>
+            <param name="client">活动的客户端</param>
+            <param name="type">消息类型</param>
+        </member>
+        <member name="M:ServerNet.OESServer.ClearRequestingQueue">
+            <summary>
+            请求文件的客户端队列清空
+            </summary>
+        </member>
+        <member name="M:ServerNet.OESServer.ClearSubmitingQueue">
+            <summary>
+            上传文件的客户端队列清空
+            </summary>
+        </member>
+        <member name="P:ServerNet.OESServer.IsPortAvailable">
+            <summary>
+            数据端口准备就绪
+            </summary>
+        </member>
+        <member name="P:ServerNet.OESServer.PortCurNum">
+            <summary>
+            当前数据端口数量
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.AcceptingClient">
+            <summary>
+            接受客户端连接前
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.AcceptedClient">
+            <summary>
+            接受客户端连接后
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.ReceivedMsg">
+            <summary>
+            接收到消息
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.ReceivedDataRequest">
+            <summary>
+            接收到数据发送消息 服务端--->客户端
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.ReceivedDataSubmit">
+            <summary>
+            接收到数据请求消息 客户端--->服务端
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.ReceivedTxt">
+            <summary>
+            接收到文字消息.第一个参数为String类型,表示收到的消息
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.WrittenMsg">
+            <summary>
+            消息发送完成.第一个参数为String类型,表示发送出去的消息内容
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.SendDataReady">
+            <summary>
+            准备发送数据（设置filePath）
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.ReceiveDataReady">
+            <summary>
+            准备接收数据（设置filePath）
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.FileSendBegin">
+            <summary>
+            文件传输开始
+            注意：本事件在StartServer()前定义有效
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.FileSendEnd">
+            <summary>
+            文件传输结束
+            注意：本事件在StartServer()前定义有效
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.FileReceiveBegin">
+            <summary>
+            文件接收开始
+            注意：本事件在StartServer()前定义有效
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.FileReceiveEnd">
+            <summary>
+            文件接收结束
+            注意：本事件在StartServer()前定义有效
+            </summary>
+        </member>
+        <member name="E:ServerNet.OESServer.AcceptedDataPort">
+            <summary>
+            接收客户端数据端口连接请求
+            注意：本事件在StartServer()前定义有效
+            </summary>
+        </member>
+        <member name="T:ServerNet.OESServer.DataPortError">
+            <summary>
+            数据端口出错
+            </summary>
+            <param name="msg"></param>
+        </member>
+    </members>
+</doc>
