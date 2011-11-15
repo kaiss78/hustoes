@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using OES.Model;
+using OES.Net;
 
 namespace OESScore
 {
@@ -23,8 +24,39 @@ namespace OESScore
         public formOESScore()
         {
             InitializeComponent();
+            netState1.ReConnect += new EventHandler(netState1_ReConnect);
+            ClientEvt.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
+            ClientEvt.Client.DisConnectError += new ErrorEventHandler(Client_DisConnectError);
             tsslPath.Text = ScoreControl.config["PaperPath"];
             LoadPaperList();
+        }
+
+        void Client_DisConnectError(object sender, ErrorEventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                netState1.State = 0;
+            }));
+        }
+
+        void Client_ConnectedServer(object sender, EventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                netState1.State = 1;
+            }));
+        }
+
+        void netState1_ReConnect(object sender, EventArgs e)
+        {
+            if (netState1.State == 0)
+            {
+                ClientEvt.Client.InitializeClient();
+            }
+            else
+            {
+                netState1.State = 0;
+            }
         }
 
 
