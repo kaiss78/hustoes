@@ -9,6 +9,8 @@ namespace OES.Model
     {
         public string path, inp1, inp2, inp3, outp1, outp2, outp3,correctC;
         public bool kind;
+        public List<string> input;
+        public List<string> output;
         public string stuAnsPath = "";
         public PFunction()
         {
@@ -23,6 +25,9 @@ namespace OES.Model
             outp1 = "";
             outp2 = "";
             outp3 = "";
+ 
+            input = new List<string>();
+            output = new List<string>();
             type = ProblemType.ProgramFun;
         }
         public override string getAns()
