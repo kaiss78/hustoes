@@ -90,6 +90,7 @@ namespace OES
 
         static void Client_DisConnectError(object sender, System.IO.ErrorEventArgs e)
         {
+            while (!ClientControl.LoginForm.IsHandleCreated) ;
             ClientControl.LoginForm.Invoke(new MethodInvoker(() =>
                         { 
                             ClientControl.LoginForm.SetNetState(0);
@@ -99,6 +100,7 @@ namespace OES
 
         static void Client_ConnectedServer(object sender, EventArgs e)
         {
+            while (!ClientControl.LoginForm.IsHandleCreated) ;
             ClientControl.LoginForm.Invoke(new MethodInvoker(() =>
             {
                 ClientControl.LoginForm.SetNetState(1);
