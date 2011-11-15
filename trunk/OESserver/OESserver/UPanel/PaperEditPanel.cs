@@ -197,6 +197,10 @@ namespace OES.UPanel
                         {
                             XMLControl.AddPaperAns(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId,getAnswer(PT[k],InfoControl.TmpPaper.ProList[k][i].problemId.ToString()));
                         }
+                        if (k == 6)
+                        {
+                            //PCompletion tmppc=InfoControl.OesData.findf
+                        }
                     }
                 }
             }
