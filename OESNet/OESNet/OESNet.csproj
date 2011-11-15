@@ -34,14 +34,14 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
+    <OutputPath>..\..\OESLibrary\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
-    <DocumentationFile>bin\x86\Debug\OESNet.XML</DocumentationFile>
+    <DocumentationFile>..\..\OESLibrary\OESNet.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -56,11 +56,11 @@
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESConfig\OESConfig\bin\x86\Debug\log4net.dll</HintPath>
+      <HintPath>..\..\OESLibrary\log4net.dll</HintPath>
     </Reference>
     <Reference Include="OESConfig, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESConfig\OESConfig\bin\x86\Debug\OESConfig.dll</HintPath>
+      <HintPath>..\..\OESLibrary\OESConfig.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
