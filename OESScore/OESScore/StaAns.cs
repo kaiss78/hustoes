@@ -9,8 +9,9 @@ namespace OESScore
     public class StaAns
     {
         public string PaperID;
+        public string ProType;
         public List<Answer> Ans;
-        public List<Answer> ProAns;        
+        public List<List<Answer>> ProAns;        
     }
 
 }

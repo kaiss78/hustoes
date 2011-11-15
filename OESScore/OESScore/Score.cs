@@ -60,8 +60,7 @@ namespace OESScore
                     tmpSA.Score = new Score();
                     tmpSA.Score.score = "0";
                     tmpSA.path = ans;
-                    tmpSA.StuAns = new StaAns();
-                    tmpSA.StuAns.Ans = ScoreControl.GetStuAns(ans.FullName);
+                    tmpSA.StuAns = ScoreControl.GetStuAns(ans.FullName);
                     if (File.Exists(ans.FullName + "\\Result.xml"))
                     {
                         tmpSA.ReadResult(ans.FullName + "\\Result.xml");
@@ -97,6 +96,7 @@ namespace OESScore
 
         public int Mark(int RIndex)
         {
+            List<string> proAns;
             int Score = 0, dScore = 0;
             StuList[RIndex].Score.sum = new List<Sum>();
             XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
@@ -110,6 +110,17 @@ namespace OESScore
                 }                
                 StuList[RIndex].Score.addDetail(ans.Type, dScore);
                 XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
+            }
+            if (File.Exists(StuList[RIndex].path.FullName + "\\g.c"))  //程序改错
+            {
+                proAns = ScoreControl.correctPC(StuList[RIndex].path.FullName + "\\g.c");
+            }
+            if (File.Exists(StuList[RIndex].path.FullName + "\\h.c"))  //程序综合
+            {
+            }
+            if (File.Exists(StuList[RIndex].path.FullName + "\\i.c"))  //程序填空
+            {
+                proAns = ScoreControl.correctPC(StuList[RIndex].path.FullName + "\\i.c");
             }
             return Score;
         }

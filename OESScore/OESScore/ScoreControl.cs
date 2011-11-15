@@ -97,7 +97,7 @@ namespace OESScore
         /// 程序综合题评分
         /// </summary>
         /// <param name="path">文件路径</param>
-        public static string correctPF(string path,string input)
+        public static string correctPF(string path, string input)
         {
             string clPath = FindVC();
             string st, name;
@@ -126,7 +126,7 @@ namespace OESScore
                 cmd.StartInfo.FileName = cpppath.DirectoryName + "\\" + name;
                 cmd.Start();
                 cmd.StandardInput.WriteLine(input);
-                st = cmd.StandardOutput.ReadToEnd();                
+                st = cmd.StandardOutput.ReadToEnd();
                 cmd.WaitForExit();//等待控制台程序执行完成
                 cmd.Close();//关闭该进程
             }
@@ -157,7 +157,7 @@ namespace OESScore
                     }
                     while ((st.Length > 0) && ((st[st.Length - 1] == '\t') || (st[st.Length - 1] == '\r')))
                     {
-                        st = st.Remove(st.Length - 1, 1);                        
+                        st = st.Remove(st.Length - 1, 1);
                     }
                     result.Add(st);
                 }
@@ -207,11 +207,12 @@ namespace OESScore
                 }
                 if (pro.pt == ProblemType.ProgramFun)
                 {
-
+                    ans.Ans = "";
+                    ans.Input = "";
                 }
                 if (pro.pt == ProblemType.ProgramModification)
                 {
-
+                    ans.Ans = "";
                 }
                 newAnswer.Ans.Add(ans);
             }
@@ -219,9 +220,12 @@ namespace OESScore
 
         }
 
-        public static List<Answer> GetStuAns(string path)
+        public static StaAns GetStuAns(string path)
         {
-            List<Answer> stuAns = new List<Answer>();
+            StaAns stuAns = new StaAns();
+            stuAns.Ans = new List<Answer>();
+            stuAns.ProAns = new List<List<Answer>>();
+            
             Answer ans;
             List<IdAnswerType> ansList = new List<IdAnswerType>();
             ansList = XMLControl.ReadPaperAns(path + "\\studentAns.xml");
@@ -231,7 +235,7 @@ namespace OESScore
                 ans.ID = pro.id;
                 ans.Type = pro.pt;
                 ans.Ans = pro.answer;
-                stuAns.Add(ans);
+                stuAns.Ans.Add(ans);
             }
             return stuAns;
         }
