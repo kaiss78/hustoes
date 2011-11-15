@@ -12,5 +12,5 @@ namespace OESScore
         public List<Answer> Ans;
         public List<Answer> ProAns;        
     }
-    
+
 }

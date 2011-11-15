@@ -169,7 +169,12 @@ namespace OESScore
             return result;
 
         }
-
+        /// <summary>
+        /// 获取正确答案
+        /// </summary>
+        /// <param name="ID">试卷ID</param>
+        /// <param name="path">试卷路径</param>
+        /// <returns></returns>
         public static StaAns SetStandardAnswer(string ID, string path)
         {
             StaAns newAnswer;
@@ -195,6 +200,18 @@ namespace OESScore
                         ans.Ans = a.answer;
                         break;
                     }
+                }
+                if (pro.pt == ProblemType.ProgramCompletion)
+                {
+                    ans = "";
+                }
+                if (pro.pt == ProblemType.ProgramFun)
+                {
+
+                }
+                if (pro.pt == ProblemType.ProgramModification)
+                {
+
                 }
                 newAnswer.Ans.Add(ans);
             }

@@ -11,6 +11,7 @@ namespace OESScore
         public ProblemType Type;
         public int ID;
         public string Ans;
+        public string Input;
         public int Score;     
     }
 }
