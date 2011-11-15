@@ -122,6 +122,7 @@ namespace OESMonitor
         #region 网络连接状态
         void Client_DisConnectError(object sender, ErrorEventArgs e)
         {
+            while (!this.IsHandleCreated) ;
             this.BeginInvoke(new MethodInvoker(() => {
                 netState1.State = 0;
             }));
@@ -129,6 +130,7 @@ namespace OESMonitor
 
         void Client_ConnectedServer(object sender, EventArgs e)
         {
+            while (!this.IsHandleCreated) ;
             this.BeginInvoke(new MethodInvoker(() =>
             {
                 netState1.State = 1;
