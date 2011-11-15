@@ -37,7 +37,7 @@ namespace OESScore
         /// <param name="count">考生答案总数</param>
         public void AddToDGV(PaperFolder pf)
         {
-            DataGridViewProgressBarCell tmp=new DataGridViewProgressBarCell();                        
+            DataGridViewProgressBarCell tmp = new DataGridViewProgressBarCell();
             object[] values = new object[4];
             values[0] = pf.paperInfo.paperID;
             values[1] = pf.paperInfo.paperName;
@@ -111,9 +111,9 @@ namespace OESScore
             if (RIndex > -1)
             {
                 formScore formscore = new formScore(papers[RIndex].Path.FullName);
-                
-                ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
-                
+
+                ScoreControl.staAns = ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
+
                 formscore.ShowDialog();
                 formscore.Dispose();
             }
@@ -124,11 +124,11 @@ namespace OESScore
             int RIndex = dgvPaperTable.CurrentRow.Index;
             if (RIndex > -1)
             {
-                ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
+                ScoreControl.staAns = ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
                 formScore formscore = new formScore(papers[RIndex].Path.FullName);
             }
-            
-            
+
+
         }
     }
 }

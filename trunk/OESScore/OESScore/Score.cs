@@ -107,7 +107,7 @@ namespace OESScore
                 {
                     dScore = ScoreControl.staAns.Ans[ans.ID].Score;
 
-                }
+                }                
                 StuList[RIndex].Score.addDetail(ans.Type, dScore);
                 XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
             }
