@@ -203,7 +203,7 @@ namespace OESScore
                 }
                 if (pro.pt == ProblemType.ProgramCompletion)
                 {
-                    //ans = "";
+                    ans.Ans = "";
                 }
                 if (pro.pt == ProblemType.ProgramFun)
                 {
