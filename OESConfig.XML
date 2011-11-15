@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OESConfig</name>
+    </assembly>
+    <members>
+        <member name="M:OES.OESConfig.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fileName">xml配置文件名</param>
+        </member>
+        <member name="M:OES.OESConfig.#ctor(System.String,System.String[0:,0:])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="fileName">xml配置文件名</param>
+            <param name="defsetting">默认配置</param>
+        </member>
+        <member name="M:OES.OESConfig.Find(System.Xml.XmlNode,System.String)">
+            <summary>
+            通过节点名字，查找XML节点
+            </summary>
+            <param name="e">父节点</param>
+            <param name="name">子节点名称</param>
+            <returns>子节点，若不存在则返回null</returns>
+        </member>
+        <member name="M:OES.OESConfig.Get(System.Xml.XmlNode)">
+            <summary>
+            获取节点内容
+            </summary>
+            <param name="e">当前节点</param>
+            <returns>节点内容</returns>
+        </member>
+        <member name="M:OES.OESConfig.Set(System.Xml.XmlNode,System.String)">
+            <summary>
+            设置节点内容
+            </summary>
+            <param name="e">当前节点</param>
+            <param name="value">节点内容</param>
+        </member>
+        <member name="M:OES.OESConfig.Add(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            添加一个节点
+            </summary>
+            <param name="e">父节点</param>
+            <param name="index">节点名称</param>
+            <param name="value">节点内容</param>
+        </member>
+        <member name="M:OES.OESConfig.Del(System.Xml.XmlNode,System.String)">
+            <summary>
+            删除一个节点
+            </summary>
+            <param name="e">父节点</param>
+            <param name="index">子节点名称</param>
+        </member>
+        <member name="M:OES.OESConfig.getXMLDetail(System.String)">
+            <summary>
+            获取节点内容（检查节点不存在问题）
+            </summary>
+            <param name="index">节点名称</param>
+            <returns>节点内容</returns>
+        </member>
+        <member name="M:OES.OESConfig.setXMLDetail(System.String,System.String)">
+            <summary>
+            设置节点内容（检查节点不存在问题）
+            </summary>
+            <param name="index">节点名称</param>
+            <param name="value">节点内容</param>
+        </member>
+        <member name="M:OES.OESConfig.GetAllConfig">
+            <summary>
+            获取当前文件中的所有配置
+            </summary>
+            <returns>所有配置的一个Dictionary</returns>
+        </member>
+        <member name="M:OES.OESConfig.Clear">
+            <summary>
+            清空配置文件
+            </summary>
+        </member>
+        <member name="P:OES.OESConfig.Item(System.String)">
+            <summary>
+            通过index索引需要的字段
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
