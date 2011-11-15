@@ -46,13 +46,13 @@
             this.btnSelectPath = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnScore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.plDGV = new System.Windows.Forms.Panel();
             this.dgvPaperTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.PaperID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Progress = new OESScore.DataGridViewProgressBarColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.netState1 = new OES.NetState(10);
             this.fbdPaperPath = new System.Windows.Forms.FolderBrowserDialog();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +70,7 @@
             this.ss.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssla,
             this.tsslPath});
-            this.ss.Location = new System.Drawing.Point(0, 399);
+            this.ss.Location = new System.Drawing.Point(0, 413);
             this.ss.Name = "ss";
             this.ss.Size = new System.Drawing.Size(749, 22);
             this.ss.TabIndex = 0;
@@ -79,36 +79,34 @@
             // tssla
             // 
             this.tssla.Name = "tssla";
-            this.tssla.Size = new System.Drawing.Size(41, 17);
+            this.tssla.Size = new System.Drawing.Size(44, 17);
             this.tssla.Text = "路径：";
             // 
             // tsslPath
             // 
             this.tsslPath.Name = "tsslPath";
-            this.tsslPath.Size = new System.Drawing.Size(23, 17);
+            this.tsslPath.Size = new System.Drawing.Size(22, 17);
             this.tsslPath.Text = "c:\\";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.plDGV, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.plDGV, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.netState1, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(749, 399);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(749, 413);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -116,10 +114,10 @@
             this.flowLayoutPanel2.Controls.Add(this.btnSelectPath);
             this.flowLayoutPanel2.Controls.Add(this.btnScore);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(619, 25);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(624, 20);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(125, 369);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(125, 365);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnSelectPath
@@ -153,33 +151,20 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(8, 11);
+            this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(608, 14);
+            this.label1.Size = new System.Drawing.Size(618, 14);
             this.label1.TabIndex = 1;
             this.label1.Text = "试卷信息";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1, 1);
-            this.tableLayoutPanel2.TabIndex = 3;
             // 
             // plDGV
             // 
             this.plDGV.Controls.Add(this.dgvPaperTable);
             this.plDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plDGV.Location = new System.Drawing.Point(5, 25);
+            this.plDGV.Location = new System.Drawing.Point(0, 20);
             this.plDGV.Margin = new System.Windows.Forms.Padding(0);
             this.plDGV.Name = "plDGV";
-            this.plDGV.Size = new System.Drawing.Size(614, 369);
+            this.plDGV.Size = new System.Drawing.Size(624, 365);
             this.plDGV.TabIndex = 6;
             // 
             // dgvPaperTable
@@ -208,7 +193,7 @@
             this.dgvPaperTable.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPaperTable.RowTemplate.Height = 23;
             this.dgvPaperTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPaperTable.Size = new System.Drawing.Size(614, 369);
+            this.dgvPaperTable.Size = new System.Drawing.Size(624, 365);
             this.dgvPaperTable.TabIndex = 5;
             this.dgvPaperTable.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPaperTable_CellMouseDoubleClick);
             // 
@@ -257,6 +242,17 @@
             this.Count.Name = "Count";
             this.Count.ReadOnly = true;
             this.Count.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // netState1
+            // 
+            this.netState1.BackColor = System.Drawing.Color.Transparent;
+            this.netState1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.netState1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.netState1.Location = new System.Drawing.Point(3, 388);
+            this.netState1.Name = "netState1";
+            this.netState1.Size = new System.Drawing.Size(618, 22);
+            this.netState1.State = 0;
+            this.netState1.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -307,7 +303,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 421);
+            this.ClientSize = new System.Drawing.Size(749, 435);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.ss);
             this.Name = "formOESScore";
@@ -333,7 +329,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSelectPath;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnScore;
         private System.Windows.Forms.FolderBrowserDialog fbdPaperPath;
@@ -347,6 +342,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PaperName;
         private DataGridViewProgressBarColumn Progress;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
+        private OES.NetState netState1;
     }
 }
 
