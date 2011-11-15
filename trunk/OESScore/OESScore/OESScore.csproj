@@ -31,26 +31,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.3.2.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESData\OESData\bin\x86\Debug\log4net.dll</HintPath>
+      <HintPath>..\..\OESLibrary\log4net.dll</HintPath>
     </Reference>
     <Reference Include="OESConfig, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESConfig\OESConfig\bin\x86\Debug\OESConfig.dll</HintPath>
+      <HintPath>..\..\OESLibrary\OESConfig.dll</HintPath>
     </Reference>
     <Reference Include="OESData, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESData\OESData\bin\x86\Debug\OESData.dll</HintPath>
+      <HintPath>..\..\OESLibrary\OESData.dll</HintPath>
     </Reference>
     <Reference Include="OESModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESModel\OESModel\bin\x86\Debug\OESModel.dll</HintPath>
+      <HintPath>..\..\OESLibrary\OESModel.dll</HintPath>
+    </Reference>
+    <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OESLibrary\OESNet.dll</HintPath>
     </Reference>
     <Reference Include="OESXML, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OESXML\OESXML\bin\x86\Debug\OESXML.dll</HintPath>
+      <HintPath>..\..\OESLibrary\OESXML.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -71,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Answer.cs" />
     <Compile Include="DataGridViewProgressBarCell.cs" />
+    <Compile Include="Net\ClientEvt.cs" />
     <Compile Include="OESScore.cs">
       <SubType>Form</SubType>
     </Compile>
