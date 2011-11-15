@@ -11,6 +11,7 @@ namespace OES.Model
         public bool kind;
         public string rawPath;
         public string stuAnsPath;
+        public List<string> ans;
         public PCompletion()
         {
             type = ProblemType.ProgramCompletion;
@@ -21,6 +22,7 @@ namespace OES.Model
             ans1 = "";
             ans2 = "";
             ans3 = "";
+            ans = new List<string>();
             type = ProblemType.ProgramCompletion;
         }
         public PCompletion(string rawPath,string stuAnsPath)
