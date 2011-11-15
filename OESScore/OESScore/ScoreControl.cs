@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace OESScore
 {
-    class ScoreControl
+    public class ScoreControl
     {
         public static StaAns staAns;
         /// <summary>

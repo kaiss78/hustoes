@@ -10,6 +10,7 @@ namespace OESScore
     {
         public string PaperID;
         public List<Answer> Ans;
+        public List<Answer> ProAns;        
     }
     
 }
