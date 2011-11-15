@@ -126,7 +126,7 @@
             // 
             this.btnSelectPath.Location = new System.Drawing.Point(3, 3);
             this.btnSelectPath.Name = "btnSelectPath";
-            this.btnSelectPath.Size = new System.Drawing.Size(120, 30);
+            this.btnSelectPath.Size = new System.Drawing.Size(120, 35);
             this.btnSelectPath.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -137,9 +137,9 @@
             // 
             // btnScore
             // 
-            this.btnScore.Location = new System.Drawing.Point(3, 39);
+            this.btnScore.Location = new System.Drawing.Point(3, 44);
             this.btnScore.Name = "btnScore";
-            this.btnScore.Size = new System.Drawing.Size(120, 30);
+            this.btnScore.Size = new System.Drawing.Size(120, 35);
             this.btnScore.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
