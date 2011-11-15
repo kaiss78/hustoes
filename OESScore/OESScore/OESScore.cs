@@ -14,6 +14,7 @@ namespace OESScore
 {
     public partial class formOESScore : Form
     {
+        public ClientEvt scoreNet = new ClientEvt();
         public DataTable dtPaperList = new DataTable();
         public List<PaperFolder> papers = new List<PaperFolder>();
         private System.Windows.Forms.DataGridViewTextBoxColumn StuID;
@@ -25,14 +26,17 @@ namespace OESScore
         {
             InitializeComponent();
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
+            netState1.State = 2;
             ClientEvt.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
             ClientEvt.Client.DisConnectError += new ErrorEventHandler(Client_DisConnectError);
+            scoreNet.Init();
             tsslPath.Text = ScoreControl.config["PaperPath"];
             LoadPaperList();
         }
 
         void Client_DisConnectError(object sender, ErrorEventArgs e)
         {
+            while (!this.IsHandleCreated) ;
             this.BeginInvoke(new MethodInvoker(() =>
             {
                 netState1.State = 0;
@@ -41,6 +45,7 @@ namespace OESScore
 
         void Client_ConnectedServer(object sender, EventArgs e)
         {
+            while (!this.IsHandleCreated) ;
             this.BeginInvoke(new MethodInvoker(() =>
             {
                 netState1.State = 1;
