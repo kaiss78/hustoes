@@ -26,6 +26,10 @@ namespace ServerNet
         /// 服务端Ip
         /// </summary>
         public IPAddress ip = null;
+        /// <summary>
+        /// 服务端端口号
+        /// </summary>
+        public int port = 20000;
         //数据端口列表
         private List<DataPort> ports = new List<DataPort>();
         //客户端列表
@@ -41,7 +45,7 @@ namespace ServerNet
         //线程同步锁
         private object syncLock = new object();
         //数据端口预定个数
-        private int portsRequest = int.Parse(Config["DataPortNum"]);      
+        private int portsRequest = int.Parse(Config["DataPortNum"]);
         //数据端口准备就绪
         private bool isPortAvailable = false;
         /// <summary>
@@ -135,7 +139,7 @@ namespace ServerNet
 
         #endregion
         #region 出错事件定义
-        
+
         /// <summary>
         /// 数据端口出错
         /// </summary>
@@ -157,11 +161,14 @@ namespace ServerNet
         /// </summary>
         public void StartServer()
         {
-            if(ip==null)
+            if (ip == null)
+            {
                 ip = IPAddress.Parse(Config["HostIp"]);
+                port = int.Parse(Config["HostPort"]);
+            }
             if (ip != null)
             {
-                listener = new TcpListener(ip, int.Parse(Config["HostPort"]));     //固定服务端监听端口           
+                listener = new TcpListener(ip, port);     //固定服务端监听端口           
                 listener.Start();
                 listener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), listener);
                 InitializeDataPorts();
@@ -191,7 +198,7 @@ namespace ServerNet
         /// </summary>
         private void InitializeDataPorts()
         {
-            isPortAvailable= SearchSparePort();
+            isPortAvailable = SearchSparePort();
             for (int i = availablePorts.Count - 1; i >= 0; i--)
             {
                 DataPort dport = new DataPort(ip, availablePorts.Dequeue());
@@ -206,7 +213,7 @@ namespace ServerNet
                     dport.FileSendBegin += this.FileSendBegin;
                 if (this.FileSendEnd != null)
                     dport.FileSendEnd += this.FileSendEnd;
-                
+
                 ports.Add(dport);
                 PortQueue.Enqueue(dport);
             }
@@ -250,12 +257,12 @@ namespace ServerNet
                     availablePorts.Enqueue(port);
                     port++;
                     if (--portsRequest == 0)
-                        return true ;
+                        return true;
                 }
             }
             if (portsRequest != 0)
             {
-                if(OnDataPortError!=null)
+                if (OnDataPortError != null)
                     OnDataPortError("可用端口数量不足！");
             }
             return false;
@@ -267,7 +274,7 @@ namespace ServerNet
         /// <param name="port"></param>
         private void PortRecycler(DataPort port)
         {
-            if(!PortQueue.Contains(port))
+            if (!PortQueue.Contains(port))
                 PortQueue.Enqueue(port);
             ProvideClientService();
         }
@@ -308,7 +315,7 @@ namespace ServerNet
 
             Client client = new Client(tclient);
             client.MessageScheduler += MessageScheduler;
-            if(this.ReceivedDataRequest!=null)
+            if (this.ReceivedDataRequest != null)
                 client.ReceivedDataRequest += this.ReceivedDataRequest;
             if (this.ReceivedDataSubmit != null)
                 client.ReceivedDataSubmit += this.ReceivedDataSubmit;
@@ -335,15 +342,15 @@ namespace ServerNet
         /// </summary>
         /// <param name="client">活动的客户端</param>
         /// <param name="type">消息类型</param>
-        private void MessageScheduler(Client client,int type)
+        private void MessageScheduler(Client client, int type)
         {
-            lock(syncLock)
+            lock (syncLock)
             {
                 switch (type)
                 {
-                    
+
                     case 0:
-                    #region 搜索空闲数据端口，准备传送数据
+                        #region 搜索空闲数据端口，准备传送数据
                         if (PortQueue.Count != 0 && isPortAvailable)
                         {
                             client.Port = PortQueue.Dequeue();
@@ -355,10 +362,10 @@ namespace ServerNet
                             RequestingQueue.Enqueue(client);
                         }
                         break;
-                    #endregion
+                        #endregion
 
                     case 1:
-                    #region 搜索空闲数据端口，准备接受数据
+                        #region 搜索空闲数据端口，准备接受数据
                         if (PortQueue.Count != 0 && isPortAvailable)
                         {
                             client.Port = PortQueue.Dequeue();
@@ -370,7 +377,7 @@ namespace ServerNet
                             SubmitingQueue.Enqueue(client);
                         }
                         break;
-                    #endregion
+                        #endregion
                     case -1:
                         PortRecycler(client.Port);
                         break;
