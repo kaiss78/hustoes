@@ -89,6 +89,7 @@ namespace OESMonitor
         {
             InitializeComponent();
 
+            #region 配置控件初始化
             groupBoxServerIp.Controls.Add(serverConfig);
             serverConfig.Dock = DockStyle.Fill;
             serverConfig.Show();
@@ -108,6 +109,7 @@ namespace OESMonitor
             groupBoxPath.Controls.Add(pathConfig);
             pathConfig.Dock = DockStyle.Fill;
             pathConfig.Show();
+            #endregion
 
             #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
@@ -504,6 +506,9 @@ namespace OESMonitor
             }
             IsStartExam = false;
 
+            string[] ips = ServerEvt.Server.ip.ToString().Split('.');
+            textBoxStartIp.Text = ips[0] + "." + ips[1] + "." + ips[2] + "." + "1";
+            textBoxEndIp.Text = ips[0] + "." + ips[1] + "." + ips[2] + "." + "254";
         }
 
         void Server_WrittenMsg(Client client, string msg)
