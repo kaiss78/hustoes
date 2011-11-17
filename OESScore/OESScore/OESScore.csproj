@@ -12,6 +12,7 @@
     <AssemblyName>OESScore</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>Score.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -150,6 +151,9 @@
     <Compile Include="ScoreControl.cs" />
     <Compile Include="StaAns.cs" />
     <Compile Include="StuFolder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Score.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
