@@ -240,6 +240,20 @@ namespace OES
         }
 
         /// <summary>
+        /// 设置当前文件中的所有配置
+        /// </summary>
+        /// <param name="dict">所有配置的一个Dictionary</param>
+        public void SetAllConfig(Dictionary<string, string> dict)
+        {
+            XmlNode e = xd.ChildNodes.Item(1);
+            if (dict == null) return;
+            foreach (string key in dict.Keys)
+            {
+                this[key] = dict[key];
+            }
+        }
+
+        /// <summary>
         /// 清空配置文件
         /// </summary>
         public void Clear()
