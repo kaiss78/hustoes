@@ -51,13 +51,13 @@ namespace OESMonitor
                     else
                     {
                         ServerEvt.Server.IsPortAvailable = true;
-                        button1.Text = "停止发卷/发卷";
+                        buttonExamStatue.Text = "停止发卷/发卷";
                         timer_PortCounter.Start();
                     }
                 }
                 else
                 {
-                    button1.Text = "开始考试/收卷";
+                    buttonExamStatue.Text = "开始考试/收卷";
                     if (HandInPaper != null)
                     {
                         HandInPaper();
@@ -356,38 +356,42 @@ namespace OESMonitor
                     examPaperIdList.Add(Convert.ToInt32(dr[1].ToString()));
             }
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            flowLayoutPanel1.Controls.Add(new Computer());
-        }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void buttonExamStatue_Click(object sender, EventArgs e)
         {
-            if (!IsStartExam)
+            if (netState1.State == 1)
             {
-                bool isExistPaper = true;
-                foreach (DataRow dr in paperListDataTable.Rows)
+                if (!IsStartExam)
                 {
-                    string id = dr[1].ToString();
-                    if (!File.Exists(PaperControl.PathConfig["TmpPaper"] + id + ".rar"))
+                    bool isExistPaper = true;
+                    foreach (DataRow dr in paperListDataTable.Rows)
                     {
-                        isExistPaper = false;
+                        string id = dr[1].ToString();
+                        if (!File.Exists(PaperControl.PathConfig["TmpPaper"] + id + ".rar"))
+                        {
+                            isExistPaper = false;
+                        }
+                    }
+                    if (isExistPaper && examPaperIdList.Count != 0)
+                    {
+                        IsStartExam = true;
+                    }
+                    else
+                    {
+                        helpLabel.Text = "您没有选择考试试卷 或者 您还有部分试卷未下载，请点击“下载试卷”";
+                        MessageBox.Show(helpLabel.Text);
+                        tabControl2.SelectedIndex = 1;
                     }
                 }
-                if (isExistPaper && examPaperIdList.Count!=0)
-                    IsStartExam = true;
                 else
                 {
-                    tabControl2.SelectedIndex = 1;
-                    helpLabel.Text = "您没有选择考试试卷 或者 您还有部分试卷未下载，请点击“下载试卷”";
-                    MessageBox.Show(helpLabel.Text);
+
+                    IsStartExam = false;
                 }
             }
             else
             {
-
-                IsStartExam = false;
+                MessageBox.Show("未连接上服务器,不能开始考试!");
             }
         }
 
@@ -611,8 +615,8 @@ namespace OESMonitor
         {
             if (tabControl2.SelectedIndex == 1 && netState1.State != 1)
             {
-                tabControl2.SelectedIndex = 0;
                 MessageBox.Show("未连接上服务端!");
+                tabControl2.SelectedIndex = 0;
             }
             else
             {

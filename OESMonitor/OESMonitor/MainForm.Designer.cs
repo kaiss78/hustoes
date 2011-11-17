@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,10 +44,9 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.netState1 = new OES.NetState();
             this.label5 = new System.Windows.Forms.Label();
             this.lab_DataPortCount = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonExamStatue = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.downloadButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -78,6 +77,7 @@
             this.buttonBroadcastOnce = new System.Windows.Forms.Button();
             this.buttonBroadcastRepeat = new System.Windows.Forms.Button();
             this.timer_Broadcast = new System.Windows.Forms.Timer(this.components);
+            this.netState1 = new OES.NetState(10);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -233,7 +233,7 @@
             this.tabPage4.Controls.Add(this.netState1);
             this.tabPage4.Controls.Add(this.label5);
             this.tabPage4.Controls.Add(this.lab_DataPortCount);
-            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.buttonExamStatue);
             this.tabPage4.Controls.Add(this.tabControl1);
             this.tabPage4.Controls.Add(this.panel1);
             this.tabPage4.Location = new System.Drawing.Point(25, 4);
@@ -243,16 +243,6 @@
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "考试状态";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // netState1
-            // 
-            this.netState1.BackColor = System.Drawing.Color.Transparent;
-            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.netState1.Location = new System.Drawing.Point(636, 3);
-            this.netState1.Name = "netState1";
-            this.netState1.Size = new System.Drawing.Size(213, 26);
-            this.netState1.State = 0;
-            this.netState1.TabIndex = 8;
             // 
             // label5
             // 
@@ -272,15 +262,15 @@
             this.lab_DataPortCount.TabIndex = 6;
             this.lab_DataPortCount.Text = "未知";
             // 
-            // button1
+            // buttonExamStatue
             // 
-            this.button1.Location = new System.Drawing.Point(652, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(184, 30);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "开始考试/发卷";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.buttonExamStatue.Location = new System.Drawing.Point(652, 31);
+            this.buttonExamStatue.Name = "buttonExamStatue";
+            this.buttonExamStatue.Size = new System.Drawing.Size(184, 30);
+            this.buttonExamStatue.TabIndex = 5;
+            this.buttonExamStatue.Text = "开始考试/发卷";
+            this.buttonExamStatue.UseVisualStyleBackColor = true;
+            this.buttonExamStatue.Click += new System.EventHandler(this.buttonExamStatue_Click);
             // 
             // tabPage5
             // 
@@ -390,9 +380,9 @@
             // 
             this.PaperListDGV.AllowUserToAddRows = false;
             this.PaperListDGV.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.PaperListDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.PaperListDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorMini;
             this.PaperListDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
@@ -402,8 +392,8 @@
             this.PaperListDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.PaperListDGV.ReadOnly = true;
             this.PaperListDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.PaperListDGV.RowTemplate.Height = 23;
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaperListDGV.Size = new System.Drawing.Size(527, 434);
@@ -604,6 +594,16 @@
             // 
             this.timer_Broadcast.Tick += new System.EventHandler(this.timer_Broadcast_Tick);
             // 
+            // netState1
+            // 
+            this.netState1.BackColor = System.Drawing.Color.Transparent;
+            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.netState1.Location = new System.Drawing.Point(636, 3);
+            this.netState1.Name = "netState1";
+            this.netState1.Size = new System.Drawing.Size(213, 26);
+            this.netState1.State = 0;
+            this.netState1.TabIndex = 8;
+            // 
             // OESMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -670,7 +670,7 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label helpLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonExamStatue;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lab_DataPortCount;
         private System.Windows.Forms.Timer timer_PortCounter;
