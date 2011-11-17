@@ -19,7 +19,7 @@ namespace OESScore
         /// </summary>
         public static OESConfig config = new OESConfig("PathConfig.xml",
         new string[,] {
-                        {"PaperPath","D:\\OES\\Paper\\"}
+                        {"PaperPath","c:\\"}
                       });
 
         /// <summary>
