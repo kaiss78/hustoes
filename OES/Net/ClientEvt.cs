@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using ClientNet;
-
+using OESNet.UdpNet;
+using System.Net;
 namespace OES.Net
 {
     public class ClientEvt
     {
         public static OESClient Client = new OESClient();
+        public static UdpBroadcast BroadcastHelper = new UdpBroadcast();
         public static event EventHandler LoginReturn;
         public static event EventHandler ConfirmReStart;
       
@@ -21,6 +23,43 @@ namespace OES.Net
         public static void getPassword()
         {
             Client.SendTxt("oes$4");
+        }
+
+        public static void ChangeServerIpPort(string sender)
+        {
+            string[] msgs = sender.Split('#');
+            if (msgs[0] == "monitor")
+            {
+                long myip=RetrieveHostIpv4Address();
+                if (myip >= long.Parse(msgs[1]) && myip <= long.Parse(msgs[2]))
+                {
+                    if (Client.server != msgs[3] || Client.portNum != int.Parse(msgs[4]))
+                    {
+                        Client.server = msgs[3];
+                        Client.portNum = int.Parse(msgs[4]);
+                        Client.InitializeClient();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取本机Ip
+        /// </summary>
+        /// <returns>返回第一个本机Ipv4</returns>
+        private static long RetrieveHostIpv4Address()
+        {
+            //获得所有的ip地址，包括ipv6和ipv4
+            IPAddress[] ips = Dns.GetHostAddresses(Dns.GetHostName());
+            foreach (IPAddress tip in ips)
+            {
+                //ipv4的最大长度为15，ipv6为39
+                if (tip.ToString().Length <= 15)
+                {
+                    return UdpBroadcast.GetLongIp(tip.ToString());
+                }
+            }
+            return 0;
         }
 
         static void Client_ReceivedTxt(object sender, EventArgs e)
