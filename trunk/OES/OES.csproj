@@ -129,12 +129,6 @@
     <Compile Include="DAO\Config.cs" />
     <Compile Include="DAO\ReadTxt.cs" />
     <Compile Include="Model\PaperExt.cs" />
-    <Compile Include="NetState.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NetState.Designer.cs">
-      <DependentUpon>NetState.cs</DependentUpon>
-    </Compile>
     <Compile Include="Net\ClientEvt.cs" />
     <Compile Include="TeaPassForm.cs">
       <SubType>Form</SubType>
@@ -205,9 +199,6 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NetState.resx">
-      <DependentUpon>NetState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeaPassForm.resx">
       <DependentUpon>TeaPassForm.cs</DependentUpon>
