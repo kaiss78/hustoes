@@ -70,6 +70,7 @@ namespace OESNet.UdpNet
             }
             catch (Exception e)
             {
+                this.Close();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -86,6 +87,7 @@ namespace OESNet.UdpNet
             }
             catch (Exception e) 
             {
+                this.Close();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -112,6 +114,7 @@ namespace OESNet.UdpNet
             }
             catch (Exception e)
             {
+                this.Close();
                 Console.WriteLine(e.ToString());
             }
         }
