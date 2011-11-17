@@ -57,6 +57,8 @@
             this.ClientSize = new System.Drawing.Size(577, 342);
             this.Controls.Add(this.groupBoxPathConfig);
             this.Controls.Add(this.groupBoxServerConfig);
+            this.MaximumSize = new System.Drawing.Size(593, 380);
+            this.MinimumSize = new System.Drawing.Size(593, 380);
             this.Name = "ConfigForm";
             this.Text = "ConfigForm";
             this.ResumeLayout(false);
