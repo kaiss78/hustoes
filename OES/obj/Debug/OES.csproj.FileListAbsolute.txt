@@ -72,3 +72,7 @@ C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.UContro
 C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.UControl.ProblemsList.resources
 C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.WaitingForm.resources
 C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\OES\obj\Debug\OES.csproj.GenerateResource.Cache
+C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\bin\Debug\OES.exe.config
+C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\obj\Debug\OES.csproj.ResolveComReference.cache
+C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\obj\Debug\OES.exe
+C:\Users\aaa\Documents\Visual Studio 2008\Projects\OES\obj\Debug\OES.pdb
