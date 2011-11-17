@@ -31,7 +31,7 @@ namespace OESNet.UdpNet
 
         public UdpBroadcast()
         {
-            udpClient = new UdpClient(port);
+            udpClient = new UdpClient();
         }
 
         public void Broadcast(string content)
@@ -50,6 +50,7 @@ namespace OESNet.UdpNet
 
         public void Listening()
         {
+            udpClient = new UdpClient(port);
             try 
             {
                 udpClient.BeginReceive(new AsyncCallback(receive_callBack),udpClient);
