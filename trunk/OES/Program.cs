@@ -37,8 +37,8 @@ namespace OES
                 {
                     MessageBox.Show("");
                 }
-
-
+                Net.ClientEvt.BroadcastHelper.OnReceiveMsg += (Net.ClientEvt.ChangeServerIpPort);
+                Net.ClientEvt.BroadcastHelper.Listening();
                 Application.Run(ClientControl.LoginForm);
             }
             catch
