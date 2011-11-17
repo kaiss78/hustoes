@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OESMonitor));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.netState1 = new OES.NetState();
             this.label5 = new System.Windows.Forms.Label();
             this.lab_DataPortCount = new System.Windows.Forms.Label();
             this.buttonExamStatue = new System.Windows.Forms.Button();
@@ -65,19 +67,18 @@
             this.groupBoxServerIp = new System.Windows.Forms.GroupBox();
             this.groupBoxClientIp = new System.Windows.Forms.GroupBox();
             this.groupBoxBroadcast = new System.Windows.Forms.GroupBox();
+            this.buttonBroadcastRepeat = new System.Windows.Forms.Button();
+            this.buttonBroadcastOnce = new System.Windows.Forms.Button();
+            this.labelRangeIp = new System.Windows.Forms.Label();
+            this.textBoxEndIp = new System.Windows.Forms.TextBox();
+            this.textBoxStartIp = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.groupBoxPath = new System.Windows.Forms.GroupBox();
             this.groupBoxDb = new System.Windows.Forms.GroupBox();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.groupBoxPass = new System.Windows.Forms.GroupBox();
             this.timer_PortCounter = new System.Windows.Forms.Timer(this.components);
-            this.textBoxStartIp = new System.Windows.Forms.TextBox();
-            this.textBoxEndIp = new System.Windows.Forms.TextBox();
-            this.labelRangeIp = new System.Windows.Forms.Label();
-            this.buttonBroadcastOnce = new System.Windows.Forms.Button();
-            this.buttonBroadcastRepeat = new System.Windows.Forms.Button();
             this.timer_Broadcast = new System.Windows.Forms.Timer(this.components);
-            this.netState1 = new OES.NetState(10);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -244,6 +245,16 @@
             this.tabPage4.Text = "考试状态";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // netState1
+            // 
+            this.netState1.BackColor = System.Drawing.Color.Transparent;
+            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.netState1.Location = new System.Drawing.Point(636, 3);
+            this.netState1.Name = "netState1";
+            this.netState1.Size = new System.Drawing.Size(213, 26);
+            this.netState1.State = 0;
+            this.netState1.TabIndex = 8;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -380,9 +391,9 @@
             // 
             this.PaperListDGV.AllowUserToAddRows = false;
             this.PaperListDGV.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.PaperListDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.PaperListDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorMini;
             this.PaperListDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
@@ -392,8 +403,8 @@
             this.PaperListDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.PaperListDGV.ReadOnly = true;
             this.PaperListDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.PaperListDGV.RowTemplate.Height = 23;
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaperListDGV.Size = new System.Drawing.Size(527, 434);
@@ -493,6 +504,49 @@
             this.groupBoxBroadcast.TabStop = false;
             this.groupBoxBroadcast.Text = "广播本机Ip";
             // 
+            // buttonBroadcastRepeat
+            // 
+            this.buttonBroadcastRepeat.Location = new System.Drawing.Point(328, 120);
+            this.buttonBroadcastRepeat.Name = "buttonBroadcastRepeat";
+            this.buttonBroadcastRepeat.Size = new System.Drawing.Size(139, 23);
+            this.buttonBroadcastRepeat.TabIndex = 4;
+            this.buttonBroadcastRepeat.Text = "每10s广播一次";
+            this.buttonBroadcastRepeat.UseVisualStyleBackColor = true;
+            this.buttonBroadcastRepeat.Click += new System.EventHandler(this.buttonBroadcastRepeat_Click);
+            // 
+            // buttonBroadcastOnce
+            // 
+            this.buttonBroadcastOnce.Location = new System.Drawing.Point(105, 120);
+            this.buttonBroadcastOnce.Name = "buttonBroadcastOnce";
+            this.buttonBroadcastOnce.Size = new System.Drawing.Size(75, 23);
+            this.buttonBroadcastOnce.TabIndex = 3;
+            this.buttonBroadcastOnce.Text = "广播一次";
+            this.buttonBroadcastOnce.UseVisualStyleBackColor = true;
+            this.buttonBroadcastOnce.Click += new System.EventHandler(this.buttonBroadcastOnce_Click);
+            // 
+            // labelRangeIp
+            // 
+            this.labelRangeIp.AutoSize = true;
+            this.labelRangeIp.Location = new System.Drawing.Point(41, 46);
+            this.labelRangeIp.Name = "labelRangeIp";
+            this.labelRangeIp.Size = new System.Drawing.Size(77, 14);
+            this.labelRangeIp.TabIndex = 2;
+            this.labelRangeIp.Text = "广播Ip区间";
+            // 
+            // textBoxEndIp
+            // 
+            this.textBoxEndIp.Location = new System.Drawing.Point(281, 72);
+            this.textBoxEndIp.Name = "textBoxEndIp";
+            this.textBoxEndIp.Size = new System.Drawing.Size(211, 23);
+            this.textBoxEndIp.TabIndex = 1;
+            // 
+            // textBoxStartIp
+            // 
+            this.textBoxStartIp.Location = new System.Drawing.Point(45, 72);
+            this.textBoxStartIp.Name = "textBoxStartIp";
+            this.textBoxStartIp.Size = new System.Drawing.Size(211, 23);
+            this.textBoxStartIp.TabIndex = 0;
+            // 
             // tabPage8
             // 
             this.tabPage8.Controls.Add(this.groupBoxPath);
@@ -547,62 +601,9 @@
             // 
             this.timer_PortCounter.Tick += new System.EventHandler(this.timer_PortCounter_Tick);
             // 
-            // textBoxStartIp
-            // 
-            this.textBoxStartIp.Location = new System.Drawing.Point(45, 72);
-            this.textBoxStartIp.Name = "textBoxStartIp";
-            this.textBoxStartIp.Size = new System.Drawing.Size(211, 23);
-            this.textBoxStartIp.TabIndex = 0;
-            // 
-            // textBoxEndIp
-            // 
-            this.textBoxEndIp.Location = new System.Drawing.Point(281, 72);
-            this.textBoxEndIp.Name = "textBoxEndIp";
-            this.textBoxEndIp.Size = new System.Drawing.Size(211, 23);
-            this.textBoxEndIp.TabIndex = 1;
-            // 
-            // labelRangeIp
-            // 
-            this.labelRangeIp.AutoSize = true;
-            this.labelRangeIp.Location = new System.Drawing.Point(41, 46);
-            this.labelRangeIp.Name = "labelRangeIp";
-            this.labelRangeIp.Size = new System.Drawing.Size(77, 14);
-            this.labelRangeIp.TabIndex = 2;
-            this.labelRangeIp.Text = "广播Ip区间";
-            // 
-            // buttonBroadcastOnce
-            // 
-            this.buttonBroadcastOnce.Location = new System.Drawing.Point(105, 120);
-            this.buttonBroadcastOnce.Name = "buttonBroadcastOnce";
-            this.buttonBroadcastOnce.Size = new System.Drawing.Size(75, 23);
-            this.buttonBroadcastOnce.TabIndex = 3;
-            this.buttonBroadcastOnce.Text = "广播一次";
-            this.buttonBroadcastOnce.UseVisualStyleBackColor = true;
-            this.buttonBroadcastOnce.Click += new System.EventHandler(this.buttonBroadcastOnce_Click);
-            // 
-            // buttonBroadcastRepeat
-            // 
-            this.buttonBroadcastRepeat.Location = new System.Drawing.Point(328, 120);
-            this.buttonBroadcastRepeat.Name = "buttonBroadcastRepeat";
-            this.buttonBroadcastRepeat.Size = new System.Drawing.Size(139, 23);
-            this.buttonBroadcastRepeat.TabIndex = 4;
-            this.buttonBroadcastRepeat.Text = "每10s广播一次";
-            this.buttonBroadcastRepeat.UseVisualStyleBackColor = true;
-            this.buttonBroadcastRepeat.Click += new System.EventHandler(this.buttonBroadcastRepeat_Click);
-            // 
             // timer_Broadcast
             // 
             this.timer_Broadcast.Tick += new System.EventHandler(this.timer_Broadcast_Tick);
-            // 
-            // netState1
-            // 
-            this.netState1.BackColor = System.Drawing.Color.Transparent;
-            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.netState1.Location = new System.Drawing.Point(636, 3);
-            this.netState1.Name = "netState1";
-            this.netState1.Size = new System.Drawing.Size(213, 26);
-            this.netState1.State = 0;
-            this.netState1.TabIndex = 8;
             // 
             // OESMonitor
             // 
@@ -612,6 +613,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(878, 495);
             this.Controls.Add(this.tabControl2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OESMonitor";
             this.Text = "OESMonitor";
             this.Load += new System.EventHandler(this.OESMonitor_Load);
