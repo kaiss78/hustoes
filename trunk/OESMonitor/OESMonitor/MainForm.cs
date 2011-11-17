@@ -12,6 +12,7 @@ using System.IO;
 using ServerNet;
 using ClientNet;
 using OES;
+using OESNet.UdpNet;
 
 namespace OESMonitor
 {
@@ -74,9 +75,39 @@ namespace OESMonitor
 
         public static Net.ClientEvt supportServer;
 
+        private ConfigEditor serverConfig = new ConfigEditor("ServerConfig.xml");
+
+        private ConfigEditor clientConfig = new ConfigEditor("ClientConfig.xml");
+
+        private ConfigEditor pathConfig = new ConfigEditor("PathConfig.xml");
+
+        private ConfigEditor passConfig = new ConfigEditor("PwdConfig.xml");
+
+        private ConfigEditor dbConfig = new ConfigEditor("DbConfig.xml");
+
         public OESMonitor()
         {
             InitializeComponent();
+
+            groupBoxServerIp.Controls.Add(serverConfig);
+            serverConfig.Dock = DockStyle.Fill;
+            serverConfig.Show();
+
+            groupBoxClientIp.Controls.Add(clientConfig);
+            clientConfig.Dock = DockStyle.Fill;
+            clientConfig.Show();
+
+            groupBoxDb.Controls.Add(dbConfig);
+            dbConfig.Dock = DockStyle.Fill;
+            dbConfig.Show();
+
+            groupBoxPass.Controls.Add(passConfig);
+            passConfig.Dock = DockStyle.Fill;
+            passConfig.Show();
+
+            groupBoxPath.Controls.Add(pathConfig);
+            pathConfig.Dock = DockStyle.Fill;
+            pathConfig.Show();
 
             #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
@@ -583,6 +614,75 @@ namespace OESMonitor
             }
         }
 
-        
+        #region 本机服务Ip端口广播
+        private bool checkIp()
+        {
+            IPAddress temp;
+            if (IPAddress.TryParse(textBoxStartIp.Text, out temp) && IPAddress.TryParse(textBoxEndIp.Text, out temp))
+            {
+                string[] ips=textBoxStartIp.Text.Split('.');
+                ServerEvt.BroadcastHelper.DomineIp = ips[0]+"."+ips[1]+"."+ips[2]+"."+"255";
+                return true;
+            }
+            return false;
+        }
+        private void buttonBroadcastOnce_Click(object sender, EventArgs e)
+        {
+            if (checkIp())
+            {
+                ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
+            }
+            else
+            {
+                MessageBox.Show("您输入的Ip不合法!");
+            }
+        }
+
+        private bool isStartBroadcastRepeat = false;
+
+        public bool IsStartBroadcastRepeat
+        {
+            get 
+            {
+                return isStartBroadcastRepeat; 
+            }
+            set 
+            {
+                isStartBroadcastRepeat = value;
+                if (isStartBroadcastRepeat)
+                {
+                    timer_Broadcast.Interval = 10000;
+                    timer_Broadcast.Start();
+                    buttonBroadcastRepeat.Text = "停止广播";
+                    buttonBroadcastOnce.Enabled = false;
+                }
+                else
+                {
+                    timer_Broadcast.Stop();
+                    buttonBroadcastRepeat.Text = "每10s广播一次";
+                    buttonBroadcastOnce.Enabled = true;
+                }
+            }
+        }
+
+        private void buttonBroadcastRepeat_Click(object sender, EventArgs e)
+        {
+            if (checkIp())
+            {
+                IsStartBroadcastRepeat = !IsStartBroadcastRepeat;
+            }
+            else
+            {
+                MessageBox.Show("您输入的Ip不合法!");
+            }
+        }
+
+        private void timer_Broadcast_Tick(object sender, EventArgs e)
+        {
+            ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
+        }
+        #endregion
+
+
     }
 }
