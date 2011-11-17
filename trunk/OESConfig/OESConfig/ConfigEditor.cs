@@ -74,6 +74,7 @@ namespace OES
                 }
             }
             config.SetAllConfig(dict);
+            MessageBox.Show("需要当前配置生效，必须重启该软件。");
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
