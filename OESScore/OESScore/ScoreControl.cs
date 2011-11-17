@@ -139,7 +139,7 @@ namespace OESScore
         public static List<string> correctPC(string path)
         {
             string cpptext, st;
-            int i;
+            int i,j;
             List<string> result;
             result = new List<string>();
             cpptext = ScoreControl.GetText(path);
@@ -151,14 +151,20 @@ namespace OESScore
                 {
                     st = str[i + 1];
                     i = i + 2;
-                    while ((st[0] == '\t') || (st[0] == ' '))
+
+                    j = 0;
+                    while (j < st.Length)
                     {
-                        st = st.Remove(0, 1);
+                        if ((st[j] == '\t') && (st[j] == ' ') && (st[j] == '\r'))
+                        {
+                            st.Remove(j, 1);
+                        }
+                        else
+                        {
+                            j++;
+                        }
                     }
-                    while ((st.Length > 0) && ((st[st.Length - 1] == '\t') || (st[st.Length - 1] == '\r')))
-                    {
-                        st = st.Remove(st.Length - 1, 1);
-                    }
+
                     result.Add(st);
                 }
                 else
