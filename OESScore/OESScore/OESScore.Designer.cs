@@ -52,12 +52,13 @@
             this.PaperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Progress = new OESScore.DataGridViewProgressBarColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.netState1 = new OES.NetState(10);
+            this.netState1 = new OES.NetState();
             this.fbdPaperPath = new System.Windows.Forms.FolderBrowserDialog();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ss.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -113,6 +114,7 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnSelectPath);
             this.flowLayoutPanel2.Controls.Add(this.btnScore);
+            this.flowLayoutPanel2.Controls.Add(this.btnConfig);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(624, 20);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -299,6 +301,19 @@
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn3.Width = 123;
             // 
+            // btnConfig
+            // 
+            this.btnConfig.Location = new System.Drawing.Point(3, 85);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(120, 35);
+            this.btnConfig.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnConfig.StateCommon.Border.Rounding = 15;
+            this.btnConfig.TabIndex = 2;
+            this.btnConfig.Values.Text = "配置";
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            // 
             // formOESScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -343,6 +358,7 @@
         private DataGridViewProgressBarColumn Progress;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private OES.NetState netState1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnConfig;
     }
 }
 
