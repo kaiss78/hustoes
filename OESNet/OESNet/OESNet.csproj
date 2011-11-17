@@ -66,6 +66,8 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -78,11 +80,22 @@
   <ItemGroup>
     <Compile Include="ClientNet\DataPort.cs" />
     <Compile Include="ClientNet\OESClient.cs" />
+    <Compile Include="NetState.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NetState.designer.cs">
+      <DependentUpon>NetState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerNet\Client.cs" />
     <Compile Include="ServerNet\DataPort.cs" />
     <Compile Include="ServerNet\OESServer.cs" />
     <Compile Include="UdpNet\UdpBroadcast.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NetState.resx">
+      <DependentUpon>NetState.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
