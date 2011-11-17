@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.netState1 = new OES.NetState();
             this.label5 = new System.Windows.Forms.Label();
             this.lab_DataPortCount = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -59,8 +60,24 @@
             this.btnGetPaperFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.groupBoxServerIp = new System.Windows.Forms.GroupBox();
+            this.groupBoxClientIp = new System.Windows.Forms.GroupBox();
+            this.groupBoxBroadcast = new System.Windows.Forms.GroupBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.groupBoxPath = new System.Windows.Forms.GroupBox();
+            this.groupBoxDb = new System.Windows.Forms.GroupBox();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.groupBoxPass = new System.Windows.Forms.GroupBox();
             this.timer_PortCounter = new System.Windows.Forms.Timer(this.components);
-            this.netState1 = new OES.NetState();
+            this.textBoxStartIp = new System.Windows.Forms.TextBox();
+            this.textBoxEndIp = new System.Windows.Forms.TextBox();
+            this.labelRangeIp = new System.Windows.Forms.Label();
+            this.buttonBroadcastOnce = new System.Windows.Forms.Button();
+            this.buttonBroadcastRepeat = new System.Windows.Forms.Button();
+            this.timer_Broadcast = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -71,6 +88,12 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.groupBoxBroadcast.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -195,6 +218,7 @@
             this.tabControl2.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
+            this.tabControl2.Controls.Add(this.tabPage6);
             this.tabControl2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Multiline = true;
@@ -219,6 +243,16 @@
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "考试状态";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // netState1
+            // 
+            this.netState1.BackColor = System.Drawing.Color.Transparent;
+            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.netState1.Location = new System.Drawing.Point(636, 3);
+            this.netState1.Name = "netState1";
+            this.netState1.Size = new System.Drawing.Size(213, 26);
+            this.netState1.State = 0;
+            this.netState1.TabIndex = 8;
             // 
             // label5
             // 
@@ -356,9 +390,9 @@
             // 
             this.PaperListDGV.AllowUserToAddRows = false;
             this.PaperListDGV.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
-            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(236)))), ((int)(((byte)(242)))));
+            this.PaperListDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.PaperListDGV.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.PaperListDGV.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonNavigatorMini;
             this.PaperListDGV.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
@@ -368,8 +402,8 @@
             this.PaperListDGV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
             this.PaperListDGV.ReadOnly = true;
             this.PaperListDGV.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.PaperListDGV.RowTemplate.Height = 23;
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PaperListDGV.Size = new System.Drawing.Size(527, 434);
@@ -402,19 +436,173 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "本场考试试卷列表";
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.tabControl3);
+            this.tabPage6.Location = new System.Drawing.Point(25, 4);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(849, 487);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "监考设置";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage7);
+            this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Controls.Add(this.tabPage9);
+            this.tabControl3.Location = new System.Drawing.Point(16, 7);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(812, 461);
+            this.tabControl3.TabIndex = 0;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.groupBoxServerIp);
+            this.tabPage7.Controls.Add(this.groupBoxClientIp);
+            this.tabPage7.Controls.Add(this.groupBoxBroadcast);
+            this.tabPage7.Location = new System.Drawing.Point(4, 24);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(804, 433);
+            this.tabPage7.TabIndex = 0;
+            this.tabPage7.Text = "网络设置";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxServerIp
+            // 
+            this.groupBoxServerIp.Location = new System.Drawing.Point(7, 18);
+            this.groupBoxServerIp.Name = "groupBoxServerIp";
+            this.groupBoxServerIp.Size = new System.Drawing.Size(383, 185);
+            this.groupBoxServerIp.TabIndex = 2;
+            this.groupBoxServerIp.TabStop = false;
+            this.groupBoxServerIp.Text = "监考Ip端口设置";
+            // 
+            // groupBoxClientIp
+            // 
+            this.groupBoxClientIp.Location = new System.Drawing.Point(414, 18);
+            this.groupBoxClientIp.Name = "groupBoxClientIp";
+            this.groupBoxClientIp.Size = new System.Drawing.Size(376, 185);
+            this.groupBoxClientIp.TabIndex = 1;
+            this.groupBoxClientIp.TabStop = false;
+            this.groupBoxClientIp.Text = "服务器Ip端口设置";
+            // 
+            // groupBoxBroadcast
+            // 
+            this.groupBoxBroadcast.Controls.Add(this.buttonBroadcastRepeat);
+            this.groupBoxBroadcast.Controls.Add(this.buttonBroadcastOnce);
+            this.groupBoxBroadcast.Controls.Add(this.labelRangeIp);
+            this.groupBoxBroadcast.Controls.Add(this.textBoxEndIp);
+            this.groupBoxBroadcast.Controls.Add(this.textBoxStartIp);
+            this.groupBoxBroadcast.Location = new System.Drawing.Point(7, 219);
+            this.groupBoxBroadcast.Name = "groupBoxBroadcast";
+            this.groupBoxBroadcast.Size = new System.Drawing.Size(783, 187);
+            this.groupBoxBroadcast.TabIndex = 0;
+            this.groupBoxBroadcast.TabStop = false;
+            this.groupBoxBroadcast.Text = "广播本机Ip";
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.groupBoxPath);
+            this.tabPage8.Controls.Add(this.groupBoxDb);
+            this.tabPage8.Location = new System.Drawing.Point(4, 24);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(804, 433);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "数据库和文件夹设置";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxPath
+            // 
+            this.groupBoxPath.Location = new System.Drawing.Point(392, 6);
+            this.groupBoxPath.Name = "groupBoxPath";
+            this.groupBoxPath.Size = new System.Drawing.Size(392, 421);
+            this.groupBoxPath.TabIndex = 1;
+            this.groupBoxPath.TabStop = false;
+            this.groupBoxPath.Text = "文件夹路径设置";
+            // 
+            // groupBoxDb
+            // 
+            this.groupBoxDb.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxDb.Name = "groupBoxDb";
+            this.groupBoxDb.Size = new System.Drawing.Size(371, 421);
+            this.groupBoxDb.TabIndex = 0;
+            this.groupBoxDb.TabStop = false;
+            this.groupBoxDb.Text = "数据库设置";
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.groupBoxPass);
+            this.tabPage9.Location = new System.Drawing.Point(4, 24);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(804, 433);
+            this.tabPage9.TabIndex = 2;
+            this.tabPage9.Text = "重考密码设置";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxPass
+            // 
+            this.groupBoxPass.Location = new System.Drawing.Point(206, 6);
+            this.groupBoxPass.Name = "groupBoxPass";
+            this.groupBoxPass.Size = new System.Drawing.Size(392, 421);
+            this.groupBoxPass.TabIndex = 2;
+            this.groupBoxPass.TabStop = false;
+            this.groupBoxPass.Text = "重考密码设置";
+            // 
             // timer_PortCounter
             // 
             this.timer_PortCounter.Tick += new System.EventHandler(this.timer_PortCounter_Tick);
             // 
-            // netState1
+            // textBoxStartIp
             // 
-            this.netState1.BackColor = System.Drawing.Color.Transparent;
-            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.netState1.Location = new System.Drawing.Point(636, 3);
-            this.netState1.Name = "netState1";
-            this.netState1.Size = new System.Drawing.Size(213, 26);
-            this.netState1.State = 0;
-            this.netState1.TabIndex = 8;
+            this.textBoxStartIp.Location = new System.Drawing.Point(45, 72);
+            this.textBoxStartIp.Name = "textBoxStartIp";
+            this.textBoxStartIp.Size = new System.Drawing.Size(211, 23);
+            this.textBoxStartIp.TabIndex = 0;
+            // 
+            // textBoxEndIp
+            // 
+            this.textBoxEndIp.Location = new System.Drawing.Point(281, 72);
+            this.textBoxEndIp.Name = "textBoxEndIp";
+            this.textBoxEndIp.Size = new System.Drawing.Size(211, 23);
+            this.textBoxEndIp.TabIndex = 1;
+            // 
+            // labelRangeIp
+            // 
+            this.labelRangeIp.AutoSize = true;
+            this.labelRangeIp.Location = new System.Drawing.Point(41, 46);
+            this.labelRangeIp.Name = "labelRangeIp";
+            this.labelRangeIp.Size = new System.Drawing.Size(77, 14);
+            this.labelRangeIp.TabIndex = 2;
+            this.labelRangeIp.Text = "广播Ip区间";
+            // 
+            // buttonBroadcastOnce
+            // 
+            this.buttonBroadcastOnce.Location = new System.Drawing.Point(105, 120);
+            this.buttonBroadcastOnce.Name = "buttonBroadcastOnce";
+            this.buttonBroadcastOnce.Size = new System.Drawing.Size(75, 23);
+            this.buttonBroadcastOnce.TabIndex = 3;
+            this.buttonBroadcastOnce.Text = "广播一次";
+            this.buttonBroadcastOnce.UseVisualStyleBackColor = true;
+            this.buttonBroadcastOnce.Click += new System.EventHandler(this.buttonBroadcastOnce_Click);
+            // 
+            // buttonBroadcastRepeat
+            // 
+            this.buttonBroadcastRepeat.Location = new System.Drawing.Point(328, 120);
+            this.buttonBroadcastRepeat.Name = "buttonBroadcastRepeat";
+            this.buttonBroadcastRepeat.Size = new System.Drawing.Size(139, 23);
+            this.buttonBroadcastRepeat.TabIndex = 4;
+            this.buttonBroadcastRepeat.Text = "每10s广播一次";
+            this.buttonBroadcastRepeat.UseVisualStyleBackColor = true;
+            this.buttonBroadcastRepeat.Click += new System.EventHandler(this.buttonBroadcastRepeat_Click);
+            // 
+            // timer_Broadcast
+            // 
+            this.timer_Broadcast.Tick += new System.EventHandler(this.timer_Broadcast_Tick);
             // 
             // OESMonitor
             // 
@@ -443,6 +631,13 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.groupBoxBroadcast.ResumeLayout(false);
+            this.groupBoxBroadcast.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -481,6 +676,23 @@
         private System.Windows.Forms.Timer timer_PortCounter;
         private ComponentFactory.Krypton.Toolkit.KryptonButton downloadButton;
         private OES.NetState netState1;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.GroupBox groupBoxClientIp;
+        private System.Windows.Forms.GroupBox groupBoxBroadcast;
+        private System.Windows.Forms.GroupBox groupBoxServerIp;
+        private System.Windows.Forms.GroupBox groupBoxPath;
+        private System.Windows.Forms.GroupBox groupBoxDb;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.GroupBox groupBoxPass;
+        private System.Windows.Forms.Label labelRangeIp;
+        private System.Windows.Forms.TextBox textBoxEndIp;
+        private System.Windows.Forms.TextBox textBoxStartIp;
+        private System.Windows.Forms.Button buttonBroadcastRepeat;
+        private System.Windows.Forms.Button buttonBroadcastOnce;
+        private System.Windows.Forms.Timer timer_Broadcast;
 
     }
 }
