@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net.Sockets;
 using System.Net;
+using OES;
 
 namespace OESNet.UdpNet
 {
@@ -12,6 +13,12 @@ namespace OESNet.UdpNet
     /// </summary>
     public class UdpBroadcast
     {
+        /// <summary>
+        /// 配置文件
+        /// </summary>
+        public static OESConfig Config = new OESConfig("UdpConfig.xml", new string[,]{
+            {"Port","10000"}
+        });
         /// <summary>
         /// 当接收到Udp消息时发生
         /// </summary>
@@ -25,7 +32,7 @@ namespace OESNet.UdpNet
         /// <summary>
         /// Udp监听的端口/发送的目标端口
         /// </summary>
-        private int port = 10000;
+        private int port = int.Parse(Config["Port"]);
         /// <summary>
         /// Udp监听的端口/发送的目标端口
         /// </summary>
