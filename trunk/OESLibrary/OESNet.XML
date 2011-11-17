@@ -246,6 +246,23 @@
             <param name="client">活动的Client</param>
             <param name="type">消息类型</param>
         </member>
+        <member name="F:OES.NetState.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:OES.NetState.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:OES.NetState.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
         <member name="F:ServerNet.DataPort.localPort">
             <summary>
             本数据端口端口号
@@ -566,6 +583,11 @@
             服务端Ip
             </summary>
         </member>
+        <member name="F:ServerNet.OESServer.port">
+            <summary>
+            服务端端口号
+            </summary>
+        </member>
         <member name="M:ServerNet.OESServer.#ctor">
             <summary>
             服务端构造函数,获取本机Ip
@@ -715,6 +737,93 @@
             数据端口出错
             </summary>
             <param name="msg"></param>
+        </member>
+        <member name="T:OESNet.UdpNet.UdpBroadcast">
+            <summary>
+            Udp广播消息
+            </summary>
+        </member>
+        <member name="F:OESNet.UdpNet.UdpBroadcast.Config">
+            <summary>
+            配置文件
+            </summary>
+        </member>
+        <member name="F:OESNet.UdpNet.UdpBroadcast.udpClient">
+            <summary>
+            Udp底层对象
+            </summary>
+        </member>
+        <member name="F:OESNet.UdpNet.UdpBroadcast.port">
+            <summary>
+            Udp监听的端口/发送的目标端口
+            </summary>
+        </member>
+        <member name="F:OESNet.UdpNet.UdpBroadcast.domineIp">
+            <summary>
+            广播的组播Ip
+            </summary>
+        </member>
+        <member name="M:OESNet.UdpNet.UdpBroadcast.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:OESNet.UdpNet.UdpBroadcast.Broadcast(System.String)">
+            <summary>
+            广播内容
+            </summary>
+            <param name="content">需要广播的字符串</param>
+        </member>
+        <member name="M:OESNet.UdpNet.UdpBroadcast.Listening">
+            <summary>
+            监听打开（内部为异步监听）
+            </summary>
+        </member>
+        <member name="M:OESNet.UdpNet.UdpBroadcast.receive_callBack(System.IAsyncResult)">
+            <summary>
+            当接受到消息时返回
+            </summary>
+            <param name="asy"></param>
+        </member>
+        <member name="M:OESNet.UdpNet.UdpBroadcast.Close">
+            <summary>
+            关闭Udp对象
+            </summary>
+        </member>
+        <member name="M:OESNet.UdpNet.UdpBroadcast.GetLongIp(System.String)">
+            <summary>
+            Ip字符串地址转换成uint的数字
+            </summary>
+            <param name="ipaddress">Ip字符串</param>
+            <returns>Ip数字</returns>
+        </member>
+        <member name="M:OESNet.UdpNet.UdpBroadcast.GetStringIp(System.UInt32)">
+            <summary>
+            uint的数字转换成字符串Ip
+            </summary>
+            <param name="ipaddress">Ip数字</param>
+            <returns>Ip字符串</returns>
+        </member>
+        <member name="E:OESNet.UdpNet.UdpBroadcast.OnReceiveMsg">
+            <summary>
+            当接收到Udp消息时发生
+            </summary>
+        </member>
+        <member name="P:OESNet.UdpNet.UdpBroadcast.Port">
+            <summary>
+            Udp监听的端口/发送的目标端口
+            </summary>
+        </member>
+        <member name="P:OESNet.UdpNet.UdpBroadcast.DomineIp">
+            <summary>
+            广播的组播Ip
+            </summary>
+        </member>
+        <member name="T:OESNet.UdpNet.UdpMsg">
+            <summary>
+            Udp消息委托
+            </summary>
+            <param name="msg">消息内容</param>
         </member>
     </members>
 </doc>
