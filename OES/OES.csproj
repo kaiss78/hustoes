@@ -131,6 +131,12 @@
     <Compile Include="DAO\ReadTxt.cs" />
     <Compile Include="Model\PaperExt.cs" />
     <Compile Include="Net\ClientEvt.cs" />
+    <Compile Include="SmartTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SmartTextBox.designer.cs">
+      <DependentUpon>SmartTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeaPassForm.cs">
       <SubType>Form</SubType>
     </Compile>

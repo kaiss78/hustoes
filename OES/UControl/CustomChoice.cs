@@ -56,7 +56,7 @@ namespace OES.UControl
             proID = x;
             choice = ClientControl.GetChoice(proID);
             this.Question.Text = choice.problem;
-            this.OptionA.Text = choice.optionA;
+            this.OptionA.InText = choice.optionA;
             this.OptionB.Text = choice.optionB;
             this.OptionC.Text = choice.optionC;
             this.OptionD.Text = choice.optionD;
