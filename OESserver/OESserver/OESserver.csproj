@@ -304,12 +304,20 @@
       <DependentUpon>ProCompletion.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ProFunction.resx">
+      <DependentUpon>ProFunction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ProMan.resx">
       <DependentUpon>ProMan.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ProManCho.resx">
       <DependentUpon>ProManCho.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\ProModify.resx">
+      <DependentUpon>ProModify.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ScoreManage.resx">
@@ -570,6 +578,12 @@
     <Compile Include="UPanel\ProCompletion.Designer.cs">
       <DependentUpon>ProCompletion.cs</DependentUpon>
     </Compile>
+    <Compile Include="UPanel\ProFunction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ProFunction.Designer.cs">
+      <DependentUpon>ProFunction.cs</DependentUpon>
+    </Compile>
     <Compile Include="UPanel\ProMan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -581,6 +595,12 @@
     </Compile>
     <Compile Include="UPanel\ProManCho.Designer.cs">
       <DependentUpon>ProManCho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\ProModify.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\ProModify.Designer.cs">
+      <DependentUpon>ProModify.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\ScoreManage.cs">
       <SubType>UserControl</SubType>
