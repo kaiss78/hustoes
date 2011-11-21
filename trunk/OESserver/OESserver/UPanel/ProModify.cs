@@ -20,5 +20,21 @@ namespace OES.UPanel
         {
 
         }
+
+        private void btnBrowser1_Click(object sender, EventArgs e)
+        {
+            if (ofdBrowser.ShowDialog() == DialogResult.OK)
+            {
+                tbProblemFile.Text = ofdBrowser.FileName;
+            }
+        }
+
+        private void btnBrowser2_Click(object sender, EventArgs e)
+        {
+            if (ofdBrowser.ShowDialog() == DialogResult.OK)
+            {
+                tbAnswerFile.Text = ofdBrowser.FileName;
+            }
+        }
     }
 }
