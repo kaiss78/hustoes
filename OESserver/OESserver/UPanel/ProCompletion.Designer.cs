@@ -42,6 +42,7 @@
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ofdBrowser = new System.Windows.Forms.OpenFileDialog();
+            this.btnCalc = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -138,7 +139,7 @@
             this.btnBrowser2.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnBrowser2.TabIndex = 9;
             this.btnBrowser2.Values.Text = "浏览";
-            this.btnBrowser2.Click += new System.EventHandler(this.kryptonButton1_Click);
+            this.btnBrowser2.Click += new System.EventHandler(this.btnBrowser2_Click);
             // 
             // tbAnswerFile
             // 
@@ -207,10 +208,28 @@
             // 
             this.ofdBrowser.Filter = "C文件|*.c|C++文件|*.cpp";
             // 
+            // btnCalc
+            // 
+            this.btnCalc.AutoSize = true;
+            this.btnCalc.Location = new System.Drawing.Point(46, 607);
+            this.btnCalc.Name = "btnCalc";
+            this.btnCalc.Size = new System.Drawing.Size(100, 33);
+            this.btnCalc.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnCalc.StateCommon.Border.Rounding = 16;
+            this.btnCalc.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
+            this.btnCalc.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCalc.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnCalc.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnCalc.TabIndex = 12;
+            this.btnCalc.Values.Text = "生成答案";
+            // 
             // ProCompletion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
@@ -223,7 +242,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "ProCompletion";
-            this.Size = new System.Drawing.Size(742, 666);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -247,5 +265,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnCancel;
         private System.Windows.Forms.OpenFileDialog ofdBrowser;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCalc;
     }
 }
