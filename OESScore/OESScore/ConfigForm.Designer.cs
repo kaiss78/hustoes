@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.groupBoxServerConfig = new System.Windows.Forms.GroupBox();
             this.groupBoxPathConfig = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             this.ClientSize = new System.Drawing.Size(577, 342);
             this.Controls.Add(this.groupBoxPathConfig);
             this.Controls.Add(this.groupBoxServerConfig);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(593, 380);
             this.MinimumSize = new System.Drawing.Size(593, 380);
             this.Name = "ConfigForm";
