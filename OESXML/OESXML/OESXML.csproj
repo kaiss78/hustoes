@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OfficeXML.cs" />
+    <Compile Include="ProblemXML.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XMLAssistant.cs" />
     <Compile Include="XMLControl.cs" />
