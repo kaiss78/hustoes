@@ -14,6 +14,7 @@ namespace OES
         public LoginForm()
         {
             InitializeComponent();
+            
         }
 
         private void Loginbtn_Click(object sender, EventArgs e)

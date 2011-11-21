@@ -41,7 +41,7 @@ namespace OES
 
 
 
-        private static OESData oesData = null;
+        private static OESData oesData = new OESData();
         public static OESData OesData
         {
             get
