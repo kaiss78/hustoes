@@ -38,6 +38,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formOESScore));
             this.ss = new System.Windows.Forms.StatusStrip();
             this.tssla = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslPath = new System.Windows.Forms.ToolStripStatusLabel();
@@ -45,6 +46,7 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSelectPath = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnScore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label1 = new System.Windows.Forms.Label();
             this.plDGV = new System.Windows.Forms.Panel();
             this.dgvPaperTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
@@ -58,7 +60,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ss.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -147,6 +148,19 @@
             this.btnScore.TabIndex = 1;
             this.btnScore.Values.Text = "评分";
             this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
+            // 
+            // btnConfig
+            // 
+            this.btnConfig.Location = new System.Drawing.Point(3, 85);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(120, 35);
+            this.btnConfig.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnConfig.StateCommon.Border.Rounding = 15;
+            this.btnConfig.TabIndex = 2;
+            this.btnConfig.Values.Text = "配置";
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // label1
             // 
@@ -301,19 +315,6 @@
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn3.Width = 123;
             // 
-            // btnConfig
-            // 
-            this.btnConfig.Location = new System.Drawing.Point(3, 85);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(120, 35);
-            this.btnConfig.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnConfig.StateCommon.Border.Rounding = 15;
-            this.btnConfig.TabIndex = 2;
-            this.btnConfig.Values.Text = "配置";
-            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
-            // 
             // formOESScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -321,6 +322,7 @@
             this.ClientSize = new System.Drawing.Size(749, 435);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.ss);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formOESScore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "试卷评分";
