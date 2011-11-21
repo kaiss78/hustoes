@@ -16,6 +16,7 @@ namespace TextBoxS
             InitializeComponent();
             base.BorderStyle = BorderStyle.None;
         }
+        private string inText = "";
         public string InText
         {
             set
@@ -33,11 +34,11 @@ namespace TextBoxS
                     if (result[i] == '\n') linenum++;
                 }
                 base.Height = (int)(linenum * base.FontHeight);
-
+                inText = value;
             }
             get
             {
-                return base.Text;
+                return inText;
             }
         }
         private int lineCount = 20;
