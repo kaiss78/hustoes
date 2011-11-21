@@ -33,14 +33,15 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbProblemFile = new System.Windows.Forms.TextBox();
             this.btnBrowser1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnBrowser2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbAnswerFile = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbAnsList = new System.Windows.Forms.ListBox();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.ofdBrowser = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(50, 359);
+            this.label2.Location = new System.Drawing.Point(50, 357);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 2;
@@ -89,24 +90,24 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(50, 407);
+            this.label3.Location = new System.Drawing.Point(50, 405);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "答案文件：";
             // 
-            // textBox1
+            // tbProblemFile
             // 
-            this.textBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(133, 355);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(438, 26);
-            this.textBox1.TabIndex = 4;
+            this.tbProblemFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbProblemFile.Location = new System.Drawing.Point(133, 353);
+            this.tbProblemFile.Name = "tbProblemFile";
+            this.tbProblemFile.Size = new System.Drawing.Size(438, 26);
+            this.tbProblemFile.TabIndex = 4;
             // 
             // btnBrowser1
             // 
             this.btnBrowser1.AutoSize = true;
-            this.btnBrowser1.Location = new System.Drawing.Point(594, 351);
+            this.btnBrowser1.Location = new System.Drawing.Point(594, 349);
             this.btnBrowser1.Name = "btnBrowser1";
             this.btnBrowser1.Size = new System.Drawing.Size(100, 33);
             this.btnBrowser1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -119,11 +120,12 @@
             this.btnBrowser1.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnBrowser1.TabIndex = 7;
             this.btnBrowser1.Values.Text = "浏览";
+            this.btnBrowser1.Click += new System.EventHandler(this.btnBrowser1_Click);
             // 
             // btnBrowser2
             // 
             this.btnBrowser2.AutoSize = true;
-            this.btnBrowser2.Location = new System.Drawing.Point(594, 399);
+            this.btnBrowser2.Location = new System.Drawing.Point(594, 397);
             this.btnBrowser2.Name = "btnBrowser2";
             this.btnBrowser2.Size = new System.Drawing.Size(100, 33);
             this.btnBrowser2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -138,19 +140,19 @@
             this.btnBrowser2.Values.Text = "浏览";
             this.btnBrowser2.Click += new System.EventHandler(this.kryptonButton1_Click);
             // 
-            // textBox2
+            // tbAnswerFile
             // 
-            this.textBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(133, 403);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(438, 26);
-            this.textBox2.TabIndex = 8;
+            this.tbAnswerFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tbAnswerFile.Location = new System.Drawing.Point(133, 401);
+            this.tbAnswerFile.Name = "tbAnswerFile";
+            this.tbAnswerFile.Size = new System.Drawing.Size(438, 26);
+            this.tbAnswerFile.TabIndex = 8;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbAnsList);
             this.groupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(43, 435);
+            this.groupBox2.Location = new System.Drawing.Point(43, 444);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(657, 146);
             this.groupBox2.TabIndex = 2;
@@ -201,6 +203,10 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Values.Text = "取消";
             // 
+            // ofdBrowser
+            // 
+            this.ofdBrowser.Filter = "C文件|*.c|C++文件|*.cpp";
+            // 
             // ProCompletion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -209,9 +215,9 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnBrowser2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbAnswerFile);
             this.Controls.Add(this.btnBrowser1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbProblemFile);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
@@ -232,13 +238,14 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbProblemFile;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowser1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowser2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbAnswerFile;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox lbAnsList;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnCancel;
+        private System.Windows.Forms.OpenFileDialog ofdBrowser;
     }
 }
