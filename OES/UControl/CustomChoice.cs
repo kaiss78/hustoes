@@ -57,9 +57,9 @@ namespace OES.UControl
             choice = ClientControl.GetChoice(proID);
             this.Question.Text = choice.problem;
             this.OptionA.InText = choice.optionA;
-            this.OptionB.Text = choice.optionB;
-            this.OptionC.Text = choice.optionC;
-            this.OptionD.Text = choice.optionD;
+            this.OptionB.InText = choice.optionB;
+            this.OptionC.InText = choice.optionC;
+            this.OptionD.InText = choice.optionD;
             radioButtonA.Checked = choice.stuAns == "A";
             radioButtonB.Checked = choice.stuAns == "B";
             radioButtonC.Checked = choice.stuAns == "C";

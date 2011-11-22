@@ -22,7 +22,7 @@ namespace TextBoxS
             set
             {
                 string[] lines = value.Split('\n');
-                int linenum=0;
+                int linenum=1;
                 string result = "";
                 foreach (string line in lines)
                 {

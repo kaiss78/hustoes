@@ -34,16 +34,16 @@
             this.LastProblem = new System.Windows.Forms.Button();
             this.NextProblem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Question = new System.Windows.Forms.RichTextBox();
-            this.radioButtonB = new System.Windows.Forms.RadioButton();
-            this.radioButtonC = new System.Windows.Forms.RadioButton();
-            this.radioButtonD = new System.Windows.Forms.RadioButton();
-            this.radioButtonA = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.radioButtonA = new System.Windows.Forms.RadioButton();
             this.OptionA = new TextBoxS.SmartTextBox();
+            this.radioButtonB = new System.Windows.Forms.RadioButton();
             this.OptionB = new TextBoxS.SmartTextBox();
+            this.radioButtonC = new System.Windows.Forms.RadioButton();
             this.OptionC = new TextBoxS.SmartTextBox();
+            this.radioButtonD = new System.Windows.Forms.RadioButton();
             this.OptionD = new TextBoxS.SmartTextBox();
+            this.Question = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -117,73 +117,6 @@
             this.panel2.Size = new System.Drawing.Size(754, 322);
             this.panel2.TabIndex = 12;
             // 
-            // Question
-            // 
-            this.Question.BackColor = System.Drawing.Color.White;
-            this.Question.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Question.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Question.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Question.Location = new System.Drawing.Point(6, 7);
-            this.Question.Name = "Question";
-            this.Question.ReadOnly = true;
-            this.Question.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.Question.Size = new System.Drawing.Size(740, 138);
-            this.Question.TabIndex = 12;
-            this.Question.Text = "";
-            this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
-            // 
-            // radioButtonB
-            // 
-            this.radioButtonB.AutoSize = true;
-            this.radioButtonB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonB.Location = new System.Drawing.Point(3, 38);
-            this.radioButtonB.Name = "radioButtonB";
-            this.radioButtonB.Size = new System.Drawing.Size(39, 18);
-            this.radioButtonB.TabIndex = 5;
-            this.radioButtonB.TabStop = true;
-            this.radioButtonB.Text = "B.";
-            this.radioButtonB.UseVisualStyleBackColor = true;
-            this.radioButtonB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonB_MouseClick);
-            // 
-            // radioButtonC
-            // 
-            this.radioButtonC.AutoSize = true;
-            this.radioButtonC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonC.Location = new System.Drawing.Point(3, 73);
-            this.radioButtonC.Name = "radioButtonC";
-            this.radioButtonC.Size = new System.Drawing.Size(39, 18);
-            this.radioButtonC.TabIndex = 6;
-            this.radioButtonC.TabStop = true;
-            this.radioButtonC.Text = "C.";
-            this.radioButtonC.UseVisualStyleBackColor = true;
-            this.radioButtonC.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonC_MouseClick);
-            // 
-            // radioButtonD
-            // 
-            this.radioButtonD.AutoSize = true;
-            this.radioButtonD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonD.Location = new System.Drawing.Point(3, 108);
-            this.radioButtonD.Name = "radioButtonD";
-            this.radioButtonD.Size = new System.Drawing.Size(39, 18);
-            this.radioButtonD.TabIndex = 7;
-            this.radioButtonD.TabStop = true;
-            this.radioButtonD.Text = "D.";
-            this.radioButtonD.UseVisualStyleBackColor = true;
-            this.radioButtonD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonD_MouseClick);
-            // 
-            // radioButtonA
-            // 
-            this.radioButtonA.AutoSize = true;
-            this.radioButtonA.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonA.Location = new System.Drawing.Point(3, 3);
-            this.radioButtonA.Name = "radioButtonA";
-            this.radioButtonA.Size = new System.Drawing.Size(39, 18);
-            this.radioButtonA.TabIndex = 4;
-            this.radioButtonA.TabStop = true;
-            this.radioButtonA.Text = "A.";
-            this.radioButtonA.UseVisualStyleBackColor = true;
-            this.radioButtonA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonA_MouseClick);
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
@@ -200,13 +133,26 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(737, 166);
             this.flowLayoutPanel1.TabIndex = 13;
             // 
+            // radioButtonA
+            // 
+            this.radioButtonA.AutoSize = true;
+            this.radioButtonA.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonA.Location = new System.Drawing.Point(3, 3);
+            this.radioButtonA.Name = "radioButtonA";
+            this.radioButtonA.Size = new System.Drawing.Size(39, 18);
+            this.radioButtonA.TabIndex = 4;
+            this.radioButtonA.TabStop = true;
+            this.radioButtonA.Text = "A.";
+            this.radioButtonA.UseVisualStyleBackColor = true;
+            this.radioButtonA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonA_MouseClick);
+            // 
             // OptionA
             // 
             this.OptionA.BackColor = System.Drawing.Color.White;
             this.OptionA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OptionA.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.OptionA.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionA.InText = "\r\n";
+            this.OptionA.InText = "";
             this.OptionA.LineCount = 80;
             this.OptionA.Location = new System.Drawing.Point(48, 3);
             this.OptionA.Multiline = true;
@@ -216,8 +162,20 @@
             this.OptionA.Size = new System.Drawing.Size(670, 29);
             this.OptionA.TabIndex = 12;
             this.OptionA.TabStop = false;
-            this.OptionA.Text = "\r\n";
             this.OptionA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // radioButtonB
+            // 
+            this.radioButtonB.AutoSize = true;
+            this.radioButtonB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonB.Location = new System.Drawing.Point(3, 38);
+            this.radioButtonB.Name = "radioButtonB";
+            this.radioButtonB.Size = new System.Drawing.Size(39, 18);
+            this.radioButtonB.TabIndex = 5;
+            this.radioButtonB.TabStop = true;
+            this.radioButtonB.Text = "B.";
+            this.radioButtonB.UseVisualStyleBackColor = true;
+            this.radioButtonB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonB_MouseClick);
             // 
             // OptionB
             // 
@@ -225,7 +183,7 @@
             this.OptionB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OptionB.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.OptionB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionB.InText = "\r\n";
+            this.OptionB.InText = "";
             this.OptionB.LineCount = 80;
             this.OptionB.Location = new System.Drawing.Point(48, 38);
             this.OptionB.Multiline = true;
@@ -235,7 +193,20 @@
             this.OptionB.Size = new System.Drawing.Size(670, 29);
             this.OptionB.TabIndex = 13;
             this.OptionB.TabStop = false;
-            this.OptionB.Text = "\r\n";
+            this.OptionB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // radioButtonC
+            // 
+            this.radioButtonC.AutoSize = true;
+            this.radioButtonC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonC.Location = new System.Drawing.Point(3, 73);
+            this.radioButtonC.Name = "radioButtonC";
+            this.radioButtonC.Size = new System.Drawing.Size(39, 18);
+            this.radioButtonC.TabIndex = 6;
+            this.radioButtonC.TabStop = true;
+            this.radioButtonC.Text = "C.";
+            this.radioButtonC.UseVisualStyleBackColor = true;
+            this.radioButtonC.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonC_MouseClick);
             // 
             // OptionC
             // 
@@ -243,7 +214,7 @@
             this.OptionC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OptionC.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.OptionC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionC.InText = "\r\n";
+            this.OptionC.InText = "";
             this.OptionC.LineCount = 80;
             this.OptionC.Location = new System.Drawing.Point(48, 73);
             this.OptionC.Multiline = true;
@@ -253,7 +224,20 @@
             this.OptionC.Size = new System.Drawing.Size(670, 29);
             this.OptionC.TabIndex = 14;
             this.OptionC.TabStop = false;
-            this.OptionC.Text = "\r\n";
+            this.OptionC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // radioButtonD
+            // 
+            this.radioButtonD.AutoSize = true;
+            this.radioButtonD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButtonD.Location = new System.Drawing.Point(3, 108);
+            this.radioButtonD.Name = "radioButtonD";
+            this.radioButtonD.Size = new System.Drawing.Size(39, 18);
+            this.radioButtonD.TabIndex = 7;
+            this.radioButtonD.TabStop = true;
+            this.radioButtonD.Text = "D.";
+            this.radioButtonD.UseVisualStyleBackColor = true;
+            this.radioButtonD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonD_MouseClick);
             // 
             // OptionD
             // 
@@ -261,7 +245,7 @@
             this.OptionD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OptionD.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.OptionD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionD.InText = "\r\n";
+            this.OptionD.InText = "";
             this.OptionD.LineCount = 80;
             this.OptionD.Location = new System.Drawing.Point(48, 108);
             this.OptionD.Multiline = true;
@@ -271,7 +255,22 @@
             this.OptionD.Size = new System.Drawing.Size(670, 29);
             this.OptionD.TabIndex = 15;
             this.OptionD.TabStop = false;
-            this.OptionD.Text = "\r\n";
+            this.OptionD.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // Question
+            // 
+            this.Question.BackColor = System.Drawing.Color.White;
+            this.Question.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Question.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Question.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Question.Location = new System.Drawing.Point(6, 7);
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.Question.Size = new System.Drawing.Size(740, 138);
+            this.Question.TabIndex = 12;
+            this.Question.Text = "";
+            this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // CustomChoice
             // 
