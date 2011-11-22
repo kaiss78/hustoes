@@ -74,6 +74,7 @@ namespace OES.UControl
             InitializeComponent();
             proID = 0;
             this.SetQuestion(proID);
+            this.Dock = DockStyle.Fill;
         }
 
         private void nextstep_Click(object sender, EventArgs e)
@@ -130,6 +131,14 @@ namespace OES.UControl
             
             this.CheckAns("D");
             XMLControl.WriteLogXML(Config.stuPath, ProblemType.Choice, proID, "D");
+        }
+
+        private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
+        {
+            OptionA.Width = flowLayoutPanel1.Width;
+            OptionB.Width = flowLayoutPanel1.Width;
+            OptionC.Width = flowLayoutPanel1.Width;
+            OptionD.Width = flowLayoutPanel1.Width;
         }
     }
 

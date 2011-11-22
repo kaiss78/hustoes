@@ -23,6 +23,7 @@ namespace OES.UControl
         {
             InitializeComponent();
             this.Question.Text = ClientControl.paper.officeWord.problem;
+            this.Dock = DockStyle.Fill;
         }
 
         private void button1_Click(object sender, EventArgs e)

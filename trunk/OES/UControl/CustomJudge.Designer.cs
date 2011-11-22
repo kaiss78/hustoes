@@ -45,6 +45,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.Request);
             this.panel1.Controls.Add(this.ProblemRequest);
@@ -55,16 +57,18 @@
             // 
             // Request
             // 
+            this.Request.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Request.BackColor = System.Drawing.Color.White;
             this.Request.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Request.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Request.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Request.Location = new System.Drawing.Point(131, 3);
+            this.Request.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Request.Location = new System.Drawing.Point(3, 33);
             this.Request.Name = "Request";
             this.Request.ReadOnly = true;
-            this.Request.Size = new System.Drawing.Size(618, 68);
+            this.Request.Size = new System.Drawing.Size(746, 38);
             this.Request.TabIndex = 1;
-            this.Request.Text = "";
+            this.Request.Text = "根据题目陈述判断对错。";
             this.Request.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // ProblemRequest
@@ -79,6 +83,9 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.Jadge_groupBox);
             this.panel2.Controls.Add(this.Question);
@@ -89,6 +96,8 @@
             // 
             // Jadge_groupBox
             // 
+            this.Jadge_groupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Jadge_groupBox.Controls.Add(this.TrueButton);
             this.Jadge_groupBox.Controls.Add(this.FalseButton);
             this.Jadge_groupBox.Location = new System.Drawing.Point(3, 248);
@@ -112,6 +121,7 @@
             // 
             // FalseButton
             // 
+            this.FalseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FalseButton.AutoSize = true;
             this.FalseButton.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FalseButton.Location = new System.Drawing.Point(512, 20);
@@ -125,6 +135,9 @@
             // 
             // Question
             // 
+            this.Question.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Question.BackColor = System.Drawing.Color.White;
             this.Question.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Question.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -139,6 +152,7 @@
             // 
             // LastProblem
             // 
+            this.LastProblem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LastProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LastProblem.Location = new System.Drawing.Point(22, 423);
             this.LastProblem.Name = "LastProblem";
@@ -150,6 +164,7 @@
             // 
             // NextProblem
             // 
+            this.NextProblem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.NextProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NextProblem.Location = new System.Drawing.Point(552, 423);
             this.NextProblem.Name = "NextProblem";

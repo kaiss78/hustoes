@@ -38,6 +38,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(482, 434);
             this.button1.Name = "button1";
@@ -49,6 +50,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(606, 434);
             this.button2.Name = "button2";
@@ -60,6 +62,9 @@
             // 
             // Question
             // 
+            this.Question.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Question.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Question.Location = new System.Drawing.Point(40, 128);
             this.Question.Name = "Question";
@@ -82,13 +87,16 @@
             // 
             // richTextBox2
             // 
+            this.richTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox2.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.richTextBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox2.Location = new System.Drawing.Point(42, 37);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
             this.richTextBox2.Size = new System.Drawing.Size(664, 52);
             this.richTextBox2.TabIndex = 8;
-            this.richTextBox2.Text = "";
+            this.richTextBox2.Text = "按照下面要求完成Excel操作题。";
             this.richTextBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // label2
@@ -101,7 +109,7 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "题干";
             // 
-            // CustomPPT
+            // CustomExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,7 +120,7 @@
             this.Controls.Add(this.Question);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "CustomPPT";
+            this.Name = "CustomExcel";
             this.Size = new System.Drawing.Size(784, 489);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.ResumeLayout(false);

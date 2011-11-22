@@ -36,14 +36,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.radioButtonA = new System.Windows.Forms.RadioButton();
-            this.OptionA = new TextBoxS.SmartTextBox();
             this.radioButtonB = new System.Windows.Forms.RadioButton();
-            this.OptionB = new TextBoxS.SmartTextBox();
             this.radioButtonC = new System.Windows.Forms.RadioButton();
-            this.OptionC = new TextBoxS.SmartTextBox();
             this.radioButtonD = new System.Windows.Forms.RadioButton();
-            this.OptionD = new TextBoxS.SmartTextBox();
             this.Question = new System.Windows.Forms.RichTextBox();
+            this.OptionA = new TextBoxS.SmartTextBox();
+            this.OptionB = new TextBoxS.SmartTextBox();
+            this.OptionC = new TextBoxS.SmartTextBox();
+            this.OptionD = new TextBoxS.SmartTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -61,6 +61,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.Rquest);
             this.panel1.Controls.Add(this.ProblemRequest);
@@ -71,21 +73,24 @@
             // 
             // Rquest
             // 
+            this.Rquest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Rquest.BackColor = System.Drawing.Color.White;
             this.Rquest.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Rquest.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Rquest.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Rquest.Location = new System.Drawing.Point(128, 2);
+            this.Rquest.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Rquest.Location = new System.Drawing.Point(3, 33);
             this.Rquest.Name = "Rquest";
             this.Rquest.ReadOnly = true;
             this.Rquest.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.Rquest.Size = new System.Drawing.Size(615, 68);
+            this.Rquest.Size = new System.Drawing.Size(746, 38);
             this.Rquest.TabIndex = 1;
-            this.Rquest.Text = "";
+            this.Rquest.Text = "根据题目描述选择正确选项（单选）。";
             this.Rquest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // LastProblem
             // 
+            this.LastProblem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LastProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LastProblem.Location = new System.Drawing.Point(22, 423);
             this.LastProblem.Name = "LastProblem";
@@ -97,6 +102,7 @@
             // 
             // NextProblem
             // 
+            this.NextProblem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.NextProblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.NextProblem.Location = new System.Drawing.Point(552, 423);
             this.NextProblem.Name = "NextProblem";
@@ -108,6 +114,9 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.flowLayoutPanel1);
@@ -119,6 +128,9 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.radioButtonA);
             this.flowLayoutPanel1.Controls.Add(this.OptionA);
@@ -132,6 +144,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(737, 166);
             this.flowLayoutPanel1.TabIndex = 13;
+            this.flowLayoutPanel1.SizeChanged += new System.EventHandler(this.flowLayoutPanel1_SizeChanged);
             // 
             // radioButtonA
             // 
@@ -146,29 +159,11 @@
             this.radioButtonA.UseVisualStyleBackColor = true;
             this.radioButtonA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonA_MouseClick);
             // 
-            // OptionA
-            // 
-            this.OptionA.BackColor = System.Drawing.Color.White;
-            this.OptionA.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionA.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OptionA.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionA.InText = "";
-            this.OptionA.LineCount = 80;
-            this.OptionA.Location = new System.Drawing.Point(48, 3);
-            this.OptionA.Multiline = true;
-            this.OptionA.Name = "OptionA";
-            this.OptionA.ReadOnly = true;
-            this.OptionA.ShortcutsEnabled = false;
-            this.OptionA.Size = new System.Drawing.Size(670, 29);
-            this.OptionA.TabIndex = 12;
-            this.OptionA.TabStop = false;
-            this.OptionA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
-            // 
             // radioButtonB
             // 
             this.radioButtonB.AutoSize = true;
             this.radioButtonB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonB.Location = new System.Drawing.Point(3, 38);
+            this.radioButtonB.Location = new System.Drawing.Point(3, 62);
             this.radioButtonB.Name = "radioButtonB";
             this.radioButtonB.Size = new System.Drawing.Size(39, 18);
             this.radioButtonB.TabIndex = 5;
@@ -177,29 +172,11 @@
             this.radioButtonB.UseVisualStyleBackColor = true;
             this.radioButtonB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonB_MouseClick);
             // 
-            // OptionB
-            // 
-            this.OptionB.BackColor = System.Drawing.Color.White;
-            this.OptionB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionB.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OptionB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionB.InText = "";
-            this.OptionB.LineCount = 80;
-            this.OptionB.Location = new System.Drawing.Point(48, 38);
-            this.OptionB.Multiline = true;
-            this.OptionB.Name = "OptionB";
-            this.OptionB.ReadOnly = true;
-            this.OptionB.ShortcutsEnabled = false;
-            this.OptionB.Size = new System.Drawing.Size(670, 29);
-            this.OptionB.TabIndex = 13;
-            this.OptionB.TabStop = false;
-            this.OptionB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
-            // 
             // radioButtonC
             // 
             this.radioButtonC.AutoSize = true;
             this.radioButtonC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonC.Location = new System.Drawing.Point(3, 73);
+            this.radioButtonC.Location = new System.Drawing.Point(3, 121);
             this.radioButtonC.Name = "radioButtonC";
             this.radioButtonC.Size = new System.Drawing.Size(39, 18);
             this.radioButtonC.TabIndex = 6;
@@ -208,29 +185,11 @@
             this.radioButtonC.UseVisualStyleBackColor = true;
             this.radioButtonC.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonC_MouseClick);
             // 
-            // OptionC
-            // 
-            this.OptionC.BackColor = System.Drawing.Color.White;
-            this.OptionC.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionC.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OptionC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionC.InText = "";
-            this.OptionC.LineCount = 80;
-            this.OptionC.Location = new System.Drawing.Point(48, 73);
-            this.OptionC.Multiline = true;
-            this.OptionC.Name = "OptionC";
-            this.OptionC.ReadOnly = true;
-            this.OptionC.ShortcutsEnabled = false;
-            this.OptionC.Size = new System.Drawing.Size(670, 29);
-            this.OptionC.TabIndex = 14;
-            this.OptionC.TabStop = false;
-            this.OptionC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
-            // 
             // radioButtonD
             // 
             this.radioButtonD.AutoSize = true;
             this.radioButtonD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonD.Location = new System.Drawing.Point(3, 108);
+            this.radioButtonD.Location = new System.Drawing.Point(3, 180);
             this.radioButtonD.Name = "radioButtonD";
             this.radioButtonD.Size = new System.Drawing.Size(39, 18);
             this.radioButtonD.TabIndex = 7;
@@ -239,26 +198,10 @@
             this.radioButtonD.UseVisualStyleBackColor = true;
             this.radioButtonD.MouseClick += new System.Windows.Forms.MouseEventHandler(this.radioButtonD_MouseClick);
             // 
-            // OptionD
-            // 
-            this.OptionD.BackColor = System.Drawing.Color.White;
-            this.OptionD.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionD.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OptionD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionD.InText = "";
-            this.OptionD.LineCount = 80;
-            this.OptionD.Location = new System.Drawing.Point(48, 108);
-            this.OptionD.Multiline = true;
-            this.OptionD.Name = "OptionD";
-            this.OptionD.ReadOnly = true;
-            this.OptionD.ShortcutsEnabled = false;
-            this.OptionD.Size = new System.Drawing.Size(670, 29);
-            this.OptionD.TabIndex = 15;
-            this.OptionD.TabStop = false;
-            this.OptionD.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
-            // 
             // Question
             // 
+            this.Question.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Question.BackColor = System.Drawing.Color.White;
             this.Question.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Question.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -271,6 +214,86 @@
             this.Question.TabIndex = 12;
             this.Question.Text = "";
             this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
+            // 
+            // OptionA
+            // 
+            this.OptionA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.OptionA.BackColor = System.Drawing.Color.White;
+            this.OptionA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionA.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionA.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionA.InText = "";
+            this.OptionA.LineCount = 80;
+            this.OptionA.Location = new System.Drawing.Point(3, 27);
+            this.OptionA.Multiline = true;
+            this.OptionA.Name = "OptionA";
+            this.OptionA.ReadOnly = true;
+            this.OptionA.ShortcutsEnabled = false;
+            this.OptionA.Size = new System.Drawing.Size(701, 29);
+            this.OptionA.TabIndex = 12;
+            this.OptionA.TabStop = false;
+            this.OptionA.Text = "\r\n";
+            this.OptionA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // OptionB
+            // 
+            this.OptionB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.OptionB.BackColor = System.Drawing.Color.White;
+            this.OptionB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionB.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionB.InText = "";
+            this.OptionB.LineCount = 80;
+            this.OptionB.Location = new System.Drawing.Point(3, 86);
+            this.OptionB.Multiline = true;
+            this.OptionB.Name = "OptionB";
+            this.OptionB.ReadOnly = true;
+            this.OptionB.ShortcutsEnabled = false;
+            this.OptionB.Size = new System.Drawing.Size(701, 29);
+            this.OptionB.TabIndex = 13;
+            this.OptionB.TabStop = false;
+            this.OptionB.Text = "\r\n";
+            this.OptionB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // OptionC
+            // 
+            this.OptionC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.OptionC.BackColor = System.Drawing.Color.White;
+            this.OptionC.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionC.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionC.InText = "";
+            this.OptionC.LineCount = 80;
+            this.OptionC.Location = new System.Drawing.Point(3, 145);
+            this.OptionC.Multiline = true;
+            this.OptionC.Name = "OptionC";
+            this.OptionC.ReadOnly = true;
+            this.OptionC.ShortcutsEnabled = false;
+            this.OptionC.Size = new System.Drawing.Size(701, 29);
+            this.OptionC.TabIndex = 14;
+            this.OptionC.TabStop = false;
+            this.OptionC.Text = "\r\n";
+            this.OptionC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // OptionD
+            // 
+            this.OptionD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.OptionD.BackColor = System.Drawing.Color.White;
+            this.OptionD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionD.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionD.InText = "";
+            this.OptionD.LineCount = 80;
+            this.OptionD.Location = new System.Drawing.Point(3, 204);
+            this.OptionD.Multiline = true;
+            this.OptionD.Name = "OptionD";
+            this.OptionD.ReadOnly = true;
+            this.OptionD.ShortcutsEnabled = false;
+            this.OptionD.Size = new System.Drawing.Size(701, 29);
+            this.OptionD.TabIndex = 15;
+            this.OptionD.TabStop = false;
+            this.OptionD.Text = "\r\n";
+            this.OptionD.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
             // 
             // CustomChoice
             // 

@@ -24,6 +24,7 @@ namespace OES.UControl
         {
             InitializeComponent();
             this.Question.Text = ClientControl.paper.officeExcel.problem;
+            this.Dock = DockStyle.Fill;
         }
 
 

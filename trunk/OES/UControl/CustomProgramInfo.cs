@@ -21,7 +21,8 @@ namespace OES.UControl
         public CustomProgramInfo(int t)
         {
             InitializeComponent();
-            type = t;            
+            this.Dock = DockStyle.Fill;
+            type = t;
             switch (type)
             {
                 case 1: 
