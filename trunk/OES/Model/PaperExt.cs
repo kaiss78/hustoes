@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OES.XMLFile;
+using OES.DAO;
 
 namespace OES.Model
 {
@@ -43,7 +44,8 @@ namespace OES.Model
             p.pModif = new PModif();
             p.pFunction = new PFunction();
             p.problemList = new List<Problem>();
-            OES.ReadTxt.ReadPaper(Config.PaperPath + p.paperName + @"\");
+            //OES.ReadTxt.ReadPaper(Config.PaperPath + p.paperName + @"\");
+            ReadXML.ReadPaper(Config.PaperPath + p.paperName + @"\");
         }
     }
 }

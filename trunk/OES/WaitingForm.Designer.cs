@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WaitingForm));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.WarningLabel = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,13 +54,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "提交试卷";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(35, 36);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(454, 23);
-            this.progressBar1.TabIndex = 0;
-            // 
             // WarningLabel
             // 
             this.WarningLabel.AutoSize = true;
@@ -69,6 +63,13 @@
             this.WarningLabel.TabIndex = 1;
             this.WarningLabel.Text = "如果交卷不能正常完成，请与监考老师联系！";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(35, 36);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(454, 23);
+            this.progressBar1.TabIndex = 0;
+            // 
             // WaitingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -77,6 +78,7 @@
             this.ClientSize = new System.Drawing.Size(691, 368);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WaitingForm";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
