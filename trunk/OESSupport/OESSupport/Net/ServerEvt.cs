@@ -204,7 +204,7 @@ namespace OESSupport.Net
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["PaperPkg"] + msgs[4] + ".rar";
                                     if (!File.Exists(Teacher.FindTeacherByClient(Program.TeacherList, client).filepath))
                                     {
-                                        XMLtoTXT.xmltotxt(Program.config["Root"] + Program.config["Paper"] + msgs[4] + ".xml");
+                                        XMLtoXML.xmltoxml(Program.config["Root"] + Program.config["Paper"] + msgs[4] + ".xml");
                                     }
                                     break;
                             }
