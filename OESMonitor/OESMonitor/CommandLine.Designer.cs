@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommandLine));
             this.listView1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(521, 350);
             this.ControlBox = false;
             this.Controls.Add(this.listView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CommandLine";
             this.Text = "CommandLine";
             this.ResumeLayout(false);
