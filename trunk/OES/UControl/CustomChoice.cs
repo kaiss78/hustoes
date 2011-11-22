@@ -135,11 +135,13 @@ namespace OES.UControl
 
         private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
         {
-            OptionA.Width = flowLayoutPanel1.Width;
-            OptionB.Width = flowLayoutPanel1.Width;
-            OptionC.Width = flowLayoutPanel1.Width;
-            OptionD.Width = flowLayoutPanel1.Width;
+            OptionA.Width = flowLayoutPanel1.Width-50;
+            OptionB.Width = flowLayoutPanel1.Width-50;
+            OptionC.Width = flowLayoutPanel1.Width-50;
+            OptionD.Width = flowLayoutPanel1.Width-50;
+            flowLayoutPanel1.Refresh();
         }
+
     }
 
 }

@@ -40,13 +40,15 @@
             this.radioButtonC = new System.Windows.Forms.RadioButton();
             this.radioButtonD = new System.Windows.Forms.RadioButton();
             this.Question = new System.Windows.Forms.RichTextBox();
-            this.OptionA = new TextBoxS.SmartTextBox();
-            this.OptionB = new TextBoxS.SmartTextBox();
-            this.OptionC = new TextBoxS.SmartTextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.OptionD = new TextBoxS.SmartTextBox();
+            this.OptionC = new TextBoxS.SmartTextBox();
+            this.OptionB = new TextBoxS.SmartTextBox();
+            this.OptionA = new TextBoxS.SmartTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProblemRequest
@@ -132,14 +134,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.radioButtonA);
-            this.flowLayoutPanel1.Controls.Add(this.OptionA);
-            this.flowLayoutPanel1.Controls.Add(this.radioButtonB);
-            this.flowLayoutPanel1.Controls.Add(this.OptionB);
-            this.flowLayoutPanel1.Controls.Add(this.radioButtonC);
-            this.flowLayoutPanel1.Controls.Add(this.OptionC);
-            this.flowLayoutPanel1.Controls.Add(this.radioButtonD);
-            this.flowLayoutPanel1.Controls.Add(this.OptionD);
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 151);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(737, 166);
@@ -163,7 +158,7 @@
             // 
             this.radioButtonB.AutoSize = true;
             this.radioButtonB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonB.Location = new System.Drawing.Point(3, 62);
+            this.radioButtonB.Location = new System.Drawing.Point(3, 38);
             this.radioButtonB.Name = "radioButtonB";
             this.radioButtonB.Size = new System.Drawing.Size(39, 18);
             this.radioButtonB.TabIndex = 5;
@@ -176,7 +171,7 @@
             // 
             this.radioButtonC.AutoSize = true;
             this.radioButtonC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonC.Location = new System.Drawing.Point(3, 121);
+            this.radioButtonC.Location = new System.Drawing.Point(3, 73);
             this.radioButtonC.Name = "radioButtonC";
             this.radioButtonC.Size = new System.Drawing.Size(39, 18);
             this.radioButtonC.TabIndex = 6;
@@ -189,7 +184,7 @@
             // 
             this.radioButtonD.AutoSize = true;
             this.radioButtonD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButtonD.Location = new System.Drawing.Point(3, 180);
+            this.radioButtonD.Location = new System.Drawing.Point(3, 108);
             this.radioButtonD.Name = "radioButtonD";
             this.radioButtonD.Size = new System.Drawing.Size(39, 18);
             this.radioButtonD.TabIndex = 7;
@@ -215,65 +210,32 @@
             this.Question.Text = "";
             this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
-            // OptionA
+            // tableLayoutPanel1
             // 
-            this.OptionA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.OptionA.BackColor = System.Drawing.Color.White;
-            this.OptionA.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionA.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OptionA.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionA.InText = "";
-            this.OptionA.LineCount = 80;
-            this.OptionA.Location = new System.Drawing.Point(3, 27);
-            this.OptionA.Multiline = true;
-            this.OptionA.Name = "OptionA";
-            this.OptionA.ReadOnly = true;
-            this.OptionA.ShortcutsEnabled = false;
-            this.OptionA.Size = new System.Drawing.Size(701, 29);
-            this.OptionA.TabIndex = 12;
-            this.OptionA.TabStop = false;
-            this.OptionA.Text = "\r\n";
-            this.OptionA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
-            // 
-            // OptionB
-            // 
-            this.OptionB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.OptionB.BackColor = System.Drawing.Color.White;
-            this.OptionB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionB.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OptionB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionB.InText = "";
-            this.OptionB.LineCount = 80;
-            this.OptionB.Location = new System.Drawing.Point(3, 86);
-            this.OptionB.Multiline = true;
-            this.OptionB.Name = "OptionB";
-            this.OptionB.ReadOnly = true;
-            this.OptionB.ShortcutsEnabled = false;
-            this.OptionB.Size = new System.Drawing.Size(701, 29);
-            this.OptionB.TabIndex = 13;
-            this.OptionB.TabStop = false;
-            this.OptionB.Text = "\r\n";
-            this.OptionB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
-            // 
-            // OptionC
-            // 
-            this.OptionC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.OptionC.BackColor = System.Drawing.Color.White;
-            this.OptionC.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OptionC.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.OptionC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.OptionC.InText = "";
-            this.OptionC.LineCount = 80;
-            this.OptionC.Location = new System.Drawing.Point(3, 145);
-            this.OptionC.Multiline = true;
-            this.OptionC.Name = "OptionC";
-            this.OptionC.ReadOnly = true;
-            this.OptionC.ShortcutsEnabled = false;
-            this.OptionC.Size = new System.Drawing.Size(701, 29);
-            this.OptionC.TabIndex = 14;
-            this.OptionC.TabStop = false;
-            this.OptionC.Text = "\r\n";
-            this.OptionC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.OptionD, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.radioButtonD, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.OptionC, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.radioButtonC, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.OptionB, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.radioButtonB, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.OptionA, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.radioButtonA, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(95, 140);
+            this.tableLayoutPanel1.TabIndex = 16;
             // 
             // OptionD
             // 
@@ -284,16 +246,76 @@
             this.OptionD.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.OptionD.InText = "";
             this.OptionD.LineCount = 80;
-            this.OptionD.Location = new System.Drawing.Point(3, 204);
+            this.OptionD.Location = new System.Drawing.Point(53, 108);
             this.OptionD.Multiline = true;
             this.OptionD.Name = "OptionD";
             this.OptionD.ReadOnly = true;
             this.OptionD.ShortcutsEnabled = false;
-            this.OptionD.Size = new System.Drawing.Size(701, 29);
+            this.OptionD.Size = new System.Drawing.Size(39, 29);
             this.OptionD.TabIndex = 15;
             this.OptionD.TabStop = false;
             this.OptionD.Text = "\r\n";
             this.OptionD.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // OptionC
+            // 
+            this.OptionC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.OptionC.BackColor = System.Drawing.Color.White;
+            this.OptionC.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionC.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionC.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionC.InText = "";
+            this.OptionC.LineCount = 80;
+            this.OptionC.Location = new System.Drawing.Point(53, 73);
+            this.OptionC.Multiline = true;
+            this.OptionC.Name = "OptionC";
+            this.OptionC.ReadOnly = true;
+            this.OptionC.ShortcutsEnabled = false;
+            this.OptionC.Size = new System.Drawing.Size(39, 29);
+            this.OptionC.TabIndex = 14;
+            this.OptionC.TabStop = false;
+            this.OptionC.Text = "\r\n";
+            this.OptionC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // OptionB
+            // 
+            this.OptionB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.OptionB.BackColor = System.Drawing.Color.White;
+            this.OptionB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionB.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionB.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionB.InText = "";
+            this.OptionB.LineCount = 80;
+            this.OptionB.Location = new System.Drawing.Point(53, 38);
+            this.OptionB.Multiline = true;
+            this.OptionB.Name = "OptionB";
+            this.OptionB.ReadOnly = true;
+            this.OptionB.ShortcutsEnabled = false;
+            this.OptionB.Size = new System.Drawing.Size(39, 29);
+            this.OptionB.TabIndex = 13;
+            this.OptionB.TabStop = false;
+            this.OptionB.Text = "\r\n";
+            this.OptionB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
+            // 
+            // OptionA
+            // 
+            this.OptionA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.OptionA.BackColor = System.Drawing.Color.White;
+            this.OptionA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OptionA.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OptionA.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OptionA.InText = "";
+            this.OptionA.LineCount = 80;
+            this.OptionA.Location = new System.Drawing.Point(53, 3);
+            this.OptionA.Multiline = true;
+            this.OptionA.Name = "OptionA";
+            this.OptionA.ReadOnly = true;
+            this.OptionA.ShortcutsEnabled = false;
+            this.OptionA.Size = new System.Drawing.Size(39, 29);
+            this.OptionA.TabIndex = 12;
+            this.OptionA.TabStop = false;
+            this.OptionA.Text = "\r\n";
+            this.OptionA.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide1_MouseDown);
             // 
             // CustomChoice
             // 
@@ -311,6 +333,8 @@
             this.panel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -333,5 +357,6 @@
         private TextBoxS.SmartTextBox OptionB;
         private TextBoxS.SmartTextBox OptionC;
         private TextBoxS.SmartTextBox OptionD;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
