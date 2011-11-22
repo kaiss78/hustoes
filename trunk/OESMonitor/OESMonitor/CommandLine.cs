@@ -29,7 +29,7 @@ namespace OESMonitor
         private void UpdateUI()
         {
             listView1.Items.Add(_msg);
-
+            listView1.SelectedIndex = listView1.Items.Count - 1;
         }
     }
 }
