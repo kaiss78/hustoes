@@ -95,7 +95,6 @@
     <Compile Include="Paper.cs" />
     <Compile Include="PaperControl\PaperControl.cs" />
     <Compile Include="PaperControl\RARHelper.cs" />
-    <Compile Include="PaperControl\XMLtoTXT.cs" />
     <Compile Include="PaperControl\XMLtoXML.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
