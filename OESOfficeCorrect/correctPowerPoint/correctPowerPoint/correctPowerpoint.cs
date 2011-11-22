@@ -481,12 +481,94 @@ namespace correctPowerPoint
                 #region 文本属性判分
                 if (curPart == PART_TEXTRANGE)
                 {
+                    switch (oe.AttribName)
+                    { 
+                        case "Text":
+                            if (stuTr.Text == ansTr.Text)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Bold":
+                            if (stuTr.Font.Bold == ansTr.Font.Bold)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Italic":
+                            if (stuTr.Font.Italic == ansTr.Font.Italic)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Underline":
+                            if (stuTr.Font.Underline == ansTr.Font.Underline)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "FontName":
+                            if (stuTr.Font.Name == ansTr.Font.Name)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "FontSize":
+                            if (stuTr.Font.Size == ansTr.Font.Size)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Shadow":
+                            if (stuTr.Font.Shadow == ansTr.Font.Shadow)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Superscript":
+                            if (stuTr.Font.Superscript == ansTr.Font.Superscript)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Subscript":
+                            if (stuTr.Font.Subscript == ansTr.Font.Subscript)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "ForeColor":
+                            if (stuTr.Font.Color.RGB == ansTr.Font.Color.RGB)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                    }
                     continue;
                 }
                 #endregion
                 #region 艺术字属性判分
                 if (curPart == PART_WORDART)
                 {
+                    switch (oe.AttribName)
+                    {
+                        case "Text":
+                            if (stuTf.Text == ansTf.Text)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Bold":
+                            if (stuTf.FontBold == ansTf.FontBold)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Italic":
+                            if (stuTf.FontItalic == ansTf.FontItalic)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "FontName":
+                            if (stuTf.FontName == ansTf.FontName)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "FontSize":
+                            if (stuTf.FontSize == ansTf.FontSize)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Alignment":
+                            if (stuTf.Alignment.ToString() == ansTf.Alignment.ToString())
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "PresetShape":
+                            if (stuTf.PresetShape.ToString() == ansTf.PresetShape.ToString())
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "RotatedChars":
+                            if (stuTf.RotatedChars.ToString() == ansTf.RotatedChars.ToString())
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "Tracking":
+                            if (stuTf.Tracking.ToString() == ansTf.Tracking.ToString())
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                    }
                     continue;
                 }
                 #endregion
@@ -551,188 +633,22 @@ namespace correctPowerPoint
                 #region 对象动作判分
                 if (curPart == PART_ACTION)
                 {
+                    switch (oe.AttribName)
+                    { 
+                        case "Action":
+                            if (stuAcs.Action == ansAcs.Action)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "HyperlinkAddr":
+                            if (stuAcs.Hyperlink.Address == ansAcs.Hyperlink.Address)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                        case "HyperlinkSubAddr":
+                            if (stuAcs.Hyperlink.SubAddress == ansAcs.Hyperlink.SubAddress)
+                                points = int.Parse(oe.AttribValue);
+                            break;
+                    }
                     continue;
-                }
-                #endregion
-
-                #region Slide的孩子标签
-                if (oe.AttribName == "Transition")  //过渡动画属性检查
-                {
-                    stuTrans = stuSld.SlideShowTransition;
-                    ansTrans = ansSld.SlideShowTransition;
-                    #region 叶节点判分
-                    oe = ls[++i];
-                    switch (oe.AttribName)
-                    {
-                        case "AdvanceOnClick":
-                            if (stuTrans.AdvanceOnClick.Equals(ansTrans.AdvanceOnClick))
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "AdvanceOnTime":
-                            if (stuTrans.AdvanceOnTime.Equals(ansTrans.AdvanceOnTime))
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "AdvanceTime":
-                            if (stuTrans.AdvanceTime == ansTrans.AdvanceTime)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "EntryEffect":
-                            if (stuTrans.EntryEffect.Equals(ansTrans.EntryEffect))
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "Speed":
-                            if (stuTrans.Speed.Equals(ansTrans.Speed))
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                    }
-                    #endregion
-                    break;
-                }
-                if (oe.AttribName == "Background")  //幻灯片背景属性检查
-                {
-                    stuBg = stuSld.Background;
-                    ansBg = ansSld.Background;
-                    #region 叶节点判分
-                    oe = ls[++i];
-                    switch (oe.AttribName)
-                    {
-                        case "Fill":
-                            if (stuBg.Fill.Type.Equals(ansBg.Fill.Type))
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "GradientType":
-                            if (stuBg.Fill.PresetGradientType == ansBg.Fill.PresetGradientType)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "GradientStyle":
-                            if (stuBg.Fill.GradientStyle == ansBg.Fill.GradientStyle)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                    }
-                    #endregion
-                    break;
-                }
-                if (oe.AttribName == "Design")      //幻灯片模板属性检查
-                {
-                    //currentCheck = "Design";
-                    //叶节点判分
-                    break;
-                }
-                if (oe.AttribName == "Master")      //???属性检查
-                {
-                    //currentCheck = "Master";
-                    //叶节点判分
-                    break;
-                }
-                if (oe.AttribName == "Effect")      //幻灯片动画属性检查
-                {
-                    #region 动画定位
-                    try
-                    {
-                        int effId = int.Parse(oe.AttribValue);
-                        stuEffect = stuSld.TimeLine.MainSequence[effId];
-                        ansEffect = stuSld.TimeLine.MainSequence[effId];
-                    }
-                    catch
-                    {
-                        points = 0;
-                        break;
-                    }
-                    #endregion
-                    #region 叶节点判分
-                    oe = ls[++i];
-                    switch (oe.AttribName)
-                    {
-                        case "DisplayName":
-                            if (stuEffect.DisplayName == ansEffect.DisplayName)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "EffectType":
-                            if (stuEffect.EffectType.Equals(ansEffect.EffectType))
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "Exit":
-                            if (stuEffect.Exit.Equals(ansEffect.Exit))
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "Index":
-                            if (stuEffect.Index == ansEffect.Index)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "ShapeName":
-                            if (stuEffect.Shape.Name == ansEffect.Shape.Name)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "Duration":
-                            if (stuEffect.Timing.Duration == ansEffect.Timing.Duration)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "Paragraph":
-                            if (stuEffect.Paragraph == ansEffect.Paragraph)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "TextRangeStart":
-                            if (stuEffect.TextRangeStart == ansEffect.TextRangeStart)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                        case "TextRangeLength":
-                            if (stuEffect.TextRangeLength == ansEffect.TextRangeLength)
-                                points = int.Parse(oe.AttribValue);
-                            break;
-                    }
-                    #endregion
-                    break;
-                }
-                if (oe.AttribName == "TextContainer")   //文字区域属性检查
-                {
-                    #region 文字区域定位
-                    try
-                    {
-                        int shapeId = int.Parse(oe.AttribValue);
-                        stuShape = stuSld.Shapes[shapeId];
-                        ansShape = ansSld.Shapes[shapeId];
-                    }
-                    catch
-                    {
-                        points = 0;
-                        break;
-                    }
-                    #endregion
-                    #region 判断类型是否一致
-                    if (stuShape.Type != ansShape.Type) //shape类型不一致
-                    {
-                        points = 0;
-                        break;
-                    }
-                    #endregion
-                    if (ansShape.Type ==
-                        Microsoft.Office.Core.MsoShapeType.msoPlaceholder)  //文本(Run)
-                    { }
-                    else if (ansShape.Type ==
-                        Microsoft.Office.Core.MsoShapeType.msoTextEffect)   //艺术字(WordArt)
-                    { }
-                    break;
-                }
-                if (oe.AttribName == "Picture")     //图片属性检查
-                {
-                    #region 图片区域定位
-                    try
-                    {
-                        int shapeId = int.Parse(oe.AttribValue);
-                        stuShape = stuSld.Shapes[shapeId];
-                        ansShape = ansSld.Shapes[shapeId];
-                        stuPf = stuShape.PictureFormat;
-                        ansPf = ansShape.PictureFormat;
-                    }
-                    catch
-                    {
-                        points = 0;
-                        break;
-                    }
-                    #endregion
-                    //#region 叶节点判分
-                    //#endregion
-                    break;
                 }
                 #endregion
             }
