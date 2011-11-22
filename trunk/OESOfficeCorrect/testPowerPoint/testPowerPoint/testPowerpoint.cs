@@ -176,7 +176,7 @@ namespace testPowerPoint
                     switch (shape.Type)
                     {
                         case Microsoft.Office.Core.MsoShapeType.msoPicture:             //图片
-                            tmpNode = AddNode(new ItemObject("图片属性", shape, PptType.Picture));
+                            tmpNode = AddNode(new ItemObject("图片属性", shape.PictureFormat, PptType.Picture));
                             break;
                         case Microsoft.Office.Core.MsoShapeType.msoPlaceholder:         //文字填充框
                         case Microsoft.Office.Core.MsoShapeType.msoTextBox:             //文本框
@@ -191,13 +191,13 @@ namespace testPowerPoint
                             break;
                         case Microsoft.Office.Core.MsoShapeType.msoAutoShape:           //自选图形
                             if (sInfo == "WordArt")
-                                tmpNode = AddNode(new ItemObject("艺术字属性", shape, PptType.WordArt));
+                                tmpNode = AddNode(new ItemObject("艺术字属性", shape.TextEffect, PptType.WordArt));
                             else
                             {
                                 try 
                                 {
                                     if (shape.ThreeD.Perspective == True)
-                                        tmpNode = AddNode(new ItemObject("三维属性", shape, PptType.ThreeD)); 
+                                        tmpNode = AddNode(new ItemObject("三维属性", shape.ThreeD, PptType.ThreeD)); 
                                 }
                                 catch { }
                             }
@@ -264,7 +264,6 @@ namespace testPowerPoint
                     displayInfo.Add(new DisplayObject("名称", "ShapeName", shape.Name));
                     displayInfo.Add(new DisplayObject("类型", "Type", shape.Type));
                     displayInfo.Add(new DisplayObject("上边距", "Top", shape.Top));
-                    displayInfo.Add(new DisplayObject("上边距", "Top", shape.Top));
                     displayInfo.Add(new DisplayObject("左边距", "Left", shape.Left));
                     displayInfo.Add(new DisplayObject("高度", "Height", shape.Height));
                     displayInfo.Add(new DisplayObject("宽度", "Width", shape.Width));
@@ -273,20 +272,18 @@ namespace testPowerPoint
                     break;
                 case PptType.WordArt:                   //艺术字的一系列属性
                     #region 艺术字属性
-                    PowerPoint.Shape wordart = (PowerPoint.Shape)io.o;
+                    PowerPoint.TextEffectFormat wordart = (PowerPoint.TextEffectFormat)io.o;
                     //displayInfo.Add(new DisplayObject("文字", "Name", wordart.Name));
                     //displayInfo.Add(new DisplayObject("Type", wordart.Type));
-                    displayInfo.Add(new DisplayObject("文字", "Text", wordart.TextEffect.Text));
-                    displayInfo.Add(new DisplayObject("粗体", "Bold", wordart.TextEffect.FontBold));
-                    displayInfo.Add(new DisplayObject("斜体", "Italic", wordart.TextEffect.FontItalic));
-                    displayInfo.Add(new DisplayObject("字体", "FontName", wordart.TextEffect.FontName));
-                    displayInfo.Add(new DisplayObject("字号", "FontSize", wordart.TextEffect.FontSize.ToString()));
-                    displayInfo.Add(new DisplayObject("对齐方式", "Alignment", wordart.TextEffect.Alignment.ToString()));
-                    //displayInfo.Add(new DisplayObject("艺术字格式", "PresetTextEffect", wordart.TextEffect.PresetTextEffect.ToString()));
-                    displayInfo.Add(new DisplayObject("艺术字形状", "PresetShape", wordart.TextEffect.PresetShape.ToString()));
-                    displayInfo.Add(new DisplayObject("文字是否垂直排列", "RotatedChars", wordart.TextEffect.RotatedChars.ToString()));
-                    displayInfo.Add(new DisplayObject("字符间距", "Tracking", wordart.TextEffect.Tracking.ToString()));
-                    //displayInfo.Add("是否自动缩紧字符对:" + shape.TextEffect.KernedPairs.ToString());
+                    displayInfo.Add(new DisplayObject("文字", "Text", wordart.Text));
+                    displayInfo.Add(new DisplayObject("粗体", "Bold", wordart.FontBold));
+                    displayInfo.Add(new DisplayObject("斜体", "Italic", wordart.FontItalic));
+                    displayInfo.Add(new DisplayObject("字体", "FontName", wordart.FontName));
+                    displayInfo.Add(new DisplayObject("字号", "FontSize", wordart.FontSize.ToString()));
+                    displayInfo.Add(new DisplayObject("对齐方式", "Alignment", wordart.Alignment.ToString()));
+                    displayInfo.Add(new DisplayObject("艺术字形状", "PresetShape", wordart.PresetShape.ToString()));
+                    displayInfo.Add(new DisplayObject("文字是否垂直排列", "RotatedChars", wordart.RotatedChars.ToString()));
+                    displayInfo.Add(new DisplayObject("字符间距", "Tracking", wordart.Tracking.ToString()));
                     #endregion
                     break;
                 case PptType.Background:
@@ -357,8 +354,7 @@ namespace testPowerPoint
                     break;
                 case PptType.Picture:
                     #region 图片属性
-                        PowerPoint.Shape pic = (PowerPoint.Shape)io.o;
-                        PowerPoint.PictureFormat pf = pic.PictureFormat;
+                        PowerPoint.PictureFormat pf = (PowerPoint.PictureFormat)io.o;
                         //displayInfo.Add(new DisplayObject("名称", "Name", pic.Name));
                         //displayInfo.Add(new DisplayObject("类型", "Type", pic.Type));
                         //displayInfo.Add(new DisplayObject("高度", "Height", pic.Height.ToString()));
@@ -373,13 +369,13 @@ namespace testPowerPoint
                     break;
                 case PptType.ThreeD:
                     #region 三维属性
-                    PowerPoint.Shape shape3d = (PowerPoint.Shape)io.o;
-                    displayInfo.Add(new DisplayObject("三维效果", "ThreeDFormat", shape3d.ThreeD.PresetThreeDFormat));
-                    displayInfo.Add(new DisplayObject("照明角度", "LightingDirection", shape3d.ThreeD.PresetLightingDirection));
-                    displayInfo.Add(new DisplayObject("照明亮度", "LightingSoftness", shape3d.ThreeD.PresetLightingSoftness));
-                    displayInfo.Add(new DisplayObject("表面效果", "Material", shape3d.ThreeD.PresetMaterial));
-                    displayInfo.Add(new DisplayObject("图形深度", "Depth", shape3d.ThreeD.Depth));
-                    displayInfo.Add(new DisplayObject("延伸方向", "ExtrusionDirection", shape3d.ThreeD.PresetExtrusionDirection));
+                    PowerPoint.ThreeDFormat shape3d = (PowerPoint.ThreeDFormat)io.o;
+                    displayInfo.Add(new DisplayObject("三维效果", "ThreeDFormat", shape3d.PresetThreeDFormat));
+                    displayInfo.Add(new DisplayObject("照明角度", "LightingDirection", shape3d.PresetLightingDirection));
+                    displayInfo.Add(new DisplayObject("照明亮度", "LightingSoftness", shape3d.PresetLightingSoftness));
+                    displayInfo.Add(new DisplayObject("表面效果", "Material", shape3d.PresetMaterial));
+                    displayInfo.Add(new DisplayObject("图形深度", "Depth", shape3d.Depth));
+                    displayInfo.Add(new DisplayObject("延伸方向", "ExtrusionDirection", shape3d.PresetExtrusionDirection));
                     #endregion
                     break;
                 case PptType.ClickAction:
