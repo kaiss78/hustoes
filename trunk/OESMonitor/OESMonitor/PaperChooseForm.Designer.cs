@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaperChooseForm));
             this.paperListPanel1 = new OES.UPanel.PaperListPanel();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 632);
             this.Controls.Add(this.paperListPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PaperChooseForm";
             this.Text = "PaperChooseForm";
             this.Load += new System.EventHandler(this.PaperChooseForm_Load);
