@@ -11,7 +11,8 @@ namespace OESXML
     public class ProblemXML
     {
         public String FileName;
-        private XmlDocument xd;
+        private XmlDocument xd = null;
+        public bool isError=false;
         public ProblemXML(String filename,bool isReadOnly)
         {
             FileName = filename;
@@ -27,11 +28,13 @@ namespace OESXML
                     catch
                     {
                         Console.WriteLine("文件不是有效的XML");
+                        isError = true;
                     }
                 }
                 else
                 {
                     Console.WriteLine("文件不存在");
+                    isError = true;
                 }
             }
             else
@@ -54,6 +57,7 @@ namespace OESXML
                 else
                 {
                     Console.WriteLine("文件不存在");
+                    isError = true;
                 }
             }
             
