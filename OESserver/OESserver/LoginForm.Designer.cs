@@ -37,6 +37,7 @@
             this.btnClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.netState1 = new OES.NetState(10);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(29, 291);
+            this.btnLogin.Location = new System.Drawing.Point(29, 285);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(0);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(65, 26);
@@ -98,7 +99,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(109, 291);
+            this.btnClose.Location = new System.Drawing.Point(109, 285);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(65, 26);
             this.btnClose.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -112,7 +113,7 @@
             // 
             // btnConfig
             // 
-            this.btnConfig.Location = new System.Drawing.Point(189, 291);
+            this.btnConfig.Location = new System.Drawing.Point(189, 285);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(65, 26);
             this.btnConfig.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -134,12 +135,22 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // netState1
+            // 
+            this.netState1.BackColor = System.Drawing.Color.Transparent;
+            this.netState1.Location = new System.Drawing.Point(13, 322);
+            this.netState1.Name = "netState1";
+            this.netState1.Size = new System.Drawing.Size(260, 26);
+            this.netState1.State = 0;
+            this.netState1.TabIndex = 8;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(285, 335);
+            this.ClientSize = new System.Drawing.Size(285, 360);
+            this.Controls.Add(this.netState1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnClose);
@@ -150,8 +161,6 @@
             this.Controls.Add(this.Password);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(301, 373);
-            this.MinimumSize = new System.Drawing.Size(301, 373);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "登录";
@@ -171,6 +180,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClose;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnConfig;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private NetState netState1;
 
     }
 }
