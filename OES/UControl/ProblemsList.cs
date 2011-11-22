@@ -24,6 +24,7 @@ namespace OES.UControl
         public ProblemsList(int c)
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
             timer1.Interval = 10;
             count = c;
             mainPanel = new Panel();

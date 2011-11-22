@@ -24,21 +24,8 @@ namespace OES.UControl
         {     
             InitializeComponent();
             this.Question.Text = ClientControl.paper.officePPT.problem;
+            this.Dock = DockStyle.Fill;
         }
-
-
-        //private void button3_Click(object sender, EventArgs e)
-        //{
-        //    StreamReader sr = new StreamReader(path+"大枪刷图点.txt", Encoding.GetEncoding("GB2312"), false);
-
-        //    string str = sr.ReadToEnd();
-
-        //    sr.Close();
-
-        //    this.Question.Text = str;
-        //    this.richTextBox2.Text = str; 
-
-        //}
 
         private void button1_Click(object sender, EventArgs e)
         {

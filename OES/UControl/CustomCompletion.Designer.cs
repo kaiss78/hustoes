@@ -43,6 +43,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.Rquest);
             this.panel1.Controls.Add(this.ProblemRquest);
@@ -53,21 +55,23 @@
             // 
             // Rquest
             // 
+            this.Rquest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Rquest.BackColor = System.Drawing.Color.White;
             this.Rquest.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Rquest.CausesValidation = false;
             this.Rquest.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Rquest.DetectUrls = false;
-            this.Rquest.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Rquest.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Rquest.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.Rquest.Location = new System.Drawing.Point(131, 3);
+            this.Rquest.Location = new System.Drawing.Point(3, 33);
             this.Rquest.Name = "Rquest";
             this.Rquest.ReadOnly = true;
             this.Rquest.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.Rquest.ShortcutsEnabled = false;
-            this.Rquest.Size = new System.Drawing.Size(618, 68);
+            this.Rquest.Size = new System.Drawing.Size(746, 38);
             this.Rquest.TabIndex = 1;
-            this.Rquest.Text = "";
+            this.Rquest.Text = "根据题目在空白处填空。";
             this.Rquest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
             // 
             // ProblemRquest
@@ -82,6 +86,9 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.Answer);
             this.panel2.Controls.Add(this.label);
@@ -93,6 +100,8 @@
             // 
             // Answer
             // 
+            this.Answer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Answer.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Answer.Location = new System.Drawing.Point(84, 270);
             this.Answer.Name = "Answer";
@@ -103,6 +112,7 @@
             // 
             // label
             // 
+            this.label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label.Location = new System.Drawing.Point(18, 273);
@@ -113,6 +123,9 @@
             // 
             // Question
             // 
+            this.Question.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Question.BackColor = System.Drawing.Color.White;
             this.Question.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Question.CausesValidation = false;
@@ -131,6 +144,7 @@
             // 
             // lastproblem
             // 
+            this.lastproblem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lastproblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lastproblem.Location = new System.Drawing.Point(22, 423);
             this.lastproblem.Name = "lastproblem";
@@ -142,6 +156,7 @@
             // 
             // nextproblem
             // 
+            this.nextproblem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextproblem.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.nextproblem.Location = new System.Drawing.Point(552, 423);
             this.nextproblem.Name = "nextproblem";

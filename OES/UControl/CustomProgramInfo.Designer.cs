@@ -36,6 +36,9 @@
             // 
             // Question
             // 
+            this.Question.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.Question.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Question.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Question.Location = new System.Drawing.Point(32, 58);
@@ -49,11 +52,9 @@
             // 
             // butOpen
             // 
-            this.butOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.butOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.butOpen.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.butOpen.Location = new System.Drawing.Point(146, 428);
+            this.butOpen.Location = new System.Drawing.Point(482, 434);
             this.butOpen.Name = "butOpen";
             this.butOpen.Size = new System.Drawing.Size(107, 37);
             this.butOpen.TabIndex = 1;
@@ -63,11 +64,9 @@
             // 
             // butRedo
             // 
-            this.butRedo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.butRedo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.butRedo.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.butRedo.Location = new System.Drawing.Point(470, 428);
+            this.butRedo.Location = new System.Drawing.Point(606, 434);
             this.butRedo.Name = "butRedo";
             this.butRedo.Size = new System.Drawing.Size(107, 37);
             this.butRedo.TabIndex = 2;

@@ -69,6 +69,7 @@ namespace OES.UControl
             InitializeComponent();
             proID = 0;
             this.SetQuestion(proID);
+            this.Dock = DockStyle.Fill;
         }
 
 
