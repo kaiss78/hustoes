@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.xpPanelGroup1 = new UIComponents.XPPanelGroup();
-            this.netState1 = new OES.NetState();
             this.xpPanel3 = new UIComponents.XPPanel(127);
             this.scoreManlbl = new System.Windows.Forms.LinkLabel();
             this.techManlbl = new System.Windows.Forms.LinkLabel();
@@ -64,7 +63,6 @@
             // 
             this.xpPanelGroup1.AutoScroll = true;
             this.xpPanelGroup1.BackColor = System.Drawing.Color.Transparent;
-            this.xpPanelGroup1.Controls.Add(this.netState1);
             this.xpPanelGroup1.Controls.Add(this.xpPanel3);
             this.xpPanelGroup1.Controls.Add(this.xpPanel2);
             this.xpPanelGroup1.Controls.Add(this.PMXP);
@@ -74,16 +72,6 @@
             this.xpPanelGroup1.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelGroup1.PanelGradient")));
             this.xpPanelGroup1.Size = new System.Drawing.Size(200, 667);
             this.xpPanelGroup1.TabIndex = 0;
-            // 
-            // netState1
-            // 
-            this.netState1.BackColor = System.Drawing.Color.Transparent;
-            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.netState1.Location = new System.Drawing.Point(-9, 631);
-            this.netState1.Name = "netState1";
-            this.netState1.Size = new System.Drawing.Size(206, 24);
-            this.netState1.State = 0;
-            this.netState1.TabIndex = 3;
             // 
             // xpPanel3
             // 
@@ -462,7 +450,6 @@
         private System.Windows.Forms.LinkLabel classManlbl;
         private System.Windows.Forms.LinkLabel techManlbl;
         private System.Windows.Forms.LinkLabel scoreManlbl;
-        private NetState netState1;
 
     }
 }
