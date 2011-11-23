@@ -37,17 +37,20 @@
             this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.BackColor = System.Drawing.Color.White;
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView1.FormattingEnabled = true;
             this.listView1.ItemHeight = 12;
             this.listView1.Location = new System.Drawing.Point(12, 12);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(497, 328);
+            this.listView1.Size = new System.Drawing.Size(497, 324);
             this.listView1.TabIndex = 1;
             // 
             // CommandLine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.ClientSize = new System.Drawing.Size(521, 350);
             this.ControlBox = false;
             this.Controls.Add(this.listView1);

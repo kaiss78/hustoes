@@ -114,6 +114,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.AliceBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel1.Location = new System.Drawing.Point(652, 67);
@@ -624,6 +625,7 @@
             // 
             // flowLayoutPanelDir
             // 
+            this.flowLayoutPanelDir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelDir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelDir.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelDir.Name = "flowLayoutPanelDir";
@@ -640,7 +642,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(878, 495);
             this.Controls.Add(this.tabControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
