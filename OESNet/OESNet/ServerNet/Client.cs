@@ -68,6 +68,13 @@ namespace ServerNet
         /// 客户端断开连接
         /// </summary>
         public event EventHandler DisConnect;
+        /// <summary>
+        /// 客户通讯端口出错
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="msg"></param>
+        public delegate void ClientError(Client c, string msg);
+        public event ClientError OnClientError;
         #endregion
         /// <summary>
         /// 客户端数据端口
@@ -134,10 +141,12 @@ namespace ServerNet
                 DispatchMessage();
                 ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
             }
-            catch
+            catch(Exception e)
             {
                 if (DisConnect != null)
                     DisConnect(this, null);
+                if (OnClientError != null)
+                    OnClientError(this, e.ToString());
             }
         }
 
@@ -243,6 +252,8 @@ namespace ServerNet
             }
             catch (Exception e)
             {
+                if (OnClientError != null)
+                    OnClientError(this, e.ToString());
             }
         }
 
@@ -284,6 +295,8 @@ namespace ServerNet
             catch (Exception e)
             {
                 //网络出错处理程序
+                if (OnClientError != null)
+                    OnClientError(this, e.ToString());
             }
         }
 

@@ -146,7 +146,7 @@ namespace ServerNet
         /// <param name="msg"></param>
         public delegate void DataPortError(string msg);
         public event DataPortError OnDataPortError;
-
+        
         #endregion
 
         /// <summary>
@@ -276,8 +276,17 @@ namespace ServerNet
         {
             lock (syncLock)
             {
-                if (port!=null && !PortQueue.Contains(port))
+                if (port != null && !PortQueue.Contains(port))
+                {
                     PortQueue.Enqueue(port);
+                    for (int i = 0; i < clients.Count; i++)
+                    {
+                        if (clients[i].Port == port)
+                        {
+                            clients[i].Port = null;
+                        }
+                    }
+                }
             }
             ProvideClientService();
         }
@@ -338,13 +347,25 @@ namespace ServerNet
                 client.SendDataReady += this.SendDataReady;
             if (this.ReceiveDataReady != null)
                 client.ReceiveDataReady += this.ReceiveDataReady;
-            clients.Add(client);
-
+            client.OnClientError += new Client.ClientError(client_OnClientError);
+            lock (syncLock)
+            {
+                clients.Add(client);
+            }
             listener.BeginAcceptTcpClient(new AsyncCallback(accept_callBack), listener);
             if (AcceptedClient != null)
             {
                 AcceptedClient(client, null);
             }
+        }
+        /// <summary>
+        /// 客户端出错时，回收数据端口
+        /// </summary>
+        /// <param name="c">客户端</param>
+        /// <param name="msg">出错信息</param>
+        void client_OnClientError(Client c, string msg)
+        {
+            PortRecycler(c.Port);
         }
         /// <summary>
         /// 服务端消息处理函数
