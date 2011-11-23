@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
- 
+
 using System.Text;
 using System.Windows.Forms;
 using OESMonitor.Net;
@@ -13,6 +13,7 @@ using ServerNet;
 using ClientNet;
 using OES;
 using OESNet.UdpNet;
+using System.Diagnostics;
 
 namespace OESMonitor
 {
@@ -40,7 +41,7 @@ namespace OESMonitor
         public bool IsStartExam
         {
             get { return isStartExam; }
-            set 
+            set
             {
                 isStartExam = value;
                 if (isStartExam)
@@ -129,8 +130,8 @@ namespace OESMonitor
 
             timer_PortCounter.Interval = 1000;
 
-            panel1.Controls.Add( ComputerState.getInstance());
-            
+            panel1.Controls.Add(ComputerState.getInstance());
+
             paperListDataTable = new DataTable("PaperList");
             paperListDataTable.Columns.Add("选中", typeof(bool));
             paperListDataTable.Columns.Add("试卷ID");
@@ -138,25 +139,81 @@ namespace OESMonitor
             paperListDataTable.Columns.Add("组卷时间");
             paperListDataTable.Columns.Add("作者");
             PaperListDGV.DataSource = paperListDataTable;
-            PaperListDGV.CellClick+=new DataGridViewCellEventHandler(PaperListDGV_CellClick);
+            PaperListDGV.CellClick += new DataGridViewCellEventHandler(PaperListDGV_CellClick);
             PaperListDGV.CellDoubleClick += new DataGridViewCellEventHandler(PaperListDGV_CellDoubleClick);
             PaperListDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PaperListDGV.CellValueChanged += new DataGridViewCellEventHandler(PaperListDGV_CellValueChanged);
             PaperListDGV.RowsAdded += new DataGridViewRowsAddedEventHandler(PaperListDGV_RowsAdded);
             btnRemove.MouseEnter += new EventHandler(btnRemove_MouseEnter);
             btnRemove.MouseLeave += new EventHandler(radioButton1_MouseLeave);
-            btnRemove.Click+=new EventHandler(btnRemove_Click);
+            btnRemove.Click += new EventHandler(btnRemove_Click);
             btnGetPaperFromDB.MouseEnter += new EventHandler(btnGetPaperFromDB_MouseEnter);
             btnGetPaperFromDB.MouseLeave += new EventHandler(radioButton1_MouseLeave);
             downloadButton.MouseEnter += new EventHandler(downloadButton_MouseEnter);
             downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
+
+            #region 考试答案文件夹监视管理
+            fileSystemWatcher.Path = PaperControl.PathConfig["StuAns"];
+            fileSystemWatcher.Changed += new FileSystemEventHandler(fileSystemWatcher_Changed);
+            fileSystemWatcher.Deleted += new FileSystemEventHandler(fileSystemWatcher_Changed);
+            fileSystemWatcher.Renamed += new RenamedEventHandler(fileSystemWatcher_Renamed);
+            fileSystemWatcher.Created += new FileSystemEventHandler(fileSystemWatcher_Changed);
+            fileSystemWatcher.EnableRaisingEvents = true;
+            foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            {
+                StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
+                studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
+                studentAnsDirectory.OnDelete += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnDelete);
+                flowLayoutPanelDir.Controls.Add(studentAnsDirectory);
+            }
+            #endregion
+
         }
+
+        #region 考生文件夹操作
+        void studentAnsDirectory_OnDelete(StudentAnsDirectory e)
+        {
+            Directory.Delete(PaperControl.PathConfig["StuAns"] + e.Text, true);
+        }
+
+        void studentAnsDirectory_OnView(StudentAnsDirectory e)
+        {
+            Process.Start(PaperControl.PathConfig["StuAns"] + e.Text);
+        }
+        #endregion
+
+        #region 考生答案文件夹监视事件
+        void fileSystemWatcher_Renamed(object sender, RenamedEventArgs e)
+        {
+            flowLayoutPanelDir.Controls.Clear();
+            foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            {
+                StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
+                studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
+                studentAnsDirectory.OnDelete += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnDelete);
+                flowLayoutPanelDir.Controls.Add(studentAnsDirectory);
+            }
+        }
+
+        void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            flowLayoutPanelDir.Controls.Clear();
+            foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            {
+                StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
+                studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
+                studentAnsDirectory.OnDelete += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnDelete);
+                flowLayoutPanelDir.Controls.Add(studentAnsDirectory);
+            }
+        }
+        #endregion
 
         #region 网络连接状态
         void Client_DisConnectError(object sender, ErrorEventArgs e)
         {
             while (!this.IsHandleCreated) ;
-            this.BeginInvoke(new MethodInvoker(() => {
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
                 netState1.State = 0;
             }));
         }
@@ -222,7 +279,7 @@ namespace OESMonitor
         }
 
         #endregion
-       
+
         private void RetrieveHostIpv4Address()
         {
             //获得所有的ip地址，包括ipv6和ipv4
@@ -232,7 +289,7 @@ namespace OESMonitor
                 //ipv4的最大长度为15，ipv6为39
                 if (tip.ToString().Length <= 15)
                 {
-                   alternativeIp.Add(tip);
+                    alternativeIp.Add(tip);
                 }
             }
         }
@@ -536,7 +593,7 @@ namespace OESMonitor
             }
         }
 
-        
+
 
         void Server_FileSendEnd(ServerNet.DataPort dataPort)
         {
@@ -555,19 +612,19 @@ namespace OESMonitor
         /// <param name="dataPort"></param>
         void Server_FileReceiveEnd(ServerNet.DataPort dataPort)
         {
-            for (int i = Computer.ComputerList.Count - 1; i >= 0;i-- )
+            for (int i = Computer.ComputerList.Count - 1; i >= 0; i--)
             {
                 if (Computer.ComputerList[i].Client.Port == dataPort)
                 {
                     //对考生文件解密
                     if (RARHelper.Exists())
                     {
-                        RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID+"\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
+                        RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
                         while (!Directory.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\")) ;
                         File.WriteAllText(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\password.txt", Computer.ComputerList[i].Password);
                     }
                     Computer.ComputerList[i].State = 4;
-                    if(File.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID+".rar"))
+                    if (File.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar"))
                     {
                         File.Delete(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar");
                     }
@@ -596,7 +653,7 @@ namespace OESMonitor
             pcf.Show();
         }
 
-       
+
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -606,8 +663,8 @@ namespace OESMonitor
             }
         }
 
-       
-        
+
+
         private void timer_PortCounter_Tick(object sender, EventArgs e)
         {
             lab_DataPortCount.Text = Net.ServerEvt.Server.PortCurNum.ToString();
@@ -631,8 +688,8 @@ namespace OESMonitor
             IPAddress temp;
             if (IPAddress.TryParse(textBoxStartIp.Text, out temp) && IPAddress.TryParse(textBoxEndIp.Text, out temp))
             {
-                string[] ips=textBoxStartIp.Text.Split('.');
-                ServerEvt.BroadcastHelper.DomineIp = ips[0]+"."+ips[1]+"."+ips[2]+"."+"255";
+                string[] ips = textBoxStartIp.Text.Split('.');
+                ServerEvt.BroadcastHelper.DomineIp = ips[0] + "." + ips[1] + "." + ips[2] + "." + "255";
                 return true;
             }
             return false;
@@ -653,11 +710,11 @@ namespace OESMonitor
 
         public bool IsStartBroadcastRepeat
         {
-            get 
+            get
             {
-                return isStartBroadcastRepeat; 
+                return isStartBroadcastRepeat;
             }
-            set 
+            set
             {
                 isStartBroadcastRepeat = value;
                 if (isStartBroadcastRepeat)
