@@ -43,7 +43,7 @@ namespace ServerNet
         //可用端口号列表
         private Queue<int> availablePorts = new Queue<int>();
         //线程同步锁
-        private object syncLock = new object();
+        private static object syncLock = new object();
         //数据端口预定个数
         private int portsRequest = int.Parse(Config["DataPortNum"]);
         //数据端口准备就绪
@@ -274,8 +274,11 @@ namespace ServerNet
         /// <param name="port"></param>
         private void PortRecycler(DataPort port)
         {
-            if (!PortQueue.Contains(port))
-                PortQueue.Enqueue(port);
+            lock (syncLock)
+            {
+                if (port!=null && !PortQueue.Contains(port))
+                    PortQueue.Enqueue(port);
+            }
             ProvideClientService();
         }
 
@@ -284,20 +287,26 @@ namespace ServerNet
         /// </summary>
         private void ProvideClientService()
         {
-            Client tclient;
-            while ((RequestingQueue.Count != 0) && (PortQueue.Count != 0))
+            lock (syncLock)
             {
-                tclient = RequestingQueue.Dequeue();
-                tclient.Port = PortQueue.Dequeue();
-                tclient.Port.IsSend = false;
-                tclient.fetchData();
-            }
-            while ((SubmitingQueue.Count != 0) && (PortQueue.Count != 0))
-            {
-                tclient = SubmitingQueue.Dequeue();
-                tclient.Port = PortQueue.Dequeue();
-                tclient.Port.IsSend = true;
-                tclient.sendData();
+                if (isPortAvailable)
+                {
+                    Client tclient;
+                    while ((RequestingQueue.Count != 0) && (PortQueue.Count != 0))
+                    {
+                        tclient = RequestingQueue.Dequeue();
+                        tclient.Port = PortQueue.Dequeue();
+                        tclient.Port.IsSend = false;
+                        tclient.fetchData();
+                    }
+                    while ((SubmitingQueue.Count != 0) && (PortQueue.Count != 0))
+                    {
+                        tclient = SubmitingQueue.Dequeue();
+                        tclient.Port = PortQueue.Dequeue();
+                        tclient.Port.IsSend = true;
+                        tclient.sendData();
+                    }
+                }
             }
         }
         /// <summary>

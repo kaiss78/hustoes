@@ -165,46 +165,57 @@ namespace ClientNet
         /// </summary>
         private void ReceiveData()
         {
-            if (FileReceiveBegin != null)
+            try
             {
-                FileReceiveBegin(this, null);
-            }
-            long total = fileLength;
-            int byteRead;
-            Byte[] buffer = new Byte[1024];
-            FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write);
-            byteRead = data_ns.Read(buffer, 0, 1024);
-
-            while (byteRead > 0)
-            {
-                total -= byteRead;
-                file.Write(buffer, 0, byteRead);
-                Array.Clear(buffer, 0, 1024);
-                byteRead = data_ns.Read(buffer, 0, 1024);
-                if (RecieveFileRate != null)
+                if (FileReceiveBegin != null)
                 {
-                    RecieveFileRate(1.0 - total / fileLength);
+                    FileReceiveBegin(this, null);
+                }
+                long total = fileLength;
+                int byteRead;
+                Byte[] buffer = new Byte[1024];
+                FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+                byteRead = data_ns.Read(buffer, 0, 1024);
+
+                while (byteRead > 0)
+                {
+                    total -= byteRead;
+                    file.Write(buffer, 0, byteRead);
+                    Array.Clear(buffer, 0, 1024);
+                    byteRead = data_ns.Read(buffer, 0, 1024);
+                    if (RecieveFileRate != null)
+                    {
+                        RecieveFileRate(1.0 - total / fileLength);
+                    }
+                }
+
+                data_ns.Dispose();
+                dataTrans.Close();
+                file.Close();
+
+                if (FileReceiveEnd != null)
+                {
+                    FileReceiveEnd(filePath, null);
+                }
+
+                if (portRecycle != null)
+                {
+                    portRecycle(this);
+                }
+
+                if (total != 0L)
+                {
+                    if (FileSizeError != null)
+                    {
+                        FileSizeError(this, null);
+                    }
                 }
             }
-
-            data_ns.Dispose();
-            dataTrans.Close();
-            file.Close();
-
-            if (FileReceiveEnd != null)
+            catch (Exception e)
             {
-                FileReceiveEnd(filePath, null);
-            }
-
-            if (portRecycle != null)
-            {
-                portRecycle(this);
-            }
-            if (total != 0L)
-            {
-                if (FileSizeError != null)
+                if (portRecycle != null)
                 {
-                    FileSizeError(this, null);
+                    portRecycle(this);
                 }
             }
         }
@@ -213,39 +224,53 @@ namespace ClientNet
         /// </summary>
         private void SendData()
         {
-            if (FileSendBegin != null)
+            try
             {
-                FileSendBegin(this, null);
-            }
-            long totle=0L;
-            int byteRead;
-            Byte[] buffer = new Byte[1024];
-            FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-
-            byteRead = file.Read(buffer, 0, 1024);
-            while (byteRead > 0)
-            {
-                data_ns.Write(buffer, 0, byteRead);
-                Array.Clear(buffer, 0, 1024);
-                byteRead = file.Read(buffer, 0, 1024);
-                totle+=byteRead;
-                if (SendFileRate != null)
+                if (FileSendBegin != null)
                 {
-                    SendFileRate(totle / fileLength);
+                    FileSendBegin(this, null);
+                }
+                long totle = 0L;
+                int byteRead;
+                Byte[] buffer = new Byte[1024];
+                FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+
+                byteRead = file.Read(buffer, 0, 1024);
+                while (byteRead > 0)
+                {
+                    data_ns.Write(buffer, 0, byteRead);
+                    Array.Clear(buffer, 0, 1024);
+                    byteRead = file.Read(buffer, 0, 1024);
+                    totle += byteRead;
+                    if (SendFileRate != null)
+                    {
+                        SendFileRate(totle / fileLength);
+                    }
+                }
+
+                data_ns.Dispose();
+                dataTrans.Close();
+                file.Close();
+
+                if (FileSendEnd != null)
+                {
+                    FileSendEnd(filePath, null);
+                }
+
+                if (portRecycle != null)
+                {
+                    portRecycle(this);
+                }
+
+                
+            }
+            catch
+            {
+                if (portRecycle != null)
+                {
+                    portRecycle(this);
                 }
             }
-
-            data_ns.Dispose();
-            dataTrans.Close();
-            file.Close();
-
-            if (FileSendEnd != null)
-            {
-                FileSendEnd(filePath, null);
-            }
-
-            if (portRecycle != null)
-                portRecycle(this);
         }
     }
     public delegate void ReturnVal(double rate);

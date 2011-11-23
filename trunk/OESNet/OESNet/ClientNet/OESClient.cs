@@ -154,7 +154,7 @@ namespace ClientNet
                 {
                     ConnectError(e, null);
                 }
-                SendError("");
+                SendError(e.ToString());
                 return (false);
             }
             return (true);
@@ -182,7 +182,7 @@ namespace ClientNet
                 {
                     ConnectError(e, null);
                 }
-                SendError("");
+                SendError(e.ToString());
             }
         }
         /// <summary>
@@ -202,7 +202,7 @@ namespace ClientNet
                 {
                     ReceiveError(e, null);
                 }
-                SendError("");
+                SendError(e.ToString());
             }
             try
             {
