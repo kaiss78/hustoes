@@ -229,6 +229,8 @@ namespace ServerNet
             {
                 if (FileSendError != null)
                     FileSendError(this, new ErrorEventArgs(ex));
+                if (portRecycle != null)
+                    portRecycle(this);
             }
         }
 
@@ -277,6 +279,8 @@ namespace ServerNet
             {
                 if (FileReceiveError != null)
                     FileReceiveError(this, new ErrorEventArgs(ex));
+                if (portRecycle != null)
+                    portRecycle(this);
             }
         }
     }
