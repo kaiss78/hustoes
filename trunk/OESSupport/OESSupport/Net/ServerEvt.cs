@@ -13,7 +13,9 @@ namespace OESSupport.Net
     public class ServerEvt
     {
         public OESServer Server = new OESServer();
-        
+
+        public string LogFile = "Teacher2Support.log";
+
         public ServerEvt()
         {
             Server.AcceptedClient += new EventHandler(Server_AcceptedClient);
@@ -29,12 +31,12 @@ namespace OESSupport.Net
 
         void Server_WrittenMsg(Client client, string msg)
         {
-            Console.WriteLine("Send:\t"+msg);
+            Console_Color_WriteLine("Send:\t"+msg,ConsoleColor.White);
         }
 
         void Server_ReceivedMsg(Client client, string msg)
         {
-            Console.WriteLine("Recieve:\t"+msg);
+            Console_Color_WriteLine("Recieve:\t"+msg,ConsoleColor.White);
         }
 
         void Server_ReceivedTxt(Client client, string msg)
@@ -241,9 +243,7 @@ namespace OESSupport.Net
             {
                 if (t.client == sender as Client)
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine(t.ToString() + " Logout...");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    Console_Color_WriteLine(t.ToString() + " Logout...", ConsoleColor.DarkYellow);
                     Program.TeacherList.Remove(t);
                     break;
                 }
@@ -264,23 +264,31 @@ namespace OESSupport.Net
 
         void Server_FileSendEnd(DataPort dataPort)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("File Send End!");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console_Color_WriteLine("File Send End!",ConsoleColor.Green);
         }
 
         void Server_FileReceiveEnd(DataPort dataPort)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("File Receive End!");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console_Color_WriteLine("File Receive End!",ConsoleColor.Green);
         }
 
         void Server_AcceptedClient(object sender, EventArgs e)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("A Teacher Login...");
+            Console_Color_WriteLine("A Teacher Login...",ConsoleColor.Yellow);
+        }
+
+        void Console_Color_WriteLine(string msg, ConsoleColor c)
+        {
+            Console.ForegroundColor = c;
+            Console.WriteLine("["+DateTime.Now.ToString()+"] "+msg);
             Console.ForegroundColor = ConsoleColor.White;
+            if (!string.IsNullOrEmpty(LogFile))
+            {
+                using (StreamWriter sw = new StreamWriter(LogFile, true, Encoding.Default))
+                {
+                    sw.WriteLine("["+DateTime.Now.ToString()+"] "+msg);
+                }
+            }
         }
     }
 }
