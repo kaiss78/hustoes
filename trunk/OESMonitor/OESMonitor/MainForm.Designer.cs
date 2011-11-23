@@ -45,7 +45,6 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.netState1 = new OES.NetState();
             this.label5 = new System.Windows.Forms.Label();
             this.lab_DataPortCount = new System.Windows.Forms.Label();
             this.buttonExamStatue = new System.Windows.Forms.Button();
@@ -82,6 +81,7 @@
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelDir = new System.Windows.Forms.FlowLayoutPanel();
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
+            this.netState1 = new OES.NetState();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -251,16 +251,6 @@
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "考试状态";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // netState1
-            // 
-            this.netState1.BackColor = System.Drawing.Color.Transparent;
-            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.netState1.Location = new System.Drawing.Point(636, 3);
-            this.netState1.Name = "netState1";
-            this.netState1.Size = new System.Drawing.Size(213, 26);
-            this.netState1.State = 0;
-            this.netState1.TabIndex = 8;
             // 
             // label5
             // 
@@ -637,6 +627,16 @@
             this.fileSystemWatcher.EnableRaisingEvents = true;
             this.fileSystemWatcher.SynchronizingObject = this;
             // 
+            // netState1
+            // 
+            this.netState1.BackColor = System.Drawing.Color.Transparent;
+            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.netState1.Location = new System.Drawing.Point(636, 3);
+            this.netState1.Name = "netState1";
+            this.netState1.Size = new System.Drawing.Size(213, 26);
+            this.netState1.State = 0;
+            this.netState1.TabIndex = 8;
+            // 
             // OESMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -646,6 +646,8 @@
             this.ClientSize = new System.Drawing.Size(878, 495);
             this.Controls.Add(this.tabControl2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(894, 533);
+            this.MinimumSize = new System.Drawing.Size(894, 533);
             this.Name = "OESMonitor";
             this.Text = "OESMonitor";
             this.Load += new System.EventHandler(this.OESMonitor_Load);

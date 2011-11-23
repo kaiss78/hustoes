@@ -198,8 +198,9 @@ namespace OESMonitor
         }
 
        
-        void OESMonitor_HandInPaper()
+        public void OESMonitor_HandInPaper()
         {
+            OESMonitor.HandInCount++;
             Client.SendTxt("oes$5");
         }
 
@@ -273,6 +274,7 @@ namespace OESMonitor
         void client_LogoutSuccess()
         {
             this.State = 1;
+            this.Student = new Student("", "", "", "");
         }
 
         void client_LoginSuccess()
