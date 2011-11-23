@@ -3,23 +3,41 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
- 
+
 using System.Text;
 using System.Windows.Forms;
 using OES.Model;
 using OES.Error;
 using OES.Net;
+using System.IO;
 
 namespace OES
 {
     public partial class LoginForm : Form
-    {        
+    {
         public LoginForm()
         {
             InitializeComponent();
-            // 
-            // netState1
-            // 
+
+            #region 清空试卷目录内的内容
+            if (Directory.Exists(Config.PaperPath))
+            {
+                string[] pathes = Directory.GetFileSystemEntries(Config.PaperPath);
+                foreach (string path in pathes)
+                {
+                    if (Directory.Exists(path))
+                    {
+                        Directory.Delete(path, true);
+                    }
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                    }
+                }
+            }
+            #endregion
+
+            #region 网络连接状态初始化
             this.netState1 = new OES.NetState(10);
             this.netState1.BackColor = System.Drawing.Color.Transparent;
             this.netState1.Location = new System.Drawing.Point(556, 290);
@@ -32,6 +50,7 @@ namespace OES
             netState1.ReConnect -= netState1_ReConnect;
             ClientEvt.LoginReturn += new EventHandler(ClientEvt_LoginReturn);
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
+            #endregion
         }
 
         void netState1_ReConnect(object sender, EventArgs e)
@@ -46,6 +65,11 @@ namespace OES
             }
         }
 
+        /// <summary>
+        /// 学生登录信息返回
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void ClientEvt_LoginReturn(object sender, EventArgs e)
         {
             while (!this.IsHandleCreated) ;
@@ -72,13 +96,9 @@ namespace OES
 
         private void butLogin_Click(object sender, EventArgs e)
         {
-            //获取当前学生信息
-            ClientControl.student = new Student(this.SName.Text,"", this.ExamNo.Text, this.Password.Text);
-            
-            //递交服务端验证……
+            //学生信息验证
+            ClientControl.student = new Student(this.SName.Text, "", this.ExamNo.Text, this.Password.Text);
             ClientEvt.validStudent(ClientControl.student.sName, ClientControl.student.ID, ClientControl.student.password);
-            //
-            
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
