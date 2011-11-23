@@ -183,6 +183,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudentAnsDirectory.resx">
+      <DependentUpon>StudentAnsDirectory.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -198,6 +201,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Net\ClientEvt.cs" />
+    <Compile Include="StudentAnsDirectory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentAnsDirectory.Designer.cs">
+      <DependentUpon>StudentAnsDirectory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility\RARHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Monitor.ico" />
+    <None Include="Resources\address-book-new.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

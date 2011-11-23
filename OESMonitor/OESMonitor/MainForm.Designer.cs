@@ -79,6 +79,9 @@
             this.groupBoxPass = new System.Windows.Forms.GroupBox();
             this.timer_PortCounter = new System.Windows.Forms.Timer(this.components);
             this.timer_Broadcast = new System.Windows.Forms.Timer(this.components);
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelDir = new System.Windows.Forms.FlowLayoutPanel();
+            this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -95,6 +98,8 @@
             this.groupBoxBroadcast.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -220,6 +225,7 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Controls.Add(this.tabPage6);
+            this.tabControl2.Controls.Add(this.tabPage10);
             this.tabControl2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Multiline = true;
@@ -605,6 +611,30 @@
             // 
             this.timer_Broadcast.Tick += new System.EventHandler(this.timer_Broadcast_Tick);
             // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.flowLayoutPanelDir);
+            this.tabPage10.Location = new System.Drawing.Point(25, 4);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(849, 487);
+            this.tabPage10.TabIndex = 3;
+            this.tabPage10.Text = "试卷文件夹管理";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelDir
+            // 
+            this.flowLayoutPanelDir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelDir.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanelDir.Name = "flowLayoutPanelDir";
+            this.flowLayoutPanelDir.Size = new System.Drawing.Size(843, 481);
+            this.flowLayoutPanelDir.TabIndex = 0;
+            // 
+            // fileSystemWatcher
+            // 
+            this.fileSystemWatcher.EnableRaisingEvents = true;
+            this.fileSystemWatcher.SynchronizingObject = this;
+            // 
             // OESMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -640,6 +670,8 @@
             this.groupBoxBroadcast.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
+            this.tabPage10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -695,6 +727,9 @@
         private System.Windows.Forms.Button buttonBroadcastRepeat;
         private System.Windows.Forms.Button buttonBroadcastOnce;
         private System.Windows.Forms.Timer timer_Broadcast;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDir;
+        private System.IO.FileSystemWatcher fileSystemWatcher;
 
     }
 }
