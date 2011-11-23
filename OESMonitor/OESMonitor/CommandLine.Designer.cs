@@ -34,6 +34,9 @@
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.FormattingEnabled = true;
             this.listView1.ItemHeight = 12;
             this.listView1.Location = new System.Drawing.Point(12, 12);

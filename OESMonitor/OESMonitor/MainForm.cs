@@ -517,12 +517,12 @@ namespace OESMonitor
 
         void Server_WrittenMsg(Client client, string msg)
         {
-            cl.showMessage("Write:\t"+msg);
+            cl.showMessage("(" + client.ClientIp + ")" + "Write:\t" + msg);
         }
 
         void Server_ReceivedMsg(Client client, string msg)
         {
-            cl.showMessage("Read:\t"+msg);
+            cl.showMessage("(" + client.ClientIp + ")" + "Read:\t" + msg);
         }
 
         void Server_SendDataReady(Client client, string msg)
@@ -563,6 +563,7 @@ namespace OESMonitor
                     if (RARHelper.Exists())
                     {
                         RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID+"\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
+                        while (!Directory.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\")) ;
                         File.WriteAllText(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\password.txt", Computer.ComputerList[i].Password);
                     }
                     Computer.ComputerList[i].State = 4;
@@ -574,6 +575,7 @@ namespace OESMonitor
                     Computer.ComputerList.Remove(Computer.ComputerList[i]);
                     UpdateList();
                     UpdateCompleteList();
+                    break;
                 }
             }
         }
