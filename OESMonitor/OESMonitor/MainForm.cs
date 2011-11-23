@@ -34,8 +34,19 @@ namespace OESMonitor
         /// 当前考试的试卷列表
         /// </summary>
         public static List<int> examPaperIdList = new List<int>();
-
-        public static event Action HandInPaper;
+        public static int HandInCount = 0;
+        private static event Action handInPaper;
+        public static event Action HandInPaper
+        {
+            add
+            {
+                handInPaper += value;
+            }
+            remove
+            {
+                handInPaper -= value;
+            }
+        }
 
         bool isStartExam = false;
         public bool IsStartExam
@@ -59,9 +70,9 @@ namespace OESMonitor
                 else
                 {
                     buttonExamStatue.Text = "开始考试/收卷";
-                    if (HandInPaper != null)
+                    if (handInPaper != null)
                     {
-                        HandInPaper();
+                        handInPaper();
                     }
                     else
                     {
@@ -153,6 +164,10 @@ namespace OESMonitor
             downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
 
             #region 考试答案文件夹监视管理
+            if(!Directory.Exists(PaperControl.PathConfig["StuAns"]))
+            {
+                Directory.CreateDirectory(PaperControl.PathConfig["StuAns"]);
+            }
             fileSystemWatcher.Path = PaperControl.PathConfig["StuAns"];
             fileSystemWatcher.Changed += new FileSystemEventHandler(fileSystemWatcher_Changed);
             fileSystemWatcher.Deleted += new FileSystemEventHandler(fileSystemWatcher_Changed);
@@ -632,6 +647,12 @@ namespace OESMonitor
                     Computer.ComputerList.Remove(Computer.ComputerList[i]);
                     UpdateList();
                     UpdateCompleteList();
+                    HandInCount--;
+                    if (HandInCount == 0)
+                    {
+                        ServerEvt.Server.IsPortAvailable = false;
+                        timer_PortCounter.Stop();
+                    }
                     break;
                 }
             }

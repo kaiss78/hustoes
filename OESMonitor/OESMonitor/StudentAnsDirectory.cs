@@ -44,8 +44,11 @@ namespace OESMonitor
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (OnDelete != null)
-                OnDelete(this);
+            if (MessageBox.Show("您确定要删除该考生的答案？", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (OnDelete != null)
+                    OnDelete(this);
+            }
         }
 
 
