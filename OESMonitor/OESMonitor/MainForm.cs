@@ -18,7 +18,7 @@ namespace OESMonitor
 {
     public partial class OESMonitor : Form
     {
-        CommandLine cl = new CommandLine();
+        CommandLine cl = new CommandLine("Client2Monitor.log");
         List<IPAddress> alternativeIp = new List<IPAddress>();
         public static int paperDeliverMode = 0;
         /// <summary>

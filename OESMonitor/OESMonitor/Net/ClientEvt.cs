@@ -9,7 +9,7 @@ namespace OESMonitor.Net
     public class ClientEvt
     {
         public OESClient Client;
-        public static CommandLine cmdForm = new CommandLine();
+        public static CommandLine cmdForm = new CommandLine("Support2Monitor.log");
         public ClientEvt()
         {
             cmdForm.Text = "与服务端（support）的通信命令";
