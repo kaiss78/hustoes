@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using OES.Model;
 using OES.Net;
+using OES.XMLFile;
 
 namespace OESScore
 {
@@ -21,6 +22,7 @@ namespace OESScore
         private System.Windows.Forms.DataGridViewTextBoxColumn StuName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Score;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvAnsTable;
+        private List<StuFolder> StuList = new List<StuFolder>();
 
         public formOESScore()
         {
@@ -31,7 +33,7 @@ namespace OESScore
             ClientEvt.Client.DisConnectError += new ErrorEventHandler(Client_DisConnectError);
             scoreNet.Init();
             tsslPath.Text = ScoreControl.config["PaperPath"];
-            LoadPaperList();
+            LoadStudentList();
         }
 
         void Client_DisConnectError(object sender, ErrorEventArgs e)
@@ -80,35 +82,99 @@ namespace OESScore
             values[1] = pf.paperInfo.paperName;
             values[2] = 50;
             values[3] = ScoreControl.GetFolderInfo(pf.Path.FullName).Count;
-            dgvPaperTable.Rows.Add(values);
+            dgvStudentTable.Rows.Add(values);
         }
 
         /// <summary>
         /// 载入试卷
         /// 获取试卷目录里的试卷信息，在表格中显示出来
         /// </summary>
-        public void LoadPaperList()
+        public void LoadStudentList()
         {
-            List<DirectoryInfo> paperList;
+            StuFolder tmpSF;
+            List<Student> tmpS;
             List<Paper> tmpP;
-            PaperFolder tmpPF;
-            paperList = ScoreControl.GetFolderInfo(ScoreControl.config["PaperPath"]);
-            dgvPaperTable.Rows.Clear();
-            foreach (DirectoryInfo paper in paperList)
-            {
+            List<DirectoryInfo> studentList;
+            StuList = new List<StuFolder>();
+            studentList = ScoreControl.GetFolderInfo(ScoreControl.config["PaperPath"]);
+            dgvStudentTable.Rows.Clear();
+            object[] values = new object[4];
 
-                tmpP = ScoreControl.OesData.FindPaperById(paper.Name);
-                if (tmpP.Count > 0)
+            foreach (DirectoryInfo stu in studentList)
+            {
+                tmpS = ScoreControl.OesData.FindStudentByStudentId(stu.Name);
+                if (tmpS.Count > 0)
                 {
-                    tmpPF = new PaperFolder();
-                    tmpPF.paperInfo = tmpP[0];
-                    tmpPF.Path = paper;
-                    papers.Add(tmpPF);
-                    AddToDGV(tmpPF);
+                    tmpSF = new StuFolder();
+                    tmpSF.PaperInfo = new Paper();
+                    tmpSF.StuInfo = tmpS[0];
+                    tmpSF.Score = new Score();
+                    tmpSF.Score.score = "0";
+                    tmpSF.path = stu;
+                    tmpSF.StuAns = ScoreControl.GetStuAns(stu.FullName);                   
+                    tmpP = ScoreControl.OesData.FindPaperById(XMLControl.GetStudentAnsPaper(stu.FullName + "\\studentAns.xml").ToString());
+                    if (tmpP.Count > 0)
+                    {
+                        tmpSF.PaperInfo = tmpP[0];
+                    }
+                    else
+                    {                        
+                        tmpSF.PaperInfo.paperName = "试卷不存在";
+                        tmpSF.PaperInfo.paperID = "-1";
+                    }
+                    if (File.Exists(stu.FullName + "\\Result.xml"))
+                    {
+                        tmpSF.ReadResult(stu.FullName + "\\Result.xml");
+                    }
+
+                    StuList.Add(tmpSF);
+                    values[0] = tmpSF.StuInfo.ID;
+                    values[1] = tmpSF.StuInfo.sName;
+                    values[2] = tmpSF.PaperInfo.paperName;
+                    values[3] = tmpSF.Score.score;
+                    dgvStudentTable.Rows.Add(values);
                 }
+            } 
+        }
+        public void MarkAll()
+        {
+            for (int i = 0; i < StuList.Count; i++)
+            {
+                Mark(i);
             }
         }
 
+        public int Mark(int RIndex)
+        {
+            List<string> proAns;
+            int Score = 0, dScore = 0;
+            StuList[RIndex].Score.sum = new List<Sum>();
+            ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID);
+            XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
+            foreach (Answer ans in StuList[RIndex].StuAns.Ans)
+            {
+                dScore = 0;
+                if ((ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
+                {
+                    dScore = ScoreControl.staAns.Ans[ans.ID].Score;
+                }
+                StuList[RIndex].Score.addDetail(ans.Type, dScore);
+                XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
+                Score += dScore;
+            }
+            if (File.Exists(StuList[RIndex].path.FullName + "\\g.c"))  //程序改错
+            {
+                proAns = ScoreControl.correctPC(StuList[RIndex].path.FullName + "\\g.c");
+            }
+            if (File.Exists(StuList[RIndex].path.FullName + "\\h.c"))  //程序综合
+            {
+            }
+            if (File.Exists(StuList[RIndex].path.FullName + "\\i.c"))  //程序填空
+            {
+                proAns = ScoreControl.correctPC(StuList[RIndex].path.FullName + "\\i.c");
+            }
+            return Score;
+        }
 
         /// <summary>
         /// 选择路径
@@ -132,9 +198,7 @@ namespace OESScore
                     MessageBox.Show("文件夹不存在", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-
-            LoadPaperList();
+            LoadStudentList();
         }
 
         /// <summary>
@@ -147,22 +211,24 @@ namespace OESScore
             int RIndex = e.RowIndex;
             if (RIndex > -1)
             {
-                formScore formscore = new formScore(papers[RIndex].Path.FullName);
+                StuList[RIndex].Score.score=Mark(RIndex).ToString();
+                dgvStudentTable.Rows[RIndex].Cells[3].Value= StuList[RIndex].Score.score;
+                //formScore formscore = new formScore(papers[RIndex].Path.FullName);
 
-                ScoreControl.staAns = ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
+                //ScoreControl.staAns = ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
 
-                formscore.ShowDialog();
-                formscore.Dispose();
+                //formscore.ShowDialog();
+                //formscore.Dispose();
             }
         }
 
         private void btnScore_Click(object sender, EventArgs e)
         {
-            int RIndex = dgvPaperTable.CurrentRow.Index;
+            int RIndex = dgvStudentTable.CurrentRow.Index;
             if (RIndex > -1)
             {
-                ScoreControl.staAns = ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
-                formScore formscore = new formScore(papers[RIndex].Path.FullName);
+                //ScoreControl.staAns = ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
+                //formScore formscore = new formScore(papers[RIndex].Path.FullName);
             }
 
 

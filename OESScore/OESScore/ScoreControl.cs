@@ -19,7 +19,8 @@ namespace OESScore
         /// </summary>
         public static OESConfig config = new OESConfig("PathConfig.xml",
         new string[,] {
-                        {"PaperPath","c:\\"}
+                        {"PaperPath","c:\\"},
+                        {"AnswerPath","c:\\"}
                       });
 
         /// <summary>
@@ -181,14 +182,15 @@ namespace OESScore
         /// <param name="ID">试卷ID</param>
         /// <param name="path">试卷路径</param>
         /// <returns></returns>
-        public static StaAns SetStandardAnswer(string ID, string path)
+        public static StaAns SetStandardAnswer(string ID)
         {
             StaAns newAnswer;
             Answer ans;
             List<IdScoreType> proList = new List<IdScoreType>();
             List<IdAnswerType> ansList = new List<IdAnswerType>();
-            proList = XMLControl.ReadPaper(path + "\\" + ID + ".xml");
-            ansList = XMLControl.ReadPaperAns(path + "\\A" + ID + ".xml");
+            string st = ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml";
+            proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml");
+            ansList = XMLControl.ReadPaperAns(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\A" + ID + ".xml");
             newAnswer = new StaAns();
             newAnswer.Ans = new List<Answer>();
             newAnswer.PaperID = ID;
