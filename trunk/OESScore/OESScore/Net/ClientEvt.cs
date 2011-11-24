@@ -19,7 +19,7 @@ namespace OES.Net
 
         public ClientEvt()
         {
-
+            
         }
         public void Init()
         {
@@ -27,7 +27,6 @@ namespace OES.Net
             Client.ReceivedTxt += new EventHandler(Client_ReceivedTxt);
             Client.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
             Client.Port.FileSendEnd += new EventHandler(Port_FileSendEnd);
-            this.Login();
         }
         void Port_FileSendEnd(object sender, EventArgs e)
         {
