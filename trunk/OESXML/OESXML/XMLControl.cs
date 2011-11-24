@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
- 
+
 using System.Text;
 using System.IO;
 using System.Diagnostics;
@@ -13,11 +13,11 @@ namespace OES.XMLFile
         /// <summary>
         /// 试卷XML
         /// </summary>
-        public static XMLAssistant paperXML;    
+        public static XMLAssistant paperXML;
         /// <summary>
         /// 评分XML
         /// </summary>
-        public static XMLAssistant scoreXML;    
+        public static XMLAssistant scoreXML;
         /// <summary>
         /// 考试答案XML
         /// </summary>
@@ -25,29 +25,34 @@ namespace OES.XMLFile
         /// <summary>
         /// 试卷答案XML
         /// </summary>
-        public static XMLAssistant paperAnsXML; 
+        public static XMLAssistant paperAnsXML;
         /// <summary>
         /// 考试日志XML
         /// </summary>
-        public static XMLAssistant logXML;      
+        public static XMLAssistant logXML;
 
         #region 学生答案XML
-        public static void CreateStudentAnsXML(string rootPath,string stuId)
+        public static void CreateStudentAnsXML(string rootPath, string stuId, string paperId)
         {
             if (File.Exists(rootPath + "studentAns.xml"))
             {
                 File.Delete(rootPath + "studentAns.xml");
             }
-            studentAnsXML = new XMLAssistant(rootPath + "studentAns.xml", XMLType.StudentAnswer, new String[] { stuId });
+            studentAnsXML = new XMLAssistant(rootPath + "studentAns.xml", XMLType.StudentAnswer, new String[] { stuId, paperId });
         }
         public static void AddStudentAns(ProblemType pt, int id, string answer)
         {
-            studentAnsXML.AddStudentAns(pt, new Pid_Ans(id,answer));
+            studentAnsXML.AddStudentAns(pt, new Pid_Ans(id, answer));
         }
         public static List<IdAnswerType> ReadStudentAns(string filePath)
         {
             studentAnsXML = new XMLAssistant(filePath, XMLType.StudentAnswer, null);
             return studentAnsXML.GetAnswer();
+        }
+        public static int GetStudentAnsPaper(string filePath)
+        {
+            studentAnsXML  = new XMLAssistant(filePath, XMLType.StudentAnswer, null);
+            return Convert.ToInt32(studentAnsXML.getStuAnsPaperId());
         }
         #endregion
 
@@ -76,7 +81,7 @@ namespace OES.XMLFile
                 throw new Exception("您无法重新考试");
             }
         }
-        public static void WriteLogXML(string rootPath,ProblemType pt, int proId, String ans)
+        public static void WriteLogXML(string rootPath, ProblemType pt, int proId, String ans)
         {
             if (File.Exists(rootPath + "log.xml"))
             {
@@ -138,13 +143,13 @@ namespace OES.XMLFile
         #endregion
 
         #region 考生分数XML
-        public static void CreateScoreXML(string path,string paperId, string stuId)
+        public static void CreateScoreXML(string path, string paperId, string stuId)
         {
             if (File.Exists(path))
             {
                 File.Delete(path);
             }
-            scoreXML = new XMLAssistant(path, XMLType.StudentScore, new String[] {paperId, stuId });
+            scoreXML = new XMLAssistant(path, XMLType.StudentScore, new String[] { paperId, stuId });
         }
         public static void AddScore(ProblemType pt, int id, int score)
         {
