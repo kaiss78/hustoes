@@ -145,7 +145,7 @@ namespace OES
             this.BeginInvoke(new MethodInvoker(() =>
                         {
                             //生成考生答案xml
-                            XMLControl.CreateStudentAnsXML(Config.stuPath, ClientControl.student.ID);
+                            XMLControl.CreateStudentAnsXML(Config.stuPath, ClientControl.student.ID,ClientControl.paper.paperID);
                             foreach (Problem p in ClientControl.paper.problemList)
                             {
                                 XMLControl.studentAnsXML.AddStudentAns(p.type, new Pid_Ans(p.problemId, p.getAns()));
