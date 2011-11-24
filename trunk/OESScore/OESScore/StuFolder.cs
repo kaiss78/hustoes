@@ -14,7 +14,7 @@ namespace OESScore
         public DirectoryInfo path;
         public StaAns StuAns;        
         public Score Score;
-       
+        public Paper PaperInfo;
         public void ReadResult(string path)
         {            
             int tot = 0;
