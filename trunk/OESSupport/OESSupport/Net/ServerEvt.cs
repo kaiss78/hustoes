@@ -235,6 +235,21 @@ namespace OESSupport.Net
                         break;
                 }
             }
+            else if (msgs[0] == "score")
+            {
+                switch (msgs[1])
+                {
+                    case "0":
+                        Program.TeacherList.Add(new Teacher("-1", client));
+                        client.DisConnect += new EventHandler(client_DisConnect);
+                        string temp = "score$1";
+                        client.SendTxt(temp);
+                        break;
+                    case "2":
+
+                        break;
+                }
+            }
         }
 
         void client_DisConnect(object sender, EventArgs e)
