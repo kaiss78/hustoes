@@ -34,6 +34,8 @@ namespace OESMonitor
         /// 当前考试的试卷列表
         /// </summary>
         public static List<int> examPaperIdList = new List<int>();
+        public static List<string> examPaperNameList = new List<string>();
+
         public static int HandInCount = 0;
         private static event Action handInPaper;
         public static event Action HandInPaper
@@ -425,7 +427,10 @@ namespace OESMonitor
             foreach (DataRow dr in paperListDataTable.Rows)
             {
                 if (Convert.ToBoolean(dr[0]))
+                {
                     examPaperIdList.Add(Convert.ToInt32(dr[1].ToString()));
+                    examPaperNameList.Add(dr[2].ToString());
+                }
             }
         }
 
@@ -603,7 +608,7 @@ namespace OESMonitor
             {
                 if (c.Client == client)
                 {
-                    client.Port.FilePath = c.ExamPaper;
+                    client.Port.FilePath = c.ExamPaperPath;
                 }
             }
         }
