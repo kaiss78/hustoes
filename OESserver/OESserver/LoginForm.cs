@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.Net;
+using System.IO;
 
 namespace OES
 {
@@ -15,6 +16,13 @@ namespace OES
         public LoginForm()
         {
             InitializeComponent();
+            foreach (string st in InfoControl.config.GetAllConfig().Values)
+            {
+                if (!Directory.Exists(st))
+                {
+                    Directory.CreateDirectory(st);
+                }
+            }
             #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
             netState1.State = 2;
