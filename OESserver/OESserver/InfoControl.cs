@@ -11,7 +11,7 @@ namespace OES
 {
     public class InfoControl
     {
-        //这里是网络部分接口
+        // 这里是网络部分接口
         private static ClientEvt clientObj = new ClientEvt();
 
         public static ClientEvt ClientObj
