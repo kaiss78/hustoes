@@ -27,6 +27,13 @@ namespace OESScore
         public formOESScore()
         {
             InitializeComponent();
+            foreach (string st in ScoreControl.config.GetAllConfig().Values)
+            {
+                if (!Directory.Exists(st))
+                {
+                    Directory.CreateDirectory(st);
+                }
+            }
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
             netState1.State = 2;
             ClientEvt.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);

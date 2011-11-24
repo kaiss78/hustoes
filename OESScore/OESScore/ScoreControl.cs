@@ -187,8 +187,16 @@ namespace OESScore
             StaAns newAnswer;
             Answer ans;
             List<IdScoreType> proList = new List<IdScoreType>();
-            List<IdAnswerType> ansList = new List<IdAnswerType>();
-            string st = ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml";
+            List<IdAnswerType> ansList = new List<IdAnswerType>();            
+            if (!File.Exists(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml"))
+            {
+                return null;
+            }
+            if (!File.Exists(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\A" + ID + ".xml"))
+            {
+                return null;
+            }
+
             proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml");
             ansList = XMLControl.ReadPaperAns(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\A" + ID + ".xml");
             newAnswer = new StaAns();
