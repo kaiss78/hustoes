@@ -12,7 +12,7 @@ namespace OES.Net
     {
         public static OESClient Client = new OESClient();
         public static event EventHandler LoginReturn;
-        public static string RootPath = ScoreControl.config["PaperPath"];
+        public static string RootPath = "";
         List<string> remoteCom = new List<string>();
         List<string> localPath = new List<string>();
         public static Boolean isOver = true;
@@ -72,9 +72,9 @@ namespace OES.Net
             
         }
 
-        public void Login(int tid)
+        public void Login()
         {
-            Client.SendTxt("server$4$0");
+            Client.SendTxt("score$0");
         }
         public void LoadPaper(int id, int tid)
         {
