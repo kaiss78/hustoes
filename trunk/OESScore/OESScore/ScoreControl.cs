@@ -8,12 +8,14 @@ using OES.Model;
 using System.IO;
 using Microsoft.Win32;
 using System.Diagnostics;
+using OES.Net;
 
 namespace OESScore
 {
     public class ScoreControl
     {
         public static StaAns staAns;
+        public static  ClientEvt scoreNet = new ClientEvt();
         /// <summary>
         /// 配置文件设置
         /// </summary>
@@ -187,14 +189,15 @@ namespace OESScore
             StaAns newAnswer;
             Answer ans;
             List<IdScoreType> proList = new List<IdScoreType>();
-            List<IdAnswerType> ansList = new List<IdAnswerType>();            
-            if (!File.Exists(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml"))
+            List<IdAnswerType> ansList = new List<IdAnswerType>();
+            if ((!File.Exists(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\A" + ID + ".xml")))
             {
-                return null;
-            }
-            if (!File.Exists(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\A" + ID + ".xml"))
-            {
-                return null;
+                ClientEvt.RootPath = ScoreControl.config["AnswerPath"] + "\\" + ID + "\\";
+                scoreNet.LoadPaper(Convert.ToInt32(ID), -1);
+                scoreNet.SendFiles();
+                while (!ClientEvt.isOver);
+                
+                //return null;
             }
 
             proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml");
