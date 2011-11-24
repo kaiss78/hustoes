@@ -135,6 +135,9 @@ namespace OES.XMLFile
                                 xa = xd.CreateAttribute("type");
                                 xmlelem.Attributes.Append(xa);
                                 xmlelem.SetAttribute("type", "Student");
+                                xa = xd.CreateAttribute("pid");
+                                xmlelem.Attributes.Append(xa);
+                                xmlelem.SetAttribute("pid", ((string[])o)[1]);
                                 xmlelem1 = xd.CreateElement("Choice");
                                 xmlelem.AppendChild(xmlelem1);
                                 xmlelem1 = xd.CreateElement("Completion");
@@ -202,6 +205,11 @@ namespace OES.XMLFile
         public string getPaperId()
         {
             return xd.ChildNodes.Item(1).ChildNodes.Item(0).Attributes["id"].Value.ToString();
+        }
+
+        public string getStuAnsPaperId()
+        {
+            return xd.ChildNodes.Item(1).ChildNodes.Item(0).Attributes["pid"].Value.ToString();
         }
 
         public string Get(ProblemType pt)
