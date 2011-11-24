@@ -92,8 +92,11 @@ namespace ServerNet
             set 
             {
                 port = value;
-                port.InitDataPort(this.client.Client.RemoteEndPoint);
-                port.FileSizeError += new ErrorEventHandler(port_FileSizeError);
+                if (value != null)
+                {
+                    port.InitDataPort(this.client.Client.RemoteEndPoint);
+                    port.FileSizeError += new ErrorEventHandler(port_FileSizeError);
+                }
             }
         }
         /// <summary>
