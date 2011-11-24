@@ -39,6 +39,7 @@ namespace OESScore
             ClientEvt.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
             ClientEvt.Client.DisConnectError += new ErrorEventHandler(Client_DisConnectError);
             ScoreControl.scoreNet.Init();
+            ScoreControl.scoreNet.Login();
             tsslPath.Text = ScoreControl.config["PaperPath"];
             LoadStudentList();
         }
