@@ -77,7 +77,8 @@ namespace OES
                         {
                             if (sender != null)
                             {
-                                ClientEvt.Paper = sender.ToString();
+                                ClientEvt.Paper = ((string[])sender)[0].ToString();
+                                ClientControl.paper.paperName = ((string[])sender)[1].ToString();
                                 ClientControl.ExamForm.Show();
                                 ClientControl.ExamForm.ExamForm_Load(ClientControl.ExamForm, null);
                                 this.Hide();

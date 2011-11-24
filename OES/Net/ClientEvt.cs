@@ -75,7 +75,7 @@ namespace OES.Net
                             case "1":
                                 if (LoginReturn != null)
                                 {
-                                    LoginReturn(msgs[3], null);
+                                    LoginReturn(new string[] { msgs[3], msgs[4] }, null);
                                 }
                                 break;
                             case "0":
