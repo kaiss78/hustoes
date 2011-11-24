@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.groupBoxServerConfig = new System.Windows.Forms.GroupBox();
             this.groupBoxPathConfig = new System.Windows.Forms.GroupBox();
+            this.groupBoxDbConfig = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // groupBoxServerConfig
@@ -51,16 +52,24 @@
             this.groupBoxPathConfig.TabStop = false;
             this.groupBoxPathConfig.Text = "路径配置";
             // 
+            // groupBoxDbConfig
+            // 
+            this.groupBoxDbConfig.Location = new System.Drawing.Point(571, 13);
+            this.groupBoxDbConfig.Name = "groupBoxDbConfig";
+            this.groupBoxDbConfig.Size = new System.Drawing.Size(269, 317);
+            this.groupBoxDbConfig.TabIndex = 2;
+            this.groupBoxDbConfig.TabStop = false;
+            this.groupBoxDbConfig.Text = "数据库配置";
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 342);
+            this.ClientSize = new System.Drawing.Size(850, 342);
+            this.Controls.Add(this.groupBoxDbConfig);
             this.Controls.Add(this.groupBoxPathConfig);
             this.Controls.Add(this.groupBoxServerConfig);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(593, 380);
-            this.MinimumSize = new System.Drawing.Size(593, 380);
             this.Name = "ConfigForm";
             this.Text = "ConfigForm";
             this.ResumeLayout(false);
@@ -71,5 +80,6 @@
 
         private System.Windows.Forms.GroupBox groupBoxServerConfig;
         private System.Windows.Forms.GroupBox groupBoxPathConfig;
+        private System.Windows.Forms.GroupBox groupBoxDbConfig;
     }
 }

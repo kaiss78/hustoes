@@ -14,6 +14,7 @@ namespace OESScore
     {
         private ConfigEditor clientConfig = new ConfigEditor("ClientConfig.xml");
         private ConfigEditor pathConfig = new ConfigEditor("PathConfig.xml");
+        private ConfigEditor dbConfig = new ConfigEditor("DbConfig.xml");
         public ConfigForm()
         {
             InitializeComponent();
@@ -25,6 +26,10 @@ namespace OESScore
             groupBoxPathConfig.Controls.Add(pathConfig);
             pathConfig.Dock = DockStyle.Fill;
             pathConfig.Show();
+
+            groupBoxDbConfig.Controls.Add(dbConfig);
+            dbConfig.Dock = DockStyle.Fill;
+            dbConfig.Show();
         }
     }
 }
