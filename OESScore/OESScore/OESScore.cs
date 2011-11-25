@@ -43,6 +43,12 @@ namespace OESScore
             //LoadStudentList();
         }
 
+        public void init()
+        {
+ 
+        }
+
+
         void Client_DisConnectError(object sender, ErrorEventArgs e)
         {
             while (!this.IsHandleCreated) ;

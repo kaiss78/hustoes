@@ -190,15 +190,15 @@ namespace OESScore
             Answer ans;
             List<IdScoreType> proList = new List<IdScoreType>();
             List<IdAnswerType> ansList = new List<IdAnswerType>();
-            if ((!File.Exists(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\A" + ID + ".xml")))
+            if ((!File.Exists(ScoreControl.config["AnswerPath"]  + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"]  + ID + "\\A" + ID + ".xml")))
             {
-                ClientEvt.RootPath = ScoreControl.config["AnswerPath"] + "\\" + ID + "\\";
+                ClientEvt.RootPath = ScoreControl.config["AnswerPath"] + ID + "\\";
                 if (!Directory.Exists(ClientEvt.RootPath))
                 {
                     Directory.CreateDirectory(ClientEvt.RootPath);
                 }
                 scoreNet.LoadPaper(Convert.ToInt32(ID), -1);
-                scoreNet.SendFiles();
+                scoreNet.ReceiveFiles();
                 while (!ClientEvt.isOver);
                 
                 //return null;
