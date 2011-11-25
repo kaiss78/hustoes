@@ -27,6 +27,12 @@ namespace OES.Net
             Client.ReceivedTxt += new EventHandler(Client_ReceivedTxt);
             Client.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
             Client.Port.FileSendEnd += new EventHandler(Port_FileSendEnd);
+            Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
+        }
+
+        void Client_ConnectedServer(object sender, EventArgs e)
+        {
+            this.Login();
         }
         void Port_FileSendEnd(object sender, EventArgs e)
         {
