@@ -78,12 +78,18 @@ namespace OES
 
                 ClientControl.isResume = false;
 
-
-                ClientControl.ControlBar.Show();
-                ClientControl.MainForm.Show();
-                this.Dispose();
-                ClientEvt.beginExam(0, "");
-                MD5File.GenerateSecurityFile("Begin" + ClientControl.student.ID);
+                if (ClientControl.ControlBar.Init())
+                {
+                    ClientControl.ControlBar.Show();
+                    ClientControl.MainForm.Show();
+                    this.Dispose();
+                    ClientEvt.beginExam(0, "");
+                    MD5File.GenerateSecurityFile("Begin" + ClientControl.student.ID);
+                }
+                else
+                {
+                    Error.ErrorControl.ShowError(OES.Error.ErrorType.ExistAnsXML);
+                }
             }
          
         }
@@ -155,10 +161,17 @@ namespace OES
                 //读考卷内容
                 ClientControl.paper.ReadPaper();
                 ClientControl.isResume = true;
-                ClientControl.ControlBar.Show();
-                ClientControl.MainForm.Show();
-                this.Dispose();
-                ClientEvt.beginExam(1,"");
+                if (ClientControl.ControlBar.Init())
+                {
+                    ClientControl.ControlBar.Show();
+                    ClientControl.MainForm.Show();
+                    this.Dispose();
+                    ClientEvt.beginExam(1, "");
+                }
+                else
+                {
+                    Error.ErrorControl.ShowError(OES.Error.ErrorType.NoLogXML);
+                }
             }
 
         }

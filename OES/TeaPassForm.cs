@@ -26,10 +26,13 @@ namespace OES
                 ClientControl.paper.ReadPaper();
 
                 ClientControl.isResume = false;
-                ClientControl.ControlBar.Show();
-                ClientControl.MainForm.Show();
-                ClientControl.TeaPassForm.Dispose();
-                ClientControl.TeaPassForm = null;
+                if (ClientControl.ControlBar.Init())
+                {
+                    ClientControl.ControlBar.Show();
+                    ClientControl.MainForm.Show();
+                    ClientControl.TeaPassForm.Dispose();
+                    ClientControl.TeaPassForm = null;
+                }
             }));
 
         }

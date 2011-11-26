@@ -35,34 +35,36 @@ namespace OES
             time.Text = this.minute.ToString() + ":" + this.seconds.ToString();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public bool Init()
         {
-            
             if (!ClientControl.isResume)
             {
                 //初始化日志文件
                 XMLControl.CreateLogXML(Config.stuPath);
-                XMLControl.WriteLogXML(Config.stuPath,ProblemType.Start, 0, "");
+                XMLControl.WriteLogXML(Config.stuPath, ProblemType.Start, 0, "");
                 timer1.Start();
+                return true;
             }
             else
             {
-                try
+                if (XMLControl.LoadLogXML(Config.stuPath))
                 {
-                    XMLControl.LoadLogXML(Config.stuPath);
                     ClientControl.paper.Resume();
-                    XMLControl.WriteLogXML(Config.stuPath,ProblemType.Start, 0, "");
+                    XMLControl.WriteLogXML(Config.stuPath, ProblemType.Start, 0, "");
                     SetTiem(Seconds);
                     //恢复考试，考试时间恢复！！！！！
                     timer1.Start();
-
+                    return true;
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message.ToString());
-                    this.Close();
+                    return false;
                 }
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
             /*界面初始位置，如果想做得更用通用性，先获取当前显示屏的分便率，然后设置相应变量,*/
             Rectangle rect = new Rectangle();
             rect = Screen.GetWorkingArea(this);
