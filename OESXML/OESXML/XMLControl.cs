@@ -68,17 +68,18 @@ namespace OES.XMLFile
                 }
                 File.Move(rootPath + "log.xml", rootPath + "log" + i.ToString() + ".xml");
             }
-            logXML = new XMLAssistant(rootPath + "log.xml", XMLType.Log, null);
+            logXML = new XMLAssistant(rootPath + "log.xml", XMLType.Log,new object());
         }
-        public static void LoadLogXML(string rootPath)
+        public static bool LoadLogXML(string rootPath)
         {
             if (File.Exists(rootPath + "log.xml"))
             {
                 logXML = new XMLAssistant(rootPath + "log.xml", XMLType.Log, null);
+                return true;
             }
             else
             {
-                throw new Exception("您无法重新考试");
+                return false;
             }
         }
         public static void WriteLogXML(string rootPath, ProblemType pt, int proId, String ans)
