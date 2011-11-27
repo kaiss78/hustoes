@@ -1,6 +1,6 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
- 
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Reflection;
@@ -29,7 +29,9 @@ namespace OES
             try
             {
                 Application.EnableVisualStyles();
+#if !DEBUG
                 Application.SetCompatibleTextRenderingDefault(false);
+#endif
                 Net.ClientEvt.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
                 Net.ClientEvt.Client.DisConnectError += new System.IO.ErrorEventHandler(Client_DisConnectError);
                 ClientControl.LoginForm.SetNetState(2);
