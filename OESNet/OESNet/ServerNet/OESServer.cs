@@ -1,4 +1,9 @@
-﻿using System;
+﻿
+#if DEBUG
+using OESNet;
+#endif
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
@@ -12,6 +17,9 @@ namespace ServerNet
 {
     public class OESServer
     {
+#if DEBUG
+        public static ThreadsInfo logForm = new ThreadsInfo();
+#endif
         /// <summary>
         /// 配置文件
         /// </summary>
@@ -154,13 +162,20 @@ namespace ServerNet
         /// </summary>
         public OESServer()
         {
-            //RetrieveHostIpv4Address();
+#if DEBUG
+            logForm.Text = "OESServer";
+            logForm.Show();
+            logForm.InsertMsg("Init [OESServer.OESServer]");
+#endif
         }
         /// <summary>
         /// 开启监听(开启服务端)
         /// </summary>
         public void StartServer()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.StartServer]");
+#endif
             if (ip == null)
             {
                 ip = IPAddress.Parse(Config["HostIp"]);
@@ -180,6 +195,9 @@ namespace ServerNet
         /// </summary>
         private void RetrieveHostIpv4Address()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.RetrieveHostIpv4Address]");
+#endif
             //获得所有的ip地址，包括ipv6和ipv4
             IPAddress[] ips = Dns.GetHostAddresses(Dns.GetHostName());
             foreach (IPAddress tip in ips)
@@ -198,6 +216,9 @@ namespace ServerNet
         /// </summary>
         private void InitializeDataPorts()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.InitializeDataPorts]");
+#endif
             isPortAvailable = SearchSparePort();
             for (int i = availablePorts.Count - 1; i >= 0; i--)
             {
@@ -224,6 +245,9 @@ namespace ServerNet
         /// </summary>
         private bool SearchSparePort()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.SearchSparePort]");
+#endif
             int start_port = 10005;
             IPGlobalProperties ipgloabalprops = IPGlobalProperties.GetIPGlobalProperties();
             IPEndPoint[] tcpListInfos = ipgloabalprops.GetActiveTcpListeners();
@@ -274,6 +298,9 @@ namespace ServerNet
         /// <param name="port"></param>
         private void PortRecycler(DataPort port)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.PortRecycler]");
+#endif
             lock (syncLock)
             {
                 if (port != null && !PortQueue.Contains(port))
@@ -296,6 +323,9 @@ namespace ServerNet
         /// </summary>
         private void ProvideClientService()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.ProvideClientService]");
+#endif
             lock (syncLock)
             {
                 if (isPortAvailable)
@@ -324,6 +354,9 @@ namespace ServerNet
         /// <param name="asy"></param>
         public void accept_callBack(IAsyncResult asy)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.accept_callBack]");
+#endif
             if (AcceptingClient != null)
             {
                 AcceptingClient(this, null);
@@ -365,6 +398,9 @@ namespace ServerNet
         /// <param name="msg">出错信息</param>
         void client_OnClientError(Client c, string msg)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.client_OnClientError]");
+#endif
             PortRecycler(c.Port);
         }
         /// <summary>
@@ -374,6 +410,9 @@ namespace ServerNet
         /// <param name="type">消息类型</param>
         private void MessageScheduler(Client client, int type)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.MessageScheduler]");
+#endif
             lock (syncLock)
             {
                 switch (type)
@@ -422,6 +461,9 @@ namespace ServerNet
         /// </summary>
         public void ClearRequestingQueue()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.ClearRequestingQueue]");
+#endif
             RequestingQueue.Clear();
         }
         /// <summary>
@@ -429,6 +471,9 @@ namespace ServerNet
         /// </summary>
         public void ClearSubmitingQueue()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESServer.ClearSubmitingQueue]");
+#endif
             SubmitingQueue.Clear();
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
  
 using System.Text;
@@ -9,6 +10,7 @@ using System.Threading;
 
 namespace ClientNet
 {
+
     public class DataPort
     {
         /// <summary>
@@ -114,6 +116,9 @@ namespace ClientNet
         /// </summary>
         public DataPort()
         {
+#if DEBUG
+            OESClient.logForm.InsertMsg("Init [DataPort.DataPort]");
+#endif
         }
         /// <summary>
         /// 数据端口连接服务端
@@ -121,6 +126,9 @@ namespace ClientNet
         /// <returns>是否连接成功</returns>
         public bool Connect()
         {
+#if DEBUG
+            OESClient.logForm.InsertMsg("In [DataPort.Connect]");
+#endif
             try
             {
                 client=  new TcpClient();
@@ -143,6 +151,9 @@ namespace ClientNet
         /// <param name="asy"></param>
         public void connect_callBack(IAsyncResult asy)
         {
+#if DEBUG
+            OESClient.logForm.InsertMsg("In [DataPort.connect_callBack]");
+#endif
             dataTrans = (TcpClient)asy.AsyncState;
             dataTrans.EndConnect(asy);
             data_ns = dataTrans.GetStream();
@@ -165,6 +176,9 @@ namespace ClientNet
         /// </summary>
         private void ReceiveData()
         {
+#if DEBUG
+            OESClient.logForm.InsertMsg("In [DataPort.ReceiveData]");
+#endif
             try
             {
                 if (FileReceiveBegin != null)
@@ -224,6 +238,9 @@ namespace ClientNet
         /// </summary>
         private void SendData()
         {
+#if DEBUG
+            OESClient.logForm.InsertMsg("In [DataPort.SendData]");
+#endif
             try
             {
                 if (FileSendBegin != null)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
@@ -116,6 +117,9 @@ namespace ServerNet
         /// <param name="client">以连接好的Socket</param>
         public Client(TcpClient client)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("Init [Client.Client]");
+#endif
             this.client = client;
             ns = client.GetStream();
             ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
@@ -128,6 +132,9 @@ namespace ServerNet
         /// <param name="e"></param>
         void port_FileSizeError(object sender, ErrorEventArgs e)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.port_FileSizeError]");
+#endif
             SendResend();
         }
 
@@ -137,6 +144,9 @@ namespace ServerNet
         /// <param name="asy"></param>
         private void receive_callBack(IAsyncResult asy)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.receive_callBack]");
+#endif
             try
             {
                 TcpClient tclient = (TcpClient)asy.AsyncState;
@@ -158,6 +168,9 @@ namespace ServerNet
         /// </summary>
         private void DispatchMessage()
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.DispatchMessage]");
+#endif
              string raw_msgs = System.Text.Encoding.Default.GetString(buffer, 0, buffer.Length).Trim('\0');
              foreach (string onemsg in raw_msgs.Split(EndOfMsg))
              {
@@ -228,6 +241,9 @@ namespace ServerNet
         /// </summary>
         public void sendData()
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.sendData]");
+#endif
             if (SendDataReady != null)
                 SendDataReady(this,null);
             WriteMsg(SendFileMsg(port.FilePath));
@@ -238,6 +254,9 @@ namespace ServerNet
         /// </summary>
         public void fetchData()
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.fetchData]");
+#endif
             if (ReceiveDataReady != null)
                 ReceiveDataReady(this, null);
             WriteMsg(RecieveFileMsg());
@@ -249,6 +268,9 @@ namespace ServerNet
         /// <param name="asy"></param>
         private void write_callBack(IAsyncResult asy)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.write_callBack]");
+#endif
             try
             {
                 ns.EndWrite(asy);
@@ -267,6 +289,9 @@ namespace ServerNet
         /// <returns></returns>
         private string SendFileMsg(string filename)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.SendFileMsg]");
+#endif
             FileInfo fi = new FileInfo(filename);
             return "cmd#1#1#" + port.ip.ToString() + "#" + port.localPort.ToString() + "#" + fi.Name.ToString() + "#" + fi.Length.ToString();
         }
@@ -277,6 +302,9 @@ namespace ServerNet
         /// <returns></returns>
         private string RecieveFileMsg()
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.InsertMsg]");
+#endif
             return "cmd#1#0#" + port.ip.ToString() + "#" + port.localPort.ToString();
         }
 
@@ -286,6 +314,9 @@ namespace ServerNet
         /// <param name="msg"></param>
         private void WriteMsg(String msg)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.WriteMsg]");
+#endif
             byte[] tBuffer = System.Text.Encoding.Default.GetBytes(msg+EndOfMsg);
             try
             {
@@ -309,6 +340,9 @@ namespace ServerNet
         /// <param name="content"></param>
         public void SendTxt(String content)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.SendTxt]");
+#endif
             string tmsg = "txt#" + content;
             WriteMsg(tmsg);
         }
@@ -318,6 +352,9 @@ namespace ServerNet
         /// </summary>
         public void SendResend()
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.InsertMsg]");
+#endif
             string tmsg = "cmd#-2";
             WriteMsg(tmsg);
         }
