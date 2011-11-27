@@ -313,13 +313,10 @@ namespace OESMonitor
                 case 0://顺序发试卷
                     OESMonitor.currentDeliverId = (OESMonitor.currentDeliverId + 1) % OESMonitor.examPaperIdList.Count;
                     return OESMonitor.currentDeliverId;
-                    break;
                 case 1://随机抽取试卷
                     return OESMonitor.random.Next(OESMonitor.examPaperIdList.Count);
-                    break;
                 case 2://单一试卷
                     return 0;
-                    break;
             }
             return -1;
         }
