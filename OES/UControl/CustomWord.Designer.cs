@@ -31,7 +31,6 @@
             this.Question = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Rquest = new System.Windows.Forms.RichTextBox();
             this.ProblemRequest = new System.Windows.Forms.Label();
@@ -44,10 +43,12 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.Question.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.Question.Location = new System.Drawing.Point(40, 128);
+            this.Question.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Question.Font = new System.Drawing.Font("宋体", 14.25F);
+            this.Question.Location = new System.Drawing.Point(40, 96);
             this.Question.Name = "Question";
             this.Question.ReadOnly = true;
-            this.Question.Size = new System.Drawing.Size(665, 300);
+            this.Question.Size = new System.Drawing.Size(667, 332);
             this.Question.TabIndex = 1;
             this.Question.Text = "";
             this.Question.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hide_MouseDown);
@@ -76,16 +77,6 @@
             this.button2.Text = "重新做题";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(40, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "题干";
             // 
             // panel1
             // 
@@ -131,7 +122,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Question);
@@ -141,7 +131,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -150,7 +139,6 @@
         private System.Windows.Forms.RichTextBox Question;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox Rquest;
         private System.Windows.Forms.Label ProblemRequest;

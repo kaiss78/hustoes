@@ -40,7 +40,8 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.Question.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.Question.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Question.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Question.Font = new System.Drawing.Font("宋体", 14.25F);
             this.Question.Location = new System.Drawing.Point(32, 58);
             this.Question.Margin = new System.Windows.Forms.Padding(5);
             this.Question.Multiline = true;
