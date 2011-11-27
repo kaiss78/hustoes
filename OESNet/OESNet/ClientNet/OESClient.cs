@@ -293,7 +293,6 @@ namespace ClientNet
                                                 ReceivedDataSubmit(this, null);
                                             }
                                             port.IsSend = false;
-                                            //port.filePath += messages[5];
                                             port.fileLength = Int64.Parse(messages[6]);
                                             port.Connect();
                                             break;

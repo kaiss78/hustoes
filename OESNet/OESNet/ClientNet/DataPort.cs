@@ -47,7 +47,10 @@ namespace ClientNet
                 }
                 else
                 {
-                    fileLength = 0;
+                    if (IsSend)
+                    {
+                        fileLength = 0;
+                    }
                 }
             }
         }
