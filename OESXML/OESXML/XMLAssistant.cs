@@ -246,14 +246,14 @@ namespace OES.XMLFile
                 for (int s = 0; s < xn.ChildNodes.Count; )
                 {
                     IdAnswerType iat = new IdAnswerType();
-                    s++;
                     iat.id = Convert.ToInt32(xn.ChildNodes.Item(s).ChildNodes.Item(0).Value);
-                    iat.pt = pt;
                     s++;
+                    iat.pt = pt;
                     if (xn.ChildNodes.Item(s).ChildNodes.Item(0) != null)
                     {
                         iat.answer = xn.ChildNodes.Item(s).ChildNodes.Item(0).Value;
                     }
+                    s++;
                     list.Add(iat);
                 }
             }
