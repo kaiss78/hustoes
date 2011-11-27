@@ -230,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Monitor.ico" />
+    <None Include="Resources\OESLogin.jpg" />
     <None Include="Resources\address-book-new.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
