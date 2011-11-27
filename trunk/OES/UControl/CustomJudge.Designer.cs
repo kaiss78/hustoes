@@ -141,7 +141,7 @@
             this.Question.BackColor = System.Drawing.Color.White;
             this.Question.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Question.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Question.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Question.Font = new System.Drawing.Font("宋体", 14.25F);
             this.Question.Location = new System.Drawing.Point(3, 3);
             this.Question.Name = "Question";
             this.Question.ReadOnly = true;
@@ -184,7 +184,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "CustomJudge";
-            this.Size = new System.Drawing.Size(790, 496);
+            this.Size = new System.Drawing.Size(790, 478);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

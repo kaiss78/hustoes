@@ -105,7 +105,7 @@
             this.Answer.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Answer.Location = new System.Drawing.Point(84, 270);
             this.Answer.Name = "Answer";
-            this.Answer.Size = new System.Drawing.Size(665, 31);
+            this.Answer.Size = new System.Drawing.Size(643, 31);
             this.Answer.TabIndex = 2;
             this.Answer.Text = "";
             this.Answer.TextChanged += new System.EventHandler(this.Answer_TextChanged);
@@ -131,7 +131,7 @@
             this.Question.CausesValidation = false;
             this.Question.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Question.DetectUrls = false;
-            this.Question.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Question.Font = new System.Drawing.Font("宋体", 14.25F);
             this.Question.Location = new System.Drawing.Point(3, 3);
             this.Question.Name = "Question";
             this.Question.ReadOnly = true;
@@ -176,7 +176,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "CustomCompletion";
-            this.Size = new System.Drawing.Size(790, 496);
+            this.Size = new System.Drawing.Size(790, 478);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
