@@ -1,6 +1,6 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
- 
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
@@ -126,6 +126,9 @@ namespace ServerNet
         /// <param name="localPort">端口号</param>
         public DataPort(IPAddress ip, int localPort)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("Init [DataPort.DataPort]");
+#endif
             this.ip = ip;
             this.localPort = localPort;
             dataListener = new TcpListener(ip, localPort);
@@ -139,6 +142,9 @@ namespace ServerNet
         /// <param name="ep">客户端数据端口信息</param>
         public void InitDataPort(EndPoint ep)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [DataPort.InitDataPort]");
+#endif
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(ep.ToString().Split(':')[0]), Int32.Parse(ep.ToString().Split(':')[1]));
             this.remoteIp = iep.Address;
             this.remotePort = iep.Port;
@@ -151,6 +157,9 @@ namespace ServerNet
         /// <param name="asy">异步返回信息</param>
         public void accept_callBack(IAsyncResult asy)
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [DataPort.accept_callBack]");
+#endif
             TcpListener listener = (TcpListener)asy.AsyncState;
             dataTrans = (TcpClient)listener.EndAcceptTcpClient(asy);
             data_ns = dataTrans.GetStream();
@@ -182,6 +191,9 @@ namespace ServerNet
         /// </summary>
         private void ReceiveData()
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [DataPort.ReceiveData]");
+#endif
             try
             {
                 if (FileReceiveBegin != null)
@@ -239,6 +251,9 @@ namespace ServerNet
         /// </summary>
         private void SendData()
         {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [DataPort.SendData]");
+#endif
             try
             {
                 if (FileSendBegin != null)

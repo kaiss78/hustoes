@@ -1,6 +1,10 @@
-﻿using System;
+﻿
+#if DEBUG
+using OESNet;
+#endif
+
+using System;
 using System.Collections.Generic;
- 
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
@@ -9,10 +13,15 @@ using System.Threading;
 using System.IO;
 using OES;
 
+
 namespace ClientNet
 {
     public class OESClient
     {
+
+#if DEBUG
+        public static ThreadsInfo logForm=new ThreadsInfo();
+#endif
         /// <summary>
         /// 配置文件
         /// </summary>
@@ -134,7 +143,11 @@ namespace ClientNet
         /// </summary>
         public OESClient()
         {
-            
+#if DEBUG
+            logForm.Text = "OESClient";
+            logForm.Show();
+            logForm.InsertMsg("Init [OESClient.OESClient]");
+#endif
         }
         /// <summary>
         /// 开始连接服务端
@@ -142,6 +155,9 @@ namespace ClientNet
         /// <returns></returns>
         public bool InitializeClient()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.InitializeClient]");
+#endif
             try
             {
                 client = new TcpClient();
@@ -166,6 +182,9 @@ namespace ClientNet
         /// <param name="asy">异步返回结果</param>
         private void connect_callBack(IAsyncResult asy)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.connect_callBack]");
+#endif
             try
             {
                 client.EndConnect(asy);
@@ -182,7 +201,6 @@ namespace ClientNet
                 {
                     ConnectError(e, null);
                 }
-                SendError(e.ToString());
             }
         }
         /// <summary>
@@ -191,6 +209,9 @@ namespace ClientNet
         /// <param name="asy">异步返回结果</param>
         private void receive_callBack(IAsyncResult asy)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.connect_callBack]");
+#endif
             try
             {
                 int result = ns.EndRead(asy);
@@ -208,13 +229,14 @@ namespace ClientNet
             {
                 ns.BeginRead(buffer, 0, bufferSize, new AsyncCallback(receive_callBack), client);
             }
-            catch
+            catch (Exception e)
             {
                 client = new TcpClient();
                 if (DisConnectError != null)
                 {
                     DisConnectError(this, null);
                 }
+                SendError(e.ToString());
             }
         }
         /// <summary>
@@ -226,6 +248,9 @@ namespace ClientNet
         /// </summary>
         private void DispatchMessage()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.DispatchMessage]");
+#endif
             string raw_msgs = System.Text.Encoding.Default.GetString(buffer, 0, buffer.Length).Trim('\0');
             foreach (string onemsg in raw_msgs.Split(EndOfMsg))
             {
@@ -296,6 +321,9 @@ namespace ClientNet
         /// </summary>
         public void SendFileMsg()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.SendFileMsg]");
+#endif
             FileInfo fi=new FileInfo(port.FilePath);
             string tmsg = "cmd#2#"+fi.Length.ToString();
             WriteMsg(tmsg);
@@ -306,6 +334,9 @@ namespace ClientNet
         /// </summary>
         public void SendFile()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.SendFile]");
+#endif
             string tmsg = "cmd#0#0";
             WriteMsg(tmsg);
         }
@@ -314,6 +345,9 @@ namespace ClientNet
         /// </summary>
         public void ReceiveFile()
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.ReceiveFile]");
+#endif
             string tmsg = "cmd#0#1";
             WriteMsg(tmsg);
         }
@@ -323,6 +357,9 @@ namespace ClientNet
         /// <param name="error">错误消息</param>
         public void SendError(String error)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.SendError]");
+#endif
             string tmsg = "cmd#-1#" + error;
             WriteMsg(tmsg);
         }
@@ -332,6 +369,9 @@ namespace ClientNet
         /// <param name="content"></param>
         public void SendTxt(String content)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.SendTxt]");
+#endif
             string tmsg = "txt#" + content;
             WriteMsg(tmsg);
         }
@@ -341,6 +381,9 @@ namespace ClientNet
         /// <param name="msg"></param>
         private void WriteMsg(String msg)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.WriteMsg]");
+#endif
             byte[] tBuffer = System.Text.Encoding.Default.GetBytes(msg+EndOfMsg);
             try
             {
@@ -353,6 +396,7 @@ namespace ClientNet
             catch (Exception e)
             {
                 //网络出错处理程序
+                SendError(e.ToString());
             }
         }
         /// <summary>
@@ -361,12 +405,16 @@ namespace ClientNet
         /// <param name="asy">异步返回结果</param>
         private void write_callBack(IAsyncResult asy)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.write_callBack]");
+#endif
             try
             {
                 ns.EndWrite(asy);
             }
             catch (Exception e)
             {
+                SendError(e.ToString());
             }
         }
 
@@ -377,6 +425,9 @@ namespace ClientNet
         /// <param name="localPath">本地文件路径列表</param>
         public void SendFileList(List<string> remoteCmd, List<string> localPath)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.SendFileList]");
+#endif
             if (FileListSendStart != null)
                 FileListSendStart();
 
@@ -401,6 +452,9 @@ namespace ClientNet
         
         private void Port_FileSendEnd(object sender, EventArgs e)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.Port_FileSendEnd]");
+#endif
             if (remoteCmd.Count != localPath.Count) return;
 
             if (remoteCmd.Count != 0)
@@ -429,6 +483,9 @@ namespace ClientNet
         /// <param name="localPath">本地文件路径列表</param>
         public void ReceiveFileList(List<string> remoteCmd, List<string> localPath)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.ReceiveFileList]");
+#endif
             if (FileListRecieveStart != null)
                 FileListRecieveStart();
 
@@ -453,6 +510,9 @@ namespace ClientNet
 
         private void Port_FileReceiveEnd(object sender, EventArgs e)
         {
+#if DEBUG
+            logForm.InsertMsg("In [OESClient.Port_FileReceiveEnd]");
+#endif
             if (remoteCmd.Count != localPath.Count) return;
 
             if (remoteCmd.Count != 0)
