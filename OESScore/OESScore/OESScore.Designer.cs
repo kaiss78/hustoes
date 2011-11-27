@@ -30,10 +30,10 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formOESScore));
             this.ss = new System.Windows.Forms.StatusStrip();
@@ -47,15 +47,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.plDGV = new System.Windows.Forms.Panel();
             this.dgvStudentTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.netState1 = new OES.NetState();
+            this.fbdPaperPath = new System.Windows.Forms.FolderBrowserDialog();
+            this.btnLoad = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StuScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.netState1 = new OES.NetState();
-            this.fbdPaperPath = new System.Windows.Forms.FolderBrowserDialog();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
             this.ss.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -113,6 +115,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btnSelectPath);
             this.flowLayoutPanel2.Controls.Add(this.btnScore);
             this.flowLayoutPanel2.Controls.Add(this.btnConfig);
+            this.flowLayoutPanel2.Controls.Add(this.btnLoad);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(624, 20);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -210,38 +213,6 @@
             this.dgvStudentTable.TabIndex = 5;
             this.dgvStudentTable.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPaperTable_CellMouseDoubleClick);
             // 
-            // StudentID
-            // 
-            this.StudentID.FillWeight = 80F;
-            this.StudentID.HeaderText = "学号";
-            this.StudentID.Name = "StudentID";
-            this.StudentID.ReadOnly = true;
-            // 
-            // StudentName
-            // 
-            this.StudentName.FillWeight = 60F;
-            this.StudentName.HeaderText = "姓名";
-            this.StudentName.Name = "StudentName";
-            this.StudentName.ReadOnly = true;
-            // 
-            // PaperName
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PaperName.FillWeight = 120F;
-            this.PaperName.HeaderText = "试卷名称";
-            this.PaperName.Name = "PaperName";
-            this.PaperName.ReadOnly = true;
-            this.PaperName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // StuScore
-            // 
-            this.StuScore.FillWeight = 50F;
-            this.StuScore.HeaderText = "成绩";
-            this.StuScore.Name = "StuScore";
-            this.StuScore.ReadOnly = true;
-            this.StuScore.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // netState1
             // 
             this.netState1.BackColor = System.Drawing.Color.Transparent;
@@ -252,6 +223,19 @@
             this.netState1.Size = new System.Drawing.Size(618, 22);
             this.netState1.State = 0;
             this.netState1.TabIndex = 7;
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(3, 126);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(120, 35);
+            this.btnLoad.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnLoad.StateCommon.Border.Rounding = 15;
+            this.btnLoad.TabIndex = 3;
+            this.btnLoad.Values.Text = "载入";
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -286,6 +270,46 @@
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn3.Width = 123;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "成绩";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // StudentID
+            // 
+            this.StudentID.FillWeight = 80F;
+            this.StudentID.HeaderText = "学号";
+            this.StudentID.Name = "StudentID";
+            this.StudentID.ReadOnly = true;
+            // 
+            // StudentName
+            // 
+            this.StudentName.FillWeight = 60F;
+            this.StudentName.HeaderText = "姓名";
+            this.StudentName.Name = "StudentName";
+            this.StudentName.ReadOnly = true;
+            // 
+            // PaperName
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PaperName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PaperName.FillWeight = 120F;
+            this.PaperName.HeaderText = "试卷名称";
+            this.PaperName.Name = "PaperName";
+            this.PaperName.ReadOnly = true;
+            this.PaperName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // StuScore
+            // 
+            this.StuScore.FillWeight = 50F;
+            this.StuScore.HeaderText = "成绩";
+            this.StuScore.Name = "StuScore";
+            this.StuScore.ReadOnly = true;
+            this.StuScore.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // dataGridViewProgressBarColumn1
             // 
@@ -347,6 +371,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaperName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StuScore;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnLoad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
 

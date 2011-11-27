@@ -167,7 +167,7 @@ namespace OESScore
             foreach (Answer ans in StuList[RIndex].StuAns.Ans)
             {
                 dScore = 0;
-                if ((ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
+                if ((ans.Ans!=null) && (ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
                 {
                     dScore = ScoreControl.staAns.Ans[ans.ID].Score;
                 }
@@ -205,13 +205,14 @@ namespace OESScore
                 {
                     ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath;
                     tsslPath.Text = ScoreControl.config["PaperPath"];
+                    LoadStudentList();
                 }
                 else
                 {
                     MessageBox.Show("文件夹不存在", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            LoadStudentList();
+            
         }
 
         /// <summary>
@@ -250,6 +251,11 @@ namespace OESScore
         private void btnConfig_Click(object sender, EventArgs e)
         {
             new ConfigForm().ShowDialog(this);
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            LoadStudentList();
         }
     }
 }
