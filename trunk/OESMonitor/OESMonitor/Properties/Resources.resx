@@ -121,6 +121,9 @@
   <data name="s3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\s3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="address-book-new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\address-book-new.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="s1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\s1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="s7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\s7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="address-book-new" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\address-book-new.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OESLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OESLogin.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

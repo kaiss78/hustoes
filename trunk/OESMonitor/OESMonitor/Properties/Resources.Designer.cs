@@ -67,6 +67,13 @@ namespace OESMonitor.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap OESLogin {
+            get {
+                object obj = ResourceManager.GetObject("OESLogin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap s0 {
             get {
                 object obj = ResourceManager.GetObject("s0", resourceCulture);
