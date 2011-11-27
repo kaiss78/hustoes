@@ -306,6 +306,7 @@ namespace ServerNet
                 if (port != null && !PortQueue.Contains(port))
                 {
                     PortQueue.Enqueue(port);
+                    port.fileLength = 0;
                     for (int i = 0; i < clients.Count; i++)
                     {
                         if (clients[i].Port == port)

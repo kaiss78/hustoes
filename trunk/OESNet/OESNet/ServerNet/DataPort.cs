@@ -61,7 +61,10 @@ namespace ServerNet
                 }
                 else
                 {
-                    fileLength = 0;
+                    if (IsSend)
+                    {
+                        fileLength = 0;
+                    }
                 }
             }
         }
@@ -199,6 +202,13 @@ namespace ServerNet
                 if (FileReceiveBegin != null)
                 {
                     FileReceiveBegin(this);
+                }
+                while (fileLength == 0)
+                {
+                    int i = 20;
+                    Thread.Sleep(10);
+                    i--;
+                    if (i == 0) break;
                 }
                 long total = fileLength;
                 int byteRead;
