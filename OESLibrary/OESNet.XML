@@ -109,6 +109,23 @@
             </summary>
             <param name="port"></param>
         </member>
+        <member name="F:OESNet.ThreadsInfo.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:OESNet.ThreadsInfo.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:OESNet.ThreadsInfo.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="F:ServerNet.Client.EndOfMsg">
             <summary>
             消息末尾字符
@@ -245,6 +262,13 @@
             </summary>
             <param name="client">活动的Client</param>
             <param name="type">消息类型</param>
+        </member>
+        <member name="T:ServerNet.Client.ClientError">
+            <summary>
+            客户通讯端口出错
+            </summary>
+            <param name="c"></param>
+            <param name="msg"></param>
         </member>
         <member name="F:OES.NetState.components">
             <summary> 
@@ -629,6 +653,13 @@
             Accept回调函数
             </summary>
             <param name="asy"></param>
+        </member>
+        <member name="M:ServerNet.OESServer.client_OnClientError(ServerNet.Client,System.String)">
+            <summary>
+            客户端出错时，回收数据端口
+            </summary>
+            <param name="c">客户端</param>
+            <param name="msg">出错信息</param>
         </member>
         <member name="M:ServerNet.OESServer.MessageScheduler(ServerNet.Client,System.Int32)">
             <summary>
