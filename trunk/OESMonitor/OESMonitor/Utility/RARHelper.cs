@@ -99,8 +99,8 @@ namespace OES
             //解压后删除
             if (deleteAfterUnCompress)
             {
-                if (File.Exists(rarPatch + "\\" + rarName))
-                    File.Delete(rarPatch + "\\" + rarName);
+                if (File.Exists(rarPatch + rarName))
+                    File.Delete(rarPatch + rarName);
             }
 
             return true;
