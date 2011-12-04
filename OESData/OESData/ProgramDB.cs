@@ -11,7 +11,7 @@ namespace OES
 {
     public partial class OESData
     {
-        #region 编程题有关方法 kind = 1 ---> C    kind = 0 ---> C++
+        #region 编程题有关方法 0:C    1:C++   2:VB
 
         //增加编程的综合体型
         public void AddFunProgram(string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)
