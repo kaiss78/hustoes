@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E233E139-9773-4492-BF48-4A44495BADB0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -126,9 +126,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Score.resx">
-      <DependentUpon>Score.cs</DependentUpon>
-    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -141,12 +138,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Score.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Score.Designer.cs">
-      <DependentUpon>Score.cs</DependentUpon>
     </Compile>
     <Compile Include="ScoreControl.cs" />
     <Compile Include="StaAns.cs" />
