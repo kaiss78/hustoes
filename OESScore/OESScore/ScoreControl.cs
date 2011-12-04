@@ -204,8 +204,8 @@ namespace OESScore
                 //return null;
             }
 
-            proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\" + ID + ".xml");
-            ansList = XMLControl.ReadPaperAns(ScoreControl.config["AnswerPath"] + "\\" + ID + "\\A" + ID + ".xml");
+            proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"]  + ID + "\\" + ID + ".xml");
+            ansList = XMLControl.ReadPaperAns(ScoreControl.config["AnswerPath"]  + ID + "\\A" + ID + ".xml");
             newAnswer = new StaAns();
             newAnswer.Ans = new List<Answer>();
             newAnswer.PaperID = ID;

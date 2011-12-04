@@ -116,7 +116,7 @@ namespace OESScore
             foreach (DirectoryInfo stu in studentList)
             {
                 tmpS = ScoreControl.OesData.FindStudentByStudentId(stu.Name);
-                if (tmpS.Count > 0)
+                if ((tmpS.Count > 0) && (File.Exists(stu.FullName + "\\studentAns.xml")))
                 {
                     tmpSF = new StuFolder();
                     tmpSF.PaperInfo = new Paper();
@@ -227,25 +227,16 @@ namespace OESScore
             {
                 StuList[RIndex].Score.score=Mark(RIndex).ToString();
                 dgvStudentTable.Rows[RIndex].Cells[3].Value= StuList[RIndex].Score.score;
-                //formScore formscore = new formScore(papers[RIndex].Path.FullName);
-
-                //ScoreControl.staAns = ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
-
-                //formscore.ShowDialog();
-                //formscore.Dispose();
             }
         }
 
         private void btnScore_Click(object sender, EventArgs e)
         {
-            int RIndex = dgvStudentTable.CurrentRow.Index;
-            if (RIndex > -1)
+            for (int i = 0; i < StuList.Count; i++)
             {
-                //ScoreControl.staAns = ScoreControl.SetStandardAnswer(papers[RIndex].Path.Name, papers[RIndex].Path.FullName);
-                //formScore formscore = new formScore(papers[RIndex].Path.FullName);
-            }
-
-
+                StuList[i].Score.score = Mark(i).ToString();
+                dgvStudentTable.Rows[i].Cells[3].Value = StuList[i].Score.score;
+            }            
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
