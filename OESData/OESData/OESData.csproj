@@ -78,9 +78,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ObjectiveDB.cs" />
     <Compile Include="OESData.cs" />
+    <Compile Include="OfficeDB.cs" />
+    <Compile Include="PaperDB.cs" />
     <Compile Include="ProgramDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreDB.cs" />
+    <Compile Include="StudentDB.cs" />
+    <Compile Include="TeacherDB.cs" />
+    <Compile Include="UnitDB.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
