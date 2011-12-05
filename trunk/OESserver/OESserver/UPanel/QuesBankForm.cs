@@ -16,6 +16,7 @@ namespace OES.UPanel
         {
             InitializeComponent();
 
+
         }
         public override void ReLoad()
         {
@@ -24,22 +25,6 @@ namespace OES.UPanel
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0)
-            {
-
-            }
-            if (comboBox1.SelectedIndex == 1)
-            {
-                
-            }
-            if (comboBox1.SelectedIndex == 2)
-            {
-
-            }
-            if (comboBox1.SelectedIndex == 3)
-            {
-
-            }
            
         }
     }
