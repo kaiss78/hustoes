@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.IO;
+using OES.Model;
 
 namespace OES.UControl
 {
@@ -16,77 +17,164 @@ namespace OES.UControl
     {
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
-        private string path;
-        private int type;
-        public CustomProgramInfo(int t)
+        //private string path;
+        private string filename = "";
+        private int proid;
+
+        public int proID
+        {
+            get { return proid; }
+            set
+            {
+                proid = value;
+                if (proid == ClientControl.paper.officeWord.Count - 1)
+                {
+                    NextProblem.Enabled = false;
+                }
+                else if (proid == 0)
+                {
+                    LastProblem.Enabled = false;
+                }
+                else
+                {
+                    NextProblem.Enabled = true;
+                    LastProblem.Enabled = true;
+                }
+            }
+        }
+
+        private Problem prob = new Problem();
+
+        private ProblemType type;
+        public CustomProgramInfo(ProblemType t)
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             type = t;
             switch (type)
             {
-                case 1: 
-                    this.Question.Text = ClientControl.paper.pCompletion.problem;
+                case ProblemType.BaseProgramCompletion:
+                    this.Rquest.Text = "根据题目描述完成编程填空题。";
                     break ;
-                case 2: 
-                    this.Question.Text = ClientControl.paper.pModif.problem;
+                case ProblemType.BaseProgramModification:
+                    this.Rquest.Text = "根据题目描述完成编程改错题。";
                     break ;
-                case 3: 
-                    this.Question.Text = ClientControl.paper.pFunction.problem;
+                case ProblemType.BaseProgramFun:
+                    this.Rquest.Text = "根据题目描述完成编程综合题。";
                     break ;
             }
         }
 
-        private void butOpen_Click(object sender, EventArgs e)
+        public void SetQuestion(int x)
         {
-            ClientControl.SetDone(ClientControl.CurrentProblemNum);
+            proID = x;
             switch (type)
             {
-                case 1:
-                    if (!File.Exists(Config.stuPath + "g.cpp"))
-                    {
-                        File.Copy(Config.paperPath + "g.cpp", Config.stuPath + "g.cpp", true);
-                    }
-                    Process.Start(Config.stuPath + "g.cpp");
-                    break ;
-                case 2:
-                    if (!File.Exists(Config.stuPath + "h.cpp"))
-                    {
-                        File.Copy(Config.paperPath + "h.cpp", Config.stuPath + "h.cpp", true);
-                    }
-                    Process.Start(Config.stuPath + "h.cpp");
-                    break ;
-                case 3:
-                    if (!File.Exists(Config.stuPath + "i.cpp"))
-                    {
-                        File.Copy(Config.paperPath + "i.cpp", Config.stuPath + "i.cpp", true);
-                    }
-                    Process.Start(Config.stuPath + "i.cpp");
-                    break ;
+                case ProblemType.BaseProgramCompletion:
+                    prob = ClientControl.GetProgramCompletion(proID);
+                    break;
+                case ProblemType.BaseProgramModification:
+                    prob = ClientControl.GetProgramModif(proID);
+                    break;
+                case ProblemType.BaseProgramFun:
+                    prob = ClientControl.GetProgramFunction(proID);
+                    break;
             }
-           
+            switch (prob.type)
+            {
+                case ProblemType.CProgramCompletion:
+                    this.filename = "g" + proID.ToString() + ".c";
+                    break;
+                case ProblemType.CppProgramCompletion:
+                    this.filename = "g" + proID.ToString() + ".cpp";
+                    break;
+                case ProblemType.VbProgramCompletion:
+                    this.filename = "g" + proID.ToString() + ".vb";
+                    break;
+                case ProblemType.CProgramModification:
+                    this.filename = "h" + proID.ToString() + ".c";
+                    break;
+                case ProblemType.CppProgramModification:
+                    this.filename = "h" + proID.ToString() + ".cpp";
+                    break;
+                case ProblemType.VbProgramModification:
+                    this.filename = "h" + proID.ToString() + ".vb";
+                    break;
+                case ProblemType.CProgramFun:
+                    this.filename = "i" + proID.ToString() + ".c";
+                    break;
+                case ProblemType.CppProgramFun:
+                    this.filename = "i" + proID.ToString() + ".cpp";
+                    break;
+                case ProblemType.VbProgramFun:
+                    this.filename = "i" + proID.ToString() + ".vb";
+                    break;
+            }
+            this.Question.Text = prob.problem;
+        }
+
+        private void nextstep_Click(object sender, EventArgs e)
+        {
+            switch (type)
+            {
+                case ProblemType.BaseProgramCompletion:
+                    if (proID < ClientControl.paper.pCompletion.Count - 1)
+                    {
+                        this.SetQuestion(++proID);
+                        ClientControl.CurrentProblemNum++;
+                    }
+                    break;
+                case ProblemType.BaseProgramModification:
+                    if (proID < ClientControl.paper.pModif.Count - 1)
+                    {
+                        this.SetQuestion(++proID);
+                        ClientControl.CurrentProblemNum++;
+                    }
+                    break;
+                case ProblemType.BaseProgramFun:
+                    if (proID < ClientControl.paper.pFunction.Count - 1)
+                    {
+                        this.SetQuestion(++proID);
+                        ClientControl.CurrentProblemNum++;
+                    }
+                    break;
+            }
+            
+        }
+
+        private void laststep_Click(object sender, EventArgs e)
+        {
+            if (proID > 0)
+            {
+                this.SetQuestion(--proID);
+                ClientControl.CurrentProblemNum--;
+            }
+
+        }
+
+        public int GetQuestion()
+        {
+            return proID;
+        }
+
+
+        private void butOpen_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(Config.stuPath + filename))
+            {
+                File.Copy(Config.paperPath + filename, Config.stuPath + filename, true);
+            }
+            while (!File.Exists(Config.stuPath + filename)) ;
+            System.Diagnostics.Process.Start(Config.stuPath + filename);
+            ClientControl.SetDone(ClientControl.CurrentProblemNum);
         }
 
         private void butRedo_Click(object sender, EventArgs e)
         {
-            //Correct.correctPF(@"G:\Documents\Visual Studio 2008\Projects\OES\OES\bin\Debug\OESTEST\Paper\i.cpp");
             if (MessageBox.Show("继续将会删除之前答案", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                switch (type)
-                {
-                    case 1:
-                        File.Copy(Config.paperPath + "g.cpp", Config.stuPath + "g.cpp", true);
-                        Process.Start(Config.stuPath + "g.cpp");
-                        break;
-                    case 2:
-                        File.Copy(Config.paperPath + "h.cpp", Config.stuPath + "h.cpp", true);
-                        Process.Start(Config.stuPath + "h.cpp");
-                        break;
-                    case 3:
-                        File.Copy(Config.paperPath + "i.cpp", Config.stuPath + "i.cpp", true);
-                        Process.Start(Config.stuPath + "i.cpp");
-                        break;
-                }
+                File.Copy(Config.paperPath + filename, Config.stuPath+filename,true);
+                System.Diagnostics.Process.Start(Config.stuPath+filename);
             }
         }
 

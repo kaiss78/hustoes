@@ -58,11 +58,12 @@ namespace OES.DAO
             pXml = new ProblemXML(path + "h.xml", true);
             if (!pXml.isError)
             {
-                PCompletion obj = pXml.GetPCompletionProbelm();
-
-                ClientControl.paper.Add(obj);
-
-                ClientControl.MainForm.addPage(ProblemType.ProgramCompletion);
+                List<PCompletion> list = pXml.GetPCompletionProbelm();
+                foreach (PCompletion c in list)
+                {
+                    ClientControl.paper.Add(c);
+                }
+                ClientControl.MainForm.addPage(ProblemType.BaseProgramCompletion);
             }
         }
 
@@ -71,11 +72,12 @@ namespace OES.DAO
             pXml = new ProblemXML(path + "g.xml", true);
             if (!pXml.isError)
             {
-                PModif obj = pXml.GetPModifProbelm();
-
-                ClientControl.paper.Add(obj);
-
-                ClientControl.MainForm.addPage(ProblemType.ProgramModification);
+                List<PModif> list = pXml.GetPModifProbelm();
+                foreach (PModif c in list)
+                {
+                    ClientControl.paper.Add(c);
+                }
+                ClientControl.MainForm.addPage(ProblemType.BaseProgramModification);
             }
         }
 
@@ -84,11 +86,12 @@ namespace OES.DAO
             pXml = new ProblemXML(path + "i.xml", true);
             if (!pXml.isError)
             {
-                PFunction obj = pXml.GetPFunctionProbelm();
-
-                ClientControl.paper.Add(obj);
-
-                ClientControl.MainForm.addPage(ProblemType.ProgramFun);
+                List<PFunction> list = pXml.GetPFunctionProbelm();
+                foreach (PFunction c in list)
+                {
+                    ClientControl.paper.Add(c);
+                }
+                ClientControl.MainForm.addPage(ProblemType.BaseProgramFun);
             }
         }
 
@@ -97,39 +100,41 @@ namespace OES.DAO
             pXml = new ProblemXML(path + "d.xml", true);
             if (!pXml.isError)
             {
-                OfficeWord obj = pXml.GetWordProbelm();
-
-                ClientControl.paper.Add(obj);
-
+                List<OfficeWord> list = pXml.GetWordProbelm();
+                foreach (OfficeWord c in list)
+                {
+                    ClientControl.paper.Add(c);
+                }
                 ClientControl.MainForm.addPage(ProblemType.Word);
             }
         }
 
-        public static void ReadOfficePPT(string path)
+        public static void ReadOfficeExcel(string path)
         {
             pXml = new ProblemXML(path + "e.xml", true);
             if (!pXml.isError)
             {
-                OfficePowerPoint obj = pXml.GetPowerPointProbelm();
-
-                ClientControl.paper.Add(obj);
-
-                ClientControl.MainForm.addPage(ProblemType.PowerPoint);
+                List<OfficeExcel> list = pXml.GetExcelProbelm();
+                foreach (OfficeExcel c in list)
+                {
+                    ClientControl.paper.Add(c);
+                }
+                ClientControl.MainForm.addPage(ProblemType.Excel);
             }
 
         }
 
-        public static void ReadOfficeExcel(string path)
+        public static void ReadOfficePPT(string path)
         {
             pXml = new ProblemXML(path + "f.xml", true);
             if (!pXml.isError)
             {
-                OfficeExcel obj = pXml.GetExcelProbelm();
-
-                ClientControl.paper.Add(obj);
-
-
-                ClientControl.MainForm.addPage(ProblemType.Excel);
+                List<OfficePowerPoint> list = pXml.GetPowerPointProbelm();
+                foreach (OfficePowerPoint c in list)
+                {
+                    ClientControl.paper.Add(c);
+                }
+                ClientControl.MainForm.addPage(ProblemType.PowerPoint);
             }
 
         }

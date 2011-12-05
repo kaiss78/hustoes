@@ -37,12 +37,12 @@ namespace OES.Model
             p.choice = new List<Choice>();
             p.completion = new List<Completion>();
             p.judge = new List<Judge>();
-            p.officeWord = new OfficeWord();
-            p.officePPT = new OfficePowerPoint();
-            p.officeExcel = new OfficeExcel();
-            p.pCompletion = new PCompletion();
-            p.pModif = new PModif();
-            p.pFunction = new PFunction();
+            p.officeWord = new List<OfficeWord>();
+            p.officePPT = new List<OfficePowerPoint>();
+            p.officeExcel = new List<OfficeExcel>();
+            p.pCompletion = new List<PCompletion>();
+            p.pModif = new List<PModif>();
+            p.pFunction = new List<PFunction>();
             p.problemList = new List<Problem>();
             ReadXML.ReadPaper(Config.PaperPath + p.paperID + @"\");
         }

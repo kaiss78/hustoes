@@ -121,6 +121,7 @@ namespace OES
         {
             MainForm.problemsList.setDone(id);
         }
+
         public static void AddChoice(Choice choice)
         {
             paper.Add(choice);
@@ -147,7 +148,55 @@ namespace OES
         {
             return paper.judge[proID];
         }
+        public static void AddOfficeWord(OfficeWord word)
+        {
+            paper.Add(word);
+        }
+        public static OfficeWord GetOfficeWord(int proID)
+        {
+            return paper.officeWord[proID];
+        }
+        public static void AddOfficeExcel(OfficeExcel excel)
+        {
+            paper.Add(excel);
+        }
+        public static OfficeExcel GetOfficeExcel(int proID)
+        {
+            return paper.officeExcel[proID];
+        }
+        public static void AddOfficePowerPoint(OfficePowerPoint ppt)
+        {
+            paper.Add(ppt);
+        }
+        public static OfficePowerPoint GetOfficePowerPoint(int proID)
+        {
+            return paper.officePPT[proID];
+        }
 
+        public static void AddProgramCompletion(PCompletion pCompletion)
+        {
+            paper.Add(pCompletion);
+        }
+        public static PCompletion GetProgramCompletion(int proID)
+        {
+            return paper.pCompletion[proID];
+        }
+        public static void AddProgramModif(PModif pModif)
+        {
+            paper.Add(pModif);
+        }
+        public static PModif GetProgramModif(int proID)
+        {
+            return paper.pModif[proID];
+        }
+        public static void AddProgramFunction(PFunction pFunction)
+        {
+            paper.Add(pFunction);
+        }
+        public static PFunction GetProgramFunction(int proID)
+        {
+            return paper.pFunction[proID];
+        }
         //总控类设置当前题目号
         internal static void JumpToPro(int p)
         {

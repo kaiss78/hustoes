@@ -86,20 +86,26 @@ namespace OES
                     temp = new ProblemTabPage("PowerPoint操作题");
                     temp.Controls.Add(officePpt);
                     break;
-                case ProblemType.ProgramCompletion:
-                    pCompletion = new CustomProgramInfo(1);
+                case ProblemType.CProgramCompletion:
+                case ProblemType.CppProgramCompletion:
+                case ProblemType.VbProgramCompletion:
+                    pCompletion = new CustomProgramInfo(pt);
                     pCompletion.Font = new Font("宋体", 9);
                     temp = new ProblemTabPage("程序填空题");
                     temp.Controls.Add(pCompletion);
                     break;
-                case ProblemType.ProgramModification:
-                    pModif = new CustomProgramInfo(2);
+                case ProblemType.CProgramModification:
+                case ProblemType.CppProgramModification:
+                case ProblemType.VbProgramModification:
+                    pModif = new CustomProgramInfo(pt);
                     pModif.Font = new Font("宋体", 9);
                     temp = new ProblemTabPage("程序改错题");
                     temp.Controls.Add(pModif);
                     break;
-                case ProblemType.ProgramFun:
-                    pFunction = new CustomProgramInfo(3);
+                case ProblemType.CProgramFun:
+                case ProblemType.CppProgramFun:
+                case ProblemType.VbProgramFun:
+                    pFunction = new CustomProgramInfo(pt);
                     pFunction.Font = new Font("宋体", 9);
                     temp = new ProblemTabPage("程序综合题");
                     temp.Controls.Add(pFunction);
@@ -142,23 +148,30 @@ namespace OES
                 case ProblemType.Tof:
                     ClientControl.CurrentProblemNum = ClientControl.paper.judge[judge.GetQuestion()].problemId;
                     break;
-                case ProblemType.ProgramCompletion:
-                    ClientControl.CurrentProblemNum = ClientControl.paper.pCompletion.problemId;
+                case ProblemType.CProgramCompletion:
+                case ProblemType.CppProgramCompletion:
+                case ProblemType.VbProgramCompletion:
+                    ClientControl.CurrentProblemNum = ClientControl.paper.pCompletion[pCompletion.GetQuestion()].problemId;
                     break;
-                case ProblemType.ProgramFun:
-                    ClientControl.CurrentProblemNum = ClientControl.paper.pFunction.problemId;
+                case ProblemType.CProgramModification:
+                case ProblemType.CppProgramModification:
+                case ProblemType.VbProgramModification:
+                    ClientControl.CurrentProblemNum = ClientControl.paper.pModif[pModif.GetQuestion()].problemId;
                     break;
-                case ProblemType.ProgramModification:
-                    ClientControl.CurrentProblemNum = ClientControl.paper.pModif.problemId;
+                case ProblemType.CProgramFun:
+                case ProblemType.CppProgramFun:
+                case ProblemType.VbProgramFun:
+                    ClientControl.CurrentProblemNum = ClientControl.paper.pFunction[pFunction.GetQuestion()].problemId;
                     break;
+                
                 case ProblemType.Word:
-                    ClientControl.CurrentProblemNum = ClientControl.paper.officeWord.problemId;
+                    ClientControl.CurrentProblemNum = ClientControl.paper.officeWord[officeWord.GetQuestion()].problemId;
                     break;
                 case ProblemType.PowerPoint:
-                    ClientControl.CurrentProblemNum = ClientControl.paper.officePPT.problemId;
+                    ClientControl.CurrentProblemNum = ClientControl.paper.officePPT[officePpt.GetQuestion()].problemId;
                     break;
                 case ProblemType.Excel:
-                    ClientControl.CurrentProblemNum = ClientControl.paper.officeExcel.problemId;
+                    ClientControl.CurrentProblemNum = ClientControl.paper.officeExcel[officeExcel.GetQuestion()].problemId;
                     break;
 
             }
@@ -191,23 +204,29 @@ namespace OES
                         case ProblemType.Tof:
                             judge.SetQuestion(index);
                             break;
-                        case ProblemType.ProgramCompletion:
-                            
+                        case ProblemType.CProgramCompletion:
+                        case ProblemType.CppProgramCompletion:
+                        case ProblemType.VbProgramCompletion:
+                            pCompletion.SetQuestion(index);
                             break;
-                        case ProblemType.ProgramFun:
-                            
+                        case ProblemType.CProgramModification:
+                        case ProblemType.CppProgramModification:
+                        case ProblemType.VbProgramModification:
+                            pModif.SetQuestion(index);
                             break;
-                        case ProblemType.ProgramModification:
-
+                        case ProblemType.CProgramFun:
+                        case ProblemType.CppProgramFun:
+                        case ProblemType.VbProgramFun:
+                            pFunction.SetQuestion(index);
                             break;
                         case ProblemType.Word:
-                           
+                            officeWord.SetQuestion(index);
                             break;
                         case ProblemType.PowerPoint:
-                           
+                            officePpt.SetQuestion(index);
                             break;
                         case ProblemType.Excel:
-                           
+                            officeExcel.SetQuestion(index);
                             break;
                     }
                     break;
