@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E4EFF3E5-EB11-47EE-AB20-B7AC00AE82FB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -152,14 +152,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UControl\AddbyBatch.resx">
-      <DependentUpon>AddbyBatch.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\ChptList.resx">
-      <DependentUpon>ChptList.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="UControl\ClassAdd.resx">
       <DependentUpon>ClassAdd.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -192,58 +184,6 @@
       <DependentUpon>ProblemItem.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UControl\ProList.resx">
-      <DependentUpon>ProList.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\ChoiceEdit.resx">
-      <DependentUpon>ChoiceEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\CompletionEdit.resx">
-      <DependentUpon>CompletionEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\JudgeEdit.resx">
-      <DependentUpon>JudgeEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\OfficeWordEdit.resx">
-      <DependentUpon>OfficeWordEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\OfficePowerpointEdit.resx">
-      <DependentUpon>OfficePowerpointEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\OfficeExcelEdit.resx">
-      <DependentUpon>OfficeExcelEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\CCompletionEdit.resx">
-      <DependentUpon>CCompletionEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\CppCompletionEdit.resx">
-      <DependentUpon>CppCompletionEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\CModifEdit.resx">
-      <DependentUpon>CModifEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\CppModifEdit.resx">
-      <DependentUpon>CppModifEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\CFuctionEdit.resx">
-      <DependentUpon>CFuctionEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\CppFuctionEdit.resx">
-      <DependentUpon>CppFuctionEdit.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="UControl\StudentAdd.resx">
       <DependentUpon>StudentAdd.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -260,20 +200,8 @@
       <DependentUpon>TeacherAdd.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UControl\ChptListCho.resx">
-      <DependentUpon>ChptListCho.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\ProListCho.resx">
-      <DependentUpon>ProListCho.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="UControl\testExcel.resx">
       <DependentUpon>testExcel.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UControl\AddChapter.resx">
-      <DependentUpon>AddChapter.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UControl\testPowerpoint.resx">
@@ -306,14 +234,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ProFunction.resx">
       <DependentUpon>ProFunction.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UPanel\ProMan.resx">
-      <DependentUpon>ProMan.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UPanel\ProManCho.resx">
-      <DependentUpon>ProManCho.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ProModify.resx">
@@ -349,18 +269,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="UControl\AddbyBatch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\AddbyBatch.Designer.cs">
-      <DependentUpon>AddbyBatch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\ChptList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\ChptList.Designer.cs">
-      <DependentUpon>ChptList.cs</DependentUpon>
     </Compile>
     <Compile Include="UControl\ClassAdd.cs">
       <SubType>UserControl</SubType>
@@ -410,84 +318,6 @@
     <Compile Include="UControl\ProblemItem.Designer.cs">
       <DependentUpon>ProblemItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UControl\ProList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\ProList.Designer.cs">
-      <DependentUpon>ProList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\ChoiceEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\ChoiceEdit.Designer.cs">
-      <DependentUpon>ChoiceEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\CompletionEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\CompletionEdit.Designer.cs">
-      <DependentUpon>CompletionEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\JudgeEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\JudgeEdit.Designer.cs">
-      <DependentUpon>JudgeEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\OfficeWordEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\OfficeWordEdit.Designer.cs">
-      <DependentUpon>OfficeWordEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\OfficePowerpointEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\OfficePowerpointEdit.Designer.cs">
-      <DependentUpon>OfficePowerpointEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\OfficeExcelEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\OfficeExcelEdit.Designer.cs">
-      <DependentUpon>OfficeExcelEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\CCompletionEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\CCompletionEdit.Designer.cs">
-      <DependentUpon>CCompletionEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\CppCompletionEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\CppCompletionEdit.Designer.cs">
-      <DependentUpon>CppCompletionEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\CModifEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\CModifEdit.Designer.cs">
-      <DependentUpon>CModifEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\CppModifEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\CppModifEdit.Designer.cs">
-      <DependentUpon>CppModifEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\CFuctionEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\CFuctionEdit.Designer.cs">
-      <DependentUpon>CFuctionEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\CppFuctionEdit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\CppFuctionEdit.Designer.cs">
-      <DependentUpon>CppFuctionEdit.cs</DependentUpon>
-    </Compile>
     <Compile Include="UControl\StudentAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -512,29 +342,11 @@
     <Compile Include="UControl\TeacherAdd.Designer.cs">
       <DependentUpon>TeacherAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="UControl\ChptListCho.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\ChptListCho.Designer.cs">
-      <DependentUpon>ChptListCho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\ProListCho.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\ProListCho.Designer.cs">
-      <DependentUpon>ProListCho.cs</DependentUpon>
-    </Compile>
     <Compile Include="UControl\testExcel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UControl\testExcel.designer.cs">
       <DependentUpon>testExcel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UControl\AddChapter.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UControl\AddChapter.Designer.cs">
-      <DependentUpon>AddChapter.cs</DependentUpon>
     </Compile>
     <Compile Include="UControl\testPowerpoint.cs">
       <SubType>UserControl</SubType>
@@ -583,18 +395,6 @@
     </Compile>
     <Compile Include="UPanel\ProFunction.Designer.cs">
       <DependentUpon>ProFunction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UPanel\ProMan.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UPanel\ProMan.Designer.cs">
-      <DependentUpon>ProMan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UPanel\ProManCho.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UPanel\ProManCho.Designer.cs">
-      <DependentUpon>ProManCho.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\ProModify.cs">
       <SubType>UserControl</SubType>

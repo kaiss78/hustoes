@@ -157,17 +157,23 @@ namespace OES
                         InfoControl.TmpPaper.ProList[3].Add(tmpPro);
                         InfoControl.TmpPaper.score_officeExcel = pro.score;
                         break;
-                    case ProblemType.ProgramModification:
+                    case ProblemType.CProgramCompletion:
+                    case ProblemType.CppProgramCompletion:
+                    case ProblemType.VbProgramCompletion:
                         tmpPro = InfoControl.OesData.FindModificationProgramById(pro.id.ToString())[0];
                         InfoControl.TmpPaper.ProList[7].Add(tmpPro);
                         InfoControl.TmpPaper.score_pModif = pro.score;
                         break;
-                    case ProblemType.ProgramCompletion:
+                    case ProblemType.CProgramModification:
+                    case ProblemType.CppProgramModification:
+                    case ProblemType.VbProgramModification:
                         tmpPro = InfoControl.OesData.FindCompletionProgramById(pro.id.ToString())[0];
                         InfoControl.TmpPaper.ProList[6].Add(tmpPro);
                         InfoControl.TmpPaper.score_pCompletion = pro.score;
                         break;
-                    case ProblemType.ProgramFun:
+                    case ProblemType.CProgramFun:
+                    case ProblemType.CppProgramFun:
+                    case ProblemType.VbProgramFun:
                         tmpPro = InfoControl.OesData.FindFunProgramById(pro.id.ToString())[0];
                         InfoControl.TmpPaper.ProList[8].Add(tmpPro);
                         InfoControl.TmpPaper.score_pFunction = pro.score;

@@ -24,34 +24,34 @@ namespace OES
             {
                 panelList.Add(new UserPanel());
             }
-            for (int i = 0; i < 12; i++)
-            {
-                panelList[i] = mf.proMan;
-            }
-            mf.proMan.PanelID = 0;
-            panelList[12] = mf.paperInfo;
-            mf.paperInfo.PanelID = 12;
+            //for (int i = 0; i < 12; i++)
+            //{
+            //    panelList[i] = mf.proMan;
+            //}
+            //mf.proMan.PanelID = 0;
 
-            panelList[13] = mf.paperListPanel;
-            mf.paperListPanel.PanelID = 13;
+            panelList[1] = mf.paperListPanel;
+            mf.paperListPanel.PanelID = 1;
+            panelList[2] = mf.paperInfo;
+            mf.paperInfo.PanelID = 2;
 
-            panelList[14] = mf.studentManage;
-            mf.studentManage.PanelID = 14;
+            panelList[3] = mf.studentManage;
+            mf.studentManage.PanelID = 3;
 
-            panelList[15] = mf.classManage;
-            mf.classManage.PanelID = 15;
+            panelList[4] = mf.classManage;
+            mf.classManage.PanelID = 4;
 
-            panelList[16] = mf.teacherManage;
-            mf.teacherManage.PanelID=16;
+            panelList[5] = mf.teacherManage;
+            mf.teacherManage.PanelID=5;
 
-            panelList[17] = mf.scoreManage;
-            mf.scoreManage.PanelID = 17;
+            panelList[6] = mf.scoreManage;
+            mf.scoreManage.PanelID = 6;
 
-            panelList[18] = mf.proManCho;
-            mf.proManCho.PanelID = 18;
+            //panelList[18] = mf.proManCho;
+            //mf.proManCho.PanelID = 18;
 
-            panelList[19] = mf.paperEditPanel;                        
-            mf.paperEditPanel.PanelID = 19;
+            panelList[7] = mf.paperEditPanel;                        
+            mf.paperEditPanel.PanelID = 7;
             
         }
 
@@ -67,32 +67,25 @@ namespace OES
 
         static public void ChangPanel(int x)
         {
-            if (!ProMan.isediting)
+            HideAllPanel();
+            switch (x)
             {
-                HideAllPanel();
-                switch (x)
-                {
-                    case 13:
-                    
-                    case 14:
-                    case 15:
-                    case 16:
-                    case 17:
-                    case 19:
-                        panelList[x].ReLoad();
-                        break;
-                    case 12:
-                        InfoControl.TmpPaper = new OES.Model.Paper();
-                        panelList[x].ReLoad();
-                        break;
-                    default:
-                        panelList[x].ReLoad(x);
-                        break;
-                }
-            }
-            else
-            {
-                MessageBox.Show("请先保存当前编辑页面");
+                case 1:
+
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    panelList[x].ReLoad();
+                    break;
+                case 2:
+                    InfoControl.TmpPaper = new OES.Model.Paper();
+                    panelList[x].ReLoad();
+                    break;
+                default:
+                    panelList[x].ReLoad(x);
+                    break;
             }
         }
 

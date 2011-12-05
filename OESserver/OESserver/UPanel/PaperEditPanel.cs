@@ -24,18 +24,22 @@ namespace OES.UPanel
         static public ProPreview propanel;
         public int protype;
         public int value;
-        private readonly ProblemType[] PT ={ ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, 
-                                                                      ProblemType.Excel, ProblemType.PowerPoint, ProblemType.Word, 
-                                                                      ProblemType.ProgramCompletion, ProblemType.ProgramModification, ProblemType.ProgramFun };
+        private readonly ProblemType[] PT ={
+                                               ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, 
+                                               ProblemType.Excel, ProblemType.PowerPoint, ProblemType.Word, 
+                                               ProblemType.CppProgramCompletion, ProblemType.CppProgramFun, ProblemType.CppProgramModification , 
+                                               ProblemType.CProgramCompletion, ProblemType.CProgramFun, ProblemType.CProgramModification, 
+                                               ProblemType.VbProgramCompletion, ProblemType.VbProgramFun, ProblemType.VbProgramModification
+                                           };
 
         public PaperEditPanel()
         {
             InitializeComponent();
-            ItemList = new List<ProblemItem>();            
+            ItemList = new List<ProblemItem>();
             propanel = new ProPreview();
             propanel.btnSelectPro.Click += new EventHandler(SelectPro_Click);
             propanel.Visible = false;
-            ItemPanel.Controls.Add(propanel);            
+            ItemPanel.Controls.Add(propanel);
         }
 
         public void HideAllItem()
@@ -51,19 +55,19 @@ namespace OES.UPanel
             while (proList.Count > ItemList.Count)
             {
                 tmpItem = new ProblemItem();
-                tmpItem.ItemNo.Text = (ItemList.Count+1).ToString();
+                tmpItem.ItemNo.Text = (ItemList.Count + 1).ToString();
                 tmpItem.ItemText.Text = "-";
                 tmpItem.Margin = new System.Windows.Forms.Padding(0);
                 tmpItem.Padding = new System.Windows.Forms.Padding(0);
                 tmpItem.ItemText.Tag = ItemList.Count + 1;
-                tmpItem.ItemText.Click += new EventHandler(ItemText_Click);                    
+                tmpItem.ItemText.Click += new EventHandler(ItemText_Click);
                 ItemList.Add(tmpItem);
                 ItemPanel.Controls.Add(tmpItem);
             }
             while (proList.Count < ItemList.Count)
             {
-                ItemPanel.Controls.Remove(ItemList[ItemList.Count-1]);
-                ItemList.RemoveAt(ItemList.Count-1);                
+                ItemPanel.Controls.Remove(ItemList[ItemList.Count - 1]);
+                ItemList.RemoveAt(ItemList.Count - 1);
             }
             for (int i = 0; i < proList.Count; i++)
             {
@@ -94,13 +98,13 @@ namespace OES.UPanel
             btnPCompletion.Visible = InfoControl.TmpPaper.ProList[6][0].exist != false;
             btnPModif.Visible = InfoControl.TmpPaper.ProList[7][0].exist != false;
             btnPFunction.Visible = InfoControl.TmpPaper.ProList[8][0].exist != false;
-            
+
             //ItemPanel.Controls.Clear();
         }
 
         private void BtnProType_Click(object sender, EventArgs e)
         {
-            protype = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton) sender).Tag);
+            protype = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton)sender).Tag);
             if ((InfoControl.TmpPaper.programState == 1) && (protype > 5))
             {
                 protype = protype + 3;
@@ -116,13 +120,13 @@ namespace OES.UPanel
                 propanel.Visible = true;
                 if (protype > 8)
                 {
-                    propanel.ProText.Text = InfoControl.TmpPaper.ProList[protype-3][0].problem;
+                    propanel.ProText.Text = InfoControl.TmpPaper.ProList[protype - 3][0].problem;
                 }
-                else 
+                else
                 {
                     propanel.ProText.Text = InfoControl.TmpPaper.ProList[protype][0].problem;
                 }
-                
+
             }
         }
 
@@ -130,7 +134,7 @@ namespace OES.UPanel
         {
             if (protype > 8)
             {
-                PanelControl.ChangPanel(18, protype-3);
+                PanelControl.ChangPanel(18, protype - 3);
             }
             else
             {
@@ -141,10 +145,10 @@ namespace OES.UPanel
         void ItemText_Click(object sender, EventArgs e)
         {
             InfoControl.Value = Convert.ToInt32(((ComponentFactory.Krypton.Toolkit.KryptonButton)sender).Tag);
-            PanelControl.ChangPanel(18, protype);            
+            PanelControl.ChangPanel(18, protype);
         }
 
-        private string getAnswer(ProblemType t,string ID)
+        private string getAnswer(ProblemType t, string ID)
         {
             string ans = "";
             List<Choice> choice;
@@ -195,7 +199,7 @@ namespace OES.UPanel
                         XMLControl.AddProblemToPaper(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId, InfoControl.TmpPaper.ProList[k][i].score);
                         if (k < 3)
                         {
-                            XMLControl.AddPaperAns(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId,getAnswer(PT[k],InfoControl.TmpPaper.ProList[k][i].problemId.ToString()));
+                            XMLControl.AddPaperAns(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId, getAnswer(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId.ToString()));
                         }
                         if (k == 6)
                         {
@@ -205,7 +209,7 @@ namespace OES.UPanel
                 }
             }
 
-            InfoControl.ClientObj.SavePaper(Convert.ToInt32(InfoControl.TmpPaper.paperID),Convert.ToInt32(InfoControl.User.Id));
+            InfoControl.ClientObj.SavePaper(Convert.ToInt32(InfoControl.TmpPaper.paperID), Convert.ToInt32(InfoControl.User.Id));
             InfoControl.ClientObj.SendFiles();
             while (!ClientEvt.isOver) ;
             PanelControl.ReturnToMain();
