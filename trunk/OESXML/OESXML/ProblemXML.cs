@@ -136,112 +136,124 @@ namespace OESXML
             }
             xd.Save(FileName);
         }
-        public void SetWordProbelm(OfficeWord obj)
+        public void SetWordProbelm(List<OfficeWord> list)
         {
-            xmlelem = xd.CreateElement("Word");
-            XmlAttribute xa = xd.CreateAttribute("ProblemId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("ProblemId", obj.problemId.ToString());
-            xa = xd.CreateAttribute("OrderId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("OrderId", obj.orderId.ToString());
+            foreach (OfficeWord c in list)
+            {
+                xmlelem = xd.CreateElement("Word");
+                XmlAttribute xa = xd.CreateAttribute("ProblemId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
+                xa = xd.CreateAttribute("OrderId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("OrderId", c.orderId.ToString());
 
-            xmlelem1 = xd.CreateElement("Problem");
-            xmlelem1.AppendChild(xd.CreateTextNode(obj.problem));
-            xmlelem.AppendChild(xmlelem1);
+                xmlelem1 = xd.CreateElement("Problem");
+                xmlelem1.AppendChild(xd.CreateTextNode(c.problem));
+                xmlelem.AppendChild(xmlelem1);
 
-            xd.ChildNodes.Item(1).AppendChild(xmlelem);
-            
+                xd.ChildNodes.Item(1).AppendChild(xmlelem);
+            }
             xd.Save(FileName);
         }
-        public void SetExcelProbelm(OfficeExcel obj)
+        public void SetExcelProbelm(List<OfficeExcel> list)
         {
-            xmlelem = xd.CreateElement("Excel");
-            XmlAttribute xa = xd.CreateAttribute("ProblemId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("ProblemId", obj.problemId.ToString());
-            xa = xd.CreateAttribute("OrderId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("OrderId", obj.orderId.ToString());
+            foreach (OfficeExcel c in list)
+            {
+                xmlelem = xd.CreateElement("Excel");
+                XmlAttribute xa = xd.CreateAttribute("ProblemId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
+                xa = xd.CreateAttribute("OrderId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("OrderId", c.orderId.ToString());
 
-            xmlelem1 = xd.CreateElement("Problem");
-            xmlelem1.AppendChild(xd.CreateTextNode(obj.problem));
-            xmlelem.AppendChild(xmlelem1);
+                xmlelem1 = xd.CreateElement("Problem");
+                xmlelem1.AppendChild(xd.CreateTextNode(c.problem));
+                xmlelem.AppendChild(xmlelem1);
 
-            xd.ChildNodes.Item(1).AppendChild(xmlelem);
-
+                xd.ChildNodes.Item(1).AppendChild(xmlelem);
+            }
             xd.Save(FileName);
         }
-        public void SetPowerPointProbelm(OfficePowerPoint obj)
+        public void SetPowerPointProbelm(List<OfficePowerPoint> list)
         {
-            xmlelem = xd.CreateElement("PowerPoint");
-            XmlAttribute xa = xd.CreateAttribute("ProblemId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("ProblemId", obj.problemId.ToString());
-            xa = xd.CreateAttribute("OrderId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("OrderId", obj.orderId.ToString());
+            foreach (OfficePowerPoint c in list)
+            {
+                xmlelem = xd.CreateElement("PowerPoint");
+                XmlAttribute xa = xd.CreateAttribute("ProblemId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
+                xa = xd.CreateAttribute("OrderId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("OrderId", c.orderId.ToString());
 
-            xmlelem1 = xd.CreateElement("Problem");
-            xmlelem1.AppendChild(xd.CreateTextNode(obj.problem));
-            xmlelem.AppendChild(xmlelem1);
+                xmlelem1 = xd.CreateElement("Problem");
+                xmlelem1.AppendChild(xd.CreateTextNode(c.problem));
+                xmlelem.AppendChild(xmlelem1);
 
-            xd.ChildNodes.Item(1).AppendChild(xmlelem);
-
+                xd.ChildNodes.Item(1).AppendChild(xmlelem);
+            }
             xd.Save(FileName);
         }
-        public void SetPCompletionProbelm(PCompletion obj)
+        public void SetPCompletionProbelm(List<PCompletion> list)
         {
-            xmlelem = xd.CreateElement("ProgramCompletion");
-            XmlAttribute xa = xd.CreateAttribute("ProblemId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("ProblemId", obj.problemId.ToString());
-            xa = xd.CreateAttribute("OrderId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("OrderId", obj.orderId.ToString());
+            foreach (PCompletion c in list)
+            {
+                xmlelem = xd.CreateElement("ProgramCompletion");
+                XmlAttribute xa = xd.CreateAttribute("ProblemId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
+                xa = xd.CreateAttribute("OrderId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("OrderId", c.orderId.ToString());
 
-            xmlelem1 = xd.CreateElement("Problem");
-            xmlelem1.AppendChild(xd.CreateTextNode(obj.problem));
-            xmlelem.AppendChild(xmlelem1);
+                xmlelem1 = xd.CreateElement("Problem");
+                xmlelem1.AppendChild(xd.CreateTextNode(c.problem));
+                xmlelem.AppendChild(xmlelem1);
 
-            xd.ChildNodes.Item(1).AppendChild(xmlelem);
-
+                xd.ChildNodes.Item(1).AppendChild(xmlelem);
+            }
             xd.Save(FileName);
         }
-        public void SetPModifProbelm(PModif obj)
+        public void SetPModifProbelm(List<PModif> list)
         {
-            xmlelem = xd.CreateElement("ProgramModification");
-            XmlAttribute xa = xd.CreateAttribute("ProblemId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("ProblemId", obj.problemId.ToString());
-            xa = xd.CreateAttribute("OrderId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("OrderId", obj.orderId.ToString());
+            foreach (PModif c in list)
+            {
+                xmlelem = xd.CreateElement("ProgramModification");
+                XmlAttribute xa = xd.CreateAttribute("ProblemId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
+                xa = xd.CreateAttribute("OrderId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("OrderId", c.orderId.ToString());
 
-            xmlelem1 = xd.CreateElement("Problem");
-            xmlelem1.AppendChild(xd.CreateTextNode(obj.problem));
-            xmlelem.AppendChild(xmlelem1);
+                xmlelem1 = xd.CreateElement("Problem");
+                xmlelem1.AppendChild(xd.CreateTextNode(c.problem));
+                xmlelem.AppendChild(xmlelem1);
 
-            xd.ChildNodes.Item(1).AppendChild(xmlelem);
-
+                xd.ChildNodes.Item(1).AppendChild(xmlelem);
+            }
             xd.Save(FileName);
         }
-        public void SetPFunctionProbelm(PFunction obj)
+        public void SetPFunctionProbelm(List<PFunction> list)
         {
-            xmlelem = xd.CreateElement("ProgramFun");
-            XmlAttribute xa = xd.CreateAttribute("ProblemId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("ProblemId", obj.problemId.ToString());
-            xa = xd.CreateAttribute("OrderId");
-            xmlelem.Attributes.Append(xa);
-            xmlelem.SetAttribute("OrderId", obj.orderId.ToString());
+            foreach (PFunction c in list)
+            {
+                xmlelem = xd.CreateElement("ProgramFun");
+                XmlAttribute xa = xd.CreateAttribute("ProblemId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
+                xa = xd.CreateAttribute("OrderId");
+                xmlelem.Attributes.Append(xa);
+                xmlelem.SetAttribute("OrderId", c.orderId.ToString());
 
-            xmlelem1 = xd.CreateElement("Problem");
-            xmlelem1.AppendChild(xd.CreateTextNode(obj.problem));
-            xmlelem.AppendChild(xmlelem1);
+                xmlelem1 = xd.CreateElement("Problem");
+                xmlelem1.AppendChild(xd.CreateTextNode(c.problem));
+                xmlelem.AppendChild(xmlelem1);
 
-            xd.ChildNodes.Item(1).AppendChild(xmlelem);
-
+                xd.ChildNodes.Item(1).AppendChild(xmlelem);
+            }
             xd.Save(FileName);
         }
         public List<Choice> GetChoiceProbelms()
@@ -328,137 +340,246 @@ namespace OESXML
             }
             return list;
         }
-        public OfficeWord GetWordProbelm()
+        public List<OfficeWord> GetWordProbelm()
         {
-            OfficeWord obj = new OfficeWord();
+            List<OfficeWord> list = new List<OfficeWord>();
             foreach (XmlNode xnn in xd.ChildNodes.Item(1).ChildNodes)
             {
                 if (xnn.Name == "Word")
                 {
-                    obj.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
-                    obj.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    OfficeWord c = new OfficeWord();
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
                         switch (option.Name)
                         {
                             case "Problem":
-                                obj.problem = option.ChildNodes.Item(0).Value;
+                                c.problem = option.ChildNodes.Item(0).Value;
                                 break;
                         }
+                        list.Add(c);
                     }
                 }
             }
-            return obj;
+            return list;
         }
-        public OfficeExcel GetExcelProbelm()
+        public List<OfficeExcel> GetExcelProbelm()
         {
-            OfficeExcel obj = new OfficeExcel();
+            List<OfficeExcel> list = new List<OfficeExcel>();
             foreach (XmlNode xnn in xd.ChildNodes.Item(1).ChildNodes)
             {
                 if (xnn.Name == "Excel")
                 {
-                    obj.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
-                    obj.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    OfficeExcel c = new OfficeExcel();
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
                         switch (option.Name)
                         {
                             case "Problem":
-                                obj.problem = option.ChildNodes.Item(0).Value;
+                                c.problem = option.ChildNodes.Item(0).Value;
                                 break;
                         }
                     }
+                    list.Add(c);
                 }
             }
-            return obj;
+            return list;
         }
-        public OfficePowerPoint GetPowerPointProbelm()
+        public List<OfficePowerPoint> GetPowerPointProbelm()
         {
-            OfficePowerPoint obj = new OfficePowerPoint();
+            List<OfficePowerPoint> list = new List<OfficePowerPoint>();
             foreach (XmlNode xnn in xd.ChildNodes.Item(1).ChildNodes)
             {
                 if (xnn.Name == "PowerPoint")
                 {
-                    obj.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
-                    obj.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    OfficePowerPoint c = new OfficePowerPoint();
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
                         switch (option.Name)
                         {
                             case "Problem":
-                                obj.problem = option.ChildNodes.Item(0).Value;
+                                c.problem = option.ChildNodes.Item(0).Value;
                                 break;
                         }
                     }
+                    list.Add(c);
                 }
             }
-            return obj;
+            return list;
         }
-        public PCompletion GetPCompletionProbelm()
+        public List<PCompletion> GetPCompletionProbelm()
         {
-            PCompletion obj = new PCompletion();
+            List<PCompletion> list = new List<PCompletion>();
             foreach (XmlNode xnn in xd.ChildNodes.Item(1).ChildNodes)
             {
-                if (xnn.Name == "ProgramCompletion")
+                if (xnn.Name == "CProgramCompletion")
                 {
-                    obj.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
-                    obj.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    PCompletion c = new PCompletion(ProblemType.CProgramCompletion);
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
                         switch (option.Name)
                         {
                             case "Problem":
-                                obj.problem = option.ChildNodes.Item(0).Value;
+                                c.problem = option.ChildNodes.Item(0).Value;
                                 break;
                         }
                     }
+                    list.Add(c);
+                }
+                else if(xnn.Name == "CppProgramCompletion")
+                {
+                    PCompletion c = new PCompletion(ProblemType.CppProgramCompletion);
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    foreach (XmlNode option in xnn.ChildNodes)
+                    {
+                        switch (option.Name)
+                        {
+                            case "Problem":
+                                c.problem = option.ChildNodes.Item(0).Value;
+                                break;
+                        }
+                    }
+                    list.Add(c);
+                }
+                else if (xnn.Name == "VbProgramCompletion")
+                {
+                    PCompletion c = new PCompletion(ProblemType.VbProgramCompletion);
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    foreach (XmlNode option in xnn.ChildNodes)
+                    {
+                        switch (option.Name)
+                        {
+                            case "Problem":
+                                c.problem = option.ChildNodes.Item(0).Value;
+                                break;
+                        }
+                    }
+                    list.Add(c);
                 }
             }
-            return obj;
+            return list;
         }
-        public PModif GetPModifProbelm()
+        public List<PModif> GetPModifProbelm()
         {
-            PModif obj = new PModif();
+            List<PModif> list = new List<PModif>();
             foreach (XmlNode xnn in xd.ChildNodes.Item(1).ChildNodes)
             {
-                if (xnn.Name == "ProgramModification")
+                if (xnn.Name == "CProgramModification")
                 {
-                    obj.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
-                    obj.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    PModif c = new PModif(ProblemType.CProgramModification);
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
                         switch (option.Name)
                         {
                             case "Problem":
-                                obj.problem = option.ChildNodes.Item(0).Value;
+                                c.problem = option.ChildNodes.Item(0).Value;
                                 break;
                         }
                     }
+                    list.Add(c);
+                }
+                else if (xnn.Name == "CppProgramModification")
+                {
+                    PModif c = new PModif(ProblemType.CppProgramModification);
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    foreach (XmlNode option in xnn.ChildNodes)
+                    {
+                        switch (option.Name)
+                        {
+                            case "Problem":
+                                c.problem = option.ChildNodes.Item(0).Value;
+                                break;
+                        }
+                    }
+                    list.Add(c);
+                }
+                else if (xnn.Name == "VbProgramModification")
+                {
+                    PModif c = new PModif(ProblemType.VbProgramModification);
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    foreach (XmlNode option in xnn.ChildNodes)
+                    {
+                        switch (option.Name)
+                        {
+                            case "Problem":
+                                c.problem = option.ChildNodes.Item(0).Value;
+                                break;
+                        }
+                    }
+                    list.Add(c);
                 }
             }
-            return obj;
+            return list;
         }
-        public PFunction GetPFunctionProbelm()
+        public List<PFunction> GetPFunctionProbelm()
         {
-            PFunction obj = new PFunction();
+            List<PFunction> list = new List<PFunction>();
+
             foreach (XmlNode xnn in xd.ChildNodes.Item(1).ChildNodes)
             {
-                if (xnn.Name == "ProgramFun")
+                if (xnn.Name == "CProgramFun")
                 {
-                    obj.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
-                    obj.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    PFunction c = new PFunction(ProblemType.CProgramFun);
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
                         switch (option.Name)
                         {
                             case "Problem":
-                                obj.problem = option.ChildNodes.Item(0).Value;
+                                c.problem = option.ChildNodes.Item(0).Value;
                                 break;
                         }
                     }
+                    list.Add(c);
+                }
+                else if (xnn.Name == "CppProgramFun")
+                {
+                    PFunction c = new PFunction(ProblemType.CppProgramFun);
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    foreach (XmlNode option in xnn.ChildNodes)
+                    {
+                        switch (option.Name)
+                        {
+                            case "Problem":
+                                c.problem = option.ChildNodes.Item(0).Value;
+                                break;
+                        }
+                    }
+                    list.Add(c);
+                }
+                else if (xnn.Name == "VbProgramFun")
+                {
+                    PFunction c = new PFunction(ProblemType.VbProgramFun);
+                    c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
+                    c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
+                    foreach (XmlNode option in xnn.ChildNodes)
+                    {
+                        switch (option.Name)
+                        {
+                            case "Problem":
+                                c.problem = option.ChildNodes.Item(0).Value;
+                                break;
+                        }
+                    }
+                    list.Add(c);
                 }
             }
-            return obj;
+            return list;
         }
     }
 }
