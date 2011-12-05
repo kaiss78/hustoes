@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
+using OES.Model;
 
 namespace OES.UControl
 {
@@ -16,50 +17,95 @@ namespace OES.UControl
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
 
-        static string paperPath = Config.paperPath;
-        static string name = "f.xls";
-        static string stuPath = Config.stuPath + "stu_" + name;
+        //static string paperPath = Config.paperPath;
+        //static string name = "f.xls";
+        //static string stuPath = Config.stuPath + "stu_" + name;
+        private string filename = "";
+        private int proid;
+
+        public int proID
+        {
+            get { return proid; }
+            set
+            {
+                proid = value;
+                if (proid == ClientControl.paper.officeExcel.Count - 1)
+                {
+                    NextProblem.Enabled = false;
+                }
+                else if (proid == 0)
+                {
+                    LastProblem.Enabled = false;
+                }
+                else
+                {
+                    NextProblem.Enabled = true;
+                    LastProblem.Enabled = true;
+                }
+            }
+        }
+
+        private OfficeExcel excel = new OfficeExcel();
 
         public CustomExcel()
         {
             InitializeComponent();
-            this.Question.Text = ClientControl.paper.officeExcel.problem;
+            proID = 0;
+            this.SetQuestion(proID);
             this.Dock = DockStyle.Fill;
         }
 
+        public void SetQuestion(int x)
+        {
+            proID = x;
+            excel = ClientControl.GetOfficeExcel(proID);
+            this.Question.Text = excel.problem;
+            this.filename = "e" + proID.ToString() + ".xls";
+        }
 
-        //private void button3_Click(object sender, EventArgs e)
-        //{
-        //    StreamReader sr = new StreamReader(path+"大枪刷图点.txt", Encoding.GetEncoding("GB2312"), false);
+        private void nextstep_Click(object sender, EventArgs e)
+        {
+            if (proID < ClientControl.paper.officeExcel.Count - 1)
+            {
+                this.SetQuestion(++proID);
+                ClientControl.CurrentProblemNum++;
+            }
+        }
 
-        //    string str = sr.ReadToEnd();
+        private void laststep_Click(object sender, EventArgs e)
+        {
+            if (proID > 0)
+            {
+                this.SetQuestion(--proID);
+                ClientControl.CurrentProblemNum--;
+            }
 
-        //    sr.Close();
+        }
 
-        //    this.Question.Text = str;
-        //    this.richTextBox2.Text = str; 
-
-        //}
+        public int GetQuestion()
+        {
+            return proID;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(stuPath);
+            if (!File.Exists(Config.stuPath + filename))
+            {
+                File.Copy(Config.paperPath + filename, Config.stuPath + filename, true);
+            }
+            while (!File.Exists(Config.stuPath + filename)) ;
+            System.Diagnostics.Process.Start(Config.stuPath + filename);
             ClientControl.SetDone(ClientControl.CurrentProblemNum);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
-
-
 
             if (MessageBox.Show("继续将会删除之前答案", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-
-                File.Copy(paperPath + name, stuPath, true);
-                System.Diagnostics.Process.Start(stuPath);
+                File.Copy(Config.paperPath + filename, Config.stuPath + filename, true);
+                System.Diagnostics.Process.Start(Config.stuPath + filename);
             }
-
-
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
@@ -72,8 +118,6 @@ namespace OES.UControl
                     pro1.Kill();
                 }
             }
-            File.Copy(paperPath + name, stuPath, true);
-
         }
 
         //private void button4_Click(object sender, EventArgs e)
