@@ -16,25 +16,26 @@ namespace OES.UControl
             InitializeComponent();
         }
 
-        public OfficeWordEdit aOfficeWordEdit;
+        //public OfficeWordEdit aOfficeWordEdit;
         public Boolean isLoaded;
-        public string xmlPath = InfoControl.config["PPTPath"] + "t" + ProList.click_proid + ".xml";
-        public PointEditWord(OfficeWordEdit word)
-        {
-            InitializeComponent();
-            aOfficeWordEdit = word;
-            try 
-            {
-                testWord1.LoadWord(aOfficeWordEdit.anspathPointEdit, xmlPath);
-                isLoaded = true; 
-            }
-            catch 
-            {
-                isLoaded = false;
-                MessageBox.Show("打开文件失败！", "添加考点", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //界面跳转
-            }
-        }
+        //public string xmlPath = InfoControl.config["PPTPath"] + "t" + ProList.click_proid + ".xml";
+
+        //public PointEditWord(OfficeWordEdit word)
+        //{
+        //    InitializeComponent();
+        //    aOfficeWordEdit = word;
+        //    try 
+        //    {
+        //        testWord1.LoadWord(aOfficeWordEdit.anspathPointEdit, xmlPath);
+        //        isLoaded = true; 
+        //    }
+        //    catch 
+        //    {
+        //        isLoaded = false;
+        //        MessageBox.Show("打开文件失败！", "添加考点", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        //界面跳转
+        //    }
+        //}
 
 
         private void btnCancel_Click(object sender, EventArgs e)

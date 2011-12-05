@@ -11,25 +11,25 @@ namespace OES.UControl
 {
     public partial class PointEditPpt : UserControl
     {
-        public OfficePowerpointEdit aOfficePowerpointEdit;
+        //public OfficePowerpointEdit aOfficePowerpointEdit;
         public Boolean isLoaded;
-        public string xmlPath = InfoControl.config["PPTPath"] + "t" + ProList.click_proid + ".xml"; 
-        public PointEditPpt(OfficePowerpointEdit ppt)
-        {
-            InitializeComponent();
-            aOfficePowerpointEdit = ppt;
-            try 
-            {
-                testPowerpoint1.LoadPowerpoint(aOfficePowerpointEdit.anspathPointEdit, xmlPath);
-                isLoaded = true; 
-            }
-            catch 
-            {
-                isLoaded = false;
-                MessageBox.Show("打开文件失败！", "添加考点", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //界面跳转
-            }
-        }
+        //public string xmlPath = InfoControl.config["PPTPath"] + "t" + ProList.click_proid + ".xml"; 
+        //public PointEditPpt(OfficePowerpointEdit ppt)
+        //{
+        //    InitializeComponent();
+        //    aOfficePowerpointEdit = ppt;
+        //    try 
+        //    {
+        //        testPowerpoint1.LoadPowerpoint(aOfficePowerpointEdit.anspathPointEdit, xmlPath);
+        //        isLoaded = true; 
+        //    }
+        //    catch 
+        //    {
+        //        isLoaded = false;
+        //        MessageBox.Show("打开文件失败！", "添加考点", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        //界面跳转
+        //    }
+        //}
 
 
 
@@ -39,7 +39,7 @@ namespace OES.UControl
                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 testPowerpoint1.ClosePPT();
-                aOfficePowerpointEdit.Show();//TODO: 界面跳转
+                //aOfficePowerpointEdit.Show();//TODO: 界面跳转
                 this.Dispose();
             }
         }
@@ -49,7 +49,7 @@ namespace OES.UControl
             //TODO: Upload File To Server.
             MessageBox.Show("上传完成！(加方法......)");
             testPowerpoint1.ClosePPT();
-            aOfficePowerpointEdit.Show();//TODO: 界面跳转
+            //aOfficePowerpointEdit.Show();//TODO: 界面跳转
             this.Dispose();
         }
     }
