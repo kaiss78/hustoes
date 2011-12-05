@@ -16,6 +16,7 @@ namespace OES
         public ClassManage classManage;
         public TeacherManage teacherManage;
         public ScoreManage scoreManage;
+        public QuesBankForm quesBankForm;
         //public ProManCho proManCho;
               
         public MainForm()
@@ -29,7 +30,9 @@ namespace OES
             classManage=new ClassManage();             //班级管理界面
             teacherManage = new TeacherManage();   //教师管理界面            
             scoreManage=new ScoreManage();           //成绩管理界面
+            quesBankForm = new QuesBankForm();     //试题管理界面
 
+            MainPanel.Controls.Add(quesBankForm);
             MainPanel.Controls.Add(paperInfo);
             MainPanel.Controls.Add(paperListPanel);            
             MainPanel.Controls.Add(studentManage);

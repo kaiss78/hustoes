@@ -30,8 +30,12 @@ namespace OES
             //}
             //mf.proMan.PanelID = 0;
 
+            panelList[0] = mf.quesBankForm;
+            mf.quesBankForm.PanelID = 0;
+            
             panelList[1] = mf.paperListPanel;
             mf.paperListPanel.PanelID = 1;
+
             panelList[2] = mf.paperInfo;
             mf.paperInfo.PanelID = 2;
 
@@ -70,6 +74,7 @@ namespace OES
             HideAllPanel();
             switch (x)
             {
+                case 0:
                 case 1:
                 case 3:
                 case 4:

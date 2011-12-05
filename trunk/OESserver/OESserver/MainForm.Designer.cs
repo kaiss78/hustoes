@@ -212,6 +212,7 @@
             this.llbProManage.TabStop = true;
             this.llbProManage.Tag = "0";
             this.llbProManage.Text = "试题管理";
+            this.llbProManage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // MainForm
             // 
