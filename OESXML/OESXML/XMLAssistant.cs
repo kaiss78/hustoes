@@ -216,22 +216,25 @@ namespace OES.XMLFile
         {
             string s = "";
             XmlNode xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
-            foreach (XmlNode xnn in xn.ChildNodes)
+            if (xn != null)
             {
-                if (xnn.Name == "StudentAns")
+                foreach (XmlNode xnn in xn.ChildNodes)
                 {
-                    s += xnn.ChildNodes.Item(0).Value + ",";
+                    if (xnn.Name == "StudentAns")
+                    {
+                        s += xnn.ChildNodes.Item(0).Value + ",";
+                    }
+                    if (xnn.Name == "AnsPath")
+                    {
+                        return xnn.ChildNodes.Item(0).Value;
+                    }
                 }
-                if (xnn.Name == "AnsPath")
-                {
-                    return xnn.ChildNodes.Item(0).Value;
-                }
+                s = s.Remove(s.Length - 1);
             }
-            s = s.Remove(s.Length - 1);
             return s;
         }
 
-        List<ProblemType> ProblemTypeCollection = new List<ProblemType>() { ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, ProblemType.Word, ProblemType.Excel, ProblemType.PowerPoint, ProblemType.ProgramCompletion, ProblemType.ProgramModification, ProblemType.ProgramFun };
+        List<ProblemType> ProblemTypeCollection = new List<ProblemType>() { ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, ProblemType.Word, ProblemType.Excel, ProblemType.PowerPoint, ProblemType.CProgramCompletion, ProblemType.CProgramModification, ProblemType.CProgramFun, ProblemType.CppProgramCompletion, ProblemType.CppProgramModification, ProblemType.CppProgramFun, ProblemType.VbProgramCompletion, ProblemType.VbProgramModification, ProblemType.VbProgramFun };
 
         /// <summary>
         /// 返回考生答案XML的所有内容
@@ -243,18 +246,21 @@ namespace OES.XMLFile
             foreach (ProblemType pt in ProblemTypeCollection)
             {
                 XmlNode xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
-                for (int s = 0; s < xn.ChildNodes.Count; )
+                if (xn != null)
                 {
-                    IdAnswerType iat = new IdAnswerType();
-                    iat.id = Convert.ToInt32(xn.ChildNodes.Item(s).ChildNodes.Item(0).Value);
-                    s++;
-                    iat.pt = pt;
-                    if (xn.ChildNodes.Item(s).ChildNodes.Item(0) != null)
+                    for (int s = 0; s < xn.ChildNodes.Count; )
                     {
-                        iat.answer = xn.ChildNodes.Item(s).ChildNodes.Item(0).Value;
+                        IdAnswerType iat = new IdAnswerType();
+                        iat.id = Convert.ToInt32(xn.ChildNodes.Item(s).ChildNodes.Item(0).Value);
+                        s++;
+                        iat.pt = pt;
+                        if (xn.ChildNodes.Item(s).ChildNodes.Item(0) != null)
+                        {
+                            iat.answer = xn.ChildNodes.Item(s).ChildNodes.Item(0).Value;
+                        }
+                        s++;
+                        list.Add(iat);
                     }
-                    s++;
-                    list.Add(iat);
                 }
             }
             return list;
@@ -270,13 +276,16 @@ namespace OES.XMLFile
             foreach (ProblemType pt in ProblemTypeCollection)
             {
                 XmlNode xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
-                for (int s = 0; s < xn.ChildNodes.Count; )
+                if (xn != null)
                 {
-                    IdScoreType ist = new IdScoreType();
-                    ist.id = Convert.ToInt32(xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value);
-                    ist.pt = pt;
-                    ist.score = Convert.ToInt32(xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value);
-                    list.Add(ist);
+                    for (int s = 0; s < xn.ChildNodes.Count; )
+                    {
+                        IdScoreType ist = new IdScoreType();
+                        ist.id = Convert.ToInt32(xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value);
+                        ist.pt = pt;
+                        ist.score = Convert.ToInt32(xn.ChildNodes.Item(s++).ChildNodes.Item(0).Value);
+                        list.Add(ist);
+                    }
                 }
             }
             return list;
@@ -332,9 +341,15 @@ namespace OES.XMLFile
                 case ProblemType.Word:
                 case ProblemType.Excel:
                 case ProblemType.PowerPoint:
-                case ProblemType.ProgramCompletion:
-                case ProblemType.ProgramModification:
-                case ProblemType.ProgramFun:
+                case ProblemType.CProgramCompletion:
+                case ProblemType.CProgramModification:
+                case ProblemType.CProgramFun:
+                case ProblemType.CppProgramCompletion:
+                case ProblemType.CppProgramModification:
+                case ProblemType.CppProgramFun:
+                case ProblemType.VbProgramCompletion:
+                case ProblemType.VbProgramModification:
+                case ProblemType.VbProgramFun:
                     {
                         xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
                         XmlElement xmlelem;
@@ -362,23 +377,18 @@ namespace OES.XMLFile
                 case ProblemType.Choice:
                 case ProblemType.Completion:
                 case ProblemType.Tof:
-                    {
-                        xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
-                        XmlElement xmlelem;
-                        xmlelem = xd.CreateElement("ProblemID");
-                        xmlelem.AppendChild(xd.CreateTextNode(pa.id.ToString()));
-                        xn.AppendChild(xmlelem);
-                        xmlelem = xd.CreateElement("Ans");
-                        xmlelem.AppendChild(xd.CreateTextNode(pa.ans));
-                        xn.AppendChild(xmlelem);
-                        break;
-                    }
                 case ProblemType.Word:
                 case ProblemType.Excel:
                 case ProblemType.PowerPoint:
-                case ProblemType.ProgramCompletion:
-                case ProblemType.ProgramModification:
-                case ProblemType.ProgramFun:
+                case ProblemType.CProgramCompletion:
+                case ProblemType.CProgramModification:
+                case ProblemType.CProgramFun:
+                case ProblemType.CppProgramCompletion:
+                case ProblemType.CppProgramModification:
+                case ProblemType.CppProgramFun:
+                case ProblemType.VbProgramCompletion:
+                case ProblemType.VbProgramModification:
+                case ProblemType.VbProgramFun:
                     {
                         xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
                         XmlElement xmlelem;
@@ -406,6 +416,18 @@ namespace OES.XMLFile
                 case ProblemType.Choice:
                 case ProblemType.Completion:
                 case ProblemType.Tof:
+                case ProblemType.Word:
+                case ProblemType.Excel:
+                case ProblemType.PowerPoint:
+                case ProblemType.CProgramCompletion:
+                case ProblemType.CProgramModification:
+                case ProblemType.CProgramFun:
+                case ProblemType.CppProgramCompletion:
+                case ProblemType.CppProgramModification:
+                case ProblemType.CppProgramFun:
+                case ProblemType.VbProgramCompletion:
+                case ProblemType.VbProgramModification:
+                case ProblemType.VbProgramFun:
                     {
                         xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
                         XmlElement xmlelem;
@@ -413,23 +435,6 @@ namespace OES.XMLFile
                         xmlelem.AppendChild(xd.CreateTextNode(pa.id.ToString()));
                         xn.AppendChild(xmlelem);
                         xmlelem = xd.CreateElement("StudentAns");
-                        xmlelem.AppendChild(xd.CreateTextNode(pa.ans));
-                        xn.AppendChild(xmlelem);
-                        break;
-                    }
-                case ProblemType.Word:
-                case ProblemType.Excel:
-                case ProblemType.PowerPoint:
-                case ProblemType.ProgramCompletion:
-                case ProblemType.ProgramModification:
-                case ProblemType.ProgramFun:
-                    {
-                        xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
-                        XmlElement xmlelem;
-                        xmlelem = xd.CreateElement("ProblemID");
-                        xmlelem.AppendChild(xd.CreateTextNode(pa.id.ToString()));
-                        xn.AppendChild(xmlelem);
-                        xmlelem = xd.CreateElement("AnsPath");
                         xmlelem.AppendChild(xd.CreateTextNode(pa.ans));
                         xn.AppendChild(xmlelem);
                         break;
@@ -453,9 +458,15 @@ namespace OES.XMLFile
                 case ProblemType.Word:
                 case ProblemType.Excel:
                 case ProblemType.PowerPoint:
-                case ProblemType.ProgramCompletion:
-                case ProblemType.ProgramModification:
-                case ProblemType.ProgramFun:
+                case ProblemType.CProgramCompletion:
+                case ProblemType.CProgramModification:
+                case ProblemType.CProgramFun:
+                case ProblemType.CppProgramCompletion:
+                case ProblemType.CppProgramModification:
+                case ProblemType.CppProgramFun:
+                case ProblemType.VbProgramCompletion:
+                case ProblemType.VbProgramModification:
+                case ProblemType.VbProgramFun:
                     {
                         xn = Find(xd.ChildNodes.Item(1).ChildNodes.Item(0), pt.ToString());
                         XmlElement xmlelem;
@@ -503,9 +514,15 @@ namespace OES.XMLFile
                 case ProblemType.Word:
                 case ProblemType.Excel:
                 case ProblemType.PowerPoint:
-                case ProblemType.ProgramCompletion:
-                case ProblemType.ProgramModification:
-                case ProblemType.ProgramFun:
+                case ProblemType.CProgramCompletion:
+                case ProblemType.CProgramModification:
+                case ProblemType.CProgramFun:
+                case ProblemType.CppProgramCompletion:
+                case ProblemType.CppProgramModification:
+                case ProblemType.CppProgramFun:
+                case ProblemType.VbProgramCompletion:
+                case ProblemType.VbProgramModification:
+                case ProblemType.VbProgramFun:
                     {
                         xmlelem1 = xd.CreateElement("ProblemID");
                         xmlelem1.AppendChild(xd.CreateTextNode(pa.id.ToString()));
