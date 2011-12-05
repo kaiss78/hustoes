@@ -38,6 +38,9 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,10 +48,10 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 118);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 118);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(686, 245);
+            this.dataGridView1.Size = new System.Drawing.Size(699, 245);
             this.dataGridView1.TabIndex = 1;
             // 
             // button1
@@ -87,7 +90,7 @@
             "选择题",
             "填空题",
             "判断题"});
-            this.comboBox1.Location = new System.Drawing.Point(50, 29);
+            this.comboBox1.Location = new System.Drawing.Point(57, 29);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(94, 20);
             this.comboBox1.TabIndex = 6;
@@ -108,27 +111,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(13, 36);
+            this.label1.Font = new System.Drawing.Font("幼圆", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(12, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 12);
+            this.label1.Size = new System.Drawing.Size(45, 14);
             this.label1.TabIndex = 8;
-            this.label1.Text = "类型";
+            this.label1.Text = "类型:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(150, 36);
+            this.label2.Font = new System.Drawing.Font("幼圆", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(157, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(45, 14);
             this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            this.label2.Text = "章节:";
             // 
             // comboBox2
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(197, 29);
+            this.comboBox2.Location = new System.Drawing.Point(201, 29);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(94, 20);
             this.comboBox2.TabIndex = 10;
@@ -136,26 +140,60 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 37);
+            this.label3.Font = new System.Drawing.Font("幼圆", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(301, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(45, 14);
             this.label3.TabIndex = 11;
-            this.label3.Text = "label3";
+            this.label3.Text = "难度:";
             // 
             // comboBox3
             // 
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(344, 29);
+            this.comboBox3.Location = new System.Drawing.Point(345, 29);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(94, 20);
             this.comboBox3.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("幼圆", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.Location = new System.Drawing.Point(12, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 14);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "关键字:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(89, 71);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(250, 21);
+            this.textBox1.TabIndex = 14;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button3.Font = new System.Drawing.Font("幼圆", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button3.Location = new System.Drawing.Point(362, 66);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(67, 27);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "搜索";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // QuesBankForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightYellow;
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox2);
@@ -186,5 +224,8 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
     }
 }
