@@ -12,11 +12,11 @@ namespace OES.Model
         public List<string> input;
         public List<string> output;
         public string stuAnsPath = "";
-        public PFunction()
+        public PFunction(ProblemType pt)
         {
-            type = ProblemType.ProgramFun;
+            type = pt;
         }
-        public PFunction(string p)
+        public PFunction(ProblemType pt, string p)
         {
             problem = p;
             inp1 = "";
@@ -28,7 +28,7 @@ namespace OES.Model
  
             input = new List<string>();
             output = new List<string>();
-            type = ProblemType.ProgramFun;
+            type = pt;
         }
         public override string getAns()
         {

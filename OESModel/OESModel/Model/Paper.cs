@@ -30,12 +30,12 @@ namespace OES.Model
         public List<Choice> choice;
         public List<Completion> completion;
         public List<Judge> judge;
-        public OfficeExcel officeExcel;
-        public OfficePowerPoint officePPT;
-        public OfficeWord officeWord;
-        public PCompletion pCompletion;
-        public PFunction pFunction;
-        public PModif pModif;
+        public List<OfficeExcel> officeExcel;
+        public List<OfficePowerPoint> officePPT;
+        public List<OfficeWord> officeWord;
+        public List<PCompletion> pCompletion;
+        public List<PFunction> pFunction;
+        public List<PModif> pModif;
         public List<Problem> problemList;
         public List<Problem>[] ProList = new List<Problem>[12];
 
@@ -44,13 +44,13 @@ namespace OES.Model
             choice = new List<Choice>();
             completion = new List<Completion>();
             judge = new List<Judge>();
-            officeWord = new OfficeWord();
-            officePPT = new OfficePowerPoint();
-            pCompletion = new PCompletion();
-            pModif = new PModif();
-            pFunction = new PFunction();
+            officeWord = new List<OfficeWord>();
+            officePPT = new List<OfficePowerPoint>();
+            pCompletion = new List<PCompletion>();
+            pModif = new List<PModif>();
+            pFunction = new List<PFunction>();
             problemList = new List<Problem>();
-            officeExcel = new OfficeExcel();
+            officeExcel = new List<OfficeExcel>();
             for (int i = 0; i < 12; i++)
             {
                 ProList[i] = new List<Problem>();
@@ -74,27 +74,27 @@ namespace OES.Model
             }
             else if (p is PCompletion)
             {
-                pCompletion = (PCompletion) p;
+                pCompletion.Add((PCompletion) p);
             }
             else if (p is PModif)
             {
-                pModif = (PModif) p;
+                pModif.Add((PModif) p);
             }
             else if (p is PFunction)
             {
-                pFunction = (PFunction) p;
+                pFunction.Add((PFunction) p);
             }
             else if (p is OfficeExcel)
             {
-                officeExcel = (OfficeExcel) p;
+                officeExcel.Add((OfficeExcel) p);
             }
             else if (p is OfficePowerPoint)
             {
-                officePPT = (OfficePowerPoint) p;
+                officePPT.Add((OfficePowerPoint) p);
             }
             else if (p is OfficeWord)
             {
-                officeWord = (OfficeWord) p;
+                officeWord.Add((OfficeWord) p);
             }
             p.problemId = problemList.Count;
             problemList.Add(p);
@@ -108,9 +108,18 @@ namespace OES.Model
         Word,
         Excel,
         PowerPoint,
-        ProgramCompletion,
-        ProgramModification,
-        ProgramFun,
+        CProgramCompletion,
+        CProgramModification,
+        CProgramFun,
+        CppProgramCompletion,
+        CppProgramModification,
+        CppProgramFun,
+        VbProgramCompletion,
+        VbProgramModification,
+        VbProgramFun,
+        BaseProgramCompletion,
+        BaseProgramModification,
+        BaseProgramFun,
         Start,
         Blank
     }

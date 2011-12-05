@@ -12,24 +12,24 @@ namespace OES.Model
         public string rawPath;
         public string stuAnsPath;
         public List<string> ans;
-        public PCompletion()
+        public PCompletion(ProblemType pt)
         {
-            type = ProblemType.ProgramCompletion;
+            type = pt;
         }
-        public PCompletion(string p)
+        public PCompletion(ProblemType pt,string p)
         {
             problem = p;
             ans1 = "";
             ans2 = "";
             ans3 = "";
             ans = new List<string>();
-            type = ProblemType.ProgramCompletion;
+            type = pt;
         }
-        public PCompletion(string rawPath,string stuAnsPath)
+        public PCompletion(ProblemType pt, string rawPath, string stuAnsPath)
         {
             this.rawPath = rawPath;
             this.stuAnsPath = stuAnsPath;
-            type = ProblemType.ProgramCompletion;
+            type = pt;
         }
         public override string getAns()
         {

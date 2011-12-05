@@ -11,18 +11,18 @@ namespace OES.Model
         public bool kind;
         public string stuAnsPath = "";
         public List<string> ans;
-        public PModif()
+        public PModif(ProblemType pt)
         {
-            type = ProblemType.ProgramModification;
+            type = pt;
         }
-        public PModif(string p)
+        public PModif(ProblemType pt, string p)
         {
             problem = p;
             ans1 = "";
             ans2 = "";
             ans3 = "";
             ans = new List<string>();
-            type = ProblemType.ProgramModification;
+            type = pt;
         }
         public override string getAns()
         {
