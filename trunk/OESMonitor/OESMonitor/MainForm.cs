@@ -424,6 +424,7 @@ namespace OESMonitor
         private void updateExamPaperList()
         {
             examPaperIdList.Clear();
+            examPaperNameList.Clear();
             foreach (DataRow dr in paperListDataTable.Rows)
             {
                 if (Convert.ToBoolean(dr[0]))
