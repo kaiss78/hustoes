@@ -21,7 +21,7 @@ namespace OES
         public MainForm()
         {
             InitializeComponent();
-//            proMan = new ProMan();                         //题目管理界面
+
             paperInfo = new PaperInfo();                 //试卷信息界面
             paperListPanel=new PaperListPanel();      //试卷管理界面
             paperEditPanel=new PaperEditPanel();     //组卷界面
@@ -29,10 +29,7 @@ namespace OES
             classManage=new ClassManage();             //班级管理界面
             teacherManage = new TeacherManage();   //教师管理界面            
             scoreManage=new ScoreManage();           //成绩管理界面
-            //proManCho=new ProManCho();                 //题目选择界面
 
-            //MainPanel.Controls.Add(proMan);
-           // MainPanel.Controls.Add(new UserPanel());
             MainPanel.Controls.Add(paperInfo);
             MainPanel.Controls.Add(paperListPanel);            
             MainPanel.Controls.Add(studentManage);
@@ -40,7 +37,6 @@ namespace OES
             MainPanel.Controls.Add(teacherManage);
             MainPanel.Controls.Add(paperEditPanel);
             MainPanel.Controls.Add(scoreManage);
-           // MainPanel.Controls.Add(proManCho);
 
             PanelControl.init(this);
             PanelControl.HideAllPanel();
