@@ -50,9 +50,7 @@ namespace OES
 
             PermissionControl();
 
-            this.FormClosed += new FormClosedEventHandler(MainForm_FormClosed);
-
-            
+            this.FormClosed += new FormClosedEventHandler(MainForm_FormClosed);            
 
         }
 
