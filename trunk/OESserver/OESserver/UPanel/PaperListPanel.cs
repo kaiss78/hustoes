@@ -18,6 +18,7 @@ namespace OES.UPanel
         public List<Paper> paperList;
         private int findtype = 1;
         private List<IdScoreType> ISTList;
+
         public void InitDT()
         {
             paperListDataTable = new DataTable("PaperList");
