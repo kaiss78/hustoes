@@ -7,10 +7,6 @@ namespace OES.Model
 {
     public class PModif : Program
     {
-        public string path, ans1, ans2, ans3;
-        public bool kind;
-        public string stuAnsPath = "";
-        public List<string> ans;
         public PModif(ProblemType pt)
         {
             type = pt;
@@ -18,15 +14,12 @@ namespace OES.Model
         public PModif(ProblemType pt, string p)
         {
             problem = p;
-            ans1 = "";
-            ans2 = "";
-            ans3 = "";
-            ans = new List<string>();
+ 
             type = pt;
         }
         public override string getAns()
         {
-            return stuAnsPath;
+            return "";
         }
     }
 }
