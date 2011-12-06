@@ -20,34 +20,17 @@ namespace OES.UPanel
 
         public override void ReLoad()
         {
-            rtbPContent.Text = "";
-            tbAnswerFile.Text = "";
+            rtbPContent.Text = "";            
             tbProblemFile.Text = "";
-            lbAnsList.Items.Clear();
+            
             this.Visible = true;
         }
 
-        private void btnBrowser1_Click(object sender, EventArgs e)
+        private void btnBrowser_Click(object sender, EventArgs e)
         {
             if (ofdBrowser.ShowDialog() == DialogResult.OK)
             {
                 tbProblemFile.Text = ofdBrowser.FileName;
-            }
-        }
-
-        
-
-        private void btnBrowser2_Click(object sender, EventArgs e)
-        {
-            if (ofdBrowser.ShowDialog() == DialogResult.OK)
-            {
-                tbAnswerFile.Text = ofdBrowser.FileName;
-                ansList = InfoControl.getAnswer(tbAnswerFile.Text);
-                for (int i = 0; i < ansList.Count; i++)
-                {
-                    lbAnsList.Items.Add(ansList[i]);
-                }
-
             }
         }
     }
