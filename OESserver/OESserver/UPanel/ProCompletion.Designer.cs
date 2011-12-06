@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbPContent = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbProblemFile = new System.Windows.Forms.TextBox();
@@ -39,10 +39,10 @@
             this.tbAnswerFile = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbAnsList = new System.Windows.Forms.ListBox();
-            this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ofdBrowser = new System.Windows.Forms.OpenFileDialog();
             this.btnCalc = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -59,29 +59,29 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.rtbPContent);
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(40, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(657, 273);
+            this.groupBox1.Size = new System.Drawing.Size(657, 255);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "题干";
             // 
-            // richTextBox1
+            // rtbPContent
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 22);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(651, 248);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.rtbPContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbPContent.Location = new System.Drawing.Point(3, 22);
+            this.rtbPContent.Name = "rtbPContent";
+            this.rtbPContent.Size = new System.Drawing.Size(651, 230);
+            this.rtbPContent.TabIndex = 0;
+            this.rtbPContent.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(50, 357);
+            this.label2.Location = new System.Drawing.Point(50, 347);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 2;
@@ -91,7 +91,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(50, 405);
+            this.label3.Location = new System.Drawing.Point(50, 395);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 3;
@@ -100,7 +100,7 @@
             // tbProblemFile
             // 
             this.tbProblemFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbProblemFile.Location = new System.Drawing.Point(133, 353);
+            this.tbProblemFile.Location = new System.Drawing.Point(133, 343);
             this.tbProblemFile.Name = "tbProblemFile";
             this.tbProblemFile.Size = new System.Drawing.Size(438, 26);
             this.tbProblemFile.TabIndex = 4;
@@ -108,7 +108,7 @@
             // btnBrowser1
             // 
             this.btnBrowser1.AutoSize = true;
-            this.btnBrowser1.Location = new System.Drawing.Point(594, 349);
+            this.btnBrowser1.Location = new System.Drawing.Point(594, 339);
             this.btnBrowser1.Name = "btnBrowser1";
             this.btnBrowser1.Size = new System.Drawing.Size(100, 33);
             this.btnBrowser1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -126,7 +126,7 @@
             // btnBrowser2
             // 
             this.btnBrowser2.AutoSize = true;
-            this.btnBrowser2.Location = new System.Drawing.Point(594, 397);
+            this.btnBrowser2.Location = new System.Drawing.Point(594, 387);
             this.btnBrowser2.Name = "btnBrowser2";
             this.btnBrowser2.Size = new System.Drawing.Size(100, 33);
             this.btnBrowser2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -144,7 +144,7 @@
             // tbAnswerFile
             // 
             this.tbAnswerFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbAnswerFile.Location = new System.Drawing.Point(133, 401);
+            this.tbAnswerFile.Location = new System.Drawing.Point(133, 391);
             this.tbAnswerFile.Name = "tbAnswerFile";
             this.tbAnswerFile.Size = new System.Drawing.Size(438, 26);
             this.tbAnswerFile.TabIndex = 8;
@@ -153,7 +153,7 @@
             // 
             this.groupBox2.Controls.Add(this.lbAnsList);
             this.groupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(43, 444);
+            this.groupBox2.Location = new System.Drawing.Point(43, 440);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(657, 146);
             this.groupBox2.TabIndex = 2;
@@ -170,40 +170,6 @@
             this.lbAnsList.Size = new System.Drawing.Size(651, 116);
             this.lbAnsList.TabIndex = 0;
             // 
-            // btnSave
-            // 
-            this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(448, 607);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 33);
-            this.btnSave.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnSave.StateCommon.Border.Rounding = 16;
-            this.btnSave.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
-            this.btnSave.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSave.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnSave.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Values.Text = "保存";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.AutoSize = true;
-            this.btnCancel.Location = new System.Drawing.Point(594, 607);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 33);
-            this.btnCancel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnCancel.StateCommon.Border.Rounding = 16;
-            this.btnCancel.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
-            this.btnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancel.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnCancel.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnCancel.TabIndex = 11;
-            this.btnCancel.Values.Text = "取消";
-            // 
             // ofdBrowser
             // 
             this.ofdBrowser.Filter = "C文件|*.c|C++文件|*.cpp";
@@ -211,7 +177,7 @@
             // btnCalc
             // 
             this.btnCalc.AutoSize = true;
-            this.btnCalc.Location = new System.Drawing.Point(46, 607);
+            this.btnCalc.Location = new System.Drawing.Point(43, 612);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(100, 33);
             this.btnCalc.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -222,8 +188,42 @@
             this.btnCalc.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCalc.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnCalc.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnCalc.TabIndex = 12;
+            this.btnCalc.TabIndex = 27;
             this.btnCalc.Values.Text = "生成答案";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.Location = new System.Drawing.Point(591, 612);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 33);
+            this.btnCancel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnCancel.StateCommon.Border.Rounding = 16;
+            this.btnCancel.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
+            this.btnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCancel.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnCancel.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnCancel.TabIndex = 26;
+            this.btnCancel.Values.Text = "取消";
+            // 
+            // btnSave
+            // 
+            this.btnSave.AutoSize = true;
+            this.btnSave.Location = new System.Drawing.Point(445, 612);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 33);
+            this.btnSave.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnSave.StateCommon.Border.Rounding = 16;
+            this.btnSave.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
+            this.btnSave.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnSave.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnSave.TabIndex = 25;
+            this.btnSave.Values.Text = "保存";
             // 
             // ProCompletion
             // 
@@ -253,7 +253,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbPContent;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbProblemFile;
@@ -262,9 +262,9 @@
         private System.Windows.Forms.TextBox tbAnswerFile;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox lbAnsList;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCancel;
         private System.Windows.Forms.OpenFileDialog ofdBrowser;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnCalc;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCancel;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
     }
 }

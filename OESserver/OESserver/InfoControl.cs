@@ -6,6 +6,7 @@ using OES.Model;
 using OES.UPanel;
 using OES.XMLFile;
 using OES.Net;
+using System.IO;
 
 namespace OES
 {
@@ -108,7 +109,10 @@ namespace OES
             }
             return tmp;
         }
-
+        /// <summary>
+        /// 从数据库获取试卷
+        /// </summary>
+        /// <param name="paperID">所要获取试卷的id</param>
         public static void getPaper(string paperID)
         {
             Problem tmpPro;
@@ -236,6 +240,58 @@ namespace OES
             {
                 PaperEditPanel.ItemList[num].ItemText.Text = "-";
             }
+        }
+
+        private static string GetText(String path)
+        {
+            string text = "";
+            if (path.Length > 0)
+            {
+                StreamReader TxtReader = new StreamReader(path);
+                text = TxtReader.ReadToEnd();
+                TxtReader.Close();
+            }
+            return text;
+        }
+
+        public static List<string> getAnswer(string path)
+        {
+            string cpptext, st;
+            int i, j;
+            List<string> result;
+            result = new List<string>();
+            cpptext = GetText(path);
+            string[] str = cpptext.Split('\n');
+            i = 0;
+            while (i < str.Length)
+            {
+                if (str[i].IndexOf(@"//") >= 0)
+                {
+                    st = str[i + 1];
+                    i = i + 2;
+
+                    j = 0;
+                    while (j < st.Length)
+                    {
+                        if ((st[j] == '\t') && (st[j] == ' ') && (st[j] == '\r'))
+                        {
+                            st.Remove(j, 1);
+                        }
+                        else
+                        {
+                            j++;
+                        }
+                    }
+
+                    result.Add(st);
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            return result;
+
         }
 
         #region 窗体逻辑控制

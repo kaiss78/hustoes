@@ -56,7 +56,10 @@ namespace OES
 
             panelList[7] = mf.paperEditPanel;                        
             mf.paperEditPanel.PanelID = 7;
-            
+
+            panelList[8] = mf.proCompletion;
+            mf.proCompletion.PanelID = 8;
+
         }
 
         static public void HideAllPanel()
@@ -81,6 +84,7 @@ namespace OES
                 case 5:
                 case 6:
                 case 7:
+                case 8:
                     panelList[x].ReLoad();
                     break;
                 case 2:
