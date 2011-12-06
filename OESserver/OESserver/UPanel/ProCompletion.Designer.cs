@@ -39,7 +39,7 @@
             this.btnAddAns = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnBrowser1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnBrowser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tbProblemFile = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -188,22 +188,23 @@
             this.btnDel.TabIndex = 30;
             this.btnDel.Values.Text = "删除";
             // 
-            // btnBrowser1
+            // btnBrowser
             // 
-            this.btnBrowser1.AutoSize = true;
-            this.btnBrowser1.Location = new System.Drawing.Point(591, 564);
-            this.btnBrowser1.Name = "btnBrowser1";
-            this.btnBrowser1.Size = new System.Drawing.Size(100, 33);
-            this.btnBrowser1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            this.btnBrowser.AutoSize = true;
+            this.btnBrowser.Location = new System.Drawing.Point(591, 564);
+            this.btnBrowser.Name = "btnBrowser";
+            this.btnBrowser.Size = new System.Drawing.Size(100, 33);
+            this.btnBrowser.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnBrowser1.StateCommon.Border.Rounding = 16;
-            this.btnBrowser1.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
-            this.btnBrowser1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBrowser1.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnBrowser1.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.btnBrowser1.TabIndex = 33;
-            this.btnBrowser1.Values.Text = "浏览";
+            this.btnBrowser.StateCommon.Border.Rounding = 16;
+            this.btnBrowser.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
+            this.btnBrowser.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnBrowser.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnBrowser.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.btnBrowser.TabIndex = 33;
+            this.btnBrowser.Values.Text = "浏览";
+            this.btnBrowser.Click += new System.EventHandler(this.btnBrowser_Click);
             // 
             // tbProblemFile
             // 
@@ -227,7 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnBrowser1);
+            this.Controls.Add(this.btnBrowser);
             this.Controls.Add(this.tbProblemFile);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDel);
@@ -259,7 +260,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddAns;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDel;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowser1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowser;
         private System.Windows.Forms.TextBox tbProblemFile;
         private System.Windows.Forms.Label label2;
     }
