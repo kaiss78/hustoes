@@ -10,6 +10,9 @@ namespace OES.Model
         public int score;
         public int problemId;//数据库Id
         public int orderId;//
+        public Unit unit;
+        public int Plevel;
+        
         public string problem;
         public ProblemType type;
         public bool exist;

@@ -9,8 +9,6 @@ namespace OES.Model
     public class Judge:Problem
     {
         public string ans, stuAns;
-        public int unit;
-        public string unitName;
         public Judge()
         {
             type = ProblemType.Tof;
