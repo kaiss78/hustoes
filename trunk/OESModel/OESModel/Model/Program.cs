@@ -9,6 +9,7 @@ namespace OES.Model
     {
         public Language language;
         public ProType Type;
+        public List<ProgramAnswer> ansList;
 
         public Program()
         { 
@@ -17,7 +18,7 @@ namespace OES.Model
         public enum ProType
         {
             Completion=0,
-            Judgment=1.
+            Judgment=1,
             Modify=2
         }
         public enum Language

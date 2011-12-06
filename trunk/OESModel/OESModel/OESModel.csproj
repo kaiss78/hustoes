@@ -80,6 +80,7 @@
     <Compile Include="Model\PModif.cs" />
     <Compile Include="Model\Problem.cs" />
     <Compile Include="Model\Program.cs" />
+    <Compile Include="Model\ProgramAnswer.cs" />
     <Compile Include="Model\Score.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Teacher.cs" />

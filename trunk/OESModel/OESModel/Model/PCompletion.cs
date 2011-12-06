@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OES.Model
 {
-    public  class PCompletion:Problem
+    public class PCompletion : Program
     {
         public string path,ans1, ans2, ans3;
         public bool kind;
