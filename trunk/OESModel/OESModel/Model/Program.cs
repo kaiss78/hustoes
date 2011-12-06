@@ -12,7 +12,8 @@ namespace OES.Model
         public List<ProgramAnswer> ansList;
 
         public Program()
-        { 
+        {
+            ansList = new List<ProgramAnswer>();
         }
 
         public enum ProType
