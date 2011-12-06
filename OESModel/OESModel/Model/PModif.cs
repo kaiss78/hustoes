@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OES.Model
 {
-    public class PModif : Problem
+    public class PModif : Program
     {
         public string path, ans1, ans2, ans3;
         public bool kind;

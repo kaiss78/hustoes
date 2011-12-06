@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OES.Model
 {
-   public class PFunction:Problem
+    public class PFunction : Program
     {
         public string path, inp1, inp2, inp3, outp1, outp2, outp3,correctC;
         public bool kind;
