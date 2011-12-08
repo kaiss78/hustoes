@@ -32,6 +32,14 @@ namespace OES.Model
             Output = output;
         }
 
+        public ProgramAnswer(int seqnum, string input, string output)
+        {            
+            SeqNum = seqnum;
+            Input = input;
+            Output = output;
+        }
+
+
         public ProgramAnswer(int aid,int pid, int seqnum, string input, string output)
         {
             AID = aid;
