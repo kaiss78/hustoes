@@ -13,72 +13,41 @@ namespace OES
     {
         #region paper记录管理
 
-        //增加Paper记录 ,ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程
-        public string AddPaper(string GenerateDate, string TestDate, string Paper_Path, string Title, string Teacher_Id, int ProgramState)
+        public int AddPaper(string GenerateDate, string Title, string TeacherId)
         {
-            string query = "select max(id) from Paper_Table";
-            string id;
-            int intId;
-            //using (SqlConnection connection = new SqlConnection(sqlcon))
-            DataBind();
-            SqlCommand com = new SqlCommand(query, sqlcon);
-            //connection.Open();
-            SqlDataReader reader = com.ExecuteReader();
-
-            reader.Read();
-            id = reader[0].ToString();
-            reader.Close();
-
-            intId = Convert.ToInt32(id);
-            intId = intId + 1;
-            Paper_Path = Paper_Path + intId.ToString() + ".xml";
-            SqlParameter[] ddlparam = new SqlParameter[7];
-            ddlparam[0] = CreateParam("@GenerateDate", SqlDbType.DateTime, 20, GenerateDate, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@TestDate", SqlDbType.DateTime, 20, TestDate, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Paper_Path", SqlDbType.VarChar, 100, Paper_Path, ParameterDirection.Input);
-            ddlparam[3] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
-            ddlparam[4] = CreateParam("@Teacher_Id", SqlDbType.Int, 20, Teacher_Id, ParameterDirection.Input);
-            ddlparam[5] = CreateParam("@ProgramState", SqlDbType.Int, 5, ProgramState, ParameterDirection.Input);
-
-            DataBind();
-            SqlCommand cmd = new SqlCommand("AddPaper", sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 6; i++)
-            {
-                cmd.Parameters.Add(ddlparam[i]);
-            }
-            SqlParameter Id = new SqlParameter("@Id", SqlDbType.Int, 4);
-            Id.Direction = ParameterDirection.Output;// 设置为输出参数
-            cmd.Parameters.Add(Id);
-
+            int Id = -1;
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@GenerateDate", SqlDbType.DateTime, 0, GenerateDate, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Title", SqlDbType.VarChar, 500, Title, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@TeacherId", SqlDbType.Int, 5, TeacherId, ParameterDirection.Input));
             try
             {
-                cmd.ExecuteNonQuery();
+                RunProc("AddPaper", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
+                return -1;
             }
-            return Id.Value.ToString();
+            return Convert.ToInt32(ddlparam[0].Value);
         }
 
         //按照Id 删除Paper记录
         public void DeletePaper(string Id)
         {
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-
-            SqlCommand Cmd = CreateCmd("DeletePaper", ddlparam);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
             try
             {
-                Cmd.ExecuteNonQuery();
+                RunProc("DeletePaper", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
             }
         }
-
+#if flase
         //修改Paper记录，参数是Paper编号和一个Paper对象
         public void UpdatePaper(string Id, Paper p)
         {
@@ -241,7 +210,7 @@ namespace OES
             paperList = DataSetToListPaper2(Ds);
             return paperList;
         }
-
+#endif
         #endregion
     }
 }

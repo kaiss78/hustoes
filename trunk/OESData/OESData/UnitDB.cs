@@ -50,8 +50,8 @@ namespace OES
         //Description:  删除某个章节
         public void DeleteUnit(int Unit)
         {
-            SqlParameter[] dp = new SqlParameter[1];
-            dp[0] = CreateParam("@Unit", SqlDbType.Int, 11, Unit, ParameterDirection.Input);
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 11, Unit, ParameterDirection.Input));
             SqlCommand cmd = CreateCmd("DeleteUnit", dp);
             try { cmd.ExecuteNonQuery(); }
             catch (Exception ex) { throw ex; }
@@ -60,9 +60,9 @@ namespace OES
         //Description:  修改某个章节
         public void UpdateUnit(int Unit, string UnitName)
         {
-            SqlParameter[] dp = new SqlParameter[2];
-            dp[0] = CreateParam("@Unit", SqlDbType.Int, 11, Unit, ParameterDirection.Input);
-            dp[1] = CreateParam("@UnitName", SqlDbType.VarChar, 50, UnitName, ParameterDirection.Input);
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 11, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@UnitName", SqlDbType.VarChar, 50, UnitName, ParameterDirection.Input));
             SqlCommand cmd = CreateCmd("UpdateUnit", dp);
             try { cmd.ExecuteNonQuery(); }
             catch (Exception ex) { throw ex; }

@@ -239,8 +239,8 @@ namespace OES
         //-- Description:	查找某个学院下的所有班级
         public List<string> FindClassNameOfDept(string Dept)
         {
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, Dept, ParameterDirection.Input);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Dept", SqlDbType.VarChar, 50, Dept, ParameterDirection.Input));
 
             Ds = new DataSet();
             List<string> classStringList = new List<string>();
@@ -317,10 +317,10 @@ namespace OES
         public bool ValidateStudentInfo(string studentId, string studentName, string password)
         {
             DataSet Ds = new DataSet();
-            SqlParameter[] dp = new SqlParameter[3];
-            dp[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, studentId, ParameterDirection.Input);
-            dp[1] = CreateParam("@StudentName", SqlDbType.VarChar, 50, studentName, ParameterDirection.Input);
-            dp[2] = CreateParam("@Password", SqlDbType.VarChar, 50, password, ParameterDirection.Input);
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@StudentId", SqlDbType.VarChar, 50, studentId, ParameterDirection.Input));
+            dp.Add(CreateParam("@StudentName", SqlDbType.VarChar, 50, studentName, ParameterDirection.Input));
+            dp.Add(CreateParam("@Password", SqlDbType.VarChar, 50, password, ParameterDirection.Input));
             try { RunProc("ValidateStudentInfo", dp, Ds); }
             catch { throw; }
             return Ds.Tables[0].Rows.Count > 0;
@@ -612,10 +612,10 @@ namespace OES
         //-- Description:	验证学生可否参加考试,返回false 表示验证不通过，true，验证通过
         public bool CheckStudent(string StudentName, string StudentId, string Password)
         {
-            SqlParameter[] ddlparam = new SqlParameter[3];
-            ddlparam[0] = CreateParam("@StudentName", SqlDbType.VarChar, 50, StudentName, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@StudentId", SqlDbType.VarChar, 50, StudentId, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Password", SqlDbType.VarChar, 50, Password, ParameterDirection.Input);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@StudentName", SqlDbType.VarChar, 50, StudentName, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@StudentId", SqlDbType.VarChar, 50, StudentId, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Password", SqlDbType.VarChar, 50, Password, ParameterDirection.Input));
 
             Ds = new DataSet();
             RunProc("CheckStudent", ddlparam, Ds);
