@@ -112,6 +112,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formAddAnswer";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加答案";
             this.ResumeLayout(false);
