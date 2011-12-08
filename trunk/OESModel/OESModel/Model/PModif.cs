@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OES.Model
 {
-    public class PModif : Program
+    public class PModif : ProgramProblem
     {
         public PModif(ProblemType pt)
         {

@@ -5,13 +5,13 @@ using System.Text;
 
 namespace OES.Model
 {
-    public class Program:Problem
+    public class ProgramProblem:Problem
     {
         public Language language;
         public ProType Type;
         public List<ProgramAnswer> ansList;
 
-        public Program()
+        public ProgramProblem()
         {
             ansList = new List<ProgramAnswer>();
         }

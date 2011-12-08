@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OES.Model
 {
-    public class PFunction : Program
+    public class PFunction : ProgramProblem
     {
  
         public PFunction(ProblemType pt)
