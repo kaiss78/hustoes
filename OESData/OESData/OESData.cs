@@ -96,11 +96,23 @@ namespace OES
             }
 
             param.Direction = Direction;
-            if (Value != null)
+            if (Direction==ParameterDirection.Input && Value != null)
             {
                 param.Value = Value;
             }
             return param;
+        }
+
+        public void RunProc(string procName, List<SqlParameter> prams)
+        {
+            DataBind();
+            SqlCommand cmd = new SqlCommand(procName, sqlcon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < prams.Count; i++)
+            {
+                cmd.Parameters.Add(prams[i]);
+            }
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -109,19 +121,11 @@ namespace OES
         /// <param name="procName">存储过程名.</param>
         /// <param name="prams">存储过程入参数组.</param>
         /// <returns>dataset对象.</returns>
-        public DataSet RunProc(string procName, SqlParameter[] prams, DataSet Ds)
+        public DataSet RunProc(string procName, List<SqlParameter> prams, DataSet Ds)
         {
             SqlCommand Cmd = CreateCmd(procName, prams);
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
-
-            try
-            {
-                Da.Fill(Ds, "demo");
-            }
-            catch (Exception Ex)
-            {
-                throw Ex;
-            }
+            Da.Fill(Ds, "demo");
             Cmd.Parameters.Clear();
             return Ds;
         }
@@ -133,7 +137,7 @@ namespace OES
         /// <param name="prams">存储过程参数</param>
         /// <returns>SqlCommand对象</returns>
 
-        private SqlCommand CreateCmd(string procName, SqlParameter[] prams)
+        private SqlCommand CreateCmd(string procName, List<SqlParameter> prams)
         {
             DataBind();
             SqlCommand Cmd = new SqlCommand(procName, sqlcon);
@@ -260,9 +264,9 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "Answer")
                         problem.ans = p_Data.Rows[j][i].ToString();
                     if (p_Data.Columns[i].ToString() == "Unit")
-                        problem.unit = (int)p_Data.Rows[j][i];
+                        problem.unit.UnitId = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "UnitName")
-                        problem.unitName = p_Data.Rows[j][i].ToString();
+                        problem.unit.UnitName = p_Data.Rows[j][i].ToString();
 
                 }
 
@@ -296,9 +300,9 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "Problem_Content")
                         problem.problem = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Unit")
-                        problem.unit = (int)p_Data.Rows[j][i];
+                        problem.unit.UnitId = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "UnitName")
-                        problem.unitName = p_Data.Rows[j][i].ToString();
+                        problem.unit.UnitName = p_Data.Rows[j][i].ToString();
                 }
 
                 for (int k = 0; k < p_DataAns.Rows.Count; k++)
@@ -330,9 +334,9 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "Answer")
                         problem.ans = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Unit")
-                        problem.unit = (int)p_Data.Rows[j][i];
+                        problem.unit.UnitId = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "UnitName")
-                        problem.unitName = (string)p_Data.Rows[j][i];
+                        problem.unit.UnitName = (string)p_Data.Rows[j][i];
 
                 }
 
@@ -416,7 +420,7 @@ namespace OES
             }
             return powerPoint;
         }
-
+#if false
         private List<PFunction> DataSetToListFunProgram(DataSet Ds)
         {
             DataTable p_Data = Ds.Tables[0];
@@ -521,7 +525,7 @@ namespace OES
             }
             return result;
         }
-
+#endif
         private List<Classes> DataSetToClass(DataSet p_DataSet)
         {
             List<Classes> res = new List<Classes>();
@@ -724,7 +728,7 @@ namespace OES
             {
                 Unit unit = new Unit();
                 unit.UnitName = p_Data.Rows[j][0].ToString();
-                unit.UnitId = p_Data.Rows[j][1].ToString();
+                unit.UnitId = Convert.ToInt32(p_Data.Rows[j][1]);
                 result.Add(unit);
             }
             return result;

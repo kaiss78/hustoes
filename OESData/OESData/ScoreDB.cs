@@ -42,9 +42,9 @@ namespace OES
 
         public List<Score> FindScoreByClassPaper(string ClassName, string Title)
         {
-            SqlParameter[] ddlparam = new SqlParameter[2];
-            ddlparam[0] = CreateParam("@ClassName", SqlDbType.VarChar, 50, ClassName, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@ClassName", SqlDbType.VarChar, 50, ClassName, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Title", SqlDbType.VarChar, 50, Title, ParameterDirection.Input));
             Ds = new DataSet();
             RunProc("FindScoreByClassPaper", ddlparam, Ds);
             List<Score> score = new List<Score>();

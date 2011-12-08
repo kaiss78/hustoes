@@ -11,58 +11,47 @@ namespace OES
 {
     public partial class OESData
     {
-        #region 编程题有关方法 0:C    1:C++   2:VB
+
+        #region 编程题有关方法
 
         //增加编程的综合体型
-        public void AddFunProgram(string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)
+        public int AddProgram(string PContent, ProgramProblem.ProType Type,ProgramProblem.Language Language,int Unit,int Level)
         {
-            SqlParameter[] ddlparam = new SqlParameter[10];
-            ddlparam[0] = CreateParam("@Problem_Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@File_Path", SqlDbType.VarChar, 100, File_Path, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@In1", SqlDbType.VarChar, 100, In1, ParameterDirection.Input);
-            ddlparam[3] = CreateParam("@In2", SqlDbType.VarChar, 100, In2, ParameterDirection.Input);
-            ddlparam[4] = CreateParam("@In3", SqlDbType.VarChar, 100, In3, ParameterDirection.Input);
-            ddlparam[5] = CreateParam("@Out1", SqlDbType.VarChar, 100, Out1, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@Out2", SqlDbType.VarChar, 100, Out2, ParameterDirection.Input);
-            ddlparam[7] = CreateParam("@Out3", SqlDbType.VarChar, 100, Out3, ParameterDirection.Input);
-            ddlparam[8] = CreateParam("@CorrectC", SqlDbType.VarChar, 100, CorrectC, ParameterDirection.Input);
-            ddlparam[9] = CreateParam("@Kind", SqlDbType.Bit, 1, (Kind == "0" ? false : true), ParameterDirection.Input);
-
-            DataBind();
-            SqlCommand cmd = new SqlCommand("AddFunProgram", sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 10; i++)
-            {
-                cmd.Parameters.Add(ddlparam[i]);
-            }
+            int Id = -1;
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Type", SqlDbType.Int, 5, Convert.ToInt32(Type), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Language", SqlDbType.Int, 5, Convert.ToInt32(Language), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Level", SqlDbType.Int, 5, Level, ParameterDirection.Input));
             try
             {
-                cmd.ExecuteNonQuery();
+                RunProc("AddProgram", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
+            return -1;
             }
+            return Convert.ToInt32(ddlparam[0].Value);
         }
 
         //按Id号删除编程题
-        public void DeleteFunProgram(string Id)
+        public void DeleteProgram(string Id)
         {
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-
-            //RunProc("FindChoiceByUnit", ddlparam, Ds);
-            SqlCommand Cmd = CreateCmd("DeleteFunProgram", ddlparam);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
             try
             {
-                Cmd.ExecuteNonQuery();
+                RunProc("DeleteProgram", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
             }
         }
-
+#if false
         //按Id修改综合编程题
         public void UpdateFunProgram(string Id, string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)
         {
@@ -335,7 +324,7 @@ namespace OES
             problemList = DataSetToProblemList(Ds);
             return problemList;
         }
-
+#endif
         #endregion
     }
 }

@@ -11,53 +11,52 @@ namespace OES
 {
     public partial class OESData
     {
-        #region office类题目有关的方法 sort传的值为1,2,3，字符串的形式，分别表示Word，Excel，PPT三类大题(就没人敢写个Const Int?)
+
+        public enum OfficeType
+        {
+            Word = 0,
+            Excel = 1,
+            PowerPoint = 2
+        }
+        #region office类题目有关的方法
 
         //增加office类题目   
-        public void AddOffice(string Problem_Content, string Answer_Path, string File_Path, string Sort)
+        public int AddOffice(string PContent, int Unit,int PLevel,OfficeType Type)
         {
-            SqlParameter[] ddlparam = new SqlParameter[4];
-            ddlparam[0] = CreateParam("@Problem_Content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Answer_Path", SqlDbType.VarChar, 100, Answer_Path, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@File_Path", SqlDbType.VarChar, 100, File_Path, ParameterDirection.Input);
-            ddlparam[3] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
-
-            DataBind();
-            SqlCommand cmd = new SqlCommand("AddOffice", sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 4; i++)
-            {
-                cmd.Parameters.Add(ddlparam[i]);
-            }
+            int Id = -1;
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Type", SqlDbType.Int, 5, Convert.ToInt32(Type), ParameterDirection.Input));
             try
             {
-                cmd.ExecuteNonQuery();
+                RunProc("AddOffice",ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
+                return -1;
             }
+            return Convert.ToInt32(ddlparam[0].Value);
         }
 
         //删除Office类题目
-        public void DeleteOffice(string Id, string Sort)
+        public void DeleteOffice(int Id)
         {
-            SqlParameter[] ddlparam = new SqlParameter[2];
-            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Sort", SqlDbType.Int, 2, Sort, ParameterDirection.Input);
-
-            //RunProc("FindChoiceByUnit", ddlparam, Ds);
-            SqlCommand Cmd = CreateCmd("DeleteOffice", ddlparam);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
             try
             {
-                Cmd.ExecuteNonQuery();
+                RunProc("DeleteOffice", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
             }
         }
-
+#if false
         //修改Office类题目
         public void UpdateOffice(string Id, string Problem_Content, string Answer_Path, string File_Path, string Sort)
         {
@@ -192,7 +191,7 @@ namespace OES
             problemList = DataSetToProblemList(Ds);
             return problemList;
         }
-
+#endif
         #endregion
     }
 }

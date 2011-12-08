@@ -17,8 +17,8 @@ namespace OES
         public Teacher FindTeacherByLoginName(string UserName)
         {
             Teacher teacher = new Teacher();
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@UserName", SqlDbType.VarChar, 50, UserName, ParameterDirection.Input);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@UserName", SqlDbType.VarChar, 50, UserName, ParameterDirection.Input));
             Ds = new DataSet();
             RunProc("FindTeacherByLoginName", ddlparam, Ds);
             teacher = DataSetToTeacher(Ds);
@@ -56,8 +56,8 @@ namespace OES
         //-- Description:	按照Id删除教师信息
         public void DeleteTeacherById(string Id)
         {
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input));
             DataBind();
             //RunProc("FindChoiceByUnit", ddlparam, Ds);
             SqlCommand Cmd = CreateCmd("DeleteTeacherById", ddlparam);
@@ -88,14 +88,14 @@ namespace OES
         public void UpdateTeacherById(string Id, string TeacherName, string Password, int Permission, string UserName)
         {
 
-            SqlParameter[] ddlparam = new SqlParameter[5];
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
 
-            ddlparam[0] = CreateParam("@TeacherName", SqlDbType.VarChar, 50, TeacherName, ParameterDirection.Input);
+            ddlparam.Add(CreateParam("@TeacherName", SqlDbType.VarChar, 50, TeacherName, ParameterDirection.Input));
 
-            ddlparam[1] = CreateParam("@Password", SqlDbType.VarChar, 200, Password, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Permission", SqlDbType.Int, 2, Permission.ToString(), ParameterDirection.Input);
-            ddlparam[3] = CreateParam("@UserName", SqlDbType.VarChar, 50, UserName, ParameterDirection.Input);
-            ddlparam[4] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
+            ddlparam.Add(CreateParam("@Password", SqlDbType.VarChar, 200, Password, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Permission", SqlDbType.Int, 2, Permission.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@UserName", SqlDbType.VarChar, 50, UserName, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input));
 
             SqlCommand Cmd = CreateCmd("UpdateTeacherById", ddlparam);
             try

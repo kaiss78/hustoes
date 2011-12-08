@@ -21,59 +21,57 @@ namespace OES
             tx.Commit();
         }
         //向数据库中添加选择题
-        public void AddChoice(string Problem_Content, string A, string B, string C, string D, string Answer, int Unit, int Level)
+        public int AddChoice(string Problem_Content, string A, string B, string C, string D, string Answer, int Unit, int Level)
         {
-            SqlParameter[] ddlparam = new SqlParameter[8];
-            ddlparam[0] = CreateParam("@content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input);
-            ddlparam[3] = CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input);
-            ddlparam[4] = CreateParam("@D", SqlDbType.VarChar, 100, D, ParameterDirection.Input);
-            ddlparam[5] = CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input);
-            ddlparam[6] = CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input);
-            ddlparam[7] = CreateParam("@PLevel", SqlDbType.Int, 5, Level.ToString(), ParameterDirection.Input);
-            DataBind();
-            SqlCommand cmd = new SqlCommand("AddChoice", sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 8; i++)
-            {
-                cmd.Parameters.Add(ddlparam[i]);
-            }
+            int Id = -1;
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id,ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@D", SqlDbType.VarChar, 100, D, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, Level.ToString(), ParameterDirection.Input));
             try
             {
-                cmd.ExecuteNonQuery();
+                RunProc("AddChoice", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
+                return -1;
             }
+            return Convert.ToInt32(ddlparam[0].Value);
         }
         //按Id删除选择题
-        public void DeleteChoiceById(string Id)
+        public void DeleteChoice(string Id)
         {
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            SqlCommand Cmd = CreateCmd("DeleteChoiceById", ddlparam);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
             try
             {
-                Cmd.ExecuteNonQuery();
+                RunProc("DeleteChoiceById", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
             }
         }
+#if false
         //按单元查询选择题
         public List<Problem> FindChoiceByUnit(int Unit)
         {
             string unit = Unit.ToString();
-            SqlParameter[] ddlparam = new SqlParameter[1];
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam[0] = CreateParam("@Unit", SqlDbType.Int, 5, unit, ParameterDirection.Input);
             Ds = new DataSet();
             RunProc("FindChoiceByUnit", ddlparam, Ds);
             results = DataSetToList(Ds);
             return results;
         }
+
         //按Id查询选择题
         public List<Choice> FindChoiceById(string Id)
         {
@@ -153,44 +151,45 @@ namespace OES
             }
 
         }
-
+#endif
         #endregion
 
         #region 填空题有关的方法
         //添加填空题
-        public void AddCompletion(string PContent, int Unit, int Level)
+        public int AddCompletion(string PContent, int Unit, int Level)
         {
-            SqlParameter[] ddlparam = new SqlParameter[3];
-            ddlparam[0] = CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input);
-
-            ddlparam[1] = CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@PLevel", SqlDbType.Int, 5, Level.ToString(), ParameterDirection.Input);
-
-            SqlCommand Cmd = CreateCmd("AddCompletion", ddlparam);
+            int Id = -1;
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, Level.ToString(), ParameterDirection.Input));
             try
             {
-                Cmd.ExecuteNonQuery();
+                RunProc("AddCompletion", ddlparam);
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.ToString());
+                Console.WriteLine(e.ToString()); 
+                return -1;
             }
+            return Convert.ToInt32(ddlparam[0].Value);
         }
         //按Id删除填空题
-        public void DeleteCompletionById(string Id)
+        public void DeleteCompletion(string Id)
         {
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            SqlCommand Cmd = CreateCmd("DeleteCompletion", ddlparam);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
             try
             {
-                Cmd.ExecuteNonQuery();
+                RunProc("DeleteCompletion", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
             }
         }
+#if flase
         //列出所有填空题
         public List<Problem> FindCompletion()
         {
@@ -274,52 +273,48 @@ namespace OES
             completion = DataSetToListCompletion(Ds, DsAns);
             return completion;
         }
-
+#endif
         #endregion
 
         #region 判断题有关的方法
 
         //单题 增加判断题
-        public void AddTof(string PContent, int Unit,int Level)
+        public int AddJudgment(string PContent,string Answer, int Unit, int Level)
         {
-            SqlParameter[] ddlparam = new SqlParameter[3];
-            ddlparam[0] = CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@Level", SqlDbType.Int, 5, Level.ToString(), ParameterDirection.Input);
-
-            DataBind();
-            SqlCommand cmd = new SqlCommand("AddTof", sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 3; i++)
-            {
-                cmd.Parameters.Add(ddlparam[i]);
-            }
+            int Id = -1;
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Answer", SqlDbType.VarChar, 500, Answer, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Level", SqlDbType.Int, 5, Level.ToString(), ParameterDirection.Input));
             try
             {
-                cmd.ExecuteNonQuery();
+                RunProc("AddJudgment", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
+                return -1;
             }
+            return Convert.ToInt32(ddlparam[0].Value);
         }
 
         //按Id删除判断题
-        public void DeleteTofById(string Id)
+        public void DeleteJudgment(string Id)
         {
-            SqlParameter[] ddlparam = new SqlParameter[1];
-            ddlparam[0] = CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input);
-            SqlCommand Cmd = CreateCmd("DeleteJudgment", ddlparam);
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
             try
             {
-                Cmd.ExecuteNonQuery();
+                RunProc("DeleteJudgment", ddlparam);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
             }
         }
-
+#if false
         //按Id修改判断题
         public void UpdateTof(string Id, string Problem_Content, int Unit, string Answer)
         {
@@ -387,7 +382,7 @@ namespace OES
             judge = DataSetToListJudge(Ds);
             return judge;
         }
-
+#endif
         #endregion
     }
 }
