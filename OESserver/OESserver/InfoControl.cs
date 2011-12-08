@@ -254,12 +254,11 @@ namespace OES
             return text;
         }
 
-        public static List<string> getAnswer(string path)
+        public static int coutnAnswer(string path)
         {
             string cpptext, st;
-            int i, j;
-            List<string> result;
-            result = new List<string>();
+            int i, j,count;
+            count = 0;
             cpptext = GetText(path);
             string[] str = cpptext.Split('\n');
             i = 0;
@@ -283,14 +282,14 @@ namespace OES
                         }
                     }
 
-                    result.Add(st);
+                    count++;
                 }
                 else
                 {
                     i++;
                 }
             }
-            return result;
+            return count;
 
         }
 

@@ -36,10 +36,10 @@
             this.classManlbl = new System.Windows.Forms.LinkLabel();
             this.stuManlbl = new System.Windows.Forms.LinkLabel();
             this.xpPanel2 = new UIComponents.XPPanel(122);
+            this.llbProManage = new System.Windows.Forms.LinkLabel();
             this.newPapLbl = new System.Windows.Forms.LinkLabel();
             this.paperManLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.llbProManage = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
@@ -56,7 +56,7 @@
             this.xpPanelGroup1.Location = new System.Drawing.Point(0, 0);
             this.xpPanelGroup1.Name = "xpPanelGroup1";
             this.xpPanelGroup1.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelGroup1.PanelGradient")));
-            this.xpPanelGroup1.Size = new System.Drawing.Size(200, 678);
+            this.xpPanelGroup1.Size = new System.Drawing.Size(200, 680);
             this.xpPanelGroup1.TabIndex = 0;
             // 
             // xpPanel3
@@ -170,6 +170,19 @@
             this.xpPanel2.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel2.VertAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // llbProManage
+            // 
+            this.llbProManage.AutoSize = true;
+            this.llbProManage.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.llbProManage.Location = new System.Drawing.Point(7, 39);
+            this.llbProManage.Name = "llbProManage";
+            this.llbProManage.Size = new System.Drawing.Size(69, 19);
+            this.llbProManage.TabIndex = 3;
+            this.llbProManage.TabStop = true;
+            this.llbProManage.Tag = "0";
+            this.llbProManage.Text = "试题管理";
+            this.llbProManage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            // 
             // newPapLbl
             // 
             this.newPapLbl.Location = new System.Drawing.Point(7, 77);
@@ -198,21 +211,8 @@
             this.MainPanel.Location = new System.Drawing.Point(200, 0);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(0);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(752, 678);
+            this.MainPanel.Size = new System.Drawing.Size(754, 680);
             this.MainPanel.TabIndex = 1;
-            // 
-            // llbProManage
-            // 
-            this.llbProManage.AutoSize = true;
-            this.llbProManage.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.llbProManage.Location = new System.Drawing.Point(7, 39);
-            this.llbProManage.Name = "llbProManage";
-            this.llbProManage.Size = new System.Drawing.Size(69, 19);
-            this.llbProManage.TabIndex = 3;
-            this.llbProManage.TabStop = true;
-            this.llbProManage.Tag = "0";
-            this.llbProManage.Text = "试题管理";
-            this.llbProManage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // MainForm
             // 
@@ -221,6 +221,7 @@
             this.ClientSize = new System.Drawing.Size(952, 678);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.xpPanelGroup1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(960, 705);

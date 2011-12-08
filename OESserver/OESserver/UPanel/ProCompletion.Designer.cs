@@ -128,13 +128,10 @@
             // lbAnsList
             // 
             this.lbAnsList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbAnsList.Items.AddRange(new object[] {
-            "aa",
-            "bb",
-            "cc"});
             this.lbAnsList.Location = new System.Drawing.Point(3, 22);
             this.lbAnsList.Name = "lbAnsList";
             this.lbAnsList.Size = new System.Drawing.Size(525, 191);
+            this.lbAnsList.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbAnsList.TabIndex = 0;
             // 
             // btnAddAns
@@ -153,6 +150,7 @@
             this.btnAddAns.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnAddAns.TabIndex = 28;
             this.btnAddAns.Values.Text = "添加";
+            this.btnAddAns.Click += new System.EventHandler(this.btnAddAns_Click);
             // 
             // btnEdit
             // 
@@ -170,6 +168,7 @@
             this.btnEdit.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnEdit.TabIndex = 29;
             this.btnEdit.Values.Text = "编辑";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDel
             // 
@@ -187,6 +186,7 @@
             this.btnDel.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnDel.TabIndex = 30;
             this.btnDel.Values.Text = "删除";
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnBrowser
             // 
