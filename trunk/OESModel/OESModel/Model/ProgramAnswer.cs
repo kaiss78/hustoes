@@ -8,11 +8,11 @@ namespace OES.Model
     public class ProgramAnswer
     {
         
-        int AID;
-        int PID;       
-        int SeqNum;
-        string Input;
-        string Output;
+        public int AID;
+        public int PID;
+        public int SeqNum;
+        public string Input;
+        public string Output;
 
         public ProgramAnswer()
         {
