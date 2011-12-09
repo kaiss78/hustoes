@@ -19,7 +19,8 @@ namespace TestOESData
         public OESData oesdata=new OESData();
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(oesdata.AddChoice("testChoice", "A", "B", "C", "D", "A", 1, 2).ToString());
+            //MessageBox.Show(oesdata.AddChoice("testChoice", "A", "B", "C", "D", "A", 1, 2).ToString());
+            oesdata.DeleteChoice(53);
         }
     }
 }

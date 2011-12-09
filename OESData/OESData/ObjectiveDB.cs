@@ -46,13 +46,13 @@ namespace OES
             return Convert.ToInt32(ddlparam[0].Value);
         }
         //按Id删除选择题
-        public void DeleteChoice(string Id)
+        public void DeleteChoice(int Id)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
             try
             {
-                RunProc("DeleteChoiceById", ddlparam);
+                RunProc("DeleteChoice", ddlparam);
             }
             catch (SqlException e)
             {
@@ -176,7 +176,7 @@ namespace OES
             return Convert.ToInt32(ddlparam[0].Value);
         }
         //按Id删除填空题
-        public void DeleteCompletion(string Id)
+        public void DeleteCompletion(int Id)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
@@ -301,7 +301,7 @@ namespace OES
         }
 
         //按Id删除判断题
-        public void DeleteJudgment(string Id)
+        public void DeleteJudgment(int Id)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
