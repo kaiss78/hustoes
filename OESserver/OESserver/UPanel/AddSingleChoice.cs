@@ -20,9 +20,9 @@ namespace OES
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            String capter = (this.Parent as TestStyle).Capter;
-            String diffcuty = (this.Parent as TestStyle).Diffucity;
-            String teststyle = (this.Parent as TestStyle).Teststyle;
+            String capter = (this.Parent as AddQuetionPanel).Capter;
+            String diffcuty = (this.Parent as AddQuetionPanel).Diffucity;
+            String teststyle = (this.Parent as AddQuetionPanel).Teststyle;
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || comboBox1.Text == "" || textBox5.Text == ""||capter==""||diffcuty==""||teststyle=="")
             {
                 MessageBox.Show("请完成试题信息");

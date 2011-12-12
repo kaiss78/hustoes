@@ -1,6 +1,6 @@
 ﻿namespace OES
 {
-    partial class TestStyle
+    partial class AddQuetionPanel
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestStyle));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddQuetionPanel));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Chapater = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
