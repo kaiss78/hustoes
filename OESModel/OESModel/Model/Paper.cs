@@ -7,13 +7,14 @@ namespace OES.Model
 {
     public class Paper
     {
-        public string paperName = "";
-        public string paperID="";
+        public string paperName = "";        
         public string createTime="";
         public string authorId="";
         public string author = "";
         public string testTime = "";
         public string paperPath = "";
+
+        public int paperID;
 
         public int score_choice = 0;
         public int score_completion = 0;
@@ -55,7 +56,7 @@ namespace OES.Model
             {
                 ProList[i] = new List<Problem>();
             }
-            paperID = "-";
+            paperID = -1;
         }
             
         public void Add(Problem p)
