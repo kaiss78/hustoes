@@ -23,7 +23,11 @@ namespace OES
             fillblank.Visible = false;
            
         }
-      
+
+        public override void ReLoad()
+        {
+            this.Visible = true;
+        }
         
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
