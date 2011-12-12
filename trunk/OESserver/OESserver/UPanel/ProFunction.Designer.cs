@@ -40,14 +40,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCalc
             // 
             this.btnCalc.AutoSize = true;
-            this.btnCalc.Location = new System.Drawing.Point(49, 612);
+            this.btnCalc.Location = new System.Drawing.Point(59, 505);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(100, 33);
             this.btnCalc.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -64,7 +63,7 @@
             // btnCancel
             // 
             this.btnCancel.AutoSize = true;
-            this.btnCancel.Location = new System.Drawing.Point(597, 612);
+            this.btnCancel.Location = new System.Drawing.Point(607, 505);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 33);
             this.btnCancel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -81,7 +80,7 @@
             // btnSave
             // 
             this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(451, 612);
+            this.btnSave.Location = new System.Drawing.Point(461, 505);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 33);
             this.btnSave.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -103,7 +102,7 @@
             // btnBrowser2
             // 
             this.btnBrowser2.AutoSize = true;
-            this.btnBrowser2.Location = new System.Drawing.Point(597, 402);
+            this.btnBrowser2.Location = new System.Drawing.Point(604, 228);
             this.btnBrowser2.Name = "btnBrowser2";
             this.btnBrowser2.Size = new System.Drawing.Size(100, 33);
             this.btnBrowser2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -121,7 +120,7 @@
             // tbAnswerFile
             // 
             this.tbAnswerFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbAnswerFile.Location = new System.Drawing.Point(136, 406);
+            this.tbAnswerFile.Location = new System.Drawing.Point(143, 232);
             this.tbAnswerFile.Name = "tbAnswerFile";
             this.tbAnswerFile.Size = new System.Drawing.Size(438, 26);
             this.tbAnswerFile.TabIndex = 20;
@@ -131,14 +130,14 @@
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Location = new System.Drawing.Point(3, 22);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(651, 248);
+            this.richTextBox1.Size = new System.Drawing.Size(652, 144);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
             // btnBrowser1
             // 
             this.btnBrowser1.AutoSize = true;
-            this.btnBrowser1.Location = new System.Drawing.Point(597, 354);
+            this.btnBrowser1.Location = new System.Drawing.Point(604, 192);
             this.btnBrowser1.Name = "btnBrowser1";
             this.btnBrowser1.Size = new System.Drawing.Size(100, 33);
             this.btnBrowser1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -156,7 +155,7 @@
             // tbProblemFile
             // 
             this.tbProblemFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbProblemFile.Location = new System.Drawing.Point(136, 358);
+            this.tbProblemFile.Location = new System.Drawing.Point(143, 196);
             this.tbProblemFile.Name = "tbProblemFile";
             this.tbProblemFile.Size = new System.Drawing.Size(438, 26);
             this.tbProblemFile.TabIndex = 18;
@@ -165,7 +164,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(53, 410);
+            this.label3.Location = new System.Drawing.Point(60, 236);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 17;
@@ -175,7 +174,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(53, 362);
+            this.label2.Location = new System.Drawing.Point(60, 200);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 16;
@@ -185,22 +184,12 @@
             // 
             this.groupBox1.Controls.Add(this.richTextBox1);
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(43, 60);
+            this.groupBox1.Location = new System.Drawing.Point(49, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(657, 273);
+            this.groupBox1.Size = new System.Drawing.Size(658, 169);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "题干";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(39, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 21);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "程序综合题";
             // 
             // ProFunction
             // 
@@ -216,7 +205,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.Name = "ProFunction";
             this.Load += new System.EventHandler(this.ProFunction_Load);
             this.groupBox1.ResumeLayout(false);
@@ -239,7 +227,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
 
     }
 }

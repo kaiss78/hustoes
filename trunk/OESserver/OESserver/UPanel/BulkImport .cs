@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OES.UPanel
 {
-    public partial class BulkImport : UserControl
+    public partial class BulkImport : UserPanel
     {
         Dictionary<Button, TextBox> dict = new Dictionary<Button, TextBox>();
         public BulkImport()

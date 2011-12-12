@@ -148,7 +148,7 @@ namespace OES.UPanel
             PanelControl.ChangPanel(18, protype);
         }
 
-        private string getAnswer(ProblemType t, string ID)
+        private string getAnswer(ProblemType t, int ID)
         {
             string ans = "";
             List<Choice> choice;
@@ -157,21 +157,21 @@ namespace OES.UPanel
             switch (t)
             {
                 case ProblemType.Choice:
-                    choice = InfoControl.OesData.FindChoiceById(ID);
+                    choice = InfoControl.OesData.FindChoiceByPID(ID);
                     if (choice.Count > 0)
                     {
                         return choice[0].ans;
                     }
                     break;
                 case ProblemType.Judgment:
-                    judgt = InfoControl.OesData.FindTofById(ID);
+                    judgt = InfoControl.OesData.FindJudgmentByPID(ID);
                     if (judgt.Count > 0)
                     {
                         return judgt[0].ans;
                     }
                     break;
                 case ProblemType.Completion:
-                    completion = InfoControl.OesData.FindCompletionById(ID);
+                    completion = InfoControl.OesData.FindCompletionByPID(ID);
                     if (completion.Count > 0)
                     {
                         ans = "";
@@ -188,8 +188,8 @@ namespace OES.UPanel
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            XMLControl.CreatePaperXML(InfoControl.config["TempPaperPath"] + InfoControl.TmpPaper.paperID + ".xml", InfoControl.TmpPaper.paperID);
-            XMLControl.CreatePaperAnsXML(InfoControl.config["TempPaperPath"] + "A" + InfoControl.TmpPaper.paperID + ".xml", InfoControl.TmpPaper.paperID);
+            XMLControl.CreatePaperXML(InfoControl.config["TempPaperPath"] + InfoControl.TmpPaper.paperID.ToString() + ".xml", InfoControl.TmpPaper.paperID.ToString());
+            XMLControl.CreatePaperAnsXML(InfoControl.config["TempPaperPath"] + "A" + InfoControl.TmpPaper.paperID.ToString() + ".xml", InfoControl.TmpPaper.paperID.ToString());
             for (int k = 0; k < 9; k++)
             {
                 for (int i = 0; i < InfoControl.TmpPaper.ProList[k].Count; i++)

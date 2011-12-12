@@ -34,7 +34,7 @@ namespace OES.UPanel
 
             switch (n)
             {
-                case 0: problemList = InfoControl.OesData.FindChoice(); break;
+                case 0: problemList = InfoControl.OesData.FindAllChoice("",-1,-1); break;
                 case 1: problemList = InfoControl.OesData.FindCCompletionProblemContent(); break;
                 case 2: problemList = InfoControl.OesData.FindTof(); break;
             }

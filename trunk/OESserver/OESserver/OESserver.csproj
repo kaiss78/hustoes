@@ -236,6 +236,9 @@
     <EmbeddedResource Include="UPanel\Answer_Of_FiilBlank.resx">
       <DependentUpon>Answer_Of_FiilBlank.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\BulkImport .resx">
+      <DependentUpon>BulkImport .cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ClassManage.resx">
       <DependentUpon>ClassManage.cs</DependentUpon>
       <SubType>Designer</SubType>

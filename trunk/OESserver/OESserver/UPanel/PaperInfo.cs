@@ -156,9 +156,9 @@ namespace OES.UPanel
             InfoControl.TmpPaper.score_completion = Convert.ToInt32(this.CompletionWeight.Text);
             InfoControl.TmpPaper.score_judge = Convert.ToInt32(this.JudgeWeight.Text);
 
-            if (InfoControl.TmpPaper.paperID == "-")
+            if (InfoControl.TmpPaper.paperID == -1)
             {
-                InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), TestTime.Text, InfoControl.config["TempPaperPath"], PaperName.Text, InfoControl.User.Id, programstate);
+                InfoControl.TmpPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Today.ToString(), PaperName.Text, InfoControl.User.Id);
                 InfoControl.TmpPaper.paperPath = InfoControl.config["TempPaperPath"] + InfoControl.TmpPaper.paperID + ".xml";
                 for (int i = 0; i < 3; i++)
                 {
@@ -174,7 +174,7 @@ namespace OES.UPanel
             }
             else
             {
-                InfoControl.OesData.UpdatePaper(InfoControl.TmpPaper.paperID, InfoControl.TmpPaper);
+                InfoControl.OesData.UpdatePaper(InfoControl.TmpPaper.paperID, InfoControl.TmpPaper.createTime.ToString(), InfoControl.TmpPaper.paperName, InfoControl.User.Id);
                 for (int i = 0; i < 3; i++)
                 {
                     while (InfoControl.TmpPaper.ProList[i].Count < Convert.ToInt32(this.countList[i].Text))
