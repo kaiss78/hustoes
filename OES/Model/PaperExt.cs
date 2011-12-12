@@ -23,8 +23,8 @@ namespace OES.Model
             }
             for (int i = 0; i < p.judge.Count; i++)
             {
-                p.judge[i].stuAns = XMLControl.FindLog(ProblemType.Tof, i);
-                (p.problemList[p.judge[i].problemId] as Judge).stuAns = p.judge[i].stuAns;
+                p.judge[i].stuAns = XMLControl.FindLog(ProblemType.Judgment, i);
+                (p.problemList[p.judge[i].problemId] as Judgment).stuAns = p.judge[i].stuAns;
             }
         }
 
@@ -36,7 +36,7 @@ namespace OES.Model
         {
             p.choice = new List<Choice>();
             p.completion = new List<Completion>();
-            p.judge = new List<Judge>();
+            p.judge = new List<Judgment>();
             p.officeWord = new List<OfficeWord>();
             p.officePPT = new List<OfficePowerPoint>();
             p.officeExcel = new List<OfficeExcel>();

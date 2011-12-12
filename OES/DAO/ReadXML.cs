@@ -44,12 +44,12 @@ namespace OES.DAO
             pXml = new ProblemXML(path + "c.xml", true);
             if (!pXml.isError)
             {
-                List<Judge> list = pXml.GetJudgeProbelms();
-                foreach (Judge c in list)
+                List<Judgment> list = pXml.GetJudgeProbelms();
+                foreach (Judgment c in list)
                 {
                     ClientControl.paper.Add(c);
                 }
-                ClientControl.MainForm.addPage(ProblemType.Tof);
+                ClientControl.MainForm.addPage(ProblemType.Judgment);
             }
         }
 

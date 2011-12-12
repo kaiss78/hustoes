@@ -62,7 +62,7 @@ namespace OES
                     temp = new ProblemTabPage("填空题");
                     temp.Controls.Add(completion);
                     break;
-                case ProblemType.Tof:
+                case ProblemType.Judgment:
                     judge = new CustomJudge();
                         judge.Font = new Font("宋体", 9);
                         temp = new ProblemTabPage("判断题");
@@ -145,7 +145,7 @@ namespace OES
                 case ProblemType.Completion:
                     ClientControl.CurrentProblemNum = ClientControl.paper.completion[completion.GetQuestion()].problemId;
                     break;
-                case ProblemType.Tof:
+                case ProblemType.Judgment:
                     ClientControl.CurrentProblemNum = ClientControl.paper.judge[judge.GetQuestion()].problemId;
                     break;
                 case ProblemType.CProgramCompletion:
@@ -201,7 +201,7 @@ namespace OES
                         case ProblemType.Completion:
                             completion.SetQuestion(index);
                             break;
-                        case ProblemType.Tof:
+                        case ProblemType.Judgment:
                             judge.SetQuestion(index);
                             break;
                         case ProblemType.CProgramCompletion:
