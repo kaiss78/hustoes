@@ -69,7 +69,7 @@
     <Compile Include="Model\Choice.cs" />
     <Compile Include="Model\Classes.cs" />
     <Compile Include="Model\Completion.cs" />
-    <Compile Include="Model\Judge.cs" />
+    <Compile Include="Model\Judgment.cs" />
     <Compile Include="Model\Office.cs" />
     <Compile Include="Model\OfficeExcel.cs" />
     <Compile Include="Model\OfficePowerPoint.cs" />
