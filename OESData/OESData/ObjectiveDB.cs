@@ -10,30 +10,32 @@ using System.Data;
 namespace OES
 {
     public partial class OESData
-    {
+    {   
         #region 选择题有关的方法
 
-        public void AddManyChoices(List<string[]> lst)
+        //批量导入选择题
+        public void ImportChoice(List<string[]> lst)
         {
             SqlTransaction tx = sqlcon.BeginTransaction();
             foreach (string[] str in lst)
                 AddChoice(str[0], str[1], str[2], str[3], str[4], str[5], int.Parse(str[6]), int.Parse(str[7]));
             tx.Commit();
         }
+        
         //向数据库中添加选择题
-        public int AddChoice(string Problem_Content, string A, string B, string C, string D, string Answer, int Unit, int Level)
+        public int AddChoice(string PContent, string A, string B, string C, string D, string Answer, int Unit, int PLevel)
         {
             int Id = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id,ParameterDirection.Output));
-            ddlparam.Add(CreateParam("@content", SqlDbType.VarChar, 500, Problem_Content, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@content", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@D", SqlDbType.VarChar, 100, D, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, Level.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel.ToString(), ParameterDirection.Input));
             try
             {
                 RunProc("AddChoice", ddlparam);
@@ -45,11 +47,12 @@ namespace OES
             }
             return Convert.ToInt32(ddlparam[0].Value);
         }
+        
         //按Id删除选择题
-        public void DeleteChoice(int Id)
+        public void DeleteChoice(int PID)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, PID, ParameterDirection.Input));
             try
             {
                 RunProc("DeleteChoice", ddlparam);
@@ -58,6 +61,24 @@ namespace OES
             {
                 Console.WriteLine(e.ToString());
             }
+        }
+        
+        //按PID修改选择题
+        public void UpdateChoice(int PID)
+        { 
+            
+        }
+        
+        //按PID查找选择题
+        List<Choice> FindChoiceByPID(int PID)
+        {
+            return new List<Choice>();
+        }
+        
+        //按题干、章节、难度查找选择题
+        List<Choice> FindAllChoice(string PContent, int Unit, int PLevel)
+        {
+            return new List<Choice>();
         }
 #if false
         //按单元查询选择题
@@ -155,15 +176,19 @@ namespace OES
         #endregion
 
         #region 填空题有关的方法
-        //添加填空题
-        public int AddCompletion(string PContent, int Unit, int Level)
+
+        public void ImportCompletion(List<string[]> lst)
+        { }
+
+        //添加填空题，先添加填空题至数据库，再把对应答案添加至数据库
+        public int AddCompletion(string PContent, int Unit, int PLevel, string Answer)
         {
             int Id = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, Level.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel.ToString(), ParameterDirection.Input));
             try
             {
                 RunProc("AddCompletion", ddlparam);
@@ -175,11 +200,12 @@ namespace OES
             }
             return Convert.ToInt32(ddlparam[0].Value);
         }
+       
         //按Id删除填空题
-        public void DeleteCompletion(int Id)
+        public void DeleteCompletion(int PID)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, PID, ParameterDirection.Input));
             try
             {
                 RunProc("DeleteCompletion", ddlparam);
@@ -189,6 +215,20 @@ namespace OES
                 Console.WriteLine(e.ToString());
             }
         }
+
+        public void UpdateCompletion(int PID)
+        { }
+
+        public List<Completion> FindCompletionByPID(int PID)
+        {
+            return new List<Completion>();
+        }
+
+        public List<Completion> FindAllCompletion(string PContent, int Unit, int PLevel)
+        {
+            return new List<Completion>();
+        }
+
 #if flase
         //列出所有填空题
         public List<Problem> FindCompletion()
@@ -278,8 +318,11 @@ namespace OES
 
         #region 判断题有关的方法
 
+        public void ImportJudgment(List<string []> lst)
+        {}
+
         //单题 增加判断题
-        public int AddJudgment(string PContent,string Answer, int Unit, int Level)
+        public int AddJudgment(string PContent,string Answer, int Unit, int PLevel)
         {
             int Id = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
@@ -287,7 +330,7 @@ namespace OES
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Answer", SqlDbType.VarChar, 500, Answer, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Level", SqlDbType.Int, 5, Level.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Level", SqlDbType.Int, 5, PLevel.ToString(), ParameterDirection.Input));
             try
             {
                 RunProc("AddJudgment", ddlparam);
@@ -301,10 +344,10 @@ namespace OES
         }
 
         //按Id删除判断题
-        public void DeleteJudgment(int Id)
+        public void DeleteJudgment(int PID)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, PID, ParameterDirection.Input));
             try
             {
                 RunProc("DeleteJudgment", ddlparam);
@@ -314,6 +357,20 @@ namespace OES
                 Console.WriteLine(e.ToString());
             }
         }
+
+        public void UpdateJudgment(int PID)
+        { }
+
+        public List<Judgment> FindJudgmentByPID(int PID)
+        {
+            return new List<Judgment>();
+        }
+
+        public List<Judgment> FindAllJudgment(string PContent, int Unit, int PLevel)
+        {
+            return new List<Judgment>();
+        }
+
 #if false
         //按Id修改判断题
         public void UpdateTof(string Id, string Problem_Content, int Unit, string Answer)
