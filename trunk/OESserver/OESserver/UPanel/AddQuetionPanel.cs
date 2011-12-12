@@ -10,11 +10,11 @@ using OES.UPanel;
 
 namespace OES
 {
-    public partial class TestStyle : UserPanel
+    public partial class AddQuetionPanel : UserPanel
     {
         UserPanel SingleChoice = new AddSingleChoice();
         UserPanel fillblank = new AddFillBlank();
-        public TestStyle()
+        public AddQuetionPanel()
         {
             InitializeComponent();
             this.Controls.Add(SingleChoice);
