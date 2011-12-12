@@ -18,7 +18,7 @@ namespace OES
         List<Problem> results = new List<Problem>();
         List<Choice> choice = new List<Choice>();
         List<Completion> completion = new List<Completion>();
-        List<Judge> judge = new List<Judge>();
+        List<Judgment> judgment = new List<Judgment>();
         List<OfficeWord> word = new List<OfficeWord>();
         List<OfficeExcel> excel = new List<OfficeExcel>();
         List<OfficePowerPoint> powerPoint = new List<OfficePowerPoint>();
@@ -315,15 +315,15 @@ namespace OES
             return result;
         }
 
-        private List<Judge> DataSetToListJudge(DataSet Ds)
+        private List<Judgment> DataSetToListJudge(DataSet Ds)
         {
 
             DataTable p_Data = Ds.Tables[0];
             // 返回值初始化   
-            List<Judge> result = new List<Judge>();
+            List<Judgment> result = new List<Judgment>();
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
-                Judge problem = new Judge();
+                Judgment problem = new Judgment();
                 for (int i = 0; i < p_Data.Columns.Count; i++)
                 {
                     if (p_Data.Columns[i].ToString() == "Id")

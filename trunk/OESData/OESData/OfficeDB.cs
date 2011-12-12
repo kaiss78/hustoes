@@ -14,14 +14,19 @@ namespace OES
 
         public enum OfficeType
         {
+            Null = -1,
             Word = 0,
             Excel = 1,
             PowerPoint = 2
         }
+
         #region office类题目有关的方法
 
+        public void ImportOffice(List<string[]> lst)
+        { }
+
         //增加office类题目   
-        public int AddOffice(string PContent, int Unit,int PLevel,OfficeType Type)
+        public int AddOffice(string PContent, int Unit,int PLevel, OfficeType Type)
         {
             int Id = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
@@ -43,10 +48,10 @@ namespace OES
         }
 
         //删除Office类题目
-        public void DeleteOffice(int Id)
+        public void DeleteOffice(int PID)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, PID, ParameterDirection.Input));
             try
             {
                 RunProc("DeleteOffice", ddlparam);
@@ -56,6 +61,20 @@ namespace OES
                 Console.WriteLine(e.ToString());
             }
         }
+
+        public void UpdateOffice(int PID)
+        { }
+
+        public List<Office> FindOfficeByPID(int PID)
+        {
+            return new List<Office>();
+        }
+
+        public List<Office> FindAllOffice(string PContent, int Unit, int PLevel, OfficeType Type)
+        {
+            return new List<Office>();
+        }
+
 #if false
         //修改Office类题目
         public void UpdateOffice(string Id, string Problem_Content, string Answer_Path, string File_Path, string Sort)

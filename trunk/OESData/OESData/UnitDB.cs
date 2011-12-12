@@ -13,16 +13,20 @@ namespace OES
     {
         #region 章节管理
 
+        public void ImportUnit(List<string[]> lst)
+        { }
+
         //添加章节，UnitName具体的章节名字，例如“故障恢复”
-        public void AddUnit(string UnitName)
+        public void AddUnit(string UnitName, int Unit)
         {
-            SqlParameter[] ddlparam = new SqlParameter[1];
+            SqlParameter[] ddlparam = new SqlParameter[2];
             ddlparam[0] = CreateParam("@UnitName", SqlDbType.VarChar, 100, UnitName, ParameterDirection.Input);
+            ddlparam[1] = CreateParam("@Unit", SqlDbType.Int, 9, Unit, ParameterDirection.Input);
 
             DataBind();
             SqlCommand cmd = new SqlCommand("AddUnit", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 2; i++)
             {
                 cmd.Parameters.Add(ddlparam[i]);
             }
