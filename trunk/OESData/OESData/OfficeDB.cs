@@ -62,7 +62,7 @@ namespace OES
             }
         }
 
-        public void UpdateOffice(int PID)
+        public void UpdateOffice(int PID, string PContent, int Unit, int PLevel, OfficeType Type)
         { }
 
         public List<Office> FindOfficeByPID(int PID)
