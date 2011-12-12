@@ -37,11 +37,11 @@ namespace OES
         }
 
         //Description:	列出所有章节名
-        public List<Unit> FindUnit()
+        public List<Unit> FindAllUnit()
         {
             List<Unit> UnitList = new List<Unit>();
             Ds = new DataSet();
-            try { RunProc("FindUnit", null, Ds); }
+            try { RunProc("FindAllUnit", null, Ds); }
             catch (Exception Ex) { throw Ex; }
             UnitList = DataSetToListString(Ds);
             return UnitList;
