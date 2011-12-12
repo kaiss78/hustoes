@@ -105,7 +105,7 @@ namespace OES.XMLFile
                     {
                         return logXML.FindLogAns(pt, proId);
                     }
-                case ProblemType.Tof:
+                case ProblemType.Judgment:
                     {
                         return logXML.FindLogAns(pt, proId);
                     }

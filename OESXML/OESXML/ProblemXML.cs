@@ -116,11 +116,11 @@ namespace OESXML
             }
             xd.Save(FileName);
         }
-        public void SetJudgeProbelms(List<Judge> list)
+        public void SetJudgeProbelms(List<Judgment> list)
         {
-            foreach (Judge c in list)
+            foreach (Judgment c in list)
             {
-                xmlelem = xd.CreateElement("Tof");
+                xmlelem = xd.CreateElement("Judgment");
                 XmlAttribute xa = xd.CreateAttribute("ProblemId");
                 xmlelem.Attributes.Append(xa);
                 xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
@@ -316,14 +316,14 @@ namespace OESXML
             }
             return list;
         }
-        public List<Judge> GetJudgeProbelms()
+        public List<Judgment> GetJudgeProbelms()
         {
-            List<Judge> list = new List<Judge>();
+            List<Judgment> list = new List<Judgment>();
             foreach (XmlNode xnn in xd.ChildNodes.Item(1).ChildNodes)
             {
-                if (xnn.Name == "Tof")
+                if (xnn.Name == "Judgment")
                 {
-                    Judge c = new Judge();
+                    Judgment c = new Judgment();
                     c.problemId = Convert.ToInt32(xnn.Attributes["ProblemId"].Value);
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)

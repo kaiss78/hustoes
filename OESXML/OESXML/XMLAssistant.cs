@@ -234,7 +234,7 @@ namespace OES.XMLFile
             return s;
         }
 
-        List<ProblemType> ProblemTypeCollection = new List<ProblemType>() { ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, ProblemType.Word, ProblemType.Excel, ProblemType.PowerPoint, ProblemType.CProgramCompletion, ProblemType.CProgramModification, ProblemType.CProgramFun, ProblemType.CppProgramCompletion, ProblemType.CppProgramModification, ProblemType.CppProgramFun, ProblemType.VbProgramCompletion, ProblemType.VbProgramModification, ProblemType.VbProgramFun };
+        List<ProblemType> ProblemTypeCollection = new List<ProblemType>() { ProblemType.Choice, ProblemType.Completion, ProblemType.Judgment, ProblemType.Word, ProblemType.Excel, ProblemType.PowerPoint, ProblemType.CProgramCompletion, ProblemType.CProgramModification, ProblemType.CProgramFun, ProblemType.CppProgramCompletion, ProblemType.CppProgramModification, ProblemType.CppProgramFun, ProblemType.VbProgramCompletion, ProblemType.VbProgramModification, ProblemType.VbProgramFun };
 
         /// <summary>
         /// 返回考生答案XML的所有内容
@@ -337,7 +337,7 @@ namespace OES.XMLFile
             {
                 case ProblemType.Choice:
                 case ProblemType.Completion:
-                case ProblemType.Tof:
+                case ProblemType.Judgment:
                 case ProblemType.Word:
                 case ProblemType.Excel:
                 case ProblemType.PowerPoint:
@@ -376,7 +376,7 @@ namespace OES.XMLFile
             {
                 case ProblemType.Choice:
                 case ProblemType.Completion:
-                case ProblemType.Tof:
+                case ProblemType.Judgment:
                 case ProblemType.Word:
                 case ProblemType.Excel:
                 case ProblemType.PowerPoint:
@@ -415,7 +415,7 @@ namespace OES.XMLFile
             {
                 case ProblemType.Choice:
                 case ProblemType.Completion:
-                case ProblemType.Tof:
+                case ProblemType.Judgment:
                 case ProblemType.Word:
                 case ProblemType.Excel:
                 case ProblemType.PowerPoint:
@@ -454,7 +454,7 @@ namespace OES.XMLFile
             {
                 case ProblemType.Choice:
                 case ProblemType.Completion:
-                case ProblemType.Tof:
+                case ProblemType.Judgment:
                 case ProblemType.Word:
                 case ProblemType.Excel:
                 case ProblemType.PowerPoint:
@@ -501,7 +501,7 @@ namespace OES.XMLFile
             {
                 case ProblemType.Choice:
                 case ProblemType.Completion:
-                case ProblemType.Tof:
+                case ProblemType.Judgment:
                     {
                         xmlelem1 = xd.CreateElement("ProblemID");
                         xmlelem1.AppendChild(xd.CreateTextNode(pa.id.ToString()));
