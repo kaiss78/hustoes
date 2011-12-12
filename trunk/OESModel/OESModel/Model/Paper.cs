@@ -29,7 +29,7 @@ namespace OES.Model
         public int programState = 0;
         public List<Choice> choice;
         public List<Completion> completion;
-        public List<Judge> judge;
+        public List<Judgment> judge;
         public List<OfficeExcel> officeExcel;
         public List<OfficePowerPoint> officePPT;
         public List<OfficeWord> officeWord;
@@ -43,7 +43,7 @@ namespace OES.Model
         {
             choice = new List<Choice>();
             completion = new List<Completion>();
-            judge = new List<Judge>();
+            judge = new List<Judgment>();
             officeWord = new List<OfficeWord>();
             officePPT = new List<OfficePowerPoint>();
             pCompletion = new List<PCompletion>();
@@ -68,9 +68,9 @@ namespace OES.Model
             {
                 completion.Add((Completion) p);
             }
-            else if (p is Judge)
+            else if (p is Judgment)
             {
-                judge.Add((Judge) p);
+                judge.Add((Judgment) p);
             }
             else if (p is PCompletion)
             {
@@ -104,7 +104,7 @@ namespace OES.Model
     {
         Choice,
         Completion,
-        Tof,
+        Judgment,
         Word,
         Excel,
         PowerPoint,
