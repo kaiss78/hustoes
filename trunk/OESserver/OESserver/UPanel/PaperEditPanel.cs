@@ -25,7 +25,7 @@ namespace OES.UPanel
         public int protype;
         public int value;
         private readonly ProblemType[] PT ={
-                                               ProblemType.Choice, ProblemType.Completion, ProblemType.Tof, 
+                                               ProblemType.Choice, ProblemType.Completion, ProblemType.Judgment, 
                                                ProblemType.Excel, ProblemType.PowerPoint, ProblemType.Word, 
                                                ProblemType.CppProgramCompletion, ProblemType.CppProgramFun, ProblemType.CppProgramModification , 
                                                ProblemType.CProgramCompletion, ProblemType.CProgramFun, ProblemType.CProgramModification, 
@@ -153,7 +153,7 @@ namespace OES.UPanel
             string ans = "";
             List<Choice> choice;
             List<Completion> completion;
-            List<Judge> judgt;
+            List<Judgment> judgt;
             switch (t)
             {
                 case ProblemType.Choice:
@@ -163,7 +163,7 @@ namespace OES.UPanel
                         return choice[0].ans;
                     }
                     break;
-                case ProblemType.Tof:
+                case ProblemType.Judgment:
                     judgt = InfoControl.OesData.FindTofById(ID);
                     if (judgt.Count > 0)
                     {

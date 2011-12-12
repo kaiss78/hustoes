@@ -136,7 +136,7 @@ namespace OES
                         InfoControl.TmpPaper.ProList[0].Add(tmpPro);
                         InfoControl.TmpPaper.score_choice = pro.score;
                         break;
-                    case ProblemType.Tof:
+                    case ProblemType.Judgment:
                         tmpPro = InfoControl.OesData.FindTofById(pro.id.ToString())[0];
                         InfoControl.TmpPaper.ProList[2].Add(tmpPro);
                         InfoControl.TmpPaper.score_judge = pro.score;
