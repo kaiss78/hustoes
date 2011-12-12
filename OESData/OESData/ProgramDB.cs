@@ -11,7 +11,6 @@ namespace OES
 {
     public partial class OESData
     {
-
         #region 编程题有关方法
 
         //增加编程的综合体型

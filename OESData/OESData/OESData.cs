@@ -655,7 +655,7 @@ namespace OES
                 {
                     // 数据库NULL值单独处理   
                     if (p_Data.Columns[i].ToString() == "Id")
-                        problem.paperID = p_Data.Rows[j][i].ToString();
+                        problem.paperID = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Title")
                         problem.paperName = (string)p_Data.Rows[j][i];
 
@@ -745,7 +745,7 @@ namespace OES
                 {
                     // 数据库NULL值单独处理   
                     if (p_Data.Columns[i].ToString() == "Id")
-                        problem.paperID = p_Data.Rows[j][i].ToString();
+                        problem.paperID = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Title")
                         problem.paperName = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "GenerateDate")
