@@ -64,14 +64,14 @@ namespace OES
         }
         
         //按PID修改选择题
-        public void UpdateChoice(int PID)
+        public void UpdateChoice(int PID, string PContent,
+            string A, string B, string C, string D, string Answer, int Unit, int PLevel)
         { 
             
         }
         
         //按PID查找选择题
-        public List<Choice> FindChoiceByPID(int PID, string PContent, 
-            string A, string B, string C, string D, string Answer, int Unit, int PLevel)
+        public List<Choice> FindChoiceByPID(int PID)
         {
             return new List<Choice>();
         }
