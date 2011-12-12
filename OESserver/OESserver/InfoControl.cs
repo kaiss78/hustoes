@@ -113,10 +113,10 @@ namespace OES
         /// 从数据库获取试卷
         /// </summary>
         /// <param name="paperID">所要获取试卷的id</param>
-        public static void getPaper(string paperID)
+        public static void getPaper(int paperID)
         {
             Problem tmpPro;
-            TmpPaper = OesData.FindPaperById(paperID)[0];
+            TmpPaper = OesData.FindPaperByPaperId(paperID)[0];
             InfoControl.clientObj.LoadPaper(Convert.ToInt32(TmpPaper.paperID), Convert.ToInt32(User.Id));
             InfoControl.clientObj.ReceiveFiles();
             while (!ClientEvt.isOver) ;
@@ -132,32 +132,32 @@ namespace OES
                 switch (pro.pt)
                 {
                     case ProblemType.Choice:
-                        tmpPro = InfoControl.OesData.FindChoiceById(pro.id.ToString())[0];
+                        tmpPro = InfoControl.OesData.FindChoiceByPID(pro.id)[0];
                         InfoControl.TmpPaper.ProList[0].Add(tmpPro);
                         InfoControl.TmpPaper.score_choice = pro.score;
                         break;
                     case ProblemType.Judgment:
-                        tmpPro = InfoControl.OesData.FindTofById(pro.id.ToString())[0];
+                        tmpPro = InfoControl.OesData.FindJudgmentByPID(pro.id)[0];
                         InfoControl.TmpPaper.ProList[2].Add(tmpPro);
                         InfoControl.TmpPaper.score_judge = pro.score;
                         break;
                     case ProblemType.Completion:
-                        tmpPro = InfoControl.OesData.FindCompletionById(pro.id.ToString())[0];
+                        tmpPro = InfoControl.OesData.FindCompletionByPID(pro.id)[0];
                         InfoControl.TmpPaper.ProList[1].Add(tmpPro);
                         InfoControl.TmpPaper.score_completion = pro.score;
                         break;
                     case ProblemType.Word:
-                        tmpPro = InfoControl.OesData.FindOfficeWordById(pro.id.ToString())[0];
+                        tmpPro = InfoControl.OesData.FindOfficeByPID(pro.id)[0];
                         InfoControl.TmpPaper.ProList[5].Add(tmpPro);
                         InfoControl.TmpPaper.score_officeWord = pro.score;
                         break;
                     case ProblemType.PowerPoint:
-                        tmpPro = InfoControl.OesData.FindOfficePowerPointById(pro.id.ToString())[0];
+                        tmpPro = InfoControl.OesData.FindOfficeByPID(pro.id)[0];
                         InfoControl.TmpPaper.ProList[4].Add(tmpPro);
                         InfoControl.TmpPaper.score_officePPT = pro.score;
                         break;
                     case ProblemType.Excel:
-                        tmpPro = InfoControl.OesData.FindOfficeExcelById(pro.id.ToString())[0];
+                        tmpPro = InfoControl.OesData.FindOfficeByPID(pro.id)[0];
                         InfoControl.TmpPaper.ProList[3].Add(tmpPro);
                         InfoControl.TmpPaper.score_officeExcel = pro.score;
                         break;

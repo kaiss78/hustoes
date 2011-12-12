@@ -34,7 +34,7 @@ namespace OES.UPanel
             InitDT();
             object[] values = new object[5];
 
-            paperList = InfoControl.OesData.FindPaper();
+            paperList = InfoControl.OesData.FindAllPaper();
 
             for (int i = 0; i < paperList.Count; i++)
             {
@@ -104,7 +104,7 @@ namespace OES.UPanel
                 {
                     if ((bool)paperListDataTable.Rows[i][0])
                     {
-                        InfoControl.OesData.DeletePaper(paperListDataTable.Rows[i]["试卷ID"].ToString());
+                        InfoControl.OesData.DeletePaper(Convert.ToInt32(paperListDataTable.Rows[i]["试卷ID"]));
                     }
                 }
                 InitList();
@@ -196,7 +196,7 @@ namespace OES.UPanel
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            InfoControl.getPaper(PaperListDGV.SelectedRows[0].Cells[1].Value.ToString());            
+            InfoControl.getPaper(PaperListDGV.SelectedRows[0].Cells[1].Value);            
             PanelControl.EditPaper();
         }
     }
