@@ -70,7 +70,8 @@ namespace OES
         }
         
         //按PID查找选择题
-        List<Choice> FindChoiceByPID(int PID)
+        List<Choice> FindChoiceByPID(int PID, string PContent, 
+            string A, string B, string C, string D, string Answer, int Unit, int PLevel)
         {
             return new List<Choice>();
         }
@@ -216,7 +217,7 @@ namespace OES
             }
         }
 
-        public void UpdateCompletion(int PID)
+        public void UpdateCompletion(int PID, string PContent, int Unit, int PLevel, string Answer)
         { }
 
         public List<Completion> FindCompletionByPID(int PID)
@@ -358,7 +359,7 @@ namespace OES
             }
         }
 
-        public void UpdateJudgment(int PID)
+        public void UpdateJudgment(int PID, string PContent, string Answer, int Unit, int PLevel)
         { }
 
         public List<Judgment> FindJudgmentByPID(int PID)
