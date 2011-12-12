@@ -24,11 +24,6 @@ namespace OES
             {
                 panelList.Add(new UserPanel());
             }
-            //for (int i = 0; i < 12; i++)
-            //{
-            //    panelList[i] = mf.proMan;
-            //}
-            //mf.proMan.PanelID = 0;
 
             panelList[0] = mf.quesBankForm;
             mf.quesBankForm.PanelID = 0;
@@ -57,8 +52,11 @@ namespace OES
             panelList[7] = mf.paperEditPanel;                        
             mf.paperEditPanel.PanelID = 7;
 
-            panelList[8] = mf.proCompletion;
-            mf.proCompletion.PanelID = 8;
+            panelList[9] = mf.proCompletion;
+            mf.proCompletion.PanelID = 9;
+
+            panelList[8] = mf.addQuestionPanel;
+            mf.addQuestionPanel.PanelID = 8;
 
         }
 
@@ -84,7 +82,7 @@ namespace OES
                 case 5:
                 case 6:
                 case 7:
-                case 8:
+                case 8:            
                     panelList[x].ReLoad();
                     break;
                 case 2:
