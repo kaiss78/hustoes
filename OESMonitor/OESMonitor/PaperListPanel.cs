@@ -65,7 +65,7 @@ namespace OES.UPanel
             InitDT();
             object[] values = new object[5];
 
-            paperList = PaperControl.OesData.FindPaper();
+            paperList = PaperControl.OesData.FindAllPaper();
             
             for (int i = 0; i < paperList.Count; i++)
             {
@@ -129,7 +129,7 @@ namespace OES.UPanel
                     if ((bool)paperListDataTable.Rows[i][0])
                     {
                         //MessageBox.Show("DELETE * FROM tb_Book WHERE BID=" + BookTable.Rows[i][1]);
-                        PaperControl.OesData.DeletePaper(paperListDataTable.Rows[i]["试卷ID"].ToString());
+                        //PaperControl.OesData.DeletePaper(paperListDataTable.Rows[i]["试卷ID"]);
                         
                     }
                 }
