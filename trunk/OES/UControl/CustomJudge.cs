@@ -39,7 +39,7 @@ namespace OES.UControl
                 }
             }
         }
-        private Judge judge;
+        private Judgment judge;
 
         public void CheckAns(string ans)
         {
@@ -99,13 +99,13 @@ namespace OES.UControl
         private void TrueButton_MouseClick(object sender, MouseEventArgs e)
         {
             this.CheckAns("T");
-            XMLControl.WriteLogXML(Config.stuPath,ProblemType.Tof, proID, "T");
+            XMLControl.WriteLogXML(Config.stuPath,ProblemType.Judgment, proID, "T");
         }
 
         private void FalseButton_MouseClick(object sender, MouseEventArgs e)
         {
             this.CheckAns("F");
-            XMLControl.WriteLogXML(Config.stuPath,ProblemType.Tof, proID, "F");
+            XMLControl.WriteLogXML(Config.stuPath,ProblemType.Judgment, proID, "F");
         }
         
     }

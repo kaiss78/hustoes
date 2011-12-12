@@ -140,11 +140,11 @@ namespace OES
             return paper.completion[proID];
         }
 
-        public static void AddJudge(Judge judge)
+        public static void AddJudge(Judgment judge)
         {
             paper.Add(judge);
         }
-        public static Judge GetJudge(int proID)
+        public static Judgment GetJudge(int proID)
         {
             return paper.judge[proID];
         }
