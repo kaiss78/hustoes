@@ -123,7 +123,7 @@ namespace OES
             }
             
             string temp = restore.Replace(".rar", "");
-            ClientControl.paper.paperID = temp;
+            ClientControl.paper.paperID = Convert.ToInt32(temp);
             this.ExamNo.Text = ClientControl.paper.paperName;
             this.SName.Text = ClientControl.student.sName;
             this.ID.Text = ClientControl.student.ID;
