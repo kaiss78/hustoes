@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E4EFF3E5-EB11-47EE-AB20-B7AC00AE82FB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -221,6 +221,22 @@
       <DependentUpon>testWord.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\AddFillBlank.resx">
+      <DependentUpon>AddFillBlank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\AddJudge.resx">
+      <DependentUpon>AddJudge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\AddSingleChoice.resx">
+      <DependentUpon>AddSingleChoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\Answer_Of_FiilBlank.resx">
+      <DependentUpon>Answer_Of_FiilBlank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\ClassManage.resx">
       <DependentUpon>ClassManage.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -262,6 +278,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\TeacherManage.resx">
       <DependentUpon>TeacherManage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\TestStyle.resx">
+      <DependentUpon>TestStyle.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UPanel\UserPanel.resx">
@@ -372,6 +392,30 @@
     <Compile Include="UControl\testWord.designer.cs">
       <DependentUpon>testWord.cs</DependentUpon>
     </Compile>
+    <Compile Include="UPanel\AddFillBlank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\AddFillBlank.Designer.cs">
+      <DependentUpon>AddFillBlank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\AddJudge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\AddJudge.Designer.cs">
+      <DependentUpon>AddJudge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\AddSingleChoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\AddSingleChoice.Designer.cs">
+      <DependentUpon>AddSingleChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\Answer_Of_FiilBlank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\Answer_Of_FiilBlank.designer.cs">
+      <DependentUpon>Answer_Of_FiilBlank.cs</DependentUpon>
+    </Compile>
     <Compile Include="UPanel\ClassManage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -437,6 +481,12 @@
     </Compile>
     <Compile Include="UPanel\TeacherManage.Designer.cs">
       <DependentUpon>TeacherManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPanel\TestStyle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\TestStyle.Designer.cs">
+      <DependentUpon>TestStyle.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\UserPanel.cs">
       <SubType>UserControl</SubType>
@@ -510,6 +560,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OESLogin.jpg" />
+    <None Include="Resources\btnReturn.png" />
+    <None Include="Resources\btnSaveData.png" />
+    <None Include="Resources\lbAnswer.png" />
+    <None Include="Resources\lbContent.png" />
     <Content Include="Server.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
