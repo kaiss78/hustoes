@@ -70,14 +70,14 @@ namespace OES
         }
         
         //按PID查找选择题
-        List<Choice> FindChoiceByPID(int PID, string PContent, 
+        public List<Choice> FindChoiceByPID(int PID, string PContent, 
             string A, string B, string C, string D, string Answer, int Unit, int PLevel)
         {
             return new List<Choice>();
         }
         
         //按题干、章节、难度查找选择题
-        List<Choice> FindAllChoice(string PContent, int Unit, int PLevel)
+        public List<Choice> FindAllChoice(string PContent, int Unit, int PLevel)
         {
             return new List<Choice>();
         }
