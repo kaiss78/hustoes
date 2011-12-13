@@ -18,7 +18,7 @@ namespace OESSupport.PaperControl
 
         static public List<Choice> choiceList = new List<Choice>();
         static public List<Completion> completionList = new List<Completion>();
-        static public List<Judge> judgeList = new List<Judge>();
+        static public List<Judgment> judgeList = new List<Judgment>();
 
         static public List<OfficeExcel> officeexcel = new List<OfficeExcel>();
         static public List<OfficePowerPoint> officeppt = new List<OfficePowerPoint>();
@@ -58,64 +58,64 @@ namespace OESSupport.PaperControl
                 switch (problem.pt)
                 {
                     case ProblemType.Choice:
-                        choiceList.Add(PaperControl.OesData.FindChoiceById(problem.id.ToString())[0]);
+                        choiceList.Add(PaperControl.OesData.FindChoiceByPID(problem.id)[0]);
                         break;
                     case ProblemType.Completion:
-                        completionList.Add(PaperControl.OesData.FindCompletionById(problem.id.ToString())[0]);
+                        completionList.Add(PaperControl.OesData.FindCompletionByPID(problem.id)[0]);
                         break;
-                    case ProblemType.Tof:
-                        judgeList.Add(PaperControl.OesData.FindTofById(problem.id.ToString())[0]);
+                    case ProblemType.Judgment:
+                        judgeList.Add(PaperControl.OesData.FindJudgmentByPID(problem.id)[0]);
                         break;
 
                     case ProblemType.Word:
-                        officeword.Add(PaperControl.OesData.FindOfficeWordById(problem.id.ToString())[0]);
+                        officeword.Add(PaperControl.OesData.FindOfficeByPID(problem.id)[0] as OfficeWord);
                         File.Copy(Program.config["Root"] + Program.config["Word"] + "p" + problem.id.ToString() + ".doc", paperpath + "d" + (officeword.Count - 1).ToString() + ".doc", true);
                         break;
                     case ProblemType.Excel:
-                        officeexcel.Add(PaperControl.OesData.FindOfficeExcelById(problem.id.ToString())[0]);
+                        officeexcel.Add(PaperControl.OesData.FindOfficeByPID(problem.id)[0] as OfficeExcel);
                         File.Copy(Program.config["Root"] + Program.config["Excel"] + "p" + problem.id.ToString() + ".xls", paperpath + "e" + (officeexcel.Count-1).ToString() + ".xls", true);
                         break;
                     case ProblemType.PowerPoint:
-                        officeppt.Add(PaperControl.OesData.FindOfficePowerPointById(problem.id.ToString())[0]);
+                        officeppt.Add(PaperControl.OesData.FindOfficeByPID(problem.id)[0] as OfficePowerPoint);
                         File.Copy(Program.config["Root"] + Program.config["PowerPoint"] + "p" + problem.id.ToString() + ".ppt", paperpath + "f" + (officeppt.Count - 1).ToString() + ".ppt", true);
                         break;
                    
                     case ProblemType.CProgramCompletion:
-                        pcompletion.Add(PaperControl.OesData.FindCompletionProgramById(problem.id.ToString())[0]);
+                        pcompletion.Add(PaperControl.OesData.FindProgramByPID(problem.id)[0] as PCompletion);
                         File.Copy(Program.config["Root"] + Program.config["CCompletion"] + "p" + problem.id.ToString() + ".c", paperpath + "g" + (pcompletion.Count - 1).ToString() + ".c", true);
                         break;
                     case ProblemType.CProgramModification:
-                        pmodif.Add(PaperControl.OesData.FindModificationProgramById(problem.id.ToString())[0]);
+                        pmodif.Add(PaperControl.OesData.FindProgramByPID(problem.id)[0] as PModif);
                         File.Copy(Program.config["Root"] + Program.config["CModification"] + "p" + problem.id.ToString() + ".c", paperpath + "h" + (pmodif.Count - 1).ToString() + ".c", true);
                         break;
                     case ProblemType.CProgramFun:
-                        pfunction.Add(PaperControl.OesData.FindFunProgramById(problem.id.ToString())[0]);
+                        pfunction.Add(PaperControl.OesData.FindProgramByPID(problem.id)[0] as PFunction);
                         File.Copy(Program.config["Root"] + Program.config["CFunction"] + "p" + problem.id.ToString() + ".c", paperpath + "i" + (pfunction.Count - 1).ToString() + ".c", true);
                         break;
 
                     case ProblemType.CppProgramCompletion:
-                        pcompletion.Add(PaperControl.OesData.FindCompletionProgramById(problem.id.ToString())[0]);
+                        pcompletion.Add(PaperControl.OesData.FindProgramByPID(problem.id)[0] as PCompletion);
                         File.Copy(Program.config["Root"] + Program.config["CppCompletion"] + "p" + problem.id.ToString() + ".cpp", paperpath + "g" + (pcompletion.Count - 1).ToString() + ".cpp", true);
                         break;
                     case ProblemType.CppProgramModification:
-                        pmodif.Add(PaperControl.OesData.FindModificationProgramById(problem.id.ToString())[0]);
+                        pmodif.Add(PaperControl.OesData.FindProgramByPID(problem.id)[0] as PModif);
                         File.Copy(Program.config["Root"] + Program.config["CppModification"] + "p" + problem.id.ToString() + ".cpp", paperpath + "h" + (pmodif.Count - 1).ToString() + ".cpp", true);
                         break;
                     case ProblemType.CppProgramFun:
-                        pfunction.Add(PaperControl.OesData.FindFunProgramById(problem.id.ToString())[0]);
+                        pfunction.Add(PaperControl.OesData.FindProgramByPID(problem.id)[0] as PFunction);
                         File.Copy(Program.config["Root"] + Program.config["CppFunction"] + "p" + problem.id.ToString() + ".cpp", paperpath + "i" + (pfunction.Count - 1).ToString() + ".cpp", true);
                         break;
 
                     case ProblemType.VbProgramCompletion:
-                        pcompletion.Add(PaperControl.OesData.FindCompletionProgramById(problem.id.ToString())[0]);
+                        pcompletion.Add(PaperControl.OesData.FindProgramByPID(problem.id)[0] as PCompletion);
                         File.Copy(Program.config["Root"] + Program.config["VbCompletion"] + "p" + problem.id.ToString() + ".vb", paperpath + "g" + (pcompletion.Count - 1).ToString() + ".vb", true);
                         break;
                     case ProblemType.VbProgramModification:
-                        pmodif.Add(PaperControl.OesData.FindModificationProgramById(problem.id.ToString())[0]);
+                        pmodif.Add(PaperControl.OesData.FindProgramByPID(problem.id)[0] as PModif);
                         File.Copy(Program.config["Root"] + Program.config["VbModification"] + "p" + problem.id.ToString() + ".vb", paperpath + "h" + (pmodif.Count - 1).ToString() + ".vb", true);
                         break;
                     case ProblemType.VbProgramFun:
-                        pfunction.Add(PaperControl.OesData.FindFunProgramById(problem.id.ToString())[0]);
+                        pfunction.Add(PaperControl.OesData.FindProgramByPID(problem.id)[0] as PFunction);
                         File.Copy(Program.config["Root"] + Program.config["VbFunction"] + "p" + problem.id.ToString() + ".vb", paperpath + "i" + (pfunction.Count - 1).ToString() + ".vb", true);
                         break;
                 }
