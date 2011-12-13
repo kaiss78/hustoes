@@ -93,10 +93,11 @@ namespace OES
             DataSet Ds = new DataSet();
             List<Choice> result = new List<Choice>();
             List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Choice_Table", ParameterDirection.Input));
             dp.Add(CreateParam("@PID", SqlDbType.Int, 9, PID, ParameterDirection.Input));
             try
             {
-                RunProc("FindChoiceByPID", dp, Ds);
+                RunProc("FindItem", dp, Ds);
                 result = DataSetToListChoice(Ds);
             }
             catch (SqlException ex)
@@ -106,16 +107,18 @@ namespace OES
             return result;
         }
         
-        //按题干、章节、难度查找选择题
-        public List<Choice> FindAllChoice(string PContent, int Unit, int PLevel)
+        //按题干、章节、难度查找选择题，显示第PageIndex页（从1开始），每页PageSize项内容
+        public List<Choice> FindAllChoice(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
         {
             DataSet Ds = new DataSet();
             List<Choice> result = new List<Choice>();
             List<SqlParameter> dp = new List<SqlParameter>();
             dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Choice_Table", ParameterDirection.Input));
             dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
-            dp.Add(CreateParam("@Unit", SqlDbType.Int, 9, Unit, ParameterDirection.Input));
-            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 9, PLevel, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageIndex", SqlDbType.Int, 0, PageIndex, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageSize", SqlDbType.Int, 0, PageSize, ParameterDirection.Input));
             try
             {
                 RunProc("FindItems", dp, Ds);
