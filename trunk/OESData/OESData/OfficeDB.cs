@@ -28,30 +28,31 @@ namespace OES
         //增加office类题目   
         public int AddOffice(string PContent, int Unit,int PLevel, OfficeType Type)
         {
-            int Id = -1;
+            int PID = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit, ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel, ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Type", SqlDbType.Int, 5, Convert.ToInt32(Type), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Type", SqlDbType.Int, 0, Convert.ToInt32(Type), ParameterDirection.Input));
             try
             {
                 RunProc("AddOffice",ddlparam);
+                PID = Convert.ToInt32(ddlparam[0].Value);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
                 return -1;
             }
-            return Convert.ToInt32(ddlparam[0].Value);
+            return PID;
         }
 
         //删除Office类题目
         public void DeleteOffice(int PID)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, PID, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 5, PID, ParameterDirection.Input));
             try
             {
                 RunProc("DeleteOffice", ddlparam);
@@ -63,7 +64,22 @@ namespace OES
         }
 
         public void UpdateOffice(int PID, string PContent, int Unit, int PLevel, OfficeType Type)
-        { }
+        {
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            dp.Add(CreateParam("@Type", SqlDbType.Int, 0, (int)Type, ParameterDirection.Input));
+            try
+            {
+                RunProc("UpdateOffice", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
 
         public List<Office> FindOfficeByPID(int PID)
         {
