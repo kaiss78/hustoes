@@ -19,6 +19,7 @@ namespace OES.UPanel
         public DataView dvAnsList;
         public int BlankCount;
         public int AnsCount;
+        private bool addnew;
         private formAddAnswer newans;
 
         public ProCompletion()
@@ -40,9 +41,16 @@ namespace OES.UPanel
             dvAnsList = new DataView(dtAnsList);
             dvAnsList.Sort = "SeqNum";
             lbAnsList.DataSource = dvAnsList;
-            lbAnsList.DisplayMember = "Value";                        
+            lbAnsList.DisplayMember = "Value";
+            addnew = true;
             this.Visible = true;
         }
+
+        public override void ReLoad(int x)
+        {
+            addnew = false;
+        }
+
 
         private void btnBrowser_Click(object sender, EventArgs e)
         {
@@ -119,7 +127,10 @@ namespace OES.UPanel
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            if (addnew)
+            {
+                
+            }
         }
     }
 }
