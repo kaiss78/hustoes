@@ -25,9 +25,9 @@ namespace OES
         //向数据库中添加选择题
         public int AddChoice(string PContent, string A, string B, string C, string D, string Answer, int Unit, int PLevel)
         {
-            int Id = -1;
+            int PID = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id,ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 0, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input));
@@ -234,9 +234,9 @@ namespace OES
         //添加填空题，先添加填空题至数据库，再把对应答案添加至数据库
         public int AddCompletion(string PContent, int Unit, int PLevel, string Answer)
         {
-            int Id = -1;
+            int PID = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 0, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input));
             ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel.ToString(), ParameterDirection.Input));
@@ -369,15 +369,15 @@ namespace OES
 
         #region 判断题有关的方法
 
-        public void ImportJudgment(List<string []> lst)
+        public void ImportJudgment(List<string[]> lst)
         {}
 
         //单题 增加判断题
         public int AddJudgment(string PContent,string Answer, int Unit, int PLevel)
         {
-            int Id = -1;
+            int PID = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Answer", SqlDbType.VarChar, 500, Answer, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit.ToString(), ParameterDirection.Input));

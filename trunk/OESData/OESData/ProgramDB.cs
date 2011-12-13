@@ -13,17 +13,20 @@ namespace OES
     {
         #region 编程题有关方法
 
+        public void ImportProgram(List<string[]> lst)
+        { }
+
         //增加编程的综合体型
-        public int AddProgram(string PContent, ProgramProblem.ProType Type,ProgramProblem.Language Language,int Unit,int Level)
+        public int AddProgram(string PContent, ProgramProblem.ProType Type,ProgramProblem.Language Language,int Unit,int PLevel)
         {
-            int Id = -1;
+            int PID = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 5, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Type", SqlDbType.Int, 5, Convert.ToInt32(Type), ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Language", SqlDbType.Int, 5, Convert.ToInt32(Language), ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit, ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Level", SqlDbType.Int, 5, Level, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel, ParameterDirection.Input));
             try
             {
                 RunProc("AddProgram", ddlparam);
@@ -37,10 +40,10 @@ namespace OES
         }
 
         //按Id号删除编程题
-        public void DeleteProgram(string Id)
+        public void DeleteProgram(int PID)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
             try
             {
                 RunProc("DeleteProgram", ddlparam);
@@ -50,6 +53,55 @@ namespace OES
                 Console.WriteLine(e.ToString());
             }
         }
+
+        public void UpdateProgram(int PID, ProgramProblem.ProType Type, ProgramProblem.Language Language, int Unit, int PLevel)
+        {
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            dp.Add(CreateParam("@Type", SqlDbType.Int, 0, (int)Type, ParameterDirection.Input));
+            dp.Add(CreateParam("@Language", SqlDbType.Int, 0, (int)Language, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            try
+            {
+                RunProc("UpdateProgram", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public List<ProgramProblem> FindProgramByPID(int PID)
+        {
+            return new List<ProgramProblem>();
+        }
+
+        public List<ProgramProblem> FindAllProgram(string PContent, ProgramProblem.ProType Type, ProgramProblem.Language Language, int Unit, int PLevel,
+            int PageIndex, int PageSize)
+        {
+            List<ProgramProblem> result = new List<ProgramProblem>();
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Type", SqlDbType.Int, 0, (int)Type, ParameterDirection.Input));
+            dp.Add(CreateParam("@Language", SqlDbType.Int, 0, (int)Language, ParameterDirection.Input));
+            dp.Add(CreateParam("@Uint", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageIndex", SqlDbType.Int, 0, PageIndex, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageSize", SqlDbType.Int, 0, PageSize, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindItems", dp, Ds);
+                //result = DataSetToProgramProblem(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
+        }
+
 #if false
         //按Id修改综合编程题
         public void UpdateFunProgram(string Id, string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)
