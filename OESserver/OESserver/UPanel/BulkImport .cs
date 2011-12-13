@@ -30,35 +30,41 @@ namespace OES.UPanel
                 dict[sender as Button].Text = openFileDialog1.FileName;
             }
         }
-
+        //选择题
         private void btnConfirm1_Click(object sender, EventArgs e)
         {
-
+            List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox1.Text, 8);
+            InfoControl.OesData.ImportChoice(list);
         }
-
+        //填空题
         private void btnConfirm2_Click(object sender, EventArgs e)
         {
-
+            List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox2.Text, 4);
+            InfoControl.OesData.ImportCompletion(list);
         }
-
+        //判断题
         private void btnConfirm3_Click(object sender, EventArgs e)
         {
-
+            List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox3.Text, 4);
+            InfoControl.OesData.ImportJudgment(list);
         }
-
+        //Office题
         private void btnConfirm4_Click(object sender, EventArgs e)
         {
-
+            List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox4.Text, 7);
+            InfoControl.OesData.ImportOffice(list);
         }
-
+        //编程题
         private void btnConfirm5_Click(object sender, EventArgs e)
         {
-
+            List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox5.Text, 9);
+            InfoControl.OesData.ImportProgram(list);
         }
-
+        //单元
         private void btnConfirm6_Click(object sender, EventArgs e)
         {
-
+            List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox6.Text, 2);
+            InfoControl.OesData.ImportUnit(list);
         }
     }
 }
