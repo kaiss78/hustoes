@@ -106,12 +106,13 @@ namespace OES
         public void RunProc(string procName, List<SqlParameter> prams)
         {
             DataBind();
-            SqlCommand cmd = new SqlCommand(procName, sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < prams.Count; i++)
-            {
-                cmd.Parameters.Add(prams[i]);
-            }
+            SqlCommand cmd = CreateCmd(procName, prams);
+            //SqlCommand cmd = new SqlCommand(procName, sqlcon);
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //for (int i = 0; i < prams.Count; i++)
+            //{
+            //    cmd.Parameters.Add(prams[i]);
+            //}
             cmd.ExecuteNonQuery();
         }
 
@@ -123,6 +124,7 @@ namespace OES
         /// <returns>dataset对象.</returns>
         public DataSet RunProc(string procName, List<SqlParameter> prams, DataSet Ds)
         {
+            DataBind();
             SqlCommand Cmd = CreateCmd(procName, prams);
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
             Da.Fill(Ds, "demo");
@@ -139,7 +141,6 @@ namespace OES
 
         private SqlCommand CreateCmd(string procName, List<SqlParameter> prams)
         {
-            DataBind();
             SqlCommand Cmd = new SqlCommand(procName, sqlcon);
             Cmd.CommandType = CommandType.StoredProcedure;
             if (prams != null)
