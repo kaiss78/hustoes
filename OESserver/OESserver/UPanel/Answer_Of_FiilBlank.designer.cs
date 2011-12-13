@@ -30,7 +30,7 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Answer = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.deleteThisPanel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,22 +51,22 @@
             this.Answer.Size = new System.Drawing.Size(345, 62);
             this.Answer.TabIndex = 1;
             // 
-            // button1
+            // deleteThisPanel
             // 
-            this.button1.Location = new System.Drawing.Point(427, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 22);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "删除";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.deleteThisPanel.Location = new System.Drawing.Point(427, 40);
+            this.deleteThisPanel.Name = "deleteThisPanel";
+            this.deleteThisPanel.Size = new System.Drawing.Size(74, 22);
+            this.deleteThisPanel.TabIndex = 2;
+            this.deleteThisPanel.Text = "删除";
+            this.deleteThisPanel.UseVisualStyleBackColor = true;
+            this.deleteThisPanel.Click += new System.EventHandler(this.button1_Click);
             // 
             // Answer_Of_FiilBlank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.deleteThisPanel);
             this.Controls.Add(this.Answer);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Answer_Of_FiilBlank";
@@ -81,6 +81,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox Answer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button deleteThisPanel;
     }
 }

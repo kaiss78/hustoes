@@ -23,7 +23,7 @@ namespace OES
             String capter = (this.Parent as AddQuetionPanel).Capter;
             String diffcuty = (this.Parent as AddQuetionPanel).Diffucity;
             String teststyle = (this.Parent as AddQuetionPanel).Teststyle;
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || comboBox1.Text == "" || textBox5.Text == ""||capter==""||diffcuty==""||teststyle=="")
+            if (Content.Text == "" || Option_A.Text == "" || Option_B.Text == "" || Option_C.Text == "" || Answer_Of_Choice.Text == "" || Option_D.Text == ""||capter==""||diffcuty==""||teststyle=="")
             {
                 MessageBox.Show("请完成试题信息");
             }
@@ -43,6 +43,15 @@ namespace OES
  
             }
 
+        }
+        public void Reset()
+        {
+            Content.Text = "";
+            Option_A.Text = "";
+            Option_B.Text = "";
+            Option_C.Text = "";
+            Option_D.Text = "";
+            Answer_Of_Choice.Text = "";
         }
        
     }

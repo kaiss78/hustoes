@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSingleChoice));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Content = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Option_A = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Option_B = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Option_C = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Option_D = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Answer_Of_Choice = new System.Windows.Forms.ComboBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -51,15 +51,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // Content
             // 
-            this.textBox1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(87, 26);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(438, 171);
-            this.textBox1.TabIndex = 1;
+            this.Content.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Content.Location = new System.Drawing.Point(87, 26);
+            this.Content.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Content.Multiline = true;
+            this.Content.Name = "Content";
+            this.Content.Size = new System.Drawing.Size(438, 171);
+            this.Content.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -91,14 +91,14 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "A";
             // 
-            // textBox2
+            // Option_A
             // 
-            this.textBox2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(127, 221);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(301, 23);
-            this.textBox2.TabIndex = 5;
+            this.Option_A.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Option_A.Location = new System.Drawing.Point(127, 221);
+            this.Option_A.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Option_A.Name = "Option_A";
+            this.Option_A.Size = new System.Drawing.Size(301, 23);
+            this.Option_A.TabIndex = 5;
             // 
             // label2
             // 
@@ -110,13 +110,13 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "B";
             // 
-            // textBox3
+            // Option_B
             // 
-            this.textBox3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(127, 251);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(302, 23);
-            this.textBox3.TabIndex = 7;
+            this.Option_B.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Option_B.Location = new System.Drawing.Point(127, 251);
+            this.Option_B.Name = "Option_B";
+            this.Option_B.Size = new System.Drawing.Size(302, 23);
+            this.Option_B.TabIndex = 7;
             // 
             // label3
             // 
@@ -128,13 +128,13 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "C";
             // 
-            // textBox4
+            // Option_C
             // 
-            this.textBox4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(127, 289);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(302, 23);
-            this.textBox4.TabIndex = 9;
+            this.Option_C.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Option_C.Location = new System.Drawing.Point(127, 289);
+            this.Option_C.Name = "Option_C";
+            this.Option_C.Size = new System.Drawing.Size(302, 23);
+            this.Option_C.TabIndex = 9;
             // 
             // label4
             // 
@@ -146,13 +146,13 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "D";
             // 
-            // textBox5
+            // Option_D
             // 
-            this.textBox5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox5.Location = new System.Drawing.Point(127, 324);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(301, 23);
-            this.textBox5.TabIndex = 11;
+            this.Option_D.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Option_D.Location = new System.Drawing.Point(127, 324);
+            this.Option_D.Name = "Option_D";
+            this.Option_D.Size = new System.Drawing.Size(301, 23);
+            this.Option_D.TabIndex = 11;
             // 
             // pictureBox3
             // 
@@ -174,19 +174,19 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // comboBox1
+            // Answer_Of_Choice
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Answer_Of_Choice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Answer_Of_Choice.FormattingEnabled = true;
+            this.Answer_Of_Choice.Items.AddRange(new object[] {
             "A",
             "B",
             "C",
             "D"});
-            this.comboBox1.Location = new System.Drawing.Point(106, 376);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(167, 25);
-            this.comboBox1.TabIndex = 14;
+            this.Answer_Of_Choice.Location = new System.Drawing.Point(106, 376);
+            this.Answer_Of_Choice.Name = "Answer_Of_Choice";
+            this.Answer_Of_Choice.Size = new System.Drawing.Size(167, 25);
+            this.Answer_Of_Choice.TabIndex = 14;
             // 
             // pictureBox5
             // 
@@ -203,20 +203,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Answer_Of_Choice);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.Option_D);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.Option_C);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.Option_B);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Option_A);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Content);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddSingleChoice";
@@ -233,20 +233,20 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Content;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Option_A;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox Option_B;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Option_C;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox Option_D;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Answer_Of_Choice;
         private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
