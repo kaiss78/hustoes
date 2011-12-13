@@ -28,7 +28,7 @@ namespace OES
             int Id = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id,ParameterDirection.Output));
-            ddlparam.Add(CreateParam("@content", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input));
@@ -66,20 +66,66 @@ namespace OES
         //按PID修改选择题
         public void UpdateChoice(int PID, string PContent,
             string A, string B, string C, string D, string Answer, int Unit, int PLevel)
-        { 
-            
+        {
+            List<SqlParameter> ddlparam = new List<SqlParameter>();
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 9, PID, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@C", SqlDbType.VarChar, 100, C, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@D", SqlDbType.VarChar, 100, D, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Answer", SqlDbType.VarChar, 100, Answer, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel.ToString(), ParameterDirection.Input));
+            try
+            {
+                RunProc("UpdateChoice", ddlparam);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
         
         //按PID查找选择题
         public List<Choice> FindChoiceByPID(int PID)
         {
-            return new List<Choice>();
+            DataSet Ds = new DataSet();
+            List<Choice> result = new List<Choice>();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 9, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindChoiceByPID", dp, Ds);
+                result = DataSetToListChoice(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
         }
         
         //按题干、章节、难度查找选择题
         public List<Choice> FindAllChoice(string PContent, int Unit, int PLevel)
         {
-            return new List<Choice>();
+            DataSet Ds = new DataSet();
+            List<Choice> result = new List<Choice>();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Choice_Table", ParameterDirection.Input));
+            dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 9, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 9, PLevel, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindItems", dp, Ds);
+                result = DataSetToListChoice(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
         }
 #if false
         //按单元查询选择题
@@ -327,11 +373,11 @@ namespace OES
         {
             int Id = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, Id, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Answer", SqlDbType.VarChar, 500, Answer, ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit.ToString(), ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Level", SqlDbType.Int, 5, PLevel.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Level", SqlDbType.Int, 0, PLevel.ToString(), ParameterDirection.Input));
             try
             {
                 RunProc("AddJudgment", ddlparam);
@@ -360,11 +406,38 @@ namespace OES
         }
 
         public void UpdateJudgment(int PID, string PContent, string Answer, int Unit, int PLevel)
-        { }
+        {
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            try
+            {
+                RunProc("UpdateJudgment", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
 
         public List<Judgment> FindJudgmentByPID(int PID)
         {
-            return new List<Judgment>();
+            DataSet Ds = new DataSet();
+            List<Judgment> result = new List<Judgment>();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindJudgmentByPID", dp, Ds);
+                //result = DataSetToJudgment(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
         }
 
         public List<Judgment> FindAllJudgment(string PContent, int Unit, int PLevel)
