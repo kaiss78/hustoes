@@ -257,9 +257,10 @@ namespace OES
         { }
 
         //添加填空题，先添加填空题至数据库，再把对应答案添加至数据库
-        public int AddCompletion(string PContent, int Unit, int PLevel, string Answer)
+        public int AddCompletion(string PContent, int Unit, int PLevel, List<string> Answer)
         {
             int PID = -1;
+            SqlTransaction tx = sqlcon.BeginTransaction();
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 0, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
@@ -268,15 +269,35 @@ namespace OES
             try
             {
                 RunProc("AddCompletion", ddlparam);
+                PID = Convert.ToInt32(ddlparam[0].Value);
+                foreach (string ans in Answer)
+                    AddCompletionAnswer(PID, ans);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString()); 
                 return -1;
             }
+            tx.Commit();
             return Convert.ToInt32(ddlparam[0].Value);
         }
-       
+
+        public void AddCompletionAnswer(int PID, string Answer)
+        {
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            dp.Add(CreateParam("@SeqNum", SqlDbType.Int, 0, 0, ParameterDirection.Input));
+            dp.Add(CreateParam("@Answer", SqlDbType.VarChar, 9999, Answer, ParameterDirection.Input));
+            try
+            {
+                RunProc("AddCompletionAnswer", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         //按Id删除填空题
         public void DeleteCompletion(int PID)
         {
