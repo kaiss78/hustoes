@@ -22,9 +22,13 @@ namespace OES
         private DataTable dtQeueType;
 
 
-        public void Hide()
+        public void HidePanel()
         {
-         }
+            foreach (UserPanel up in PanelList)
+            {
+                up.Visible = false;
+            }
+        }
 
         public AddQuetionPanel()
         {
@@ -40,8 +44,8 @@ namespace OES
             PanelList.Add(proCompletion);
 
             dtQeueType = new DataTable();
-            dtQeueType.Columns.Add("Type",typeof(string));
-            dtQeueType.Columns.Add("Value",typeof(int));
+            dtQeueType.Columns.Add("Type", typeof(string));
+            dtQeueType.Columns.Add("Value", typeof(int));
             dtQeueType.Rows.Add(new object[2] { "选择题", 0 });
             dtQeueType.Rows.Add(new object[2] { "选填空", 1 });
             dtQeueType.Rows.Add(new object[2] { "选判断", 2 });
@@ -68,48 +72,54 @@ namespace OES
 
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
-            flag++;
-            if (flag > 1)
+            HidePanel();
+            int result;
+            if (Int32.TryParse(cbQueStyle.SelectedValue.ToString(), out result))
             {
-                if (MessageBox.Show("确定切换吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    if (cbQueStyle.Text == "选择")
-                    {
-                        judge.Visible = false;
-                        fillblank.Visible = false;
-                        SingleChoice.Reset();
-                        SingleChoice.Show();
-                        //SingleChoice.Location = new Point(0, 120);
-                    }
-
-                    if (cbQueStyle.Text == "填空")
-                    {
-                        judge.Visible = false;
-                        SingleChoice.Visible = false;
-                        fillblank.Reset();
-                        fillblank.Show();
-                        // fillblank.Location = new Point(0, 120);
-                    }
-                    if (cbQueStyle.Text == "判断")
-                    {
-                        SingleChoice.Visible = false;
-                        fillblank.Visible = false;
-                        judge.Reset();
-                        judge.Show();
-                        // judge.Location = new Point(0, 120);  
-                    }
-                    if (cbQueStyle.Text == "程序填空题")
-                    {
-                        SingleChoice.Visible = false;
-                        fillblank.Visible = false;
-                        proCompletion.Visible = true;
-                        //proCompletion.Reset();
-                        proCompletion.Show();
-                        // judge.Location = new Point(0, 120);  
-                    }
-
-                }
+                PanelList[result].ReLoad();
             }
+            //flag++;
+            //if (flag > 1)
+            //{
+            //    if (MessageBox.Show("确定切换吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            //    {
+            //        if (cbQueStyle.Text == "选择")
+            //        {
+            //            judge.Visible = false;
+            //            fillblank.Visible = false;
+            //            SingleChoice.Reset();
+            //            SingleChoice.Show();
+            //            //SingleChoice.Location = new Point(0, 120);
+            //        }
+
+            //        if (cbQueStyle.Text == "填空")
+            //        {
+            //            judge.Visible = false;
+            //            SingleChoice.Visible = false;
+            //            fillblank.Reset();
+            //            fillblank.Show();
+            //            // fillblank.Location = new Point(0, 120);
+            //        }
+            //        if (cbQueStyle.Text == "判断")
+            //        {
+            //            SingleChoice.Visible = false;
+            //            fillblank.Visible = false;
+            //            judge.Reset();
+            //            judge.Show();
+            //            // judge.Location = new Point(0, 120);  
+            //        }
+            //        if (cbQueStyle.Text == "程序填空题")
+            //        {
+            //            SingleChoice.Visible = false;
+            //            fillblank.Visible = false;
+            //            proCompletion.Visible = true;
+            //            //proCompletion.Reset();
+            //            proCompletion.Show();
+            //            // judge.Location = new Point(0, 120);  
+            //        }
+
+            //    }
+            //}
         }
         public string Capter
         {
