@@ -11,6 +11,30 @@ namespace OES
 {
     public partial class OESData
     {
+        //获取查询的记录条数
+        public int FindItemsCount(string tableName, string PContent, int Unit, int PLevel, int Type, int Language)
+        {
+            int res = 0;
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, tableName + "_Table", ParameterDirection.Input));
+            dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            dp.Add(CreateParam("@Type", SqlDbType.Int, 0, Type, ParameterDirection.Input));
+            dp.Add(CreateParam("@Language", SqlDbType.Int, 0, Language, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindItemsCount", dp, Ds);
+                res = Convert.ToInt32(Ds.Tables[0].Rows[0][0]);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return res;
+        }
+
         #region 选择题有关的方法
 
         //批量导入选择题
