@@ -125,6 +125,7 @@
       <DependentUpon>formAddAnswer.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoControl.cs" />
+    <Compile Include="keyandValue\ListItem.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
