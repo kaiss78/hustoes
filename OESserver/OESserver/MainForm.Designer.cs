@@ -36,11 +36,11 @@
             this.classManlbl = new System.Windows.Forms.LinkLabel();
             this.stuManlbl = new System.Windows.Forms.LinkLabel();
             this.xpPanel2 = new UIComponents.XPPanel(122);
+            this.llbBulkImport = new System.Windows.Forms.LinkLabel();
             this.llbProManage = new System.Windows.Forms.LinkLabel();
             this.llbNewPaper = new System.Windows.Forms.LinkLabel();
             this.paperManLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.llbBulkImport = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
@@ -172,6 +172,17 @@
             this.xpPanel2.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel2.VertAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // llbBulkImport
+            // 
+            this.llbBulkImport.Location = new System.Drawing.Point(7, 96);
+            this.llbBulkImport.Name = "llbBulkImport";
+            this.llbBulkImport.Size = new System.Drawing.Size(69, 19);
+            this.llbBulkImport.TabIndex = 4;
+            this.llbBulkImport.TabStop = true;
+            this.llbBulkImport.Tag = "9";
+            this.llbBulkImport.Text = "批量导入";
+            this.llbBulkImport.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            // 
             // llbProManage
             // 
             this.llbProManage.AutoSize = true;
@@ -215,16 +226,6 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(754, 680);
             this.MainPanel.TabIndex = 1;
-            // 
-            // llbBulkImport
-            // 
-            this.llbBulkImport.Location = new System.Drawing.Point(7, 96);
-            this.llbBulkImport.Name = "llbBulkImport";
-            this.llbBulkImport.Size = new System.Drawing.Size(69, 19);
-            this.llbBulkImport.TabIndex = 4;
-            this.llbBulkImport.TabStop = true;
-            this.llbBulkImport.Tag = "9";
-            this.llbBulkImport.Text = "批量导入";
             // 
             // MainForm
             // 
