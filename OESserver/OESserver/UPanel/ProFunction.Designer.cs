@@ -102,7 +102,7 @@
             // btnBrowser2
             // 
             this.btnBrowser2.AutoSize = true;
-            this.btnBrowser2.Location = new System.Drawing.Point(604, 228);
+            this.btnBrowser2.Location = new System.Drawing.Point(593, 230);
             this.btnBrowser2.Name = "btnBrowser2";
             this.btnBrowser2.Size = new System.Drawing.Size(100, 33);
             this.btnBrowser2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -120,7 +120,7 @@
             // tbAnswerFile
             // 
             this.tbAnswerFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbAnswerFile.Location = new System.Drawing.Point(143, 232);
+            this.tbAnswerFile.Location = new System.Drawing.Point(132, 234);
             this.tbAnswerFile.Name = "tbAnswerFile";
             this.tbAnswerFile.Size = new System.Drawing.Size(438, 26);
             this.tbAnswerFile.TabIndex = 20;
@@ -137,7 +137,7 @@
             // btnBrowser1
             // 
             this.btnBrowser1.AutoSize = true;
-            this.btnBrowser1.Location = new System.Drawing.Point(604, 192);
+            this.btnBrowser1.Location = new System.Drawing.Point(593, 194);
             this.btnBrowser1.Name = "btnBrowser1";
             this.btnBrowser1.Size = new System.Drawing.Size(100, 33);
             this.btnBrowser1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -155,7 +155,7 @@
             // tbProblemFile
             // 
             this.tbProblemFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbProblemFile.Location = new System.Drawing.Point(143, 196);
+            this.tbProblemFile.Location = new System.Drawing.Point(132, 198);
             this.tbProblemFile.Name = "tbProblemFile";
             this.tbProblemFile.Size = new System.Drawing.Size(438, 26);
             this.tbProblemFile.TabIndex = 18;
@@ -164,7 +164,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(60, 236);
+            this.label3.Location = new System.Drawing.Point(49, 238);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 17;
@@ -174,7 +174,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(60, 200);
+            this.label2.Location = new System.Drawing.Point(49, 202);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 16;
