@@ -849,7 +849,6 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "PaperInfo";
-            this.Size = new System.Drawing.Size(742, 666);
             this.groupBox2.ResumeLayout(false);
             this.TableLayoutPanel3.ResumeLayout(false);
             this.TableLayoutPanel3.PerformLayout();

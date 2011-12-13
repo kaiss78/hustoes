@@ -133,7 +133,7 @@
             this.comboBox2.TabIndex = 6;
             this.comboBox2.TextChanged += new System.EventHandler(this.comboBox2_TextChanged);
             // 
-            // TestStyle
+            // AddQuetionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,8 +146,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Chapater);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "TestStyle";
-            this.Size = new System.Drawing.Size(736, 663);
+            this.Name = "AddQuetionPanel";
             this.Tag = "1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
