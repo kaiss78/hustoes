@@ -23,6 +23,11 @@ namespace OES.UPanel
             dict.Add(btnBrowse6, textBox6);
         }
 
+        public override void ReLoad()
+        {
+            this.Visible = true;
+        }
+
         private void btnBrowse1_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
