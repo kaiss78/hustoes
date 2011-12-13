@@ -260,6 +260,7 @@ namespace OES
         public int AddCompletion(string PContent, int Unit, int PLevel, List<string> Answer)
         {
             int PID = -1;
+            DataBind();
             SqlTransaction tx = sqlcon.BeginTransaction();
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 0, PID, ParameterDirection.Output));
