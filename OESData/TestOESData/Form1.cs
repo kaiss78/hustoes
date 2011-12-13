@@ -40,6 +40,10 @@ namespace TestOESData
             //oesdata.UpdateJudgment(12, "3+4=5.", "F", 1, 3);
             //oesdata.FindJudgmentByPID(12);
             //MessageBox.Show(oesdata.FindAllJudgment("", -1, -1, 1, 1000).Count.ToString());
+
+            //MessageBox.Show(oesdata.AddOffice("第2道PPT", 1, 2, OESData.OfficeType.PowerPoint).ToString());
+            //oesdata.DeleteOffice(4);
+            //oesdata.UpdateOffice(3, "Updated PPT", 3, 5, OESData.OfficeType.PowerPoint);
             Application.Exit();
         }
     }
