@@ -35,7 +35,7 @@ namespace OES
             return res;
         }
 
-        #region 选择题有关的方法
+        #region 选择题有关的方法 - 全部测试过了
 
         //批量导入选择题
         public void ImportChoice(List<string[]> lst)
@@ -51,7 +51,7 @@ namespace OES
         {
             int PID = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 0, PID, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@A", SqlDbType.VarChar, 100, A, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@B", SqlDbType.VarChar, 100, B, ParameterDirection.Input));
@@ -63,13 +63,14 @@ namespace OES
             try
             {
                 RunProc("AddChoice", ddlparam);
+                PID = Convert.ToInt32(ddlparam[0].Value);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
                 return -1;
             }
-            return Convert.ToInt32(ddlparam[0].Value);
+            return PID;
         }
         
         //按Id删除选择题
@@ -251,7 +252,7 @@ namespace OES
 #endif
         #endregion
 
-        #region 填空题有关的方法
+        #region 填空题有关的方法 - 全部测试过了
 
         public void ImportCompletion(List<string[]> lst)
         { }
@@ -261,7 +262,6 @@ namespace OES
         {
             int PID = -1;
             DataBind();
-            SqlTransaction tx = sqlcon.BeginTransaction();
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
@@ -269,20 +269,22 @@ namespace OES
             ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel.ToString(), ParameterDirection.Input));
             try
             {
+                SqlTransaction tx = sqlcon.BeginTransaction();
                 RunProc("AddCompletion", ddlparam);
                 PID = Convert.ToInt32(ddlparam[0].Value);
                 foreach (string ans in Answer)
                     AddCompletionAnswer(PID, ans);
+                tx.Commit();
+                return PID;
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString()); 
                 return -1;
             }
-            tx.Commit();
-            return Convert.ToInt32(ddlparam[0].Value);
         }
 
+        //按PID添加填空题的答案
         public void AddCompletionAnswer(int PID, string Answer)
         {
             List<SqlParameter> dp = new List<SqlParameter>();
@@ -299,11 +301,11 @@ namespace OES
             }
         }
 
-        //按Id删除填空题
+        //按PID删除填空题
         public void DeleteCompletion(int PID)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, PID, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 5, PID, ParameterDirection.Input));
             try
             {
                 RunProc("DeleteCompletion", ddlparam);
@@ -314,17 +316,120 @@ namespace OES
             }
         }
 
-        public void UpdateCompletion(int PID, string PContent, int Unit, int PLevel, string Answer)
-        { }
-
-        public List<Completion> FindCompletionByPID(int PID)
+        //按PID删除填空题答案
+        public void DeleteCompletionAnswerByPID(int PID)
         {
-            return new List<Completion>();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("DeleteCompletionAnswerByPID", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
+        //按PID更新填空题（需要更新答案）
+        public void UpdateCompletion(int PID, string PContent, int Unit, int PLevel, List<string> Answer)
+        {
+            DataBind();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            try
+            {
+                SqlTransaction tx = sqlcon.BeginTransaction();
+                RunProc("UpdateCompletion", dp);
+                DeleteCompletionAnswerByPID(PID);
+                foreach (string ans in Answer)
+                    AddCompletionAnswer(PID, ans);
+                tx.Commit();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        //根据PID查找单个填空题（需要找出答案）
+        public List<Completion> FindCompletionByPID(int PID)
+        {
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            List<Completion> result = new List<Completion>();
+            dp.Add(CreateParam("@PID", SqlDbType.VarChar, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindCompletionByPID", dp, Ds);
+                result = DataSetToListCompletion(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            if (result.Count != 0)
+            {
+                try
+                {
+                    result[0].ans = FindCompletionAnswerByPID(PID);
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+            return result;
+        }
+
+        //根据PID查找填空题答案
+        public List<string> FindCompletionAnswerByPID(int PID)
+        {
+            List<string> res = new List<string>();
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindCompletionAnswerByPID", dp, Ds);
+                int rowcnt = Ds.Tables[0].Rows.Count;
+                foreach (DataRow dr in Ds.Tables[0].Rows)
+                    res.Add(dr["Answer"].ToString());
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return res;
+        }
+
+        //按多个关键字查找填空题（不许找出答案）
         public List<Completion> FindAllCompletion(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
         {
-            return new List<Completion>();
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            List<Completion> result = new List<Completion>();
+            dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Completion_Table", ParameterDirection.Input));
+            dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            dp.Add(CreateParam("@Type", SqlDbType.Int, 0, -1, ParameterDirection.Input));
+            dp.Add(CreateParam("@Language", SqlDbType.Int, 0, -1, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageIndex", SqlDbType.Int, 0, PageIndex, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageSize", SqlDbType.Int, 0, PageSize, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindItems", dp, Ds);
+                result = DataSetToListCompletion(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
         }
 
 #if flase
@@ -425,20 +530,21 @@ namespace OES
             int PID = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Output));
-            ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Answer", SqlDbType.VarChar, 500, Answer, ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit.ToString(), ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Level", SqlDbType.Int, 0, PLevel.ToString(), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Answer", SqlDbType.VarChar, 10, Answer, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             try
             {
                 RunProc("AddJudgment", ddlparam);
+                PID = Convert.ToInt32(ddlparam[0].Value);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
                 return -1;
             }
-            return Convert.ToInt32(ddlparam[0].Value);
+            return PID;
         }
 
         //按Id删除判断题

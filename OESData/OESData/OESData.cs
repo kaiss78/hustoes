@@ -56,8 +56,6 @@ namespace OES
             string strConnection = "Data Source=" + dbconfig["IP"] + ";Initial Catalog=" + dbconfig["DbName"] + ";User ID=" + dbconfig["User"] + ";Password=" + dbconfig["Password"];
             //string strConnection = @"Data Source=LUOKANGQI-PC;Initial Catalog=OESDB;Integrated Security=True";
             sqlcon.ConnectionString = strConnection;
-
-
             try
             {
                 sqlcon.Open();
@@ -106,14 +104,21 @@ namespace OES
         public void RunProc(string procName, List<SqlParameter> prams)
         {
             DataBind();
-            SqlCommand cmd = CreateCmd(procName, prams);
+            SqlCommand Cmd = CreateCmd(procName, prams);
             //SqlCommand cmd = new SqlCommand(procName, sqlcon);
             //cmd.CommandType = CommandType.StoredProcedure;
             //for (int i = 0; i < prams.Count; i++)
             //{
             //    cmd.Parameters.Add(prams[i]);
             //}
-            cmd.ExecuteNonQuery();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         /// <summary>
