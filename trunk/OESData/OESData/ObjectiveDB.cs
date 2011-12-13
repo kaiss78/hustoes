@@ -108,6 +108,7 @@ namespace OES
         }
         
         //按题干、章节、难度查找选择题，显示第PageIndex页（从1开始），每页PageSize项内容
+        //PContent为""表示不按PContent查询；Unit或PLevel为-1表示不按它们查询
         public List<Choice> FindAllChoice(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
         {
             DataSet Ds = new DataSet();
@@ -274,7 +275,7 @@ namespace OES
             return new List<Completion>();
         }
 
-        public List<Completion> FindAllCompletion(string PContent, int Unit, int PLevel)
+        public List<Completion> FindAllCompletion(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
         {
             return new List<Completion>();
         }
@@ -443,7 +444,7 @@ namespace OES
             return result;
         }
 
-        public List<Judgment> FindAllJudgment(string PContent, int Unit, int PLevel)
+        public List<Judgment> FindAllJudgment(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
         {
             return new List<Judgment>();
         }
