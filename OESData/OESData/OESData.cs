@@ -189,49 +189,49 @@ namespace OES
         /// <param name="p_DataSet">DataSet</param>   
         /// <param name="p_TableIndex">待转换数据表索引</param>   
         /// <returns></returns>   
-        private List<Problem> DataSetToList(DataSet p_DataSet)
-        {
-            DataTable p_Data = p_DataSet.Tables[0];
-            // 返回值初始化   
-            List<Problem> result = new List<Problem>();
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                Problem problem = new Problem();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
+        //private List<Problem> DataSetToList(DataSet p_DataSet)
+        //{
+        //    DataTable p_Data = p_DataSet.Tables[0];
+        //    // 返回值初始化   
+        //    List<Problem> result = new List<Problem>();
+        //    for (int j = 0; j < p_Data.Rows.Count; j++)
+        //    {
+        //        Problem problem = new Problem();
+        //        for (int i = 0; i < p_Data.Columns.Count; i++)
+        //        {
+        //            // 数据库NULL值单独处理   
+        //            if (p_Data.Columns[i].ToString() == "Id")
+        //                problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
+        //            if (p_Data.Columns[i].ToString() == "Problem_Content")
+        //                problem.problem = (string)p_Data.Rows[j][i];
 
-                }
+        //        }
 
-                result.Add(problem);
-            }
-            return result;
-        }
+        //        result.Add(problem);
+        //    }
+        //    return result;
+        //}
 
-        private List<String> DataSetPaperToList(DataSet p_DataSet)
-        {
-            DataTable p_Data = p_DataSet.Tables[0];
-            // 返回值初始化   
-            List<String> result = new List<String>();
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                string str = "";
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Title")
-                        str = (String)p_Data.Rows[j][i];
+        //private List<String> DataSetPaperToList(DataSet p_DataSet)
+        //{
+        //    DataTable p_Data = p_DataSet.Tables[0];
+        //    // 返回值初始化   
+        //    List<String> result = new List<String>();
+        //    for (int j = 0; j < p_Data.Rows.Count; j++)
+        //    {
+        //        string str = "";
+        //        for (int i = 0; i < p_Data.Columns.Count; i++)
+        //        {
+        //            // 数据库NULL值单独处理   
+        //            if (p_Data.Columns[i].ToString() == "Title")
+        //                str = (String)p_Data.Rows[j][i];
 
-                }
+        //        }
 
-                result.Add(str);
-            }
-            return result;
-        }
+        //        result.Add(str);
+        //    }
+        //    return result;
+        //}
         /// <summary>   
         /// DataSet装换为泛型集合   
         /// </summary>   
@@ -555,19 +555,19 @@ namespace OES
             return res;
         }
 
-        private List<Problem> DataSetToProblemList(DataSet p_DataSet)
-        {
-            List<Problem> res = new List<Problem>();
-            DataTable dt = p_DataSet.Tables[0];
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                Problem pb = new Problem();
-                pb.problemId = Convert.ToInt32(dt.Rows[i][0]);
-                pb.problem = dt.Rows[i][1].ToString();
-                res.Add(pb);
-            }
-            return res;
-        }
+        //private List<Problem> DataSetToProblemList(DataSet p_DataSet)
+        //{
+        //    List<Problem> res = new List<Problem>();
+        //    DataTable dt = p_DataSet.Tables[0];
+        //    for (int i = 0; i < dt.Rows.Count; i++)
+        //    {
+        //        Problem pb = new Problem();
+        //        pb.problemId = Convert.ToInt32(dt.Rows[i][0]);
+        //        pb.problem = dt.Rows[i][1].ToString();
+        //        res.Add(pb);
+        //    }
+        //    return res;
+        //}
 
         private List<string> DataSetToDeptStringList(DataSet p_DataSet)
         {
@@ -649,28 +649,28 @@ namespace OES
             }
             return result;
         }
-        private List<Paper> DataSetToListPaper2(DataSet p_DataSet)
-        {
-            List<Paper> result = new List<Paper>();
-            DataTable p_Data = p_DataSet.Tables[0];
+        //private List<Paper> DataSetToListPaper2(DataSet p_DataSet)
+        //{
+        //    List<Paper> result = new List<Paper>();
+        //    DataTable p_Data = p_DataSet.Tables[0];
 
-            for (int j = 0; j < p_Data.Rows.Count; j++)
-            {
-                Paper problem = new Paper();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.paperID = (int)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Title")
-                        problem.paperName = (string)p_Data.Rows[j][i];
+        //    for (int j = 0; j < p_Data.Rows.Count; j++)
+        //    {
+        //        Paper problem = new Paper();
+        //        for (int i = 0; i < p_Data.Columns.Count; i++)
+        //        {
+        //            // 数据库NULL值单独处理   
+        //            if (p_Data.Columns[i].ToString() == "Id")
+        //                problem.paperID = (int)p_Data.Rows[j][i];
+        //            if (p_Data.Columns[i].ToString() == "Title")
+        //                problem.paperName = (string)p_Data.Rows[j][i];
 
-                }
+        //        }
 
-                result.Add(problem);
-            }
-            return result;
-        }
+        //        result.Add(problem);
+        //    }
+        //    return result;
+        //}
         private Teacher DataSetToTeacher(DataSet p_DataSet)
         {
             Teacher problem = new Teacher();
@@ -724,7 +724,7 @@ namespace OES
             }
             return result;
         }
-        private List<Unit> DataSetToListString(DataSet Ds)
+        private List<Unit> DataSetToListUnit(DataSet Ds)
         {
             //throw new NotImplementedException();
             List<Unit> result = new List<Unit>();
@@ -759,16 +759,16 @@ namespace OES
 
         }
 
-        //List<string>转成一个字符串
-        private string ListToString(List<string> ans)
-        {
-            string str = "";
-            for (int i = 0; i < ans.Count; i++)
-            {
-                str = ans.ElementAt(i) + ",";
-            }
-            return str;
-        }
+        ////List<string>转成一个字符串
+        //private string ListToString(List<string> ans)
+        //{
+        //    string str = "";
+        //    for (int i = 0; i < ans.Count; i++)
+        //    {
+        //        str = ans.ElementAt(i) + ",";
+        //    }
+        //    return str;
+        //}
         #endregion
 
     }

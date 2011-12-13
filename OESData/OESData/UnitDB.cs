@@ -47,7 +47,7 @@ namespace OES
             Ds = new DataSet();
             try { RunProc("FindAllUnit", null, Ds); }
             catch (Exception Ex) { throw Ex; }
-            UnitList = DataSetToListString(Ds);
+            UnitList = DataSetToListUnit(Ds);
             return UnitList;
         }
 
