@@ -247,29 +247,16 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 Choice problem = new Choice();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "A")
-                        problem.optionA = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "B")
-                        problem.optionB = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "C")
-                        problem.optionC = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "D")
-                        problem.optionD = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "Answer")
-                        problem.ans = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "Unit")
-                        problem.unit.UnitId = (int)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "UnitName")
-                        problem.unit.UnitName = p_Data.Rows[j][i].ToString();
-
-                }
+                problem.problemId=Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.optionA = p_Data.Rows[j]["A"].ToString();
+                problem.optionB = p_Data.Rows[j]["B"].ToString();
+                problem.optionC = p_Data.Rows[j]["C"].ToString();
+                problem.optionD = p_Data.Rows[j]["D"].ToString();
+                problem.ans = p_Data.Rows[j]["Answer"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
 
                 result.Add(problem);
             }
@@ -283,10 +270,10 @@ namespace OES
         /// <param name="DsAns">DataSet</param>   
         /// <param name="p_TableIndex">待转换数据表索引</param>   
         /// <returns></returns>   
-        private List<Completion> DataSetToListCompletion(DataSet Ds, DataSet DsAns)
+        private List<Completion> DataSetToListCompletion(DataSet Ds)
         {
             DataTable p_Data = Ds.Tables[0];
-            DataTable p_DataAns = DsAns.Tables[0];
+            //DataTable p_DataAns = DsAns.Tables[0];
             // 返回值初始化   
             List<Completion> result = new List<Completion>();
 
@@ -294,23 +281,17 @@ namespace OES
             {
                 List<string> ans = new List<string>();
                 Completion problem = new Completion();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Unit")
-                        problem.unit.UnitId = (int)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "UnitName")
-                        problem.unit.UnitName = p_Data.Rows[j][i].ToString();
-                }
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
 
-                for (int k = 0; k < p_DataAns.Rows.Count; k++)
-                {
-                    ans.Add((string)p_DataAns.Rows[k][0]);
-                }
-                problem.ans = ans;
+                //for (int k = 0; k < p_DataAns.Rows.Count; k++)
+                //{
+                //    ans.Add((string)p_DataAns.Rows[k][0]);
+                //}
+                //problem.ans = ans;
                 result.Add(problem);
             }
             return result;
@@ -325,22 +306,13 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 Judgment problem = new Judgment();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
-
-                    if (p_Data.Columns[i].ToString() == "Answer")
-                        problem.ans = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Unit")
-                        problem.unit.UnitId = (int)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "UnitName")
-                        problem.unit.UnitName = (string)p_Data.Rows[j][i];
-
-                }
-
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.ans = p_Data.Rows[j]["Answer"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
+             
                 result.Add(problem);
             }
             return result;
@@ -353,19 +325,11 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 OfficeWord problem = new OfficeWord();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
-
-                    if (p_Data.Columns[i].ToString() == "Answer_Path")
-                        problem.ansPath = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "File_Path")
-                        problem.rawPath = (string)p_Data.Rows[j][i];
-
-                }
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
 
                 word.Add(problem);
             }
@@ -379,18 +343,11 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 OfficeExcel problem = new OfficeExcel();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
-
-                    if (p_Data.Columns[i].ToString() == "Answer_Path")
-                        problem.ansPath = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "File_Path")
-                        problem.rawPath = (string)p_Data.Rows[j][i];
-                }
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
 
                 excel.Add(problem);
             }
@@ -404,24 +361,17 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 OfficePowerPoint problem = new OfficePowerPoint();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
-
-                    if (p_Data.Columns[i].ToString() == "Answer_Path")
-                        problem.ansPath = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "File_Path")
-                        problem.rawPath = (string)p_Data.Rows[j][i];
-                }
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
 
                 powerPoint.Add(problem);
             }
             return powerPoint;
         }
-#if false
+
         private List<PFunction> DataSetToListFunProgram(DataSet Ds)
         {
             DataTable p_Data = Ds.Tables[0];
@@ -429,34 +379,52 @@ namespace OES
             List<PFunction> result = new List<PFunction>();
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
-                PFunction problem = new PFunction();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
+                PFunction problem=new PFunction(ProblemType.CProgramFun);
+                ProgramProblem.Language language=(ProgramProblem.Language)Convert.ToInt32(p_Data.Rows[j]["Language"]);
+                switch (language)
                 {
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
-
-                    if (p_Data.Columns[i].ToString() == "File_Path")
-                        problem.path = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "In1")
-                        problem.inp1 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "In2")
-                        problem.inp2 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "In3")
-                        problem.inp3 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Out1")
-                        problem.outp1 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Out2")
-                        problem.outp2 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Out3")
-                        problem.outp3 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "CorrectC")
-                        problem.correctC = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Kind")
-                        problem.kind = (bool)p_Data.Rows[j][i];
-
+                    case ProgramProblem.Language.C:
+                        problem = new PFunction(ProblemType.CProgramFun);
+                        break;
+                    case ProgramProblem.Language.CPP:
+                        problem = new PFunction(ProblemType.CppProgramFun);
+                        break;
+                    case ProgramProblem.Language.VB:
+                        problem = new PFunction(ProblemType.VbProgramFun);
+                        break;
                 }
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
+                //for (int i = 0; i < p_Data.Columns.Count; i++)
+                //{
+                //    if (p_Data.Columns[i].ToString() == "Id")
+                //        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
+                //    if (p_Data.Columns[i].ToString() == "Problem_Content")
+                //        problem.problem = (string)p_Data.Rows[j][i];
+
+                //    if (p_Data.Columns[i].ToString() == "File_Path")
+                //        problem.path = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "In1")
+                //        problem.inp1 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "In2")
+                //        problem.inp2 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "In3")
+                //        problem.inp3 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "Out1")
+                //        problem.outp1 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "Out2")
+                //        problem.outp2 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "Out3")
+                //        problem.outp3 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "CorrectC")
+                //        problem.correctC = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "Kind")
+                //        problem.kind = (bool)p_Data.Rows[j][i];
+
+                //}
 
                 result.Add(problem);
             }
@@ -470,25 +438,43 @@ namespace OES
             List<PCompletion> result = new List<PCompletion>();
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
-                PCompletion problem = new PCompletion();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
+                PCompletion problem=new PCompletion(ProblemType.CProgramCompletion);
+                ProgramProblem.Language language = (ProgramProblem.Language)Convert.ToInt32(p_Data.Rows[j]["Language"]);
+                switch (language)
                 {
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "File_Path")
-                        problem.path = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "K1")
-                        problem.ans1 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "K2")
-                        problem.ans2 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "K3")
-                        problem.ans3 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Kind")
-                        problem.kind = (bool)p_Data.Rows[j][i];
-
+                    case ProgramProblem.Language.C:
+                        problem = new PCompletion(ProblemType.CProgramCompletion);
+                        break;
+                    case ProgramProblem.Language.CPP:
+                        problem = new PCompletion(ProblemType.CppProgramCompletion);
+                        break;
+                    case ProgramProblem.Language.VB:
+                        problem = new PCompletion(ProblemType.VbProgramCompletion);
+                        break;
                 }
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
+                //for (int i = 0; i < p_Data.Columns.Count; i++)
+                //{
+                //    if (p_Data.Columns[i].ToString() == "Id")
+                //        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
+                //    if (p_Data.Columns[i].ToString() == "Problem_Content")
+                //        problem.problem = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "File_Path")
+                //        problem.path = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "K1")
+                //        problem.ans1 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "K2")
+                //        problem.ans2 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "K3")
+                //        problem.ans3 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "Kind")
+                //        problem.kind = (bool)p_Data.Rows[j][i];
+
+                //}
 
                 result.Add(problem);
             }
@@ -502,31 +488,50 @@ namespace OES
             List<PModif> result = new List<PModif>();
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
-                PModif problem = new PModif();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
-                    if (p_Data.Columns[i].ToString() == "Problem_Content")
-                        problem.problem = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "File_Path")
-                        problem.path = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "K1")
-                        problem.ans1 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "K2")
-                        problem.ans2 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "K3")
-                        problem.ans3 = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Kind")
-                        problem.kind = (bool)p_Data.Rows[j][i];
 
+                PModif problem=new PModif(ProblemType.CProgramModification);
+                ProgramProblem.Language language = (ProgramProblem.Language)Convert.ToInt32(p_Data.Rows[j]["Language"]);
+                switch (language)
+                {
+                    case ProgramProblem.Language.C:
+                        problem = new PModif(ProblemType.CProgramModification);
+                        break;
+                    case ProgramProblem.Language.CPP:
+                        problem = new PModif(ProblemType.CppProgramModification);
+                        break;
+                    case ProgramProblem.Language.VB:
+                        problem = new PModif(ProblemType.VbProgramModification);
+                        break;
                 }
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
+                //for (int i = 0; i < p_Data.Columns.Count; i++)
+                //{
+                //    if (p_Data.Columns[i].ToString() == "Id")
+                //        problem.problemId = Convert.ToInt32(p_Data.Rows[j][i]);
+                //    if (p_Data.Columns[i].ToString() == "Problem_Content")
+                //        problem.problem = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "File_Path")
+                //        problem.path = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "K1")
+                //        problem.ans1 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "K2")
+                //        problem.ans2 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "K3")
+                //        problem.ans3 = (string)p_Data.Rows[j][i];
+                //    if (p_Data.Columns[i].ToString() == "Kind")
+                //        problem.kind = (bool)p_Data.Rows[j][i];
+
+                //}
 
                 result.Add(problem);
             }
             return result;
         }
-#endif
+
         private List<Classes> DataSetToClass(DataSet p_DataSet)
         {
             List<Classes> res = new List<Classes>();
@@ -734,6 +739,8 @@ namespace OES
             }
             return result;
         }
+
+        //生成Paper的List
         private List<Paper> DataSetToListPaper(DataSet p_DataSet)
         {
             List<Paper> result = new List<Paper>();
@@ -741,36 +748,12 @@ namespace OES
 
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
-                Paper problem = new Paper();
-                for (int i = 0; i < p_Data.Columns.Count; i++)
-                {
-                    // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.paperID = (int)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "Title")
-                        problem.paperName = (string)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "GenerateDate")
-                        problem.createTime = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "TeacherName")
-                    {
-                        try
-                        { problem.author = (string)p_Data.Rows[j][i]; }
-                        catch { problem.author = ""; }
-                    }
-                    if (p_Data.Columns[i].ToString() == "Teacher_Id")
-                    {
-                        try { problem.authorId = (p_Data.Rows[j][i]).ToString(); }
-                        catch { problem.authorId = ""; }
-                    }
-                    if (p_Data.Columns[i].ToString() == "ProgramState")
-                        problem.programState = (int)p_Data.Rows[j][i];
-                    if (p_Data.Columns[i].ToString() == "TestDate")
-                        problem.testTime = p_Data.Rows[j][i].ToString();
-                    if (p_Data.Columns[i].ToString() == "Paper_Path")
-                        problem.paperPath = p_Data.Rows[j][i].ToString();
-                }
-
-                result.Add(problem);
+                Paper paper = new Paper();
+                paper.paperID = Convert.ToInt32(p_Data.Rows[j]["PaperId"]);
+                paper.paperName = p_Data.Rows[j]["Title"].ToString();
+                paper.author = p_Data.Rows[j]["TeacherName"].ToString();
+                paper.createTime = p_Data.Rows[j]["GenerateDate"].ToString();
+                result.Add(paper);
             }
             return result;
 
