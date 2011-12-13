@@ -125,7 +125,7 @@ namespace OESScore
                     tmpSF.Score.score = "0";
                     tmpSF.path = stu;
                     tmpSF.StuAns = ScoreControl.GetStuAns(stu.FullName);                   
-                    tmpP = ScoreControl.OesData.FindPaperById(XMLControl.GetStudentAnsPaper(stu.FullName + "\\studentAns.xml").ToString());
+                    tmpP = ScoreControl.OesData.FindPaperByPaperId(XMLControl.GetStudentAnsPaper(stu.FullName + "\\studentAns.xml"));
                     if (tmpP.Count > 0)
                     {
                         tmpSF.PaperInfo = tmpP[0];
@@ -133,7 +133,7 @@ namespace OESScore
                     else
                     {                        
                         tmpSF.PaperInfo.paperName = "试卷不存在";
-                        tmpSF.PaperInfo.paperID = "-1";
+                        tmpSF.PaperInfo.paperID = -1;
                     }
                     if (File.Exists(stu.FullName + "\\Result.xml"))
                     {
@@ -149,6 +149,8 @@ namespace OESScore
                 }
             } 
         }
+
+
         public void MarkAll()
         {
             for (int i = 0; i < StuList.Count; i++)
@@ -160,9 +162,9 @@ namespace OESScore
         public int Mark(int RIndex)
         {
             List<string> proAns;
-            int Score = 0, dScore = 0;
+            int Score = 0, dScore = 0;            
             StuList[RIndex].Score.sum = new List<Sum>();
-            ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID);
+            ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID.ToString());
             XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
             foreach (Answer ans in StuList[RIndex].StuAns.Ans)
             {
@@ -175,6 +177,7 @@ namespace OESScore
                 XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
                 Score += dScore;
             }
+
             if (File.Exists(StuList[RIndex].path.FullName + "\\g.c"))  //程序改错
             {
                 proAns = ScoreControl.correctPC(StuList[RIndex].path.FullName + "\\g.c");
