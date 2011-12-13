@@ -19,6 +19,7 @@ namespace OES
         public QuesBankForm quesBankForm;
         public ProCompletion proCompletion;
         public AddQuetionPanel addQuestionPanel;
+        public BulkImport bulkImport;
         //public ProManCho proManCho;
               
         public MainForm()
@@ -35,6 +36,7 @@ namespace OES
             quesBankForm = new QuesBankForm();     //试题管理界面
             proCompletion = new ProCompletion();    //程序填空题管理界面
             addQuestionPanel = new AddQuetionPanel(); //添加试题界面
+            bulkImport = new BulkImport();             //批量导入界面
 
             MainPanel.Controls.Add(quesBankForm);
             MainPanel.Controls.Add(paperInfo);
@@ -46,6 +48,7 @@ namespace OES
             MainPanel.Controls.Add(scoreManage);
             MainPanel.Controls.Add(addQuestionPanel);
             MainPanel.Controls.Add(proCompletion);
+            MainPanel.Controls.Add(bulkImport);
 
             PanelControl.init(this);
             PanelControl.HideAllPanel();

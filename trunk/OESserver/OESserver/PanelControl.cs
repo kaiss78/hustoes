@@ -52,11 +52,13 @@ namespace OES
             panelList[7] = mf.paperEditPanel;                        
             mf.paperEditPanel.PanelID = 7;
 
-            panelList[9] = mf.proCompletion;
-            mf.proCompletion.PanelID = 9;
 
             panelList[8] = mf.addQuestionPanel;
             mf.addQuestionPanel.PanelID = 8;
+
+
+            panelList[9] = mf.bulkImport;
+            mf.bulkImport.PanelID = 9;
 
         }
 
@@ -64,8 +66,7 @@ namespace OES
         {            
             foreach (UserPanel up in panelList)
             {
-                up.Visible = false;
-                
+                up.Visible = false;                
             }
 
         }
@@ -82,7 +83,8 @@ namespace OES
                 case 5:
                 case 6:
                 case 7:
-                case 8:            
+                case 8:
+                case 9:
                     panelList[x].ReLoad();
                     break;
                 case 2:

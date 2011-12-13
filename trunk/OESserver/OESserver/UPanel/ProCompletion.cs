@@ -19,7 +19,9 @@ namespace OES.UPanel
         public DataView dvAnsList;
         public int BlankCount;
         public int AnsCount;
+        private int language;
         private bool addnew;
+        
         private formAddAnswer newans;
 
         public ProCompletion()
@@ -58,6 +60,9 @@ namespace OES.UPanel
             {
                 tbProblemFile.Text = ofdBrowser.FileName;
                 BlankCount = InfoControl.coutnAnswer(tbProblemFile.Text);
+                Path.GetExtension(ofdBrowser.FileName);
+                MessageBox.Show(Path.GetExtension(ofdBrowser.FileName).ToLower());
+                
             }
         }
 
@@ -129,7 +134,7 @@ namespace OES.UPanel
         {
             if (addnew)
             {
-                
+                //InfoControl.OesData.AddProgram(rtbPContent.Text,
             }
         }
     }
