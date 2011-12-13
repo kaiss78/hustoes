@@ -16,21 +16,35 @@ namespace OES
         AddSingleChoice SingleChoice = new AddSingleChoice();
         AddFillBlank fillblank = new AddFillBlank();
         AddJudge judge = new AddJudge();
+        ProCompletion proCompletion = new ProCompletion();
+
+        public void HideAll()
+        {
+
+        }
+
         public AddQuetionPanel()
         {
             InitializeComponent();
-            this.Controls.Add(SingleChoice);
-            this.Controls.Add(fillblank);
+            plAddQuestion.Controls.Add(SingleChoice);
+            plAddQuestion.Controls.Add(fillblank);
+            plAddQuestion.Controls.Add(proCompletion);
+
+            proCompletion.Dock = DockStyle.Fill;
+            SingleChoice.Dock = DockStyle.Fill;
+            fillblank.Dock = DockStyle.Fill;
+
+            proCompletion.Visible = false;
             SingleChoice.Visible = false;
             fillblank.Visible = false;
-           
+
         }
 
         public override void ReLoad()
         {
             this.Visible = true;
         }
-        
+
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
             flag++;
@@ -44,7 +58,7 @@ namespace OES
                         fillblank.Visible = false;
                         SingleChoice.Reset();
                         SingleChoice.Show();
-                        SingleChoice.Location = new Point(0, 120);
+                        //SingleChoice.Location = new Point(0, 120);
                     }
 
                     if (QueStyle.Text == "填空")
@@ -53,22 +67,32 @@ namespace OES
                         SingleChoice.Visible = false;
                         fillblank.Reset();
                         fillblank.Show();
-                        fillblank.Location = new Point(0, 120);
+                        // fillblank.Location = new Point(0, 120);
                     }
-                    if (QueStyle.Text == "选择")
+                    if (QueStyle.Text == "判断")
                     {
                         SingleChoice.Visible = false;
                         fillblank.Visible = false;
                         judge.Reset();
                         judge.Show();
-                        judge.Location = new Point(0, 120);  
+                        // judge.Location = new Point(0, 120);  
                     }
+                    if (QueStyle.Text == "程序填空题")
+                    {
+                        SingleChoice.Visible = false;
+                        fillblank.Visible = false;
+                        proCompletion.Visible = true;
+                        //proCompletion.Reset();
+                        proCompletion.Show();
+                        // judge.Location = new Point(0, 120);  
+                    }
+
                 }
             }
         }
         public string Capter
         {
-            get 
+            get
             {
                 return Chapater.Text;
             }
@@ -77,7 +101,7 @@ namespace OES
 
         public string Diffucity
         {
-            get 
+            get
             {
                 return comboBox1.Text;
             }
@@ -91,14 +115,14 @@ namespace OES
             }
         }
 
-     
-        
-        
 
-        
-       
-        
 
-      
+
+
+
+
+
+
+
     }
 }
