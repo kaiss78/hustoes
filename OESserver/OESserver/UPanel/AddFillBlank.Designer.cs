@@ -110,7 +110,7 @@
             this.Controls.Add(this.contentOfFillblank);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AddFillBlank";
-            this.Size = new System.Drawing.Size(859, 585);
+            this.Size = new System.Drawing.Size(730, 585);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SaveData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Return)).EndInit();

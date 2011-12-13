@@ -36,6 +36,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.QueStyle = new System.Windows.Forms.ComboBox();
+            this.plAddQuestion = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,18 +122,28 @@
             this.QueStyle.Items.AddRange(new object[] {
             "选择",
             "填空",
-            "判断"});
+            "判断",
+            "程序填空题"});
             this.QueStyle.Location = new System.Drawing.Point(465, 83);
             this.QueStyle.Name = "QueStyle";
             this.QueStyle.Size = new System.Drawing.Size(132, 24);
             this.QueStyle.TabIndex = 6;
             this.QueStyle.TextChanged += new System.EventHandler(this.comboBox2_TextChanged);
             // 
+            // plAddQuestion
+            // 
+            this.plAddQuestion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.plAddQuestion.Location = new System.Drawing.Point(0, 113);
+            this.plAddQuestion.Name = "plAddQuestion";
+            this.plAddQuestion.Size = new System.Drawing.Size(742, 553);
+            this.plAddQuestion.TabIndex = 7;
+            // 
             // AddQuetionPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.plAddQuestion);
             this.Controls.Add(this.QueStyle);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
@@ -157,5 +168,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox QueStyle;
+        private System.Windows.Forms.Panel plAddQuestion;
     }
 }
