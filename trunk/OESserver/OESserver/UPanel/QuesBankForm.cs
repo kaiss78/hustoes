@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.Model;
+using OES.keyandValue;
 
 
 namespace OES.UPanel
@@ -15,6 +16,54 @@ namespace OES.UPanel
     {
         private DataTable questionTable;
         public List<Problem> problemList;
+        public List<Unit> unitList;
+        public List<ListItem> listItem = new List<ListItem>();
+
+        public void InitCombUnit()
+        {
+            //ListItem cmpList;
+
+            unitList = InfoControl.OesData.FindAllUnit();
+
+            listItem.Add(new ListItem("-1","全部"));
+            for (int i = 0; i < unitList.Count; i++)
+                listItem.Add(new ListItem(Convert.ToString(unitList[i].UnitId), Convert.ToString(unitList[i].UnitName)));
+
+            //for (int i = 0; i < listItem.Count; i++)
+            //{
+            //    cmpList = listItem[i];
+            //    for (int j = i + 1; j < unitList.Count; j++)
+            //    {
+            //        if (listItem[i].value.Length > listItem[j].value.Length)
+            //        {
+            //            listItem[i] = listItem[j];
+            //            listItem[j] = cmpList;
+            //            cmpList = listItem[i];
+            //        }
+            //    }
+            //}
+
+            for(int i=0;i<unitList.Count;i++)
+                this.comboBox2.Items.Add(listItem[i]);
+
+            this.comboBox2.DisplayMember = "value";
+            this.comboBox2.ValueMember = "key";
+
+        }
+
+        public void InitCombPage(int problemNum)
+        {
+            int i = 1;
+            int pageNum=0;
+            if (pageNum % 12 != 0)
+                pageNum = problemNum / 12 + 1;
+            else
+                pageNum = problemNum / 12;
+
+            String num = "第" + "'"+i+"'" + "页";
+            for (; i <= pageNum; i++)
+                this.comboBox4.Items.Add(num);
+        }
 
         public void InitDT()
         {
@@ -27,17 +76,19 @@ namespace OES.UPanel
 
         }
 
-        public void InitList(int n)
+        public void InitList(int pattern,int unit,int difficulty,String pointwords,int pageIndex)
         {
             InitDT();
+            
+            
             object[] values = new object[5];
-
-            switch (n)
-            {
-                case 0: problemList = InfoControl.OesData.FindAllChoice("",-1,-1, 1, 10); break;
-                case 1: problemList = InfoControl.OesData.FindAllCompletion("",-1,-1, 1, 10); break;
-                case 2: problemList = InfoControl.OesData.FindAllJudgment("",-1,-1, 1, 10); break;
-            }
+            problemList = new List<Problem>();
+            //switch (pattern)
+            //{
+            //    case 0: problemList = InfoControl.OesData.FindAllChoice(pointwords,unit,difficulty,pageIndex,12); break;
+            //    case 1: problemList = InfoControl.OesData.FindAllCompletion(pointwords,unit,difficulty,pageIndex,12); break;
+            //    case 2: problemList = InfoControl.OesData.FindAllJudgment(pointwords,unit,difficulty,pageIndex,12); break;
+            //}
 
             for (int i = 0; i < problemList.Count; i++)
             {
@@ -70,22 +121,17 @@ namespace OES.UPanel
         {
             InitializeComponent();
 
+            InitCombUnit();
+
+            this.comboBox1.SelectedIndex = 0;
+            this.comboBox2.SelectedIndex = 0;
+            this.comboBox3.SelectedIndex = 0;
         }
 
+    
         public override void ReLoad()
         {
             this.Visible = true;
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.comboBox1.SelectedIndex == 0)
-                InitList(0);
-            if (this.comboBox1.SelectedIndex == 1)
-                InitList(1);
-            if (this.comboBox1.SelectedIndex == 2)
-                InitList(2);
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -111,7 +157,16 @@ namespace OES.UPanel
                 questionTable.Rows[theIndex][0] = !Convert.ToBoolean(questionTable.Rows[theIndex][0]);
             }
         }
+        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ListItem aList = (ListItem)this.comboBox2.SelectedItem;
+            String pointWords = this.textBox1.Text;
+            InitList(this.comboBox1.SelectedIndex,Convert.ToInt32(aList.key),this.comboBox3.SelectedIndex-1,pointWords,1);
+
+        }
 
        
+        
     }
 }
