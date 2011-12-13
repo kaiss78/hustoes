@@ -267,6 +267,7 @@ namespace OES
             }
             return result;
         }
+        
         /// <summary>   
         /// DataSet装换为泛型集合   
         /// </summary>   
@@ -302,7 +303,7 @@ namespace OES
             return result;
         }
 
-        private List<Judgment> DataSetToListJudge(DataSet Ds)
+        private List<Judgment> DataSetToListJudgment(DataSet Ds)
         {
 
             DataTable p_Data = Ds.Tables[0];

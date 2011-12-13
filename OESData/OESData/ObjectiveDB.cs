@@ -406,7 +406,7 @@ namespace OES
             return res;
         }
 
-        //按多个关键字查找填空题（不许找出答案）
+        //按多个关键字查找填空题（无须找出答案）
         public List<Completion> FindAllCompletion(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
         {
             DataSet Ds = new DataSet();
@@ -519,12 +519,12 @@ namespace OES
 #endif
         #endregion
 
-        #region 判断题有关的方法
+        #region 判断题有关的方法 - 全部测试过了
 
         public void ImportJudgment(List<string[]> lst)
         {}
 
-        //单题 增加判断题
+        //增加判断题，返回PID
         public int AddJudgment(string PContent,string Answer, int Unit, int PLevel)
         {
             int PID = -1;
@@ -547,11 +547,11 @@ namespace OES
             return PID;
         }
 
-        //按Id删除判断题
+        //按PID删除判断题
         public void DeleteJudgment(int PID)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, PID, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
             try
             {
                 RunProc("DeleteJudgment", ddlparam);
@@ -562,6 +562,7 @@ namespace OES
             }
         }
 
+        //按PID更新判断题
         public void UpdateJudgment(int PID, string PContent, string Answer, int Unit, int PLevel)
         {
             List<SqlParameter> dp = new List<SqlParameter>();
@@ -580,6 +581,7 @@ namespace OES
             }
         }
 
+        //按PID查找判断题
         public List<Judgment> FindJudgmentByPID(int PID)
         {
             DataSet Ds = new DataSet();
@@ -589,7 +591,7 @@ namespace OES
             try
             {
                 RunProc("FindJudgmentByPID", dp, Ds);
-                //result = DataSetToJudgment(Ds);
+                result = DataSetToListJudgment(Ds);
             }
             catch (SqlException ex)
             {
@@ -600,7 +602,27 @@ namespace OES
 
         public List<Judgment> FindAllJudgment(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
         {
-            return new List<Judgment>();
+            DataSet Ds = new DataSet();
+            List<Judgment> result = new List<Judgment>();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Judgment_Table", ParameterDirection.Input));
+            dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            dp.Add(CreateParam("@Type", SqlDbType.Int, 0, -1, ParameterDirection.Input));
+            dp.Add(CreateParam("@Language", SqlDbType.Int, 0, -1, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageIndex", SqlDbType.Int, 0, PageIndex, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageSize", SqlDbType.Int, 0, PageSize, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindItems", dp, Ds);
+                result = DataSetToListJudgment(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
         }
 
 #if false

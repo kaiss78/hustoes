@@ -36,6 +36,10 @@ namespace TestOESData
             //int x = oesdata.FindItemsCount("Choice", "d", -1, -1, -1, -1);
 
             //MessageBox.Show(oesdata.AddJudgment("1+2=3.", "T", 1, 2).ToString());
+            //oesdata.DeleteJudgment(11);
+            //oesdata.UpdateJudgment(12, "3+4=5.", "F", 1, 3);
+            //oesdata.FindJudgmentByPID(12);
+            //MessageBox.Show(oesdata.FindAllJudgment("", -1, -1, 1, 1000).Count.ToString());
             Application.Exit();
         }
     }
