@@ -224,16 +224,16 @@ namespace OESScore
                         break;
                     }
                 }
-                if (pro.pt == ProblemType.ProgramCompletion)
+                if (pro.pt == ProblemType.CProgramCompletion)
                 {
                     ans.Ans = "";
                 }
-                if (pro.pt == ProblemType.ProgramFun)
+                if (pro.pt == ProblemType.CppProgramFun)
                 {
                     ans.Ans = "";
                     ans.Input = "";
                 }
-                if (pro.pt == ProblemType.ProgramModification)
+                if (pro.pt == ProblemType.CppProgramModification)
                 {
                     ans.Ans = "";
                 }
