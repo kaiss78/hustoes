@@ -10,7 +10,7 @@ using System.Data;
 namespace OES
 {
     public partial class OESData
-    {   
+    {
         #region 选择题有关的方法
 
         //批量导入选择题
@@ -93,11 +93,10 @@ namespace OES
             DataSet Ds = new DataSet();
             List<Choice> result = new List<Choice>();
             List<SqlParameter> dp = new List<SqlParameter>();
-            dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Choice_Table", ParameterDirection.Input));
             dp.Add(CreateParam("@PID", SqlDbType.Int, 9, PID, ParameterDirection.Input));
             try
             {
-                RunProc("FindItem", dp, Ds);
+                RunProc("FindChoiceByPID", dp, Ds);
                 result = DataSetToListChoice(Ds);
             }
             catch (SqlException ex)
@@ -118,6 +117,8 @@ namespace OES
             dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
             dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            dp.Add(CreateParam("@Type", SqlDbType.Int, 0, -1, ParameterDirection.Input));
+            dp.Add(CreateParam("@Language", SqlDbType.Int, 0, -1, ParameterDirection.Input));
             dp.Add(CreateParam("@PageIndex", SqlDbType.Int, 0, PageIndex, ParameterDirection.Input));
             dp.Add(CreateParam("@PageSize", SqlDbType.Int, 0, PageSize, ParameterDirection.Input));
             try
@@ -414,6 +415,7 @@ namespace OES
             List<SqlParameter> dp = new List<SqlParameter>();
             dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
             dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Answer", SqlDbType.VarChar, 50, Answer, ParameterDirection.Input));
             dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             try
