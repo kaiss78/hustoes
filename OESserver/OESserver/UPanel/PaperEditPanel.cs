@@ -199,7 +199,7 @@ namespace OES.UPanel
                         XMLControl.AddProblemToPaper(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId, InfoControl.TmpPaper.ProList[k][i].score);
                         if (k < 3)
                         {
-                            XMLControl.AddPaperAns(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId, getAnswer(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId.ToString()));
+                            XMLControl.AddPaperAns(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId, getAnswer(PT[k], InfoControl.TmpPaper.ProList[k][i].problemId));
                         }
                         if (k == 6)
                         {
