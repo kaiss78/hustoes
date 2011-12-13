@@ -10,6 +10,7 @@ using OES.UPanel;
 using System.Collections;
 namespace OES.UPanel
 {
+    
     public partial class AddFillBlank : UserPanel
     {
         public static ArrayList addanswer = new ArrayList();
@@ -41,10 +42,15 @@ namespace OES.UPanel
             {
                 foreach (Answer_Of_FiilBlank up in panel)
                 {
+                     
                     if(up.Visible==true&&up.getAnser!="")
                         addanswer.Add(up.getAnser);
                 }
-                MessageBox.Show((String)addanswer[0]);
+                if (addanswer.Count > 0)
+                {
+                    MessageBox.Show((String)addanswer[0]);
+                }
+                else MessageBox.Show("请添加试题答案");
             }
         }
 
@@ -54,6 +60,10 @@ namespace OES.UPanel
             {
 
             }
+        }
+        public void Reset()
+        {
+            this.contentOfFillblank.Text = "";
         }
     }
 }

@@ -12,8 +12,10 @@ namespace OES
 {
     public partial class AddQuetionPanel : UserPanel
     {
-        UserPanel SingleChoice = new AddSingleChoice();
-        UserPanel fillblank = new AddFillBlank();
+        int flag = 0;
+        AddSingleChoice SingleChoice = new AddSingleChoice();
+        AddFillBlank fillblank = new AddFillBlank();
+        AddJudge judge = new AddJudge();
         public AddQuetionPanel()
         {
             InitializeComponent();
@@ -31,22 +33,37 @@ namespace OES
         
         private void comboBox2_TextChanged(object sender, EventArgs e)
         {
-
-           
-            if (comboBox2.Text == "选择")
+            flag++;
+            if (flag > 1)
             {
+                if (MessageBox.Show("确定切换吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (QueStyle.Text == "选择")
+                    {
+                        judge.Visible = false;
+                        fillblank.Visible = false;
+                        SingleChoice.Reset();
+                        SingleChoice.Show();
+                        SingleChoice.Location = new Point(0, 120);
+                    }
 
-                fillblank.Visible = false;
-                SingleChoice.Show();
-                SingleChoice.Location = new Point(0,120 );
-            }
-            
-            if (comboBox2.Text == "填空")
-            {
-                SingleChoice.Visible = false;
-                
-                fillblank.Show();
-                fillblank.Location = new Point(0,120);
+                    if (QueStyle.Text == "填空")
+                    {
+                        judge.Visible = false;
+                        SingleChoice.Visible = false;
+                        fillblank.Reset();
+                        fillblank.Show();
+                        fillblank.Location = new Point(0, 120);
+                    }
+                    if (QueStyle.Text == "选择")
+                    {
+                        SingleChoice.Visible = false;
+                        fillblank.Visible = false;
+                        judge.Reset();
+                        judge.Show();
+                        judge.Location = new Point(0, 120);  
+                    }
+                }
             }
         }
         public string Capter
@@ -70,7 +87,7 @@ namespace OES
         {
             get
             {
-                return comboBox2.Text;
+                return QueStyle.Text;
             }
         }
 

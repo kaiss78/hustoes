@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.QueStyle = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,12 +97,7 @@
             "2",
             "3",
             "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
+            "5"});
             this.comboBox1.Location = new System.Drawing.Point(233, 83);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(111, 24);
@@ -118,20 +113,20 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "试题类型";
             // 
-            // comboBox2
+            // QueStyle
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.QueStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.QueStyle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QueStyle.FormattingEnabled = true;
+            this.QueStyle.Items.AddRange(new object[] {
             "选择",
             "填空",
             "判断"});
-            this.comboBox2.Location = new System.Drawing.Point(465, 83);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(132, 24);
-            this.comboBox2.TabIndex = 6;
-            this.comboBox2.TextChanged += new System.EventHandler(this.comboBox2_TextChanged);
+            this.QueStyle.Location = new System.Drawing.Point(465, 83);
+            this.QueStyle.Name = "QueStyle";
+            this.QueStyle.Size = new System.Drawing.Size(132, 24);
+            this.QueStyle.TabIndex = 6;
+            this.QueStyle.TextChanged += new System.EventHandler(this.comboBox2_TextChanged);
             // 
             // AddQuetionPanel
             // 
@@ -139,7 +134,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.QueStyle);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
@@ -147,6 +142,7 @@
             this.Controls.Add(this.Chapater);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AddQuetionPanel";
+            this.Size = new System.Drawing.Size(736, 663);
             this.Tag = "1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -162,6 +158,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox QueStyle;
     }
 }
