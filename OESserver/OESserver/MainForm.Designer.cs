@@ -37,9 +37,10 @@
             this.stuManlbl = new System.Windows.Forms.LinkLabel();
             this.xpPanel2 = new UIComponents.XPPanel(122);
             this.llbProManage = new System.Windows.Forms.LinkLabel();
-            this.newPapLbl = new System.Windows.Forms.LinkLabel();
+            this.llbNewPaper = new System.Windows.Forms.LinkLabel();
             this.paperManLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.llbBulkImport = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
@@ -152,8 +153,9 @@
             this.xpPanel2.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel2.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.xpPanel2.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xpPanel2.Controls.Add(this.llbBulkImport);
             this.xpPanel2.Controls.Add(this.llbProManage);
-            this.xpPanel2.Controls.Add(this.newPapLbl);
+            this.xpPanel2.Controls.Add(this.llbNewPaper);
             this.xpPanel2.Controls.Add(this.paperManLbl);
             this.xpPanel2.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.xpPanel2.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -183,16 +185,16 @@
             this.llbProManage.Text = "试题管理";
             this.llbProManage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
-            // newPapLbl
+            // llbNewPaper
             // 
-            this.newPapLbl.Location = new System.Drawing.Point(7, 77);
-            this.newPapLbl.Name = "newPapLbl";
-            this.newPapLbl.Size = new System.Drawing.Size(69, 19);
-            this.newPapLbl.TabIndex = 0;
-            this.newPapLbl.TabStop = true;
-            this.newPapLbl.Tag = "2";
-            this.newPapLbl.Text = "新增试卷";
-            this.newPapLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            this.llbNewPaper.Location = new System.Drawing.Point(7, 77);
+            this.llbNewPaper.Name = "llbNewPaper";
+            this.llbNewPaper.Size = new System.Drawing.Size(69, 19);
+            this.llbNewPaper.TabIndex = 0;
+            this.llbNewPaper.TabStop = true;
+            this.llbNewPaper.Tag = "2";
+            this.llbNewPaper.Text = "新增试卷";
+            this.llbNewPaper.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // paperManLbl
             // 
@@ -214,11 +216,21 @@
             this.MainPanel.Size = new System.Drawing.Size(754, 680);
             this.MainPanel.TabIndex = 1;
             // 
+            // llbBulkImport
+            // 
+            this.llbBulkImport.Location = new System.Drawing.Point(7, 96);
+            this.llbBulkImport.Name = "llbBulkImport";
+            this.llbBulkImport.Size = new System.Drawing.Size(69, 19);
+            this.llbBulkImport.TabIndex = 4;
+            this.llbBulkImport.TabStop = true;
+            this.llbBulkImport.Tag = "9";
+            this.llbBulkImport.Text = "批量导入";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 678);
+            this.ClientSize = new System.Drawing.Size(954, 680);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.xpPanelGroup1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -245,13 +257,14 @@
         private UIComponents.XPPanel xpPanel3;
         private UIComponents.XPPanel xpPanel2;
         private System.Windows.Forms.Panel MainPanel;
-        private System.Windows.Forms.LinkLabel newPapLbl;
+        private System.Windows.Forms.LinkLabel llbNewPaper;
         private System.Windows.Forms.LinkLabel paperManLbl;
         private System.Windows.Forms.LinkLabel stuManlbl;
         private System.Windows.Forms.LinkLabel classManlbl;
         private System.Windows.Forms.LinkLabel techManlbl;
         private System.Windows.Forms.LinkLabel scoreManlbl;
         private System.Windows.Forms.LinkLabel llbProManage;
+        private System.Windows.Forms.LinkLabel llbBulkImport;
 
     }
 }
