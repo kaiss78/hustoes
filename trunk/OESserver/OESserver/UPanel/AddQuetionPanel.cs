@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.UPanel;
+using System.Collections;
 
 namespace OES
 {
@@ -17,11 +18,13 @@ namespace OES
         AddFillBlank fillblank = new AddFillBlank();
         AddJudge judge = new AddJudge();
         ProCompletion proCompletion = new ProCompletion();
+        List<UserPanel> PanelList = new List<UserPanel>();
+        private DataTable dtQeueType;
 
-        public void HideAll()
+
+        public void Hide()
         {
-
-        }
+         }
 
         public AddQuetionPanel()
         {
@@ -30,6 +33,24 @@ namespace OES
             plAddQuestion.Controls.Add(fillblank);
             plAddQuestion.Controls.Add(proCompletion);
 
+            PanelList = new List<UserPanel>();
+            PanelList.Add(SingleChoice);
+            PanelList.Add(fillblank);
+            PanelList.Add(judge);
+            PanelList.Add(proCompletion);
+
+            dtQeueType = new DataTable();
+            dtQeueType.Columns.Add("Type",typeof(string));
+            dtQeueType.Columns.Add("Value",typeof(int));
+            dtQeueType.Rows.Add(new object[2] { "选择题", 0 });
+            dtQeueType.Rows.Add(new object[2] { "选填空", 1 });
+            dtQeueType.Rows.Add(new object[2] { "选判断", 2 });
+            dtQeueType.Rows.Add(new object[2] { "程序填空题", 3 });
+            //dtQeueType.Rows.Add(new object[2] { "选择题", 4 });
+
+            cbQueStyle.DataSource = dtQeueType;
+            cbQueStyle.DisplayMember = "Type";
+            cbQueStyle.ValueMember = "Value";
             proCompletion.Dock = DockStyle.Fill;
             SingleChoice.Dock = DockStyle.Fill;
             fillblank.Dock = DockStyle.Fill;
@@ -52,7 +73,7 @@ namespace OES
             {
                 if (MessageBox.Show("确定切换吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (QueStyle.Text == "选择")
+                    if (cbQueStyle.Text == "选择")
                     {
                         judge.Visible = false;
                         fillblank.Visible = false;
@@ -61,7 +82,7 @@ namespace OES
                         //SingleChoice.Location = new Point(0, 120);
                     }
 
-                    if (QueStyle.Text == "填空")
+                    if (cbQueStyle.Text == "填空")
                     {
                         judge.Visible = false;
                         SingleChoice.Visible = false;
@@ -69,7 +90,7 @@ namespace OES
                         fillblank.Show();
                         // fillblank.Location = new Point(0, 120);
                     }
-                    if (QueStyle.Text == "判断")
+                    if (cbQueStyle.Text == "判断")
                     {
                         SingleChoice.Visible = false;
                         fillblank.Visible = false;
@@ -77,7 +98,7 @@ namespace OES
                         judge.Show();
                         // judge.Location = new Point(0, 120);  
                     }
-                    if (QueStyle.Text == "程序填空题")
+                    if (cbQueStyle.Text == "程序填空题")
                     {
                         SingleChoice.Visible = false;
                         fillblank.Visible = false;
@@ -111,7 +132,7 @@ namespace OES
         {
             get
             {
-                return QueStyle.Text;
+                return cbQueStyle.Text;
             }
         }
 
