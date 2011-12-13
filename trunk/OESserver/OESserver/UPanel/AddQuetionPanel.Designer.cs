@@ -133,7 +133,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.QueStyle);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
@@ -142,7 +141,6 @@
             this.Controls.Add(this.Chapater);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AddQuetionPanel";
-            this.Size = new System.Drawing.Size(736, 663);
             this.Tag = "1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
