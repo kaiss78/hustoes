@@ -430,18 +430,52 @@ namespace OES
             {
                 ProgramProblem problem = new ProgramProblem();
                 ProgramProblem.Language language=(ProgramProblem.Language)Convert.ToInt32(p_Data.Rows[j]["Language"]);
-                //switch (language)
-                //{
-                //    case ProgramProblem.Language.C:
-                //        problem = new PFunction(ProblemType.CProgramFun);
-                //        break;
-                //    case ProgramProblem.Language.CPP:
-                //        problem = new PFunction(ProblemType.CppProgramFun);
-                //        break;
-                //    case ProgramProblem.Language.VB:
-                //        problem = new PFunction(ProblemType.VbProgramFun);
-                //        break;
-                //}
+                ProgramProblem.ProType type = (ProgramProblem.ProType)Convert.ToInt32(p_Data.Rows[j]["Type"]);
+                switch (language)
+                {
+                    case ProgramProblem.Language.C:
+                        switch (type)
+                        {
+                            case ProgramProblem.ProType.Completion:
+                                problem = new PCompletion(ProblemType.CProgramCompletion);
+                                break;
+                            case ProgramProblem.ProType.Modify:
+                                problem = new PModif(ProblemType.CProgramModification);
+                                break;
+                            case ProgramProblem.ProType.Function:
+                                problem = new PFunction(ProblemType.CProgramFun);
+                                break;
+                        }
+                        break;
+                    case ProgramProblem.Language.CPP:
+                        switch (type)
+                        {
+                            case ProgramProblem.ProType.Completion:
+                                problem = new PCompletion(ProblemType.CppProgramCompletion);
+                                break;
+                            case ProgramProblem.ProType.Modify:
+                                problem = new PModif(ProblemType.CppProgramModification);
+                                break;
+                            case ProgramProblem.ProType.Function:
+                                problem = new PFunction(ProblemType.CppProgramFun);
+                                break;
+                        }
+                        break;
+                    case ProgramProblem.Language.VB:
+                        switch (type)
+                        {
+                            case ProgramProblem.ProType.Completion:
+                                problem = new PCompletion(ProblemType.VbProgramCompletion);
+                                break;
+                            case ProgramProblem.ProType.Modify:
+                                problem = new PModif(ProblemType.VbProgramModification);
+                                break;
+                            case ProgramProblem.ProType.Function:
+                                problem = new PFunction(ProblemType.VbProgramFun);
+                                break;
+                        }
+                        break;
+                }
                 problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
                 problem.problem = p_Data.Rows[j]["PContent"].ToString();
                 problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
