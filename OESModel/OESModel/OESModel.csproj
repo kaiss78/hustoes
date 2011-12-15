@@ -75,6 +75,7 @@
     <Compile Include="Model\OfficePowerPoint.cs" />
     <Compile Include="Model\OfficeWord.cs" />
     <Compile Include="Model\Paper.cs" />
+    <Compile Include="Model\PaperRule.cs" />
     <Compile Include="Model\PCompletion.cs" />
     <Compile Include="Model\PFunction.cs" />
     <Compile Include="Model\PModif.cs" />
