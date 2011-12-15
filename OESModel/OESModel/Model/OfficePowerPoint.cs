@@ -12,7 +12,18 @@ namespace OES.Model
         {
             type = ProblemType.PowerPoint;
         }
-
+        public OfficePowerPoint(Office office)
+        {
+            this.orderId = office.orderId;
+            this.Plevel = office.Plevel;
+            this.problem = office.problem;
+            this.problemId = office.problemId;
+            this.rawPath = office.rawPath;
+            this.score = office.score;
+            this.stuAnsPath = office.stuAnsPath;
+            this.type = ProblemType.PowerPoint;
+            this.unit = office.unit;
+        }
         public OfficePowerPoint(string p)
         {
             problem = p;
