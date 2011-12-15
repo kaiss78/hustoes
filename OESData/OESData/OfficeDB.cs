@@ -34,7 +34,7 @@ namespace OES
                 foreach (string[] str in lst)
                 {
                     if (str[3] == "Word") tp = OfficeType.Word;
-                    else if (str[3] == "Excel") tp = OfficeType.Excel;
+                    else if (str[3] == "Excel")  tp = OfficeType.Excel;
                     else tp = OfficeType.PowerPoint;
                     x = AddOffice(str[0], int.Parse(str[1]), int.Parse(str[2]), tp);
                     res.Add(x);
