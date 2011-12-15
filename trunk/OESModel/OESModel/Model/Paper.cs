@@ -107,7 +107,7 @@ namespace OES.Model
         Completion=1,
         Judgment=2,
         Word=3,
-        Excel=3,
+        Excel=4,
         PowerPoint=5,
         CProgramCompletion=6,
         CProgramModification=7,
