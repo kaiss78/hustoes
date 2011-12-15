@@ -22,8 +22,31 @@ namespace OES
 
         #region office类题目有关的方法
 
-        public void ImportOffice(List<string[]> lst)
-        { }
+        public List<int> ImportOffice(List<string[]> lst)
+        {
+            int x;
+            OfficeType tp;
+            List<int> res = new List<int>();
+            DataBind();
+            try
+            {
+                SqlTransaction tx = sqlcon.BeginTransaction();
+                foreach (string[] str in lst)
+                {
+                    if (str[3] == "Word") tp = OfficeType.Word;
+                    else if (str[3] == "Excel") tp = OfficeType.Excel;
+                    else tp = OfficeType.PowerPoint;
+                    x = AddOffice(str[0], int.Parse(str[1]), int.Parse(str[2]), tp);
+                    res.Add(x);
+                }
+                tx.Commit();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return res;
+        }
 
         //增加Office类题目，返回PID
         public int AddOffice(string PContent, int Unit,int PLevel, OfficeType Type)
