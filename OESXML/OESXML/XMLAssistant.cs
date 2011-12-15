@@ -73,7 +73,7 @@ namespace OES.XMLFile
                                     xmlelem.AppendChild(xmlelem1);
                                     xmlelem1 = xd.CreateElement("Completion");
                                     xmlelem.AppendChild(xmlelem1);
-                                    xmlelem1 = xd.CreateElement("Tof");
+                                    xmlelem1 = xd.CreateElement("Judgment");
                                     xmlelem.AppendChild(xmlelem1);
                                     xmlelem1 = xd.CreateElement("Word");
                                     xmlelem.AppendChild(xmlelem1);
@@ -107,7 +107,7 @@ namespace OES.XMLFile
                                     xmlelem.AppendChild(xmlelem1);
                                     xmlelem1 = xd.CreateElement("Completion");
                                     xmlelem.AppendChild(xmlelem1);
-                                    xmlelem1 = xd.CreateElement("Tof");
+                                    xmlelem1 = xd.CreateElement("Judgment");
                                     xmlelem.AppendChild(xmlelem1);
                                     xmlelem1 = xd.CreateElement("Word");
                                     xmlelem.AppendChild(xmlelem1);
@@ -142,7 +142,7 @@ namespace OES.XMLFile
                                 xmlelem.AppendChild(xmlelem1);
                                 xmlelem1 = xd.CreateElement("Completion");
                                 xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("Tof");
+                                xmlelem1 = xd.CreateElement("Judgment");
                                 xmlelem.AppendChild(xmlelem1);
                                 xmlelem1 = xd.CreateElement("Word");
                                 xmlelem.AppendChild(xmlelem1);
@@ -172,7 +172,7 @@ namespace OES.XMLFile
                                 xmlelem.AppendChild(xmlelem1);
                                 xmlelem1 = xd.CreateElement("Completion");
                                 xmlelem.AppendChild(xmlelem1);
-                                xmlelem1 = xd.CreateElement("Tof");
+                                xmlelem1 = xd.CreateElement("Judgment");
                                 xmlelem.AppendChild(xmlelem1);
                                 xmlelem1 = xd.CreateElement("Word");
                                 xmlelem.AppendChild(xmlelem1);
