@@ -18,15 +18,17 @@ namespace OES.Model
 
         public enum ProType
         {
-            Completion=0,
+            Null = -1,
+            Completion = 0,
             Modify = 1,
-            Function=2
+            Function = 2
         }
         public enum Language
         {
-            C=0,
-            CPP=1,
-            VB=2            
+            Null = -1,
+            C = 0,
+            CPP = 1,
+            VB = 2            
         }
     }
 }
