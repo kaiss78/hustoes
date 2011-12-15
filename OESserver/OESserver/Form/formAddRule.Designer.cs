@@ -46,10 +46,11 @@
             // 
             // cboChapterList
             // 
+            this.cboChapterList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboChapterList.DropDownWidth = 121;
             this.cboChapterList.Location = new System.Drawing.Point(71, 9);
             this.cboChapterList.Name = "cboChapterList";
-            this.cboChapterList.Size = new System.Drawing.Size(121, 26);
+            this.cboChapterList.Size = new System.Drawing.Size(243, 26);
             this.cboChapterList.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cboChapterList.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cboChapterList.TabIndex = 0;
@@ -65,7 +66,7 @@
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(248, 12);
+            this.kryptonLabel2.Location = new System.Drawing.Point(320, 12);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(86, 23);
             this.kryptonLabel2.StateCommon.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -74,10 +75,11 @@
             // 
             // cboPType
             // 
+            this.cboPType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPType.DropDownWidth = 121;
-            this.cboPType.Location = new System.Drawing.Point(340, 9);
+            this.cboPType.Location = new System.Drawing.Point(412, 9);
             this.cboPType.Name = "cboPType";
-            this.cboPType.Size = new System.Drawing.Size(121, 26);
+            this.cboPType.Size = new System.Drawing.Size(147, 26);
             this.cboPType.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cboPType.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cboPType.TabIndex = 3;
@@ -93,7 +95,7 @@
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(179, 56);
+            this.kryptonLabel4.Location = new System.Drawing.Point(237, 56);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(53, 23);
             this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -102,7 +104,7 @@
             // 
             // kryptonLabel5
             // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(340, 56);
+            this.kryptonLabel5.Location = new System.Drawing.Point(438, 56);
             this.kryptonLabel5.Name = "kryptonLabel5";
             this.kryptonLabel5.Size = new System.Drawing.Size(53, 23);
             this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -134,12 +136,7 @@
             // 
             // nupdScore
             // 
-            this.nupdScore.Location = new System.Drawing.Point(248, 54);
-            this.nupdScore.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
+            this.nupdScore.Location = new System.Drawing.Point(306, 54);
             this.nupdScore.Minimum = new decimal(new int[] {
             1,
             0,
@@ -157,9 +154,9 @@
             // 
             // nupdCount
             // 
-            this.nupdCount.Location = new System.Drawing.Point(411, 54);
+            this.nupdCount.Location = new System.Drawing.Point(509, 54);
             this.nupdCount.Maximum = new decimal(new int[] {
-            5,
+            1000,
             0,
             0,
             0});
@@ -190,10 +187,11 @@
             this.btnOK.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnOK.TabIndex = 10;
             this.btnOK.Values.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(284, 107);
+            this.btnCancel.Location = new System.Drawing.Point(374, 110);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(109, 35);
             this.btnCancel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -203,12 +201,13 @@
             this.btnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Values.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmAddRule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 157);
+            this.ClientSize = new System.Drawing.Size(571, 157);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.nupdCount);
@@ -221,6 +220,7 @@
             this.Controls.Add(this.kryptonLabel2);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.cboChapterList);
+            this.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

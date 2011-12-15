@@ -34,6 +34,8 @@
             this.btnAddRule = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvRule = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnDel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRule)).BeginInit();
@@ -55,14 +57,18 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnCount = 7;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.tableLayoutPanel1.Controls.Add(this.btnDel, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnAddRule, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
@@ -78,9 +84,9 @@
             // 
             // btnAddRule
             // 
-            this.btnAddRule.Location = new System.Drawing.Point(103, 603);
+            this.btnAddRule.Location = new System.Drawing.Point(224, 603);
             this.btnAddRule.Name = "btnAddRule";
-            this.btnAddRule.Size = new System.Drawing.Size(109, 35);
+            this.btnAddRule.Size = new System.Drawing.Size(94, 35);
             this.btnAddRule.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -92,7 +98,7 @@
             // 
             // groupBox1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 3);
+            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 5);
             this.groupBox1.Controls.Add(this.dgvRule);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -113,10 +119,37 @@
             this.dgvRule.Name = "dgvRule";
             this.dgvRule.RowHeadersVisible = false;
             this.dgvRule.RowTemplate.Height = 23;
+            this.dgvRule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRule.Size = new System.Drawing.Size(720, 564);
             this.dgvRule.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvRule.StateCommon.DataCell.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dgvRule.TabIndex = 0;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(324, 603);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(94, 35);
+            this.btnEdit.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnEdit.StateCommon.Border.Rounding = 16;
+            this.btnEdit.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnEdit.TabIndex = 12;
+            this.btnEdit.Values.Text = "编辑";
+            // 
+            // btnDel
+            // 
+            this.btnDel.Location = new System.Drawing.Point(424, 603);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(94, 35);
+            this.btnDel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnDel.StateCommon.Border.Rounding = 16;
+            this.btnDel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDel.TabIndex = 13;
+            this.btnDel.Values.Text = "删除";
             // 
             // PaperInfo
             // 
@@ -140,6 +173,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvRule;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddRule;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDel;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
 
     }
 }
