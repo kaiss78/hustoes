@@ -12,20 +12,12 @@ namespace OES
     public partial class OESData
     {
 
-        public enum OfficeType
-        {
-            Null = -1,
-            Word = 0,
-            Excel = 1,
-            PowerPoint = 2
-        }
-
         #region office类题目有关的方法
 
         public List<int> ImportOffice(List<string[]> lst)
         {
             int x;
-            OfficeType tp;
+            OES.Model.Office.OfficeType tp;
             List<int> res = new List<int>();
             DataBind();
             try
@@ -33,9 +25,9 @@ namespace OES
                 SqlTransaction tx = sqlcon.BeginTransaction();
                 foreach (string[] str in lst)
                 {
-                    if (str[3] == "Word") tp = OfficeType.Word;
-                    else if (str[3] == "Excel")  tp = OfficeType.Excel;
-                    else tp = OfficeType.PowerPoint;
+                    if (str[3] == "Word") tp = OES.Model.Office.OfficeType.Word;
+                    else if (str[3] == "Excel") tp = OES.Model.Office.OfficeType.Excel;
+                    else tp = OES.Model.Office.OfficeType.PowerPoint;
                     x = AddOffice(str[0], int.Parse(str[1]), int.Parse(str[2]), tp);
                     res.Add(x);
                 }
@@ -49,7 +41,7 @@ namespace OES
         }
 
         //增加Office类题目，返回PID
-        public int AddOffice(string PContent, int Unit,int PLevel, OfficeType Type)
+        public int AddOffice(string PContent, int Unit, int PLevel, OES.Model.Office.OfficeType Type)
         {
             int PID = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
@@ -87,7 +79,7 @@ namespace OES
         }
 
         //按PID修改Office类题目
-        public void UpdateOffice(int PID, string PContent, int Unit, int PLevel, OfficeType Type)
+        public void UpdateOffice(int PID, string PContent, int Unit, int PLevel, OES.Model.Office.OfficeType Type)
         {
             List<SqlParameter> dp = new List<SqlParameter>();
             dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
@@ -228,7 +220,7 @@ namespace OES
                 return null;
         }
         */
-        public List<Office> FindAllOffice(string PContent, int Unit, int PLevel, OfficeType Type, int PageIndex, int PageSize)
+        public List<Office> FindAllOffice(string PContent, int Unit, int PLevel, OES.Model.Office.OfficeType Type, int PageIndex, int PageSize)
         {
             List<Office> result = new List<Office>();
             DataSet Ds = new DataSet();

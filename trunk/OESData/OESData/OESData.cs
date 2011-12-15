@@ -334,6 +334,27 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 Office problem = new Office();
+                switch ((Office.OfficeType)Convert.ToInt32(p_Data.Rows[j]["Type"]))
+                {
+                    case Office.OfficeType.Word:
+                        {
+                            problem=new OfficeWord();
+                            problem.type=ProblemType.Word;
+                            break;
+                        }
+                    case Office.OfficeType.Excel:
+                        {
+                            problem = new OfficeExcel();
+                            problem.type = ProblemType.Excel;
+                            break;
+                        }
+                    case Office.OfficeType.PowerPoint:
+                        {
+                            problem = new OfficePowerPoint();
+                            problem.type = ProblemType.PowerPoint;
+                            break;
+                        }
+                }
                 problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
                 problem.problem = p_Data.Rows[j]["PContent"].ToString();
                 problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
