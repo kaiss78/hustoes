@@ -44,6 +44,16 @@ namespace TestOESData
             //MessageBox.Show(oesdata.AddOffice("第2道PPT", 1, 2, OESData.OfficeType.PowerPoint).ToString());
             //oesdata.DeleteOffice(4);
             //oesdata.UpdateOffice(3, "Updated PPT", 3, 5, OESData.OfficeType.PowerPoint);
+            
+            string a = "1`1``11``22``33";
+            string[] str = a.Split(new string[] { "``" }, StringSplitOptions.RemoveEmptyEntries);
+            List<string[]> testImport = new List<string[]>();
+            for (int i = 0; i < 5; i++)
+            {
+                string[] test = new string[9];
+            }
+
+
             Application.Exit();
 
         }
