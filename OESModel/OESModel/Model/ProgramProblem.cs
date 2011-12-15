@@ -19,8 +19,8 @@ namespace OES.Model
         public enum ProType
         {
             Completion=0,
-            Judgment=1,
-            Modify=2
+            Modify = 1,
+            Function=2
         }
         public enum Language
         {
