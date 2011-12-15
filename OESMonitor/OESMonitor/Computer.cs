@@ -338,6 +338,7 @@ namespace OESMonitor
                     this.State = 8;
                     break;
             }
+            client.SendTxt("oes$6$"+PaperControl.TestTime.ToString());
         }
 
         bool client_ValidateTeaPass(string psw)

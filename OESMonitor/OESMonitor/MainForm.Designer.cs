@@ -79,11 +79,14 @@
             this.groupBoxPass = new System.Windows.Forms.GroupBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelDir = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer_PortCounter = new System.Windows.Forms.Timer(this.components);
             this.timer_Broadcast = new System.Windows.Forms.Timer(this.components);
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -101,9 +104,10 @@
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -121,9 +125,9 @@
             this.panel1.BackColor = System.Drawing.Color.AliceBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.panel1.Location = new System.Drawing.Point(652, 67);
+            this.panel1.Location = new System.Drawing.Point(652, 94);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(184, 385);
+            this.panel1.Size = new System.Drawing.Size(184, 358);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -243,6 +247,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label7);
+            this.tabPage4.Controls.Add(this.numericUpDown1);
+            this.tabPage4.Controls.Add(this.label6);
             this.tabPage4.Controls.Add(this.netState1);
             this.tabPage4.Controls.Add(this.label5);
             this.tabPage4.Controls.Add(this.lab_DataPortCount);
@@ -287,7 +294,7 @@
             // 
             // buttonExamStatue
             // 
-            this.buttonExamStatue.Location = new System.Drawing.Point(652, 31);
+            this.buttonExamStatue.Location = new System.Drawing.Point(652, 58);
             this.buttonExamStatue.Name = "buttonExamStatue";
             this.buttonExamStatue.Size = new System.Drawing.Size(184, 30);
             this.buttonExamStatue.TabIndex = 5;
@@ -629,19 +636,6 @@
             this.flowLayoutPanelDir.Size = new System.Drawing.Size(843, 481);
             this.flowLayoutPanelDir.TabIndex = 0;
             // 
-            // timer_PortCounter
-            // 
-            this.timer_PortCounter.Tick += new System.EventHandler(this.timer_PortCounter_Tick);
-            // 
-            // timer_Broadcast
-            // 
-            this.timer_Broadcast.Tick += new System.EventHandler(this.timer_Broadcast_Tick);
-            // 
-            // fileSystemWatcher
-            // 
-            this.fileSystemWatcher.EnableRaisingEvents = true;
-            this.fileSystemWatcher.SynchronizingObject = this;
-            // 
             // tabPage11
             // 
             this.tabPage11.BackColor = System.Drawing.Color.LightBlue;
@@ -661,6 +655,54 @@
             this.pictureBox1.Size = new System.Drawing.Size(504, 326);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // timer_PortCounter
+            // 
+            this.timer_PortCounter.Tick += new System.EventHandler(this.timer_PortCounter_Tick);
+            // 
+            // timer_Broadcast
+            // 
+            this.timer_Broadcast.Tick += new System.EventHandler(this.timer_Broadcast_Tick);
+            // 
+            // fileSystemWatcher
+            // 
+            this.fileSystemWatcher.EnableRaisingEvents = true;
+            this.fileSystemWatcher.SynchronizingObject = this;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(655, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 14);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "考试时间：";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(727, 31);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(61, 23);
+            this.numericUpDown1.TabIndex = 10;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(796, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 14);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "分钟";
             // 
             // OESMonitor
             // 
@@ -700,9 +742,10 @@
             this.tabPage8.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
             this.tabPage11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -763,6 +806,9 @@
         private System.IO.FileSystemWatcher fileSystemWatcher;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label6;
 
     }
 }

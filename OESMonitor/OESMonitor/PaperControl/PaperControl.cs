@@ -16,5 +16,6 @@ namespace OESMonitor
             {"Password","123"}
         });
         public static OESData OesData = new OESData();
+        public static int TestTime = 120;
     }
 }
