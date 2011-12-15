@@ -13,8 +13,60 @@ namespace OES
     {
         #region 编程题有关方法
 
-        public void ImportProgram(List<string[]> lst)
-        { }
+        public List<int> ImportProgram(List<string[]> lst)
+        {
+            int x;
+            ProgramProblem.ProType tp;
+            ProgramProblem.Language lang;
+            List<int> res = new List<int>();
+            string[] output, tmp, tmp2;
+            List<string> input = new List<string>();
+            DataBind();
+            try
+            {
+                SqlTransaction tx = sqlcon.BeginTransaction();
+                foreach (string[] str in lst)
+                {
+                    if (str[3] == "Comp")
+                        tp = ProgramProblem.ProType.Completion;
+                    else if (str[3] == "Modi")
+                        tp = ProgramProblem.ProType.Modify;
+                    else
+                        tp = ProgramProblem.ProType.Function;
+                    if (str[4] == "C")
+                        lang = ProgramProblem.Language.C;
+                    else if (str[4] == "Cpp")
+                        lang = ProgramProblem.Language.CPP;
+                    else
+                        lang = ProgramProblem.Language.VB;
+                    x = AddProgram(str[0], tp, lang, int.Parse(str[1]), int.Parse(str[2]));
+                    tmp = str[8].Split(new string[] { "``" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (tp == ProgramProblem.ProType.Function)
+                    {
+                        tmp = str[7].Split('`');
+                        foreach (string s in tmp)
+                            input.Add(s);
+                    }
+                    for (int i = 0; i < tmp.Length; i++)    //添加答案
+                    {
+                        tmp2 = tmp[i].Split('`');
+                        if (tp == ProgramProblem.ProType.Function)
+                            foreach (string s in tmp2)
+                                AddProgramAnswer(x, i + 1, input[i], s);
+                        else
+                            foreach (string s in tmp2)
+                                AddProgramAnswer(x, i + 1, "", s);
+                    }
+                    res.Add(x);
+                }
+                tx.Commit();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return res;
+        }
 
         //增加编程的综合题，返回PID
         //如果不需要Input的话，就new一个新的List<List<string>>作为Input
