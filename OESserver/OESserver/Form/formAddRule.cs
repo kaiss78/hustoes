@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace OES
 {
-    public partial class formAddRule : Form
+    public partial class frmAddRule : Form
     {
-        public formAddRule()
+        public frmAddRule()
         {
             InitializeComponent();
 

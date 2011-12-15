@@ -9,12 +9,12 @@ using System.Windows.Forms;
 using OES.Model;
 namespace OES
 {
-    public partial class formAddAnswer : Form
+    public partial class frmAddAnswer : Form
     {
         public bool Result;
         public ProgramAnswer ProAns;
 
-        public formAddAnswer(int Count)
+        public frmAddAnswer(int Count)
         {            
             InitializeComponent();
             Result = false;
@@ -26,7 +26,7 @@ namespace OES
             cbNum.SelectedIndex = 0;
         }
 
-        public formAddAnswer(int Count,ProgramAnswer PA)
+        public frmAddAnswer(int Count,ProgramAnswer PA)
         {
             InitializeComponent();
             Result = false;

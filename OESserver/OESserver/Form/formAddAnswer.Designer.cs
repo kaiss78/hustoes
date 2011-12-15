@@ -1,6 +1,6 @@
 ﻿namespace OES
 {
-    partial class formAddAnswer
+    partial class frmAddAnswer
     {
         /// <summary>
         /// Required designer variable.
@@ -97,7 +97,7 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "序号:";
             // 
-            // formAddAnswer
+            // frmAddAnswer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,7 +111,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "formAddAnswer";
+            this.Name = "frmAddAnswer";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加答案";

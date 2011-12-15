@@ -22,7 +22,7 @@ namespace OES.UPanel
         private int language;
         private bool addnew;
         
-        private formAddAnswer newans;
+        private frmAddAnswer newans;
 
         public ProCompletion()
         {
@@ -73,7 +73,7 @@ namespace OES.UPanel
             {
                 if (BlankCount > 0)
                 {
-                    newans = new formAddAnswer(BlankCount);
+                    newans = new frmAddAnswer(BlankCount);
                     newans.ShowDialog();
                     if (newans.Result)
                     {
@@ -115,7 +115,7 @@ namespace OES.UPanel
             if (lbAnsList.SelectedIndex >= 0)
             {
                 DataRow dr = dvAnsList[lbAnsList.SelectedIndex].Row;
-                newans = new formAddAnswer(BlankCount, newProblem.ansList[dtAnsList.Rows.IndexOf(dr)]);
+                newans = new frmAddAnswer(BlankCount, newProblem.ansList[dtAnsList.Rows.IndexOf(dr)]);
                 newans.ShowDialog();
                 if (newans.Result)
                 {                    
