@@ -37,21 +37,27 @@ namespace OES
 
         #region 选择题有关的方法 - 全部测试过了
 
-        //批量导入选择题
-        public void ImportChoice(List<string[]> lst)
+        //批量导入选择题，返回它们的PID
+        public List<int> ImportChoice(List<string[]> lst)
         {
+            int x;
+            List<int> res = new List<int>();
             DataBind();
             try
             {
                 SqlTransaction tx = sqlcon.BeginTransaction();
                 foreach (string[] str in lst)
-                    AddChoice(str[0], str[1], str[2], str[3], str[4], str[5], int.Parse(str[6]), int.Parse(str[7]));
+                {
+                    x = AddChoice(str[0], str[1], str[2], str[3], str[4], str[5], int.Parse(str[6]), int.Parse(str[7]));
+                    res.Add(x);
+                }
                 tx.Commit();
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.ToString());
             }
+            return res;
         }
         
         //向数据库中添加选择题
@@ -262,9 +268,11 @@ namespace OES
 
         #region 填空题有关的方法 - 全部测试过了
 
-        public void ImportCompletion(List<string[]> lst)
+        public List<int> ImportCompletion(List<string[]> lst)
         {
+            int x;
             DataBind();
+            List<int> res = new List<int>();
             List<String> ansList;
             try
             {
@@ -275,7 +283,8 @@ namespace OES
                     string[] ans = str[1].Split('`');
                     foreach (string s in ans)
                         ansList.Add(s);
-                    AddCompletion(str[0], int.Parse(str[2]), int.Parse(str[3]), ansList);
+                    x = AddCompletion(str[0], int.Parse(str[2]), int.Parse(str[3]), ansList);
+                    res.Add(x);
                 }
                 tx.Commit();
             }
@@ -283,6 +292,7 @@ namespace OES
             {
                 Console.WriteLine(ex.ToString());
             }
+            return res;
         }
 
         //添加填空题，先添加填空题至数据库，再把对应答案添加至数据库
@@ -549,20 +559,26 @@ namespace OES
 
         #region 判断题有关的方法 - 全部测试过了
 
-        public void ImportJudgment(List<string[]> lst)
+        public List<int> ImportJudgment(List<string[]> lst)
         {
+            int x;
+            List<int> res = new List<int>();
             DataBind();
             try
             {
                 SqlTransaction tx = sqlcon.BeginTransaction();
                 foreach (string[] str in lst)
-                    AddJudgment(str[0], str[1], int.Parse(str[2]), int.Parse(str[3]));
+                {
+                    x = AddJudgment(str[0], str[1], int.Parse(str[2]), int.Parse(str[3]));
+                    res.Add(x);
+                }
                 tx.Commit();
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.ToString());
             }
+            return res;
         }
 
         //增加判断题，返回PID

@@ -51,9 +51,7 @@ namespace OES
         //数据库连接
         private bool DataBind()
         {
-            if (sqlcon != null && sqlcon.State == ConnectionState.Open)
-                return true;
-
+            
             sqlcon = new SqlConnection();
 
             string strConnection = "Data Source=" + dbconfig["IP"] + ";Initial Catalog=" + dbconfig["DbName"] + ";User ID=" + dbconfig["User"] + ";Password=" + dbconfig["Password"];
