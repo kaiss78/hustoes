@@ -25,7 +25,7 @@ namespace OES
         public void ImportOffice(List<string[]> lst)
         { }
 
-        //增加office类题目   
+        //增加Office类题目，返回PID
         public int AddOffice(string PContent, int Unit,int PLevel, OfficeType Type)
         {
             int PID = -1;
@@ -63,6 +63,7 @@ namespace OES
             }
         }
 
+        //按PID修改Office类题目
         public void UpdateOffice(int PID, string PContent, int Unit, int PLevel, OfficeType Type)
         {
             List<SqlParameter> dp = new List<SqlParameter>();
@@ -81,14 +82,152 @@ namespace OES
             }
         }
 
-        public List<Office> FindOfficeByPID(int PID)
+        public List<OfficeWord> FindOfficeWordByPID(int PID)
         {
-            return new List<Office>();
+            List<OfficeWord> result = new List<OfficeWord>();
+            List<Office> tmp = new List<Office>();
+            try
+            {
+                tmp = FindOfficeByPID(PID);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            foreach (Office prob in tmp)
+            {
+                OfficeWord ow = new OfficeWord();
+                ow.Plevel = prob.Plevel;
+                ow.problem = prob.problem;
+                ow.problemId = prob.problemId;
+                ow.type = prob.type;
+                ow.unit = prob.unit;
+                result.Add(ow);
+            }
+            return result;
         }
 
-        public List<Office> FindAllOffice(string PContent, int Unit, int PLevel, OfficeType Type)
+        public List<OfficeExcel> FindOfficeExcelByPID(int PID)
         {
-            return new List<Office>();
+            List<OfficeExcel> result = new List<OfficeExcel>();
+            List<Office> tmp = new List<Office>();
+            try
+            {
+                tmp = FindOfficeByPID(PID);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            foreach (Office prob in tmp)
+            {
+                OfficeExcel oe = new OfficeExcel();
+                oe.Plevel = prob.Plevel;
+                oe.problem = prob.problem;
+                oe.problemId = prob.problemId;
+                oe.type = prob.type;
+                oe.unit = prob.unit;
+                result.Add(oe);
+            }
+            return result;
+        }
+
+        public List<OfficePowerPoint> FindOfficePowerPointByPID(int PID)
+        {
+            List<OfficePowerPoint> result = new List<OfficePowerPoint>();
+            List<Office> tmp = new List<Office>();
+            try
+            {
+                tmp = FindOfficeByPID(PID);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            foreach (Office prob in tmp)
+            {
+                OfficePowerPoint op = new OfficePowerPoint();
+                op.Plevel = prob.Plevel;
+                op.problem = prob.problem;
+                op.problemId = prob.problemId;
+                op.type = prob.type;
+                op.unit = prob.unit;
+                result.Add(op);
+            }
+            return result;
+        }
+
+        public List<Office> FindOfficeByPID(int PID)
+        {
+            DataSet Ds = new DataSet();
+            List<Office> result = new List<Office>();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindOfficeByPID", dp, Ds);
+                result = DataSetToListOffice(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
+        }
+        /*
+        public Office FindOfficeByPID(int PID)
+        {
+            DataSet Ds = new DataSet();
+            List<Office> result = new List<Office>();
+            Office res;
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindOfficeByPID", dp, Ds);
+                //TODO
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            if (result.Count > 0)
+            {
+                res = result[0];
+                if (res.type == ProblemType.Word)
+                    return (OfficeWord)res;
+                else if (res.type == ProblemType.Excel)
+                    return (OfficeExcel)res;
+                else
+                    return (OfficePowerPoint)res;
+            }
+            else
+                return null;
+        }
+        */
+        public List<Office> FindAllOffice(string PContent, int Unit, int PLevel, OfficeType Type, int PageIndex, int PageSize)
+        {
+            List<Office> result = new List<Office>();
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Office_Table", ParameterDirection.Input));
+            dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
+            dp.Add(CreateParam("@Type", SqlDbType.Int, 0, (int)Type, ParameterDirection.Input));
+            dp.Add(CreateParam("@Language", SqlDbType.Int, 0, -1, ParameterDirection.Input));
+            dp.Add(CreateParam("@Uint", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageIndex", SqlDbType.Int, 0, PageIndex, ParameterDirection.Input));
+            dp.Add(CreateParam("@PageSize", SqlDbType.Int, 0, PageSize, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindItems", dp, Ds);
+                //result = DataSetToProgramProblem(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
         }
 
 #if false
