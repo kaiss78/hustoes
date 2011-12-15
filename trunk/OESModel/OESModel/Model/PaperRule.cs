@@ -12,6 +12,8 @@ namespace OES.Model
         public int PLevel;
         public int Score;
         public int Count;
+        public string ChapterName;
+        public string PTypeName;
 
         public PaperRule()
         { 
