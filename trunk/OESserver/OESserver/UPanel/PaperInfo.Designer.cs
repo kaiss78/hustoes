@@ -88,6 +88,7 @@
             this.btnAddRule.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnAddRule.TabIndex = 11;
             this.btnAddRule.Values.Text = "添加";
+            this.btnAddRule.Click += new System.EventHandler(this.btnAddRule_Click);
             // 
             // groupBox1
             // 
@@ -108,6 +109,7 @@
             this.dgvRule.AllowUserToDeleteRows = false;
             this.dgvRule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRule.Location = new System.Drawing.Point(3, 22);
+            this.dgvRule.Margin = new System.Windows.Forms.Padding(5);
             this.dgvRule.Name = "dgvRule";
             this.dgvRule.RowHeadersVisible = false;
             this.dgvRule.RowTemplate.Height = 23;

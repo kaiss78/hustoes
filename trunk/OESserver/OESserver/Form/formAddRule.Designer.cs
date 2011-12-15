@@ -1,6 +1,6 @@
 ﻿namespace OES
 {
-    partial class formAddRule
+    partial class frmAddRule
     {
         /// <summary>
         /// Required designer variable.
@@ -204,7 +204,7 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Values.Text = "Cancel";
             // 
-            // formAddRule
+            // frmAddRule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -224,7 +224,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "formAddRule";
+            this.Name = "frmAddRule";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加组卷规则";

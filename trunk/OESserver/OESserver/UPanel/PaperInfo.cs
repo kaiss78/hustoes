@@ -10,6 +10,7 @@ namespace OES.UPanel
     public partial class PaperInfo : UserPanel
     {
         private DataTable dtRule;
+        private frmAddRule frmAddRule;
 
         public PaperInfo()
         {
@@ -26,6 +27,11 @@ namespace OES.UPanel
         override public void ReLoad()
         {
             this.Visible = true;
+        }
+
+        private void btnAddRule_Click(object sender, EventArgs e)
+        {
+            //frmAddRule
         }
 
 
