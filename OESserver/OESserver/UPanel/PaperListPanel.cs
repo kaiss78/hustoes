@@ -85,8 +85,7 @@ namespace OES.UPanel
 
         //跳转到试卷编辑
         private void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Problem pro;
+        {            
             int RIndex = e.RowIndex;
             if (RIndex > -1)
             {
