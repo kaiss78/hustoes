@@ -20,5 +20,12 @@ namespace OES.Model
             this.rawPath = rawPath;
             this.stuAnsPath = stuAnsPath;
         }
+        public enum OfficeType
+        {
+            Null = -1,
+            Word = 0,
+            Excel = 1,
+            PowerPoint = 2
+        }
     }
 }
