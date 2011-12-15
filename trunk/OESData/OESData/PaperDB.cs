@@ -56,7 +56,20 @@ namespace OES
 
         public List<Paper> FindPaperByPaperId(int PaperId)
         {
-            return new List<Paper>();
+            DataSet Ds = new DataSet();
+            List<Paper> result = new List<Paper>();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@Id", SqlDbType.Int, 0, PaperId, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindPaperById", dp, Ds);
+                result = DataSetToListPaper(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
         }
 
         //列出所有的Paper记录,其中将相关的出试卷的老师信息也查找出来
