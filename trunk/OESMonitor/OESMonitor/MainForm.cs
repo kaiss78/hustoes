@@ -67,11 +67,14 @@ namespace OESMonitor
                         ServerEvt.Server.IsPortAvailable = true;
                         buttonExamStatue.Text = "停止发卷/发卷";
                         timer_PortCounter.Start();
+                        numericUpDown1.Enabled = false;
+                        PaperControl.TestTime = (int)numericUpDown1.Value;
                     }
                 }
                 else
                 {
                     buttonExamStatue.Text = "开始考试/收卷";
+                    numericUpDown1.Enabled = true;
                     if (handInPaper != null)
                     {
                         handInPaper();
