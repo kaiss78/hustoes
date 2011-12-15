@@ -40,10 +40,18 @@ namespace OES
         //批量导入选择题
         public void ImportChoice(List<string[]> lst)
         {
-            SqlTransaction tx = sqlcon.BeginTransaction();
-            foreach (string[] str in lst)
-                AddChoice(str[0], str[1], str[2], str[3], str[4], str[5], int.Parse(str[6]), int.Parse(str[7]));
-            tx.Commit();
+            DataBind();
+            try
+            {
+                SqlTransaction tx = sqlcon.BeginTransaction();
+                foreach (string[] str in lst)
+                    AddChoice(str[0], str[1], str[2], str[3], str[4], str[5], int.Parse(str[6]), int.Parse(str[7]));
+                tx.Commit();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
         
         //向数据库中添加选择题
@@ -255,7 +263,27 @@ namespace OES
         #region 填空题有关的方法 - 全部测试过了
 
         public void ImportCompletion(List<string[]> lst)
-        { }
+        {
+            DataBind();
+            List<String> ansList;
+            try
+            {
+                SqlTransaction tx = sqlcon.BeginTransaction();
+                foreach (string[] str in lst)
+                {
+                    ansList = new List<string>();
+                    string[] ans = str[1].Split('`');
+                    foreach (string s in ans)
+                        ansList.Add(s);
+                    AddCompletion(str[0], int.Parse(str[2]), int.Parse(str[3]), ansList);
+                }
+                tx.Commit();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
 
         //添加填空题，先添加填空题至数据库，再把对应答案添加至数据库
         public int AddCompletion(string PContent, int Unit, int PLevel, List<string> Answer)
@@ -284,12 +312,12 @@ namespace OES
             }
         }
 
-        //按PID添加填空题的答案
+        //按PID添加填空题的答案（SeqNum=1）
         public void AddCompletionAnswer(int PID, string Answer)
         {
             List<SqlParameter> dp = new List<SqlParameter>();
             dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
-            dp.Add(CreateParam("@SeqNum", SqlDbType.Int, 0, 0, ParameterDirection.Input));
+            dp.Add(CreateParam("@SeqNum", SqlDbType.Int, 1, 0, ParameterDirection.Input));
             dp.Add(CreateParam("@Answer", SqlDbType.VarChar, 9999, Answer, ParameterDirection.Input));
             try
             {
@@ -522,7 +550,20 @@ namespace OES
         #region 判断题有关的方法 - 全部测试过了
 
         public void ImportJudgment(List<string[]> lst)
-        {}
+        {
+            DataBind();
+            try
+            {
+                SqlTransaction tx = sqlcon.BeginTransaction();
+                foreach (string[] str in lst)
+                    AddJudgment(str[0], str[1], int.Parse(str[2]), int.Parse(str[3]));
+                tx.Commit();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
 
         //增加判断题，返回PID
         public int AddJudgment(string PContent,string Answer, int Unit, int PLevel)

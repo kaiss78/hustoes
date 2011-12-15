@@ -51,6 +51,9 @@ namespace OES
         //数据库连接
         private bool DataBind()
         {
+            if (sqlcon != null && sqlcon.State == ConnectionState.Open)
+                return true;
+
             sqlcon = new SqlConnection();
 
             string strConnection = "Data Source=" + dbconfig["IP"] + ";Initial Catalog=" + dbconfig["DbName"] + ";User ID=" + dbconfig["User"] + ";Password=" + dbconfig["Password"];
@@ -323,6 +326,25 @@ namespace OES
             }
             return result;
         }
+
+        private List<Office> DataSetToListOffice(DataSet Ds)
+        {
+            DataTable p_Data = Ds.Tables[0];
+            List<Office> office = new List<Office>();
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Office problem = new Office();
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
+
+                office.Add(problem);
+            }
+            return office;
+        }
+
         private List<OfficeWord> DataSetToListOfficeWord(DataSet Ds)
         {
             DataTable p_Data = Ds.Tables[0];
@@ -376,6 +398,37 @@ namespace OES
                 powerPoint.Add(problem);
             }
             return powerPoint;
+        }
+
+        private List<ProgramProblem> DataSetToListProgram(DataSet Ds)
+        { 
+            DataTable p_Data = Ds.Tables[0];
+            // 返回值初始化   
+            List<ProgramProblem> result = new List<ProgramProblem>();
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                ProgramProblem problem = new ProgramProblem();
+                ProgramProblem.Language language=(ProgramProblem.Language)Convert.ToInt32(p_Data.Rows[j]["Language"]);
+                //switch (language)
+                //{
+                //    case ProgramProblem.Language.C:
+                //        problem = new PFunction(ProblemType.CProgramFun);
+                //        break;
+                //    case ProgramProblem.Language.CPP:
+                //        problem = new PFunction(ProblemType.CppProgramFun);
+                //        break;
+                //    case ProgramProblem.Language.VB:
+                //        problem = new PFunction(ProblemType.VbProgramFun);
+                //        break;
+                //}
+                problem.problemId = Convert.ToInt32(p_Data.Rows[j]["PID"]);
+                problem.problem = p_Data.Rows[j]["PContent"].ToString();
+                problem.unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                problem.unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                problem.Plevel = Convert.ToInt32(p_Data.Rows[j]["PLevel"]);
+                result.Add(problem);
+            }
+            return result;
         }
 
         private List<PFunction> DataSetToListFunProgram(DataSet Ds)

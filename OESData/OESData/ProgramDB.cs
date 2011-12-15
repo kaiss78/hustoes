@@ -16,10 +16,12 @@ namespace OES
         public void ImportProgram(List<string[]> lst)
         { }
 
-        //增加编程的综合体型
-        public int AddProgram(string PContent, ProgramProblem.ProType Type,ProgramProblem.Language Language,int Unit,int PLevel)
+        //增加编程的综合题，返回PID
+        //如果不需要Input的话，就new一个新的List<List<string>>作为Input
+        public int AddProgram(string PContent, ProgramProblem.ProType Type, ProgramProblem.Language Language, int Unit,int PLevel)
         {
             int PID = -1;
+            int blankIdx;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 5, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
@@ -30,16 +32,35 @@ namespace OES
             try
             {
                 RunProc("AddProgram", ddlparam);
+                PID = Convert.ToInt32(ddlparam[0].Value);
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
-            return -1;
+                return -1;
             }
-            return Convert.ToInt32(ddlparam[0].Value);
+            return PID;
         }
 
-        //按Id号删除编程题
+        //添加答案（SeqNum从1开始）
+        public void AddProgramAnswer(int PID, int SeqNum, string Input, string Output)
+        {
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            dp.Add(CreateParam("@SeqNum", SqlDbType.Int, 0, SeqNum, ParameterDirection.Input));
+            dp.Add(CreateParam("@Input", SqlDbType.VarChar, 9999, Input, ParameterDirection.Input));
+            dp.Add(CreateParam("@Output", SqlDbType.VarChar, 9999, Output, ParameterDirection.Input));
+            try
+            {
+                RunProc("AddCompletionAnswer", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        //按PID删除编程题
         public void DeleteProgram(int PID)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
@@ -72,17 +93,117 @@ namespace OES
             }
         }
 
-        public List<ProgramProblem> FindProgramByPID(int PID)
+        public List<PModif> FindModifyProgramByPID(int PID)
         {
-            return new List<ProgramProblem>();
+            List<PModif> result = new List<PModif>();
+            List<ProgramProblem> tmp = new List<ProgramProblem>();
+            try
+            {
+                tmp = FindProgramByPID(PID);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            foreach (ProgramProblem prob in tmp)
+            {
+                result.Add((PModif)prob);
+            }
+            return result;
         }
 
+        public List<PCompletion> FindCompletionProgramByPID(int PID)
+        {
+            List<PCompletion> result = new List<PCompletion>();
+            List<ProgramProblem> tmp = new List<ProgramProblem>();
+            try
+            {
+                tmp = FindProgramByPID(PID);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            foreach (ProgramProblem prob in tmp)
+            {
+                result.Add((PCompletion)prob);
+            }
+            return result;
+        }
+
+        public List<PFunction> FindFunctionProgramByPID(int PID)
+        {
+            List<PFunction> result = new List<PFunction>();
+            List<ProgramProblem> tmp = new List<ProgramProblem>();
+            try
+            {
+                tmp = FindProgramByPID(PID);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            foreach (ProgramProblem prob in tmp)
+            {
+                result.Add((PFunction)prob);
+            }
+            return result;
+        }
+
+        public List<ProgramProblem> FindProgramByPID(int PID)
+        {
+            List<ProgramProblem> result = new List<ProgramProblem>();
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindProgramByPID", dp, Ds);
+                result = DataSetToListProgram(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return result;
+        }
+        /*
+        public ProgramProblem FindProgramByPID(int PID)
+        {
+            List<ProgramProblem> result = new List<ProgramProblem>();
+            DataSet Ds = new DataSet();
+            ProgramProblem res;
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindProgramByPID", dp, Ds);
+                result = DataSetToListProgram(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            if (result.Count > 0)
+            {
+                res = result[0];
+                if (res.Type == ProgramProblem.ProType.Completion)
+                    return (PCompletion)res;
+                else if (res.Type == ProgramProblem.ProType.Modify)
+                    return (PModif)res;
+                else
+                    return (PFunction)res;
+            }
+            return result;
+        }
+        */
         public List<ProgramProblem> FindAllProgram(string PContent, ProgramProblem.ProType Type, ProgramProblem.Language Language, int Unit, int PLevel,
             int PageIndex, int PageSize)
         {
             List<ProgramProblem> result = new List<ProgramProblem>();
             DataSet Ds = new DataSet();
             List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Program_Table", ParameterDirection.Input));
             dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
             dp.Add(CreateParam("@Type", SqlDbType.Int, 0, (int)Type, ParameterDirection.Input));
             dp.Add(CreateParam("@Language", SqlDbType.Int, 0, (int)Language, ParameterDirection.Input));
@@ -93,7 +214,7 @@ namespace OES
             try
             {
                 RunProc("FindItems", dp, Ds);
-                //result = DataSetToProgramProblem(Ds);
+                result = DataSetToListProgram(Ds);
             }
             catch (SqlException ex)
             {

@@ -51,6 +51,15 @@ namespace OES
             return UnitList;
         }
 
+        public DataSet FindAllUnit_DataSet()
+        {
+            List<Unit> UnitList = new List<Unit>();
+            Ds = new DataSet();
+            try { RunProc("FindAllUnit", null, Ds); }
+            catch (Exception Ex) { throw Ex; }
+            return Ds;
+        }
+
         //Description:  删除某个章节
         public void DeleteUnit(int Unit)
         {
