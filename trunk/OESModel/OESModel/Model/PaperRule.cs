@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OES.Model
 {
-    class PaperRule
+    public class PaperRule
     {
         public int Chapter;
         public ProblemType PType;
