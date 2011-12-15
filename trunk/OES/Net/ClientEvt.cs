@@ -102,6 +102,9 @@ namespace OES.Net
                     case "5":
                         ClientControl.ControlBar.butHandIn_Click(null, null);
                         break;
+                    case "6":
+                        ClientControl.ControlBar.SetTime(Convert.ToInt32(msgs[2]));
+                        break;
                     default:
                         break;
                 }

@@ -26,7 +26,7 @@ namespace OES
             InitializeComponent();
         }
 
-        public void SetTiem(int s)
+        public void SetTime(int s)
         {
             Seconds = s;
             seconds = Seconds - ClientControl.paper.ResumeSecond();
@@ -51,7 +51,7 @@ namespace OES
                 {
                     ClientControl.paper.Resume();
                     XMLControl.WriteLogXML(Config.stuPath, ProblemType.Start, 0, "");
-                    SetTiem(Seconds);
+                    SetTime(Seconds);
                     //恢复考试，考试时间恢复！！！！！
                     timer1.Start();
                     return true;
