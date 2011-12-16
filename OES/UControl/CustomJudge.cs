@@ -24,18 +24,15 @@ namespace OES.UControl
             set
             {
                 proid = value;
+                NextProblem.Enabled = true;
+                LastProblem.Enabled = true;
                 if (proid == ClientControl.paper.judge.Count - 1)
                 {
                     NextProblem.Enabled = false;
                 }
-                else if (proid == 0)
+                if (proid == 0)
                 {
                     LastProblem.Enabled = false;
-                }
-                else
-                {
-                    NextProblem.Enabled = true;
-                    LastProblem.Enabled = true;
                 }
             }
         }
@@ -57,6 +54,10 @@ namespace OES.UControl
             this.Question.Text = judge.problem;
             this.TrueButton.Checked = judge.stuAns == "T";
             this.FalseButton.Checked = judge.stuAns == "F";
+            if (!string.IsNullOrEmpty(judge.stuAns))
+            {
+                ClientControl.SetDone(judge.problemId);
+            }
         }
 
         public int GetQuestion()

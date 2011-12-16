@@ -32,7 +32,11 @@ namespace OES
             seconds = Seconds - ClientControl.paper.ResumeSecond();
             minute = seconds / 60;
             seconds = seconds % 60;
-            time.Text = this.minute.ToString() + ":" + this.seconds.ToString();
+            try
+            {
+                time.Text = this.minute.ToString() + ":" + this.seconds.ToString();
+            }
+            catch { }
         }
 
         public bool Init()

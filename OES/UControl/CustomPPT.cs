@@ -29,18 +29,15 @@ namespace OES.UControl
             set
             {
                 proid = value;
+                NextProblem.Enabled = true;
+                LastProblem.Enabled = true;
                 if (proid == ClientControl.paper.officePPT.Count - 1)
                 {
                     NextProblem.Enabled = false;
                 }
-                else if (proid == 0)
+                if (proid == 0)
                 {
                     LastProblem.Enabled = false;
-                }
-                else
-                {
-                    NextProblem.Enabled = true;
-                    LastProblem.Enabled = true;
                 }
             }
         }

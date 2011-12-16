@@ -26,18 +26,15 @@ namespace OES.UControl
             set
             {
                 proid = value;
+                nextproblem.Enabled = true;
+                lastproblem.Enabled = true;
                 if (proid == ClientControl.paper.completion.Count - 1)
                 {
                     nextproblem.Enabled = false;
                 }
-                else if (proid == 0)
+                if (proid == 0)
                 {
                     lastproblem.Enabled = false;
-                }
-                else
-                {
-                    nextproblem.Enabled = true;
-                    lastproblem.Enabled = true;
                 }
             }
         }
@@ -63,6 +60,10 @@ namespace OES.UControl
             this.Answer.TextChanged -= Answer_TextChanged;
             this.Answer.Text = completion.stuAns;
             this.Answer.TextChanged += Answer_TextChanged;
+            if (!string.IsNullOrEmpty(completion.stuAns))
+            {
+                ClientControl.SetDone(completion.problemId);
+            }
         }
         public int GetQuestion()
         {
