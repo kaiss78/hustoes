@@ -63,41 +63,51 @@ namespace OES.Model
         {
             if (p is Choice)
             {
+                p.orderId = choice.Count;
                 choice.Add((Choice) p);
             }
             else if (p is Completion)
             {
+                p.orderId = completion.Count;
                 completion.Add((Completion) p);
             }
             else if (p is Judgment)
             {
+                p.orderId = judge.Count;
                 judge.Add((Judgment) p);
             }
             else if (p is PCompletion)
             {
+                p.orderId = pCompletion.Count;
                 pCompletion.Add((PCompletion) p);
             }
             else if (p is PModif)
             {
+                p.orderId = pModif.Count;
                 pModif.Add((PModif) p);
             }
             else if (p is PFunction)
             {
+                p.orderId = pFunction.Count;
                 pFunction.Add((PFunction) p);
             }
             else if (p is OfficeExcel)
             {
+                p.orderId = officeExcel.Count;
                 officeExcel.Add((OfficeExcel) p);
             }
             else if (p is OfficePowerPoint)
             {
+                p.orderId = officePPT.Count;
                 officePPT.Add((OfficePowerPoint) p);
             }
             else if (p is OfficeWord)
             {
+                p.orderId = officeWord.Count;
                 officeWord.Add((OfficeWord) p);
             }
             p.problemId = problemList.Count;
+
             problemList.Add(p);
         }
     }
