@@ -102,7 +102,6 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "CSV文件|*.csv";
             // 
             // groupBox2
