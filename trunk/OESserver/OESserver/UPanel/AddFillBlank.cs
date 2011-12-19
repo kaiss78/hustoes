@@ -29,9 +29,9 @@ namespace OES.UPanel
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            String capter = (this.Parent as AddQuetionPanel).Capter;
-            String diffcuty = (this.Parent as AddQuetionPanel).Diffucity;
-            String teststyle = (this.Parent as AddQuetionPanel).Teststyle;
+            String capter = (this.Parent.Parent as AddQuetionPanel).Capter;
+            String diffcuty = (this.Parent.Parent as AddQuetionPanel).Diffucity;
+            String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
             if (capter == "" || diffcuty == "" || teststyle == "")
             {
                 MessageBox.Show("请完成试题信息");
@@ -61,9 +61,12 @@ namespace OES.UPanel
 
             }
         }
-        public void Reset()
+
+        public override void ReLoad()
         {
+            base.ReLoad();
             this.contentOfFillblank.Text = "";
+            this.Visible = true;
         }
     }
 }

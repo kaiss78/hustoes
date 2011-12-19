@@ -60,6 +60,7 @@
             this.Content.Name = "Content";
             this.Content.Size = new System.Drawing.Size(438, 171);
             this.Content.TabIndex = 1;
+            this.Content.TextChanged += new System.EventHandler(this.Content_TextChanged);
             // 
             // pictureBox1
             // 

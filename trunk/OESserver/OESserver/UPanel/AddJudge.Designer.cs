@@ -53,10 +53,11 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(109, 35);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(676, 129);
+            this.textBox1.Size = new System.Drawing.Size(593, 129);
             this.textBox1.TabIndex = 1;
             // 
             // pictureBox2
@@ -107,7 +108,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::OES.Properties.Resources.btnReturn;
-            this.pictureBox4.Location = new System.Drawing.Point(611, 296);
+            this.pictureBox4.Location = new System.Drawing.Point(584, 296);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(73, 30);
             this.pictureBox4.TabIndex = 6;
@@ -127,7 +128,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AddJudge";
-            this.Size = new System.Drawing.Size(859, 585);
+            this.Size = new System.Drawing.Size(816, 585);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

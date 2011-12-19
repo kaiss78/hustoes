@@ -33,7 +33,7 @@
             this.Chapater = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.DifficultyValue = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbQueStyle = new System.Windows.Forms.ComboBox();
             this.plAddQuestion = new System.Windows.Forms.Panel();
@@ -88,21 +88,21 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "难度";
             // 
-            // comboBox1
+            // DifficultyValue
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.DifficultyValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DifficultyValue.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DifficultyValue.FormattingEnabled = true;
+            this.DifficultyValue.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.comboBox1.Location = new System.Drawing.Point(233, 83);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(111, 24);
-            this.comboBox1.TabIndex = 4;
+            this.DifficultyValue.Location = new System.Drawing.Point(233, 83);
+            this.DifficultyValue.Name = "DifficultyValue";
+            this.DifficultyValue.Size = new System.Drawing.Size(111, 24);
+            this.DifficultyValue.TabIndex = 4;
             // 
             // label3
             // 
@@ -141,7 +141,7 @@
             this.Controls.Add(this.plAddQuestion);
             this.Controls.Add(this.cbQueStyle);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.DifficultyValue);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Chapater);
@@ -160,7 +160,7 @@
         private System.Windows.Forms.ComboBox Chapater;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox DifficultyValue;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbQueStyle;
         private System.Windows.Forms.Panel plAddQuestion;
