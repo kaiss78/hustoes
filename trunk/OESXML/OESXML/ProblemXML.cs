@@ -200,7 +200,18 @@ namespace OESXML
         {
             foreach (PCompletion c in list)
             {
-                xmlelem = xd.CreateElement("ProgramCompletion");
+                switch (c.language)
+                {
+                    case ProgramProblem.Language.C:
+                        xmlelem = xd.CreateElement("CProgramCompletion");
+                        break;
+                    case ProgramProblem.Language.CPP:
+                        xmlelem = xd.CreateElement("CppProgramCompletion");
+                        break;
+                    case ProgramProblem.Language.VB:
+                        xmlelem = xd.CreateElement("VbProgramCompletion");
+                        break;
+                }
                 XmlAttribute xa = xd.CreateAttribute("ProblemId");
                 xmlelem.Attributes.Append(xa);
                 xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
@@ -220,7 +231,18 @@ namespace OESXML
         {
             foreach (PModif c in list)
             {
-                xmlelem = xd.CreateElement("ProgramModification");
+                switch (c.language)
+                {
+                    case ProgramProblem.Language.C:
+                        xmlelem = xd.CreateElement("CProgramModification");
+                        break;
+                    case ProgramProblem.Language.CPP:
+                        xmlelem = xd.CreateElement("CppProgramModification");
+                        break;
+                    case ProgramProblem.Language.VB:
+                        xmlelem = xd.CreateElement("VbProgramModification");
+                        break;
+                }
                 XmlAttribute xa = xd.CreateAttribute("ProblemId");
                 xmlelem.Attributes.Append(xa);
                 xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
@@ -240,7 +262,18 @@ namespace OESXML
         {
             foreach (PFunction c in list)
             {
-                xmlelem = xd.CreateElement("ProgramFun");
+                switch (c.language)
+                {
+                    case ProgramProblem.Language.C:
+                        xmlelem = xd.CreateElement("CProgramFun");
+                        break;
+                    case ProgramProblem.Language.CPP:
+                        xmlelem = xd.CreateElement("CppProgramFun");
+                        break;
+                    case ProgramProblem.Language.VB:
+                        xmlelem = xd.CreateElement("VbProgramFun");
+                        break;
+                }
                 XmlAttribute xa = xd.CreateAttribute("ProblemId");
                 xmlelem.Attributes.Append(xa);
                 xmlelem.SetAttribute("ProblemId", c.problemId.ToString());
