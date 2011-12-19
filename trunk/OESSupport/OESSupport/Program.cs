@@ -7,6 +7,7 @@ using OES;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using OESSupport.PaperControl;
 
 namespace OESSupport
 {
@@ -54,6 +55,14 @@ namespace OESSupport
                             Console.WriteLine(t.ToString());
                         }
                         Console.ForegroundColor = ConsoleColor.White;
+                        break;
+                    case "paperpkg":
+                        string arg = Console.ReadLine();
+                        int result;
+                        if (int.TryParse(arg, out result))
+                        {
+                            XMLtoXML.xmltoxml(Program.config["Root"] + Program.config["Paper"] + arg + ".xml");
+                        }
                         break;
                 }
                 cmd = Console.ReadLine();
