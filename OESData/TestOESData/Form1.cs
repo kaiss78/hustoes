@@ -19,6 +19,8 @@ namespace TestOESData
         public OESData oesdata=new OESData();
         private void button1_Click(object sender, EventArgs e)
         {
+            oesdata.FindAllChoice("", 1, -1, 1, 20);
+
             //oesdata.FindAllChoice("d", -1, -1, 1, 10);
             //MessageBox.Show(oesdata.AddChoice("testChoice", "A", "B", "C", "D", "A", 1, 2).ToString());
             //oesdata.DeleteChoice(55);
@@ -47,7 +49,7 @@ namespace TestOESData
 
             //MessageBox.Show(oesdata.AddProgram("fsddfsfs", OES.Model.ProgramProblem.ProType.Modify, OES.Model.ProgramProblem.Language.CPP,
             //     1, 1).ToString());
-            
+            /*
             string a = "1`1``11``22``33";
             string[] str = a.Split(new string[] { "``" }, StringSplitOptions.RemoveEmptyEntries);
             List<string[]> testImport = new List<string[]>();
@@ -65,7 +67,7 @@ namespace TestOESData
                 testImport.Add(test);
             }
             oesdata.ImportProgram(testImport);
-            
+            */
             Application.Exit();
 
         }

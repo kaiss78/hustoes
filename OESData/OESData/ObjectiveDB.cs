@@ -40,7 +40,6 @@ namespace OES
         //批量导入选择题
         public void ImportChoice(List<string[]> lst)
         {
-            DataBind();
             try
             {
                 SqlTransaction tx = sqlcon.BeginTransaction();
@@ -264,11 +263,9 @@ namespace OES
 
         public void ImportCompletion(List<string[]> lst)
         {
-            DataBind();
             List<String> ansList;
             try
             {
-                SqlTransaction tx = sqlcon.BeginTransaction();
                 foreach (string[] str in lst)
                 {
                     ansList = new List<string>();
@@ -277,7 +274,6 @@ namespace OES
                         ansList.Add(s);
                     AddCompletion(str[0], int.Parse(str[2]), int.Parse(str[3]), ansList);
                 }
-                tx.Commit();
             }
             catch (SqlException ex)
             {
@@ -297,12 +293,10 @@ namespace OES
             ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel.ToString(), ParameterDirection.Input));
             try
             {
-                //SqlTransaction tx = sqlcon.BeginTransaction();
                 RunProc("AddCompletion", ddlparam);
                 PID = Convert.ToInt32(ddlparam[0].Value);
                 foreach (string ans in Answer)
                     AddCompletionAnswer(PID, ans);
-                //tx.Commit();
                 return PID;
             }
             catch (SqlException e)
@@ -551,13 +545,10 @@ namespace OES
 
         public void ImportJudgment(List<string[]> lst)
         {
-            DataBind();
             try
             {
-                SqlTransaction tx = sqlcon.BeginTransaction();
                 foreach (string[] str in lst)
                     AddJudgment(str[0], str[1], int.Parse(str[2]), int.Parse(str[3]));
-                tx.Commit();
             }
             catch (SqlException ex)
             {
