@@ -13,7 +13,7 @@ namespace OES.UPanel
     
     public partial class AddFillBlank : UserPanel
     {
-        public static ArrayList addanswer = new ArrayList();
+        public static List<string> addanswer = new List<string>();
         public static List<Answer_Of_FiilBlank> panel = new List<Answer_Of_FiilBlank>();
         public AddFillBlank()
         {
@@ -30,9 +30,9 @@ namespace OES.UPanel
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             String capter = (this.Parent.Parent as AddQuetionPanel).Capter;
-            String diffcuty = (this.Parent.Parent as AddQuetionPanel).Diffucity;
+            String diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
-            if (capter == "" || diffcuty == "" || teststyle == "")
+            if (capter == "" || diffcuty == "" || teststyle == ""||contentOfFillblank.Text=="")
             {
                 MessageBox.Show("请完成试题信息");
             }
@@ -48,7 +48,9 @@ namespace OES.UPanel
                 }
                 if (addanswer.Count > 0)
                 {
-                    MessageBox.Show((String)addanswer[0]);
+                    InfoControl.OesData.AddCompletion(contentOfFillblank.Text, Convert.ToInt32(capter), Convert.ToInt32(diffcuty), addanswer);
+                    MessageBox.Show("保存成功");
+                    this.ReLoad();
                 }
                 else MessageBox.Show("请添加试题答案");
             }

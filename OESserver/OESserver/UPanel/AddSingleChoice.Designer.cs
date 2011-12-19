@@ -60,7 +60,6 @@
             this.Content.Name = "Content";
             this.Content.Size = new System.Drawing.Size(438, 171);
             this.Content.TabIndex = 1;
-            this.Content.TextChanged += new System.EventHandler(this.Content_TextChanged);
             // 
             // pictureBox1
             // 
@@ -221,7 +220,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddSingleChoice";
-            this.Size = new System.Drawing.Size(859, 483);
+            this.Size = new System.Drawing.Size(742, 553);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

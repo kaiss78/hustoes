@@ -21,7 +21,7 @@ namespace OES
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             String capter = (this.Parent.Parent as AddQuetionPanel).Capter;
-            String diffcuty = (this.Parent.Parent as AddQuetionPanel).Diffucity;
+            String diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
             if (Content.Text == "" || Option_A.Text == "" || Option_B.Text == "" || Option_C.Text == "" || Answer_Of_Choice.Text == "" || Option_D.Text == ""||capter==""||diffcuty==""||teststyle=="")
             {
@@ -31,7 +31,10 @@ namespace OES
             
             else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-               
+                InfoControl.OesData.AddChoice(Content.Text, Option_A.Text, Option_B.Text, Option_C.Text, Option_D.Text, Answer_Of_Choice.Text, Convert.ToInt32(diffcuty), Convert.ToInt32(capter));
+                MessageBox.Show("保存成功");
+                this.ReLoad();
+;
             }
             
         }
@@ -55,10 +58,9 @@ namespace OES
             this.Visible = true;
         }
 
-        private void Content_TextChanged(object sender, EventArgs e)
-        {
+      
 
-        }
+        
        
     }
 }
