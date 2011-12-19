@@ -13,7 +13,6 @@ namespace OES
 {
     public partial class AddQuetionPanel : UserPanel
     {
-        int flag = 0;
         AddSingleChoice SingleChoice = new AddSingleChoice();
         AddFillBlank fillblank = new AddFillBlank();
         AddJudge judge = new AddJudge();
@@ -21,7 +20,7 @@ namespace OES
         List<UserPanel> PanelList = new List<UserPanel>();
         private DataTable dtQeueType;
 
-
+        
         public void HidePanel()
         {
             foreach (UserPanel up in PanelList)
@@ -35,6 +34,7 @@ namespace OES
             InitializeComponent();
             plAddQuestion.Controls.Add(SingleChoice);
             plAddQuestion.Controls.Add(fillblank);
+            plAddQuestion.Controls.Add(judge);
             plAddQuestion.Controls.Add(proCompletion);
 
             PanelList = new List<UserPanel>();
@@ -47,10 +47,10 @@ namespace OES
             dtQeueType.Columns.Add("Type", typeof(string));
             dtQeueType.Columns.Add("Value", typeof(int));
             dtQeueType.Rows.Add(new object[2] { "选择题", 0 });
-            dtQeueType.Rows.Add(new object[2] { "选填空", 1 });
-            dtQeueType.Rows.Add(new object[2] { "选判断", 2 });
+            dtQeueType.Rows.Add(new object[2] { "填空题", 1 });
+            dtQeueType.Rows.Add(new object[2] { "判断题", 2 });
             dtQeueType.Rows.Add(new object[2] { "程序填空题", 3 });
-            //dtQeueType.Rows.Add(new object[2] { "选择题", 4 });
+           // dtQeueType.Rows.Add(new object[2] { "", 0 });
 
             cbQueStyle.DataSource = dtQeueType;
             cbQueStyle.DisplayMember = "Type";
@@ -134,7 +134,7 @@ namespace OES
         {
             get
             {
-                return comboBox1.Text;
+                return DifficultyValue.Text;
             }
         }
 
