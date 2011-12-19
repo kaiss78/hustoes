@@ -21,10 +21,8 @@ namespace OES
             List<int> res = new List<int>();
             string[] output, tmp, tmp2;
             List<string> input = new List<string>();
-            DataBind();
             try
             {
-                SqlTransaction tx = sqlcon.BeginTransaction();
                 foreach (string[] str in lst)
                 {
                     if (str[3] == "Comp")
@@ -40,13 +38,13 @@ namespace OES
                     else
                         lang = ProgramProblem.Language.VB;
                     x = AddProgram(str[0], tp, lang, int.Parse(str[1]), int.Parse(str[2]));
-                    tmp = str[8].Split(new string[] { "``" }, StringSplitOptions.RemoveEmptyEntries);
                     if (tp == ProgramProblem.ProType.Function)
                     {
                         tmp = str[7].Split('`');
                         foreach (string s in tmp)
                             input.Add(s);
                     }
+                    tmp = str[8].Split(new string[] { "``" }, StringSplitOptions.RemoveEmptyEntries);
                     for (int i = 0; i < tmp.Length; i++)    //添加答案
                     {
                         tmp2 = tmp[i].Split('`');
@@ -59,7 +57,6 @@ namespace OES
                     }
                     res.Add(x);
                 }
-                tx.Commit();
             }
             catch (SqlException ex)
             {
@@ -75,12 +72,12 @@ namespace OES
             int PID = -1;
             int blankIdx;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 5, PID, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@PContent", SqlDbType.VarChar, 500, PContent, ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Type", SqlDbType.Int, 5, Convert.ToInt32(Type), ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Language", SqlDbType.Int, 5, Convert.ToInt32(Language), ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 5, Unit, ParameterDirection.Input));
-            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 5, PLevel, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Type", SqlDbType.Int, 0, Convert.ToInt32(Type), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Language", SqlDbType.Int, 0, Convert.ToInt32(Language), ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             try
             {
                 RunProc("AddProgram", ddlparam);
@@ -104,7 +101,7 @@ namespace OES
             dp.Add(CreateParam("@Output", SqlDbType.VarChar, 9999, Output, ParameterDirection.Input));
             try
             {
-                RunProc("AddCompletionAnswer", dp);
+                RunProc("AddProgramAnswer", dp);
             }
             catch (SqlException ex)
             {
