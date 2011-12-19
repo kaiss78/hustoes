@@ -54,6 +54,17 @@ namespace OES
             Init();
         }
 
+        public frmAddRule(PaperRule rule)
+        {
+            InitializeComponent();
+            Init();
+            nupdCount.Value = rule.Count;
+            nupdPLevel.Value = rule.PLevel;
+            nupdScore.Value = rule.Score;               
+            cboChapterList.SelectedIndex = dtChapter.Rows.IndexOf(dtChapter.Select("UnitName=\'" + rule.ChapterName + "\'").First());
+            cboPType.SelectedIndex = dtPType.Rows.IndexOf(dtPType.Select("PType=\'" + rule.PTypeName + "\'").First());            
+        }
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             NewRule = new PaperRule();
