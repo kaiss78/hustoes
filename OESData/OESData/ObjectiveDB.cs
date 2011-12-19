@@ -37,10 +37,9 @@ namespace OES
 
         #region 选择题有关的方法 - 全部测试过了
 
-        //批量导入选择题，返回它们的PID
+        //批量导入选择题
         public void ImportChoice(List<string[]> lst)
         {
-            int x;
             DataBind();
             try
             {
@@ -265,7 +264,6 @@ namespace OES
 
         public void ImportCompletion(List<string[]> lst)
         {
-            int x;
             DataBind();
             List<String> ansList;
             try
