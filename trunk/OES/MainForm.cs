@@ -86,25 +86,19 @@ namespace OES
                     temp = new ProblemTabPage("PowerPoint操作题");
                     temp.Controls.Add(officePpt);
                     break;
-                case ProblemType.CProgramCompletion:
-                case ProblemType.CppProgramCompletion:
-                case ProblemType.VbProgramCompletion:
+                case ProblemType.BaseProgramCompletion:
                     pCompletion = new CustomProgramInfo(pt);
                     pCompletion.Font = new Font("宋体", 9);
                     temp = new ProblemTabPage("程序填空题");
                     temp.Controls.Add(pCompletion);
                     break;
-                case ProblemType.CProgramModification:
-                case ProblemType.CppProgramModification:
-                case ProblemType.VbProgramModification:
+                case ProblemType.BaseProgramModification:
                     pModif = new CustomProgramInfo(pt);
                     pModif.Font = new Font("宋体", 9);
                     temp = new ProblemTabPage("程序改错题");
                     temp.Controls.Add(pModif);
                     break;
-                case ProblemType.CProgramFun:
-                case ProblemType.CppProgramFun:
-                case ProblemType.VbProgramFun:
+                case ProblemType.BaseProgramFun:
                     pFunction = new CustomProgramInfo(pt);
                     pFunction.Font = new Font("宋体", 9);
                     temp = new ProblemTabPage("程序综合题");
@@ -148,19 +142,13 @@ namespace OES
                 case ProblemType.Judgment:
                     ClientControl.CurrentProblemNum = ClientControl.paper.judge[judge.GetQuestion()].problemId;
                     break;
-                case ProblemType.CProgramCompletion:
-                case ProblemType.CppProgramCompletion:
-                case ProblemType.VbProgramCompletion:
+                case ProblemType.BaseProgramCompletion:
                     ClientControl.CurrentProblemNum = ClientControl.paper.pCompletion[pCompletion.GetQuestion()].problemId;
                     break;
-                case ProblemType.CProgramModification:
-                case ProblemType.CppProgramModification:
-                case ProblemType.VbProgramModification:
+                case ProblemType.BaseProgramModification:
                     ClientControl.CurrentProblemNum = ClientControl.paper.pModif[pModif.GetQuestion()].problemId;
                     break;
-                case ProblemType.CProgramFun:
-                case ProblemType.CppProgramFun:
-                case ProblemType.VbProgramFun:
+                case ProblemType.BaseProgramFun:
                     ClientControl.CurrentProblemNum = ClientControl.paper.pFunction[pFunction.GetQuestion()].problemId;
                     break;
                 
@@ -184,11 +172,59 @@ namespace OES
             ClientControl.JumpToPro((int)sender);
         }
 
+        bool ProbleTypeEql(ProblemType p1, ProblemType p2)
+        {
+            if (p1 == p2) return true;
+            switch (p1)
+            {
+                case ProblemType.BaseProgramCompletion:
+                    {
+                        if (p2 == ProblemType.CProgramCompletion || p2 == ProblemType.CppProgramCompletion || p2 == ProblemType.VbProgramCompletion)
+                            return true;
+                        break;
+                    }
+                case ProblemType.BaseProgramModification:
+                    {
+                        if (p2 == ProblemType.CProgramModification || p2 == ProblemType.CppProgramModification || p2 == ProblemType.VbProgramModification)
+                            return true;
+                        break;
+                    }
+                case ProblemType.BaseProgramFun:
+                    {
+                        if (p2 == ProblemType.CProgramFun || p2 == ProblemType.CppProgramFun || p2 == ProblemType.VbProgramFun)
+                            return true;
+                        break;
+                    }
+            }
+            switch (p2)
+            {
+                case ProblemType.BaseProgramCompletion:
+                    {
+                        if (p1 == ProblemType.CProgramCompletion || p1 == ProblemType.CppProgramCompletion || p1 == ProblemType.VbProgramCompletion)
+                            return true;
+                        break;
+                    }
+                case ProblemType.BaseProgramModification:
+                    {
+                        if (p1 == ProblemType.CProgramModification || p1 == ProblemType.CppProgramModification || p1 == ProblemType.VbProgramModification)
+                            return true;
+                        break;
+                    }
+                case ProblemType.BaseProgramFun:
+                    {
+                        if (p1 == ProblemType.CProgramFun || p1 == ProblemType.CppProgramFun || p1 == ProblemType.VbProgramFun)
+                            return true;
+                        break;
+                    }
+            }
+            return false;
+        }
+
         internal void JumpPro(ProblemType tab, int index)
         {
             foreach (ProblemTabPage tp in tabControl.TabPages)
             {
-                if (tp.type == tab)
+                if (ProbleTypeEql(tp.type,tab))
                 {
                     tabControl.SelectedIndexChanged -= tabControl_SelectedIndexChanged;
                     tabControl.SelectedTab = tp;

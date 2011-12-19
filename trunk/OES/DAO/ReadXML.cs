@@ -55,7 +55,7 @@ namespace OES.DAO
 
         public static void ReadPCompletion(string path)
         {
-            pXml = new ProblemXML(path + "h.xml", true);
+            pXml = new ProblemXML(path + "g.xml", true);
             if (!pXml.isError)
             {
                 List<PCompletion> list = pXml.GetPCompletionProbelm();
@@ -69,7 +69,7 @@ namespace OES.DAO
 
         public static void ReadPModif(string path)
         {
-            pXml = new ProblemXML(path + "g.xml", true);
+            pXml = new ProblemXML(path + "h.xml", true);
             if (!pXml.isError)
             {
                 List<PModif> list = pXml.GetPModifProbelm();
@@ -145,10 +145,10 @@ namespace OES.DAO
             ReadXML.ReadCompletion(path);
             ReadXML.ReadJudge(path);
             ReadXML.ReadOfficeWord(path);
-            ReadXML.ReadOfficePPT(path);
             ReadXML.ReadOfficeExcel(path);
-            ReadXML.ReadPModif(path);
+            ReadXML.ReadOfficePPT(path);
             ReadXML.ReadPCompletion(path);
+            ReadXML.ReadPModif(path);
             ReadXML.ReadPFunction(path);
         }
     }
