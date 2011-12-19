@@ -14,13 +14,15 @@ namespace OES
         #region paper记录管理
 
         public void ImportPaper(List<string[]> lst)
-        { }
+        {
+            
+        }
 
         public int AddPaper(string GenerateDate, string Title, string TeacherId)
         {
-            int Id = -1;
+            int PaperId = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, Id, ParameterDirection.Output));
+            ddlparam.Add(CreateParam("@PaperId", SqlDbType.Int, 5, PaperId, ParameterDirection.Output));
             ddlparam.Add(CreateParam("@GenerateDate", SqlDbType.DateTime, 0, GenerateDate, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@Title", SqlDbType.VarChar, 500, Title, ParameterDirection.Input));
             ddlparam.Add(CreateParam("@TeacherId", SqlDbType.Int, 5, TeacherId, ParameterDirection.Input));
@@ -40,7 +42,7 @@ namespace OES
         public void DeletePaper(int PaperId)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
-            ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 5, PaperId, ParameterDirection.Input));
+            ddlparam.Add(CreateParam("@PaperId", SqlDbType.Int, 5, PaperId, ParameterDirection.Input));
             try
             {
                 RunProc("DeletePaper", ddlparam);
@@ -52,7 +54,21 @@ namespace OES
         }
 
         public void UpdatePaper(int PaperId, string GenerateDate, string Title, string TeacherId)
-        { }
+        {
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PaperId", SqlDbType.Int, 0, PaperId, ParameterDirection.Input));
+            dp.Add(CreateParam("@GenerateDate", SqlDbType.DateTime, 20, Convert.ToDateTime(GenerateDate), ParameterDirection.Input));
+            dp.Add(CreateParam("@Title", SqlDbType.VarChar, 500, Title, ParameterDirection.Input));
+            dp.Add(CreateParam("@TeacherId", SqlDbType.Int, 0, TeacherId, ParameterDirection.Input));
+            try
+            {
+                RunProc("UpdatePaper", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
 
         public List<Paper> FindPaperByPaperId(int PaperId)
         {
