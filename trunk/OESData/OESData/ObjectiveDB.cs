@@ -42,10 +42,8 @@ namespace OES
         {
             try
             {
-                SqlTransaction tx = sqlcon.BeginTransaction();
                 foreach (string[] str in lst)
                     AddChoice(str[0], str[1], str[2], str[3], str[4], str[5], int.Parse(str[6]), int.Parse(str[7]));
-                tx.Commit();
             }
             catch (SqlException ex)
             {
