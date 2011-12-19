@@ -34,9 +34,9 @@ namespace OES.Model
         public List<OfficeExcel> officeExcel;
         public List<OfficePowerPoint> officePPT;
         public List<OfficeWord> officeWord;
-        public List<PCompletion> pCompletion;
-        public List<PFunction> pFunction;
-        public List<PModif> pModif;
+        public List<ProgramProblem> pCompletion;
+        public List<ProgramProblem> pFunction;
+        public List<ProgramProblem> pModif;
         public List<Problem> problemList;
         public List<Problem>[] ProList = new List<Problem>[12];
 
@@ -47,9 +47,9 @@ namespace OES.Model
             judge = new List<Judgment>();
             officeWord = new List<OfficeWord>();
             officePPT = new List<OfficePowerPoint>();
-            pCompletion = new List<PCompletion>();
-            pModif = new List<PModif>();
-            pFunction = new List<PFunction>();
+            pCompletion = new List<ProgramProblem>();
+            pModif = new List<ProgramProblem>();
+            pFunction = new List<ProgramProblem>();
             problemList = new List<Problem>();
             officeExcel = new List<OfficeExcel>();
             for (int i = 0; i < 12; i++)
