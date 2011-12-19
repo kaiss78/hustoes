@@ -12,6 +12,8 @@ namespace OES.UPanel
         private DataTable dtRule;
         private frmAddRule frmAddRule;
         private List<PaperRule> Rules;
+        private Paper NewPaper;
+        private Random rd;
 
         public PaperInfo()
         {
@@ -92,11 +94,69 @@ namespace OES.UPanel
             }
         }
 
+        private void AddChoice(int Plevel, int Chaptet,int Count,int Score)
+        {
+            rd = new Random();
+            List<Choice> list = InfoControl.OesData.FindAllChoice("", Chaptet, Plevel, 1, int.MaxValue);            
+            while (Count > 0)
+            {
+                int tmp=rd.Next(list.Count);
+                bool flag=true;                
+                foreach (Choice pro in NewPaper.choice)
+                {
+                    if (pro.problemId == list[tmp].problemId)
+                    {
+                        flag = false;
+                    }
+                }                
+                if (flag)
+                {
+                    list[tmp].score = Score;
+                    NewPaper.choice.Add(list[tmp]);
+                    Count--;
+                }
+            }
+
+        }
+
+        private void AddJudgement(int Plevel, int Chaptet, int Count, int Score)
+        {
+            rd = new Random();
+            List<Judgment> list = InfoControl.OesData.FindAllJudgment("", Chaptet, Plevel, 1, int.MaxValue);
+            while (Count > 0)
+            {
+                int tmp = rd.Next(list.Count);
+                bool flag = true;
+                foreach (Judgment pro in NewPaper.judge)
+                {
+                    if (pro.problemId == list[tmp].problemId)
+                    {
+                        flag = false;
+                    }
+                }
+                if (flag)
+                {
+                    list[tmp].score = Score;
+                    NewPaper.judge.Add(list[tmp]);
+                    Count--;
+                }
+            }
+        }
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            NewPaper = new Paper();
+            NewPaper.paperName = tbPaperName.Text;
+            NewPaper.authorId = InfoControl.User.Id;
+            NewPaper.author = InfoControl.User.UserName;
             foreach (PaperRule rule in Rules)
-            { 
-
+            {
+                switch (rule.PType)
+                {
+                    case ProblemType.Choice:
+                        AddChoice(rule.PLevel, rule.Chapter, rule.Count, rule.Score);
+                        break;
+                }
             }
         }
     }
