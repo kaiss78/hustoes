@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddQuetionPanel));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Chapater = new System.Windows.Forms.ComboBox();
+            this.cbCapater = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.DifficultyValue = new System.Windows.Forms.ComboBox();
+            this.cbDifficultyValue = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbQueStyle = new System.Windows.Forms.ComboBox();
             this.plAddQuestion = new System.Windows.Forms.Panel();
@@ -50,23 +50,15 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Chapater
+            // cbCapater
             // 
-            this.Chapater.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Chapater.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Chapater.FormattingEnabled = true;
-            this.Chapater.Items.AddRange(new object[] {
-            "第一章",
-            "第二章",
-            "第三章",
-            "第四章",
-            "第五章",
-            "第六章",
-            "第七章"});
-            this.Chapater.Location = new System.Drawing.Point(56, 83);
-            this.Chapater.Name = "Chapater";
-            this.Chapater.Size = new System.Drawing.Size(108, 24);
-            this.Chapater.TabIndex = 1;
+            this.cbCapater.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCapater.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbCapater.FormattingEnabled = true;
+            this.cbCapater.Location = new System.Drawing.Point(56, 83);
+            this.cbCapater.Name = "cbCapater";
+            this.cbCapater.Size = new System.Drawing.Size(108, 24);
+            this.cbCapater.TabIndex = 1;
             // 
             // label1
             // 
@@ -88,21 +80,21 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "难度";
             // 
-            // DifficultyValue
+            // cbDifficultyValue
             // 
-            this.DifficultyValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DifficultyValue.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.DifficultyValue.FormattingEnabled = true;
-            this.DifficultyValue.Items.AddRange(new object[] {
+            this.cbDifficultyValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDifficultyValue.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbDifficultyValue.FormattingEnabled = true;
+            this.cbDifficultyValue.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.DifficultyValue.Location = new System.Drawing.Point(233, 83);
-            this.DifficultyValue.Name = "DifficultyValue";
-            this.DifficultyValue.Size = new System.Drawing.Size(111, 24);
-            this.DifficultyValue.TabIndex = 4;
+            this.cbDifficultyValue.Location = new System.Drawing.Point(233, 83);
+            this.cbDifficultyValue.Name = "cbDifficultyValue";
+            this.cbDifficultyValue.Size = new System.Drawing.Size(111, 24);
+            this.cbDifficultyValue.TabIndex = 4;
             // 
             // label3
             // 
@@ -123,7 +115,7 @@
             this.cbQueStyle.Name = "cbQueStyle";
             this.cbQueStyle.Size = new System.Drawing.Size(132, 24);
             this.cbQueStyle.TabIndex = 6;
-            this.cbQueStyle.TextChanged += new System.EventHandler(this.comboBox2_TextChanged);
+            this.cbQueStyle.TextChanged += new System.EventHandler(this.cbQueStyle_TextChanged);
             // 
             // plAddQuestion
             // 
@@ -141,10 +133,10 @@
             this.Controls.Add(this.plAddQuestion);
             this.Controls.Add(this.cbQueStyle);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.DifficultyValue);
+            this.Controls.Add(this.cbDifficultyValue);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Chapater);
+            this.Controls.Add(this.cbCapater);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AddQuetionPanel";
             this.Tag = "1";
@@ -157,10 +149,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox Chapater;
+        private System.Windows.Forms.ComboBox cbCapater;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox DifficultyValue;
+        private System.Windows.Forms.ComboBox cbDifficultyValue;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbQueStyle;
         private System.Windows.Forms.Panel plAddQuestion;

@@ -20,7 +20,7 @@ namespace OES
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             String capter = (this.Parent.Parent as AddQuetionPanel).Capter;
-            String diffcuty = (this.Parent.Parent as AddQuetionPanel).Diffucity;
+            String diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
             if (textBox1.Text==""||capter == "" || diffcuty == "" || teststyle == ""||radioButton1.Checked==false||radioButton2.Checked==false)
             {

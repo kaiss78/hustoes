@@ -19,6 +19,8 @@ namespace OES
         ProCompletion proCompletion = new ProCompletion();
         List<UserPanel> PanelList = new List<UserPanel>();
         private DataTable dtQeueType;
+        private DataTable dtUnit=new DataTable();
+        private DataTable dtDiffcult=new DataTable();
 
         
         public void HidePanel()
@@ -46,37 +48,67 @@ namespace OES
             dtQeueType = new DataTable();
             dtQeueType.Columns.Add("Type", typeof(string));
             dtQeueType.Columns.Add("Value", typeof(int));
-            dtQeueType.Rows.Add(new object[2] { "选择题", 0 });
-            dtQeueType.Rows.Add(new object[2] { "填空题", 1 });
-            dtQeueType.Rows.Add(new object[2] { "判断题", 2 });
-            dtQeueType.Rows.Add(new object[2] { "程序填空题", 3 });
+            dtQeueType.Rows.Add(new object[2] { "选择题", 1 });
+            dtQeueType.Rows.Add(new object[2] { "填空题", 2 });
+            dtQeueType.Rows.Add(new object[2] { "判断题", 3 });
+            dtQeueType.Rows.Add(new object[2] { "程序填空题", 4 });
            // dtQeueType.Rows.Add(new object[2] { "", 0 });
-
             cbQueStyle.DataSource = dtQeueType;
             cbQueStyle.DisplayMember = "Type";
             cbQueStyle.ValueMember = "Value";
+            dtUnit.Columns.Add("Unit", typeof(string));
+            dtUnit.Columns.Add("Value", typeof(int));
+            dtUnit.Rows.Add(new object[2] { "第一章", 1 });
+            dtUnit.Rows.Add(new object[2] { "第二章" ,2 });
+            dtUnit.Rows.Add(new object[2] { "第三章", 3 });
+            dtUnit.Rows.Add(new object[2] { "第四章", 4 });
+            dtUnit.Rows.Add(new object[2] { "第五章", 5 });
+            dtUnit.Rows.Add(new object[2] { "第六章", 6 });
+            dtUnit.Rows.Add(new object[2] { "第七章", 7 });
+            cbCapater.DataSource = dtUnit;
+            cbCapater.DisplayMember = "Unit";
+            cbCapater.ValueMember = "Value";
+
+            dtDiffcult.Columns.Add("diffcult", typeof(string));
+            dtDiffcult.Columns.Add("value", typeof(int));
+            dtDiffcult.Rows.Add(new object[2]{"1",1 });
+            dtDiffcult.Rows.Add(new object[2] { "2", 2});
+            dtDiffcult.Rows.Add(new object[2] { "3",3 });
+            dtDiffcult.Rows.Add(new object[2] { "4",4 });
+            dtDiffcult.Rows.Add(new object[2] { "5", 5});
+            cbDifficultyValue.DataSource = dtDiffcult;
+            cbDifficultyValue.DisplayMember = "diffcult";
+            cbDifficultyValue.ValueMember = "value";
             proCompletion.Dock = DockStyle.Fill;
             SingleChoice.Dock = DockStyle.Fill;
             fillblank.Dock = DockStyle.Fill;
-
+            judge.Dock = DockStyle.Fill;
+       
             proCompletion.Visible = false;
             SingleChoice.Visible = false;
             fillblank.Visible = false;
+            judge.Visible = false;
 
         }
 
         public override void ReLoad()
         {
             this.Visible = true;
+            HidePanel();
+            int result;
+            if (Int32.TryParse(cbQueStyle.SelectedValue.ToString(), out result))
+            {
+                PanelList[result - 1].ReLoad();
+            }
         }
 
-        private void comboBox2_TextChanged(object sender, EventArgs e)
+        private void cbQueStyle_TextChanged(object sender, EventArgs e)
         {
             HidePanel();
             int result;
             if (Int32.TryParse(cbQueStyle.SelectedValue.ToString(), out result))
             {
-                PanelList[result].ReLoad();
+                PanelList[result-1].ReLoad();
             }
             //flag++;
             //if (flag > 1)
@@ -125,16 +157,16 @@ namespace OES
         {
             get
             {
-                return Chapater.Text;
+                return cbCapater.SelectedValue.ToString();
             }
 
         }
 
-        public string Diffucity
+        public string Difficulity
         {
             get
             {
-                return DifficultyValue.Text;
+                return cbDifficultyValue.SelectedValue.ToString();
             }
         }
 
@@ -142,18 +174,8 @@ namespace OES
         {
             get
             {
-                return cbQueStyle.Text;
+                return cbQueStyle.SelectedValue.ToString();
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
