@@ -59,10 +59,10 @@ namespace OES
             DataSet Ds = new DataSet();
             List<Paper> result = new List<Paper>();
             List<SqlParameter> dp = new List<SqlParameter>();
-            dp.Add(CreateParam("@Id", SqlDbType.Int, 0, PaperId, ParameterDirection.Input));
+            dp.Add(CreateParam("@PaperId", SqlDbType.Int, 0, PaperId, ParameterDirection.Input));
             try
             {
-                RunProc("FindPaperById", dp, Ds);
+                RunProc("FindPaperByPaperId", dp, Ds);
                 result = DataSetToListPaper(Ds);
             }
             catch (SqlException ex)
@@ -79,7 +79,7 @@ namespace OES
             Ds = new DataSet();
 
             DataBind();
-            SqlCommand Cmd = new SqlCommand("FindPaper", sqlcon);
+            SqlCommand Cmd = new SqlCommand("FindAllPaper", sqlcon);
             Cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter Da = new SqlDataAdapter(Cmd);
             try

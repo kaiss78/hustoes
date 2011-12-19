@@ -19,10 +19,8 @@ namespace OES
             int x;
             OES.Model.Office.OfficeType tp;
             List<int> res = new List<int>();
-            DataBind();
             try
             {
-                SqlTransaction tx = sqlcon.BeginTransaction();
                 foreach (string[] str in lst)
                 {
                     if (str[3] == "Word") tp = OES.Model.Office.OfficeType.Word;
@@ -31,7 +29,6 @@ namespace OES
                     x = AddOffice(str[0], int.Parse(str[1]), int.Parse(str[2]), tp);
                     res.Add(x);
                 }
-                tx.Commit();
             }
             catch (SqlException ex)
             {

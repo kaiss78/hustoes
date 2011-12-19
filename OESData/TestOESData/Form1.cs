@@ -44,6 +44,9 @@ namespace TestOESData
             //MessageBox.Show(oesdata.AddOffice("第2道PPT", 1, 2, OESData.OfficeType.PowerPoint).ToString());
             //oesdata.DeleteOffice(4);
             //oesdata.UpdateOffice(3, "Updated PPT", 3, 5, OESData.OfficeType.PowerPoint);
+
+            //MessageBox.Show(oesdata.AddProgram("fsddfsfs", OES.Model.ProgramProblem.ProType.Modify, OES.Model.ProgramProblem.Language.CPP,
+            //     1, 1).ToString());
             
             string a = "1`1``11``22``33";
             string[] str = a.Split(new string[] { "``" }, StringSplitOptions.RemoveEmptyEntries);
@@ -51,9 +54,18 @@ namespace TestOESData
             for (int i = 0; i < 5; i++)
             {
                 string[] test = new string[9];
+                test[0] = "testImport:" + i.ToString() + "-problem";
+                test[1] = (i * 19 % 5 + 1).ToString();
+                test[2] = (i % 5 + 1).ToString();
+                test[3] = (i % 3 == 0 ? "Comp" : (i % 3 == 1 ? "Modi" : "Prog"));
+                test[4] = (i % 3 == 0 ? "C" : (i % 3 == 1 ? "Cpp" : "Vb"));
+                if (i == 2)
+                    test[7] = "111`222`333";
+                test[8] = "a0`a1`a2``b0`b1`b2``c0`c1`c2";
+                testImport.Add(test);
             }
-
-
+            oesdata.ImportProgram(testImport);
+            
             Application.Exit();
 
         }
