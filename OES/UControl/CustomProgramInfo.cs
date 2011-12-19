@@ -20,6 +20,7 @@ namespace OES.UControl
         //private string path;
         private string filename = "";
         private int proid;
+        private int totalCount;
 
         public int proID
         {
@@ -29,7 +30,7 @@ namespace OES.UControl
                 proid = value;
                 NextProblem.Enabled = true;
                 LastProblem.Enabled = true;
-                if (proid == ClientControl.paper.officeWord.Count - 1)
+                if (proid == totalCount - 1)
                 {
                     NextProblem.Enabled = false;
                 }
@@ -52,14 +53,18 @@ namespace OES.UControl
             {
                 case ProblemType.BaseProgramCompletion:
                     this.Rquest.Text = "根据题目描述完成编程填空题。";
+                    totalCount = ClientControl.paper.pCompletion.Count;
                     break ;
                 case ProblemType.BaseProgramModification:
                     this.Rquest.Text = "根据题目描述完成编程改错题。";
+                    totalCount = ClientControl.paper.pModif.Count;
                     break ;
                 case ProblemType.BaseProgramFun:
                     this.Rquest.Text = "根据题目描述完成编程综合题。";
+                    totalCount = ClientControl.paper.pFunction.Count;
                     break ;
             }
+            this.SetQuestion(proID);
         }
 
         public void SetQuestion(int x)
@@ -141,10 +146,29 @@ namespace OES.UControl
 
         private void laststep_Click(object sender, EventArgs e)
         {
-            if (proID > 0)
+            switch (type)
             {
-                this.SetQuestion(--proID);
-                ClientControl.CurrentProblemNum--;
+                case ProblemType.BaseProgramCompletion:
+                    if (proID >0)
+                    {
+                        this.SetQuestion(--proID);
+                        ClientControl.CurrentProblemNum--;
+                    }
+                    break;
+                case ProblemType.BaseProgramModification:
+                    if (proID >0)
+                    {
+                        this.SetQuestion(--proID);
+                        ClientControl.CurrentProblemNum--;
+                    }
+                    break;
+                case ProblemType.BaseProgramFun:
+                    if (proID >0)
+                    {
+                        this.SetQuestion(--proID);
+                        ClientControl.CurrentProblemNum--;
+                    }
+                    break;
             }
 
         }

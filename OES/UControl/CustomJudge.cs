@@ -52,8 +52,8 @@ namespace OES.UControl
             proID = x;
             judge = ClientControl.GetJudge(proID);
             this.Question.Text = judge.problem;
-            this.TrueButton.Checked = judge.stuAns == "T";
-            this.FalseButton.Checked = judge.stuAns == "F";
+            this.TrueButton.Checked = judge.stuAns == "Y";
+            this.FalseButton.Checked = judge.stuAns == "N";
             if (!string.IsNullOrEmpty(judge.stuAns))
             {
                 ClientControl.SetDone(judge.problemId);
@@ -99,14 +99,14 @@ namespace OES.UControl
 
         private void TrueButton_MouseClick(object sender, MouseEventArgs e)
         {
-            this.CheckAns("T");
-            XMLControl.WriteLogXML(Config.stuPath,ProblemType.Judgment, proID, "T");
+            this.CheckAns("Y");
+            XMLControl.WriteLogXML(Config.stuPath,ProblemType.Judgment, proID, "Y");
         }
 
         private void FalseButton_MouseClick(object sender, MouseEventArgs e)
         {
-            this.CheckAns("F");
-            XMLControl.WriteLogXML(Config.stuPath,ProblemType.Judgment, proID, "F");
+            this.CheckAns("N");
+            XMLControl.WriteLogXML(Config.stuPath,ProblemType.Judgment, proID, "N");
         }
         
     }

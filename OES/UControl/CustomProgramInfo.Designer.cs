@@ -106,6 +106,7 @@
             this.NextProblem.TabIndex = 19;
             this.NextProblem.Text = "下一题";
             this.NextProblem.UseVisualStyleBackColor = true;
+            this.NextProblem.Click += new System.EventHandler(this.nextstep_Click);
             // 
             // Rquest
             // 
@@ -133,6 +134,7 @@
             this.LastProblem.TabIndex = 18;
             this.LastProblem.Text = "上一题";
             this.LastProblem.UseVisualStyleBackColor = true;
+            this.LastProblem.Click += new System.EventHandler(this.laststep_Click);
             // 
             // ProblemRequest
             // 
