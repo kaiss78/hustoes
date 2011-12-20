@@ -223,7 +223,6 @@ namespace ClientNet
                 {
                     ReceiveError(e, null);
                 }
-                SendError(e.ToString());
             }
             try
             {
@@ -236,7 +235,6 @@ namespace ClientNet
                 {
                     DisConnectError(this, null);
                 }
-                SendError(e.ToString());
             }
         }
         /// <summary>
