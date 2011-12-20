@@ -63,9 +63,9 @@ namespace OES
 
 
         //-- Description:   导入学生时添加的班级
-        public string AddClassByImport(string dept, string className)
+        public int AddClassByImport(string dept, string className)
         {
-            string res = "";                //返回ClassId
+            int res = 0;                //返回ClassId
             Ds = new DataSet();
             SqlParameter[] dp = new SqlParameter[2];
             dp[0] = CreateParam("@Dept", SqlDbType.VarChar, 50, dept, ParameterDirection.Input);
@@ -80,7 +80,7 @@ namespace OES
             {
                 Da.Fill(Ds);
                 DataTable dt = Ds.Tables[0];
-                res = dt.Rows[0][0].ToString();
+                res = Convert.ToInt32(dt.Rows[0][0]);
             }
             catch (Exception Ex) { throw Ex; }
             return res;
@@ -313,6 +313,19 @@ namespace OES
 
         #region 学生信息管理
 
+        public void ImportStudent(List<string[]> lst)
+        {
+            try
+            {
+                foreach (string[] str in lst)
+                    AddStudentByImport(str[0], str[1], int.Parse(str[2]), str[3]);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         //-- Description:   验证学生信息是否正确
         public bool ValidateStudentInfo(string studentId, string studentName, string password)
         {
@@ -353,12 +366,12 @@ namespace OES
         }
 
         //-- Description:   批量导入时，导入单个学生的方法
-        public void AddStudentByImport(string id, string name, string classId, string password)
+        public void AddStudentByImport(string id, string name, int classId, string password)
         {
             SqlParameter[] ddlparam = new SqlParameter[4];
             ddlparam[0] = CreateParam("@StudentId", SqlDbType.VarChar, 50, id, ParameterDirection.Input);
             ddlparam[1] = CreateParam("@StudentName", SqlDbType.VarChar, 50, name, ParameterDirection.Input);
-            ddlparam[2] = CreateParam("@ClassId", SqlDbType.VarChar, 50, classId, ParameterDirection.Input);
+            ddlparam[2] = CreateParam("@ClassId", SqlDbType.Int, 0, classId, ParameterDirection.Input);
             ddlparam[3] = CreateParam("@Password", SqlDbType.VarChar, 50, password, ParameterDirection.Input);
             DataBind();
             SqlCommand cmd = new SqlCommand("AddStudent", sqlcon);
@@ -373,7 +386,7 @@ namespace OES
         public void AddManyStudents(string dept, string className, List<string[]> value)
         {
             SqlTransaction tx = sqlcon.BeginTransaction();
-            string classId = AddClassByImport(dept, className);
+            int classId = AddClassByImport(dept, className);
             for (int i = 0; i < value.Count; i++)
             {
                 string name = value[i][0].ToString();
