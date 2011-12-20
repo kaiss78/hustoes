@@ -139,7 +139,8 @@ namespace OESMonitor
                 }
                 
                 state = value;
-                if (state == 3)
+                //加入自动收卷事件
+                if (state == 3 || state == 6 || state==8)
                 {
                     OESMonitor.HandInPaper += this.OESMonitor_HandInPaper;
                 }

@@ -724,6 +724,20 @@ namespace OESMonitor
             }
             return false;
         }
+        public List<string> generateIpDomain()
+        {
+            IPAddress temp;
+            List<string> iplist = new List<string>();
+            if (IPAddress.TryParse(textBoxStartIp.Text, out temp) && IPAddress.TryParse(textBoxEndIp.Text, out temp))
+            {
+                string[] ips = textBoxEndIp.Text.Split('.');
+                for (int i = Convert.ToInt32(textBoxStartIp.Text.Split('.')[3]); i <= Convert.ToInt32(ips[3]); i++)
+                {
+                    iplist.Add(ips[0] + "." + ips[1] + "." + ips[2] + "." + i.ToString());
+                }
+            }
+            return iplist;
+        }
         private void buttonBroadcastOnce_Click(object sender, EventArgs e)
         {
             if (checkIp())
@@ -779,7 +793,26 @@ namespace OESMonitor
         {
             ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
         }
+
+        private void buttonRepeatSingle_Click(object sender, EventArgs e)
+        {
+            if (checkIp())
+            {
+                List<string> iplist = generateIpDomain();
+                foreach (string ip in iplist)
+                {
+                    ServerEvt.BroadcastHelper.DomineIp = ip;
+                    ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("您输入的Ip不合法!");
+            }
+        }
         #endregion
+
+        
 
 
     }
