@@ -36,6 +36,7 @@ namespace OES
                 cbNum.Items.Add(i + 1);
             }
             ProAns=PA;
+            PA.Input = "-";
             rtbAnswer.Text = PA.Output;
             cbNum.SelectedIndex = PA.SeqNum-1;
         }
