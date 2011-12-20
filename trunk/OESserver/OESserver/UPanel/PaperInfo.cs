@@ -204,6 +204,12 @@ namespace OES.UPanel
                     case ProblemType.Choice:
                         AddChoice(rule.PLevel, rule.Chapter, rule.Count, rule.Score);
                         break;
+                    case ProblemType.Completion:
+                        AddCompletion(rule.PLevel, rule.Chapter, rule.Count, rule.Score);
+                        break;
+                    case ProblemType.Judgment:
+                        AddJudgement(rule.PLevel, rule.Chapter, rule.Count, rule.Score);
+                        break;
                 }
             }
         }
