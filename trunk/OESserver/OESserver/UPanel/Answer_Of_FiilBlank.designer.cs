@@ -45,6 +45,7 @@
             // 
             // Answer
             // 
+            this.Answer.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Answer.Location = new System.Drawing.Point(76, 0);
             this.Answer.Multiline = true;
             this.Answer.Name = "Answer";
