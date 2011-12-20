@@ -309,7 +309,7 @@ namespace OES
         {
             List<SqlParameter> dp = new List<SqlParameter>();
             dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
-            dp.Add(CreateParam("@SeqNum", SqlDbType.Int, 1, 0, ParameterDirection.Input));
+            dp.Add(CreateParam("@SeqNum", SqlDbType.Int, 0, 1, ParameterDirection.Input));
             dp.Add(CreateParam("@Answer", SqlDbType.VarChar, 9999, Answer, ParameterDirection.Input));
             try
             {
