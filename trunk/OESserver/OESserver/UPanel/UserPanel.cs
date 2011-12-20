@@ -31,7 +31,7 @@ namespace OES.UPanel
         virtual public void ReLoad(Paper x)
         {
         }
-        virtual public void Reload(int PID, int PType)
+        virtual public void ReLoad(int PID, int PType)
         {
         }
     }

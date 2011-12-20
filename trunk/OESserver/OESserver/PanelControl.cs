@@ -108,7 +108,7 @@ namespace OES
         static public void QueUpdate(int PID,int PType)
         {
             HideAllPanel();
-            panelList[8].Reload(PID, PType);
+            panelList[8].ReLoad(PID, PType);
         }
 
         static public void ReturnToPaper()

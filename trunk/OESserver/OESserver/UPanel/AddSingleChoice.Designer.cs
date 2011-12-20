@@ -53,12 +53,12 @@
             // 
             // Content
             // 
-            this.Content.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Content.Location = new System.Drawing.Point(87, 26);
             this.Content.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Content.Multiline = true;
             this.Content.Name = "Content";
-            this.Content.Size = new System.Drawing.Size(438, 171);
+            this.Content.Size = new System.Drawing.Size(614, 171);
             this.Content.TabIndex = 1;
             // 
             // pictureBox1
@@ -93,11 +93,11 @@
             // 
             // Option_A
             // 
-            this.Option_A.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Option_A.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Option_A.Location = new System.Drawing.Point(127, 221);
             this.Option_A.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Option_A.Name = "Option_A";
-            this.Option_A.Size = new System.Drawing.Size(301, 23);
+            this.Option_A.Size = new System.Drawing.Size(301, 26);
             this.Option_A.TabIndex = 5;
             // 
             // label2
@@ -112,10 +112,10 @@
             // 
             // Option_B
             // 
-            this.Option_B.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Option_B.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Option_B.Location = new System.Drawing.Point(127, 251);
             this.Option_B.Name = "Option_B";
-            this.Option_B.Size = new System.Drawing.Size(302, 23);
+            this.Option_B.Size = new System.Drawing.Size(302, 26);
             this.Option_B.TabIndex = 7;
             // 
             // label3
@@ -130,10 +130,10 @@
             // 
             // Option_C
             // 
-            this.Option_C.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Option_C.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Option_C.Location = new System.Drawing.Point(127, 289);
             this.Option_C.Name = "Option_C";
-            this.Option_C.Size = new System.Drawing.Size(302, 23);
+            this.Option_C.Size = new System.Drawing.Size(302, 26);
             this.Option_C.TabIndex = 9;
             // 
             // label4
@@ -148,10 +148,10 @@
             // 
             // Option_D
             // 
-            this.Option_D.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Option_D.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Option_D.Location = new System.Drawing.Point(127, 324);
             this.Option_D.Name = "Option_D";
-            this.Option_D.Size = new System.Drawing.Size(301, 23);
+            this.Option_D.Size = new System.Drawing.Size(301, 26);
             this.Option_D.TabIndex = 11;
             // 
             // pictureBox3

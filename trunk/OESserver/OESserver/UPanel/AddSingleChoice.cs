@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.UPanel;
+using System.Collections;
+using OES.Model;
+
 
 namespace OES
 {
@@ -58,9 +61,19 @@ namespace OES
             this.Visible = true;
         }
 
-      
 
-        
-       
+        public override void ReLoad(int x)
+        {
+            List<Choice> Choice = new List<Choice>();
+            Choice=InfoControl.OesData.FindChoiceByPID(x);
+            Content.Text = Choice[0].problem;
+            Option_A.Text = Choice[0].optionA;
+            Option_B.Text = Choice[0].optionB;
+            Option_C.Text = Choice[0].optionC;
+            Option_D.Text = Choice[0].optionD;
+            Answer_Of_Choice.Text = Choice[0].ans;
+            this.Visible = true;
+
+        }
     }
 }

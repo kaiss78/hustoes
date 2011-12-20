@@ -53,7 +53,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::OES.Properties.Resources.lbAnswer;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(24, 216);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(60, 25);
@@ -78,7 +78,7 @@
             this.Flase.AutoSize = true;
             this.Flase.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Flase.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.Flase.Location = new System.Drawing.Point(415, 216);
+            this.Flase.Location = new System.Drawing.Point(482, 216);
             this.Flase.Name = "Flase";
             this.Flase.Size = new System.Drawing.Size(55, 24);
             this.Flase.TabIndex = 4;
@@ -88,8 +88,8 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::OES.Properties.Resources.btnSaveData;
-            this.pictureBox3.Location = new System.Drawing.Point(156, 296);
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(168, 296);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(86, 30);
             this.pictureBox3.TabIndex = 5;
@@ -98,8 +98,8 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::OES.Properties.Resources.btnReturn;
-            this.pictureBox4.Location = new System.Drawing.Point(584, 296);
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(473, 296);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(73, 30);
             this.pictureBox4.TabIndex = 6;
@@ -112,7 +112,7 @@
             this.Content.Location = new System.Drawing.Point(109, 35);
             this.Content.Multiline = true;
             this.Content.Name = "Content";
-            this.Content.Size = new System.Drawing.Size(593, 129);
+            this.Content.Size = new System.Drawing.Size(551, 129);
             this.Content.TabIndex = 1;
             // 
             // AddJudge
@@ -128,7 +128,7 @@
             this.Controls.Add(this.Content);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AddJudge";
-            this.Size = new System.Drawing.Size(816, 585);
+            this.Size = new System.Drawing.Size(742, 553);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

@@ -70,7 +70,7 @@
             // 
             // SaveData
             // 
-            this.SaveData.Image = global::OES.Properties.Resources.btnSaveData;
+            this.SaveData.Image = ((System.Drawing.Image)(resources.GetObject("SaveData.Image")));
             this.SaveData.Location = new System.Drawing.Point(76, 479);
             this.SaveData.Name = "SaveData";
             this.SaveData.Size = new System.Drawing.Size(86, 29);
@@ -80,7 +80,7 @@
             // 
             // Return
             // 
-            this.Return.Image = global::OES.Properties.Resources.btnReturn;
+            this.Return.Image = ((System.Drawing.Image)(resources.GetObject("Return.Image")));
             this.Return.Location = new System.Drawing.Point(567, 479);
             this.Return.Name = "Return";
             this.Return.Size = new System.Drawing.Size(89, 29);
@@ -94,7 +94,7 @@
             this.contentOfFillblank.Location = new System.Drawing.Point(96, 17);
             this.contentOfFillblank.Multiline = true;
             this.contentOfFillblank.Name = "contentOfFillblank";
-            this.contentOfFillblank.Size = new System.Drawing.Size(475, 100);
+            this.contentOfFillblank.Size = new System.Drawing.Size(616, 100);
             this.contentOfFillblank.TabIndex = 1;
             // 
             // AddFillBlank

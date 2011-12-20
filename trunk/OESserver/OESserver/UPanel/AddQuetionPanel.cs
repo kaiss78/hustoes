@@ -179,10 +179,16 @@ namespace OES
             }
         }
 
-        public static void  CheckQue(int style,int ID)
- 
-        { 
-
+        public override void  ReLoad(int PID, int PType)
+        {
+            HidePanel();
+            PanelList[PType].ReLoad(PID);
         }
+
+        public void ChangeCb(int x)
+        {
+            cbQueStyle.SelectedValue = x;
+        }
+
     }
 }
