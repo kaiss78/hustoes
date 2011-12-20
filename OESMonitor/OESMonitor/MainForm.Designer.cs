@@ -45,6 +45,9 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             this.netState1 = new OES.NetState();
             this.label5 = new System.Windows.Forms.Label();
             this.lab_DataPortCount = new System.Windows.Forms.Label();
@@ -84,15 +87,14 @@
             this.timer_PortCounter = new System.Windows.Forms.Timer(this.components);
             this.timer_Broadcast = new System.Windows.Forms.Timer(this.components);
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
-            this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
+            this.buttonRepeatSingle = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -107,7 +109,6 @@
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -263,6 +264,41 @@
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "考试状态";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(796, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 14);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "分钟";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(727, 31);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(61, 23);
+            this.numericUpDown1.TabIndex = 10;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(655, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 14);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "考试时间：";
             // 
             // netState1
             // 
@@ -511,6 +547,7 @@
             // 
             // groupBoxBroadcast
             // 
+            this.groupBoxBroadcast.Controls.Add(this.buttonRepeatSingle);
             this.groupBoxBroadcast.Controls.Add(this.buttonBroadcastRepeat);
             this.groupBoxBroadcast.Controls.Add(this.buttonBroadcastOnce);
             this.groupBoxBroadcast.Controls.Add(this.labelRangeIp);
@@ -525,7 +562,7 @@
             // 
             // buttonBroadcastRepeat
             // 
-            this.buttonBroadcastRepeat.Location = new System.Drawing.Point(328, 120);
+            this.buttonBroadcastRepeat.Location = new System.Drawing.Point(162, 120);
             this.buttonBroadcastRepeat.Name = "buttonBroadcastRepeat";
             this.buttonBroadcastRepeat.Size = new System.Drawing.Size(139, 23);
             this.buttonBroadcastRepeat.TabIndex = 4;
@@ -535,7 +572,7 @@
             // 
             // buttonBroadcastOnce
             // 
-            this.buttonBroadcastOnce.Location = new System.Drawing.Point(105, 120);
+            this.buttonBroadcastOnce.Location = new System.Drawing.Point(57, 120);
             this.buttonBroadcastOnce.Name = "buttonBroadcastOnce";
             this.buttonBroadcastOnce.Size = new System.Drawing.Size(75, 23);
             this.buttonBroadcastOnce.TabIndex = 3;
@@ -669,40 +706,15 @@
             this.fileSystemWatcher.EnableRaisingEvents = true;
             this.fileSystemWatcher.SynchronizingObject = this;
             // 
-            // label6
+            // buttonRepeatSingle
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(655, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 14);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "考试时间：";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(727, 31);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(61, 23);
-            this.numericUpDown1.TabIndex = 10;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            120,
-            0,
-            0,
-            0});
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(796, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 14);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "分钟";
+            this.buttonRepeatSingle.Location = new System.Drawing.Point(339, 120);
+            this.buttonRepeatSingle.Name = "buttonRepeatSingle";
+            this.buttonRepeatSingle.Size = new System.Drawing.Size(139, 23);
+            this.buttonRepeatSingle.TabIndex = 5;
+            this.buttonRepeatSingle.Text = "循环单播";
+            this.buttonRepeatSingle.UseVisualStyleBackColor = true;
+            this.buttonRepeatSingle.Click += new System.EventHandler(this.buttonRepeatSingle_Click);
             // 
             // OESMonitor
             // 
@@ -728,6 +740,7 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -745,7 +758,6 @@
             this.tabPage11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -809,6 +821,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button buttonRepeatSingle;
 
     }
 }
