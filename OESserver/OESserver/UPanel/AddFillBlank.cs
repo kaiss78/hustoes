@@ -60,6 +60,7 @@ namespace OES.UPanel
         {
             if (MessageBox.Show("确定返回么？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                PanelControl.ChangPanel(8);
 
             }
         }
