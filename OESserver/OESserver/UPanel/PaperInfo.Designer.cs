@@ -141,6 +141,7 @@
             this.dgvRule.Location = new System.Drawing.Point(3, 22);
             this.dgvRule.Margin = new System.Windows.Forms.Padding(5);
             this.dgvRule.Name = "dgvRule";
+            this.dgvRule.ReadOnly = true;
             this.dgvRule.RowHeadersVisible = false;
             this.dgvRule.RowTemplate.Height = 23;
             this.dgvRule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

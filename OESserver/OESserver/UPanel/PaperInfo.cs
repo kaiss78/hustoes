@@ -14,6 +14,7 @@ namespace OES.UPanel
         private List<PaperRule> Rules;
         private Paper NewPaper;
         private Random rd;
+        private frmPaperPreview paperPreview;
 
         public PaperInfo()
         {
@@ -212,6 +213,9 @@ namespace OES.UPanel
                         break;
                 }
             }
+            paperPreview = new frmPaperPreview(NewPaper);
+            paperPreview.ShowDialog();
+            
         }
     }
 }
