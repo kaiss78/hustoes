@@ -19,9 +19,13 @@ namespace OES.UPanel
         public DataView dvAnsList;
         public int BlankCount;
         public int AnsCount;
-        private int language;
+
+        private int PLevel;
+        private int Unit;
+        private ProgramProblem.Language language;
+        private ProgramProblem.ProType ProType = ProgramProblem.ProType.Completion;
         private bool addnew;
-        
+
         private frmAddAnswer newans;
 
         public ProCompletion()
@@ -29,16 +33,22 @@ namespace OES.UPanel
             InitializeComponent();
         }
 
+        public ProCompletion(ProgramProblem.ProType PT)
+        {
+            InitializeComponent();
+            ProType = PT;
+        }
+
         public override void ReLoad()
         {
             newProblem = new ProgramProblem();
-            rtbPContent.Text = "";            
+            rtbPContent.Text = "";
             tbProblemFile.Text = "";
             BlankCount = 0;
             AnsCount = 0;
 
             dtAnsList = new DataTable();
-            dtAnsList.Columns.Add("SeqNum",typeof(int));
+            dtAnsList.Columns.Add("SeqNum", typeof(int));
             dtAnsList.Columns.Add("Value", typeof(string));
             dvAnsList = new DataView(dtAnsList);
             dvAnsList.Sort = "SeqNum";
@@ -62,13 +72,28 @@ namespace OES.UPanel
                 BlankCount = InfoControl.coutnAnswer(tbProblemFile.Text);
                 Path.GetExtension(ofdBrowser.FileName);
                 MessageBox.Show(Path.GetExtension(ofdBrowser.FileName).ToLower());
-                
+                switch (Path.GetExtension(ofdBrowser.FileName).ToLower())
+                {
+                    case ".c":
+                        language = ProgramProblem.Language.C;
+                        break;
+                    case ".cpp":
+                        language = ProgramProblem.Language.CPP;
+                        break;
+                    case ".vb":
+                        language = ProgramProblem.Language.VB;
+                        break;
+                    default:
+                        language = ProgramProblem.Language.Null;
+                        break;
+                }
+
             }
         }
 
         private void btnAddAns_Click(object sender, EventArgs e)
-        {            
-            
+        {
+
             if (File.Exists(tbProblemFile.Text))
             {
                 if (BlankCount > 0)
@@ -85,12 +110,12 @@ namespace OES.UPanel
                     }
                 }
                 else
-                { 
+                {
 
                 }
             }
             else
-            { 
+            {
 
             }
         }
@@ -98,13 +123,13 @@ namespace OES.UPanel
         private void btnDel_Click(object sender, EventArgs e)
         {
             if (lbAnsList.SelectedIndex >= 0)
-            {                
+            {
                 DataRow dr = dvAnsList[lbAnsList.SelectedIndex].Row;
                 newProblem.ansList.Remove(newProblem.ansList[dtAnsList.Rows.IndexOf(dr)]);
-                dtAnsList.Rows.Remove(dr);                
+                dtAnsList.Rows.Remove(dr);
             }
             else
-            { 
+            {
 
             }
 
@@ -118,10 +143,10 @@ namespace OES.UPanel
                 newans = new frmAddAnswer(BlankCount, newProblem.ansList[dtAnsList.Rows.IndexOf(dr)]);
                 newans.ShowDialog();
                 if (newans.Result)
-                {                    
+                {
                     newProblem.ansList[dtAnsList.Rows.IndexOf(dr)] = newans.ProAns;
                     dr[0] = newans.ProAns.SeqNum;
-                    dr[1]=newans.ProAns.SeqNum.ToString() + ": " + newans.ProAns.Output;
+                    dr[1] = newans.ProAns.SeqNum.ToString() + ": " + newans.ProAns.Output;
                 }
             }
             else
@@ -134,8 +159,22 @@ namespace OES.UPanel
         {
             if (addnew)
             {
-                //InfoControl.OesData.AddProgram(rtbPContent.Text,
+                String Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
+                String PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
+                int PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProType, language, Convert.ToInt32(Unit), Convert.ToInt32(PLevel));
+                if (PID > 0)
+                {
+                    foreach (ProgramAnswer ans in newProblem.ansList)
+                    {
+                        InfoControl.OesData.AddProgramAnswer(PID, ans.SeqNum, ans.Input, ans.Output);
+                    }
+                }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
