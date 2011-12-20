@@ -15,9 +15,13 @@ namespace OES.UPanel
     public partial class QuesBankForm : UserPanel
     {
         private DataTable questionTable;
-        public List<Problem> problemList;
+        public List<Problem> problemList = new List<Problem>();
         public List<Unit> unitList;
         public List<ListItem> listItem = new List<ListItem>();
+        public int quesNum;
+        public ListItem aList;
+        public String pointWords;
+        public int pageNum = 0;
 
         public void InitCombUnit()
         {
@@ -53,16 +57,26 @@ namespace OES.UPanel
 
         public void InitCombPage(int problemNum)
         {
-            int i = 1;
-            int pageNum=0;
-            if (pageNum % 12 != 0)
-                pageNum = problemNum / 12 + 1;
-            else
-                pageNum = problemNum / 12;
+            int i = 2;
+            String num = "第1页";
 
-            String num = "第" + "'"+i+"'" + "页";
-            for (; i <= pageNum; i++)
+            if (problemNum != 0)
+            {
                 this.comboBox4.Items.Add(num);
+                this.comboBox4.SelectedIndex = 0;
+            }
+
+            if (problemNum % 20 != 0)
+                pageNum = problemNum / 20 + 1;
+            else
+                pageNum = problemNum / 20;
+
+            for (; i <= pageNum; i++)
+            {
+                num = "第" + "" + i + "" + "页";
+                this.comboBox4.Items.Add(num);
+            }
+            
         }
 
         public void InitDT()
@@ -79,23 +93,60 @@ namespace OES.UPanel
         public void InitList(int pattern,int unit,int difficulty,String pointwords,int pageIndex)
         {
             InitDT();
-            
-            
+            String tableName="";    
             object[] values = new object[5];
-            problemList = new List<Problem>();
-            //switch (pattern)
-            //{
-            //    case 0: problemList = InfoControl.OesData.FindAllChoice(pointwords,unit,difficulty,pageIndex,12); break;
-            //    case 1: problemList = InfoControl.OesData.FindAllCompletion(pointwords,unit,difficulty,pageIndex,12); break;
-            //    case 2: problemList = InfoControl.OesData.FindAllJudgment(pointwords,unit,difficulty,pageIndex,12); break;
-            //}
+
+            if (difficulty == 0)
+                difficulty = -1;
+            
+            switch (pattern)
+            {
+                case 0: {
+                    tableName = "Choice";
+                    List<Choice> choiceList = InfoControl.OesData.FindAllChoice(pointwords, unit, difficulty, pageIndex, 20);
+                    for (int i = 0; i < choiceList.Count; i++)
+                        problemList.Add(choiceList[i]);
+
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, difficulty, -1, -1);
+
+                } break;
+                case 1: {
+                    tableName = "Completion";
+                    List<Completion> completionList = InfoControl.OesData.FindAllCompletion(pointwords, unit, difficulty, pageIndex, 20);
+                    for (int i = 0; i < completionList.Count; i++)
+                        problemList.Add(completionList[i]);
+
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, difficulty, -1, -1);
+                    
+                }  break;
+                case 2: {
+                    tableName = "Judgment";
+                    List<Judgment> judgmentList = InfoControl.OesData.FindAllJudgment(pointwords, unit, difficulty, pageIndex, 20);
+                    for(int i=0;i<judgmentList.Count;i++)
+                        problemList.Add(judgmentList[i]);
+
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, difficulty, -1, -1);
+                    
+                }  break;
+                case 3: {
+                    tableName = "Program";
+                    List<ProgramProblem> programList = InfoControl.OesData.FindAllProgram(pointwords,ProgramProblem.ProType.Completion,ProgramProblem.Language.Null,unit,difficulty,pageIndex,20);
+                    for (int i = 0; i < programList.Count; i++)
+                        programList.Add(programList[i]);
+
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, difficulty, 0, -1);
+
+                } break;
+            }
+
 
             for (int i = 0; i < problemList.Count; i++)
             {
                 values[0] = false;
                 values[1] = problemList[i].problemId;
                 values[2] = problemList[i].problem;
-                
+                values[3] = problemList[i].unit.UnitName;
+                values[4] = problemList[i].Plevel;
                 questionTable.Rows.Add(values);
             }
 
@@ -114,7 +165,7 @@ namespace OES.UPanel
             ProblemDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
             ProblemDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-
+            problemList.Clear();
         }
 
         public QuesBankForm()
@@ -141,12 +192,29 @@ namespace OES.UPanel
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            //AddQuetionPanel.CheckQue(this.comboBox1.SelectedIndex,Convert.ToInt32(this.ProblemDGV.Rows[Convert.ToInt32(this.ProblemDGV.SelectedRows)].Cells[1].Value));
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < this.ProblemDGV.Rows.Count; i++)
+            {
+                if(Convert.ToBoolean(this.ProblemDGV.Rows[i].Cells[0].Value)==true)
+                    switch (this.comboBox1.SelectedIndex)
+                    {
+                        case 0: InfoControl.OesData.DeleteChoice(Convert.ToInt32(ProblemDGV.Rows[i].Cells[1].Value)); break;
+                        case 1: InfoControl.OesData.DeleteCompletion(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
+                        case 2: InfoControl.OesData.DeleteJudgment(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
+                    }
+               
+            }
+            aList = (ListItem)this.comboBox2.SelectedItem;
+            pointWords = this.textBox1.Text;
 
+            InitList(this.comboBox1.SelectedIndex, Convert.ToInt32(aList.key), this.comboBox3.SelectedIndex, pointWords, 1);
+            this.comboBox4.Items.Clear();
+            InitCombPage(quesNum);
         }
 
         private void ProblemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -160,10 +228,38 @@ namespace OES.UPanel
         
         private void button3_Click(object sender, EventArgs e)
         {
-            ListItem aList = (ListItem)this.comboBox2.SelectedItem;
-            String pointWords = this.textBox1.Text;
-            InitList(this.comboBox1.SelectedIndex,Convert.ToInt32(aList.key),this.comboBox3.SelectedIndex-1,pointWords,1);
+            aList = (ListItem)this.comboBox2.SelectedItem;
+            pointWords = this.textBox1.Text;
+         
+            InitList(this.comboBox1.SelectedIndex,Convert.ToInt32(aList.key),this.comboBox3.SelectedIndex,pointWords,1);
+            this.comboBox4.Items.Clear();
+            InitCombPage(quesNum);
 
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitList(this.comboBox1.SelectedIndex, Convert.ToInt32(aList.key), this.comboBox3.SelectedIndex, pointWords,this.comboBox4.SelectedIndex+1);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.comboBox4.SelectedIndex > 0)
+                this.comboBox4.SelectedIndex = this.comboBox4.SelectedIndex - 1;
+            else
+                MessageBox.Show("当前为第一页");
+
+            InitList(this.comboBox1.SelectedIndex, Convert.ToInt32(aList.key), this.comboBox3.SelectedIndex, pointWords, this.comboBox4.SelectedIndex+1);
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.comboBox4.SelectedIndex < pageNum - 1)
+                this.comboBox4.SelectedIndex = this.comboBox4.SelectedIndex + 1;
+            else
+                MessageBox.Show("当前为最后一页");
+
+            InitList(this.comboBox1.SelectedIndex, Convert.ToInt32(aList.key), this.comboBox3.SelectedIndex, pointWords, this.comboBox4.SelectedIndex+1);
         }
 
        

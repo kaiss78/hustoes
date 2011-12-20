@@ -103,6 +103,14 @@ namespace OES
             panelList[x].HideAll();
             panelList[x].ReLoad(y);
         }
+
+
+        static public void QueUpdate(int PID,int PType)
+        {
+            HideAllPanel();
+            panelList[8].Reload(PID, PType);
+        }
+
         static public void ReturnToPaper()
         {
             HideAllPanel();

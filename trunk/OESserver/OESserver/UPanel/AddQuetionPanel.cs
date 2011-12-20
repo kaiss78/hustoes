@@ -178,7 +178,9 @@ namespace OES
                 return cbQueStyle.SelectedValue.ToString();
             }
         }
+
         public static void  CheckQue(int style,int ID)
+ 
         { 
 
         }
