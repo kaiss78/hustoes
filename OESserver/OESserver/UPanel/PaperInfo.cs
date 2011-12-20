@@ -183,34 +183,34 @@ namespace OES.UPanel
             }
         }
 
-        private void AddPCompletion(ProgramProblem.Language language, int Plevel, int Chaptet, int Count, int Score)
-        {
-            rd = new Random();
-            List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("",ProgramProblem.ProType.Completion,language, Chaptet, Plevel, 1, int.MaxValue);
-            if (list.Count < Count)
-            {
-                MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            while (Count > 0)
-            {
-                int tmp = rd.Next(list.Count);
-                bool flag = true;
-                foreach (ProgramProblem pro in NewPaper.pCompletion)
-                {
-                    if (pro.problemId == list[tmp].problemId)
-                    {
-                        flag = false;
-                    }
-                }
-                if (flag)
-                {
-                    list[tmp].score = Score;
-                    NewPaper.pCompletion.Add(list[tmp]);
-                    Count--;
-                }
-            }
-        }
+        //private void AddPCompletion(ProgramProblem.Language language, int Plevel, int Chaptet, int Count, int Score)
+        //{
+        //    rd = new Random();
+        //    List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("",ProgramProblem.ProType.Completion,language, Chaptet, Plevel, 1, int.MaxValue);
+        //    if (list.Count < Count)
+        //    {
+        //        MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return;
+        //    }
+        //    while (Count > 0)
+        //    {
+        //        int tmp = rd.Next(list.Count);
+        //        bool flag = true;
+        //        foreach (ProgramProblem pro in NewPaper.pCompletion)
+        //        {
+        //            if (pro.problemId == list[tmp].problemId)
+        //            {
+        //                flag = false;
+        //            }
+        //        }
+        //        if (flag)
+        //        {
+        //            list[tmp].score = Score;
+        //            NewPaper.pCompletion.Add(list[tmp]);
+        //            Count--;
+        //        }
+        //    }
+        //}
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
