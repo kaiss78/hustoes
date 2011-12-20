@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using OES.UPanel;
 using System.Collections;
+using OES.Model;
 
 namespace OES
 {
@@ -176,6 +177,10 @@ namespace OES
             {
                 return cbQueStyle.SelectedValue.ToString();
             }
+        }
+        public void CheckQue(int style,int ID)
+        { 
+
         }
     }
 }

@@ -22,7 +22,7 @@ namespace OES
             String capter = (this.Parent.Parent as AddQuetionPanel).Capter;
             String diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
-            if (textBox1.Text==""||capter == "" || diffcuty == "" || teststyle == ""||radioButton1.Checked==false||radioButton2.Checked==false)
+            if (Content.Text==""||capter == "" || diffcuty == "" || teststyle == ""||True.Checked==false||Flase.Checked==false)
             {
                 MessageBox.Show("请完成试题信息");
             }
@@ -30,7 +30,12 @@ namespace OES
 
             else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-
+                String Answer;
+                if (True.Text = true)
+                    Answer = Y;
+                
+                else
+                    Answer = N;
             }
         }
 
@@ -38,16 +43,16 @@ namespace OES
         {
             if (MessageBox.Show("确定返回么？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-
+                PanelControl.ChangPanel(8);
             }
         }
 
 
         public override void  ReLoad()
         {
-            this.textBox1.Text = "";
-            this.radioButton1.Checked = false;
-            this.radioButton2.Checked = false;
+            this.Content.Text = "";
+            this.True.Checked = false;
+            this.Flase.Checked = false;
             this.Visible = true;
         }
 

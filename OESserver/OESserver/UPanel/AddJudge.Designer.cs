@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddJudge));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.True = new System.Windows.Forms.RadioButton();
+            this.Flase = new System.Windows.Forms.RadioButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.Content = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -51,15 +51,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(109, 35);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(593, 129);
-            this.textBox1.TabIndex = 1;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::OES.Properties.Resources.lbAnswer;
@@ -69,31 +60,31 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
-            // radioButton1
+            // True
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.radioButton1.Location = new System.Drawing.Point(187, 216);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(55, 24);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "正确";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.True.AutoSize = true;
+            this.True.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.True.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.True.Location = new System.Drawing.Point(187, 216);
+            this.True.Name = "True";
+            this.True.Size = new System.Drawing.Size(55, 24);
+            this.True.TabIndex = 3;
+            this.True.TabStop = true;
+            this.True.Text = "正确";
+            this.True.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // Flase
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.radioButton2.Location = new System.Drawing.Point(415, 216);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(55, 24);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "错误";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.Flase.AutoSize = true;
+            this.Flase.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Flase.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.Flase.Location = new System.Drawing.Point(415, 216);
+            this.Flase.Name = "Flase";
+            this.Flase.Size = new System.Drawing.Size(55, 24);
+            this.Flase.TabIndex = 4;
+            this.Flase.TabStop = true;
+            this.Flase.Text = "错误";
+            this.Flase.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
             // 
@@ -115,6 +106,15 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
+            // Content
+            // 
+            this.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Content.Location = new System.Drawing.Point(109, 35);
+            this.Content.Multiline = true;
+            this.Content.Name = "Content";
+            this.Content.Size = new System.Drawing.Size(593, 129);
+            this.Content.TabIndex = 1;
+            // 
             // AddJudge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -122,10 +122,10 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.Flase);
+            this.Controls.Add(this.True);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Content);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AddJudge";
             this.Size = new System.Drawing.Size(816, 585);
@@ -141,12 +141,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton True;
+        private System.Windows.Forms.RadioButton Flase;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.TextBox Content;
 
     }
 }
