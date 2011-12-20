@@ -49,7 +49,6 @@ namespace OES
         //-- Description:   批量导入班级
         public void AddManyClasses(List<string[]> value)
         {
-            SqlTransaction tx = sqlcon.BeginTransaction();
             for (int i = 0; i < value.Count; i++)
             {
                 string dept = value[i][0].ToString();
@@ -57,7 +56,6 @@ namespace OES
                 string userName = value[i][2].ToString();
                 AddClassByClassImport(dept, className, userName);
             }
-            tx.Commit();
         }
 
 
