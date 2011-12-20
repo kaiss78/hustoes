@@ -58,7 +58,61 @@ namespace OES.Model
             }
             paperID = -1;
         }
-            
+
+        public static string GetPTypeName(ProblemType pt)
+        {
+            switch (pt)
+            {
+                case ProblemType.Choice:
+                    return "选择题";
+                    break;
+                case ProblemType.Completion:
+                    return "填空题";
+                    break;
+                case ProblemType.Judgment:
+                    return "判断题";
+                    break;
+                case ProblemType.Word:
+                    return "Word题";
+                    break;
+                case ProblemType.PowerPoint:
+                    return "PowerPoint题";
+                    break;
+                case ProblemType.Excel:
+                    return "Excel题";
+                    break;
+                case ProblemType.CProgramCompletion:
+                    return "C程序填空题";
+                    break;
+                case ProblemType.CProgramModification:
+                    return "C程序改错题";
+                    break;
+                case ProblemType.CProgramFun:
+                    return "C程序综合题";
+                    break;
+                case ProblemType.CppProgramCompletion:
+                    return "C++程序填空题";
+                    break;
+                case ProblemType.CppProgramModification:
+                    return "C++程序改错题";
+                    break;
+                case ProblemType.CppProgramFun:
+                    return "C++程序综合题";
+                    break;
+                case ProblemType.VbProgramCompletion:
+                    return "VB程序填空题";
+                    break;
+                case ProblemType.VbProgramModification:
+                    return "VB程序改错题";
+                    break;
+                case ProblemType.VbProgramFun:
+                    return "VB程序综合题";
+                    break;
+
+
+            }
+            return "";
+        }
         public void Add(Problem p)
         {
             if (p is Choice)
@@ -110,7 +164,7 @@ namespace OES.Model
 
             problemList.Add(p);
         }
-    }
+    }       
     public enum ProblemType
     {
         Choice=0,
