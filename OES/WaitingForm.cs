@@ -36,6 +36,7 @@ namespace OES
                 OES.DAO.MD5File.GenerateSecurityFile("End");
                 if(Directory.Exists(Config.paperPath))
                     Directory.Delete(Config.paperPath,true);
+                Directory.Move(Config.stuPath, Config.HistoryPath+DateTime.Now.Ticks.ToString());
             }));
         }
 
