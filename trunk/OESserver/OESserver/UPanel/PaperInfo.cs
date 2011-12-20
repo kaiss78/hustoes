@@ -98,7 +98,12 @@ namespace OES.UPanel
         private void AddChoice(int Plevel, int Chaptet,int Count,int Score)
         {
             rd = new Random();
-            List<Choice> list = InfoControl.OesData.FindAllChoice("", Chaptet, Plevel, 1, int.MaxValue);            
+            List<Choice> list = InfoControl.OesData.FindAllChoice("", Chaptet, Plevel, 1, int.MaxValue);
+            if (list.Count < Count)
+            {
+                MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             while (Count > 0)
             {
                 int tmp=rd.Next(list.Count);
@@ -124,6 +129,11 @@ namespace OES.UPanel
         {
             rd = new Random();
             List<Judgment> list = InfoControl.OesData.FindAllJudgment("", Chaptet, Plevel, 1, int.MaxValue);
+            if (list.Count < Count)
+            {
+                MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             while (Count > 0)
             {
                 int tmp = rd.Next(list.Count);
@@ -148,6 +158,11 @@ namespace OES.UPanel
         {
             rd = new Random();
             List<Completion> list = InfoControl.OesData.FindAllCompletion("", Chaptet, Plevel, 1, int.MaxValue);
+            if (list.Count < Count)
+            {
+                MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             while (Count > 0)
             {
                 int tmp = rd.Next(list.Count);
@@ -172,6 +187,11 @@ namespace OES.UPanel
         {
             rd = new Random();
             List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("",ProgramProblem.ProType.Completion,language, Chaptet, Plevel, 1, int.MaxValue);
+            if (list.Count < Count)
+            {
+                MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             while (Count > 0)
             {
                 int tmp = rd.Next(list.Count);
