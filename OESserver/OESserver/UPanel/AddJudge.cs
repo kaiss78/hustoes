@@ -31,8 +31,11 @@ namespace OES
             else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 String Answer;
+      
+
                 if (True.Checked == true)
                     Answer = "Y";
+
                 else
                     Answer = "N";
                 InfoControl.OesData.AddJudgment(Content.Text, Answer, Convert.ToInt32(capter), Convert.ToInt32(diffcuty));

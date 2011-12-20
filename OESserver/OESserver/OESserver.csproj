@@ -161,6 +161,7 @@
     <EmbeddedResource Include="Form\frmAddRule.resx">
       <DependentUpon>frmAddRule.cs</DependentUpon>
       <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmAddAnswer.resx">
       <DependentUpon>frmAddAnswer.cs</DependentUpon>
