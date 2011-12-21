@@ -32,23 +32,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OESMonitor));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flp_Onexam = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flp_CompleteExam = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flp_Disconnect = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.netState1 = new OES.NetState();
             this.label5 = new System.Windows.Forms.Label();
             this.lab_DataPortCount = new System.Windows.Forms.Label();
             this.buttonExamStatue = new System.Windows.Forms.Button();
@@ -88,6 +87,8 @@
             this.timer_Broadcast = new System.Windows.Forms.Timer(this.components);
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             this.buttonRepeatSingle = new System.Windows.Forms.Button();
+            this.netState1 = new OES.NetState();
+            this.timer_BroadcastSingle = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -111,15 +112,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flp_Onexam
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 33);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(589, 398);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flp_Onexam.AutoScroll = true;
+            this.flp_Onexam.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.flp_Onexam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flp_Onexam.Location = new System.Drawing.Point(18, 33);
+            this.flp_Onexam.Name = "flp_Onexam";
+            this.flp_Onexam.Size = new System.Drawing.Size(589, 398);
+            this.flp_Onexam.TabIndex = 0;
             // 
             // panel1
             // 
@@ -155,7 +156,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
+            this.tabPage1.Controls.Add(this.flp_Onexam);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
@@ -168,7 +169,7 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.flowLayoutPanel2);
+            this.tabPage2.Controls.Add(this.flp_CompleteExam);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -187,20 +188,20 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "考试状态";
             // 
-            // flowLayoutPanel2
+            // flp_CompleteExam
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(18, 33);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(589, 398);
-            this.flowLayoutPanel2.TabIndex = 4;
+            this.flp_CompleteExam.AutoScroll = true;
+            this.flp_CompleteExam.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.flp_CompleteExam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flp_CompleteExam.Location = new System.Drawing.Point(18, 33);
+            this.flp_CompleteExam.Name = "flp_CompleteExam";
+            this.flp_CompleteExam.Size = new System.Drawing.Size(589, 398);
+            this.flp_CompleteExam.TabIndex = 4;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label3);
-            this.tabPage3.Controls.Add(this.flowLayoutPanel3);
+            this.tabPage3.Controls.Add(this.flp_Disconnect);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -219,15 +220,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "考试状态";
             // 
-            // flowLayoutPanel3
+            // flp_Disconnect
             // 
-            this.flowLayoutPanel3.AutoScroll = true;
-            this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(18, 33);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(589, 398);
-            this.flowLayoutPanel3.TabIndex = 7;
+            this.flp_Disconnect.AutoScroll = true;
+            this.flp_Disconnect.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.flp_Disconnect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flp_Disconnect.Location = new System.Drawing.Point(18, 33);
+            this.flp_Disconnect.Name = "flp_Disconnect";
+            this.flp_Disconnect.Size = new System.Drawing.Size(589, 398);
+            this.flp_Disconnect.TabIndex = 7;
             // 
             // tabControl2
             // 
@@ -299,16 +300,6 @@
             this.label6.Size = new System.Drawing.Size(77, 14);
             this.label6.TabIndex = 9;
             this.label6.Text = "考试时间：";
-            // 
-            // netState1
-            // 
-            this.netState1.BackColor = System.Drawing.Color.Transparent;
-            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.netState1.Location = new System.Drawing.Point(636, 3);
-            this.netState1.Name = "netState1";
-            this.netState1.Size = new System.Drawing.Size(213, 26);
-            this.netState1.State = 0;
-            this.netState1.TabIndex = 8;
             // 
             // label5
             // 
@@ -666,6 +657,7 @@
             // 
             // flowLayoutPanelDir
             // 
+            this.flowLayoutPanelDir.AutoScroll = true;
             this.flowLayoutPanelDir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelDir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelDir.Location = new System.Drawing.Point(3, 3);
@@ -715,6 +707,20 @@
             this.buttonRepeatSingle.Text = "循环单播";
             this.buttonRepeatSingle.UseVisualStyleBackColor = true;
             this.buttonRepeatSingle.Click += new System.EventHandler(this.buttonRepeatSingle_Click);
+            // 
+            // netState1
+            // 
+            this.netState1.BackColor = System.Drawing.Color.Transparent;
+            this.netState1.Font = new System.Drawing.Font("宋体", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.netState1.Location = new System.Drawing.Point(636, 3);
+            this.netState1.Name = "netState1";
+            this.netState1.Size = new System.Drawing.Size(213, 26);
+            this.netState1.State = 0;
+            this.netState1.TabIndex = 8;
+            // 
+            // timer_BroadcastSingle
+            // 
+            this.timer_BroadcastSingle.Tick += new System.EventHandler(this.timer_BroadcastSingle_Tick);
             // 
             // OESMonitor
             // 
@@ -766,15 +772,15 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flp_Onexam;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flp_CompleteExam;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel flp_Disconnect;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl2;
@@ -822,6 +828,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonRepeatSingle;
+        private System.Windows.Forms.Timer timer_BroadcastSingle;
 
     }
 }

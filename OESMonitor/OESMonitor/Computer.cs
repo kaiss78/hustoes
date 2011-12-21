@@ -234,8 +234,8 @@ namespace OESMonitor
             if (this.State != 4)
             {
                 this.State = 0;
-                errorList.Add(this);
-                Computer.Del(this);
+                ErrorList.Add(this);
+                Computer.ComputerList.Remove(this);
                 OnErrorConnect(this, null);
             }
         }
@@ -286,6 +286,7 @@ namespace OESMonitor
                         break;
                     case "4":
                         client.SendTxt("oes$4$"+Password);
+                        File.WriteAllText(PaperControl.PathConfig["StuRarKey"] + Student.ID + ".pwd", Password);
                         break;
                     default:
                         break;
@@ -308,7 +309,7 @@ namespace OESMonitor
         bool client_LoginValidating(string name, string id, string pwd)
         {
             if (File.Exists(PaperControl.PathConfig["StuAns"] + id+".rar")) return false;
-            foreach (Computer c in computerList)
+            foreach (Computer c in ComputerList)
             {
                 if (c.student.ID == id)
                 {
@@ -426,15 +427,15 @@ namespace OESMonitor
 
         private void Computer_MouseClick(object sender, MouseEventArgs e)
         {
-            foreach (Computer c in computerList)
+            foreach (Computer c in ComputerList)
             {
                 c.BorderStyle = BorderStyle.None;
             }
-            foreach (Computer c in completeList)
+            foreach (Computer c in CompleteList)
             {
                 c.BorderStyle = BorderStyle.None;
             }
-            foreach (Computer c in errorList)
+            foreach (Computer c in ErrorList)
             {
                 c.BorderStyle = BorderStyle.None;
             }
@@ -449,14 +450,6 @@ namespace OESMonitor
             {
                 ComputerState.getInstance().setIpPort("已离开", 0);
             }
-        }
-        public static void Add(Computer c)
-        {
-            computerList.Add(c);
-        }
-        public static void Del(Computer c)
-        {
-            computerList.Remove(c);
         }
     }
 }
