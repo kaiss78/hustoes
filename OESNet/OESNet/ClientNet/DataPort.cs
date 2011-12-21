@@ -43,7 +43,7 @@ namespace ClientNet
                 filePath = value;
                 if (File.Exists(filePath))
                 {
-                    fileLength=new FileInfo(filePath).Length;
+                    fileLength = new FileInfo(filePath).Length;
                 }
                 else
                 {
