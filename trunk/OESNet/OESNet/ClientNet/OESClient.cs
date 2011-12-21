@@ -321,9 +321,12 @@ namespace ClientNet
 #if DEBUG
             logForm.InsertMsg("In [OESClient.SendFileMsg]");
 #endif
-            FileInfo fi=new FileInfo(port.FilePath);
-            string tmsg = "cmd#2#"+fi.Length.ToString();
-            WriteMsg(tmsg);
+            if (File.Exists(port.FilePath))
+            {
+                FileInfo fi = new FileInfo(port.FilePath);
+                string tmsg = "cmd#2#" + fi.Length.ToString();
+                WriteMsg(tmsg);
+            }
         }
         
         /// <summary>
