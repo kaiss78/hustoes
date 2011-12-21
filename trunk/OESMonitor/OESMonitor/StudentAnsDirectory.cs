@@ -22,7 +22,7 @@ namespace OESMonitor
         public StudentAnsDirectory(string path)
         {
             InitializeComponent();
-            Text = new DirectoryInfo(path).Name;
+            Text = new FileInfo(path).Name.Replace(".rar","");
         }
         public string Text
         {

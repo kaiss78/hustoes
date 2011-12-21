@@ -10,6 +10,7 @@ namespace OESMonitor
     {
         public static OESConfig PathConfig = new OESConfig("PathConfig.xml",new string[,]{
             {"StuAns",@"C:\OES\Student\"},
+            {"StuRarKey",@"C:\OES\Student\Key\"},
             {"TmpPaper",@"C:\OES\TmpPaper\"}
         });
         public static OESConfig PwdConfig = new OESConfig("PwdConfig.xml", new string[,]{

@@ -179,7 +179,8 @@ namespace OESMonitor
             fileSystemWatcher.Renamed += new RenamedEventHandler(fileSystemWatcher_Renamed);
             fileSystemWatcher.Created += new FileSystemEventHandler(fileSystemWatcher_Changed);
             fileSystemWatcher.EnableRaisingEvents = true;
-            foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            //foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            foreach (string path in Directory.GetFiles(PaperControl.PathConfig["StuAns"]))
             {
                 StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
                 studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
@@ -193,7 +194,8 @@ namespace OESMonitor
         #region 考生文件夹操作
         void studentAnsDirectory_OnDelete(StudentAnsDirectory e)
         {
-            Directory.Delete(PaperControl.PathConfig["StuAns"] + e.Text, true);
+            //Directory.Delete(PaperControl.PathConfig["StuAns"] + e.Text, true);
+            File.Delete(PaperControl.PathConfig["StuAns"] + e.Text+".rar");
         }
 
         void studentAnsDirectory_OnView(StudentAnsDirectory e)
@@ -206,7 +208,8 @@ namespace OESMonitor
         void fileSystemWatcher_Renamed(object sender, RenamedEventArgs e)
         {
             flowLayoutPanelDir.Controls.Clear();
-            foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            //foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            foreach (string path in Directory.GetFiles(PaperControl.PathConfig["StuAns"]))
             {
                 StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
                 studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
@@ -218,7 +221,8 @@ namespace OESMonitor
         void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
             flowLayoutPanelDir.Controls.Clear();
-            foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            //foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            foreach (string path in Directory.GetFiles(PaperControl.PathConfig["StuAns"]))
             {
                 StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
                 studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
@@ -556,6 +560,18 @@ namespace OESMonitor
                     return;
                 }
             }
+            if (!Directory.Exists(PaperControl.PathConfig["StuRarKey"]))
+            {
+                try
+                {
+                    Directory.CreateDirectory(PaperControl.PathConfig["StuRarKey"]);
+                }
+                catch
+                {
+                    MessageBox.Show("无法建立考生答案密码文件夹");
+                    return;
+                }
+            }
             if (!Directory.Exists(PaperControl.PathConfig["TmpPaper"]))
             {
                 try
@@ -641,17 +657,19 @@ namespace OESMonitor
                 if (Computer.ComputerList[i].Client.Port == dataPort)
                 {
                     //对考生文件解密
-                    if (RARHelper.Exists())
-                    {
-                        RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
-                        while (!Directory.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\")) ;
-                        File.WriteAllText(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\password.txt", Computer.ComputerList[i].Password);
-                    }
+                    //if (RARHelper.Exists())
+                    //{
+                    //    RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
+                    //    while (!Directory.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\")) ;
+                    //    File.WriteAllText(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\password.txt", Computer.ComputerList[i].Password);
+                    //}
+                    //Computer.ComputerList[i].State = 4;
+                    //if (File.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar"))
+                    //{
+                    //    File.Delete(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar");
+                    //}
+                    File.WriteAllText(PaperControl.PathConfig["StuRarKey"] + Computer.ComputerList[i].Student.ID + ".pwd", Computer.ComputerList[i].Password);
                     Computer.ComputerList[i].State = 4;
-                    if (File.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar"))
-                    {
-                        File.Delete(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar");
-                    }
                     Computer.CompleteList.Add(Computer.ComputerList[i]);
                     Computer.ComputerList.Remove(Computer.ComputerList[i]);
                     UpdateList();
