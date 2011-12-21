@@ -393,7 +393,7 @@ namespace ClientNet
             catch (Exception e)
             {
                 //网络出错处理程序
-                SendError(e.ToString());
+                //Console.WriteLine("[{0}] {1}",DateTime.Now.ToString(),e.ToString());
             }
         }
         /// <summary>
