@@ -16,11 +16,21 @@ namespace OESMonitor
 {
     public partial class Computer : UserControl
     {
+        private static object syncComputerList = new object();
+        private static object syncCompleteList = new object();
+        private static object syncErrorList = new object();
+
         private static List<Computer> computerList = new List<Computer>();
 
         public static List<Computer> ComputerList
         {
-            get { return Computer.computerList; }
+            get 
+            {
+                lock (syncComputerList)
+                {
+                    return Computer.computerList; 
+                }
+            }
             //set { Computer.computerList = value; }
         }
 
@@ -28,14 +38,26 @@ namespace OESMonitor
 
         public static List<Computer> CompleteList
         {
-            get { return Computer.completeList; }
+            get
+            {
+                lock (syncCompleteList)
+                {
+                    return Computer.completeList;
+                }
+            }
             //set { Computer.completeList = value; }
         }
         private static List<Computer> errorList = new List<Computer>();
 
         public static List<Computer> ErrorList
         {
-            get { return Computer.errorList; }
+            get
+            {
+                lock (syncErrorList)
+                {
+                    return Computer.errorList;
+                }
+            }
             //set { Computer.errorList = value; }
         }
 
@@ -285,7 +307,7 @@ namespace OESMonitor
 
         bool client_LoginValidating(string name, string id, string pwd)
         {
-            if (Directory.Exists(PaperControl.PathConfig["StuAns"] + id)) return false;
+            if (File.Exists(PaperControl.PathConfig["StuAns"] + id+".rar")) return false;
             foreach (Computer c in computerList)
             {
                 if (c.student.ID == id)
