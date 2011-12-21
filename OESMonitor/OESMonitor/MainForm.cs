@@ -607,14 +607,22 @@ namespace OESMonitor
             ServerEvt.Server.ReceivedMsg += new ClientEventHandel(Server_ReceivedMsg);
             ServerEvt.Server.WrittenMsg += new ClientEventHandel(Server_WrittenMsg);
             RetrieveHostIpv4Address();
+
             if (alternativeIp.Count == 0)
             {
                 MessageBox.Show("无正确的Ipv4网络连接！");
+            }
+            else if (alternativeIp.Count == 1)
+            {
+                ServerEvt.Server.ip = alternativeIp[0];
+                ServerEvt.Server.StartServer();
+                OESServer.Config["HostIp"] = ServerEvt.Server.ip.ToString();
             }
             else if (alternativeIp.Count > 1)
             {
                 ServerEvt.Server.ip = ChooseIp.CurrentForm(alternativeIp).ShowDialog(this);
                 ServerEvt.Server.StartServer();
+                OESServer.Config["HostIp"] = ServerEvt.Server.ip.ToString();
             }
             else
             {
