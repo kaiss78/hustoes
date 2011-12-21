@@ -36,6 +36,7 @@ namespace OESMonitor
         public static List<int> examPaperIdList = new List<int>();
         public static List<string> examPaperNameList = new List<string>();
 
+        //统一收卷的事件
         public static int HandInCount = 0;
         private static event Action handInPaper;
         public static event Action HandInPaper
@@ -49,7 +50,7 @@ namespace OESMonitor
                 handInPaper -= value;
             }
         }
-
+        //是否开始考试
         bool isStartExam = false;
         public bool IsStartExam
         {
@@ -195,12 +196,12 @@ namespace OESMonitor
         void studentAnsDirectory_OnDelete(StudentAnsDirectory e)
         {
             //Directory.Delete(PaperControl.PathConfig["StuAns"] + e.Text, true);
-            File.Delete(PaperControl.PathConfig["StuAns"] + e.Text+".rar");
+            File.Delete(PaperControl.PathConfig["StuAns"] + e.Text + ".rar");
         }
 
         void studentAnsDirectory_OnView(StudentAnsDirectory e)
         {
-            Process.Start(PaperControl.PathConfig["StuAns"] + e.Text);
+            Process.Start(PaperControl.PathConfig["StuAns"] + e.Text + ".rar");
         }
         #endregion
 
@@ -329,9 +330,9 @@ namespace OESMonitor
                 com.State = 1;
                 com.Client = client;
                 com.OnErrorConnect += new System.IO.ErrorEventHandler(com_OnErrorConnect);
-                Computer.Add(com);
+                Computer.ComputerList.Add(com);
 
-                UpdateList();
+                AddToFlp(flp_Onexam, com);
             }));
         }
         #endregion
@@ -343,14 +344,28 @@ namespace OESMonitor
         }
 
         #region 更新界面上的电脑图标
+        private void AddToFlp(FlowLayoutPanel f, Computer c)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                f.Controls.Add(c);
+            }));
+        }
+        private void RemoveFromFlp(FlowLayoutPanel f, Computer c)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                f.Controls.Remove(c);
+            }));
+        }
         private void UpdateList()
         {
             this.Invoke(new MethodInvoker(() =>
                         {
-                            flowLayoutPanel1.Controls.Clear();
+                            flp_Onexam.Controls.Clear();
                             foreach (Computer c in Computer.ComputerList)
                             {
-                                flowLayoutPanel1.Controls.Add(c);
+                                flp_Onexam.Controls.Add(c);
                             }
                         }));
         }
@@ -358,10 +373,10 @@ namespace OESMonitor
         {
             this.Invoke(new MethodInvoker(() =>
                         {
-                            flowLayoutPanel2.Controls.Clear();
+                            flp_CompleteExam.Controls.Clear();
                             foreach (Computer c in Computer.CompleteList)
                             {
-                                flowLayoutPanel2.Controls.Add(c);
+                                flp_CompleteExam.Controls.Add(c);
                             }
                         }));
         }
@@ -369,10 +384,10 @@ namespace OESMonitor
         {
             this.Invoke(new MethodInvoker(() =>
                         {
-                            flowLayoutPanel3.Controls.Clear();
+                            flp_Disconnect.Controls.Clear();
                             foreach (Computer c in Computer.ErrorList)
                             {
-                                flowLayoutPanel3.Controls.Add(c);
+                                flp_Disconnect.Controls.Add(c);
                             }
                         }));
         }
@@ -668,12 +683,11 @@ namespace OESMonitor
                     //{
                     //    File.Delete(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar");
                     //}
-                    File.WriteAllText(PaperControl.PathConfig["StuRarKey"] + Computer.ComputerList[i].Student.ID + ".pwd", Computer.ComputerList[i].Password);
                     Computer.ComputerList[i].State = 4;
+                    AddToFlp(flp_CompleteExam, Computer.ComputerList[i]);
+                    RemoveFromFlp(flp_Onexam, Computer.ComputerList[i]);
                     Computer.CompleteList.Add(Computer.ComputerList[i]);
                     Computer.ComputerList.Remove(Computer.ComputerList[i]);
-                    UpdateList();
-                    UpdateCompleteList();
                     HandInCount--;
                     if (HandInCount == 0)
                     {
@@ -767,7 +781,7 @@ namespace OESMonitor
                 MessageBox.Show("您输入的Ip不合法!");
             }
         }
-
+        //是否开始广播循环
         private bool isStartBroadcastRepeat = false;
 
         public bool IsStartBroadcastRepeat
@@ -785,16 +799,46 @@ namespace OESMonitor
                     timer_Broadcast.Start();
                     buttonBroadcastRepeat.Text = "停止广播";
                     buttonBroadcastOnce.Enabled = false;
+                    buttonRepeatSingle.Enabled = false;
                 }
                 else
                 {
                     timer_Broadcast.Stop();
                     buttonBroadcastRepeat.Text = "每10s广播一次";
                     buttonBroadcastOnce.Enabled = true;
+                    buttonRepeatSingle.Enabled = true;
                 }
             }
         }
+        //是否开始单播循环
+        private bool isStartRepeatSingle = false;
 
+        public bool IsStartRepeatSingle
+        {
+            get
+            {
+                return isStartRepeatSingle;
+            }
+            set
+            {
+                isStartRepeatSingle = value;
+                if (isStartRepeatSingle)
+                {
+                    timer_BroadcastSingle.Interval = 10000;
+                    timer_BroadcastSingle.Start();
+                    buttonRepeatSingle.Text = "停止单播";
+                    buttonBroadcastOnce.Enabled = false;
+                    buttonBroadcastRepeat.Enabled = false;
+                }
+                else
+                {
+                    timer_BroadcastSingle.Stop();
+                    buttonRepeatSingle.Text = "循环单播";
+                    buttonBroadcastOnce.Enabled = true;
+                    buttonBroadcastRepeat.Enabled = true;
+                }
+            }
+        }
         private void buttonBroadcastRepeat_Click(object sender, EventArgs e)
         {
             if (checkIp())
@@ -807,31 +851,33 @@ namespace OESMonitor
             }
         }
 
-        private void timer_Broadcast_Tick(object sender, EventArgs e)
-        {
-            ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
-        }
-
         private void buttonRepeatSingle_Click(object sender, EventArgs e)
         {
             if (checkIp())
             {
-                List<string> iplist = generateIpDomain();
-                foreach (string ip in iplist)
-                {
-                    ServerEvt.BroadcastHelper.DomineIp = ip;
-                    ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
-                }
+                IsStartRepeatSingle = !IsStartRepeatSingle;
             }
             else
             {
                 MessageBox.Show("您输入的Ip不合法!");
             }
         }
-        #endregion
 
+        private void timer_Broadcast_Tick(object sender, EventArgs e)
+        {
+            ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
+        }
+
+        private void timer_BroadcastSingle_Tick(object sender, EventArgs e)
+        {
+            List<string> iplist = generateIpDomain();
+            foreach (string ip in iplist)
+            {
+                ServerEvt.BroadcastHelper.DomineIp = ip;
+                ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
+            }
+        }
         
-
-
+        #endregion
     }
 }
