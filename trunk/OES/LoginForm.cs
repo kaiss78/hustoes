@@ -97,9 +97,12 @@ namespace OES
 
         private void butLogin_Click(object sender, EventArgs e)
         {
-            //学生信息验证
-            ClientControl.student = new Student(this.SName.Text, "", this.ExamNo.Text, this.Password.Text);
-            ClientEvt.validStudent(ClientControl.student.sName, ClientControl.student.ID, ClientControl.student.password);
+            if (netState1.State == 1)
+            {
+                //学生信息验证
+                ClientControl.student = new Student(this.SName.Text, "", this.ExamNo.Text, this.Password.Text);
+                ClientEvt.validStudent(ClientControl.student.sName, ClientControl.student.ID, ClientControl.student.password);
+            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
