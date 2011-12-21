@@ -52,6 +52,7 @@ namespace ServerNet
         private Queue<int> availablePorts = new Queue<int>();
         //线程同步锁
         private static object syncLock = new object();
+        private static object syncIsPortAvailable = new object();
         //数据端口预定个数
         private int portsRequest = int.Parse(Config["DataPortNum"]);
         //数据端口准备就绪
@@ -64,10 +65,13 @@ namespace ServerNet
             get { return isPortAvailable; }
             set
             {
-                isPortAvailable = value;
-                if (isPortAvailable)
+                lock (syncIsPortAvailable)
                 {
-                    ProvideClientService();
+                    isPortAvailable = value;
+                    if (isPortAvailable)
+                    {
+                        ProvideClientService();
+                    }
                 }
             }
         }
