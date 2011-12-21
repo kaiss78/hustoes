@@ -339,16 +339,22 @@ namespace ServerNet
                     while ((RequestingQueue.Count != 0) && (PortQueue.Count != 0))
                     {
                         tclient = RequestingQueue.Dequeue();
-                        tclient.Port = PortQueue.Dequeue();
-                        tclient.Port.IsSend = false;
-                        tclient.fetchData();
+                        if (tclient.IsConnected)
+                        {
+                            tclient.Port = PortQueue.Dequeue();
+                            tclient.Port.IsSend = false;
+                            tclient.fetchData();
+                        }
                     }
                     while ((SubmitingQueue.Count != 0) && (PortQueue.Count != 0))
                     {
                         tclient = SubmitingQueue.Dequeue();
-                        tclient.Port = PortQueue.Dequeue();
-                        tclient.Port.IsSend = true;
-                        tclient.sendData();
+                        if (tclient.IsConnected)
+                        {
+                            tclient.Port = PortQueue.Dequeue();
+                            tclient.Port.IsSend = true;
+                            tclient.sendData();
+                        }
                     }
                 }
             }
@@ -433,7 +439,8 @@ namespace ServerNet
                         }
                         else
                         {
-                            RequestingQueue.Enqueue(client);
+                            if(!RequestingQueue.Contains(client))
+                                RequestingQueue.Enqueue(client);
                         }
                         break;
                         #endregion
@@ -448,7 +455,8 @@ namespace ServerNet
                         }
                         else
                         {
-                            SubmitingQueue.Enqueue(client);
+                            if(!SubmitingQueue.Contains(client))
+                                SubmitingQueue.Enqueue(client);
                         }
                         break;
                         #endregion

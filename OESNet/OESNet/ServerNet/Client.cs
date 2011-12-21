@@ -111,6 +111,16 @@ namespace ServerNet
             }
         }
 
+        public bool IsConnected
+        {
+            get
+            {
+                if (client == null) return false;
+                if (client.Connected) return true;
+                else return false;
+            }
+        }
+
         /// <summary>
         /// Client构造函数
         /// </summary>
@@ -292,8 +302,12 @@ namespace ServerNet
 #if DEBUG
             OESServer.logForm.InsertMsg("In [Client.SendFileMsg]");
 #endif
-            FileInfo fi = new FileInfo(filename);
-            return "cmd#1#1#" + port.ip.ToString() + "#" + port.localPort.ToString() + "#" + fi.Name.ToString() + "#" + fi.Length.ToString();
+            if (File.Exists(filename))
+            {
+                FileInfo fi = new FileInfo(filename);
+                return "cmd#1#1#" + port.ip.ToString() + "#" + port.localPort.ToString() + "#" + fi.Name.ToString() + "#" + fi.Length.ToString();
+            }
+            return "";
         }
 
         /// <summary>
