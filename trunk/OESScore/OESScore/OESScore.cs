@@ -10,6 +10,7 @@ using System.IO;
 using OES.Model;
 using OES.Net;
 using OES.XMLFile;
+using OES;
 
 namespace OESScore
 {
@@ -206,6 +207,22 @@ namespace OESScore
             {
                 if (Directory.Exists(fbdPaperPath.SelectedPath))
                 {
+                    if (RARHelper.Exists())
+                    {
+                        foreach (FileInfo f in new DirectoryInfo(fbdPaperPath.SelectedPath).GetFiles())
+                        {
+                            string pass;
+                            if (!File.Exists(fbdPaperPath.SelectedPath + "\\Key\\" + f.Name.Replace(".rar", "") + ".pwd"))
+                            { continue; }
+                            using (StreamReader sr = new StreamReader(fbdPaperPath.SelectedPath + "\\Key\\" + f.Name.Replace(".rar", "")+".pwd", Encoding.Default))
+                            {
+                                pass = sr.ReadToEnd();
+                            }
+                            RARHelper.UnCompressRAR(fbdPaperPath.SelectedPath+"\\" + f.Name.Replace(".rar", "") + "\\", fbdPaperPath.SelectedPath+"\\", f.Name, true, pass);
+                            while (!Directory.Exists(fbdPaperPath.SelectedPath+"\\" + f.Name.Replace(".rar", "") + "\\")) ;
+                        }
+
+                    }
                     ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath;
                     tsslPath.Text = ScoreControl.config["PaperPath"];
                     LoadStudentList();

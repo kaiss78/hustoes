@@ -139,6 +139,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Rar\RARHelper.cs" />
     <Compile Include="ScoreControl.cs" />
     <Compile Include="StaAns.cs" />
     <Compile Include="StuFolder.cs" />
