@@ -9,7 +9,7 @@ namespace OES.Model
     {
         public string stuName;
         public string paperTitle;
-        public string score;
+        public int Value;
         public string stuClassName;
         public List<Sum> sum;
         public List<IdScoreType> detail;
