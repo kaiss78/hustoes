@@ -424,48 +424,48 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 ProgramProblem problem = new ProgramProblem();
-                ProgramProblem.Language language=(ProgramProblem.Language)Convert.ToInt32(p_Data.Rows[j]["Language"]);
-                ProgramProblem.ProType type = (ProgramProblem.ProType)Convert.ToInt32(p_Data.Rows[j]["Type"]);
+                PLanguage language=(PLanguage)Convert.ToInt32(p_Data.Rows[j]["Language"]);
+                ProgramPType type = (ProgramPType)Convert.ToInt32(p_Data.Rows[j]["Type"]);
                 switch (language)
                 {
-                    case ProgramProblem.Language.C:
+                    case PLanguage.C:
                         switch (type)
                         {
-                            case ProgramProblem.ProType.Completion:
+                            case ProgramPType.Completion:
                                 problem = new PCompletion(ProblemType.CProgramCompletion);
                                 break;
-                            case ProgramProblem.ProType.Modify:
+                            case ProgramPType.Modify:
                                 problem = new PModif(ProblemType.CProgramModification);
                                 break;
-                            case ProgramProblem.ProType.Function:
+                            case ProgramPType.Function:
                                 problem = new PFunction(ProblemType.CProgramFun);
                                 break;
                         }
                         break;
-                    case ProgramProblem.Language.CPP:
+                    case PLanguage.CPP:
                         switch (type)
                         {
-                            case ProgramProblem.ProType.Completion:
+                            case ProgramPType.Completion:
                                 problem = new PCompletion(ProblemType.CppProgramCompletion);
                                 break;
-                            case ProgramProblem.ProType.Modify:
+                            case ProgramPType.Modify:
                                 problem = new PModif(ProblemType.CppProgramModification);
                                 break;
-                            case ProgramProblem.ProType.Function:
+                            case ProgramPType.Function:
                                 problem = new PFunction(ProblemType.CppProgramFun);
                                 break;
                         }
                         break;
-                    case ProgramProblem.Language.VB:
+                    case PLanguage.VB:
                         switch (type)
                         {
-                            case ProgramProblem.ProType.Completion:
+                            case ProgramPType.Completion:
                                 problem = new PCompletion(ProblemType.VbProgramCompletion);
                                 break;
-                            case ProgramProblem.ProType.Modify:
+                            case ProgramPType.Modify:
                                 problem = new PModif(ProblemType.VbProgramModification);
                                 break;
-                            case ProgramProblem.ProType.Function:
+                            case ProgramPType.Function:
                                 problem = new PFunction(ProblemType.VbProgramFun);
                                 break;
                         }
@@ -489,16 +489,16 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 PFunction problem=new PFunction(ProblemType.CProgramFun);
-                ProgramProblem.Language language=(ProgramProblem.Language)Convert.ToInt32(p_Data.Rows[j]["Language"]);
+                PLanguage language=(PLanguage)Convert.ToInt32(p_Data.Rows[j]["Language"]);
                 switch (language)
                 {
-                    case ProgramProblem.Language.C:
+                    case PLanguage.C:
                         problem = new PFunction(ProblemType.CProgramFun);
                         break;
-                    case ProgramProblem.Language.CPP:
+                    case PLanguage.CPP:
                         problem = new PFunction(ProblemType.CppProgramFun);
                         break;
-                    case ProgramProblem.Language.VB:
+                    case PLanguage.VB:
                         problem = new PFunction(ProblemType.VbProgramFun);
                         break;
                 }
@@ -548,16 +548,16 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 PCompletion problem=new PCompletion(ProblemType.CProgramCompletion);
-                ProgramProblem.Language language = (ProgramProblem.Language)Convert.ToInt32(p_Data.Rows[j]["Language"]);
+                PLanguage language = (PLanguage)Convert.ToInt32(p_Data.Rows[j]["Language"]);
                 switch (language)
                 {
-                    case ProgramProblem.Language.C:
+                    case PLanguage.C:
                         problem = new PCompletion(ProblemType.CProgramCompletion);
                         break;
-                    case ProgramProblem.Language.CPP:
+                    case PLanguage.CPP:
                         problem = new PCompletion(ProblemType.CppProgramCompletion);
                         break;
-                    case ProgramProblem.Language.VB:
+                    case PLanguage.VB:
                         problem = new PCompletion(ProblemType.VbProgramCompletion);
                         break;
                 }
@@ -599,16 +599,16 @@ namespace OES
             {
 
                 PModif problem=new PModif(ProblemType.CProgramModification);
-                ProgramProblem.Language language = (ProgramProblem.Language)Convert.ToInt32(p_Data.Rows[j]["Language"]);
+                PLanguage language = (PLanguage)Convert.ToInt32(p_Data.Rows[j]["Language"]);
                 switch (language)
                 {
-                    case ProgramProblem.Language.C:
+                    case PLanguage.C:
                         problem = new PModif(ProblemType.CProgramModification);
                         break;
-                    case ProgramProblem.Language.CPP:
+                    case PLanguage.CPP:
                         problem = new PModif(ProblemType.CppProgramModification);
                         break;
-                    case ProgramProblem.Language.VB:
+                    case PLanguage.VB:
                         problem = new PModif(ProblemType.VbProgramModification);
                         break;
                 }
