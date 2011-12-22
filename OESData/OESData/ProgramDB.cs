@@ -16,8 +16,8 @@ namespace OES
         public List<int> ImportProgram(List<string[]> lst)
         {
             int x;
-            ProgramProblem.ProType tp;
-            ProgramProblem.Language lang;
+            ProgramPType tp;
+            PLanguage lang;
             List<int> res = new List<int>();
             string[] output, tmp, tmp2;
             List<string> input = new List<string>();
@@ -26,19 +26,19 @@ namespace OES
                 foreach (string[] str in lst)
                 {
                     if (str[3] == "Comp")
-                        tp = ProgramProblem.ProType.Completion;
+                        tp = ProgramPType.Completion;
                     else if (str[3] == "Modi")
-                        tp = ProgramProblem.ProType.Modify;
+                        tp = ProgramPType.Modify;
                     else
-                        tp = ProgramProblem.ProType.Function;
+                        tp = ProgramPType.Function;
                     if (str[4] == "C")
-                        lang = ProgramProblem.Language.C;
+                        lang = PLanguage.C;
                     else if (str[4] == "Cpp")
-                        lang = ProgramProblem.Language.CPP;
+                        lang = PLanguage.CPP;
                     else
-                        lang = ProgramProblem.Language.VB;
+                        lang = PLanguage.VB;
                     x = AddProgram(str[0], tp, lang, int.Parse(str[1]), int.Parse(str[2]));
-                    if (tp == ProgramProblem.ProType.Function)
+                    if (tp == ProgramPType.Function)
                     {
                         tmp = str[7].Split('`');
                         foreach (string s in tmp)
@@ -48,7 +48,7 @@ namespace OES
                     for (int i = 0; i < tmp.Length; i++)    //添加答案
                     {
                         tmp2 = tmp[i].Split('`');
-                        if (tp == ProgramProblem.ProType.Function)
+                        if (tp == ProgramPType.Function)
                             foreach (string s in tmp2)
                                 AddProgramAnswer(x, i + 1, input[i], s);
                         else
@@ -67,7 +67,7 @@ namespace OES
 
         //增加编程的综合题，返回PID
         //如果不需要Input的话，就new一个新的List<List<string>>作为Input
-        public int AddProgram(string PContent, ProgramProblem.ProType Type, ProgramProblem.Language Language, int Unit,int PLevel)
+        public int AddProgram(string PContent, ProgramPType Type, PLanguage Language, int Unit,int PLevel)
         {
             int PID = -1;
             int blankIdx;
@@ -124,7 +124,7 @@ namespace OES
             }
         }
 
-        public void UpdateProgram(int PID, ProgramProblem.ProType Type, ProgramProblem.Language Language, int Unit, int PLevel)
+        public void UpdateProgram(int PID, ProgramPType Type, PLanguage Language, int Unit, int PLevel)
         {
             List<SqlParameter> dp = new List<SqlParameter>();
             dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
@@ -236,9 +236,9 @@ namespace OES
             if (result.Count > 0)
             {
                 res = result[0];
-                if (res.Type == ProgramProblem.ProType.Completion)
+                if (res.Type == ProgramPType.Completion)
                     return (PCompletion)res;
-                else if (res.Type == ProgramProblem.ProType.Modify)
+                else if (res.Type == ProgramPType.Modify)
                     return (PModif)res;
                 else
                     return (PFunction)res;
@@ -246,7 +246,7 @@ namespace OES
             return result;
         }
         */
-        public List<ProgramProblem> FindAllProgram(string PContent, ProgramProblem.ProType Type, ProgramProblem.Language Language, int Unit, int PLevel,
+        public List<ProgramProblem> FindAllProgram(string PContent, ProgramPType Type, PLanguage Language, int Unit, int PLevel,
             int PageIndex, int PageSize)
         {
             List<ProgramProblem> result = new List<ProgramProblem>();
