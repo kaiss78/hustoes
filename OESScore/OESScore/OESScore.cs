@@ -18,6 +18,7 @@ namespace OESScore
     {
         
         public DataTable dtStuList = new DataTable();
+        public DataView dvStuList = new DataView();
         public List<PaperFolder> papers = new List<PaperFolder>();
         private List<StuFolder> StuList = new List<StuFolder>();
 
@@ -31,7 +32,26 @@ namespace OESScore
                     Directory.CreateDirectory(st);
                 }
             }
+            dtStuList = new DataTable();
+            dtStuList.Columns.Add("学号");
+            dtStuList.Columns.Add("姓名");
+            dtStuList.Columns.Add("试卷名称");
+            dtStuList.Columns.Add("成绩",typeof(int));
+            dtStuList.Columns.Add("状态");
 
+            dvStuList=new DataView(dtStuList);            
+            dgvStudentTable.DataSource = dvStuList;
+            dgvStudentTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvStudentTable.Columns[0].FillWeight = 20;
+            dgvStudentTable.Columns[1].FillWeight = 20;
+            dgvStudentTable.Columns[2].FillWeight = 20;
+            dgvStudentTable.Columns[3].FillWeight = 10;
+            dgvStudentTable.Columns[4].FillWeight = 10;
+ 
+
+
+            dtStuList.Columns.Add("状态");
             #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
             netState1.State = 2;
@@ -81,23 +101,6 @@ namespace OESScore
         }
         #endregion
 
-        /// <summary>
-        /// 往表格中添加试卷信息
-        /// </summary>
-        /// <param name="ID">试卷ID</param>
-        /// <param name="Name">试卷名</param>
-        /// <param name="Progress">评分进度</param>
-        /// <param name="count">考生答案总数</param>
-        public void AddToDGV(PaperFolder pf)
-        {
-            DataGridViewProgressBarCell tmp = new DataGridViewProgressBarCell();
-            object[] values = new object[4];
-            values[0] = pf.paperInfo.paperID;
-            values[1] = pf.paperInfo.paperName;
-            values[2] = 50;
-            values[3] = ScoreControl.GetFolderInfo(pf.Path.FullName).Count;
-            dgvStudentTable.Rows.Add(values);
-        }
 
         /// <summary>
         /// 载入试卷
@@ -111,7 +114,7 @@ namespace OESScore
             List<DirectoryInfo> studentList;
             StuList = new List<StuFolder>();
             studentList = ScoreControl.GetFolderInfo(ScoreControl.config["PaperPath"]);
-            dgvStudentTable.Rows.Clear();
+            dtStuList.Rows.Clear();
             object[] values = new object[4];
             int i=0;
 
@@ -147,7 +150,7 @@ namespace OESScore
                     values[1] = tmpSF.StuInfo.sName;
                     values[2] = tmpSF.PaperInfo.paperName;
                     values[3] = tmpSF.Score.Value;
-                    dgvStudentTable.Rows.Add(values);
+                    dtStuList.Rows.Add(values);                    
                 }
                 processBar.Value = ++i * 100 / studentList.Count ;
             } 
@@ -258,20 +261,22 @@ namespace OESScore
         /// <param name="e"></param>
         private void dgvPaperTable_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int RIndex = e.RowIndex;
+            int RIndex = dtStuList.Rows.IndexOf(dvStuList[e.RowIndex].Row);
             if (RIndex > -1)
             {
                 StuList[RIndex].Score.Value=Mark(RIndex);
-                dgvStudentTable.Rows[RIndex].Cells[3].Value= StuList[RIndex].Score.Value;
+                dtStuList.Rows[RIndex][3]= StuList[RIndex].Score.Value;
             }
         }
 
         private void btnScore_Click(object sender, EventArgs e)
         {
+            int RIndex;
             for (int i = 0; i < StuList.Count; i++)
             {
+                RIndex = dtStuList.Rows.IndexOf(dvStuList[i].Row);
                 StuList[i].Score.Value = Mark(i);
-                dgvStudentTable.Rows[i].Cells[3].Value = StuList[i].Score.Value;
+                dtStuList.Rows[RIndex][3]= StuList[i].Score.Value;
             }            
         }
 
