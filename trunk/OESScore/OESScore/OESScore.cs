@@ -282,7 +282,7 @@ namespace OESScore
         {
             int RIndex = dtStuList.Rows.IndexOf(dvStuList[e.RowIndex].Row);
             if (RIndex > -1)
-            {
+            {                
                 StuList[RIndex].Score.Value=Mark(RIndex);
                 dtStuList.Rows[RIndex][3]= StuList[RIndex].Score.Value;
             }
