@@ -26,7 +26,7 @@ namespace OESScore
                 Score.addDetail(ist.pt, ist.score);
                 tot = tot + ist.score;
             }
-            Score.score = tot.ToString();
+            Score.Value = tot;
         }
     }
 }
