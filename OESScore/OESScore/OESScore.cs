@@ -117,6 +117,7 @@ namespace OESScore
             studentList = ScoreControl.GetFolderInfo(ScoreControl.config["PaperPath"]);
             dgvStudentTable.Rows.Clear();
             object[] values = new object[4];
+            int i=0;
 
             foreach (DirectoryInfo stu in studentList)
             {
@@ -152,6 +153,7 @@ namespace OESScore
                     values[3] = tmpSF.Score.Value;
                     dgvStudentTable.Rows.Add(values);
                 }
+                processBar.Value = ++i * 100 / studentList.Count ;
             } 
         }
 
@@ -160,6 +162,7 @@ namespace OESScore
         {
             for (int i = 0; i < StuList.Count; i++)
             {
+                processBar.Value = (i+1) * 100 / StuList.Count;
                 Mark(i);
             }
         }
@@ -171,6 +174,7 @@ namespace OESScore
             StuList[RIndex].Score.sum = new List<Sum>();
             ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID.ToString());
             XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
+            int i = 0;
             foreach (Answer ans in StuList[RIndex].StuAns.Ans)
             {
                 dScore = 0;
@@ -181,6 +185,7 @@ namespace OESScore
                 StuList[RIndex].Score.addDetail(ans.Type, dScore);
                 XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
                 Score += dScore;
+                processBar.Value = ++i * 100 / StuList[RIndex].StuAns.Ans.Count;
             }
 
             if (File.Exists(StuList[RIndex].path.FullName + "\\g.c"))  //程序改错
@@ -204,6 +209,8 @@ namespace OESScore
         {
             if (RARHelper.Exists())
             {
+                int count = Directory.GetFiles(path).Length;
+                int i=0;
                 foreach (FileInfo f in new DirectoryInfo(path).GetFiles())
                 {
                     if (f.Extension == ".rar")
@@ -218,6 +225,7 @@ namespace OESScore
                         RARHelper.UnCompressRAR(path + "\\" + f.Name.Replace(".rar", "") + "\\", path + "\\", f.Name, true, pass);
                         while (!Directory.Exists(path + "\\" + f.Name.Replace(".rar", "") + "\\")) ;
                     }
+                    processBar.Value = ++i * 100 / count;
                 }
             }
         }
@@ -278,6 +286,7 @@ namespace OESScore
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            UncompressAllStudentAns(ScoreControl.config["PaperPath"]);
             LoadStudentList();
         }
     }

@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formOESScore));
             this.ss = new System.Windows.Forms.StatusStrip();
             this.tssla = new System.Windows.Forms.ToolStripStatusLabel();
@@ -50,15 +50,16 @@
             this.dgvStudentTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.netState1 = new OES.NetState();
             this.fbdPaperPath = new System.Windows.Forms.FolderBrowserDialog();
+            this.processBar = new System.Windows.Forms.ToolStripProgressBar();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StuScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
             this.ss.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -70,7 +71,8 @@
             // 
             this.ss.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tssla,
-            this.tsslPath});
+            this.tsslPath,
+            this.processBar});
             this.ss.Location = new System.Drawing.Point(0, 413);
             this.ss.Name = "ss";
             this.ss.Size = new System.Drawing.Size(749, 22);
@@ -237,6 +239,13 @@
             this.netState1.State = 0;
             this.netState1.TabIndex = 7;
             // 
+            // processBar
+            // 
+            this.processBar.Name = "processBar";
+            this.processBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.processBar.Size = new System.Drawing.Size(500, 16);
+            this.processBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -279,20 +288,6 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // dataGridViewProgressBarColumn1
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewProgressBarColumn1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewProgressBarColumn1.FillWeight = 20F;
-            this.dataGridViewProgressBarColumn1.HeaderText = "进度";
-            this.dataGridViewProgressBarColumn1.Maximum = 100;
-            this.dataGridViewProgressBarColumn1.Mimimum = 0;
-            this.dataGridViewProgressBarColumn1.Name = "dataGridViewProgressBarColumn1";
-            this.dataGridViewProgressBarColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewProgressBarColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewProgressBarColumn1.Width = 122;
-            // 
             // StudentID
             // 
             this.StudentID.FillWeight = 80F;
@@ -324,6 +319,20 @@
             this.StuScore.Name = "StuScore";
             this.StuScore.ReadOnly = true;
             this.StuScore.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewProgressBarColumn1
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewProgressBarColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewProgressBarColumn1.FillWeight = 20F;
+            this.dataGridViewProgressBarColumn1.HeaderText = "进度";
+            this.dataGridViewProgressBarColumn1.Maximum = 100;
+            this.dataGridViewProgressBarColumn1.Mimimum = 0;
+            this.dataGridViewProgressBarColumn1.Name = "dataGridViewProgressBarColumn1";
+            this.dataGridViewProgressBarColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewProgressBarColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewProgressBarColumn1.Width = 122;
             // 
             // formOESScore
             // 
@@ -373,6 +382,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaperName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StuScore;
+        private System.Windows.Forms.ToolStripProgressBar processBar;
     }
 }
 
