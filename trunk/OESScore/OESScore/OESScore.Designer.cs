@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formOESScore));
             this.ss = new System.Windows.Forms.StatusStrip();
             this.tssla = new System.Windows.Forms.ToolStripStatusLabel();
@@ -44,21 +44,21 @@
             this.btnSelectPath = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnScore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnLoad = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label1 = new System.Windows.Forms.Label();
             this.plDGV = new System.Windows.Forms.Panel();
             this.dgvStudentTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.netState1 = new OES.NetState();
             this.fbdPaperPath = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnLoad = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StuScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
             this.ss.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -162,6 +162,19 @@
             this.btnConfig.Values.Text = "配置";
             this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(3, 126);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(120, 35);
+            this.btnLoad.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnLoad.StateCommon.Border.Rounding = 15;
+            this.btnLoad.TabIndex = 3;
+            this.btnLoad.Values.Text = "载入";
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -224,19 +237,6 @@
             this.netState1.State = 0;
             this.netState1.TabIndex = 7;
             // 
-            // btnLoad
-            // 
-            this.btnLoad.Location = new System.Drawing.Point(3, 126);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(120, 35);
-            this.btnLoad.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnLoad.StateCommon.Border.Rounding = 15;
-            this.btnLoad.TabIndex = 3;
-            this.btnLoad.Values.Text = "载入";
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -279,6 +279,20 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // dataGridViewProgressBarColumn1
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewProgressBarColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewProgressBarColumn1.FillWeight = 20F;
+            this.dataGridViewProgressBarColumn1.HeaderText = "进度";
+            this.dataGridViewProgressBarColumn1.Maximum = 100;
+            this.dataGridViewProgressBarColumn1.Mimimum = 0;
+            this.dataGridViewProgressBarColumn1.Name = "dataGridViewProgressBarColumn1";
+            this.dataGridViewProgressBarColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewProgressBarColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewProgressBarColumn1.Width = 122;
+            // 
             // StudentID
             // 
             this.StudentID.FillWeight = 80F;
@@ -310,20 +324,6 @@
             this.StuScore.Name = "StuScore";
             this.StuScore.ReadOnly = true;
             this.StuScore.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dataGridViewProgressBarColumn1
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewProgressBarColumn1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewProgressBarColumn1.FillWeight = 20F;
-            this.dataGridViewProgressBarColumn1.HeaderText = "进度";
-            this.dataGridViewProgressBarColumn1.Maximum = 100;
-            this.dataGridViewProgressBarColumn1.Mimimum = 0;
-            this.dataGridViewProgressBarColumn1.Name = "dataGridViewProgressBarColumn1";
-            this.dataGridViewProgressBarColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewProgressBarColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewProgressBarColumn1.Width = 122;
             // 
             // formOESScore
             // 
@@ -367,12 +367,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private OES.NetState netState1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnConfig;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnLoad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaperName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StuScore;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnLoad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
 
