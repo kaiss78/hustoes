@@ -64,24 +64,31 @@ namespace OES
         #endregion
         private void Loginbtn_Click(object sender, EventArgs e)
         {
-            InfoControl.User = InfoControl.OesData.FindTeacherByLoginName(UserName.Text);
-            if (InfoControl.User.Equals(null))
+            if (netState1.State == 1)
             {
-                MessageBox.Show("用户名错误！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (Password.Text == InfoControl.User.password)
+                InfoControl.User = InfoControl.OesData.FindTeacherByLoginName(UserName.Text);
+                if (InfoControl.User.Equals(null))
                 {
-                    InfoControl.ClientObj.Login(Convert.ToInt32(InfoControl.User.Id));
-                    InfoControl.MainForm.Show();
-                    this.Hide();
+                    MessageBox.Show("用户名错误！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("密码错误！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    if (Password.Text == InfoControl.User.password)
+                    {
+                        InfoControl.ClientObj.Login(Convert.ToInt32(InfoControl.User.Id));
+                        InfoControl.MainForm.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("密码错误！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
+                }
+            }
+            else
+            {
+                //未成功连接服务端
             }
         }
 
