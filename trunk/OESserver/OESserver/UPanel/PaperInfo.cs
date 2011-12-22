@@ -243,6 +243,30 @@ namespace OES.UPanel
                     case ProblemType.CppProgramCompletion:
                         AddProgramProblem(PLanguage.CPP,rule.PLevel, rule.Chapter, rule.Count, rule.Score,ref NewPaper.pCompletion);
                         break;
+                    case ProblemType.CppProgramModification:
+                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pModif);
+                        break;
+                    case ProblemType.CppProgramFun:
+                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        break;
+                    case ProblemType.CProgramCompletion:
+                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pCompletion);
+                        break;
+                    case ProblemType.CProgramModification:
+                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pModif);
+                        break;
+                    case ProblemType.CProgramFun:
+                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        break;
+                    case ProblemType.VbProgramCompletion:
+                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pCompletion);
+                        break;
+                    case ProblemType.VbProgramModification:
+                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pModif);
+                        break;
+                    case ProblemType.VbProgramFun:
+                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        break;
                 }
             }
             paperPreview = new frmPaperPreview(NewPaper);
