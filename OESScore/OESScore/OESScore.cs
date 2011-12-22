@@ -17,12 +17,8 @@ namespace OESScore
     public partial class formOESScore : Form
     {
         
-        public DataTable dtPaperList = new DataTable();
+        public DataTable dtStuList = new DataTable();
         public List<PaperFolder> papers = new List<PaperFolder>();
-        private System.Windows.Forms.DataGridViewTextBoxColumn StuID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StuName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Score;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvAnsTable;
         private List<StuFolder> StuList = new List<StuFolder>();
 
         public formOESScore()
