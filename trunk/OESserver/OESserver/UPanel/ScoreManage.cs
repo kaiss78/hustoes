@@ -82,7 +82,7 @@ namespace OES.UPanel
             {
                 values[0] = st.stuName;
                 values[1] = st.stuClassName;
-                values[2] = st.score;
+                values[2] = st.Value;
                 
                 dt.Rows.Add(values);
             }
