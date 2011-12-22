@@ -35,10 +35,14 @@ namespace OESScore
                     Directory.CreateDirectory(st);
                 }
             }
+
+            #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
             netState1.State = 2;
             ClientEvt.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
             ClientEvt.Client.DisConnectError += new ErrorEventHandler(Client_DisConnectError);
+            #endregion
+
             ScoreControl.scoreNet.Init();
             tsslPath.Text = ScoreControl.config["PaperPath"];
             //LoadStudentList();
@@ -46,10 +50,10 @@ namespace OESScore
 
         public void init()
         {
- 
+
         }
 
-
+        #region 网络连接状态
         void Client_DisConnectError(object sender, ErrorEventArgs e)
         {
             while (!this.IsHandleCreated) ;
@@ -79,7 +83,7 @@ namespace OESScore
                 netState1.State = 0;
             }
         }
-
+        #endregion
 
         /// <summary>
         /// 往表格中添加试卷信息
@@ -192,6 +196,31 @@ namespace OESScore
             }
             return Score;
         }
+        /// <summary>
+        /// 解压所有考生答案
+        /// </summary>
+        /// <param name="path"></param>
+        void UncompressAllStudentAns(string path)
+        {
+            if (RARHelper.Exists())
+            {
+                foreach (FileInfo f in new DirectoryInfo(path).GetFiles())
+                {
+                    if (f.Extension == ".rar")
+                    {
+                        string pass;
+                        if (!File.Exists(path + "\\Key\\" + f.Name.Replace(".rar", "") + ".pwd"))
+                        { continue; }
+                        using (StreamReader sr = new StreamReader(path + "\\Key\\" + f.Name.Replace(".rar", "") + ".pwd", Encoding.Default))
+                        {
+                            pass = sr.ReadToEnd();
+                        }
+                        RARHelper.UnCompressRAR(path + "\\" + f.Name.Replace(".rar", "") + "\\", path + "\\", f.Name, true, pass);
+                        while (!Directory.Exists(path + "\\" + f.Name.Replace(".rar", "") + "\\")) ;
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// 选择路径
@@ -201,28 +230,11 @@ namespace OESScore
         /// <param name="e"></param>
         private void btnSelectPath_Click(object sender, EventArgs e)
         {
-            string path;
-
             if (fbdPaperPath.ShowDialog().Equals(DialogResult.OK))
             {
                 if (Directory.Exists(fbdPaperPath.SelectedPath))
                 {
-                    if (RARHelper.Exists())
-                    {
-                        foreach (FileInfo f in new DirectoryInfo(fbdPaperPath.SelectedPath).GetFiles())
-                        {
-                            string pass;
-                            if (!File.Exists(fbdPaperPath.SelectedPath + "\\Key\\" + f.Name.Replace(".rar", "") + ".pwd"))
-                            { continue; }
-                            using (StreamReader sr = new StreamReader(fbdPaperPath.SelectedPath + "\\Key\\" + f.Name.Replace(".rar", "")+".pwd", Encoding.Default))
-                            {
-                                pass = sr.ReadToEnd();
-                            }
-                            RARHelper.UnCompressRAR(fbdPaperPath.SelectedPath+"\\" + f.Name.Replace(".rar", "") + "\\", fbdPaperPath.SelectedPath+"\\", f.Name, true, pass);
-                            while (!Directory.Exists(fbdPaperPath.SelectedPath+"\\" + f.Name.Replace(".rar", "") + "\\")) ;
-                        }
-
-                    }
+                    UncompressAllStudentAns(fbdPaperPath.SelectedPath);
                     ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath;
                     tsslPath.Text = ScoreControl.config["PaperPath"];
                     LoadStudentList();
