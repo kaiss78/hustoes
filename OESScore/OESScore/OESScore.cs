@@ -48,10 +48,7 @@ namespace OESScore
             dgvStudentTable.Columns[2].FillWeight = 20;
             dgvStudentTable.Columns[3].FillWeight = 10;
             dgvStudentTable.Columns[4].FillWeight = 10;
- 
-
-
-            dtStuList.Columns.Add("状态");
+             
             #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
             netState1.State = 2;
