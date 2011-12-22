@@ -12,16 +12,13 @@ using OES.Model;
 namespace OES.UPanel
 {
     public partial class ProCompletion : UserPanel
-    {
-        static List<string> ansList;
+    {        
         public ProgramProblem newProblem;
         public DataTable dtAnsList;
         public DataView dvAnsList;
         public int BlankCount;
         public int AnsCount;
 
-        private int PLevel;
-        private int Unit;
         private ProgramProblem.Language language;
         private ProgramProblem.ProType ProType = ProgramProblem.ProType.Completion;
         private bool addnew;

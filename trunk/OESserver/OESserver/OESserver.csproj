@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E4EFF3E5-EB11-47EE-AB20-B7AC00AE82FB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -272,10 +272,6 @@
       <DependentUpon>ClassManage.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UPanel\PaperEditPanel.resx">
-      <DependentUpon>PaperEditPanel.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\PaperListPanel.resx">
       <DependentUpon>PaperListPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -461,12 +457,6 @@
     </Compile>
     <Compile Include="UPanel\ClassManage.Designer.cs">
       <DependentUpon>ClassManage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UPanel\PaperEditPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UPanel\PaperEditPanel.Designer.cs">
-      <DependentUpon>PaperEditPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UPanel\PaperListPanel.cs">
       <SubType>UserControl</SubType>

@@ -14,6 +14,7 @@ namespace OES.UPanel
         private List<PaperRule> Rules;
         private Paper NewPaper;
         private Random rd;
+        private int TotScore;
         private frmPaperPreview paperPreview;
 
         public PaperInfo()
@@ -48,6 +49,8 @@ namespace OES.UPanel
         {
             Rules = new List<PaperRule>();
             dtRule.Clear();
+            lbTotScore.Text = "0";
+            TotScore = 0;            
             this.Visible = true;
         }
 
@@ -60,6 +63,8 @@ namespace OES.UPanel
             if (tmpRule != null)
             {
                 Rules.Add(frmAddRule.NewRule);
+                TotScore = TotScore + tmpRule.Score * tmpRule.Count;                
+                lbTotScore.Text = TotScore.ToString();
                 dtRule.Rows.Add(new object[6] { false, tmpRule.ChapterName, tmpRule.PTypeName, tmpRule.PLevel, tmpRule.Score, tmpRule.Count });
                 //MessageBox.Show(
             }
@@ -72,16 +77,20 @@ namespace OES.UPanel
                 frmAddRule = new frmAddRule(Rules[dgvRule.SelectedRows[0].Index]);
                 frmAddRule.ShowDialog();
                 PaperRule tmpRule;
+                int Index=dgvRule.SelectedRows[0].Index;
                 tmpRule = frmAddRule.NewRule;
                 if (tmpRule != null)
                 {
-                    Rules[dgvRule.SelectedRows[0].Index] = tmpRule;
-                    dtRule.Rows[dgvRule.SelectedRows[0].Index][0] = false;
-                    dtRule.Rows[dgvRule.SelectedRows[0].Index][1] = tmpRule.ChapterName;
-                    dtRule.Rows[dgvRule.SelectedRows[0].Index][2] = tmpRule.PTypeName;
-                    dtRule.Rows[dgvRule.SelectedRows[0].Index][3] = tmpRule.PLevel;
-                    dtRule.Rows[dgvRule.SelectedRows[0].Index][4] = tmpRule.Score;
-                    dtRule.Rows[dgvRule.SelectedRows[0].Index][5] = tmpRule.Count;
+                    TotScore = TotScore - Rules[Index].Score * Rules[Index].Count;
+                    TotScore = TotScore + tmpRule.Count * tmpRule.Score;
+                    Rules[Index] = tmpRule;
+                    lbTotScore.Text = TotScore.ToString();
+                    dtRule.Rows[Index][0] = false;
+                    dtRule.Rows[Index][1] = tmpRule.ChapterName;
+                    dtRule.Rows[Index][2] = tmpRule.PTypeName;
+                    dtRule.Rows[Index][3] = tmpRule.PLevel;
+                    dtRule.Rows[Index][4] = tmpRule.Score;
+                    dtRule.Rows[Index][5] = tmpRule.Count;
                 }
             }
         }
@@ -183,34 +192,34 @@ namespace OES.UPanel
             }
         }
 
-        //private void AddPCompletion(ProgramProblem.Language language, int Plevel, int Chaptet, int Count, int Score)
-        //{
-        //    rd = new Random();
-        //    List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("",ProgramProblem.ProType.Completion,language, Chaptet, Plevel, 1, int.MaxValue);
-        //    if (list.Count < Count)
-        //    {
-        //        MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return;
-        //    }
-        //    while (Count > 0)
-        //    {
-        //        int tmp = rd.Next(list.Count);
-        //        bool flag = true;
-        //        foreach (ProgramProblem pro in NewPaper.pCompletion)
-        //        {
-        //            if (pro.problemId == list[tmp].problemId)
-        //            {
-        //                flag = false;
-        //            }
-        //        }
-        //        if (flag)
-        //        {
-        //            list[tmp].score = Score;
-        //            NewPaper.pCompletion.Add(list[tmp]);
-        //            Count--;
-        //        }
-        //    }
-        //}
+        private void AddPCompletion(ProgramProblem.Language language, int Plevel, int Chaptet, int Count, int Score)
+        {
+            rd = new Random();
+            List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("", ProgramProblem.ProType.Completion, language, Chaptet, Plevel, 1, int.MaxValue);
+            if (list.Count < Count)
+            {
+                MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            while (Count > 0)
+            {
+                int tmp = rd.Next(list.Count);
+                bool flag = true;
+                foreach (ProgramProblem pro in NewPaper.pCompletion)
+                {
+                    if (pro.problemId == list[tmp].problemId)
+                    {
+                        flag = false;
+                    }
+                }
+                if (flag)
+                {
+                    list[tmp].score = Score;
+                    NewPaper.pCompletion.Add(list[tmp]);
+                    Count--;
+                }
+            }
+        }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {

@@ -40,6 +40,8 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPaperName = new System.Windows.Forms.TextBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lbTotScore = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRule)).BeginInit();
@@ -183,6 +185,8 @@
             this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 6);
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.tbPaperName);
+            this.flowLayoutPanel1.Controls.Add(this.kryptonLabel1);
+            this.flowLayoutPanel1.Controls.Add(this.lbTotScore);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 5);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -208,6 +212,26 @@
             this.tbPaperName.Name = "tbPaperName";
             this.tbPaperName.Size = new System.Drawing.Size(274, 26);
             this.tbPaperName.TabIndex = 16;
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(369, 8);
+            this.kryptonLabel1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(53, 23);
+            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.kryptonLabel1.TabIndex = 17;
+            this.kryptonLabel1.Values.Text = "总分:";
+            // 
+            // lbTotScore
+            // 
+            this.lbTotScore.Location = new System.Drawing.Point(428, 8);
+            this.lbTotScore.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
+            this.lbTotScore.Name = "lbTotScore";
+            this.lbTotScore.Size = new System.Drawing.Size(20, 20);
+            this.lbTotScore.StateCommon.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbTotScore.TabIndex = 18;
+            this.lbTotScore.Values.Text = "0";
             // 
             // PaperInfo
             // 
@@ -239,6 +263,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPaperName;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lbTotScore;
 
     }
 }
