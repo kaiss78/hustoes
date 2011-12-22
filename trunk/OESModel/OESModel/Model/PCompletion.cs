@@ -18,11 +18,7 @@ namespace OES.Model
 
             type = pt;
         }
-        public PCompletion(ProblemType pt, string rawPath, string stuAnsPath)
-        {
 
-            type = pt;
-        }
         public override string getAns()
         {
             return "";

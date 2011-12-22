@@ -15,9 +15,6 @@ namespace OES.Model
         public PFunction(ProblemType pt, string p)
         {
             problem = p;
-
- 
-
             type = pt;
         }
         public override string getAns()
