@@ -107,10 +107,9 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(749, 413);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -121,10 +120,10 @@
             this.flowLayoutPanel2.Controls.Add(this.btnConfig);
             this.flowLayoutPanel2.Controls.Add(this.btnLoad);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(624, 20);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(624, 25);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(125, 365);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(125, 360);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // btnSelectPath
@@ -182,11 +181,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(618, 14);
+            this.label1.Size = new System.Drawing.Size(618, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "试卷信息";
             // 
@@ -194,10 +194,10 @@
             // 
             this.plDGV.Controls.Add(this.dgvStudentTable);
             this.plDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plDGV.Location = new System.Drawing.Point(0, 20);
+            this.plDGV.Location = new System.Drawing.Point(0, 25);
             this.plDGV.Margin = new System.Windows.Forms.Padding(0);
             this.plDGV.Name = "plDGV";
-            this.plDGV.Size = new System.Drawing.Size(624, 365);
+            this.plDGV.Size = new System.Drawing.Size(624, 360);
             this.plDGV.TabIndex = 6;
             // 
             // dgvStudentTable
@@ -221,7 +221,7 @@
             this.dgvStudentTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudentTable.RowTemplate.Height = 23;
             this.dgvStudentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudentTable.Size = new System.Drawing.Size(624, 365);
+            this.dgvStudentTable.Size = new System.Drawing.Size(624, 360);
             this.dgvStudentTable.TabIndex = 5;
             this.dgvStudentTable.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPaperTable_CellMouseDoubleClick);
             // 
