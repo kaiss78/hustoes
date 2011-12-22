@@ -29,7 +29,7 @@ namespace OES
                     if (p_Data.Columns[i].ToString() == "ClassName")
                         problem.stuClassName = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "TotalScore")
-                        problem.score = (string)p_Data.Rows[j][i];
+                        problem.Value = Convert.ToInt32(p_Data.Rows[j][i]);
 
 
                 }
