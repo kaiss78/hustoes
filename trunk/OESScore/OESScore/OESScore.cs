@@ -127,7 +127,7 @@ namespace OESScore
                     tmpSF.PaperInfo = new Paper();
                     tmpSF.StuInfo = tmpS[0];
                     tmpSF.Score = new Score();
-                    tmpSF.Score.score = "0";
+                    tmpSF.Score.Value = 0;
                     tmpSF.path = stu;
                     tmpSF.StuAns = ScoreControl.GetStuAns(stu.FullName);                   
                     tmpP = ScoreControl.OesData.FindPaperByPaperId(XMLControl.GetStudentAnsPaper(stu.FullName + "\\studentAns.xml"));
@@ -149,7 +149,7 @@ namespace OESScore
                     values[0] = tmpSF.StuInfo.ID;
                     values[1] = tmpSF.StuInfo.sName;
                     values[2] = tmpSF.PaperInfo.paperName;
-                    values[3] = int.Parse(tmpSF.Score.score);
+                    values[3] = tmpSF.Score.Value;
                     dgvStudentTable.Rows.Add(values);
                 }
             } 
@@ -257,8 +257,8 @@ namespace OESScore
             int RIndex = e.RowIndex;
             if (RIndex > -1)
             {
-                StuList[RIndex].Score.score=Mark(RIndex).ToString();
-                dgvStudentTable.Rows[RIndex].Cells[3].Value= StuList[RIndex].Score.score;
+                StuList[RIndex].Score.Value=Mark(RIndex);
+                dgvStudentTable.Rows[RIndex].Cells[3].Value= StuList[RIndex].Score.Value;
             }
         }
 
@@ -266,8 +266,8 @@ namespace OESScore
         {
             for (int i = 0; i < StuList.Count; i++)
             {
-                StuList[i].Score.score = Mark(i).ToString();
-                dgvStudentTable.Rows[i].Cells[3].Value = StuList[i].Score.score;
+                StuList[i].Score.Value = Mark(i);
+                dgvStudentTable.Rows[i].Cells[3].Value = StuList[i].Score.Value;
             }            
         }
 
