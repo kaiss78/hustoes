@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formOESScore));
             this.ss = new System.Windows.Forms.StatusStrip();
             this.tssla = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslPath = new System.Windows.Forms.ToolStripStatusLabel();
+            this.processBar = new System.Windows.Forms.ToolStripProgressBar();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSelectPath = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -50,15 +50,10 @@
             this.dgvStudentTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.netState1 = new OES.NetState();
             this.fbdPaperPath = new System.Windows.Forms.FolderBrowserDialog();
-            this.processBar = new System.Windows.Forms.ToolStripProgressBar();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StuScore = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
             this.ss.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -82,14 +77,21 @@
             // tssla
             // 
             this.tssla.Name = "tssla";
-            this.tssla.Size = new System.Drawing.Size(44, 17);
+            this.tssla.Size = new System.Drawing.Size(41, 17);
             this.tssla.Text = "路径：";
             // 
             // tsslPath
             // 
             this.tsslPath.Name = "tsslPath";
-            this.tsslPath.Size = new System.Drawing.Size(22, 17);
+            this.tsslPath.Size = new System.Drawing.Size(23, 17);
             this.tsslPath.Text = "c:\\";
+            // 
+            // processBar
+            // 
+            this.processBar.Name = "processBar";
+            this.processBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.processBar.Size = new System.Drawing.Size(500, 16);
+            this.processBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             // 
             // tableLayoutPanel1
             // 
@@ -206,11 +208,6 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvStudentTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStudentTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStudentTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.StudentID,
-            this.StudentName,
-            this.PaperName,
-            this.StuScore});
             this.dgvStudentTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudentTable.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.dgvStudentTable.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
@@ -220,8 +217,8 @@
             this.dgvStudentTable.Name = "dgvStudentTable";
             this.dgvStudentTable.ReadOnly = true;
             this.dgvStudentTable.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvStudentTable.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvStudentTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStudentTable.RowTemplate.Height = 23;
             this.dgvStudentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudentTable.Size = new System.Drawing.Size(624, 365);
@@ -239,17 +236,10 @@
             this.netState1.State = 0;
             this.netState1.TabIndex = 7;
             // 
-            // processBar
-            // 
-            this.processBar.Name = "processBar";
-            this.processBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.processBar.Size = new System.Drawing.Size(500, 16);
-            this.processBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.FillWeight = 10F;
             this.dataGridViewTextBoxColumn1.HeaderText = "试卷ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -260,8 +250,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.FillWeight = 50F;
             this.dataGridViewTextBoxColumn2.HeaderText = "试卷名称";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -271,8 +261,8 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn3.FillWeight = 20F;
             this.dataGridViewTextBoxColumn3.HeaderText = "试卷数量";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -288,43 +278,11 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // StudentID
-            // 
-            this.StudentID.FillWeight = 80F;
-            this.StudentID.HeaderText = "学号";
-            this.StudentID.Name = "StudentID";
-            this.StudentID.ReadOnly = true;
-            // 
-            // StudentName
-            // 
-            this.StudentName.FillWeight = 60F;
-            this.StudentName.HeaderText = "姓名";
-            this.StudentName.Name = "StudentName";
-            this.StudentName.ReadOnly = true;
-            // 
-            // PaperName
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PaperName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PaperName.FillWeight = 120F;
-            this.PaperName.HeaderText = "试卷名称";
-            this.PaperName.Name = "PaperName";
-            this.PaperName.ReadOnly = true;
-            this.PaperName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // StuScore
-            // 
-            this.StuScore.FillWeight = 50F;
-            this.StuScore.HeaderText = "成绩";
-            this.StuScore.Name = "StuScore";
-            this.StuScore.ReadOnly = true;
-            this.StuScore.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // dataGridViewProgressBarColumn1
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewProgressBarColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewProgressBarColumn1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewProgressBarColumn1.FillWeight = 20F;
             this.dataGridViewProgressBarColumn1.HeaderText = "进度";
             this.dataGridViewProgressBarColumn1.Maximum = 100;
@@ -378,10 +336,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnConfig;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnLoad;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PaperName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StuScore;
         private System.Windows.Forms.ToolStripProgressBar processBar;
     }
 }
