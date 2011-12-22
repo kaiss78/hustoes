@@ -10,8 +10,7 @@ namespace OES
     {
         public PaperInfo paperInfo;
         //public ProMan proMan;
-        public PaperListPanel paperListPanel;
-        public PaperEditPanel paperEditPanel;
+        public PaperListPanel paperListPanel;        
         public StudentManage studentManage;
         public ClassManage classManage;
         public TeacherManage teacherManage;
@@ -26,8 +25,7 @@ namespace OES
             InitializeComponent();
 
             paperInfo = new PaperInfo();                 //试卷信息界面
-            paperListPanel=new PaperListPanel();      //试卷管理界面
-            paperEditPanel=new PaperEditPanel();     //组卷界面
+            paperListPanel=new PaperListPanel();      //试卷管理界面            
             studentManage=new StudentManage();     //学生管理界面
             classManage=new ClassManage();             //班级管理界面
             teacherManage = new TeacherManage();   //教师管理界面            
@@ -41,8 +39,7 @@ namespace OES
             MainPanel.Controls.Add(paperListPanel);            
             MainPanel.Controls.Add(studentManage);
             MainPanel.Controls.Add(classManage);
-            MainPanel.Controls.Add(teacherManage);
-            MainPanel.Controls.Add(paperEditPanel);
+            MainPanel.Controls.Add(teacherManage);            
             MainPanel.Controls.Add(scoreManage);
             MainPanel.Controls.Add(addQuestionPanel);
             MainPanel.Controls.Add(bulkImport);

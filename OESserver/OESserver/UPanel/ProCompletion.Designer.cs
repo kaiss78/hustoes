@@ -53,9 +53,9 @@
             this.groupBox1.Controls.Add(this.rtbPContent);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(8, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(750, 219);
+            this.groupBox1.Size = new System.Drawing.Size(745, 219);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "题干";
@@ -65,7 +65,7 @@
             this.rtbPContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbPContent.Location = new System.Drawing.Point(3, 22);
             this.rtbPContent.Name = "rtbPContent";
-            this.rtbPContent.Size = new System.Drawing.Size(744, 194);
+            this.rtbPContent.Size = new System.Drawing.Size(739, 194);
             this.rtbPContent.TabIndex = 0;
             this.rtbPContent.Text = "";
             // 
@@ -117,10 +117,10 @@
             this.groupBox2.Controls.Add(this.lbAnsList);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 228);
+            this.groupBox2.Location = new System.Drawing.Point(8, 228);
             this.groupBox2.Name = "groupBox2";
             this.tableLayoutPanel1.SetRowSpan(this.groupBox2, 4);
-            this.groupBox2.Size = new System.Drawing.Size(650, 227);
+            this.groupBox2.Size = new System.Drawing.Size(645, 227);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "答案";
@@ -130,7 +130,7 @@
             this.lbAnsList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbAnsList.Location = new System.Drawing.Point(3, 22);
             this.lbAnsList.Name = "lbAnsList";
-            this.lbAnsList.Size = new System.Drawing.Size(644, 202);
+            this.lbAnsList.Size = new System.Drawing.Size(639, 202);
             this.lbAnsList.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbAnsList.TabIndex = 0;
             // 
@@ -215,17 +215,17 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbProblemFile, 2);
             this.tbProblemFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbProblemFile.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbProblemFile.Location = new System.Drawing.Point(108, 466);
+            this.tbProblemFile.Location = new System.Drawing.Point(113, 466);
             this.tbProblemFile.Margin = new System.Windows.Forms.Padding(8);
             this.tbProblemFile.Name = "tbProblemFile";
-            this.tbProblemFile.Size = new System.Drawing.Size(540, 26);
+            this.tbProblemFile.Size = new System.Drawing.Size(535, 26);
             this.tbProblemFile.TabIndex = 32;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(3, 470);
+            this.label2.Location = new System.Drawing.Point(8, 470);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 12, 0, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
@@ -234,21 +234,22 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 3, 6);
-            this.tableLayoutPanel1.Controls.Add(this.btnBrowser, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnAddAns, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnDel, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.tbProblemFile, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.btnSave, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancel, 4, 6);
+            this.tableLayoutPanel1.Controls.Add(this.btnBrowser, 4, 5);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnEdit, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnAddAns, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnDel, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tbProblemFile, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnSave, 3, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -260,7 +261,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(756, 539);
             this.tableLayoutPanel1.TabIndex = 34;
             // 
