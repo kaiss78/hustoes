@@ -130,7 +130,7 @@ namespace OES.UPanel
                 }  break;
                 case 3: {
                     tableName = "Program";
-                    List<ProgramProblem> programList = InfoControl.OesData.FindAllProgram(pointwords,ProgramProblem.ProType.Completion,ProgramProblem.Language.Null,unit,difficulty,pageIndex,20);
+                    List<ProgramProblem> programList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Completion, PLanguage.Null, unit, difficulty, pageIndex, 20);
                     for (int i = 0; i < programList.Count; i++)
                         programList.Add(programList[i]);
 

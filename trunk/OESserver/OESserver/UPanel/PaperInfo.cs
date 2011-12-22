@@ -192,10 +192,10 @@ namespace OES.UPanel
             }
         }
 
-        private void AddPCompletion(ProgramProblem.Language language, int Plevel, int Chaptet, int Count, int Score)
+        private void AddProgramProblem(PLanguage language, int Plevel, int Chaptet, int Count, int Score,ref List<ProgramProblem> ProList)
         {
             rd = new Random();
-            List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("", ProgramProblem.ProType.Completion, language, Chaptet, Plevel, 1, int.MaxValue);
+            List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("", ProgramPType.Completion, language, Chaptet, Plevel, 1, int.MaxValue);
             if (list.Count < Count)
             {
                 MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -215,7 +215,7 @@ namespace OES.UPanel
                 if (flag)
                 {
                     list[tmp].score = Score;
-                    NewPaper.pCompletion.Add(list[tmp]);
+                    ProList.Add(list[tmp]);
                     Count--;
                 }
             }
@@ -239,6 +239,9 @@ namespace OES.UPanel
                         break;
                     case ProblemType.Judgment:
                         AddJudgement(rule.PLevel, rule.Chapter, rule.Count, rule.Score);
+                        break;
+                    case ProblemType.CppProgramCompletion:
+                        AddProgramProblem(PLanguage.CPP,rule.PLevel, rule.Chapter, rule.Count, rule.Score,ref NewPaper.pCompletion);
                         break;
                 }
             }

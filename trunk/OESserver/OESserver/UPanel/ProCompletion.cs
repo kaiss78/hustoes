@@ -19,8 +19,8 @@ namespace OES.UPanel
         public int BlankCount;
         public int AnsCount;
 
-        private ProgramProblem.Language language;
-        private ProgramProblem.ProType ProType = ProgramProblem.ProType.Completion;
+        private PLanguage language;
+        private ProgramPType ProType = ProgramPType.Completion;
         private bool addnew;
 
         private frmAddAnswer newans;
@@ -30,7 +30,7 @@ namespace OES.UPanel
             InitializeComponent();
         }
 
-        public ProCompletion(ProgramProblem.ProType PT)
+        public ProCompletion(ProgramPType PT)
         {
             InitializeComponent();
             ProType = PT;
@@ -72,16 +72,16 @@ namespace OES.UPanel
                 switch (Path.GetExtension(ofdBrowser.FileName).ToLower())
                 {
                     case ".c":
-                        language = ProgramProblem.Language.C;
+                        language = PLanguage.C;
                         break;
                     case ".cpp":
-                        language = ProgramProblem.Language.CPP;
+                        language = PLanguage.CPP;
                         break;
                     case ".vb":
-                        language = ProgramProblem.Language.VB;
+                        language = PLanguage.VB;
                         break;
                     default:
-                        language = ProgramProblem.Language.Null;
+                        language = PLanguage.Null;
                         break;
                 }
 
