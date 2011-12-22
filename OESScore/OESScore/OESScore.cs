@@ -149,7 +149,7 @@ namespace OESScore
                     values[0] = tmpSF.StuInfo.ID;
                     values[1] = tmpSF.StuInfo.sName;
                     values[2] = tmpSF.PaperInfo.paperName;
-                    values[3] = tmpSF.Score.score;
+                    values[3] = int.Parse(tmpSF.Score.score);
                     dgvStudentTable.Rows.Add(values);
                 }
             } 
