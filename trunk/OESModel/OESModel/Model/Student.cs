@@ -34,5 +34,22 @@ namespace OES.Model
         }
 
         public Student() { }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Student)
+            {
+                if (this.ID.ToLower() == (obj as Student).ID.ToLower() && this.sName == (obj as Student).sName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return 1;
+        }
     }
 }
