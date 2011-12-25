@@ -96,6 +96,7 @@ namespace OESMonitor
                         this.Invoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s2;
+                            PaperControl.ChangeStudentState(this.Student, ExamState.Login);
                             lab.Text = "已登录";
                             
                         }));
@@ -104,6 +105,7 @@ namespace OESMonitor
                         this.Invoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s3;
+                            PaperControl.ChangeStudentState(this.Student, ExamState.Examing);
                             lab.Text = "开始考试";
                             
                         }));
@@ -112,6 +114,7 @@ namespace OESMonitor
                         this.Invoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s4;
+                            PaperControl.ChangeStudentState(this.Student, ExamState.HandIn);
                             lab.Text = "已交卷";
                             
                         }));
@@ -120,6 +123,7 @@ namespace OESMonitor
                         this.Invoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s2;
+                            PaperControl.ChangeStudentState(this.Student, ExamState.SendPaper);
                             lab.Text = "已发卷";
 
                         }));
@@ -128,6 +132,7 @@ namespace OESMonitor
                         this.Invoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s3;
+                            PaperControl.ChangeStudentState(this.Student, ExamState.ResumeExaming);
                             lab.Text = "恢复考试";
 
                         }));
@@ -136,6 +141,7 @@ namespace OESMonitor
                         this.Invoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s7;
+                            PaperControl.ChangeStudentState(this.Student, ExamState.ApplyRestart);
                             lab.Text = "申请重考";
 
                         }));
@@ -144,6 +150,7 @@ namespace OESMonitor
                         this.Invoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s3;
+                            PaperControl.ChangeStudentState(this.Student, ExamState.RestartExaming);
                             lab.Text = "开始重考";
 
                         }));

@@ -14,6 +14,7 @@ using ClientNet;
 using OES;
 using OESNet.UdpNet;
 using System.Diagnostics;
+using OES.Model;
 
 namespace OESMonitor
 {
@@ -886,6 +887,34 @@ namespace OESMonitor
             }
         }
         
+        #endregion
+
+        #region 考生状态
+        //刷新考生状态，手动刷新，减少界面负担
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            StudentDataGridView.Rows.Clear();
+            foreach (Student s in PaperControl.StudentCollection.Keys)
+            {
+                StudentDataGridView.Rows.Add(s.ID, s.sName, PaperControl.MapExamStateString[PaperControl.StudentCollection[s]]);
+            }
+        }
+        //将考生状态信息存成xls文件
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StringBuilder content = new StringBuilder();
+                foreach (Student s in PaperControl.StudentCollection.Keys)
+                {
+                    content.AppendLine(s.ID+"\t"+ s.sName+"\t"+ PaperControl.MapExamStateString[PaperControl.StudentCollection[s]]);
+                }
+                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName,false, Encoding.Default))
+                {
+                    sw.Write(content);
+                }
+            }
+        }
         #endregion
     }
 }
