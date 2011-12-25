@@ -51,6 +51,7 @@ namespace OESMonitor
                 handInPaper -= value;
             }
         }
+
         //是否开始考试
         bool isStartExam = false;
         public bool IsStartExam
@@ -94,6 +95,7 @@ namespace OESMonitor
 
         public static Net.ClientEvt supportServer;
 
+        #region 配置文件界面对象
         private ConfigEditor serverConfig = new ConfigEditor("ServerConfig.xml");
 
         private ConfigEditor clientConfig = new ConfigEditor("ClientConfig.xml");
@@ -103,6 +105,7 @@ namespace OESMonitor
         private ConfigEditor passConfig = new ConfigEditor("PwdConfig.xml");
 
         private ConfigEditor dbConfig = new ConfigEditor("DbConfig.xml");
+        #endregion
 
         public OESMonitor()
         {
@@ -193,372 +196,6 @@ namespace OESMonitor
 
         }
 
-        #region 考生文件夹操作
-        void studentAnsDirectory_OnDelete(StudentAnsDirectory e)
-        {
-            //Directory.Delete(PaperControl.PathConfig["StuAns"] + e.Text, true);
-            File.Delete(PaperControl.PathConfig["StuAns"] + e.Text + ".rar");
-        }
-
-        void studentAnsDirectory_OnView(StudentAnsDirectory e)
-        {
-            Process.Start(PaperControl.PathConfig["StuAns"] + e.Text + ".rar");
-        }
-        #endregion
-
-        #region 考生答案文件夹监视事件
-        void fileSystemWatcher_Renamed(object sender, RenamedEventArgs e)
-        {
-            flowLayoutPanelDir.Controls.Clear();
-            //foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
-            foreach (string path in Directory.GetFiles(PaperControl.PathConfig["StuAns"]))
-            {
-                StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
-                studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
-                studentAnsDirectory.OnDelete += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnDelete);
-                flowLayoutPanelDir.Controls.Add(studentAnsDirectory);
-            }
-        }
-
-        void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
-        {
-            flowLayoutPanelDir.Controls.Clear();
-            //foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
-            foreach (string path in Directory.GetFiles(PaperControl.PathConfig["StuAns"]))
-            {
-                StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
-                studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
-                studentAnsDirectory.OnDelete += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnDelete);
-                flowLayoutPanelDir.Controls.Add(studentAnsDirectory);
-            }
-        }
-        #endregion
-
-        #region 网络连接状态
-        void Client_DisConnectError(object sender, ErrorEventArgs e)
-        {
-            while (!this.IsHandleCreated) ;
-            this.BeginInvoke(new MethodInvoker(() =>
-            {
-                netState1.State = 0;
-            }));
-        }
-
-        void Client_ConnectedServer(object sender, EventArgs e)
-        {
-            while (!this.IsHandleCreated) ;
-            this.BeginInvoke(new MethodInvoker(() =>
-            {
-                netState1.State = 1;
-            }));
-        }
-
-        void netState1_ReConnect(object sender, EventArgs e)
-        {
-            if (netState1.State == 0)
-            {
-                supportServer.Client.InitializeClient();
-            }
-            else
-            {
-                netState1.State = 0;
-            }
-        }
-        #endregion
-
-        #region 文字功能提示
-        void btnGetPaperFromDB_MouseEnter(object sender, EventArgs e)
-        {
-            helpLabel.Text = @"打开新的窗口，到数据库里面取需要考试的试卷";
-        }
-
-        void btnRemove_MouseEnter(object sender, EventArgs e)
-        {
-            helpLabel.Text = @"从当前试卷列表中将选中的试卷移除";
-        }
-
-        void downloadButton_MouseEnter(object sender, EventArgs e)
-        {
-            helpLabel.Text = @"从服务器下载试卷到本机";
-        }
-
-        private void radioButton1_MouseEnter(object sender, EventArgs e)
-        {
-            helpLabel.Text = @"顺序选取试卷";
-        }
-
-        private void radioButton2_MouseEnter(object sender, EventArgs e)
-        {
-            helpLabel.Text = @"随机选取试卷";
-        }
-
-        private void radioButton3_MouseEnter(object sender, EventArgs e)
-        {
-            helpLabel.Text = @"通过双击
-选取其中一份试卷
-当前选择的试卷为：";
-        }
-
-        private void radioButton1_MouseLeave(object sender, EventArgs e)
-        {
-            helpLabel.Text = "";
-        }
-
-        #endregion
-
-        private void RetrieveHostIpv4Address()
-        {
-            //获得所有的ip地址，包括ipv6和ipv4
-            IPAddress[] ips = Dns.GetHostAddresses(Dns.GetHostName());
-            foreach (IPAddress tip in ips)
-            {
-                //ipv4的最大长度为15，ipv6为39
-                if (tip.ToString().Length <= 15)
-                {
-                    alternativeIp.Add(tip);
-                }
-            }
-        }
-
-        #region 添加一个电脑
-        public void AddComputer(Client client)
-        {
-            while (!this.IsHandleCreated) ;
-            this.Invoke(new MethodInvoker(() =>
-            {
-                Computer com = new Computer();
-                com.CreateControl();
-                com.State = 1;
-                com.Client = client;
-                com.OnErrorConnect += new System.IO.ErrorEventHandler(com_OnErrorConnect);
-                Computer.ComputerList.Add(com);
-
-                AddToFlp(flp_Onexam, com);
-            }));
-        }
-        #endregion
-
-        void com_OnErrorConnect(object sender, System.IO.ErrorEventArgs e)
-        {
-            UpdateList();
-            UpdateErrorList();
-        }
-
-        #region 更新界面上的电脑图标
-        private void AddToFlp(FlowLayoutPanel f, Computer c)
-        {
-            this.Invoke(new MethodInvoker(() =>
-            {
-                f.Controls.Add(c);
-            }));
-        }
-        private void RemoveFromFlp(FlowLayoutPanel f, Computer c)
-        {
-            this.Invoke(new MethodInvoker(() =>
-            {
-                f.Controls.Remove(c);
-            }));
-        }
-        private void UpdateList()
-        {
-            this.Invoke(new MethodInvoker(() =>
-                        {
-                            flp_Onexam.Controls.Clear();
-                            foreach (Computer c in Computer.ComputerList)
-                            {
-                                flp_Onexam.Controls.Add(c);
-                            }
-                        }));
-        }
-        private void UpdateCompleteList()
-        {
-            this.Invoke(new MethodInvoker(() =>
-                        {
-                            flp_CompleteExam.Controls.Clear();
-                            foreach (Computer c in Computer.CompleteList)
-                            {
-                                flp_CompleteExam.Controls.Add(c);
-                            }
-                        }));
-        }
-        private void UpdateErrorList()
-        {
-            this.Invoke(new MethodInvoker(() =>
-                        {
-                            flp_Disconnect.Controls.Clear();
-                            foreach (Computer c in Computer.ErrorList)
-                            {
-                                flp_Disconnect.Controls.Add(c);
-                            }
-                        }));
-        }
-        #endregion
-
-        #region 按钮点击事件
-        void btnRemove_Click(object sender, System.EventArgs e)
-        {
-            for (int i = PaperListDGV.Rows.Count - 1; i >= 0; i--)
-            {
-                if ((bool)PaperListDGV.Rows[i].Cells[0].Value == true)
-                {
-                    paperListDataTable.Rows.RemoveAt(i);
-                }
-            }
-            updateExamPaperList();//当移除部分试卷后，更新当前考试的试卷列表
-        }
-
-        void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                radioButton3.Text = radioButton3.Text.Split('-')[0] + '-' + paperListDataTable.Rows[e.RowIndex][1];
-                radioButton3.Checked = true;
-                foreach (DataRow dr in paperListDataTable.Rows)
-                {
-                    dr[0] = false;
-                }
-                paperListDataTable.Rows[e.RowIndex][0] = true;
-                updateExamPaperList();//当点击勾选时，更新当前考试的试卷列表
-            }
-        }
-
-        private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int RIndex = e.RowIndex;
-            if (RIndex > -1)
-            {
-                paperListDataTable.Rows[RIndex][0] = !Convert.ToBoolean(paperListDataTable.Rows[RIndex][0]);
-                updateExamPaperList();//当点击勾选时，更新当前考试的试卷列表
-            }
-        }
-
-        void PaperListDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            updateExamPaperList();
-        }
-
-        void PaperListDGV_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            updateExamPaperList();
-        }
-        /// <summary>
-        /// 更新当前考试的试卷列表
-        /// </summary>
-        private void updateExamPaperList()
-        {
-            examPaperIdList.Clear();
-            examPaperNameList.Clear();
-            foreach (DataRow dr in paperListDataTable.Rows)
-            {
-                if (Convert.ToBoolean(dr[0]))
-                {
-                    examPaperIdList.Add(Convert.ToInt32(dr[1].ToString()));
-                    examPaperNameList.Add(dr[2].ToString());
-                }
-            }
-        }
-
-        private void buttonExamStatue_Click(object sender, EventArgs e)
-        {
-            if (netState1.State == 1)
-            {
-                if (!IsStartExam)
-                {
-                    bool isExistPaper = true;
-                    foreach (DataRow dr in paperListDataTable.Rows)
-                    {
-                        string id = dr[1].ToString();
-                        if (!File.Exists(PaperControl.PathConfig["TmpPaper"] + id + ".rar"))
-                        {
-                            isExistPaper = false;
-                        }
-                    }
-                    if (isExistPaper && examPaperIdList.Count != 0)
-                    {
-                        IsStartExam = true;
-                    }
-                    else
-                    {
-                        helpLabel.Text = "您没有选择考试试卷 或者 您还有部分试卷未下载，请点击“下载试卷”";
-                        MessageBox.Show(helpLabel.Text);
-                        tabControl2.SelectedIndex = 1;
-                    }
-                }
-                else
-                {
-
-                    IsStartExam = false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("未连接上服务器,不能开始考试!");
-            }
-        }
-
-        public List<string> localPath = new List<string>();
-        public List<string> remoteCmd = new List<string>();
-
-        private void downloadButton_Click(object sender, EventArgs e)
-        {
-            bool isExistPaper = true;
-            foreach (DataRow dr in paperListDataTable.Rows)
-            {
-                string id = dr[1].ToString();
-                if (!File.Exists(PaperControl.PathConfig["TmpPaper"] + id + ".rar"))
-                {
-                    isExistPaper = false;
-                    localPath.Add(PaperControl.PathConfig["TmpPaper"] + id + ".rar");
-                    remoteCmd.Add(supportServer.LoadPaperPkg(Convert.ToInt32(id), 0));
-                }
-            }
-            if (!isExistPaper)
-            {
-                supportServer.Client.ReceiveFileList(remoteCmd, localPath);
-            }
-        }
-
-        void Client_FileListRecieveEnd()
-        {
-            while (!this.IsHandleCreated) ;
-            this.Invoke(new Action(() =>
-            {
-                this.Enabled = true;
-                FileListWaiting.Instance.Close();
-            }));
-
-        }
-
-        void Client_FileListRecieveStart()
-        {
-            while (!this.IsHandleCreated) ;
-            this.Invoke(new Action(() =>
-            {
-                this.Enabled = false;
-                FileListWaiting.Instance.Show();
-            }));
-        }
-
-        void Port_RecieveFileRate(double rate)
-        {
-            while (!this.IsHandleCreated) ;
-            this.Invoke(new Action(() =>
-            {
-                FileListWaiting.Instance.setProcessBar((int)rate * 1000);
-            }));
-        }
-
-        void Client_FileListCount(int count)
-        {
-            while (!this.IsHandleCreated) ;
-            this.Invoke(new Action(() =>
-            {
-                FileListWaiting.Instance.setText(count);
-            }));
-        }
-
-        #endregion
-
         private void OESMonitor_Load(object sender, EventArgs e)
         {
             cl.Text = "与客户端（client）的通信命令";
@@ -636,96 +273,387 @@ namespace OESMonitor
             textBoxEndIp.Text = ips[0] + "." + ips[1] + "." + ips[2] + "." + "254";
         }
 
-        void Server_WrittenMsg(Client client, string msg)
+        private void RetrieveHostIpv4Address()
         {
-            cl.showMessage("(" + client.ClientIp + ")" + "Write:\t" + msg);
-        }
-
-        void Server_ReceivedMsg(Client client, string msg)
-        {
-            cl.showMessage("(" + client.ClientIp + ")" + "Read:\t" + msg);
-        }
-
-        void Server_SendDataReady(Client client, string msg)
-        {
-            foreach (Computer c in Computer.ComputerList)
+            //获得所有的ip地址，包括ipv6和ipv4
+            IPAddress[] ips = Dns.GetHostAddresses(Dns.GetHostName());
+            foreach (IPAddress tip in ips)
             {
-                if (c.Client == client)
+                //ipv4的最大长度为15，ipv6为39
+                if (tip.ToString().Length <= 15)
                 {
-                    client.Port.FilePath = c.ExamPaperPath;
+                    alternativeIp.Add(tip);
                 }
             }
         }
 
-
-
-        void Server_FileSendEnd(ServerNet.DataPort dataPort)
+        #region 试卷文件夹管理Tab
+        #region 考生文件夹操作
+        void studentAnsDirectory_OnDelete(StudentAnsDirectory e)
         {
-            foreach (Computer c in Computer.ComputerList)
+            //Directory.Delete(PaperControl.PathConfig["StuAns"] + e.Text, true);
+            File.Delete(PaperControl.PathConfig["StuAns"] + e.Text + ".rar");
+        }
+
+        void studentAnsDirectory_OnView(StudentAnsDirectory e)
+        {
+            Process.Start(PaperControl.PathConfig["StuAns"] + e.Text + ".rar");
+        }
+        #endregion
+
+        #region 考生答案文件夹监视事件
+        void fileSystemWatcher_Renamed(object sender, RenamedEventArgs e)
+        {
+            flowLayoutPanelDir.Controls.Clear();
+            //foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            foreach (string path in Directory.GetFiles(PaperControl.PathConfig["StuAns"]))
             {
-                if (c.Client.Port == dataPort)
-                {
-                    c.State = 5;
-                }
+                StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
+                studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
+                studentAnsDirectory.OnDelete += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnDelete);
+                flowLayoutPanelDir.Controls.Add(studentAnsDirectory);
             }
         }
 
-        /// <summary>
-        /// 当考生答案文件收完后触发
-        /// </summary>
-        /// <param name="dataPort"></param>
-        void Server_FileReceiveEnd(ServerNet.DataPort dataPort)
+        void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
-            for (int i = Computer.ComputerList.Count - 1; i >= 0; i--)
+            flowLayoutPanelDir.Controls.Clear();
+            //foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+            foreach (string path in Directory.GetFiles(PaperControl.PathConfig["StuAns"]))
             {
-                if (Computer.ComputerList[i].Client.Port == dataPort)
-                {
-                    //对考生文件解密
-                    //if (RARHelper.Exists())
-                    //{
-                    //    RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
-                    //    while (!Directory.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\")) ;
-                    //    File.WriteAllText(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\password.txt", Computer.ComputerList[i].Password);
-                    //}
-                    //Computer.ComputerList[i].State = 4;
-                    //if (File.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar"))
-                    //{
-                    //    File.Delete(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar");
-                    //}
-                    Computer.ComputerList[i].State = 4;
-                    AddToFlp(flp_CompleteExam, Computer.ComputerList[i]);
-                    RemoveFromFlp(flp_Onexam, Computer.ComputerList[i]);
-                    Computer.CompleteList.Add(Computer.ComputerList[i]);
-                    Computer.ComputerList.Remove(Computer.ComputerList[i]);
-                    HandInCount--;
-                    if (HandInCount == 0)
-                    {
-                        ServerEvt.Server.IsPortAvailable = false;
-                        timer_PortCounter.Stop();
-                    }
-                    break;
-                }
+                StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
+                studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
+                studentAnsDirectory.OnDelete += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnDelete);
+                flowLayoutPanelDir.Controls.Add(studentAnsDirectory);
             }
         }
+        #endregion
+        #endregion
 
-        void Server_AcceptedClient(object sender, EventArgs e)
+        #region 考试状态Tab
+        #region 网络连接状态
+        void Client_DisConnectError(object sender, ErrorEventArgs e)
         {
-            AddComputer((Client)sender);
+            while (!this.IsHandleCreated) ;
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                netState1.State = 0;
+            }));
         }
 
+        void Client_ConnectedServer(object sender, EventArgs e)
+        {
+            while (!this.IsHandleCreated) ;
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                netState1.State = 1;
+            }));
+        }
+
+        void netState1_ReConnect(object sender, EventArgs e)
+        {
+            if (netState1.State == 0)
+            {
+                supportServer.Client.InitializeClient();
+            }
+            else
+            {
+                netState1.State = 0;
+            }
+        }
+        #endregion
+        #region 添加一个电脑
+        public void AddComputer(Client client)
+        {
+            while (!this.IsHandleCreated) ;
+            this.Invoke(new MethodInvoker(() =>
+            {
+                Computer com = new Computer();
+                com.CreateControl();
+                com.State = 1;
+                com.Client = client;
+                com.OnErrorConnect += new System.IO.ErrorEventHandler(com_OnErrorConnect);
+                Computer.ComputerList.Add(com);
+
+                AddToFlp(flp_Onexam, com);
+            }));
+        }
+        #endregion
+        #region 更新界面上的电脑图标
+        private void AddToFlp(FlowLayoutPanel f, Computer c)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                f.Controls.Add(c);
+            }));
+        }
+        private void RemoveFromFlp(FlowLayoutPanel f, Computer c)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                f.Controls.Remove(c);
+            }));
+        }
+        private void UpdateList()
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                flp_Onexam.Controls.Clear();
+                foreach (Computer c in Computer.ComputerList)
+                {
+                    flp_Onexam.Controls.Add(c);
+                }
+            }));
+        }
+        private void UpdateCompleteList()
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                flp_CompleteExam.Controls.Clear();
+                foreach (Computer c in Computer.CompleteList)
+                {
+                    flp_CompleteExam.Controls.Add(c);
+                }
+            }));
+        }
+        private void UpdateErrorList()
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                flp_Disconnect.Controls.Clear();
+                foreach (Computer c in Computer.ErrorList)
+                {
+                    flp_Disconnect.Controls.Add(c);
+                }
+            }));
+        }
+        #endregion
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComputerState.getInstance().InfoClear();
         }
+        void com_OnErrorConnect(object sender, System.IO.ErrorEventArgs e)
+        {
+            UpdateList();
+            UpdateErrorList();
+        }
+        //点击开始考试按钮
+        private void buttonExamStatue_Click(object sender, EventArgs e)
+        {
+            if (netState1.State == 1)
+            {
+                if (!IsStartExam)
+                {
+                    bool isExistPaper = true;
+                    foreach (DataRow dr in paperListDataTable.Rows)
+                    {
+                        string id = dr[1].ToString();
+                        if (!File.Exists(PaperControl.PathConfig["TmpPaper"] + id + ".rar"))
+                        {
+                            isExistPaper = false;
+                        }
+                    }
+                    if (isExistPaper && examPaperIdList.Count != 0)
+                    {
+                        IsStartExam = true;
+                    }
+                    else
+                    {
+                        helpLabel.Text = "您没有选择考试试卷 或者 您还有部分试卷未下载，请点击“下载试卷”";
+                        MessageBox.Show(helpLabel.Text);
+                        tabControl2.SelectedIndex = 1;
+                    }
+                }
+                else
+                {
 
+                    IsStartExam = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("未连接上服务器,不能开始考试!");
+            }
+        }
+        //Timer间隔显示数据端口数量
+        private void timer_PortCounter_Tick(object sender, EventArgs e)
+        {
+            lab_DataPortCount.Text = Net.ServerEvt.Server.PortCurNum.ToString();
+        }
+        #endregion
+
+        #region 考卷选择Tab
+        #region 文字功能提示
+        void btnGetPaperFromDB_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"打开新的窗口，到数据库里面取需要考试的试卷";
+        }
+
+        void btnRemove_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"从当前试卷列表中将选中的试卷移除";
+        }
+
+        void downloadButton_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"从服务器下载试卷到本机";
+        }
+
+        private void radioButton1_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"顺序选取试卷";
+        }
+
+        private void radioButton2_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"随机选取试卷";
+        }
+
+        private void radioButton3_MouseEnter(object sender, EventArgs e)
+        {
+            helpLabel.Text = @"通过双击
+选取其中一份试卷
+当前选择的试卷为：";
+        }
+
+        private void radioButton1_MouseLeave(object sender, EventArgs e)
+        {
+            helpLabel.Text = "";
+        }
+
+        #endregion
+        #region 按钮点击事件
+        void btnRemove_Click(object sender, System.EventArgs e)
+        {
+            for (int i = PaperListDGV.Rows.Count - 1; i >= 0; i--)
+            {
+                if ((bool)PaperListDGV.Rows[i].Cells[0].Value == true)
+                {
+                    paperListDataTable.Rows.RemoveAt(i);
+                }
+            }
+            updateExamPaperList();//当移除部分试卷后，更新当前考试的试卷列表
+        }
+
+        void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                radioButton3.Text = radioButton3.Text.Split('-')[0] + '-' + paperListDataTable.Rows[e.RowIndex][1];
+                radioButton3.Checked = true;
+                foreach (DataRow dr in paperListDataTable.Rows)
+                {
+                    dr[0] = false;
+                }
+                paperListDataTable.Rows[e.RowIndex][0] = true;
+                updateExamPaperList();//当点击勾选时，更新当前考试的试卷列表
+            }
+        }
+
+        private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RIndex = e.RowIndex;
+            if (RIndex > -1)
+            {
+                paperListDataTable.Rows[RIndex][0] = !Convert.ToBoolean(paperListDataTable.Rows[RIndex][0]);
+                updateExamPaperList();//当点击勾选时，更新当前考试的试卷列表
+            }
+        }
+
+        void PaperListDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            updateExamPaperList();
+        }
+
+        void PaperListDGV_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            updateExamPaperList();
+        }
+        /// <summary>
+        /// 更新当前考试的试卷列表
+        /// </summary>
+        private void updateExamPaperList()
+        {
+            examPaperIdList.Clear();
+            examPaperNameList.Clear();
+            foreach (DataRow dr in paperListDataTable.Rows)
+            {
+                if (Convert.ToBoolean(dr[0]))
+                {
+                    examPaperIdList.Add(Convert.ToInt32(dr[1].ToString()));
+                    examPaperNameList.Add(dr[2].ToString());
+                }
+            }
+        }
+
+        public List<string> localPath = new List<string>();
+        public List<string> remoteCmd = new List<string>();
+
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            bool isExistPaper = true;
+            foreach (DataRow dr in paperListDataTable.Rows)
+            {
+                string id = dr[1].ToString();
+                if (!File.Exists(PaperControl.PathConfig["TmpPaper"] + id + ".rar"))
+                {
+                    isExistPaper = false;
+                    localPath.Add(PaperControl.PathConfig["TmpPaper"] + id + ".rar");
+                    remoteCmd.Add(supportServer.LoadPaperPkg(Convert.ToInt32(id), 0));
+                }
+            }
+            if (!isExistPaper)
+            {
+                supportServer.Client.ReceiveFileList(remoteCmd, localPath);
+            }
+        }
+
+        void Client_FileListRecieveEnd()
+        {
+            while (!this.IsHandleCreated) ;
+            this.Invoke(new Action(() =>
+            {
+                this.Enabled = true;
+                FileListWaiting.Instance.Close();
+            }));
+
+        }
+
+        void Client_FileListRecieveStart()
+        {
+            while (!this.IsHandleCreated) ;
+            this.Invoke(new Action(() =>
+            {
+                this.Enabled = false;
+                FileListWaiting.Instance.Show();
+            }));
+        }
+
+        void Port_RecieveFileRate(double rate)
+        {
+            while (!this.IsHandleCreated) ;
+            this.Invoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setProcessBar((int)rate * 1000);
+            }));
+        }
+
+        void Client_FileListCount(int count)
+        {
+            while (!this.IsHandleCreated) ;
+            this.Invoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setText(count);
+            }));
+        }
+
+        #endregion
         private void btnGetPaperFromDB_Click(object sender, EventArgs e)
         {
             PaperChooseForm pcf = new PaperChooseForm();
             pcf.Show();
         }
-
-
-
+        //发卷模式选择
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if ((sender as RadioButton).Checked)
@@ -733,14 +661,7 @@ namespace OESMonitor
                 paperDeliverMode = Int32.Parse((sender as RadioButton).Tag.ToString());
             }
         }
-
-
-
-        private void timer_PortCounter_Tick(object sender, EventArgs e)
-        {
-            lab_DataPortCount.Text = Net.ServerEvt.Server.PortCurNum.ToString();
-        }
-
+        //点击选择试卷标签时发生
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl2.SelectedIndex == 1 && netState1.State != 1)
@@ -752,7 +673,9 @@ namespace OESMonitor
             {
             }
         }
+        #endregion
 
+        #region 监考设置Tab
         #region 本机服务Ip端口广播
         private bool checkIp()
         {
@@ -888,8 +811,9 @@ namespace OESMonitor
         }
         
         #endregion
+        #endregion
 
-        #region 考生状态
+        #region 考生状态Tab
         //刷新考生状态，手动刷新，减少界面负担
         private void refreshButton_Click(object sender, EventArgs e)
         {
@@ -914,6 +838,83 @@ namespace OESMonitor
                     sw.Write(content);
                 }
             }
+        }
+        #endregion
+
+        #region 网络事件监听
+        void Server_WrittenMsg(Client client, string msg)
+        {
+            cl.showMessage("(" + client.ClientIp + ")" + "Write:\t" + msg);
+        }
+
+        void Server_ReceivedMsg(Client client, string msg)
+        {
+            cl.showMessage("(" + client.ClientIp + ")" + "Read:\t" + msg);
+        }
+
+        void Server_SendDataReady(Client client, string msg)
+        {
+            foreach (Computer c in Computer.ComputerList)
+            {
+                if (c.Client == client)
+                {
+                    client.Port.FilePath = c.ExamPaperPath;
+                }
+            }
+        }
+
+        void Server_FileSendEnd(ServerNet.DataPort dataPort)
+        {
+            foreach (Computer c in Computer.ComputerList)
+            {
+                if (c.Client.Port == dataPort)
+                {
+                    c.State = 5;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 当考生答案文件收完后触发
+        /// </summary>
+        /// <param name="dataPort"></param>
+        void Server_FileReceiveEnd(ServerNet.DataPort dataPort)
+        {
+            for (int i = Computer.ComputerList.Count - 1; i >= 0; i--)
+            {
+                if (Computer.ComputerList[i].Client.Port == dataPort)
+                {
+                    //对考生文件解密
+                    //if (RARHelper.Exists())
+                    //{
+                    //    RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
+                    //    while (!Directory.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\")) ;
+                    //    File.WriteAllText(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\password.txt", Computer.ComputerList[i].Password);
+                    //}
+                    //Computer.ComputerList[i].State = 4;
+                    //if (File.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar"))
+                    //{
+                    //    File.Delete(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar");
+                    //}
+                    Computer.ComputerList[i].State = 4;
+                    AddToFlp(flp_CompleteExam, Computer.ComputerList[i]);
+                    RemoveFromFlp(flp_Onexam, Computer.ComputerList[i]);
+                    Computer.CompleteList.Add(Computer.ComputerList[i]);
+                    Computer.ComputerList.Remove(Computer.ComputerList[i]);
+                    HandInCount--;
+                    if (HandInCount == 0)
+                    {
+                        ServerEvt.Server.IsPortAvailable = false;
+                        timer_PortCounter.Stop();
+                    }
+                    break;
+                }
+            }
+        }
+
+        void Server_AcceptedClient(object sender, EventArgs e)
+        {
+            AddComputer((Client)sender);
         }
         #endregion
     }

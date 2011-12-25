@@ -48,7 +48,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.netState1 = new OES.NetState();
+            this.netState1 = new OES.NetState(10);
             this.label5 = new System.Windows.Forms.Label();
             this.lab_DataPortCount = new System.Windows.Forms.Label();
             this.buttonExamStatue = new System.Windows.Forms.Button();
@@ -576,9 +576,9 @@
             // 
             // buttonRepeatSingle
             // 
-            this.buttonRepeatSingle.Location = new System.Drawing.Point(339, 120);
+            this.buttonRepeatSingle.Location = new System.Drawing.Point(414, 120);
             this.buttonRepeatSingle.Name = "buttonRepeatSingle";
-            this.buttonRepeatSingle.Size = new System.Drawing.Size(139, 23);
+            this.buttonRepeatSingle.Size = new System.Drawing.Size(140, 23);
             this.buttonRepeatSingle.TabIndex = 5;
             this.buttonRepeatSingle.Text = "循环单播";
             this.buttonRepeatSingle.UseVisualStyleBackColor = true;
@@ -586,9 +586,9 @@
             // 
             // buttonBroadcastRepeat
             // 
-            this.buttonBroadcastRepeat.Location = new System.Drawing.Point(162, 120);
+            this.buttonBroadcastRepeat.Location = new System.Drawing.Point(261, 120);
             this.buttonBroadcastRepeat.Name = "buttonBroadcastRepeat";
-            this.buttonBroadcastRepeat.Size = new System.Drawing.Size(139, 23);
+            this.buttonBroadcastRepeat.Size = new System.Drawing.Size(140, 23);
             this.buttonBroadcastRepeat.TabIndex = 4;
             this.buttonBroadcastRepeat.Text = "每10s广播一次";
             this.buttonBroadcastRepeat.UseVisualStyleBackColor = true;
@@ -596,9 +596,9 @@
             // 
             // buttonBroadcastOnce
             // 
-            this.buttonBroadcastOnce.Location = new System.Drawing.Point(57, 120);
+            this.buttonBroadcastOnce.Location = new System.Drawing.Point(107, 120);
             this.buttonBroadcastOnce.Name = "buttonBroadcastOnce";
-            this.buttonBroadcastOnce.Size = new System.Drawing.Size(75, 23);
+            this.buttonBroadcastOnce.Size = new System.Drawing.Size(140, 23);
             this.buttonBroadcastOnce.TabIndex = 3;
             this.buttonBroadcastOnce.Text = "广播一次";
             this.buttonBroadcastOnce.UseVisualStyleBackColor = true;
@@ -607,7 +607,7 @@
             // labelRangeIp
             // 
             this.labelRangeIp.AutoSize = true;
-            this.labelRangeIp.Location = new System.Drawing.Point(41, 46);
+            this.labelRangeIp.Location = new System.Drawing.Point(103, 46);
             this.labelRangeIp.Name = "labelRangeIp";
             this.labelRangeIp.Size = new System.Drawing.Size(77, 14);
             this.labelRangeIp.TabIndex = 2;
@@ -615,14 +615,14 @@
             // 
             // textBoxEndIp
             // 
-            this.textBoxEndIp.Location = new System.Drawing.Point(281, 72);
+            this.textBoxEndIp.Location = new System.Drawing.Point(343, 72);
             this.textBoxEndIp.Name = "textBoxEndIp";
             this.textBoxEndIp.Size = new System.Drawing.Size(211, 23);
             this.textBoxEndIp.TabIndex = 1;
             // 
             // textBoxStartIp
             // 
-            this.textBoxStartIp.Location = new System.Drawing.Point(45, 72);
+            this.textBoxStartIp.Location = new System.Drawing.Point(107, 72);
             this.textBoxStartIp.Name = "textBoxStartIp";
             this.textBoxStartIp.Size = new System.Drawing.Size(211, 23);
             this.textBoxStartIp.TabIndex = 0;
@@ -708,7 +708,6 @@
             this.tabPage11.Size = new System.Drawing.Size(849, 487);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "关于";
-            this.tabPage11.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
