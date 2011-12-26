@@ -329,7 +329,8 @@ namespace OESMonitor
                 if (myPaperId == -1) return false;
                 ExamPaperPath = PaperControl.PathConfig["TmpPaper"] + OESMonitor.examPaperIdList[myPaperId].ToString() + ".rar";
                 ExamPaperName = OESMonitor.examPaperNameList[myPaperId];
-                this.Student = new Student(name, "", id, pwd);
+                this.Student = PaperControl.OesData.FindStudentByStudentId(id)[0];//new Student(name, "", id, pwd);
+                this.Student.ip = this.Client.ClientIp;
                 return true;
             }
             ExamPaperPath = "";

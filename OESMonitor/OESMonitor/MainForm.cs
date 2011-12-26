@@ -817,11 +817,18 @@ namespace OESMonitor
         //刷新考生状态，手动刷新，减少界面负担
         private void refreshButton_Click(object sender, EventArgs e)
         {
+            int completeNum=0;
             StudentDataGridView.Rows.Clear();
             foreach (Student s in PaperControl.StudentCollection.Keys)
             {
-                StudentDataGridView.Rows.Add(s.ID, s.sName, PaperControl.MapExamStateString[PaperControl.StudentCollection[s]]);
+                StudentDataGridView.Rows.Add(s.ID, s.sName, s.className, s.ip, PaperControl.MapExamStateString[PaperControl.StudentCollection[s]]);
+                if(PaperControl.StudentCollection[s]==ExamState.HandIn)
+                {
+                    completeNum++;
+                }
             }
+            LoginNumLabel.Text = "登录人数：" + PaperControl.StudentCollection.Keys.Count.ToString();
+            CompleteNumLabel.Text = "完成人数：" + completeNum.ToString();
         }
         //将考生状态信息存成xls文件
         private void ExportButton_Click(object sender, EventArgs e)
@@ -831,7 +838,7 @@ namespace OESMonitor
                 StringBuilder content = new StringBuilder();
                 foreach (Student s in PaperControl.StudentCollection.Keys)
                 {
-                    content.AppendLine(s.ID+"\t"+ s.sName+"\t"+ PaperControl.MapExamStateString[PaperControl.StudentCollection[s]]);
+                    content.AppendLine(s.ID+"\t"+ s.sName+"\t"+s.className+"\t"+s.ip+"\t"+ PaperControl.MapExamStateString[PaperControl.StudentCollection[s]]);
                 }
                 using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName,false, Encoding.Default))
                 {

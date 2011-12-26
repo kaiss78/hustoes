@@ -66,12 +66,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.StudentDataGridView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExportButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.StudentDataGridView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -98,6 +95,13 @@
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             this.timer_BroadcastSingle = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.LoginNumLabel = new System.Windows.Forms.Label();
+            this.CompleteNumLabel = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.班级 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -522,57 +526,21 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.ExportButton, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.refreshButton, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.StudentDataGridView, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.refreshButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.ExportButton, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.StudentDataGridView, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.LoginNumLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.CompleteNumLabel, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(843, 481);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // StudentDataGridView
-            // 
-            this.StudentDataGridView.AllowUserToAddRows = false;
-            this.StudentDataGridView.AllowUserToDeleteRows = false;
-            this.StudentDataGridView.AllowUserToOrderColumns = true;
-            this.StudentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.tableLayoutPanel1.SetColumnSpan(this.StudentDataGridView, 2);
-            this.StudentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StudentDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.StudentDataGridView.Name = "StudentDataGridView";
-            this.StudentDataGridView.ReadOnly = true;
-            this.StudentDataGridView.RowTemplate.Height = 23;
-            this.StudentDataGridView.Size = new System.Drawing.Size(837, 438);
-            this.StudentDataGridView.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "学号";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "姓名";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "状态";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // ExportButton
             // 
@@ -595,6 +563,25 @@
             this.refreshButton.Text = "刷新";
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // StudentDataGridView
+            // 
+            this.StudentDataGridView.AllowUserToAddRows = false;
+            this.StudentDataGridView.AllowUserToDeleteRows = false;
+            this.StudentDataGridView.AllowUserToOrderColumns = true;
+            this.StudentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.班级,
+            this.Ip,
+            this.Column3});
+            this.tableLayoutPanel1.SetColumnSpan(this.StudentDataGridView, 2);
+            this.StudentDataGridView.Location = new System.Drawing.Point(3, 40);
+            this.StudentDataGridView.Name = "StudentDataGridView";
+            this.StudentDataGridView.ReadOnly = true;
+            this.StudentDataGridView.RowTemplate.Height = 23;
+            this.StudentDataGridView.Size = new System.Drawing.Size(837, 401);
+            this.StudentDataGridView.TabIndex = 0;
             // 
             // tabPage6
             // 
@@ -832,6 +819,61 @@
             this.saveFileDialog.FileName = "default";
             this.saveFileDialog.Filter = "考生信息Excel|*.xls";
             // 
+            // LoginNumLabel
+            // 
+            this.LoginNumLabel.AutoSize = true;
+            this.LoginNumLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginNumLabel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoginNumLabel.Location = new System.Drawing.Point(3, 0);
+            this.LoginNumLabel.Name = "LoginNumLabel";
+            this.LoginNumLabel.Size = new System.Drawing.Size(415, 37);
+            this.LoginNumLabel.TabIndex = 3;
+            // 
+            // CompleteNumLabel
+            // 
+            this.CompleteNumLabel.AutoSize = true;
+            this.CompleteNumLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CompleteNumLabel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CompleteNumLabel.Location = new System.Drawing.Point(424, 0);
+            this.CompleteNumLabel.Name = "CompleteNumLabel";
+            this.CompleteNumLabel.Size = new System.Drawing.Size(416, 37);
+            this.CompleteNumLabel.TabIndex = 4;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "学号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "姓名";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // 班级
+            // 
+            this.班级.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.班级.HeaderText = "班级";
+            this.班级.Name = "班级";
+            this.班级.ReadOnly = true;
+            // 
+            // Ip
+            // 
+            this.Ip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ip.HeaderText = "Ip";
+            this.Ip.Name = "Ip";
+            this.Ip.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "状态";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
             // OESMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -865,6 +907,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).EndInit();
             this.tabPage12.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
@@ -945,12 +988,16 @@
         private System.Windows.Forms.TabPage tabPage12;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView StudentDataGridView;
         private System.Windows.Forms.Button refreshButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button ExportButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label LoginNumLabel;
+        private System.Windows.Forms.Label CompleteNumLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 班级;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ip;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
 
     }
 }
