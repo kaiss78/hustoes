@@ -202,13 +202,13 @@ namespace OESXML
             {
                 switch (c.language)
                 {
-                    case ProgramProblem.Language.C:
+                    case PLanguage.C:
                         xmlelem = xd.CreateElement("CProgramCompletion");
                         break;
-                    case ProgramProblem.Language.CPP:
+                    case PLanguage.CPP:
                         xmlelem = xd.CreateElement("CppProgramCompletion");
                         break;
-                    case ProgramProblem.Language.VB:
+                    case PLanguage.VB:
                         xmlelem = xd.CreateElement("VbProgramCompletion");
                         break;
                 }
@@ -233,13 +233,13 @@ namespace OESXML
             {
                 switch (c.language)
                 {
-                    case ProgramProblem.Language.C:
+                    case PLanguage.C:
                         xmlelem = xd.CreateElement("CProgramModification");
                         break;
-                    case ProgramProblem.Language.CPP:
+                    case PLanguage.CPP:
                         xmlelem = xd.CreateElement("CppProgramModification");
                         break;
-                    case ProgramProblem.Language.VB:
+                    case PLanguage.VB:
                         xmlelem = xd.CreateElement("VbProgramModification");
                         break;
                 }
@@ -264,13 +264,13 @@ namespace OESXML
             {
                 switch (c.language)
                 {
-                    case ProgramProblem.Language.C:
+                    case PLanguage.C:
                         xmlelem = xd.CreateElement("CProgramFun");
                         break;
-                    case ProgramProblem.Language.CPP:
+                    case PLanguage.CPP:
                         xmlelem = xd.CreateElement("CppProgramFun");
                         break;
-                    case ProgramProblem.Language.VB:
+                    case PLanguage.VB:
                         xmlelem = xd.CreateElement("VbProgramFun");
                         break;
                 }
