@@ -40,9 +40,9 @@ namespace OES.Model
             p.officeWord = new List<OfficeWord>();
             p.officePPT = new List<OfficePowerPoint>();
             p.officeExcel = new List<OfficeExcel>();
-            p.pCompletion = new List<PCompletion>();
-            p.pModif = new List<PModif>();
-            p.pFunction = new List<PFunction>();
+            p.pCompletion = new List<ProgramProblem>();
+            p.pModif = new List<ProgramProblem>();
+            p.pFunction = new List<ProgramProblem>();
             p.problemList = new List<Problem>();
             ReadXML.ReadPaper(Config.PaperPath + p.paperID + @"\");
         }
