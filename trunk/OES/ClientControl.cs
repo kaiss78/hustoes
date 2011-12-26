@@ -179,7 +179,7 @@ namespace OES
         }
         public static PCompletion GetProgramCompletion(int proID)
         {
-            return paper.pCompletion[proID];
+            return paper.pCompletion[proID] as PCompletion;
         }
         public static void AddProgramModif(PModif pModif)
         {
@@ -187,7 +187,7 @@ namespace OES
         }
         public static PModif GetProgramModif(int proID)
         {
-            return paper.pModif[proID];
+            return paper.pModif[proID] as PModif;
         }
         public static void AddProgramFunction(PFunction pFunction)
         {
@@ -195,7 +195,7 @@ namespace OES
         }
         public static PFunction GetProgramFunction(int proID)
         {
-            return paper.pFunction[proID];
+            return paper.pFunction[proID] as PFunction;
         }
         //总控类设置当前题目号
         internal static void JumpToPro(int p)
