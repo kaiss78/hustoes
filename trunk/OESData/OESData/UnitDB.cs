@@ -17,26 +17,19 @@ namespace OES
         { }
 
         //添加章节，UnitName具体的章节名字，例如“故障恢复”
-        public void AddUnit(string UnitName, int Unit)
+        public void AddUnit(string UnitName, int Unit, int CourseId)
         {
-            SqlParameter[] ddlparam = new SqlParameter[2];
-            ddlparam[0] = CreateParam("@UnitName", SqlDbType.VarChar, 100, UnitName, ParameterDirection.Input);
-            ddlparam[1] = CreateParam("@Unit", SqlDbType.Int, 9, Unit, ParameterDirection.Input);
-
-            DataBind();
-            SqlCommand cmd = new SqlCommand("AddUnit", sqlcon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            for (int i = 0; i < 2; i++)
-            {
-                cmd.Parameters.Add(ddlparam[i]);
-            }
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@UnitName", SqlDbType.VarChar, 100, UnitName, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
             try
             {
-                cmd.ExecuteNonQuery();
+                RunProc("AddUnit", dp);
             }
-            catch (SqlException e)
+            catch (SqlException ex)
             {
-                throw e;
+                Console.WriteLine(ex.ToString());
             }
         }
 
@@ -87,14 +80,35 @@ namespace OES
         }
 
         //Description:  修改某个章节
-        public void UpdateUnit(int Unit, string UnitName)
+        public void UpdateUnit(int Unit, string UnitName, int CourseId)
         {
             List<SqlParameter> dp = new List<SqlParameter>();
-            dp.Add(CreateParam("@Unit", SqlDbType.Int, 11, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
             dp.Add(CreateParam("@UnitName", SqlDbType.VarChar, 50, UnitName, ParameterDirection.Input));
-            SqlCommand cmd = CreateCmd("UpdateUnit", dp);
-            try { cmd.ExecuteNonQuery(); }
-            catch (Exception ex) { throw ex; }
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
+            try
+            {
+                RunProc("UpdateUnit", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public DataSet FindAllCourse_DataSet()
+        {
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            try
+            {
+                RunProc("FindAllCourse", dp, Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return Ds;
         }
 
         #endregion
