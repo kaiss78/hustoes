@@ -26,7 +26,7 @@ namespace OES.UPanel
 
         }
 
-        private void btnBrowser1_Click(object sender, EventArgs e)
+        private void btnBrowserSource_Click(object sender, EventArgs e)
         {
             if (ofdBrowser.ShowDialog() == DialogResult.OK)
             {
@@ -34,7 +34,7 @@ namespace OES.UPanel
             }
         }
 
-        private void btnBrowser2_Click(object sender, EventArgs e)
+        private void btnBrowserAns_Click(object sender, EventArgs e)
         {
             if (ofdBrowser.ShowDialog() == DialogResult.OK)
             {

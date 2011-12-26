@@ -13,14 +13,22 @@ namespace OES
     public partial class frmAddRule : Form
     {
         private DataTable dtChapter;
-        private DataTable dtPType;
+        private DataView dvChapter;
+        public DataTable dtCourse;
+        private DataTable dtPType;        
         public PaperRule NewRule;
 
         private void Init()
         {
-            dtChapter = InfoControl.OesData.FindAllUnit_DataSet().Tables[0];
+            dtCourse = InfoControl.OesData.FindAllCourse_DataSet().Tables[0];
+            cboCourse.DataSource = dtCourse;
+            cboCourse.DisplayMember = "CourseName";
+            cboCourse.ValueMember = "CourseId";
 
-            cboChapterList.DataSource = dtChapter;
+
+            dtChapter = InfoControl.OesData.FindAllUnit_DataSet().Tables[0];
+            dvChapter = new DataView(dtChapter);
+            cboChapterList.DataSource = dvChapter;
             cboChapterList.DisplayMember = "UnitName";
             cboChapterList.ValueMember = "Unit";
 
@@ -82,6 +90,11 @@ namespace OES
         {
             NewRule=null;
             this.Close();
+        }
+
+        private void cboCourse_DisplayMemberChanged(object sender, EventArgs e)
+        {
+            //dvChapter.;
         }
     }
 
