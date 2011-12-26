@@ -95,7 +95,7 @@ namespace OESMonitor
 
         public static Net.ClientEvt supportServer;
 
-        #region 配置文件界面对象
+        #region 配置文件-界面对象
         private ConfigEditor serverConfig = new ConfigEditor("ServerConfig.xml");
 
         private ConfigEditor clientConfig = new ConfigEditor("ClientConfig.xml");
@@ -366,7 +366,7 @@ namespace OESMonitor
         public void AddComputer(Client client)
         {
             while (!this.IsHandleCreated) ;
-            this.Invoke(new MethodInvoker(() =>
+            this.BeginInvoke(new MethodInvoker(() =>
             {
                 Computer com = new Computer();
                 com.CreateControl();
@@ -382,21 +382,21 @@ namespace OESMonitor
         #region 更新界面上的电脑图标
         private void AddToFlp(FlowLayoutPanel f, Computer c)
         {
-            this.Invoke(new MethodInvoker(() =>
+            this.BeginInvoke(new MethodInvoker(() =>
             {
                 f.Controls.Add(c);
             }));
         }
         private void RemoveFromFlp(FlowLayoutPanel f, Computer c)
         {
-            this.Invoke(new MethodInvoker(() =>
+            this.BeginInvoke(new MethodInvoker(() =>
             {
                 f.Controls.Remove(c);
             }));
         }
         private void UpdateList()
         {
-            this.Invoke(new MethodInvoker(() =>
+            this.BeginInvoke(new MethodInvoker(() =>
             {
                 flp_Onexam.Controls.Clear();
                 foreach (Computer c in Computer.ComputerList)
@@ -407,7 +407,7 @@ namespace OESMonitor
         }
         private void UpdateCompleteList()
         {
-            this.Invoke(new MethodInvoker(() =>
+            this.BeginInvoke(new MethodInvoker(() =>
             {
                 flp_CompleteExam.Controls.Clear();
                 foreach (Computer c in Computer.CompleteList)
@@ -418,7 +418,7 @@ namespace OESMonitor
         }
         private void UpdateErrorList()
         {
-            this.Invoke(new MethodInvoker(() =>
+            this.BeginInvoke(new MethodInvoker(() =>
             {
                 flp_Disconnect.Controls.Clear();
                 foreach (Computer c in Computer.ErrorList)
