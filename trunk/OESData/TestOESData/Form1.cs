@@ -19,7 +19,11 @@ namespace TestOESData
         public OESData oesdata=new OESData();
         private void button1_Click(object sender, EventArgs e)
         {
-            oesdata.FindAllChoice("", 1, -1, 1, 20);
+            oesdata.DeleteProgram(36);
+            //oesdata.FindAllProgram("", OES.Model.ProgramPType.Null, 
+            //    OES.Model.PLanguage.Null, -1, -1, 1, 100);
+            //oesdata.DeleteOffice(3);
+            //oesdata.FindAllChoice("", 1, -1, 1, 20);
 
             //oesdata.FindAllChoice("d", -1, -1, 1, 10);
             //MessageBox.Show(oesdata.AddChoice("testChoice", "A", "B", "C", "D", "A", 1, 2).ToString());
