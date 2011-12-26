@@ -71,7 +71,7 @@
             // 
             // ofdBrowser
             // 
-            this.ofdBrowser.Filter = "C文件/C++文件|*.c*.cpp";
+            this.ofdBrowser.Filter = "C文件/C++文件/VB文件|*.c;*.cpp;*.vb";
             // 
             // btnCancel
             // 
