@@ -42,7 +42,8 @@ namespace OESScore
             }
             dtStuList = new DataTable();
             dtStuList.Columns.Add("学号");
-            dtStuList.Columns.Add("姓名");
+            dtStuList.Columns.Add("姓名");            
+            dtStuList.Columns.Add("班级");
             dtStuList.Columns.Add("试卷名称");
             dtStuList.Columns.Add("成绩", typeof(int));
             dtStuList.Columns.Add("状态", typeof(ScoreState));
@@ -52,10 +53,11 @@ namespace OESScore
             dgvStudentTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dgvStudentTable.Columns[0].FillWeight = 15;
-            dgvStudentTable.Columns[1].FillWeight = 15;
-            dgvStudentTable.Columns[2].FillWeight = 20;
-            dgvStudentTable.Columns[3].FillWeight = 10;
-            dgvStudentTable.Columns[4].FillWeight = 15;
+            dgvStudentTable.Columns[1].FillWeight = 10;
+            dgvStudentTable.Columns[2].FillWeight = 15;
+            dgvStudentTable.Columns[3].FillWeight = 20;
+            dgvStudentTable.Columns[4].FillWeight = 10;
+            dgvStudentTable.Columns[5].FillWeight = 15;            
 
             #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
@@ -120,7 +122,7 @@ namespace OESScore
             StuList = new List<StuFolder>();
             studentList = ScoreControl.GetFolderInfo(ScoreControl.config["PaperPath"]);
             dtStuList.Rows.Clear();
-            object[] values = new object[5];
+            object[] values = new object[6];
             int i = 0;
 
             foreach (DirectoryInfo stu in studentList)
@@ -135,9 +137,10 @@ namespace OESScore
                     tmpSF.Score.Value = 0;
                     tmpSF.path = stu;
                     values[0] = tmpSF.StuInfo.ID;
-                    values[1] = tmpSF.StuInfo.sName;
-                    values[2] = "";
-                    values[3] = 0;
+                    values[1] = tmpSF.StuInfo.sName;                    
+                    values[2] = tmpSF.StuInfo.className;
+                    values[3] = "";
+                    values[4] = 0;
                     if (File.Exists(stu.FullName + "\\studentAns.xml"))
                     {
                         tmpSF.StuAns = ScoreControl.GetStuAns(stu.FullName);
@@ -146,25 +149,25 @@ namespace OESScore
                         if (tmpP.Count > 0)
                         {
                             tmpSF.PaperInfo = tmpP[0];
-                            values[4] = ScoreState.None;
+                            values[5] = ScoreState.None;
                         }
                         else
                         {
                             tmpSF.PaperInfo.paperName = "试卷不存在";
                             tmpSF.PaperInfo.paperID = -1;
-                            values[4] = ScoreState.PaperNotFound;
+                            values[5] = ScoreState.PaperNotFound;
                         }
                         if (File.Exists(stu.FullName + "\\Result.xml"))
                         {
                             tmpSF.ReadResult(stu.FullName + "\\Result.xml");
-                            values[3] = tmpSF.Score.Value;
-                            values[4] = ScoreState.Success;
+                            values[4] = tmpSF.Score.Value;
+                            values[5] = ScoreState.Success;
                         }
-                        values[2] = tmpSF.PaperInfo.paperName;
+                        values[3] = tmpSF.PaperInfo.paperName;
                     }
                     else
                     {
-                        values[4] = ScoreState.AnswerNotFound;
+                        values[5] = ScoreState.AnswerNotFound;
                     }
                     StuList.Add(tmpSF);
                     dtStuList.Rows.Add(values);
