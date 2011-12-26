@@ -201,7 +201,7 @@ namespace OESScore
                 StuList[RIndex].Score.addDetail(ans.Type, dScore);
                 XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
                 Score += dScore;
-                processBar.Value = ++i * 100 / StuList[RIndex].StuAns.Ans.Count;
+                //processBar.Value = ++i * 100 / StuList[RIndex].StuAns.Ans.Count;
             }
 
             if (File.Exists(StuList[RIndex].path.FullName + "\\g.c"))  //程序改错
@@ -293,7 +293,11 @@ namespace OESScore
                 }
             }
         }
-
+        /// <summary>
+        /// 对所有试卷评分
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnScore_Click(object sender, EventArgs e)
         {
             int RIndex;
@@ -306,6 +310,7 @@ namespace OESScore
                     dtStuList.Rows[RIndex][3] = StuList[i].Score.Value;
                     dtStuList.Rows[RIndex][4] = ScoreState.Success;
                 }
+                processBar.Value = (i + 1) * 100 / StuList.Count;
             }
         }
 
