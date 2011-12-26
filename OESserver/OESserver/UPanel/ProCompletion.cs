@@ -15,7 +15,7 @@ namespace OES.UPanel
     {        
         public ProgramProblem newProblem;
         public DataTable dtAnsList;
-        public DataView dvAnsList;
+        public DataView dvAnsList;        
         public int BlankCount;
         public int AnsCount;
 
@@ -43,6 +43,7 @@ namespace OES.UPanel
             tbProblemFile.Text = "";
             BlankCount = 0;
             AnsCount = 0;
+            
 
             dtAnsList = new DataTable();
             dtAnsList.Columns.Add("SeqNum", typeof(int));
