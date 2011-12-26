@@ -60,6 +60,22 @@ namespace OES
             return Ds;
         }
 
+        public DataSet FindUnitByCourseId_DataSet(int CourseId)
+        {
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindUnitByCourseId", dp, Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return Ds;
+        }
+
         //Description:  删除某个章节
         public void DeleteUnit(int Unit)
         {
