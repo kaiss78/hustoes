@@ -16,7 +16,7 @@ namespace OESScore
 {
     public partial class formOESScore : Form
     {
-        
+
         public DataTable dtStuList = new DataTable();
         public DataView dvStuList = new DataView();
         public List<PaperFolder> papers = new List<PaperFolder>();
@@ -24,10 +24,10 @@ namespace OESScore
 
         enum ScoreState
         {
-            None=0,     //未开始评分
-            Success=1,  //评分成功
-            PaperNotFound=2,//试卷不存在
-            AnswerNotFound=3//考生答案不存在
+            None = 0,     //未开始评分
+            Success = 1,  //评分成功
+            PaperNotFound = 2,//试卷不存在
+            AnswerNotFound = 3//考生答案不存在
         }
 
         public formOESScore()
@@ -44,10 +44,10 @@ namespace OESScore
             dtStuList.Columns.Add("学号");
             dtStuList.Columns.Add("姓名");
             dtStuList.Columns.Add("试卷名称");
-            dtStuList.Columns.Add("成绩",typeof(int));
-            dtStuList.Columns.Add("状态",typeof(ScoreState));
+            dtStuList.Columns.Add("成绩", typeof(int));
+            dtStuList.Columns.Add("状态", typeof(ScoreState));
 
-            dvStuList=new DataView(dtStuList);            
+            dvStuList = new DataView(dtStuList);
             dgvStudentTable.DataSource = dvStuList;
             dgvStudentTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -56,7 +56,7 @@ namespace OESScore
             dgvStudentTable.Columns[2].FillWeight = 20;
             dgvStudentTable.Columns[3].FillWeight = 10;
             dgvStudentTable.Columns[4].FillWeight = 15;
-             
+
             #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
             netState1.State = 2;
@@ -121,7 +121,7 @@ namespace OESScore
             studentList = ScoreControl.GetFolderInfo(ScoreControl.config["PaperPath"]);
             dtStuList.Rows.Clear();
             object[] values = new object[5];
-            int i=0;
+            int i = 0;
 
             foreach (DirectoryInfo stu in studentList)
             {
@@ -169,8 +169,8 @@ namespace OESScore
                     StuList.Add(tmpSF);
                     dtStuList.Rows.Add(values);
                 }
-                processBar.Value = ++i * 100 / studentList.Count ;
-            } 
+                processBar.Value = ++i * 100 / studentList.Count;
+            }
         }
 
 
@@ -178,7 +178,7 @@ namespace OESScore
         {
             for (int i = 0; i < StuList.Count; i++)
             {
-                processBar.Value = (i+1) * 100 / StuList.Count;
+                processBar.Value = (i + 1) * 100 / StuList.Count;
                 Mark(i);
             }
         }
@@ -186,7 +186,7 @@ namespace OESScore
         public int Mark(int RIndex)
         {
             List<string> proAns;
-            int Score = 0, dScore = 0;            
+            int Score = 0, dScore = 0;
             StuList[RIndex].Score.sum = new List<Sum>();
             ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID.ToString());
             XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
@@ -194,7 +194,7 @@ namespace OESScore
             foreach (Answer ans in StuList[RIndex].StuAns.Ans)
             {
                 dScore = 0;
-                if ((ans.Ans!=null) && (ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
+                if ((ans.Ans != null) && (ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
                 {
                     dScore = ScoreControl.staAns.Ans[ans.ID].Score;
                 }
@@ -226,7 +226,7 @@ namespace OESScore
             if (RARHelper.Exists())
             {
                 int count = Directory.GetFiles(path).Length;
-                int i=0;
+                int i = 0;
                 foreach (FileInfo f in new DirectoryInfo(path).GetFiles())
                 {
                     if (f.Extension == ".rar")
@@ -235,7 +235,8 @@ namespace OESScore
                         if (!File.Exists(path + "\\Key\\" + f.Name.Replace(".rar", "") + ".pwd"))
                         {
                             Directory.CreateDirectory(path + "\\" + f.Name.Replace(".rar", "") + "\\");
-                            continue; }
+                            continue;
+                        }
                         using (StreamReader sr = new StreamReader(path + "\\Key\\" + f.Name.Replace(".rar", "") + ".pwd", Encoding.Default))
                         {
                             pass = sr.ReadToEnd();
@@ -270,7 +271,7 @@ namespace OESScore
                     MessageBox.Show("文件夹不存在", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+
         }
 
         /// <summary>
@@ -282,9 +283,14 @@ namespace OESScore
         {
             int RIndex = dtStuList.Rows.IndexOf(dvStuList[e.RowIndex].Row);
             if (RIndex > -1)
-            {                
-                StuList[RIndex].Score.Value=Mark(RIndex);
-                dtStuList.Rows[RIndex][3]= StuList[RIndex].Score.Value;
+            {
+                MessageBox.Show(dtStuList.Rows[RIndex][4].ToString());
+                if (Convert.ToInt32(dtStuList.Rows[RIndex][4]) < 2)
+                {
+                    StuList[RIndex].Score.Value = Mark(RIndex);
+                    dtStuList.Rows[RIndex][3] = StuList[RIndex].Score.Value;
+                    dtStuList.Rows[RIndex][4] = ScoreState.Success;
+                }
             }
         }
 
@@ -294,9 +300,13 @@ namespace OESScore
             for (int i = 0; i < StuList.Count; i++)
             {
                 RIndex = dtStuList.Rows.IndexOf(dvStuList[i].Row);
-                StuList[i].Score.Value = Mark(i);
-                dtStuList.Rows[RIndex][3]= StuList[i].Score.Value;
-            }            
+                if (Convert.ToInt32(dtStuList.Rows[RIndex][4]) < 2)
+                {
+                    StuList[i].Score.Value = Mark(i);
+                    dtStuList.Rows[RIndex][3] = StuList[i].Score.Value;
+                    dtStuList.Rows[RIndex][4] = ScoreState.Success;
+                }
+            }
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
