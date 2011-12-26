@@ -48,7 +48,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.netState1 = new OES.NetState(10);
+            this.netState1 = new OES.NetState();
             this.label5 = new System.Windows.Forms.Label();
             this.lab_DataPortCount = new System.Windows.Forms.Label();
             this.buttonExamStatue = new System.Windows.Forms.Button();
@@ -64,6 +64,14 @@
             this.btnGetPaperFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnRemove = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.StudentDataGridView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExportButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -89,15 +97,7 @@
             this.timer_Broadcast = new System.Windows.Forms.Timer(this.components);
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             this.timer_BroadcastSingle = new System.Windows.Forms.Timer(this.components);
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.StudentDataGridView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.refreshButton = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExportButton = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -109,6 +109,9 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).BeginInit();
+            this.tabPage12.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).BeginInit();
             this.tabPage6.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -119,9 +122,6 @@
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).BeginInit();
-            this.tabPage12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flp_Onexam
@@ -506,8 +506,99 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "本场考试试卷列表";
             // 
+            // tabPage12
+            // 
+            this.tabPage12.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage12.Location = new System.Drawing.Point(25, 4);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage12.Size = new System.Drawing.Size(849, 487);
+            this.tabPage12.TabIndex = 5;
+            this.tabPage12.Text = "考生状态";
+            this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.ExportButton, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.refreshButton, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.StudentDataGridView, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(843, 481);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // StudentDataGridView
+            // 
+            this.StudentDataGridView.AllowUserToAddRows = false;
+            this.StudentDataGridView.AllowUserToDeleteRows = false;
+            this.StudentDataGridView.AllowUserToOrderColumns = true;
+            this.StudentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.tableLayoutPanel1.SetColumnSpan(this.StudentDataGridView, 2);
+            this.StudentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StudentDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.StudentDataGridView.Name = "StudentDataGridView";
+            this.StudentDataGridView.ReadOnly = true;
+            this.StudentDataGridView.RowTemplate.Height = 23;
+            this.StudentDataGridView.Size = new System.Drawing.Size(837, 438);
+            this.StudentDataGridView.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "学号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "姓名";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "状态";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // ExportButton
+            // 
+            this.ExportButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ExportButton.Location = new System.Drawing.Point(424, 447);
+            this.ExportButton.Name = "ExportButton";
+            this.ExportButton.Size = new System.Drawing.Size(416, 31);
+            this.ExportButton.TabIndex = 2;
+            this.ExportButton.Text = "导出Excel";
+            this.ExportButton.UseVisualStyleBackColor = true;
+            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.refreshButton.Location = new System.Drawing.Point(3, 447);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(415, 31);
+            this.refreshButton.TabIndex = 1;
+            this.refreshButton.Text = "刷新";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // tabPage6
             // 
+            this.tabPage6.BackColor = System.Drawing.Color.LightBlue;
             this.tabPage6.Controls.Add(this.tabControl3);
             this.tabPage6.Location = new System.Drawing.Point(25, 4);
             this.tabPage6.Name = "tabPage6";
@@ -515,7 +606,6 @@
             this.tabPage6.Size = new System.Drawing.Size(849, 487);
             this.tabPage6.TabIndex = 2;
             this.tabPage6.Text = "监考设置";
-            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabControl3
             // 
@@ -691,6 +781,7 @@
             // flowLayoutPanelDir
             // 
             this.flowLayoutPanelDir.AutoScroll = true;
+            this.flowLayoutPanelDir.BackColor = System.Drawing.Color.LightBlue;
             this.flowLayoutPanelDir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelDir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelDir.Location = new System.Drawing.Point(3, 3);
@@ -735,101 +826,11 @@
             // 
             this.timer_BroadcastSingle.Tick += new System.EventHandler(this.timer_BroadcastSingle_Tick);
             // 
-            // tabPage12
-            // 
-            this.tabPage12.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage12.Location = new System.Drawing.Point(25, 4);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(849, 487);
-            this.tabPage12.TabIndex = 5;
-            this.tabPage12.Text = "考生状态";
-            this.tabPage12.UseVisualStyleBackColor = true;
-            // 
-            // StudentDataGridView
-            // 
-            this.StudentDataGridView.AllowUserToAddRows = false;
-            this.StudentDataGridView.AllowUserToDeleteRows = false;
-            this.StudentDataGridView.AllowUserToOrderColumns = true;
-            this.StudentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.tableLayoutPanel1.SetColumnSpan(this.StudentDataGridView, 2);
-            this.StudentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StudentDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.StudentDataGridView.Name = "StudentDataGridView";
-            this.StudentDataGridView.ReadOnly = true;
-            this.StudentDataGridView.RowTemplate.Height = 23;
-            this.StudentDataGridView.Size = new System.Drawing.Size(837, 438);
-            this.StudentDataGridView.TabIndex = 0;
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.refreshButton.Location = new System.Drawing.Point(3, 447);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(415, 31);
-            this.refreshButton.TabIndex = 1;
-            this.refreshButton.Text = "刷新";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "学号";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "姓名";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "状态";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // ExportButton
-            // 
-            this.ExportButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ExportButton.Location = new System.Drawing.Point(424, 447);
-            this.ExportButton.Name = "ExportButton";
-            this.ExportButton.Size = new System.Drawing.Size(416, 31);
-            this.ExportButton.TabIndex = 2;
-            this.ExportButton.Text = "导出Excel";
-            this.ExportButton.UseVisualStyleBackColor = true;
-            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
-            // 
             // saveFileDialog
             // 
             this.saveFileDialog.DefaultExt = "xls";
             this.saveFileDialog.FileName = "default";
             this.saveFileDialog.Filter = "考生信息Excel|*.xls";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.ExportButton, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.refreshButton, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.StudentDataGridView, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(843, 481);
-            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // OESMonitor
             // 
@@ -862,6 +863,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaperListDGV)).EndInit();
+            this.tabPage12.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
@@ -873,9 +877,6 @@
             this.tabPage11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher)).EndInit();
-            this.tabPage12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

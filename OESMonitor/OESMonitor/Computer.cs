@@ -77,7 +77,7 @@ namespace OESMonitor
                 switch (value)
                 {
                     case 0:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         { 
                             ico.BackgroundImage = Properties.Resources.s0; 
                             lab.Text = "未启动";
@@ -85,7 +85,7 @@ namespace OESMonitor
                         }));
                         break;
                     case 1:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s1;
                             lab.Text = "未登录";
@@ -93,7 +93,7 @@ namespace OESMonitor
                         }));
                         break;
                     case 2:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s2;
                             PaperControl.ChangeStudentState(this.Student, ExamState.Login);
@@ -102,7 +102,7 @@ namespace OESMonitor
                         }));
                         break;
                     case 3:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s3;
                             PaperControl.ChangeStudentState(this.Student, ExamState.Examing);
@@ -111,7 +111,7 @@ namespace OESMonitor
                         }));
                         break;
                     case 4:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s4;
                             PaperControl.ChangeStudentState(this.Student, ExamState.HandIn);
@@ -120,7 +120,7 @@ namespace OESMonitor
                         }));
                         break;
                     case 5:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s2;
                             PaperControl.ChangeStudentState(this.Student, ExamState.SendPaper);
@@ -129,7 +129,7 @@ namespace OESMonitor
                         }));
                         break;
                     case 6:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s3;
                             PaperControl.ChangeStudentState(this.Student, ExamState.ResumeExaming);
@@ -138,7 +138,7 @@ namespace OESMonitor
                         }));
                         break;
                     case 7:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s7;
                             PaperControl.ChangeStudentState(this.Student, ExamState.ApplyRestart);
@@ -147,7 +147,7 @@ namespace OESMonitor
                         }));
                         break;
                     case 8:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s3;
                             PaperControl.ChangeStudentState(this.Student, ExamState.RestartExaming);
@@ -156,7 +156,7 @@ namespace OESMonitor
                         }));
                         break;
                     default:
-                        this.Invoke(new MethodInvoker(() =>
+                        this.BeginInvoke(new MethodInvoker(() =>
                         {
                             ico.BackgroundImage = Properties.Resources.s0;
                             lab.Text = "未启动";
@@ -422,7 +422,7 @@ namespace OESMonitor
             set 
             { 
                 student = value;
-                StuLabel.Invoke(new MethodInvoker(() => { StuLabel.Text = student.ID; }));
+                StuLabel.BeginInvoke(new MethodInvoker(() => { StuLabel.Text = student.ID; }));
                 
             }
         }
