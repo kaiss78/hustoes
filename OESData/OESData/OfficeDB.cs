@@ -226,14 +226,14 @@ namespace OES
             dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
             dp.Add(CreateParam("@Type", SqlDbType.Int, 0, (int)Type, ParameterDirection.Input));
             dp.Add(CreateParam("@Language", SqlDbType.Int, 0, -1, ParameterDirection.Input));
-            dp.Add(CreateParam("@Uint", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             dp.Add(CreateParam("@PageIndex", SqlDbType.Int, 0, PageIndex, ParameterDirection.Input));
             dp.Add(CreateParam("@PageSize", SqlDbType.Int, 0, PageSize, ParameterDirection.Input));
             try
             {
                 RunProc("FindItems", dp, Ds);
-                //result = DataSetToProgramProblem(Ds);
+                result = DataSetToListOffice(Ds);
             }
             catch (SqlException ex)
             {
