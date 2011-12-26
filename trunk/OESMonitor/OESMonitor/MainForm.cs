@@ -15,6 +15,7 @@ using OES;
 using OESNet.UdpNet;
 using System.Diagnostics;
 using OES.Model;
+using System.Threading;
 
 namespace OESMonitor
 {
@@ -174,7 +175,7 @@ namespace OESMonitor
             downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
 
             #region 考试答案文件夹监视管理
-            if(!Directory.Exists(PaperControl.PathConfig["StuAns"]))
+            if (!Directory.Exists(PaperControl.PathConfig["StuAns"]))
             {
                 Directory.CreateDirectory(PaperControl.PathConfig["StuAns"]);
             }
@@ -799,17 +800,23 @@ namespace OESMonitor
         {
             ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
         }
-
+        private Thread t;
         private void timer_BroadcastSingle_Tick(object sender, EventArgs e)
         {
             List<string> iplist = generateIpDomain();
-            foreach (string ip in iplist)
+            string startIp = textBoxStartIp.Text;
+            string endIp = textBoxEndIp.Text;
+            t = new Thread(new ThreadStart(() =>
             {
-                ServerEvt.BroadcastHelper.DomineIp = ip;
-                ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
-            }
+                foreach (string ip in iplist)
+                {
+                    ServerEvt.BroadcastHelper.DomineIp = ip;
+                    ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(startIp).ToString() + "#" + UdpBroadcast.GetLongIp(endIp).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
+                }
+            }));
+            t.Start();
         }
-        
+
         #endregion
         #endregion
 
@@ -817,12 +824,12 @@ namespace OESMonitor
         //刷新考生状态，手动刷新，减少界面负担
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            int completeNum=0;
+            int completeNum = 0;
             StudentDataGridView.Rows.Clear();
             foreach (Student s in PaperControl.StudentCollection.Keys)
             {
                 StudentDataGridView.Rows.Add(s.ID, s.sName, s.className, s.ip, PaperControl.MapExamStateString[PaperControl.StudentCollection[s]]);
-                if(PaperControl.StudentCollection[s]==ExamState.HandIn)
+                if (PaperControl.StudentCollection[s] == ExamState.HandIn)
                 {
                     completeNum++;
                 }
@@ -838,9 +845,9 @@ namespace OESMonitor
                 StringBuilder content = new StringBuilder();
                 foreach (Student s in PaperControl.StudentCollection.Keys)
                 {
-                    content.AppendLine(s.ID+"\t"+ s.sName+"\t"+s.className+"\t"+s.ip+"\t"+ PaperControl.MapExamStateString[PaperControl.StudentCollection[s]]);
+                    content.AppendLine(s.ID + "\t" + s.sName + "\t" + s.className + "\t" + s.ip + "\t" + PaperControl.MapExamStateString[PaperControl.StudentCollection[s]]);
                 }
-                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName,false, Encoding.Default))
+                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName, false, Encoding.Default))
                 {
                     sw.Write(content);
                 }
