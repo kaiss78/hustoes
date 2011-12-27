@@ -17,48 +17,49 @@ namespace OES.UPanel
         private DataTable questionTable;
         public List<Problem> problemList = new List<Problem>();
         public List<Unit> unitList;
-        public List<ListItem> listItem = new List<ListItem>();
+        public List<ListItem> chapterItem = new List<ListItem>();
+        public List<ListItem> courseItem = new List<ListItem>();
+        public List<Course> courseList = new List<Course>();
         public int quesNum;
-        public ListItem aList;
+        public ListItem aList,bList;
         public String pointWords;
         public int pageNum = 0;
         public int theRowIndex;
+       
 
         public void InitCombText()
         {
- 
+            courseList = InfoControl.OesData.FindAllCourse();
+
+            for (int i = 0; i < courseList.Count; i++)
+                courseItem.Add(new ListItem(Convert.ToString(courseList[i].CourseId),Convert.ToString(courseList[i].CourseName)));
+
+            for (int i = 0; i < courseList.Count; i++)
+                this.Textcombo.Items.Add(courseItem[i]);
+
+            this.Textcombo.DisplayMember = "value";
+            this.Textcombo.ValueMember = "key";
+            
         }
         
-        public void InitCombUnit()
+        public void InitCombUnit(int courseId)
         {
             //ListItem cmpList;
+            chapterItem.Clear();
+            unitList = InfoControl.OesData.FindUnitByCourseId(courseId);
 
-            unitList = InfoControl.OesData.FindAllUnit();
-
-            listItem.Add(new ListItem("-1","全部"));
+            chapterItem.Add(new ListItem("-1", "全部"));
             for (int i = 0; i < unitList.Count; i++)
-                listItem.Add(new ListItem(Convert.ToString(unitList[i].UnitId), Convert.ToString(unitList[i].UnitName)));
-
-            //for (int i = 0; i < listItem.Count; i++)
-            //{
-            //    cmpList = listItem[i];
-            //    for (int j = i + 1; j < unitList.Count; j++)
-            //    {
-            //        if (listItem[i].value.Length > listItem[j].value.Length)
-            //        {
-            //            listItem[i] = listItem[j];
-            //            listItem[j] = cmpList;
-            //            cmpList = listItem[i];
-            //        }
-            //    }
-            //}
+                chapterItem.Add(new ListItem(Convert.ToString(unitList[i].UnitId), Convert.ToString(unitList[i].UnitName)));
 
             for(int i=0;i<unitList.Count;i++)
-                this.Unitcombo.Items.Add(listItem[i]);
+                this.Unitcombo.Items.Add(chapterItem[i]);
 
             this.Unitcombo.DisplayMember = "value";
             this.Unitcombo.ValueMember = "key";
 
+            if(this.Unitcombo.Items.Count!=0)
+            this.Unitcombo.SelectedIndex = 0;
         }
 
         public void InitCombPage(int problemNum)
@@ -113,7 +114,7 @@ namespace OES.UPanel
                     for (int i = 0; i < choiceList.Count; i++)
                         problemList.Add(choiceList[i]);
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, difficulty, -1, -1);
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit,course, difficulty, -1, -1);
 
                 } break;
 
@@ -123,7 +124,7 @@ namespace OES.UPanel
                     for (int i = 0; i < completionList.Count; i++)
                         problemList.Add(completionList[i]);
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, difficulty, -1, -1);
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit,course, difficulty, -1, -1);
                     
                 }  break;
 
@@ -133,7 +134,7 @@ namespace OES.UPanel
                     for(int i=0;i<judgmentList.Count;i++)
                         problemList.Add(judgmentList[i]);
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, difficulty, -1, -1);
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit,course, difficulty, -1, -1);
                     
                 }  break;
 
@@ -145,7 +146,7 @@ namespace OES.UPanel
                         problemList.Add(proComList[i]);
 
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, difficulty, 0, -1);
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit,course, difficulty, 0, -1);
 
                 } break;
 
@@ -155,7 +156,7 @@ namespace OES.UPanel
                     for (int i = 0; i < proModList.Count; i++)
                         problemList.Add(proModList[i]);
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,difficulty,pageIndex,-1);
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,course,difficulty,pageIndex,-1);
 
                 } break;
 
@@ -165,7 +166,7 @@ namespace OES.UPanel
                     for (int i = 0; i < proFuncList.Count; i++)
                         problemList.Add(proFuncList[i]);
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, difficulty, 2, -1);
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit,course, difficulty, 2, -1);
 
                 } break;
 
@@ -175,7 +176,7 @@ namespace OES.UPanel
                     for (int i = 0; i < wordList.Count; i++)
                         problemList.Add(wordList[i]);
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,difficulty,0,-1);
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,course,difficulty,0,-1);
 
                 } break;
 
@@ -185,7 +186,7 @@ namespace OES.UPanel
                     for (int i = 0; i < excelList.Count; i++)
                         problemList.Add(excelList[i]);
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,difficulty,1,-1);
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,course,difficulty,1,-1);
 
                 } break;
 
@@ -195,7 +196,7 @@ namespace OES.UPanel
                     for (int i = 0; i < powerList.Count; i++)
                         problemList.Add(powerList[i]);
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,difficulty,2,-1);
+                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,course,difficulty,2,-1);
 
                 } break;
             }
@@ -233,11 +234,11 @@ namespace OES.UPanel
         {
             InitializeComponent();
 
-            InitCombUnit();
+            InitCombText();
 
             this.Typecombo.SelectedIndex = 0;
-            this.Unitcombo.SelectedIndex = 0;
             this.Diffcombo.SelectedIndex = 0;
+            this.Textcombo.SelectedIndex = 0;
         }
 
     
@@ -253,7 +254,7 @@ namespace OES.UPanel
 
         private void UpdateBut_Click(object sender, EventArgs e)
         {
-
+        
             //AddQuetionPanel.CheckQue(this.comboBox1.SelectedIndex,Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.SelectedRows].Cells[1].Value));
 
         }
@@ -279,7 +280,7 @@ namespace OES.UPanel
                
             }
 
-            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key),1, this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex);
+            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex);
             this.Pagecombo.Items.Clear();
             InitCombPage(quesNum);
         }
@@ -298,7 +299,7 @@ namespace OES.UPanel
             aList = (ListItem)this.Unitcombo.SelectedItem;
             pointWords = this.PcontentText.Text;
          
-            InitList(this.Typecombo.SelectedIndex,Convert.ToInt32(aList.key),1,this.Diffcombo.SelectedIndex,pointWords,1);
+            InitList(this.Typecombo.SelectedIndex,Convert.ToInt32(aList.key),Convert.ToInt32(bList.key),this.Diffcombo.SelectedIndex,pointWords,1);
             this.Pagecombo.Items.Clear();
             InitCombPage(quesNum);
 
@@ -306,7 +307,7 @@ namespace OES.UPanel
 
         private void Pagecombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key),1, this.Diffcombo.SelectedIndex, pointWords,this.Pagecombo.SelectedIndex+1);
+            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex + 1);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -316,7 +317,7 @@ namespace OES.UPanel
             else
                 MessageBox.Show("当前为第一页");
 
-            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key),1, this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex+1);
+            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex + 1);
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -326,7 +327,14 @@ namespace OES.UPanel
             else
                 MessageBox.Show("当前为最后一页");
 
-            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key),1, this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex+1);
+            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex + 1);
+        }
+
+        private void Textcombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Unitcombo.Items.Clear();
+            bList = (ListItem)this.Textcombo.SelectedItem;
+            InitCombUnit(Convert.ToInt32(bList.key));
         }
 
         
