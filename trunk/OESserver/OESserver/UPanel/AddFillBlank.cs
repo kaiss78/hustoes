@@ -20,7 +20,7 @@ namespace OES.UPanel
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             Answer_Of_FiilBlank fillblanks = new Answer_Of_FiilBlank();
             this.flowLayoutPanel1.Controls.Add(fillblanks);

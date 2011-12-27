@@ -103,7 +103,7 @@ namespace OES.UPanel
 
            // DataGridViewScoreList.Columns[3].Visible = false;
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             string Class = comboClass.SelectedItem.ToString();
             string Paper = comboPaper.SelectedItem.ToString();

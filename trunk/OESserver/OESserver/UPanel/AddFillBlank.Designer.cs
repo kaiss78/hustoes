@@ -58,7 +58,7 @@
             this.Add_Answer.TabIndex = 2;
             this.Add_Answer.Text = "添加答案";
             this.Add_Answer.UseVisualStyleBackColor = true;
-            this.Add_Answer.Click += new System.EventHandler(this.button1_Click);
+            this.Add_Answer.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // flowLayoutPanel1
             // 
