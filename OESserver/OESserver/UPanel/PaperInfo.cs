@@ -50,7 +50,7 @@ namespace OES.UPanel
             Rules = new List<PaperRule>();
             dtRule.Clear();
             lbTotScore.Text = "0";
-            TotScore = 0;            
+            TotScore = 0;
             this.Visible = true;
         }
 
@@ -63,7 +63,7 @@ namespace OES.UPanel
             if (tmpRule != null)
             {
                 Rules.Add(frmAddRule.NewRule);
-                TotScore = TotScore + tmpRule.Score * tmpRule.Count;                
+                TotScore = TotScore + tmpRule.Score * tmpRule.Count;
                 lbTotScore.Text = TotScore.ToString();
                 dtRule.Rows.Add(new object[6] { false, tmpRule.ChapterName, tmpRule.PTypeName, tmpRule.PLevel, tmpRule.Score, tmpRule.Count });
                 //MessageBox.Show(
@@ -77,7 +77,7 @@ namespace OES.UPanel
                 frmAddRule = new frmAddRule(Rules[dgvRule.SelectedRows[0].Index]);
                 frmAddRule.ShowDialog();
                 PaperRule tmpRule;
-                int Index=dgvRule.SelectedRows[0].Index;
+                int Index = dgvRule.SelectedRows[0].Index;
                 tmpRule = frmAddRule.NewRule;
                 if (tmpRule != null)
                 {
@@ -104,10 +104,10 @@ namespace OES.UPanel
             }
         }
 
-        private void AddChoice(int Plevel, int Chaptet,int Count,int Score)
+        private void AddChoice(int Plevel, int Chaptet, int Course, int Count, int Score)
         {
             rd = new Random();
-            List<Choice> list = InfoControl.OesData.FindAllChoice("", Chaptet, Plevel, 1, int.MaxValue);
+            List<Choice> list = InfoControl.OesData.FindAllChoice("", Chaptet, Course, Plevel, 1, int.MaxValue);
             if (list.Count < Count)
             {
                 MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -115,15 +115,15 @@ namespace OES.UPanel
             }
             while (Count > 0)
             {
-                int tmp=rd.Next(list.Count);
-                bool flag=true;                
+                int tmp = rd.Next(list.Count);
+                bool flag = true;
                 foreach (Choice pro in NewPaper.choice)
                 {
                     if (pro.problemId == list[tmp].problemId)
                     {
                         flag = false;
                     }
-                }                
+                }
                 if (flag)
                 {
                     list[tmp].score = Score;
@@ -134,10 +134,10 @@ namespace OES.UPanel
 
         }
 
-        private void AddJudgement(int Plevel, int Chaptet, int Count, int Score)
+        private void AddJudgement(int Plevel, int Chaptet, int Course, int Count, int Score)
         {
             rd = new Random();
-            List<Judgment> list = InfoControl.OesData.FindAllJudgment("", Chaptet, Plevel, 1, int.MaxValue);
+            List<Judgment> list = InfoControl.OesData.FindAllJudgment("", Chaptet, Course, Plevel, 1, int.MaxValue);
             if (list.Count < Count)
             {
                 MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -163,10 +163,10 @@ namespace OES.UPanel
             }
         }
 
-        private void AddCompletion(int Plevel, int Chaptet, int Count, int Score)
+        private void AddCompletion(int Plevel, int Chaptet, int Course, int Count, int Score)
         {
             rd = new Random();
-            List<Completion> list = InfoControl.OesData.FindAllCompletion("", Chaptet, Plevel, 1, int.MaxValue);
+            List<Completion> list = InfoControl.OesData.FindAllCompletion("", Chaptet, Course, Plevel, 1, int.MaxValue);
             if (list.Count < Count)
             {
                 MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -192,10 +192,10 @@ namespace OES.UPanel
             }
         }
 
-        private void AddProgramProblem(PLanguage language, int Plevel, int Chaptet, int Count, int Score,ref List<ProgramProblem> ProList)
+        private void AddProgramProblem(PLanguage language, int Plevel, int Chaptet, int Course, int Count, int Score, ref List<ProgramProblem> ProList)
         {
             rd = new Random();
-            List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("", ProgramPType.Completion, language, Chaptet, Plevel, 1, int.MaxValue);
+            List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("", ProgramPType.Completion, language, Chaptet, Course, Plevel, 1, int.MaxValue);
             if (list.Count < Count)
             {
                 MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -232,46 +232,46 @@ namespace OES.UPanel
                 switch (rule.PType)
                 {
                     case ProblemType.Choice:
-                        AddChoice(rule.PLevel, rule.Chapter, rule.Count, rule.Score);
+                        AddChoice(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score);
                         break;
                     case ProblemType.Completion:
-                        AddCompletion(rule.PLevel, rule.Chapter, rule.Count, rule.Score);
+                        AddCompletion(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score);
                         break;
                     case ProblemType.Judgment:
-                        AddJudgement(rule.PLevel, rule.Chapter, rule.Count, rule.Score);
+                        AddJudgement(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score);
                         break;
                     case ProblemType.CppProgramCompletion:
-                        AddProgramProblem(PLanguage.CPP,rule.PLevel, rule.Chapter, rule.Count, rule.Score,ref NewPaper.pCompletion);
+                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
                         break;
                     case ProblemType.CppProgramModification:
-                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pModif);
+                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
                         break;
                     case ProblemType.CppProgramFun:
-                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
                         break;
                     case ProblemType.CProgramCompletion:
-                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pCompletion);
+                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
                         break;
                     case ProblemType.CProgramModification:
-                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pModif);
+                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
                         break;
                     case ProblemType.CProgramFun:
-                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
                         break;
                     case ProblemType.VbProgramCompletion:
-                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pCompletion);
+                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
                         break;
                     case ProblemType.VbProgramModification:
-                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pModif);
+                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
                         break;
                     case ProblemType.VbProgramFun:
-                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
                         break;
                 }
             }
             paperPreview = new frmPaperPreview(NewPaper);
             paperPreview.ShowDialog();
-            
+
         }
     }
 }

@@ -224,8 +224,7 @@
             this.cboCourse.Size = new System.Drawing.Size(180, 26);
             this.cboCourse.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cboCourse.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cboCourse.TabIndex = 13;
-            this.cboCourse.DisplayMemberChanged += new System.EventHandler(this.cboCourse_DisplayMemberChanged);
+            this.cboCourse.TabIndex = 13;            
             // 
             // frmAddRule
             // 
