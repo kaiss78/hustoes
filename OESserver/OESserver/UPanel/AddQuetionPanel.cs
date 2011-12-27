@@ -92,6 +92,7 @@ namespace OES
         {
             HidePanel();
             this.Visible = true;
+  
             int result;
             if (Int32.TryParse(cbQueStyle.SelectedValue.ToString(), out result))
             {
