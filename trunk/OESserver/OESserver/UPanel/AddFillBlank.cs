@@ -29,10 +29,10 @@ namespace OES.UPanel
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            String capter = (this.Parent.Parent as AddQuetionPanel).Capter;
+            int capter = (this.Parent.Parent as AddQuetionPanel).Capter;
             String diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
-            if (capter == "" || diffcuty == "" || teststyle == ""||contentOfFillblank.Text=="")
+            if ( teststyle == ""||contentOfFillblank.Text=="")
             {
                 MessageBox.Show("请完成试题信息");
             }
@@ -67,10 +67,11 @@ namespace OES.UPanel
 
         public override void ReLoad()
         {
-            base.ReLoad();
             this.contentOfFillblank.Text = "";
+            flowLayoutPanel1.Controls.Clear();
             this.Visible = true;
         }
+
      
 
     }

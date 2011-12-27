@@ -157,7 +157,7 @@ namespace OES.UPanel
         {
             if (addnew)
             {
-                String Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
+                int Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
                 String PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
                 int PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProType, language, Convert.ToInt32(Unit), Convert.ToInt32(PLevel));
                 if (PID > 0)

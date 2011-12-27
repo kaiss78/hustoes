@@ -23,10 +23,10 @@ namespace OES
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            String capter = (this.Parent.Parent as AddQuetionPanel).Capter;
+            int capter = (this.Parent.Parent as AddQuetionPanel).Capter;
             String diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
-            if (Content.Text == "" || Option_A.Text == "" || Option_B.Text == "" || Option_C.Text == "" || Answer_Of_Choice.Text == "" || Option_D.Text == ""||capter==""||diffcuty==""||teststyle=="")
+            if (Content.Text == "" || Option_A.Text == "" || Option_B.Text == "" || Option_C.Text == "" || Answer_Of_Choice.Text == "" || Option_D.Text == ""||diffcuty==""||teststyle=="")
             {
                 MessageBox.Show("请完成试题信息");
             }
@@ -66,14 +66,15 @@ namespace OES
         {
             List<Choice> Choice = new List<Choice>();
             Choice=InfoControl.OesData.FindChoiceByPID(x);
-            Content.Text = Choice[0].problem;
+            (this.Parent.Parent as AddQuetionPanel).Capter = Choice[0].unit.UnitId;
+            (this.Parent.Parent as AddQuetionPanel).Difficulity = Convert.ToString(Choice[0].Plevel);
+            this.Content.Text=Choice[0].problem;
             Option_A.Text = Choice[0].optionA;
             Option_B.Text = Choice[0].optionB;
             Option_C.Text = Choice[0].optionC;
             Option_D.Text = Choice[0].optionD;
             Answer_Of_Choice.Text = Choice[0].ans;
             this.Visible = true;
-
         }
     }
 }

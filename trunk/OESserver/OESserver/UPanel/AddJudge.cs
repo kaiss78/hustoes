@@ -19,10 +19,10 @@ namespace OES
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            String capter = (this.Parent.Parent as AddQuetionPanel).Capter;
+            int capter = (this.Parent.Parent as AddQuetionPanel).Capter;
             String diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
-            if (Content.Text==""||capter == "" || diffcuty == "" || teststyle == ""||(True.Checked==false && Flase.Checked==false))
+            if (Content.Text=="" || diffcuty == "" || teststyle == ""||(True.Checked==false && Flase.Checked==false))
             {
                 MessageBox.Show("请完成试题信息");
             }
@@ -63,6 +63,10 @@ namespace OES
             this.Visible = true;
         }
 
+        public override void ReLoad(int x)
+        { 
+
+        }
        
     }
 }
