@@ -253,8 +253,9 @@ namespace OES.UPanel
 
         private void UpdateBut_Click(object sender, EventArgs e)
         {
+
             //AddQuetionPanel.CheckQue(this.comboBox1.SelectedIndex,Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.SelectedRows].Cells[1].Value));
-            
+
         }
 
         private void DeleteBut_Click(object sender, EventArgs e)

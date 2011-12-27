@@ -53,22 +53,18 @@ namespace OES
             dtQeueType.Rows.Add(new object[2] { "填空题", 2 });
             dtQeueType.Rows.Add(new object[2] { "判断题", 3 });
             dtQeueType.Rows.Add(new object[2] { "程序填空题", 4 });
-           // dtQeueType.Rows.Add(new object[2] { "", 0 });
             cbQueStyle.DataSource = dtQeueType;
             cbQueStyle.DisplayMember = "Type";
             cbQueStyle.ValueMember = "Value";
-            dtUnit.Columns.Add("Unit", typeof(string));
-            dtUnit.Columns.Add("Value", typeof(int));
-            dtUnit.Rows.Add(new object[2] { "第一章", 1 });
-            dtUnit.Rows.Add(new object[2] { "第二章" ,2 });
-            dtUnit.Rows.Add(new object[2] { "第三章", 3 });
-            dtUnit.Rows.Add(new object[2] { "第四章", 4 });
-            dtUnit.Rows.Add(new object[2] { "第五章", 5 });
-            dtUnit.Rows.Add(new object[2] { "第六章", 6 });
-            dtUnit.Rows.Add(new object[2] { "第七章", 7 });
-            cbCapater.DataSource = dtUnit;
-            cbCapater.DisplayMember = "Unit";
-            cbCapater.ValueMember = "Value";
+            cbCourse.DataSource = InfoControl.OesData.FindAllCourse_DataSet().Tables[0];
+            cbCourse.DisplayMember = "CourseName";
+            cbCourse.ValueMember = "CourseId";
+
+            cbCapater.DataSource = InfoControl.OesData.FindUnitByCourseId_DataSet(Convert.ToInt32(cbCourse.SelectedValue)).Tables[0];
+            cbCapater.DisplayMember = "UnitName";
+            cbCapater.ValueMember = "Unit";
+          
+                
 
             dtDiffcult.Columns.Add("diffcult", typeof(string));
             dtDiffcult.Columns.Add("value", typeof(int));
@@ -94,8 +90,8 @@ namespace OES
 
         public override void ReLoad()
         {
-            this.Visible = true;
             HidePanel();
+            this.Visible = true;
             int result;
             if (Int32.TryParse(cbQueStyle.SelectedValue.ToString(), out result))
             {
@@ -107,67 +103,36 @@ namespace OES
         {
             HidePanel();
             int result;
-            if (Int32.TryParse(cbQueStyle.SelectedValue.ToString(), out result))
-            {
-                PanelList[result-1].ReLoad();
-            }
-            //flag++;
-            //if (flag > 1)
-            //{
-            //    if (MessageBox.Show("确定切换吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            //    {
-            //        if (cbQueStyle.Text == "选择")
-            //        {
-            //            judge.Visible = false;
-            //            fillblank.Visible = false;
-            //            SingleChoice.Reset();
-            //            SingleChoice.Show();
-            //            //SingleChoice.Location = new Point(0, 120);
-            //        }
-
-            //        if (cbQueStyle.Text == "填空")
-            //        {
-            //            judge.Visible = false;
-            //            SingleChoice.Visible = false;
-            //            fillblank.Reset();
-            //            fillblank.Show();
-            //            // fillblank.Location = new Point(0, 120);
-            //        }
-            //        if (cbQueStyle.Text == "判断")
-            //        {
-            //            SingleChoice.Visible = false;
-            //            fillblank.Visible = false;
-            //            judge.Reset();
-            //            judge.Show();
-            //            // judge.Location = new Point(0, 120);  
-            //        }
-            //        if (cbQueStyle.Text == "程序填空题")
-            //        {
-            //            SingleChoice.Visible = false;
-            //            fillblank.Visible = false;
-            //            proCompletion.Visible = true;
-            //            //proCompletion.Reset();
-            //            proCompletion.Show();
-            //            // judge.Location = new Point(0, 120);  
-            //        }
-
-            //    }
-            //}
+                if (Int32.TryParse(cbQueStyle.SelectedValue.ToString(), out result))
+                {
+                    PanelList[result - 1].ReLoad();
+                }
         }
-        public string Capter
+        public int  Capter
         {
             get
             {
-                return cbCapater.SelectedValue.ToString();
+                return Convert.ToInt32(cbCapater.SelectedValue);
+            }
+            set
+            {
+                cbCapater.SelectedItem = value;
             }
 
         }
 
-        public string Difficulity
+   
+
+        public String  Difficulity
         {
+
             get
             {
                 return cbDifficultyValue.SelectedValue.ToString();
+            }
+            set 
+            {
+                cbDifficultyValue.SelectedValue = value;
             }
         }
 
@@ -181,7 +146,7 @@ namespace OES
 
         public override void  ReLoad(int PID, int PType)
         {
-            HidePanel();
+            this.Visible = true;
             PanelList[PType].ReLoad(PID);
         }
 
@@ -190,5 +155,23 @@ namespace OES
             cbQueStyle.SelectedValue = x;
         }
 
+        private void cbCourse_TextChanged(object sender, EventArgs e)
+        {
+            cbCapater.DataSource = InfoControl.OesData.FindUnitByCourseId_DataSet(Convert.ToInt32(cbCourse.SelectedIndex)+1).Tables[0];
+        }
+
+        public int GetCbCourse
+        {
+            get
+            {
+                return cbCourse.SelectedIndex;
+
+            }
+            set
+            {
+                cbCourse.SelectedIndex = value;
+            }
+        }
+      
     }
 }
