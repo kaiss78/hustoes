@@ -78,7 +78,7 @@
             this.ExamNo.Name = "ExamNo";
             this.ExamNo.Size = new System.Drawing.Size(192, 33);
             this.ExamNo.TabIndex = 4;
-            this.ExamNo.Text = "U123456789";
+            this.ExamNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             // 
             // SName
             // 
@@ -87,7 +87,7 @@
             this.SName.Name = "SName";
             this.SName.Size = new System.Drawing.Size(192, 33);
             this.SName.TabIndex = 5;
-            this.SName.Text = "言凌峰";
+            this.SName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             // 
             // Password
             // 
@@ -97,8 +97,8 @@
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(192, 33);
             this.Password.TabIndex = 6;
-            this.Password.Text = "123456";
             this.Password.UseSystemPasswordChar = true;
+            this.Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             // 
             // butLogin
             // 
