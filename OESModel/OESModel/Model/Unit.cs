@@ -9,5 +9,6 @@ namespace OES.Model
     {
         public string UnitName="";
         public int UnitId = 0;
+        public Course course = new Course();
     }
 }
