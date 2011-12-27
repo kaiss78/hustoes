@@ -857,8 +857,11 @@ namespace OES
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
                 Unit unit = new Unit();
-                unit.UnitName = p_Data.Rows[j][0].ToString();
-                unit.UnitId = Convert.ToInt32(p_Data.Rows[j][1]);
+                unit.UnitName = p_Data.Rows[j]["UnitName"].ToString();
+                unit.UnitId = Convert.ToInt32(p_Data.Rows[j]["Unit"]);
+                unit.course = new Course();
+                unit.course.CourseId = Convert.ToInt32(p_Data.Rows[j]["CourseId"]);
+                unit.course.CourseName = p_Data.Rows[j]["CourseName"].ToString();
                 result.Add(unit);
             }
             return result;
