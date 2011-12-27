@@ -9,6 +9,5 @@ namespace OESModel.Model
     {
         public string CourseName = "";
         public int CourseId = 0;
-        ////////
     }
 }
