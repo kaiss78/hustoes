@@ -16,9 +16,9 @@ namespace OES.UPanel
             InitializeComponent();
         }
 
-        private void ProFunction_Load(object sender, EventArgs e)
+        public override void ReLoad()
         {
-
+            this.Visible = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
