@@ -84,16 +84,25 @@ namespace OES
             cbDifficultyValue.DataSource = dtDiffcult;
             cbDifficultyValue.DisplayMember = "diffcult";
             cbDifficultyValue.ValueMember = "value";
-            proCompletion.Dock = DockStyle.Fill;
-            SingleChoice.Dock = DockStyle.Fill;
-            fillblank.Dock = DockStyle.Fill;
-            judge.Dock = DockStyle.Fill;
-       
-            proCompletion.Visible = false;
-            SingleChoice.Visible = false;
-            fillblank.Visible = false;
-            judge.Visible = false;
 
+
+            for (int i = 0; i < PanelList.Count; i++)
+            {
+                PanelList[i].Dock = DockStyle.Fill;
+            }
+
+            //    proCompletion.Dock = DockStyle.Fill;
+            //SingleChoice.Dock = DockStyle.Fill;
+            //fillblank.Dock = DockStyle.Fill;
+            //judge.Dock = DockStyle.Fill;
+            //proFunction.Dock = DockStyle.Fill;
+            //proModify.Dock = DockStyle.Fill;
+            
+            //proCompletion.Visible = false;
+            //SingleChoice.Visible = false;
+            //fillblank.Visible = false;
+            //judge.Visible = false;
+            HidePanel();
         }
 
         public override void ReLoad()
