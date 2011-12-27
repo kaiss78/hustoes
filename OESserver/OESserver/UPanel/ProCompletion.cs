@@ -30,8 +30,6 @@ namespace OES.UPanel
             InitializeComponent();
         }
 
-
-
         public override void ReLoad()
         {
             newProblem = new ProgramProblem();
