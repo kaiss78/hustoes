@@ -12,64 +12,49 @@ namespace OES.CSVHelper
         public static List<string[]> getObjectInCSV(string path, int dataCount) 
         {
             List<string[]> ret = new List<string[]>();
-            string[] value;
-            StreamReader sr = new StreamReader(path, Encoding.GetEncoding("gb2312"));
-            string buf;
-            string cur;
-            int pos, state, len;
-            char ch;
-            while ((buf = sr.ReadLine()) != null)
+            string content = "";
+            int bese = 0;
+            int pos = 0;
+            int state = 0;
+            int len = 0;
+            string[] value = new string[dataCount];
+            using (StreamReader sr = new StreamReader(path, Encoding.Default))
             {
-                /*      原始的csv读入
-                value = new string[dataCount];
-                data = buf.Split(',');
-                for (int i = 0; i < data.Length; i++)
-                    value[i] = data[i];
-                for (int i = data.Length; i < dataCount; i++)
-                    value[i] = "";
-                ret.Add(value);
-                */
-                //修改后的csv读入
-                buf += ',';
-                state = pos = len = 0;
-                cur = "";
-                value = new string[dataCount];
-                while (pos < buf.Length && len < dataCount)
-                {
-                    ch = buf[pos++];
-                    if (state == 0)
-                    {
-                        if (ch != ',' && ch != '\"')
-                            cur += ch;
-                        else if (ch == ',')
-                        {
-                            value[len++] = cur;
-                            cur = "";
-                        }
-                        else
-                            state = 1;
-                    }
-                    else if (state == 1)
-                    {
-                        if (ch != '\"')
-                            cur += ch;
-                        else
-                        {
-                            if (buf[pos++] == '\"')
-                                cur += '\"';
-                            else
-                            {
-                                pos--;
-                                state = 0;
-                            }
-                        }
-                    }
-                }
-                for (; len < dataCount; len++)
-                    value[len] = "";
-                ret.Add(value);
+                content = sr.ReadToEnd();
             }
-            sr.Close();
+            content = content.Replace("\"\"", "\0");
+            while (pos < content.Length)
+            {
+                if (state == 0)
+                {
+                    if (content[pos] == ',')
+                    {
+                        value[len++] = content.Substring(bese, pos - bese).Replace("\"","").Replace('\0', '\"');
+                        bese = pos+1;
+                    }
+                    else if(content[pos]=='\"')
+                    {
+                        state=1;
+                    }
+                    else if (content[pos] == '\n')
+                    {
+                        value[len++] = content.Substring(bese, pos - bese).Replace("\"", "").Replace('\0', '\"');
+                        bese = pos + 1;
+                        ret.Add(value);
+                        len = 0;
+                        value = new string[dataCount];
+                    }
+                    pos++;
+                }
+                else if (state == 1)
+                {
+                    if (content[pos] == '\"')
+                    {
+                        state = 0;
+                    }
+                    pos++;
+                }
+            }
             return ret;
         }
     }
