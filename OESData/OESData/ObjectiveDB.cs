@@ -136,9 +136,9 @@ namespace OES
             return result;
         }
         
-        //按题干、章节、难度查找选择题，显示第PageIndex页（从1开始），每页PageSize项内容
-        //PContent为""表示不按PContent查询；Unit或PLevel为-1表示不按它们查询
-        public List<Choice> FindAllChoice(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
+        //按题干、章节、课程、难度查找选择题，显示第PageIndex页（从1开始），每页PageSize项内容
+        //PContent为""表示不按PContent查询；Unit或CourseId或PLevel为-1表示不按它们查询
+        public List<Choice> FindAllChoice(string PContent, int Unit, int CourseId, int PLevel, int PageIndex, int PageSize)
         {
             DataSet Ds = new DataSet();
             List<Choice> result = new List<Choice>();
@@ -146,6 +146,7 @@ namespace OES
             dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Choice_Table", ParameterDirection.Input));
             dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
             dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             dp.Add(CreateParam("@Type", SqlDbType.Int, 0, -1, ParameterDirection.Input));
             dp.Add(CreateParam("@Language", SqlDbType.Int, 0, -1, ParameterDirection.Input));
@@ -427,7 +428,7 @@ namespace OES
         }
 
         //按多个关键字查找填空题（无须找出答案）
-        public List<Completion> FindAllCompletion(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
+        public List<Completion> FindAllCompletion(string PContent, int Unit, int CourseId, int PLevel, int PageIndex, int PageSize)
         {
             DataSet Ds = new DataSet();
             List<SqlParameter> dp = new List<SqlParameter>();
@@ -435,6 +436,7 @@ namespace OES
             dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Completion_Table", ParameterDirection.Input));
             dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
             dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             dp.Add(CreateParam("@Type", SqlDbType.Int, 0, -1, ParameterDirection.Input));
             dp.Add(CreateParam("@Language", SqlDbType.Int, 0, -1, ParameterDirection.Input));
@@ -630,7 +632,7 @@ namespace OES
             return result;
         }
 
-        public List<Judgment> FindAllJudgment(string PContent, int Unit, int PLevel, int PageIndex, int PageSize)
+        public List<Judgment> FindAllJudgment(string PContent, int Unit, int CourseId, int PLevel, int PageIndex, int PageSize)
         {
             DataSet Ds = new DataSet();
             List<Judgment> result = new List<Judgment>();
@@ -638,6 +640,7 @@ namespace OES
             dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, "Judgment_Table", ParameterDirection.Input));
             dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
             dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             dp.Add(CreateParam("@Type", SqlDbType.Int, 0, -1, ParameterDirection.Input));
             dp.Add(CreateParam("@Language", SqlDbType.Int, 0, -1, ParameterDirection.Input));

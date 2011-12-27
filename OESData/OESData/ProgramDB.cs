@@ -246,7 +246,7 @@ namespace OES
             return result;
         }
         */
-        public List<ProgramProblem> FindAllProgram(string PContent, ProgramPType Type, PLanguage Language, int Unit, int PLevel,
+        public List<ProgramProblem> FindAllProgram(string PContent, ProgramPType Type, PLanguage Language, int Unit, int CourseId, int PLevel,
             int PageIndex, int PageSize)
         {
             List<ProgramProblem> result = new List<ProgramProblem>();
@@ -257,6 +257,7 @@ namespace OES
             dp.Add(CreateParam("@Type", SqlDbType.Int, 0, (int)Type, ParameterDirection.Input));
             dp.Add(CreateParam("@Language", SqlDbType.Int, 0, (int)Language, ParameterDirection.Input));
             dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             dp.Add(CreateParam("@PageIndex", SqlDbType.Int, 0, PageIndex, ParameterDirection.Input));
             dp.Add(CreateParam("@PageSize", SqlDbType.Int, 0, PageSize, ParameterDirection.Input));

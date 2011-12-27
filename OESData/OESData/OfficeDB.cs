@@ -217,7 +217,7 @@ namespace OES
                 return null;
         }
         */
-        public List<Office> FindAllOffice(string PContent, int Unit, int PLevel, OES.Model.Office.OfficeType Type, int PageIndex, int PageSize)
+        public List<Office> FindAllOffice(string PContent, int Unit, int CourseId, int PLevel, OES.Model.Office.OfficeType Type, int PageIndex, int PageSize)
         {
             List<Office> result = new List<Office>();
             DataSet Ds = new DataSet();
@@ -227,6 +227,7 @@ namespace OES
             dp.Add(CreateParam("@Type", SqlDbType.Int, 0, (int)Type, ParameterDirection.Input));
             dp.Add(CreateParam("@Language", SqlDbType.Int, 0, -1, ParameterDirection.Input));
             dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             dp.Add(CreateParam("@PageIndex", SqlDbType.Int, 0, PageIndex, ParameterDirection.Input));
             dp.Add(CreateParam("@PageSize", SqlDbType.Int, 0, PageSize, ParameterDirection.Input));
