@@ -287,12 +287,11 @@ namespace OESScore
             int RIndex = dtStuList.Rows.IndexOf(dvStuList[e.RowIndex].Row);
             if (RIndex > -1)
             {
-                MessageBox.Show(dtStuList.Rows[RIndex][4].ToString());
-                if (Convert.ToInt32(dtStuList.Rows[RIndex][4]) < 2)
+                if (Convert.ToInt32(dtStuList.Rows[RIndex][5]) < 2)
                 {
                     StuList[RIndex].Score.Value = Mark(RIndex);
-                    dtStuList.Rows[RIndex][3] = StuList[RIndex].Score.Value;
-                    dtStuList.Rows[RIndex][4] = ScoreState.Success;
+                    dtStuList.Rows[RIndex][4] = StuList[RIndex].Score.Value;
+                    dtStuList.Rows[RIndex][5] = ScoreState.Success;
                 }
             }
         }
@@ -307,11 +306,11 @@ namespace OESScore
             for (int i = 0; i < StuList.Count; i++)
             {
                 RIndex = dtStuList.Rows.IndexOf(dvStuList[i].Row);
-                if (Convert.ToInt32(dtStuList.Rows[RIndex][4]) < 2)
+                if (Convert.ToInt32(dtStuList.Rows[RIndex][5]) < 2)
                 {
                     StuList[i].Score.Value = Mark(i);
-                    dtStuList.Rows[RIndex][3] = StuList[i].Score.Value;
-                    dtStuList.Rows[RIndex][4] = ScoreState.Success;
+                    dtStuList.Rows[RIndex][4] = StuList[i].Score.Value;
+                    dtStuList.Rows[RIndex][5] = ScoreState.Success;
                 }
                 processBar.Value = (i + 1) * 100 / StuList.Count;
             }
