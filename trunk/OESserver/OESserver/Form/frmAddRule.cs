@@ -15,7 +15,7 @@ namespace OES
         private DataTable dtChapter;
         private DataView dvChapter;
         public DataTable dtCourse;
-        private DataTable dtPType;        
+        private DataTable dtPType;
         public PaperRule NewRule;
 
         private void Init()
@@ -24,7 +24,7 @@ namespace OES
             cboCourse.DataSource = dtCourse;
             cboCourse.DisplayMember = "CourseName";
             cboCourse.ValueMember = "CourseId";
-
+            cboCourse.SelectedIndexChanged += new System.EventHandler(this.cboCourse_SelectedIndexChanged);            
 
             dtChapter = InfoControl.OesData.FindAllUnit_DataSet().Tables[0];
             dvChapter = new DataView(dtChapter);
@@ -35,7 +35,7 @@ namespace OES
             dtPType = new DataTable();
             dtPType.Columns.Add("PType");
             dtPType.Columns.Add("Value");
-            dtPType.Rows.Add(new object[2] { "选择题", 0});
+            dtPType.Rows.Add(new object[2] { "选择题", 0 });
             dtPType.Rows.Add(new object[2] { "填空题", 1 });
             dtPType.Rows.Add(new object[2] { "判断题", 2 });
             dtPType.Rows.Add(new object[2] { "Word题", 3 });
@@ -57,7 +57,7 @@ namespace OES
         }
 
         public frmAddRule()
-        {
+        {         
             InitializeComponent();
             Init();
         }
@@ -68,19 +68,21 @@ namespace OES
             Init();
             nupdCount.Value = rule.Count;
             nupdPLevel.Value = rule.PLevel;
-            nupdScore.Value = rule.Score;               
+            nupdScore.Value = rule.Score;
             cboChapterList.SelectedIndex = dtChapter.Rows.IndexOf(dtChapter.Select("UnitName=\'" + rule.ChapterName + "\'").First());
-            cboPType.SelectedIndex = dtPType.Rows.IndexOf(dtPType.Select("PType=\'" + rule.PTypeName + "\'").First());            
+            cboPType.SelectedIndex = dtPType.Rows.IndexOf(dtPType.Select("PType=\'" + rule.PTypeName + "\'").First());
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
             NewRule = new PaperRule();
             NewRule.Chapter = Convert.ToInt32(cboChapterList.SelectedValue);
+            NewRule.Course = Convert.ToInt32(cboCourse.SelectedValue);
             NewRule.PType = (ProblemType)(Convert.ToInt32(cboPType.SelectedValue));
             NewRule.PLevel = (int)nupdPLevel.Value;
             NewRule.Score = (int)nupdScore.Value;
             NewRule.Count = (int)nupdCount.Value;
+            
             NewRule.ChapterName = dtChapter.Rows[cboChapterList.SelectedIndex][0].ToString();
             NewRule.PTypeName = dtPType.Rows[cboPType.SelectedIndex][0].ToString();
             this.Close();
@@ -88,13 +90,17 @@ namespace OES
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            NewRule=null;
+            NewRule = null;
             this.Close();
         }
 
-        private void cboCourse_DisplayMemberChanged(object sender, EventArgs e)
-        {
-            //dvChapter.;
+
+        private void cboCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {            
+            if (cboCourse.SelectedValue != null)
+            {
+                dvChapter.RowFilter = "CourseId=" + cboCourse.SelectedValue;
+            }
         }
     }
 

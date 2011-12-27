@@ -243,8 +243,8 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.btnEdit);
             this.flowLayoutPanel1.Controls.Add(this.btnAddAns);
+            this.flowLayoutPanel1.Controls.Add(this.btnEdit);
             this.flowLayoutPanel1.Controls.Add(this.btnDel);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(637, 353);
@@ -255,7 +255,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(3, 3);
+            this.btnEdit.Location = new System.Drawing.Point(3, 43);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(94, 34);
             this.btnEdit.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -271,7 +271,7 @@
             // 
             // btnAddAns
             // 
-            this.btnAddAns.Location = new System.Drawing.Point(3, 43);
+            this.btnAddAns.Location = new System.Drawing.Point(3, 3);
             this.btnAddAns.Name = "btnAddAns";
             this.btnAddAns.Size = new System.Drawing.Size(94, 34);
             this.btnAddAns.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
