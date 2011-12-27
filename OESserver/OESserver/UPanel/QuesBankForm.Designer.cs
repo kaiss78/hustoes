@@ -287,13 +287,16 @@
             // 
             // Textcombo
             // 
+            this.Textcombo.BackColor = System.Drawing.SystemColors.Control;
             this.Textcombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Textcombo.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Textcombo.ForeColor = System.Drawing.Color.RoyalBlue;
             this.Textcombo.FormattingEnabled = true;
             this.Textcombo.Location = new System.Drawing.Point(72, 26);
             this.Textcombo.Name = "Textcombo";
             this.Textcombo.Size = new System.Drawing.Size(100, 20);
             this.Textcombo.TabIndex = 21;
-  
+            this.Textcombo.SelectedIndexChanged += new System.EventHandler(this.Textcombo_SelectedIndexChanged);
             // 
             // label5
             // 
