@@ -53,6 +53,24 @@ namespace OES
             return Ds;
         }
 
+        public List<Unit> FindUnitByCourseId(int CourseId)
+        {
+            List<Unit> res = new List<Unit>();
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindUnitByCourseId", dp, Ds);
+                res = DataSetToListUnit(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return res;
+        }
+
         public DataSet FindUnitByCourseId_DataSet(int CourseId)
         {
             DataSet Ds = new DataSet();
