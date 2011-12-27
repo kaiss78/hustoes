@@ -10,16 +10,19 @@ namespace OES.UPanel
     public partial class PaperInfo : UserPanel
     {
         private DataTable dtRule;
+        private DataTable dtCourse;
         private frmAddRule frmAddRule;
         private List<PaperRule> Rules;
         private Paper NewPaper;
         private Random rd;
         private int TotScore;
+        private bool EndLoad;
         private frmPaperPreview paperPreview;
 
         public PaperInfo()
         {
             InitializeComponent();
+            EndLoad = false;
             dtRule = new DataTable();
             dtRule.Columns.Add("选中", typeof(bool));
             dtRule.Columns.Add("章节");
@@ -43,6 +46,14 @@ namespace OES.UPanel
             dgvRule.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvRule.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvRule.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            dtCourse = InfoControl.OesData.FindAllCourse_DataSet().Tables[0];
+            cboCourse.DataSource = dtCourse;
+            this.cboCourse.SelectedIndexChanged += new System.EventHandler(this.cboCourse_SelectedIndexChanged);
+            cboCourse.DisplayMember = "CourseName";
+            cboCourse.ValueMember = "CourseId";                                    
+
+            
         }
 
         override public void ReLoad()
@@ -51,59 +62,11 @@ namespace OES.UPanel
             dtRule.Clear();
             lbTotScore.Text = "0";
             TotScore = 0;
+            EndLoad = true;
             this.Visible = true;
         }
 
-        private void btnAddRule_Click(object sender, EventArgs e)
-        {
-            frmAddRule = new frmAddRule();
-            frmAddRule.ShowDialog();
-            PaperRule tmpRule;
-            tmpRule = frmAddRule.NewRule;
-            if (tmpRule != null)
-            {
-                Rules.Add(frmAddRule.NewRule);
-                TotScore = TotScore + tmpRule.Score * tmpRule.Count;
-                lbTotScore.Text = TotScore.ToString();
-                dtRule.Rows.Add(new object[6] { false, tmpRule.ChapterName, tmpRule.PTypeName, tmpRule.PLevel, tmpRule.Score, tmpRule.Count });
-                //MessageBox.Show(
-            }
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (dgvRule.SelectedRows.Count > 0 && dgvRule.SelectedRows[0].Index >= 0)
-            {
-                frmAddRule = new frmAddRule(Rules[dgvRule.SelectedRows[0].Index]);
-                frmAddRule.ShowDialog();
-                PaperRule tmpRule;
-                int Index = dgvRule.SelectedRows[0].Index;
-                tmpRule = frmAddRule.NewRule;
-                if (tmpRule != null)
-                {
-                    TotScore = TotScore - Rules[Index].Score * Rules[Index].Count;
-                    TotScore = TotScore + tmpRule.Count * tmpRule.Score;
-                    Rules[Index] = tmpRule;
-                    lbTotScore.Text = TotScore.ToString();
-                    dtRule.Rows[Index][0] = false;
-                    dtRule.Rows[Index][1] = tmpRule.ChapterName;
-                    dtRule.Rows[Index][2] = tmpRule.PTypeName;
-                    dtRule.Rows[Index][3] = tmpRule.PLevel;
-                    dtRule.Rows[Index][4] = tmpRule.Score;
-                    dtRule.Rows[Index][5] = tmpRule.Count;
-                }
-            }
-        }
-
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            foreach (DataRow rows in dtRule.Select("选中=true"))
-            {
-                Rules.Remove(Rules[dtRule.Rows.IndexOf(rows)]);
-                dtRule.Rows.Remove(rows);
-            }
-        }
-
+        #region 添加题目
         private void AddChoice(int Plevel, int Chaptet, int Course, int Count, int Score)
         {
             rd = new Random();
@@ -220,7 +183,59 @@ namespace OES.UPanel
                 }
             }
         }
+        #endregion
 
+        #region 事件
+        private void btnAddRule_Click(object sender, EventArgs e)
+        {
+            frmAddRule = new frmAddRule(Convert.ToInt32(cboCourse.SelectedValue));
+            frmAddRule.ShowDialog();
+            PaperRule tmpRule;
+            tmpRule = frmAddRule.NewRule;
+            if (tmpRule != null)
+            {
+                Rules.Add(frmAddRule.NewRule);
+                TotScore = TotScore + tmpRule.Score * tmpRule.Count;
+                lbTotScore.Text = TotScore.ToString();
+                dtRule.Rows.Add(new object[6] { false, tmpRule.ChapterName, tmpRule.PTypeName, tmpRule.PLevel, tmpRule.Score, tmpRule.Count });
+                //MessageBox.Show(
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvRule.SelectedRows.Count > 0 && dgvRule.SelectedRows[0].Index >= 0)
+            {
+                frmAddRule = new frmAddRule(Rules[dgvRule.SelectedRows[0].Index]);
+                frmAddRule.ShowDialog();
+                PaperRule tmpRule;
+                int Index = dgvRule.SelectedRows[0].Index;
+                tmpRule = frmAddRule.NewRule;
+                if (tmpRule != null)
+                {
+                    TotScore = TotScore - Rules[Index].Score * Rules[Index].Count;
+                    TotScore = TotScore + tmpRule.Count * tmpRule.Score;
+                    Rules[Index] = tmpRule;
+                    lbTotScore.Text = TotScore.ToString();
+                    dtRule.Rows[Index][0] = false;
+                    dtRule.Rows[Index][1] = tmpRule.ChapterName;
+                    dtRule.Rows[Index][2] = tmpRule.PTypeName;
+                    dtRule.Rows[Index][3] = tmpRule.PLevel;
+                    dtRule.Rows[Index][4] = tmpRule.Score;
+                    dtRule.Rows[Index][5] = tmpRule.Count;
+                }
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            foreach (DataRow rows in dtRule.Select("选中=true"))
+            {
+                Rules.Remove(Rules[dtRule.Rows.IndexOf(rows)]);
+                dtRule.Rows.Remove(rows);
+            }
+        }
+        
         private void btnCreate_Click(object sender, EventArgs e)
         {
             NewPaper = new Paper();
@@ -273,5 +288,17 @@ namespace OES.UPanel
             paperPreview.ShowDialog();
 
         }
+
+        private void cboCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((EndLoad)&&(MessageBox.Show("所有出卷规则将会清空", "警告", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes))
+            {
+                Rules = new List<PaperRule>();
+                dtRule.Clear();
+                lbTotScore.Text = "0";
+                TotScore = 0;
+            }
+        }
+        #endregion
     }
 }

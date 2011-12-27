@@ -13,21 +13,22 @@ namespace OES
     public partial class frmAddRule : Form
     {
         private DataTable dtChapter;
-        private DataView dvChapter;
-        public DataTable dtCourse;
+        private DataView dvChapter;        
         private DataTable dtPType;
+        private int CourseId;
         public PaperRule NewRule;
 
-        private void Init()
+        private void Init(int Course)
         {
-            dtCourse = InfoControl.OesData.FindAllCourse_DataSet().Tables[0];
-            cboCourse.DataSource = dtCourse;
-            cboCourse.DisplayMember = "CourseName";
-            cboCourse.ValueMember = "CourseId";
-            cboCourse.SelectedIndexChanged += new System.EventHandler(this.cboCourse_SelectedIndexChanged);            
-
-            dtChapter = InfoControl.OesData.FindAllUnit_DataSet().Tables[0];
+            DataRow AllUnit;
+            CourseId = Course;
+            dtChapter = InfoControl.OesData.FindUnitByCourseId_DataSet(Course).Tables[0];
             dvChapter = new DataView(dtChapter);
+            AllUnit = dtChapter.NewRow();
+            AllUnit["Unit"] = -1;
+            AllUnit["UnitName"] = "所有章节";
+            dtChapter.Rows.InsertAt(AllUnit, 0);           
+
             cboChapterList.DataSource = dvChapter;
             cboChapterList.DisplayMember = "UnitName";
             cboChapterList.ValueMember = "Unit";
@@ -56,16 +57,16 @@ namespace OES
             cboPType.ValueMember = "Value";
         }
 
-        public frmAddRule()
+        public frmAddRule(int Course)
         {         
             InitializeComponent();
-            Init();
+            Init(Course);
         }
 
         public frmAddRule(PaperRule rule)
         {
             InitializeComponent();
-            Init();
+            Init(rule.Course);
             nupdCount.Value = rule.Count;
             nupdPLevel.Value = rule.PLevel;
             nupdScore.Value = rule.Score;
@@ -77,7 +78,7 @@ namespace OES
         {
             NewRule = new PaperRule();
             NewRule.Chapter = Convert.ToInt32(cboChapterList.SelectedValue);
-            NewRule.Course = Convert.ToInt32(cboCourse.SelectedValue);
+            NewRule.Course = CourseId;
             NewRule.PType = (ProblemType)(Convert.ToInt32(cboPType.SelectedValue));
             NewRule.PLevel = (int)nupdPLevel.Value;
             NewRule.Score = (int)nupdScore.Value;
@@ -94,14 +95,6 @@ namespace OES
             this.Close();
         }
 
-
-        private void cboCourse_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            if (cboCourse.SelectedValue != null)
-            {
-                dvChapter.RowFilter = "CourseId=" + cboCourse.SelectedValue;
-            }
-        }
     }
 
 
