@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             this.comboPaper = new System.Windows.Forms.ComboBox();
             this.comboClass = new System.Windows.Forms.ComboBox();
             this.comboDept = new System.Windows.Forms.ComboBox();
@@ -75,7 +75,7 @@
             // panel1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 6);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.AddButton);
             this.panel1.Controls.Add(this.comboPaper);
             this.panel1.Controls.Add(this.comboClass);
             this.panel1.Controls.Add(this.comboDept);
@@ -87,16 +87,16 @@
             this.panel1.Size = new System.Drawing.Size(709, 102);
             this.panel1.TabIndex = 1;
             // 
-            // button1
+            // AddButton
             // 
-            this.button1.Font = new System.Drawing.Font("隶书", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(578, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "查询";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddButton.Font = new System.Drawing.Font("隶书", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AddButton.Location = new System.Drawing.Point(578, 55);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(86, 29);
+            this.AddButton.TabIndex = 6;
+            this.AddButton.Text = "查询";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // comboPaper
             // 
@@ -206,7 +206,7 @@
         private System.Windows.Forms.ComboBox comboDept;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView DataGridViewScoreList;
     }

@@ -60,7 +60,7 @@
             this.deleteThisPanel.TabIndex = 2;
             this.deleteThisPanel.Text = "删除";
             this.deleteThisPanel.UseVisualStyleBackColor = true;
-            this.deleteThisPanel.Click += new System.EventHandler(this.button1_Click);
+            this.deleteThisPanel.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // Answer_Of_FiilBlank
             // 
