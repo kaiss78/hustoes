@@ -30,11 +30,7 @@ namespace OES.UPanel
             InitializeComponent();
         }
 
-        public ProCompletion(ProgramPType PT)
-        {
-            InitializeComponent();
-            ProType = PT;
-        }
+
 
         public override void ReLoad()
         {
