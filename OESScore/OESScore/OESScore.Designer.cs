@@ -55,6 +55,7 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
+            this.btnExport = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ss.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -77,13 +78,13 @@
             // tssla
             // 
             this.tssla.Name = "tssla";
-            this.tssla.Size = new System.Drawing.Size(44, 17);
+            this.tssla.Size = new System.Drawing.Size(41, 17);
             this.tssla.Text = "路径：";
             // 
             // tsslPath
             // 
             this.tsslPath.Name = "tsslPath";
-            this.tsslPath.Size = new System.Drawing.Size(22, 17);
+            this.tsslPath.Size = new System.Drawing.Size(23, 17);
             this.tsslPath.Text = "c:\\";
             // 
             // processBar
@@ -116,9 +117,10 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnSelectPath);
+            this.flowLayoutPanel2.Controls.Add(this.btnLoad);
             this.flowLayoutPanel2.Controls.Add(this.btnScore);
             this.flowLayoutPanel2.Controls.Add(this.btnConfig);
-            this.flowLayoutPanel2.Controls.Add(this.btnLoad);
+            this.flowLayoutPanel2.Controls.Add(this.btnExport);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(624, 25);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -141,7 +143,7 @@
             // 
             // btnScore
             // 
-            this.btnScore.Location = new System.Drawing.Point(3, 44);
+            this.btnScore.Location = new System.Drawing.Point(3, 85);
             this.btnScore.Name = "btnScore";
             this.btnScore.Size = new System.Drawing.Size(120, 35);
             this.btnScore.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -154,7 +156,7 @@
             // 
             // btnConfig
             // 
-            this.btnConfig.Location = new System.Drawing.Point(3, 85);
+            this.btnConfig.Location = new System.Drawing.Point(3, 126);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(120, 35);
             this.btnConfig.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -167,7 +169,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(3, 126);
+            this.btnLoad.Location = new System.Drawing.Point(3, 44);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(120, 35);
             this.btnLoad.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -292,6 +294,18 @@
             this.dataGridViewProgressBarColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewProgressBarColumn1.Width = 122;
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(3, 167);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(120, 35);
+            this.btnExport.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnExport.StateCommon.Border.Rounding = 15;
+            this.btnExport.TabIndex = 4;
+            this.btnExport.Values.Text = "导出Excel";
+            // 
             // formOESScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -337,6 +351,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnLoad;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.ToolStripProgressBar processBar;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnExport;
     }
 }
 
