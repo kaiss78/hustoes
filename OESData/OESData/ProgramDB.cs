@@ -25,15 +25,15 @@ namespace OES
             {
                 foreach (string[] str in lst)
                 {
-                    if (str[3] == "Comp")
+                    if (str[3].ToLower() == "comp")
                         tp = ProgramPType.Completion;
-                    else if (str[3] == "Modi")
+                    else if (str[3].ToLower() == "modi")
                         tp = ProgramPType.Modify;
                     else
                         tp = ProgramPType.Function;
-                    if (str[4] == "C")
+                    if (str[4].ToLower() == "c")
                         lang = PLanguage.C;
-                    else if (str[4] == "Cpp")
+                    else if (str[4].ToLower() == "cpp")
                         lang = PLanguage.CPP;
                     else
                         lang = PLanguage.VB;
