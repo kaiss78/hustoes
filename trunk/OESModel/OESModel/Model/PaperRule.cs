@@ -14,6 +14,7 @@ namespace OES.Model
         public int Count;
         public string ChapterName;
         public string PTypeName;
+        public int Course;
 
         public PaperRule()
         { 
