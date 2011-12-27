@@ -12,7 +12,7 @@ namespace OES
     public partial class OESData
     {
         //获取查询的记录条数
-        public int FindItemsCount(string tableName, string PContent, int Unit, int PLevel, int Type, int Language)
+        public int FindItemsCount(string tableName, string PContent, int Unit, int CourseId, int PLevel, int Type, int Language)
         {
             int res = 0;
             DataSet Ds = new DataSet();
@@ -20,6 +20,7 @@ namespace OES
             dp.Add(CreateParam("@tableName", SqlDbType.VarChar, 50, tableName + "_Table", ParameterDirection.Input));
             dp.Add(CreateParam("@PContent", SqlDbType.VarChar, 9999, PContent, ParameterDirection.Input));
             dp.Add(CreateParam("@Unit", SqlDbType.Int, 0, Unit, ParameterDirection.Input));
+            dp.Add(CreateParam("@CourseId", SqlDbType.Int, 0, CourseId, ParameterDirection.Input));
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             dp.Add(CreateParam("@Type", SqlDbType.Int, 0, Type, ParameterDirection.Input));
             dp.Add(CreateParam("@Language", SqlDbType.Int, 0, Language, ParameterDirection.Input));
