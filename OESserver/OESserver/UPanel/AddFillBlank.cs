@@ -72,6 +72,11 @@ namespace OES.UPanel
             this.Visible = true;
         }
 
+        public override void ReLoad(int PID)
+        {
+            InfoControl.OesData.FindCompletionByPID(PID);
+        }
+
      
 
     }

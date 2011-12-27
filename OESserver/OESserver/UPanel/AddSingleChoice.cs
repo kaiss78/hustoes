@@ -66,6 +66,7 @@ namespace OES
         {
             List<Choice> Choice = new List<Choice>();
             Choice=InfoControl.OesData.FindChoiceByPID(x);
+            (this.Parent.Parent as AddQuetionPanel).GetCbCourse = Choice[0].unit.course.CourseId;
             (this.Parent.Parent as AddQuetionPanel).Capter = Choice[0].unit.UnitId;
             (this.Parent.Parent as AddQuetionPanel).Difficulity = Convert.ToString(Choice[0].Plevel);
             this.Content.Text=Choice[0].problem;
