@@ -19,7 +19,8 @@ namespace TestOESData
         public OESData oesdata=new OESData();
         private void button1_Click(object sender, EventArgs e)
         {
-            oesdata.DeleteProgram(36);
+            oesdata.FindAllChoice("", -1, 1, -1, 1, 100);
+            //oesdata.DeleteProgram(36);
             //oesdata.FindAllProgram("", OES.Model.ProgramPType.Null, 
             //    OES.Model.PLanguage.Null, -1, -1, 1, 100);
             //oesdata.DeleteOffice(3);
