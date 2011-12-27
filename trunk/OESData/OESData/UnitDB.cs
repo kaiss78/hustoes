@@ -96,6 +96,23 @@ namespace OES
             }
         }
 
+        public List<Course> FindAllCourse()
+        {
+            List<Course> res = new List<Course>();
+            DataSet Ds = new DataSet();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            try
+            {
+                RunProc("FindAllCourse", dp, Ds);
+                res = DataSetToListCourse(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return res;
+        }
+
         public DataSet FindAllCourse_DataSet()
         {
             DataSet Ds = new DataSet();
