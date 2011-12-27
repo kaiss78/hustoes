@@ -114,5 +114,13 @@ namespace OES
         {
             netState1.State = state;
         }
+
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                butLogin_Click(null, null);
+            }
+        }
     }
 }
