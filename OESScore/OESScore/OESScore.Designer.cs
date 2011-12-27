@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formOESScore));
             this.ss = new System.Windows.Forms.StatusStrip();
             this.tssla = new System.Windows.Forms.ToolStripStatusLabel();
@@ -42,9 +42,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSelectPath = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnLoad = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnScore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnLoad = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnExport = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.label1 = new System.Windows.Forms.Label();
             this.plDGV = new System.Windows.Forms.Panel();
             this.dgvStudentTable = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
@@ -55,7 +56,7 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewProgressBarColumn1 = new OESScore.DataGridViewProgressBarColumn();
-            this.btnExport = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.ss.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -78,13 +79,13 @@
             // tssla
             // 
             this.tssla.Name = "tssla";
-            this.tssla.Size = new System.Drawing.Size(41, 17);
+            this.tssla.Size = new System.Drawing.Size(44, 17);
             this.tssla.Text = "路径：";
             // 
             // tsslPath
             // 
             this.tsslPath.Name = "tsslPath";
-            this.tsslPath.Size = new System.Drawing.Size(23, 17);
+            this.tsslPath.Size = new System.Drawing.Size(22, 17);
             this.tsslPath.Text = "c:\\";
             // 
             // processBar
@@ -141,6 +142,19 @@
             this.btnSelectPath.Values.Text = "选择路径";
             this.btnSelectPath.Click += new System.EventHandler(this.btnSelectPath_Click);
             // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(3, 44);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(120, 35);
+            this.btnLoad.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnLoad.StateCommon.Border.Rounding = 15;
+            this.btnLoad.TabIndex = 3;
+            this.btnLoad.Values.Text = "载入";
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // btnScore
             // 
             this.btnScore.Location = new System.Drawing.Point(3, 85);
@@ -167,18 +181,18 @@
             this.btnConfig.Values.Text = "配置";
             this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
-            // btnLoad
+            // btnExport
             // 
-            this.btnLoad.Location = new System.Drawing.Point(3, 44);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(120, 35);
-            this.btnLoad.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            this.btnExport.Location = new System.Drawing.Point(3, 167);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(120, 35);
+            this.btnExport.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
                         | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnLoad.StateCommon.Border.Rounding = 15;
-            this.btnLoad.TabIndex = 3;
-            this.btnLoad.Values.Text = "载入";
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            this.btnExport.StateCommon.Border.Rounding = 15;
+            this.btnExport.TabIndex = 4;
+            this.btnExport.Values.Text = "导出Excel";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // label1
             // 
@@ -207,8 +221,8 @@
             this.dgvStudentTable.AllowUserToAddRows = false;
             this.dgvStudentTable.AllowUserToResizeColumns = false;
             this.dgvStudentTable.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvStudentTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvStudentTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvStudentTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStudentTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudentTable.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
@@ -219,8 +233,8 @@
             this.dgvStudentTable.Name = "dgvStudentTable";
             this.dgvStudentTable.ReadOnly = true;
             this.dgvStudentTable.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvStudentTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvStudentTable.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvStudentTable.RowTemplate.Height = 23;
             this.dgvStudentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudentTable.Size = new System.Drawing.Size(624, 360);
@@ -240,8 +254,8 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn1.FillWeight = 10F;
             this.dataGridViewTextBoxColumn1.HeaderText = "试卷ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -252,8 +266,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn2.FillWeight = 50F;
             this.dataGridViewTextBoxColumn2.HeaderText = "试卷名称";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -263,8 +277,8 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn3.FillWeight = 20F;
             this.dataGridViewTextBoxColumn3.HeaderText = "试卷数量";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -282,9 +296,9 @@
             // 
             // dataGridViewProgressBarColumn1
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewProgressBarColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridViewProgressBarColumn1.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewProgressBarColumn1.FillWeight = 20F;
             this.dataGridViewProgressBarColumn1.HeaderText = "进度";
             this.dataGridViewProgressBarColumn1.Maximum = 100;
@@ -294,17 +308,11 @@
             this.dataGridViewProgressBarColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewProgressBarColumn1.Width = 122;
             // 
-            // btnExport
+            // saveFileDialog
             // 
-            this.btnExport.Location = new System.Drawing.Point(3, 167);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(120, 35);
-            this.btnExport.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnExport.StateCommon.Border.Rounding = 15;
-            this.btnExport.TabIndex = 4;
-            this.btnExport.Values.Text = "导出Excel";
+            this.saveFileDialog.DefaultExt = "xls";
+            this.saveFileDialog.Filter = "Excel文件|*.xls";
+            this.saveFileDialog.Title = "default";
             // 
             // formOESScore
             // 
@@ -352,6 +360,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.ToolStripProgressBar processBar;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnExport;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

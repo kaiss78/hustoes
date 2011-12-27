@@ -326,5 +326,24 @@ namespace OESScore
             UncompressAllStudentAns(ScoreControl.config["PaperPath"]);
             LoadStudentList();
         }
+
+        //导出成简易的Excel表格
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StringBuilder content = new StringBuilder();
+                for (int i = 0; i < dtStuList.Rows.Count; i++)
+                {
+                    for (int j = 0; j < 6; j++)
+                        content.Append(dtStuList.Rows[i][j] + "\t");
+                    content.AppendLine();
+                }
+                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName, false, Encoding.Default))
+                {
+                    sw.Write(content);
+                }
+            }
+        }
     }
 }
