@@ -833,6 +833,21 @@ namespace OES
             }
             return result;
         }
+
+        private List<Course> DataSetToListCourse(DataSet Ds)
+        {
+            List<Course> res = new List<Course>();
+            DataTable p_Data = Ds.Tables[0];
+            for (int j = 0; j < p_Data.Rows.Count; j++)
+            {
+                Course cos = new Course();
+                cos.CourseId = Convert.ToInt32(p_Data.Rows[j]["CourseId"]);
+                cos.CourseName = p_Data.Rows[j]["CourseName"].ToString();
+                res.Add(cos);
+            }
+            return res;
+        }
+
         private List<Unit> DataSetToListUnit(DataSet Ds)
         {
             //throw new NotImplementedException();
