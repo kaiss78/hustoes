@@ -77,13 +77,13 @@
             // tssla
             // 
             this.tssla.Name = "tssla";
-            this.tssla.Size = new System.Drawing.Size(41, 17);
+            this.tssla.Size = new System.Drawing.Size(44, 17);
             this.tssla.Text = "路径：";
             // 
             // tsslPath
             // 
             this.tsslPath.Name = "tsslPath";
-            this.tsslPath.Size = new System.Drawing.Size(23, 17);
+            this.tsslPath.Size = new System.Drawing.Size(22, 17);
             this.tsslPath.Text = "c:\\";
             // 
             // processBar
