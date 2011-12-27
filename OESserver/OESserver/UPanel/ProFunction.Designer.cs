@@ -40,14 +40,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.kryptonDataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.dgvAnsList = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddAns = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnsList)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -193,7 +193,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.tbAnswerFile, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.kryptonDataGridView1, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.dgvAnsList, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 4, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -231,15 +231,22 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // kryptonDataGridView1
+            // dgvAnsList
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.kryptonDataGridView1, 3);
-            this.kryptonDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonDataGridView1.Location = new System.Drawing.Point(8, 356);
-            this.kryptonDataGridView1.Name = "kryptonDataGridView1";
-            this.kryptonDataGridView1.RowTemplate.Height = 23;
-            this.kryptonDataGridView1.Size = new System.Drawing.Size(626, 262);
-            this.kryptonDataGridView1.TabIndex = 24;
+            this.dgvAnsList.AllowUserToAddRows = false;
+            this.dgvAnsList.AllowUserToDeleteRows = false;
+            this.tableLayoutPanel1.SetColumnSpan(this.dgvAnsList, 3);
+            this.dgvAnsList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAnsList.Location = new System.Drawing.Point(8, 356);
+            this.dgvAnsList.Name = "dgvAnsList";
+            this.dgvAnsList.ReadOnly = true;
+            this.dgvAnsList.RowHeadersVisible = false;
+            this.dgvAnsList.RowTemplate.Height = 23;
+            this.dgvAnsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAnsList.Size = new System.Drawing.Size(626, 262);
+            this.dgvAnsList.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dgvAnsList.StateCommon.DataCell.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvAnsList.TabIndex = 24;
             // 
             // flowLayoutPanel1
             // 
@@ -306,11 +313,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "ProFunction";            
+            this.Name = "ProFunction";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnsList)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -330,7 +337,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView kryptonDataGridView1;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvAnsList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnAddAns;
