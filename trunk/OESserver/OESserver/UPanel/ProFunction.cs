@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 using OES.Model;
 
@@ -54,6 +55,14 @@ namespace OES.UPanel
             if (ofdBrowser.ShowDialog() == DialogResult.OK)
             {
                 tbAnswerFile.Text = ofdBrowser.FileName;
+            }
+        }
+
+        private void btnAddAns_Click(object sender, EventArgs e)
+        {
+            if(File.Exists(tbAnswerFile.Text))
+            {
+
             }
         }
     }
