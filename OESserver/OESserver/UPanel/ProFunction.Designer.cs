@@ -275,6 +275,7 @@
             this.btnAddAns.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnAddAns.TabIndex = 31;
             this.btnAddAns.Values.Text = "添加";
+            this.btnAddAns.Click += new System.EventHandler(this.btnAddAns_Click);
             // 
             // btnEdit
             // 
