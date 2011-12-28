@@ -4,6 +4,9 @@ using System.Text;
 using ClientNet;
 using OESNet.UdpNet;
 using System.Net;
+using System.Windows.Forms;
+using OES.DAO;
+using System.IO;
 namespace OES.Net
 {
     public class ClientEvt
@@ -62,7 +65,7 @@ namespace OES.Net
             return 0;
         }
 
-        static void Client_ReceivedTxt(object sender, EventArgs e)
+        public static void Client_ReceivedTxt(object sender, EventArgs e)
         {
             string[] msgs=sender.ToString().Split('$');
             if (msgs[0] == "oes")
@@ -104,6 +107,28 @@ namespace OES.Net
                         break;
                     case "6":
                         ClientControl.ControlBar.SetTime(Convert.ToInt32(msgs[2])*60);
+                        break;
+                    case "7":
+                        MessageBox.Show(msgs[2]);
+                        break;
+                    case "8":
+                        SystemControl.LogOffComputer();
+                        break;
+                    case "9":
+                        if (ClientControl.WaitingForm.Visible)
+                        {
+                            ClientControl.WaitingForm.BeginInvoke(new MethodInvoker(() =>
+                                {
+                                    ClientControl.WaitingForm.Hide();
+                                    ClientControl.WaitingForm = null;
+                                    ClientControl.LoginForm.Show();
+                                    ClientControl.LoginForm.SetNetState(0);
+                                    OES.DAO.MD5File.GenerateSecurityFile("End");
+                                    if (Directory.Exists(Config.paperPath))
+                                        Directory.Delete(Config.paperPath, true);
+                                    Directory.Move(Config.stuPath, Config.HistoryPath + DateTime.Now.Ticks.ToString());
+                                }));
+                        }
                         break;
                     default:
                         break;

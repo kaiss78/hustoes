@@ -114,6 +114,7 @@
     <Compile Include="DAO\MD5File.cs" />
     <Compile Include="DAO\RARHelper.cs" />
     <Compile Include="DAO\ReadXML.cs" />
+    <Compile Include="DAO\SystemControl.cs" />
     <Compile Include="Error\ErrorControl.cs" />
     <Compile Include="Error\ErrorTable.cs" />
     <Compile Include="ExamForm.cs">

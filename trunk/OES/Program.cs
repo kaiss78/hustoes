@@ -39,6 +39,7 @@ namespace OES
                 {
                     MessageBox.Show("");
                 }
+                Net.ClientEvt.Client.ReceivedTxt += new EventHandler(Net.ClientEvt.Client_ReceivedTxt);
                 Net.ClientEvt.BroadcastHelper.OnReceiveMsg += (Net.ClientEvt.ChangeServerIpPort);
                 Net.ClientEvt.BroadcastHelper.Listening();
                 Application.Run(ClientControl.LoginForm);
