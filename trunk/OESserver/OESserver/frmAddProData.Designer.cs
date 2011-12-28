@@ -39,7 +39,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(180, 303);
+            this.btnOK.Location = new System.Drawing.Point(181, 303);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(94, 34);
             this.btnOK.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
