@@ -459,5 +459,27 @@ namespace OESMonitor
                 ComputerState.getInstance().setIpPort("已离开", 0);
             }
         }
+
+        private void 发送消息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            client.SendTxt("oes$7$" + MessageContent.DisplayDialog());
+        }
+
+        private void 重启计算机ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (PaperControl.AdminConfig["IsAdmin"] == "true")
+            {
+                client.SendTxt("oes$8");
+            }
+            else
+            {
+                MessageBox.Show("您没有该权限！");
+            }
+        }
+
+        private void 试卷已收到ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            client.SendTxt("oes$9");
+        }
     }
 }

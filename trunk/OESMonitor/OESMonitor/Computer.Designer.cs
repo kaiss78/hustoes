@@ -28,21 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ico = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
             this.lab = new System.Windows.Forms.Label();
             this.StuLabel = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.重启计算机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ico = new System.Windows.Forms.PictureBox();
+            this.发送消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.试卷已收到ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ico)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ico
-            // 
-            this.ico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ico.Location = new System.Drawing.Point(1, 1);
-            this.ico.Name = "ico";
-            this.ico.Size = new System.Drawing.Size(80, 70);
-            this.ico.TabIndex = 0;
-            this.ico.TabStop = false;
-            this.ico.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Computer_MouseClick);
             // 
             // lab
             // 
@@ -64,6 +60,48 @@
             this.StuLabel.Text = "    ";
             this.StuLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Computer_MouseClick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.发送消息ToolStripMenuItem,
+            this.试卷已收到ToolStripMenuItem,
+            this.重启计算机ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            // 
+            // 重启计算机ToolStripMenuItem
+            // 
+            this.重启计算机ToolStripMenuItem.Name = "重启计算机ToolStripMenuItem";
+            this.重启计算机ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.重启计算机ToolStripMenuItem.Text = "重启计算机";
+            this.重启计算机ToolStripMenuItem.Click += new System.EventHandler(this.重启计算机ToolStripMenuItem_Click);
+            // 
+            // ico
+            // 
+            this.ico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ico.ContextMenuStrip = this.contextMenuStrip1;
+            this.ico.Location = new System.Drawing.Point(1, 1);
+            this.ico.Name = "ico";
+            this.ico.Size = new System.Drawing.Size(80, 70);
+            this.ico.TabIndex = 0;
+            this.ico.TabStop = false;
+            this.ico.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Computer_MouseClick);
+            // 
+            // 发送消息ToolStripMenuItem
+            // 
+            this.发送消息ToolStripMenuItem.Name = "发送消息ToolStripMenuItem";
+            this.发送消息ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.发送消息ToolStripMenuItem.Text = "发送消息";
+            this.发送消息ToolStripMenuItem.Click += new System.EventHandler(this.发送消息ToolStripMenuItem_Click);
+            // 
+            // 试卷已收到ToolStripMenuItem
+            // 
+            this.试卷已收到ToolStripMenuItem.Name = "试卷已收到ToolStripMenuItem";
+            this.试卷已收到ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.试卷已收到ToolStripMenuItem.Text = "试卷已收到";
+            this.试卷已收到ToolStripMenuItem.Click += new System.EventHandler(this.试卷已收到ToolStripMenuItem_Click);
+            // 
             // Computer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -75,6 +113,7 @@
             this.Name = "Computer";
             this.Size = new System.Drawing.Size(82, 102);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Computer_MouseClick);
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -86,5 +125,9 @@
         private System.Windows.Forms.PictureBox ico;
         private System.Windows.Forms.Label lab;
         private System.Windows.Forms.Label StuLabel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 重启计算机ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 发送消息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 试卷已收到ToolStripMenuItem;
     }
 }
