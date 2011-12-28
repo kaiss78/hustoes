@@ -17,6 +17,9 @@ namespace OESMonitor
         public static OESConfig PwdConfig = new OESConfig("PwdConfig.xml", new string[,]{
             {"Password","123"}
         });
+        public static OESConfig AdminConfig = new OESConfig("AdminConfig.xml", new string[,]{
+            {"IsAdmin","false"}
+        });
         public static OESData OesData = new OESData();
         public static int TestTime = 120;
 
