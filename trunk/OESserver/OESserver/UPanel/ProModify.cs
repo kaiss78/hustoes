@@ -8,6 +8,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using OES.Model;
+using OES.Net;
 
 
 namespace OES.UPanel
@@ -159,6 +160,23 @@ namespace OES.UPanel
                     {
                         InfoControl.OesData.AddProgramAnswer(PID, ans.SeqNum, ans.Input, ans.Output);
                     }
+                    switch (language)
+                    {
+                        case PLanguage.C:
+                            File.Copy(tbProblemFile.Text, InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".c");
+                            InfoControl.ClientObj.SaveCModification(PID, Convert.ToInt32(InfoControl.User.Id));
+                            break;
+                        case PLanguage.CPP:
+                            File.Copy(tbProblemFile.Text, InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".cpp");
+                            InfoControl.ClientObj.SaveCppModification(PID, Convert.ToInt32(InfoControl.User.Id));
+                            break;
+                        case PLanguage.VB:
+                            File.Copy(tbProblemFile.Text, InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".vb");
+                            InfoControl.ClientObj.SaveVbModification(PID, Convert.ToInt32(InfoControl.User.Id));
+                            break;
+                    }
+                    InfoControl.ClientObj.SendFiles();
+                    while (!ClientEvt.isOver) ;
                 }
             }
         }
