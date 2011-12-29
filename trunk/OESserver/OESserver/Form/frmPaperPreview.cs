@@ -18,9 +18,6 @@ namespace OES
         private DataTable dtPaperPreview;
         private Paper NewPaper;
 
-
-
-
         private void Init()
         {
             int i;
@@ -37,7 +34,18 @@ namespace OES
             {
                 dtPaperPreview.Rows.Add(new object[5] { NewPaper.judge[i].problem, Paper.GetPTypeName(NewPaper.judge[i].type), NewPaper.judge[i].Plevel, NewPaper.judge[i].score, i });
             }      
-
+            for(i=0;i<NewPaper.pCompletion.Count;i++)
+            {
+                dtPaperPreview.Rows.Add(new object[5] { NewPaper.pCompletion[i].problem, Paper.GetPTypeName(NewPaper.pCompletion[i].type), NewPaper.pCompletion[i].Plevel, NewPaper.pCompletion[i].score, i });
+            }
+            for (i = 0; i < NewPaper.pModif.Count; i++)
+            {
+                dtPaperPreview.Rows.Add(new object[5] { NewPaper.pModif[i].problem, Paper.GetPTypeName(NewPaper.pModif[i].type), NewPaper.pModif[i].Plevel, NewPaper.pModif[i].score, i });
+            }
+            for (i = 0; i < NewPaper.pFunction.Count; i++)
+            {
+                dtPaperPreview.Rows.Add(new object[5] { NewPaper.pFunction[i].problem, Paper.GetPTypeName(NewPaper.pFunction[i].type), NewPaper.pFunction[i].Plevel, NewPaper.pFunction[i].score, i });
+            }
         }
 
         public frmPaperPreview(Paper paper)
@@ -74,6 +82,7 @@ namespace OES
             List<Choice> choice;
             List<Completion> completion;
             List<Judgment> judgt;
+            List<ProgramProblem> ProProblem;
             switch (PT)
             {
                 case ProblemType.Choice:
@@ -102,10 +111,26 @@ namespace OES
                         return ans;
                     }
                     break;
+                case ProblemType.CProgramCompletion:
+                case ProblemType.CppProgramCompletion:
+                case ProblemType.VbProgramCompletion:
+                    ProProblem = InfoControl.OesData.FindProgramByPID(ID);
+                    if(ProProblem.Count>0)
+                    {
+                        ans = "";
+                    }
+                    break;
             }
             return "";
         }
 
+        private void AddProgramProblem(List<ProgramProblem> ProList)
+        {
+            foreach (ProgramProblem problem in ProList)
+            {
+                XMLControl.AddProblemToPaper(problem.type,problem.problemId,problem.score);
+            }
+        }
 
         private void CreatPaper()
         {
@@ -129,6 +154,10 @@ namespace OES
                 XMLControl.AddProblemToPaper(NewPaper.judge[i].type, NewPaper.judge[i].problemId, NewPaper.judge[i].score);
                 XMLControl.AddPaperAns(NewPaper.judge[i].type, NewPaper.judge[i].problemId, GetAnswer(NewPaper.judge[i].type, NewPaper.judge[i].problemId));
             }
+            AddProgramProblem(NewPaper.pCompletion);
+            AddProgramProblem(NewPaper.pModif);
+            AddProgramProblem(NewPaper.pFunction);
+
             InfoControl.ClientObj.SavePaper(Convert.ToInt32(NewPaper.paperID), Convert.ToInt32(InfoControl.User.Id));
             InfoControl.ClientObj.SendFiles();
             while (!ClientEvt.isOver) ;
