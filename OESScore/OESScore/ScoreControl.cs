@@ -209,6 +209,10 @@ namespace OESScore
             newAnswer = new StaAns();
             newAnswer.Ans = new List<Answer>();
             newAnswer.PaperID = ID;
+            ProgramProblem programProblem;
+            newAnswer.PCList = new List<ProgramProblem>();
+            newAnswer.PFList = new List<ProgramProblem>();
+            newAnswer.PMList = new List<ProgramProblem>();
 
             foreach (IdScoreType pro in proList)
             {
@@ -226,6 +230,11 @@ namespace OESScore
                 }
                 if (pro.pt == ProblemType.CProgramCompletion)
                 {
+                    programProblem=new ProgramProblem();
+                    programProblem.type = pro.pt;
+                    programProblem.language = PLanguage.C;                    
+                    programProblem.Type=ProgramPType.Completion;
+                    //programProblem.ansList=ScoreControl.OesData.FindProgramByPID()
                     ans.Ans = "";
                 }
                 if (pro.pt == ProblemType.CppProgramFun)
