@@ -16,7 +16,7 @@ namespace OES
     public partial class frmAddProData : Form
     {
         private string Path;
-        private ProgramAnswer ProAns;
+        public ProgramAnswer ProAns;
         public bool Result;
 
         public frmAddProData(string path)
@@ -24,6 +24,15 @@ namespace OES
             InitializeComponent();
             Path = path;
             Result = false;            
+        }
+
+        public frmAddProData(string path,ProgramAnswer pa)
+        {
+            InitializeComponent();
+            Path = path;
+            rtbInput.Text = pa.Input;
+            rtbInput.Text=pa.Output;
+            Result = false;    
         }
 
         public static string FindVC()
