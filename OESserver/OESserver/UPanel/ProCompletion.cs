@@ -176,7 +176,9 @@ namespace OES.UPanel
                     {
                         InfoControl.OesData.AddProgramAnswer(PID, ans.SeqNum, ans.Input, ans.Output);
                     }
+                    MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
             }
         }
 

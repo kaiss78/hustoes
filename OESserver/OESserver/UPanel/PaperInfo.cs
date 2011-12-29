@@ -155,10 +155,10 @@ namespace OES.UPanel
             }
         }
 
-        private void AddProgramProblem(PLanguage language, int Plevel, int Chaptet, int Course, int Count, int Score, ref List<ProgramProblem> ProList)
+        private void AddProgramProblem(ProgramPType pType,PLanguage language, int Plevel, int Chaptet, int Course, int Count, int Score, ref List<ProgramProblem> ProList)
         {
             rd = new Random();
-            List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("", ProgramPType.Completion, language, Chaptet, Course, Plevel, 1, int.MaxValue);
+            List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("", pType, language, Chaptet, Course, Plevel, 1, int.MaxValue);
             if (list.Count < Count)
             {
                 MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -256,31 +256,31 @@ namespace OES.UPanel
                         AddJudgement(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score);
                         break;
                     case ProblemType.CppProgramCompletion:
-                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
+                        AddProgramProblem(ProgramPType.Completion,  PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
                         break;
                     case ProblemType.CppProgramModification:
-                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
+                        AddProgramProblem(ProgramPType.Modify, PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
                         break;
                     case ProblemType.CppProgramFun:
-                        AddProgramProblem(PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        AddProgramProblem(ProgramPType.Function, PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
                         break;
                     case ProblemType.CProgramCompletion:
-                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
+                        AddProgramProblem(ProgramPType.Completion,PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
                         break;
                     case ProblemType.CProgramModification:
-                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
+                        AddProgramProblem(ProgramPType.Modify, PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
                         break;
                     case ProblemType.CProgramFun:
-                        AddProgramProblem(PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        AddProgramProblem(ProgramPType.Function,PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
                         break;
                     case ProblemType.VbProgramCompletion:
-                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
+                        AddProgramProblem(ProgramPType.Completion, PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
                         break;
                     case ProblemType.VbProgramModification:
-                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
+                        AddProgramProblem(ProgramPType.Modify, PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
                         break;
                     case ProblemType.VbProgramFun:
-                        AddProgramProblem(PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        AddProgramProblem(ProgramPType.Function, PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
                         break;
                 }
             }

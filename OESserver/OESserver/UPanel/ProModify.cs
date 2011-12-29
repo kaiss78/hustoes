@@ -177,7 +177,9 @@ namespace OES.UPanel
                     }
                     InfoControl.ClientObj.SendFiles();
                     while (!ClientEvt.isOver) ;
+                    MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                
             }
         }
 
