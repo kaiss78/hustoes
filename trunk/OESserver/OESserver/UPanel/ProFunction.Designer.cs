@@ -39,7 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbPContent = new System.Windows.Forms.RichTextBox();
             this.dgvAnsList = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddAns = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -90,7 +90,7 @@
             // 
             // ofdBrowser
             // 
-            this.ofdBrowser.Filter = "C文件|*.c|C++文件|*.cpp";
+            this.ofdBrowser.Filter = "C文件/C++文件/VB文件|*.c;*.cpp;*.vb";
             // 
             // btnBrowserAns
             // 
@@ -212,7 +212,7 @@
             // groupBox1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 4);
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.rtbPContent);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(8, 8);
@@ -222,14 +222,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "题干";
             // 
-            // richTextBox1
+            // rtbPContent
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 22);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(720, 237);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.rtbPContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbPContent.Location = new System.Drawing.Point(3, 22);
+            this.rtbPContent.Name = "rtbPContent";
+            this.rtbPContent.Size = new System.Drawing.Size(720, 237);
+            this.rtbPContent.TabIndex = 0;
+            this.rtbPContent.Text = "";
             // 
             // dgvAnsList
             // 
@@ -292,6 +292,7 @@
             this.btnEdit.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnEdit.TabIndex = 32;
             this.btnEdit.Values.Text = "编辑";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDel
             // 
@@ -308,6 +309,7 @@
             this.btnDel.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnDel.TabIndex = 33;
             this.btnDel.Values.Text = "删除";
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // ProFunction
             // 
@@ -337,7 +339,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbPContent;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvAnsList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;

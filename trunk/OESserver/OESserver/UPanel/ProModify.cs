@@ -63,8 +63,6 @@ namespace OES.UPanel
             {
                 tbProblemFile.Text = ofdBrowser.FileName;
                 BlankCount = InfoControl.coutnAnswer(tbProblemFile.Text);
-                Path.GetExtension(ofdBrowser.FileName);
-                MessageBox.Show(Path.GetExtension(ofdBrowser.FileName).ToLower());
                 switch (Path.GetExtension(ofdBrowser.FileName).ToLower())
                 {
                     case ".c":
