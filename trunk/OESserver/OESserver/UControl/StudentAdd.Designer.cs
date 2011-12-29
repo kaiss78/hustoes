@@ -274,7 +274,7 @@
             // 
             this.comboManyDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboManyDept.FormattingEnabled = true;
-            this.comboManyDept.Location = new System.Drawing.Point(98, 31);
+            this.comboManyDept.Location = new System.Drawing.Point(98, 30);
             this.comboManyDept.Name = "comboManyDept";
             this.comboManyDept.Size = new System.Drawing.Size(133, 24);
             this.comboManyDept.TabIndex = 16;
@@ -286,9 +286,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(19, 111);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(360, 16);
+            this.label11.Size = new System.Drawing.Size(376, 16);
             this.label11.TabIndex = 20;
-            this.label11.Text = "注意：学生信息包括学生姓名、学号以及密码信息";
+            this.label11.Text = "注意：学生信息包括学号、姓名、班级号、密码信息";
             // 
             // textClass
             // 
@@ -299,7 +299,7 @@
             // 
             // textDept
             // 
-            this.textDept.Location = new System.Drawing.Point(98, 29);
+            this.textDept.Location = new System.Drawing.Point(98, 30);
             this.textDept.Name = "textDept";
             this.textDept.Size = new System.Drawing.Size(133, 26);
             this.textDept.TabIndex = 14;

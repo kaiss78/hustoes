@@ -24,7 +24,17 @@ namespace OES.UControl
                 permissionUserName = InfoControl.User.UserName;
                 ChangeDisplay();
             }
+            DisableDept();
             showAllDepts();
+        }
+        
+        private void DisableDept()  //暂时把批量导入的班级部分给隐藏掉
+        {
+            textClass.Visible = false;
+            textDept.Visible = false;
+            comboManyClass.Visible = false;
+            comboManyDept.Visible = false;
+            label1.Visible = label8.Visible = false;
         }
 
         private void ChangeDisplay()
@@ -131,19 +141,19 @@ namespace OES.UControl
         private void btnAddMany_Click(object sender, EventArgs e)
         {
             List<string[]> dataList;
-            bool infoState = true;
-            if (textFile.Text == "")
-                infoState = false;
-            else if ((textDept.Text == "" || textClass.Text == "") && textDept.Visible == true)
-                infoState = false;
-            if (!infoState)
-            {
-                MessageBox.Show("输入信息不完整！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //bool infoState = true;
+            //if (textFile.Text == "")
+            //    infoState = false;
+            //else if ((textDept.Text == "" || textClass.Text == "") && textDept.Visible == true)
+            //    infoState = false;
+            //if (!infoState)
+            //{
+            //    MessageBox.Show("输入信息不完整！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
             try 
             {
-                dataList = CSVHelper.CSVImporter.getObjectInCSV(textFile.Text, 3);
+                dataList = CSVHelper.CSVImporter.getObjectInCSV(textFile.Text, 4);
             } 
             catch 
             {
@@ -152,19 +162,20 @@ namespace OES.UControl
             }
             try
             {
-                string dept, className;
-                if (textDept.Visible == true)
-                {
-                    dept = textDept.Text;
-                    className = textClass.Text;
-                }
-                else
-                {
-                    dept = comboManyDept.Text; 
-                    className = comboManyClass.Text;
-                }
-                InfoControl.OesData.AddManyStudents(dept, className, dataList);
-                MessageBox.Show("导入成功！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //string dept, className;
+                //if (textDept.Visible == true)
+                //{
+                //    dept = textDept.Text;
+                //    className = textClass.Text;
+                //}
+                //else
+                //{
+                //    dept = comboManyDept.Text; 
+                //    className = comboManyClass.Text;
+                //}
+                //InfoControl.OesData.AddManyStudents(dept, className, dataList);
+                InfoControl.OesData.ImportStudent(dataList);
+                MessageBox.Show("学生导入成功！", "学生管理", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearInfo();
             }
             catch
@@ -176,7 +187,7 @@ namespace OES.UControl
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog of = new OpenFileDialog();
-            of.Filter = "CSV文件(逗号分隔)(*.csv)|*.csv|所有文件(*.*)|*.*";
+            of.Filter = "CSV文件(逗号分隔)(*.csv)|*.csv";
             of.ShowDialog();
             textFile.Text = of.FileName;
         }

@@ -41,8 +41,8 @@ namespace OES
             plAddQuestion.Controls.Add(fillblank);
             plAddQuestion.Controls.Add(judge);
             plAddQuestion.Controls.Add(proCompletion);
-             plAddQuestion.Controls.Add(proModify);
-             plAddQuestion.Controls.Add(proFunction);
+            plAddQuestion.Controls.Add(proModify);
+            plAddQuestion.Controls.Add(proFunction);
 
             PanelList = new List<UserPanel>();
             PanelList.Add(SingleChoice);
