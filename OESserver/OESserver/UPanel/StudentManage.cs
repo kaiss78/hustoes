@@ -98,6 +98,7 @@ namespace OES.UPanel
         
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (studentInfoDGV.CurrentRow == null) return;
             int cr = studentInfoDGV.CurrentRow.Index;
             if (cr <= -1) { return; }
             changeBtnEnable(false);
