@@ -8,6 +8,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using OES.Model;
+using OES.Net;
 
 namespace OES.UPanel
 {
@@ -151,9 +152,26 @@ namespace OES.UPanel
             {
                 int Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
                 String PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
-                int PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProType, language, Convert.ToInt32(Unit), Convert.ToInt32(PLevel));
+                int PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProType, language, Convert.ToInt32(Unit), Convert.ToInt32(PLevel));                                
                 if (PID > 0)
                 {
+                    switch (language)
+                    {
+                        case PLanguage.C:
+                            File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString()+".c");
+                            InfoControl.ClientObj.SaveCCompletion(PID, Convert.ToInt32(InfoControl.User.Id));
+                            break;
+                        case PLanguage.CPP:
+                            File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".cpp");
+                            InfoControl.ClientObj.SaveCppCompletion(PID, Convert.ToInt32(InfoControl.User.Id));
+                            break;
+                        case PLanguage.VB:
+                            File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".vb");
+                            InfoControl.ClientObj.SaveVbCompletion(PID, Convert.ToInt32(InfoControl.User.Id));
+                            break;
+                    }
+                    InfoControl.ClientObj.SendFiles();
+                    while (!ClientEvt.isOver) ;
                     foreach (ProgramAnswer ans in newProblem.ansList)
                     {
                         InfoControl.OesData.AddProgramAnswer(PID, ans.SeqNum, ans.Input, ans.Output);

@@ -8,6 +8,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using OES.Model;
+using OES.Net;
 
 namespace OES.UPanel
 {
@@ -60,6 +61,29 @@ namespace OES.UPanel
                     {
                         InfoControl.OesData.AddProgramAnswer(PID, ans.SeqNum, ans.Input, ans.Output);
                     }
+                    switch (language)
+                    {
+                        case PLanguage.C:
+                            File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".c");
+                            File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".c");
+                            InfoControl.ClientObj.SaveCFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));
+                            InfoControl.ClientObj.SaveCFunctionP(PID, Convert.ToInt32(InfoControl.User.Id));
+                            break;
+                        case PLanguage.CPP:
+                            File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".cpp");
+                            File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".cpp");
+                            InfoControl.ClientObj.SaveCppFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));
+                            InfoControl.ClientObj.SaveCppFunctionP(PID, Convert.ToInt32(InfoControl.User.Id));
+                            break;
+                        case PLanguage.VB:
+                            File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".vb");
+                            File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".vb");
+                            InfoControl.ClientObj.SaveVbFunctionP(PID, Convert.ToInt32(InfoControl.User.Id));
+                            InfoControl.ClientObj.SaveVbFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));                            
+                            break;
+                    }
+                    InfoControl.ClientObj.SendFiles();
+                    while (!ClientEvt.isOver) ;
                 }
                 
             }
