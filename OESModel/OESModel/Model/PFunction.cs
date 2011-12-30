@@ -11,11 +11,37 @@ namespace OES.Model
         public PFunction(ProblemType pt)
         {
             type = pt;
+            switch (pt)
+            {
+                case ProblemType.CProgramFun:
+                    language = PLanguage.C;
+                    break;
+                case ProblemType.CppProgramFun:
+                    language = PLanguage.CPP;
+                    break;
+                case ProblemType.VbProgramFun:
+                    language = PLanguage.VB;
+                    break;
+            }
+            this.Type = ProgramPType.Function;
         }
         public PFunction(ProblemType pt, string p)
         {
             problem = p;
             type = pt;
+            switch (pt)
+            {
+                case ProblemType.CProgramFun:
+                    language = PLanguage.C;
+                    break;
+                case ProblemType.CppProgramFun:
+                    language = PLanguage.CPP;
+                    break;
+                case ProblemType.VbProgramFun:
+                    language = PLanguage.VB;
+                    break;
+            }
+            this.Type = ProgramPType.Function;
         }
         public override string getAns()
         {
