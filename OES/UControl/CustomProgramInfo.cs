@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
- 
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.IO;
 using OES.Model;
+using OES;
 
 namespace OES.UControl
 {
@@ -17,6 +17,7 @@ namespace OES.UControl
     {
         [DllImport("user32", EntryPoint = "HideCaret")]
         private static extern bool HideCaret(IntPtr hWnd);
+        public string VCPath;
         //private string path;
         private string filename = "";
         private int proid;
@@ -186,7 +187,16 @@ namespace OES.UControl
                 File.Copy(Config.paperPath + filename, Config.stuPath + filename, true);
             }
             while (!File.Exists(Config.stuPath + filename)) ;
-            System.Diagnostics.Process.Start(Config.stuPath + filename);
+            VCPath = ClientControl.FindVC();
+            if (File.Exists(VCPath))
+            {
+                System.Diagnostics.Process.Start(VCPath, Config.stuPath + filename);
+            }
+            else
+            {
+                System.Diagnostics.Process.Start(Config.stuPath + filename);
+            }
+
             ClientControl.SetDone(ClientControl.CurrentProblemNum);
         }
 
@@ -195,7 +205,15 @@ namespace OES.UControl
             if (MessageBox.Show("继续将会删除之前答案", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 File.Copy(Config.paperPath + filename, Config.stuPath+filename,true);
-                System.Diagnostics.Process.Start(Config.stuPath+filename);
+                VCPath = ClientControl.FindVC();
+                if (File.Exists(VCPath))
+                {
+                    System.Diagnostics.Process.Start(VCPath, Config.stuPath + filename);
+                }
+                else
+                {
+                    System.Diagnostics.Process.Start(Config.stuPath + filename);
+                }
             }
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
  
 using System.Text;
+using Microsoft.Win32;
 using OES.Model;
 using OES.Error;
 using OES.Net;
@@ -99,6 +100,39 @@ namespace OES
             set { ClientControl.teaPassForm = value; }
         }
         #endregion 窗体逻辑控制
+
+        /// <summary>
+        /// 获取VC++程序路径
+        /// </summary>
+        /// <returns></returns>
+        public static string FindVC()
+        {
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall", false);
+            {
+                if (key != null)//判断对象存在
+                {
+                    foreach (string keyName in key.GetSubKeyNames())//遍历子项名称的字符串数组
+                    {
+                        using (RegistryKey key2 = key.OpenSubKey(keyName, false))//遍历子项节点
+                        {
+                            if (key2 != null)
+                            {
+                                string softwareName = key2.GetValue("DisplayName", "").ToString();//获取软件名
+                                string installLocation = key2.GetValue("UninstallString", "").ToString();//获取安装路径
+                                if (softwareName.Contains("Microsoft Visual C++ 6.0") == true)
+                                {
+                                    installLocation = installLocation.Remove(installLocation.IndexOf("VC98"));
+                                    installLocation = installLocation.Remove(0, 1);
+                                    installLocation = installLocation + "Common\\MSDev98\\Bin\\MSDEV.EXE";
+                                    return installLocation;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return "";
+        }
 
         /// <summary>
         /// 当前题目号属性，可以自动进行列表状态切换
