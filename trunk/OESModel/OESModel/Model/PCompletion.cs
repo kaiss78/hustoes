@@ -11,12 +11,38 @@ namespace OES.Model
         public PCompletion(ProblemType pt)
         {
             type = pt;
+            switch (pt)
+            {
+                case ProblemType.CProgramCompletion:
+                    language = PLanguage.C;
+                    break;
+                case ProblemType.CppProgramCompletion:
+                    language = PLanguage.CPP;
+                    break;
+                case ProblemType.VbProgramCompletion:
+                    language = PLanguage.VB;
+                    break;
+            }
+            this.Type = ProgramPType.Completion;
         }
         public PCompletion(ProblemType pt,string p)
         {
             problem = p;
 
             type = pt;
+            switch (pt)
+            {
+                case ProblemType.CProgramCompletion:
+                    language = PLanguage.C;
+                    break;
+                case ProblemType.CppProgramCompletion:
+                    language = PLanguage.CPP;
+                    break;
+                case ProblemType.VbProgramCompletion:
+                    language = PLanguage.VB;
+                    break;
+            }
+            this.Type = ProgramPType.Completion;
         }
 
         public override string getAns()
