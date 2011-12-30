@@ -273,6 +273,24 @@ namespace OES
             return result;
         }
 
+        public List<ProgramAnswer> FindProgramAnswerByPID(int PID)
+        {
+            DataSet Ds = new DataSet();
+            List<ProgramAnswer> res = new List<ProgramAnswer>();
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("FindProgramAnswerByPID", dp, Ds);
+                res = DataSetToListProgramAnswer(Ds);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return res;
+        }
+
 #if false
         //按Id修改综合编程题
         public void UpdateFunProgram(string Id, string Problem_Content, string File_Path, string In1, string In2, string In3, string Out1, string Out2, string Out3, string CorrectC, string Kind)

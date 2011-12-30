@@ -641,6 +641,23 @@ namespace OES
             return result;
         }
 
+        private List<ProgramAnswer> DataSetToListProgramAnswer(DataSet Ds)
+        {
+            DataTable p_Data = Ds.Tables[0];
+            List<ProgramAnswer> res = new List<ProgramAnswer>();
+            for (int i = 0; i < p_Data.Rows.Count; i++)
+            {
+                ProgramAnswer tmp = new ProgramAnswer();
+                tmp.PID = Convert.ToInt32(p_Data.Rows[i]["PID"]);
+                tmp.AID = Convert.ToInt32(p_Data.Rows[i]["AID"]);
+                tmp.Input = p_Data.Rows[i]["Input"].ToString();
+                tmp.Output = p_Data.Rows[i]["Output"].ToString();
+                tmp.SeqNum = Convert.ToInt32(p_Data.Rows[i]["SeqNum"]);
+                res.Add(tmp);
+            }
+            return res;
+        }
+
         private List<Classes> DataSetToClass(DataSet p_DataSet)
         {
             List<Classes> res = new List<Classes>();
