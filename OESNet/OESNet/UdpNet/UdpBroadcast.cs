@@ -61,6 +61,7 @@ namespace OESNet.UdpNet
         public UdpBroadcast()
         {
             udpClient = new UdpClient();
+            udpClient.EnableBroadcast = true;
         }
 
         /// <summary>
@@ -88,6 +89,7 @@ namespace OESNet.UdpNet
         public void Listening()
         {
             udpClient = new UdpClient(port);
+            udpClient.EnableBroadcast = true;
             try 
             {
                 udpClient.BeginReceive(new AsyncCallback(receive_callBack),udpClient);
