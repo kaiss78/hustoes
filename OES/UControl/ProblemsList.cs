@@ -18,7 +18,7 @@ namespace OES.UControl
         List<int> subPanelStatus = new List<int>();
         public int count=20;
         public static int eachHeight=40;
-        int halfHeight;
+        int halfHeight=0;
         bool IsUp = false;
 
         public ProblemsList(int c)
@@ -62,7 +62,7 @@ namespace OES.UControl
                 temp.MouseWheel += new MouseEventHandler(temp_MouseWheel);
                 temp1.MouseWheel+=new MouseEventHandler(temp_MouseWheel);
                 temp.Controls.Add(temp1);
-                //this.MouseWheel+=new MouseEventHandler(temp_MouseWheel);
+                this.MouseWheel+=new MouseEventHandler(temp_MouseWheel);
                
             }
             this.Refresh();

@@ -110,6 +110,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeIpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeIpForm.Designer.cs">
+      <DependentUpon>ChangeIpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientControl.cs" />
     <Compile Include="DAO\MD5File.cs" />
     <Compile Include="DAO\RARHelper.cs" />
@@ -195,6 +201,9 @@
       <DependentUpon>CustomProgramInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChangeIpForm.resx">
+      <DependentUpon>ChangeIpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlBar.resx">
       <DependentUpon>ControlBar.cs</DependentUpon>
       <SubType>Designer</SubType>

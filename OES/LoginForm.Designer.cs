@@ -37,6 +37,7 @@
             this.Password = new System.Windows.Forms.MaskedTextBox();
             this.butLogin = new System.Windows.Forms.Button();
             this.butExit = new System.Windows.Forms.Button();
+            this.changeIpLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +121,17 @@
             this.butExit.UseVisualStyleBackColor = true;
             this.butExit.Click += new System.EventHandler(this.button2_Click);
             // 
+            // changeIpLabel
+            // 
+            this.changeIpLabel.AutoSize = true;
+            this.changeIpLabel.ForeColor = System.Drawing.Color.LightBlue;
+            this.changeIpLabel.Location = new System.Drawing.Point(687, 329);
+            this.changeIpLabel.Name = "changeIpLabel";
+            this.changeIpLabel.Size = new System.Drawing.Size(101, 12);
+            this.changeIpLabel.TabIndex = 9;
+            this.changeIpLabel.Text = "点此修改考试端Ip";
+            this.changeIpLabel.Click += new System.EventHandler(this.changeIpLabel_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -139,6 +151,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(797, 350);
+            this.Controls.Add(this.changeIpLabel);
             this.Controls.Add(this.butExit);
             this.Controls.Add(this.butLogin);
             this.Controls.Add(this.Password);
@@ -172,5 +185,6 @@
         private System.Windows.Forms.Button butLogin;
         private System.Windows.Forms.Button butExit;
         private NetState netState1;
+        private System.Windows.Forms.Label changeIpLabel;
     }
 }

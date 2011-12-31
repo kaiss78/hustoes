@@ -10,6 +10,8 @@ using System.Runtime.InteropServices;
 using OES.XMLFile;
 using OES.Model;
 using System.Threading;
+using System.Diagnostics;
+using System.IO;
 
 namespace OES
 {
@@ -168,6 +170,17 @@ namespace OES
                             ClientControl.ControlBar = null;
                         }));
             
+        }
+
+        private void studentID_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("将要打开考生文件夹，请勿乱删文件！否则后果自付。") == DialogResult.OK)
+            {
+                if (Directory.Exists(Config.stuPath))
+                {
+                    Process.Start(Config.stuPath);
+                }
+            }
         }
 
     }

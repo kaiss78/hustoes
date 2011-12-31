@@ -82,6 +82,7 @@
             this.studentID.TabIndex = 1;
             this.studentID.Text = "studentID";
             this.studentID.UseVisualStyleBackColor = true;
+            this.studentID.Click += new System.EventHandler(this.studentID_Click);
             // 
             // butHideMF
             // 

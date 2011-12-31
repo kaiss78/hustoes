@@ -26,15 +26,15 @@ namespace OES.UControl
             set
             {
                 proid = value;
-                nextproblem.Enabled = true;
-                lastproblem.Enabled = true;
+                nextproblem.Visible = true;
+                lastproblem.Visible = true;
                 if (proid == ClientControl.paper.completion.Count - 1)
                 {
-                    nextproblem.Enabled = false;
+                    nextproblem.Visible = false;
                 }
                 if (proid == 0)
                 {
-                    lastproblem.Enabled = false;
+                    lastproblem.Visible = false;
                 }
             }
         }

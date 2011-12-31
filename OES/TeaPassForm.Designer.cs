@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeaPassForm));
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancleButton = new System.Windows.Forms.Button();
             this.BeginButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -60,15 +60,15 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CancelButton.Location = new System.Drawing.Point(286, 156);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(4);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(154, 40);
-            this.CancelButton.TabIndex = 2;
-            this.CancelButton.Text = "取消";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancleButton_Click);
+            this.CancleButton.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CancleButton.Location = new System.Drawing.Point(286, 156);
+            this.CancleButton.Margin = new System.Windows.Forms.Padding(4);
+            this.CancleButton.Name = "CancelButton";
+            this.CancleButton.Size = new System.Drawing.Size(154, 40);
+            this.CancleButton.TabIndex = 2;
+            this.CancleButton.Text = "取消";
+            this.CancleButton.UseVisualStyleBackColor = true;
+            this.CancleButton.Click += new System.EventHandler(this.CancleButton_Click);
             // 
             // BeginButton
             // 
@@ -88,7 +88,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.BeginButton);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
-            this.groupBox1.Controls.Add(this.CancelButton);
+            this.groupBox1.Controls.Add(this.CancleButton);
             this.groupBox1.Location = new System.Drawing.Point(134, 57);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -122,7 +122,7 @@
 
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CancleButton;
         private System.Windows.Forms.Button BeginButton;
         private System.Windows.Forms.GroupBox groupBox1;
 

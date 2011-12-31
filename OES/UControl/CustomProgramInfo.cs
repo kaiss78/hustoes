@@ -29,15 +29,15 @@ namespace OES.UControl
             set
             {
                 proid = value;
-                NextProblem.Enabled = true;
-                LastProblem.Enabled = true;
+                NextProblem.Visible = true;
+                LastProblem.Visible = true;
                 if (proid == totalCount - 1)
                 {
-                    NextProblem.Enabled = false;
+                    NextProblem.Visible = false;
                 }
                 if (proid == 0)
                 {
-                    LastProblem.Enabled = false;
+                    LastProblem.Visible = false;
                 }
             }
         }
