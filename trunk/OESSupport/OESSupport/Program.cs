@@ -68,7 +68,7 @@ namespace OESSupport
                             if(Directory.Exists(Program.config["Root"] + Program.config["PaperPkg"]))
                             {
                                 int i = 0;
-                                Directory.Delete(Program.config["Root"] + Program.config["PaperPkg"]);
+                                Directory.Delete(Program.config["Root"] + Program.config["PaperPkg"],true);
                                 while (Directory.Exists(Program.config["Root"] + Program.config["PaperPkg"]) || i>10000) i++;
                                 if (!Directory.Exists(Program.config["Root"] + Program.config["PaperPkg"]))
                                 {
