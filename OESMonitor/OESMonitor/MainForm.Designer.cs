@@ -66,9 +66,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ExportButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.ExportButton = new System.Windows.Forms.Button();
             this.StudentDataGridView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.班级 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoginNumLabel = new System.Windows.Forms.Label();
+            this.CompleteNumLabel = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -95,13 +102,6 @@
             this.fileSystemWatcher = new System.IO.FileSystemWatcher();
             this.timer_BroadcastSingle = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.LoginNumLabel = new System.Windows.Forms.Label();
-            this.CompleteNumLabel = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.班级 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ip = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -542,17 +542,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(843, 481);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // ExportButton
-            // 
-            this.ExportButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ExportButton.Location = new System.Drawing.Point(424, 447);
-            this.ExportButton.Name = "ExportButton";
-            this.ExportButton.Size = new System.Drawing.Size(416, 31);
-            this.ExportButton.TabIndex = 2;
-            this.ExportButton.Text = "导出Excel";
-            this.ExportButton.UseVisualStyleBackColor = true;
-            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
-            // 
             // refreshButton
             // 
             this.refreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -563,6 +552,17 @@
             this.refreshButton.Text = "刷新";
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // ExportButton
+            // 
+            this.ExportButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ExportButton.Location = new System.Drawing.Point(424, 447);
+            this.ExportButton.Name = "ExportButton";
+            this.ExportButton.Size = new System.Drawing.Size(416, 31);
+            this.ExportButton.TabIndex = 2;
+            this.ExportButton.Text = "导出Excel";
+            this.ExportButton.UseVisualStyleBackColor = true;
+            this.ExportButton.Click += new System.EventHandler(this.ExportButton_Click);
             // 
             // StudentDataGridView
             // 
@@ -582,6 +582,61 @@
             this.StudentDataGridView.RowTemplate.Height = 23;
             this.StudentDataGridView.Size = new System.Drawing.Size(837, 401);
             this.StudentDataGridView.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "学号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "姓名";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // 班级
+            // 
+            this.班级.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.班级.HeaderText = "班级";
+            this.班级.Name = "班级";
+            this.班级.ReadOnly = true;
+            // 
+            // Ip
+            // 
+            this.Ip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ip.HeaderText = "Ip";
+            this.Ip.Name = "Ip";
+            this.Ip.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "状态";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // LoginNumLabel
+            // 
+            this.LoginNumLabel.AutoSize = true;
+            this.LoginNumLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoginNumLabel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoginNumLabel.Location = new System.Drawing.Point(3, 0);
+            this.LoginNumLabel.Name = "LoginNumLabel";
+            this.LoginNumLabel.Size = new System.Drawing.Size(415, 37);
+            this.LoginNumLabel.TabIndex = 3;
+            // 
+            // CompleteNumLabel
+            // 
+            this.CompleteNumLabel.AutoSize = true;
+            this.CompleteNumLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CompleteNumLabel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CompleteNumLabel.Location = new System.Drawing.Point(424, 0);
+            this.CompleteNumLabel.Name = "CompleteNumLabel";
+            this.CompleteNumLabel.Size = new System.Drawing.Size(416, 37);
+            this.CompleteNumLabel.TabIndex = 4;
             // 
             // tabPage6
             // 
@@ -667,7 +722,7 @@
             this.buttonBroadcastRepeat.Name = "buttonBroadcastRepeat";
             this.buttonBroadcastRepeat.Size = new System.Drawing.Size(140, 23);
             this.buttonBroadcastRepeat.TabIndex = 4;
-            this.buttonBroadcastRepeat.Text = "每10s广播一次";
+            this.buttonBroadcastRepeat.Text = "每3s广播一次";
             this.buttonBroadcastRepeat.UseVisualStyleBackColor = true;
             this.buttonBroadcastRepeat.Click += new System.EventHandler(this.buttonBroadcastRepeat_Click);
             // 
@@ -818,61 +873,6 @@
             this.saveFileDialog.DefaultExt = "xls";
             this.saveFileDialog.FileName = "default";
             this.saveFileDialog.Filter = "考生信息Excel|*.xls";
-            // 
-            // LoginNumLabel
-            // 
-            this.LoginNumLabel.AutoSize = true;
-            this.LoginNumLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LoginNumLabel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LoginNumLabel.Location = new System.Drawing.Point(3, 0);
-            this.LoginNumLabel.Name = "LoginNumLabel";
-            this.LoginNumLabel.Size = new System.Drawing.Size(415, 37);
-            this.LoginNumLabel.TabIndex = 3;
-            // 
-            // CompleteNumLabel
-            // 
-            this.CompleteNumLabel.AutoSize = true;
-            this.CompleteNumLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CompleteNumLabel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CompleteNumLabel.Location = new System.Drawing.Point(424, 0);
-            this.CompleteNumLabel.Name = "CompleteNumLabel";
-            this.CompleteNumLabel.Size = new System.Drawing.Size(416, 37);
-            this.CompleteNumLabel.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "学号";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "姓名";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // 班级
-            // 
-            this.班级.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.班级.HeaderText = "班级";
-            this.班级.Name = "班级";
-            this.班级.ReadOnly = true;
-            // 
-            // Ip
-            // 
-            this.Ip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ip.HeaderText = "Ip";
-            this.Ip.Name = "Ip";
-            this.Ip.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "状态";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // OESMonitor
             // 

@@ -728,7 +728,7 @@ namespace OESMonitor
                 isStartBroadcastRepeat = value;
                 if (isStartBroadcastRepeat)
                 {
-                    timer_Broadcast.Interval = 10000;
+                    timer_Broadcast.Interval = 3000;
                     timer_Broadcast.Start();
                     buttonBroadcastRepeat.Text = "停止广播";
                     buttonBroadcastOnce.Enabled = false;
@@ -757,7 +757,7 @@ namespace OESMonitor
                 isStartRepeatSingle = value;
                 if (isStartRepeatSingle)
                 {
-                    timer_BroadcastSingle.Interval = 10000;
+                    timer_BroadcastSingle.Interval = 3000;
                     timer_BroadcastSingle.Start();
                     buttonRepeatSingle.Text = "停止单播";
                     buttonBroadcastOnce.Enabled = false;
@@ -801,20 +801,26 @@ namespace OESMonitor
             ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
         }
         private Thread t;
+        private static bool isBoardCastEnd=true;
         private void timer_BroadcastSingle_Tick(object sender, EventArgs e)
         {
-            List<string> iplist = generateIpDomain();
-            string startIp = textBoxStartIp.Text;
-            string endIp = textBoxEndIp.Text;
-            t = new Thread(new ThreadStart(() =>
+            if (isBoardCastEnd)
             {
-                foreach (string ip in iplist)
+                isBoardCastEnd = false;
+                List<string> iplist = generateIpDomain();
+                string startIp = textBoxStartIp.Text;
+                string endIp = textBoxEndIp.Text;
+                t = new Thread(new ThreadStart(() =>
                 {
-                    ServerEvt.BroadcastHelper.DomineIp = ip;
-                    ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(startIp).ToString() + "#" + UdpBroadcast.GetLongIp(endIp).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
-                }
-            }));
-            t.Start();
+                    foreach (string ip in iplist)
+                    {
+                        ServerEvt.BroadcastHelper.DomineIp = ip;
+                        ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(startIp).ToString() + "#" + UdpBroadcast.GetLongIp(endIp).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
+                    }
+                    isBoardCastEnd = true;
+                }));
+                t.Start();
+            }
         }
 
         #endregion
