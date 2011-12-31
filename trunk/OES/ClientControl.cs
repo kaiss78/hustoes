@@ -8,6 +8,7 @@ using OES.Error;
 using OES.Net;
 using System.Threading;
 using System.IO;
+using OES.DAO;
 
 namespace OES
 {   
