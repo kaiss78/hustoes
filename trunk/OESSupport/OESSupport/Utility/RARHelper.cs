@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using Microsoft.Win32;
 
-namespace OESSupport.PaperControl
+namespace OESSupport.Utility
 {
     public class RARHelper
     {

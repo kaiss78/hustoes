@@ -7,7 +7,8 @@ using OES;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using OESSupport.PaperControl;
+using OESSupport.Utility;
+using System.IO;
 
 namespace OESSupport
 {
@@ -51,10 +52,8 @@ namespace OESSupport
                     case "teacher":
                         foreach (Teacher t in TeacherList)
                         {
-                            Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.WriteLine(t.ToString());
+                            PaperControl.Console_Color_WriteLine(t.ToString(), ConsoleColor.Cyan);
                         }
-                        Console.ForegroundColor = ConsoleColor.White;
                         break;
                     case "paperpkg":
                         string arg = Console.ReadLine();
@@ -62,6 +61,24 @@ namespace OESSupport
                         if (int.TryParse(arg, out result))
                         {
                             XMLtoXML.xmltoxml(Program.config["Root"] + Program.config["Paper"] + arg + ".xml");
+                            PaperControl.Console_Color_WriteLine("PaperPkg:" + arg.ToString() + ".rar Generated!", ConsoleColor.Magenta);
+                        }
+                        else if (arg == "-c")
+                        {
+                            if(Directory.Exists(Program.config["Root"] + Program.config["PaperPkg"]))
+                            {
+                                int i = 0;
+                                Directory.Delete(Program.config["Root"] + Program.config["PaperPkg"]);
+                                while (Directory.Exists(Program.config["Root"] + Program.config["PaperPkg"]) || i>10000) i++;
+                                if (!Directory.Exists(Program.config["Root"] + Program.config["PaperPkg"]))
+                                {
+                                    Directory.CreateDirectory(Program.config["Root"] + Program.config["PaperPkg"]);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            PaperControl.Console_Color_WriteLine("PaperPkg Name Illegal.", ConsoleColor.Red);
                         }
                         break;
                 }

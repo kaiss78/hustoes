@@ -93,15 +93,18 @@
   <ItemGroup>
     <Compile Include="Net\ServerEvt.cs" />
     <Compile Include="Paper.cs" />
-    <Compile Include="PaperControl\PaperControl.cs" />
-    <Compile Include="PaperControl\RARHelper.cs" />
-    <Compile Include="PaperControl\XMLtoXML.cs" />
+    <Compile Include="Utility\PaperControl.cs" />
+    <Compile Include="Utility\RARHelper.cs" />
+    <Compile Include="Utility\XMLtoXML.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Teacher.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Support.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PaperControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,7 +7,7 @@ using OES.XMLFile;
 using System.IO;
 using OESXML;
 
-namespace OESSupport.PaperControl
+namespace OESSupport.Utility
 {
     public class XMLtoXML
     {
@@ -45,11 +45,13 @@ namespace OESSupport.PaperControl
 
         static public void xmltoxml(string xmlpath)
         {
+            ClearAll();
+
             problemList = XMLControl.ReadPaper(xmlpath);
             paperid = XMLControl.getPaperId(xmlpath);
 
             string paperpath = "";
-            string filepath = "";
+
             paperpath = Program.config["Root"] + Program.config["PaperPkg"] + paperid + "\\";
             Directory.CreateDirectory(paperpath);
 
