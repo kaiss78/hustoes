@@ -48,7 +48,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.netState1 = new OES.NetState();
+            this.netState1 = new OES.NetState(10);
             this.label5 = new System.Windows.Forms.Label();
             this.lab_DataPortCount = new System.Windows.Forms.Label();
             this.buttonExamStatue = new System.Windows.Forms.Button();
