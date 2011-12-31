@@ -186,11 +186,27 @@ namespace OESScore
             }
         }
 
+        private string getExtension(PLanguage pLanguage)
+        {
+            switch (pLanguage)
+            {
+                    case PLanguage.C:
+                    return ".c";
+                    case PLanguage.CPP:
+                    return ".cpp";
+                    case PLanguage.VB:
+                    return ".vb";
+            }
+            return "";
+        }
+
         public int Mark(int RIndex)
         {
-            List<string> proAns;
+            string fileName;
             int Score = 0, dScore = 0;
+            List<string> proAns;
             StuList[RIndex].Score.sum = new List<Sum>();
+
             ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID.ToString());
             XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
             int i = 0;
@@ -205,6 +221,15 @@ namespace OESScore
                 XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
                 Score += dScore;
                 //processBar.Value = ++i * 100 / StuList[RIndex].StuAns.Ans.Count;
+            }
+
+            for(i=0;i<ScoreControl.staAns.PCList.Count;i++)
+            {
+                fileName = "g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
+                if (File.Exists(fileName))
+                {
+                    proAns = ScoreControl.correctPC(fileName);
+                }
             }
 
             if (File.Exists(StuList[RIndex].path.FullName + "\\g.c"))  //程序改错
@@ -295,6 +320,7 @@ namespace OESScore
                 }
             }
         }
+
         /// <summary>
         /// 对所有试卷评分
         /// </summary>
@@ -316,11 +342,21 @@ namespace OESScore
             }
         }
 
+        /// <summary>
+        /// 配置文件按钮。点击进入修改配置文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConfig_Click(object sender, EventArgs e)
         {
             new ConfigForm().ShowDialog(this);
         }
 
+        /// <summary>
+        /// 载入按钮，点击载入试卷信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoad_Click(object sender, EventArgs e)
         {
             UncompressAllStudentAns(ScoreControl.config["PaperPath"]);
