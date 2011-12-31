@@ -44,9 +44,10 @@ namespace OES
                 Net.ClientEvt.BroadcastHelper.Listening();
                 Application.Run(ClientControl.LoginForm);
             }
-            catch
+            catch(Exception e)
             {
                 //
+                Console.WriteLine(e.ToString());
             }
             
         }

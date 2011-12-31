@@ -237,26 +237,31 @@ namespace OES
         {
             CurrentProblemNum = p;
         }
-
+        public static Thread HandInThread = null;
         public static void SendInPaper()
         {
-            if (RARHelper.Exists())
+            HandInThread = new Thread(new ThreadStart(() =>
             {
-                ClientEvt.getPassword();
-                while (!isGetPwd) ;
-                if (File.Exists(Config.stuPath + student.ID + ".rar")) File.Delete(Config.stuPath + student.ID + ".rar");
-                Thread.Sleep(1000);
-                RARHelper.CompressRAR(Config.stuPath, student.ID + ".rar", Config.stuPath, password);
-                ClientEvt.Answer = Config.stuPath + student.ID + ".rar";
-                ClientEvt.Client.SendFile();
-                Thread.Sleep(1000);
-                password = "123456";
-                isGetPwd = false;
-            }
-            else
-            {
-                ErrorControl.ShowError(ErrorType.RARNotExist);
-            }
+                SaveOpenedFiles.CloseAll();
+                if (RARHelper.Exists())
+                {
+                    ClientEvt.getPassword();
+                    while (!isGetPwd) ;
+                    if (File.Exists(Config.stuPath + student.ID + ".rar")) File.Delete(Config.stuPath + student.ID + ".rar");
+                    Thread.Sleep(1000);
+                    RARHelper.CompressRAR(Config.stuPath, student.ID + ".rar", Config.stuPath, password);
+                    ClientEvt.Answer = Config.stuPath + student.ID + ".rar";
+                    ClientEvt.Client.SendFile();
+                    Thread.Sleep(1000);
+                    password = "123456";
+                    isGetPwd = false;
+                }
+                else
+                {
+                    ErrorControl.ShowError(ErrorType.RARNotExist);
+                }
+            }));
+            HandInThread.Start();
         }
     }
 }
