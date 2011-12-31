@@ -60,7 +60,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl.Location = new System.Drawing.Point(2, 4);
+            this.tabControl.Location = new System.Drawing.Point(2, 2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(802, 546);
@@ -71,7 +71,7 @@
             this.panelProList.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelProList.Location = new System.Drawing.Point(810, 0);
             this.panelProList.Name = "panelProList";
-            this.panelProList.Size = new System.Drawing.Size(74, 562);
+            this.panelProList.Size = new System.Drawing.Size(74, 584);
             this.panelProList.TabIndex = 3;
             // 
             // MainForm
@@ -79,7 +79,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(884, 562);
+            this.ClientSize = new System.Drawing.Size(884, 584);
             this.ControlBox = false;
             this.Controls.Add(this.panelProList);
             this.Controls.Add(this.tabControl);

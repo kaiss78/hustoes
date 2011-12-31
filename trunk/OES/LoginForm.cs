@@ -58,6 +58,10 @@ namespace OES
             if (netState1.State == 0)
             {
                 ClientEvt.Client.InitializeClient();
+                changeIpLabel.ForeColor = Color.FromArgb(
+                    changeIpLabel.ForeColor.R - 20 >= 0 ? changeIpLabel.ForeColor.R - 20 : 0,
+                    changeIpLabel.ForeColor.G - 20 >= 0 ? changeIpLabel.ForeColor.G - 20 : 0,
+                    changeIpLabel.ForeColor.B - 20 >= 0 ? changeIpLabel.ForeColor.B - 20 : 0);
             }
             else
             {
@@ -121,6 +125,11 @@ namespace OES
             {
                 butLogin_Click(null, null);
             }
+        }
+
+        private void changeIpLabel_Click(object sender, EventArgs e)
+        {
+            new ChangeIpForm().ShowDialog(this);
         }
     }
 }
