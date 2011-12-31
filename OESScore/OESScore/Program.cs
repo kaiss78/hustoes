@@ -24,7 +24,7 @@ namespace OESScore
                 HandleRunningInstance(instance);
                 return;
             }
-
+            System.Diagnostics.Process.Start(@"C:\Program Files (x86)\Notepad++\notepad++.exe",@"C:\shared.log");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new formOESScore());
