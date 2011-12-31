@@ -31,7 +31,18 @@ namespace OESSupport
         }
         public override string ToString()
         {
-            return "{Name:" + this.name + " IpPort:" + this.client.ClientIp  + "}";
+            if (this.name == "0")
+            {
+                return "{Monitor IpPort:" + this.client.ClientIp + "}";
+            }
+            else if (this.name == "-1")
+            {
+                return "{Score IpPort:" + this.client.ClientIp + "}";
+            }
+            else
+            {
+                return "{Name:" + this.name + " IpPort:" + this.client.ClientIp + "}";
+            }
         }
     }
 }
