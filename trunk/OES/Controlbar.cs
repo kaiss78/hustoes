@@ -119,22 +119,21 @@ namespace OES
             {
                 time.Text = " " + "0" + minute.ToString() + ":" + seconds.ToString();
             }
-            if (minute < 10 && seconds < 10)
+            else if (minute < 10 && seconds < 10)
             {
                 time.Text = " " + "0" + minute.ToString() + ":" + "0" + seconds.ToString();
                 if (minute == 0 && seconds == 0)
                 {
                     timer1.Enabled = false;
-                    MessageBox.Show("考试时间已到！！\n\r 系统退出考试");
                     /**这里要调用交卷的事件*/
                     butHandIn_Click(null, null);
                 }
             }
-            if (minute >= 10 && seconds < 10)
+            else if (minute >= 10 && seconds < 10)
             {
                 time.Text = " " + minute.ToString() + ":" + "0" + seconds.ToString();
             }
-            if (seconds >= 10 && minute >= 10)
+            else if (seconds >= 10 && minute >= 10)
             {
                 time.Text = " " + minute.ToString() + ":" + seconds.ToString();
             }
@@ -142,34 +141,43 @@ namespace OES
             { //MessageBox.Show("时间显示出错！！请重新开始！！"); 
 
             }
+            if (seconds == 0 && minute == 2)
+            {
+                MessageBox.Show("考试时间还剩2分钟！！\r\n 请将您的所有文件保存，然后关闭 VC++6.0 VB 等编译环境！\r\n到时会自动收卷！");
+            }
         }
 
         public void butHandIn_Click(object sender, EventArgs e)
         {
-           
+
             //ClientControl.MainForm.Dispose();
             //this.Dispose();
-            while (!this.IsHandleCreated) ;
-            this.BeginInvoke(new MethodInvoker(() =>
-                        {
-                            //生成考生答案xml
-                            XMLControl.CreateStudentAnsXML(Config.stuPath, ClientControl.student.ID,ClientControl.paper.paperID.ToString());
-                            foreach (Problem p in ClientControl.paper.problemList)
+            if (sender ==null ||
+                (MessageBox.Show("请将您的所有文件保存，然后关闭 VC++6.0 VB 等编译环境！","注意1",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK 
+                && MessageBox.Show("您确定要提交试卷？\r\n提交后将无法撤回。","注意2",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK))
+            {
+                while (!this.IsHandleCreated) ;
+                this.BeginInvoke(new MethodInvoker(() =>
                             {
-                                XMLControl.studentAnsXML.AddStudentAns(p.type, new Pid_Ans(p.problemId, p.getAns()));
-                            }
-                            // 
-                            ClientControl.WaitingForm.Show();
-                            ClientControl.SendInPaper();
-                            //提交试题，压缩rar
-                            //
+                                //生成考生答案xml
+                                XMLControl.CreateStudentAnsXML(Config.stuPath, ClientControl.student.ID, ClientControl.paper.paperID.ToString());
+                                foreach (Problem p in ClientControl.paper.problemList)
+                                {
+                                    XMLControl.studentAnsXML.AddStudentAns(p.type, new Pid_Ans(p.problemId, p.getAns()));
+                                }
+                                // 
+                                ClientControl.WaitingForm.Show();
+                                ClientControl.SendInPaper();
+                                //提交试题，压缩rar
+                                //
 
-                            ClientControl.MainForm.Dispose();
-                            this.Dispose();
-                            ClientControl.MainForm = null;
-                            ClientControl.ControlBar = null;
-                        }));
-            
+                                ClientControl.MainForm.Dispose();
+                                this.Dispose();
+                                ClientControl.MainForm = null;
+                                ClientControl.ControlBar = null;
+                            }));
+
+            }
         }
 
         private void studentID_Click(object sender, EventArgs e)

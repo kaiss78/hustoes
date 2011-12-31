@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
 using OES.Model;
+using OES.DAO;
 
 namespace OES.UControl
 {
@@ -53,6 +54,7 @@ namespace OES.UControl
 
         public void SetQuestion(int x)
         {
+            SaveOpenedFiles.CloseWord();
             proID = x;
             word = ClientControl.GetOfficeWord(proID);
             this.Question.Text = word.problem;
@@ -85,22 +87,25 @@ namespace OES.UControl
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SaveOpenedFiles.CloseWord();
             if (!File.Exists(Config.stuPath + filename))
             {
                 File.Copy(Config.paperPath + filename, Config.stuPath + filename, true);
             }
             while (!File.Exists(Config.stuPath + filename)) ;
-            System.Diagnostics.Process.Start(Config.stuPath+filename);
+            SaveOpenedFiles.OpenWord(Config.stuPath + filename);
+            //System.Diagnostics.Process.Start(Config.stuPath+filename);
             ClientControl.SetDone(ClientControl.CurrentProblemNum);
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
             if (MessageBox.Show("继续将会删除之前答案", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
+                SaveOpenedFiles.CloseWord();
                 File.Copy(Config.paperPath + filename, Config.stuPath+filename,true);
-                System.Diagnostics.Process.Start(Config.stuPath+filename);
+                SaveOpenedFiles.OpenWord(Config.stuPath + filename);
+                //System.Diagnostics.Process.Start(Config.stuPath+filename);
             }
         }
 
