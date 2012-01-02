@@ -204,6 +204,7 @@ namespace OESScore
         public int Mark(int RIndex)
         {
             string fileName;
+            int count;
             int Score = 0, dScore = 0;
             List<string> proAns;
             StuList[RIndex].Score.sum = new List<Sum>();            
@@ -228,21 +229,66 @@ namespace OESScore
                 fileName = StuList[RIndex].path + "\\g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
                 if (File.Exists(fileName))
                 {
+                    
                     proAns = ScoreControl.correctPC(fileName);
+                    count = 0;
+                    for (int j = 0; j < proAns.Count; j++)
+                    {
+                        foreach (ProgramAnswer pa in ScoreControl.staAns.PCList[i].ansList)
+                        {
+                            if((pa.Output==proAns[j])&&(pa.SeqNum==j-1))
+                            {
+                                count++;
+                                break;
+                            }
+                        }
+                    }
+                    Score = Score + count*ScoreControl.staAns.PCList[i].score/proAns.Count;
                 }
             }
 
-            if (File.Exists(StuList[RIndex].path.FullName + "\\g.c"))  //程序改错
+
+            for (i = 0; i < ScoreControl.staAns.PMList.Count; i++)
             {
-                proAns = ScoreControl.correctPC(StuList[RIndex].path.FullName + "\\g.c");
+                fileName = StuList[RIndex].path + "\\g" + i.ToString() + getExtension(ScoreControl.staAns.PMList[i].language);
+                if (File.Exists(fileName))
+                {
+
+                    proAns = ScoreControl.correctPC(fileName);
+                    count = 0;
+                    for (int j = 0; j < proAns.Count; j++)
+                    {
+                        foreach (ProgramAnswer pa in ScoreControl.staAns.PMList[i].ansList)
+                        {
+                            if ((pa.Output == proAns[j]) && (pa.SeqNum == j - 1))
+                            {
+                                count++;
+                                break;
+                            }
+                        }
+                    }
+                    Score = Score + count * ScoreControl.staAns.PMList[i].score / proAns.Count;
+                }
             }
-            if (File.Exists(StuList[RIndex].path.FullName + "\\h.c"))  //程序综合
+            for (i = 0; i < ScoreControl.staAns.PFList.Count; i++)
             {
+                fileName = StuList[RIndex].path + "\\g" + i.ToString() + getExtension(ScoreControl.staAns.PMList[i].language);
+                if (File.Exists(fileName))
+                {
+
+                    proAns = ScoreControl.correctPC(fileName);
+                    count = 0;
+                    foreach (ProgramAnswer pa in ScoreControl.staAns.PFList[i].ansList)
+                    {
+                        if (ScoreControl.correctPF(fileName,pa.Input)==pa.Output)
+                        {
+                            count++;
+                        }
+                    }
+                    Score = Score + count * ScoreControl.staAns.PFList[i].score / proAns.Count;                    
+                }
             }
-            if (File.Exists(StuList[RIndex].path.FullName + "\\i.c"))  //程序填空
-            {
-                proAns = ScoreControl.correctPC(StuList[RIndex].path.FullName + "\\i.c");
-            }
+
             return Score;
         }
         /// <summary>
