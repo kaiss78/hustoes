@@ -206,8 +206,7 @@ namespace OESScore
             string fileName;
             int Score = 0, dScore = 0;
             List<string> proAns;
-            StuList[RIndex].Score.sum = new List<Sum>();
-            MessageBox.Show(StuList[RIndex].path.FullName);
+            StuList[RIndex].Score.sum = new List<Sum>();            
             ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID.ToString());
             XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
             int i = 0;
@@ -226,7 +225,7 @@ namespace OESScore
 
             for(i=0;i<ScoreControl.staAns.PCList.Count;i++)
             {                
-                fileName = StuList[RIndex].path + "g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
+                fileName = StuList[RIndex].path + "\\g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
                 if (File.Exists(fileName))
                 {
                     proAns = ScoreControl.correctPC(fileName);
