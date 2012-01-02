@@ -136,6 +136,7 @@ namespace OESScore
                     tmpSF.Score = new Score();
                     tmpSF.Score.Value = 0;
                     tmpSF.path = stu;
+                    MessageBox.Show(stu.FullName);
                     values[0] = tmpSF.StuInfo.ID;
                     values[1] = tmpSF.StuInfo.sName;                    
                     values[2] = tmpSF.StuInfo.className;
@@ -206,7 +207,7 @@ namespace OESScore
             int Score = 0, dScore = 0;
             List<string> proAns;
             StuList[RIndex].Score.sum = new List<Sum>();
-
+            MessageBox.Show(StuList[RIndex].path.FullName);
             ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID.ToString());
             XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
             int i = 0;
@@ -224,8 +225,8 @@ namespace OESScore
             }
 
             for(i=0;i<ScoreControl.staAns.PCList.Count;i++)
-            {
-                fileName = "g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
+            {                
+                fileName = StuList[RIndex].path + "g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
                 if (File.Exists(fileName))
                 {
                     proAns = ScoreControl.correctPC(fileName);
@@ -291,6 +292,10 @@ namespace OESScore
                 {
                     UncompressAllStudentAns(fbdPaperPath.SelectedPath);
                     ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath;
+                    if (ScoreControl.config["PaperPath"].Last()!='\\')
+                    {
+                        ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath+"\\";
+                    }
                     tsslPath.Text = ScoreControl.config["PaperPath"];
                     LoadStudentList();
                 }
