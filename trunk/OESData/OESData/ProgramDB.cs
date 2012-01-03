@@ -25,6 +25,7 @@ namespace OES
             {
                 foreach (string[] str in lst)
                 {
+                    input.Clear();
                     if (str[3].ToLower() == "comp")
                         tp = ProgramPType.Completion;
                     else if (str[3].ToLower() == "modi")
