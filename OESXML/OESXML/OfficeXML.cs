@@ -27,7 +27,7 @@ namespace OESXML
                 {
                     try
                     {
-                      xd.Load(FileName);
+                      xd.Load(filename);
                     }
                     catch
                     {
