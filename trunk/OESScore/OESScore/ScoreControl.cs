@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using OES;
 using OES.XMLFile;
 using OES.Model;
@@ -14,10 +15,10 @@ namespace OESScore
 {
     public class ScoreControl
     {
-        
+
         public static StaAns staAns;
 
-        public static  ClientEvt scoreNet = new ClientEvt();
+        public static ClientEvt scoreNet = new ClientEvt();
         /// <summary>
         /// 配置文件设置
         /// </summary>
@@ -101,6 +102,8 @@ namespace OESScore
             return "";
         }
 
+        private static Thread t;
+        private static bool isTimeOut = false;
         /// <summary>
         /// 程序综合题评分
         /// </summary>
@@ -118,7 +121,7 @@ namespace OESScore
                 cmd.StartInfo.UseShellExecute = false; //此处必须为false否则引发异常
                 cmd.StartInfo.RedirectStandardInput = true; //标准输入
                 cmd.StartInfo.RedirectStandardOutput = true; //标准输出            
-                cmd.StartInfo.CreateNoWindow = true;//不显示命令行窗口界面            
+                cmd.StartInfo.CreateNoWindow = true;//不显示命令行窗口界面                         
                 cmd.Start(); //启动进程
                 cmd.StandardInput.WriteLine(clPath[1] + ":");
                 cmd.StandardInput.WriteLine("cd " + clPath);   //编译生成.exe文件
@@ -128,15 +131,53 @@ namespace OESScore
                 cmd.StandardInput.WriteLine("cl " + cpppath.Name);
                 name = (cpppath.Name.Split('.'))[0] + ".exe";
                 cmd.StandardInput.WriteLine("Exit");
-                cmd.WaitForExit();//等待控制台程序执行完成
+                cmd.WaitForExit();//等待控制台程序执行完成               
                 cmd.Close();//关闭该进程
+                isTimeOut = false;
+                t = new Thread(new ThreadStart(() =>
+                {
 
+                    Thread.Sleep(3000);
+                    isTimeOut = true;
+
+                }
+                                          ));
+
+                t.Start();
                 cmd.StartInfo.FileName = cpppath.DirectoryName + "\\" + name;
                 cmd.Start();
                 cmd.StandardInput.WriteLine(input);
+
+                while (!cmd.HasExited && !isTimeOut)
+                {
+                }
+                if (isTimeOut)
+                {
+                    cmd.Kill();
+                }
                 st = cmd.StandardOutput.ReadToEnd();
-                cmd.WaitForExit();//等待控制台程序执行完成
-                cmd.Close();//关闭该进程
+                cmd.Close(); //关闭该进程     
+                t.Abort();
+                isTimeOut = false;
+            }
+            return ScoreControl.Clean(st);
+        }
+
+
+        public static string Clean(string str)
+        {
+            int j = 0;
+            string st = str;
+            while (j < st.Length)
+            {
+                if ((st[j] == '\t') || (st[j] == ' ') || (st[j] == '\r'))
+                {
+                    st=st.Remove(1, 1);
+                }
+                else
+                {
+                    j++;
+                }
             }
             return st;
         }
@@ -148,7 +189,7 @@ namespace OESScore
         public static List<string> correctPC(string path)
         {
             string cpptext, st;
-            int i,j;
+            int i, j;
             List<string> result;
             result = new List<string>();
             cpptext = ScoreControl.GetText(path);
@@ -159,22 +200,8 @@ namespace OESScore
                 if (str[i].IndexOf(@"//") >= 0)
                 {
                     st = str[i + 1];
-                    i = i + 2;
-
-                    j = 0;
-                    while (j < st.Length)
-                    {
-                        if ((st[j] == '\t') && (st[j] == ' ') && (st[j] == '\r'))
-                        {
-                            st.Remove(j, 1);
-                        }
-                        else
-                        {
-                            j++;
-                        }
-                    }
-
-                    result.Add(st);
+                    i = i + 2;                    
+                    result.Add(Clean(st));
                 }
                 else
                 {
@@ -220,12 +247,12 @@ namespace OESScore
             {
                 case ProblemType.CProgramCompletion:
                 case ProblemType.CProgramModification:
-                case ProblemType.CProgramFun:                    
+                case ProblemType.CProgramFun:
                     programProblem.language = PLanguage.C;
                     break;
                 case ProblemType.CppProgramCompletion:
                 case ProblemType.CppProgramModification:
-                case ProblemType.CppProgramFun:                    
+                case ProblemType.CppProgramFun:
                     programProblem.language = PLanguage.CPP;
                     break;
                 case ProblemType.VbProgramCompletion:
@@ -239,7 +266,7 @@ namespace OESScore
                 case ProblemType.CProgramCompletion:
                 case ProblemType.CppProgramCompletion:
                 case ProblemType.VbProgramCompletion:
-                    programProblem.Type = ProgramPType.Completion;                    
+                    programProblem.Type = ProgramPType.Completion;
                     break;
                 case ProblemType.CppProgramFun:
                 case ProblemType.VbProgramFun:
@@ -252,6 +279,7 @@ namespace OESScore
                     programProblem.Type = ProgramPType.Modify;
                     break;
             }
+            programProblem.score = pro.score;
             programProblem.ansList = ScoreControl.oesData.FindProgramAnswerByPID(pro.id);
             return programProblem;
 
@@ -271,7 +299,7 @@ namespace OESScore
             proList = new List<IdScoreType>();
             ansList = new List<IdAnswerType>();
 
-            if ((!File.Exists(ScoreControl.config["AnswerPath"]  + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"]  + ID + "\\A" + ID + ".xml")))
+            if ((!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\A" + ID + ".xml")))
             {
                 ClientEvt.RootPath = ScoreControl.config["AnswerPath"] + ID + "\\";
                 if (!Directory.Exists(ClientEvt.RootPath))
@@ -280,13 +308,13 @@ namespace OESScore
                 }
                 scoreNet.LoadPaper(Convert.ToInt32(ID), -1);
                 scoreNet.ReceiveFiles();
-                while (!ClientEvt.isOver);
-                
+                while (!ClientEvt.isOver) ;
+
                 //return null;
             }
 
-            proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"]  + ID + "\\" + ID + ".xml");
-            ansList = XMLControl.ReadPaperAns(ScoreControl.config["AnswerPath"]  + ID + "\\A" + ID + ".xml");
+            proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml");
+            ansList = XMLControl.ReadPaperAns(ScoreControl.config["AnswerPath"] + ID + "\\A" + ID + ".xml");
             newAnswer = new StaAns();
             newAnswer.Ans = new List<Answer>();
             newAnswer.PaperID = ID;
@@ -318,8 +346,8 @@ namespace OESScore
                     case ProblemType.CProgramModification:
                     case ProblemType.VbProgramModification:
                         newAnswer.PMList.Add(getPAnswer(pro));
-                        break;   
-                }                 
+                        break;
+                }
             }
             return newAnswer;
 
@@ -330,7 +358,7 @@ namespace OESScore
             StaAns stuAns = new StaAns();
             stuAns.Ans = new List<Answer>();
             stuAns.ProAns = new List<List<Answer>>();
-            
+
             Answer ans;
             List<IdAnswerType> ansList = new List<IdAnswerType>();
             ansList = XMLControl.ReadPaperAns(path + "\\studentAns.xml");
