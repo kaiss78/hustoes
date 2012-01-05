@@ -170,9 +170,9 @@ namespace OESScore
             string st = str;
             while (j < st.Length)
             {
-                if ((st[j] == '\t') || (st[j] == ' ') || (st[j] == '\r'))
+                if ((st[j] == '\t') || (st[j] == ' ') || (st[j] == '\r') || (st[j] == '\n'))
                 {
-                    st=st.Remove(1, 1);
+                    st=st.Remove(j, 1);
                 }
                 else
                 {
