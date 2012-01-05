@@ -288,7 +288,7 @@ namespace OESScore
                     dScore = 0;
                     foreach (ProgramAnswer pa in ScoreControl.staAns.PFList[i].ansList)
                     {
-                        MessageBox.Show(ScoreControl.correctPF(fileName, pa.Input) + "||" + ScoreControl.Clean(pa.Output));
+                        //MessageBox.Show(ScoreControl.correctPF(fileName, pa.Input) + "||" + ScoreControl.Clean(pa.Output));
                         if (ScoreControl.correctPF(fileName,pa.Input)==ScoreControl.Clean(pa.Output))
                         {
                             count++;
