@@ -176,7 +176,6 @@ namespace OESScore
             }
         }
 
-
         public void MarkAll()
         {
             for (int i = 0; i < StuList.Count; i++)
@@ -232,7 +231,7 @@ namespace OESScore
                 fileName = StuList[RIndex].path.FullName + "\\g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
                 if (File.Exists(fileName))
                 {
-                    
+                    dScore = 0;
                     proAns = ScoreControl.correctPC(fileName);
                     count = 0;
                     for (int j = 0; j < proAns.Count; j++)
@@ -246,7 +245,9 @@ namespace OESScore
                             }
                         }
                     }
-                    Score = Score + count*ScoreControl.staAns.PCList[i].score/proAns.Count;
+                    dScore = count*ScoreControl.staAns.PCList[i].score/proAns.Count;
+                    XMLControl.AddScore(ScoreControl.staAns.PCList[i].type, ScoreControl.staAns.PCList[i].problemId, dScore);
+                    Score = Score + dScore;
                 }
             }
 
@@ -259,6 +260,7 @@ namespace OESScore
 
                     proAns = ScoreControl.correctPC(fileName);
                     count = 0;
+                    dScore = 0;
                     for (int j = 0; j < proAns.Count; j++)
                     {
                         foreach (ProgramAnswer pa in ScoreControl.staAns.PMList[i].ansList)
@@ -270,7 +272,9 @@ namespace OESScore
                             }
                         }
                     }
-                    Score = Score + count * ScoreControl.staAns.PMList[i].score / proAns.Count;
+                    dScore = count * ScoreControl.staAns.PMList[i].score / proAns.Count;
+                    XMLControl.AddScore(ScoreControl.staAns.PMList[i].type, ScoreControl.staAns.PMList[i].problemId, dScore);
+                    Score = Score + dScore;
                 }
             }
             for (i = 0; i < ScoreControl.staAns.PFList.Count; i++)
@@ -281,6 +285,7 @@ namespace OESScore
 
                     //proAns = ScoreControl.correctPC(fileName);
                     count = 0;
+                    dScore = 0;
                     foreach (ProgramAnswer pa in ScoreControl.staAns.PFList[i].ansList)
                     {                        
                         if (ScoreControl.correctPF(fileName,pa.Input)==ScoreControl.Clean(pa.Output))
@@ -288,7 +293,9 @@ namespace OESScore
                             count++;
                         }
                     }
-                    Score = Score + count * ScoreControl.staAns.PFList[i].score / ScoreControl.staAns.PFList[i].ansList.Count;
+                    dScore = count*ScoreControl.staAns.PFList[i].score/ScoreControl.staAns.PFList[i].ansList.Count;
+                    XMLControl.AddScore(ScoreControl.staAns.PFList[i].type, ScoreControl.staAns.PFList[i].problemId, dScore);
+                    Score = Score + dScore;
                 }
             }
 
