@@ -287,7 +287,8 @@ namespace OESScore
                     count = 0;
                     dScore = 0;
                     foreach (ProgramAnswer pa in ScoreControl.staAns.PFList[i].ansList)
-                    {                        
+                    {
+                        MessageBox.Show(ScoreControl.correctPF(fileName, pa.Input) + "||" + ScoreControl.Clean(pa.Output));
                         if (ScoreControl.correctPF(fileName,pa.Input)==ScoreControl.Clean(pa.Output))
                         {
                             count++;
@@ -369,7 +370,10 @@ namespace OESScore
         /// <param name="e"></param>
         private void dgvPaperTable_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            
             int RIndex = dtStuList.Rows.IndexOf(dvStuList[e.RowIndex].Row);
+            //MessageBox.Show(RIndex.ToString() + "  " + e.RowIndex.ToString());
+            //MessageBox.Show()
             if (RIndex > -1)
             {
                 if (Convert.ToInt32(dtStuList.Rows[RIndex][5]) < 2)
