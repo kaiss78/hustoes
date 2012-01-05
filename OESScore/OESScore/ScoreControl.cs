@@ -145,20 +145,23 @@ namespace OESScore
 
                 t.Start();
                 cmd.StartInfo.FileName = cpppath.DirectoryName + "\\" + name;
-                cmd.Start();
-                cmd.StandardInput.WriteLine(input);
+                if (File.Exists(cmd.StartInfo.FileName))
+                {
+                    cmd.Start();
+                    cmd.StandardInput.WriteLine(input);
 
-                while (!cmd.HasExited && !isTimeOut)
-                {
+                    while (!cmd.HasExited && !isTimeOut)
+                    {
+                    }
+                    if (isTimeOut)
+                    {
+                        cmd.Kill();
+                    }
+                    st = cmd.StandardOutput.ReadToEnd();
+                    cmd.Close(); //关闭该进程     
+                    t.Abort();
+                    isTimeOut = false;
                 }
-                if (isTimeOut)
-                {
-                    cmd.Kill();
-                }
-                st = cmd.StandardOutput.ReadToEnd();
-                cmd.Close(); //关闭该进程     
-                t.Abort();
-                isTimeOut = false;
             }
             return ScoreControl.Clean(st);
         }
