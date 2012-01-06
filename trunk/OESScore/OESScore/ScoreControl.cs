@@ -282,6 +282,7 @@ namespace OESScore
                     programProblem.Type = ProgramPType.Modify;
                     break;
             }
+            programProblem.type = pro.pt;
             programProblem.score = pro.score;
             programProblem.ansList = ScoreControl.oesData.FindProgramAnswerByPID(pro.id);
             return programProblem;
