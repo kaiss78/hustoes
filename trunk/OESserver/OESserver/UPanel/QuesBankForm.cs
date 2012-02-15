@@ -254,9 +254,12 @@ namespace OES.UPanel
 
         private void UpdateBut_Click(object sender, EventArgs e)
         {
-        
+            if (this.ProblemDGV.CurrentRow==null)
+                MessageBox.Show("请选择题目！");
+            else
+                PanelControl.QueUpdate(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value), this.Typecombo.SelectedIndex);
             //AddQuetionPanel.CheckQue(this.comboBox1.SelectedIndex,Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.SelectedRows].Cells[1].Value));
-
+            //MessageBox.Show(Convert.ToString(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value));
         }
 
         private void DeleteBut_Click(object sender, EventArgs e)
