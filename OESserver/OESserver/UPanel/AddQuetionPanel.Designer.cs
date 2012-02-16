@@ -55,11 +55,11 @@
             // cbCapater
             // 
             this.cbCapater.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCapater.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbCapater.Font = new System.Drawing.Font("宋体", 10.5F);
             this.cbCapater.FormattingEnabled = true;
             this.cbCapater.Location = new System.Drawing.Point(228, 79);
             this.cbCapater.Name = "cbCapater";
-            this.cbCapater.Size = new System.Drawing.Size(131, 24);
+            this.cbCapater.Size = new System.Drawing.Size(131, 22);
             this.cbCapater.TabIndex = 1;
             // 
             // label1
@@ -85,7 +85,7 @@
             // cbDifficultyValue
             // 
             this.cbDifficultyValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDifficultyValue.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbDifficultyValue.Font = new System.Drawing.Font("宋体", 10.5F);
             this.cbDifficultyValue.FormattingEnabled = true;
             this.cbDifficultyValue.Items.AddRange(new object[] {
             "1",
@@ -95,7 +95,7 @@
             "5"});
             this.cbDifficultyValue.Location = new System.Drawing.Point(406, 79);
             this.cbDifficultyValue.Name = "cbDifficultyValue";
-            this.cbDifficultyValue.Size = new System.Drawing.Size(120, 24);
+            this.cbDifficultyValue.Size = new System.Drawing.Size(120, 22);
             this.cbDifficultyValue.TabIndex = 4;
             // 
             // label3
@@ -111,11 +111,11 @@
             // cbQueStyle
             // 
             this.cbQueStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbQueStyle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbQueStyle.Font = new System.Drawing.Font("宋体", 10.5F);
             this.cbQueStyle.FormattingEnabled = true;
             this.cbQueStyle.Location = new System.Drawing.Point(601, 79);
             this.cbQueStyle.Name = "cbQueStyle";
-            this.cbQueStyle.Size = new System.Drawing.Size(132, 24);
+            this.cbQueStyle.Size = new System.Drawing.Size(132, 22);
             this.cbQueStyle.TabIndex = 6;
             this.cbQueStyle.TextChanged += new System.EventHandler(this.cbQueStyle_TextChanged);
             // 
@@ -131,7 +131,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(-4, 84);
+            this.label4.Location = new System.Drawing.Point(3, 84);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 14);
             this.label4.TabIndex = 8;
@@ -140,11 +140,11 @@
             // cbCourse
             // 
             this.cbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCourse.Font = new System.Drawing.Font("宋体", 12F);
+            this.cbCourse.Font = new System.Drawing.Font("宋体", 10.5F);
             this.cbCourse.FormattingEnabled = true;
-            this.cbCourse.Location = new System.Drawing.Point(37, 81);
+            this.cbCourse.Location = new System.Drawing.Point(44, 79);
             this.cbCourse.Name = "cbCourse";
-            this.cbCourse.Size = new System.Drawing.Size(149, 24);
+            this.cbCourse.Size = new System.Drawing.Size(137, 22);
             this.cbCourse.TabIndex = 9;
             this.cbCourse.TextChanged += new System.EventHandler(this.cbCourse_TextChanged);
             // 
