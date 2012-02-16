@@ -258,7 +258,7 @@ namespace OES.UPanel
             if (this.ProblemDGV.CurrentRow==null)
                 MessageBox.Show("请选择题目！");
             else
-                PanelControl.QueUpdate(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value), this.Typecombo.SelectedIndex);
+                PanelControl.QueUpdate(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value), theType);
             //AddQuetionPanel.CheckQue(this.comboBox1.SelectedIndex,Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.SelectedRows].Cells[1].Value));
             //MessageBox.Show(Convert.ToString(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value));
         }
