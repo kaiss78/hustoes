@@ -25,6 +25,7 @@ namespace OES.UPanel
         public String pointWords;
         public int pageNum = 0;
         public int theRowIndex;
+        public int theType;
        
 
         public void InitCombText()
@@ -301,7 +302,7 @@ namespace OES.UPanel
         {
             aList = (ListItem)this.Unitcombo.SelectedItem;
             pointWords = this.PcontentText.Text;
-         
+            theType = this.Typecombo.SelectedIndex;
             InitList(this.Typecombo.SelectedIndex,Convert.ToInt32(aList.key),Convert.ToInt32(bList.key),this.Diffcombo.SelectedIndex,pointWords,1);
             this.Pagecombo.Items.Clear();
             InitCombPage(quesNum);
