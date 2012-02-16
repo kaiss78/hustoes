@@ -27,6 +27,10 @@ namespace OES.UPanel
             {
                 return Answer.Text;
             }
+            set
+            {
+                Answer.Text = value;
+            }
         }
       
     }

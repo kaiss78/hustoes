@@ -19,12 +19,13 @@ namespace OES
         AddJudge judge = new AddJudge();
         ProCompletion proCompletion = new ProCompletion();
         ProModify proModify = new ProModify();
+        
         ProFunction proFunction = new ProFunction();
         List<UserPanel> PanelList = new List<UserPanel>();
         private DataTable dtQeueType;
         private DataTable dtUnit=new DataTable();
         private DataTable dtDiffcult=new DataTable();
-
+        
         
         public void HidePanel()
         {
@@ -64,6 +65,7 @@ namespace OES
             cbQueStyle.DataSource = dtQeueType;
             cbQueStyle.DisplayMember = "Type";
             cbQueStyle.ValueMember = "Value";
+
             cbCourse.DataSource = InfoControl.OesData.FindAllCourse_DataSet().Tables[0];
             cbCourse.DisplayMember = "CourseName";
             cbCourse.ValueMember = "CourseId";
@@ -126,6 +128,14 @@ namespace OES
                     PanelList[result - 1].ReLoad();
                 }
         }
+
+        public int QueStyle
+        {
+            set
+            {
+                cbQueStyle.SelectedValue = value;
+            }
+        }
         public int  Capter
         {
             get
@@ -134,19 +144,19 @@ namespace OES
             }
             set
             {
-                cbCapater.SelectedItem = value;
+                cbCapater.SelectedValue = value;
             }
 
         }
 
    
 
-        public String  Difficulity
+        public int  Difficulity
         {
 
             get
             {
-                return cbDifficultyValue.SelectedValue.ToString();
+                return Convert.ToInt32( cbDifficultyValue.SelectedValue);
             }
             set 
             {
@@ -154,11 +164,11 @@ namespace OES
             }
         }
 
-        public string Teststyle
+        public int Teststyle
         {
             get
             {
-                return cbQueStyle.SelectedValue.ToString();
+                return Convert.ToInt32( cbQueStyle.SelectedValue) ;
             }
         }
 
@@ -190,6 +200,9 @@ namespace OES
                 cbCourse.SelectedIndex = value;
             }
         }
+
+      
+
       
     }
 }

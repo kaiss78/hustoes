@@ -260,6 +260,7 @@ namespace OES.UPanel
             else
                 PanelControl.QueUpdate(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value), theType);
             //AddQuetionPanel.CheckQue(this.comboBox1.SelectedIndex,Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.SelectedRows].Cells[1].Value));
+
             //MessageBox.Show(Convert.ToString(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value));
         }
 
@@ -339,6 +340,11 @@ namespace OES.UPanel
             this.Unitcombo.Items.Clear();
             bList = (ListItem)this.Textcombo.SelectedItem;
             InitCombUnit(Convert.ToInt32(bList.key));
+        }
+
+        private void QuesBankForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         

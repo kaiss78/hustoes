@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OES.UPanel;
+using OES.Model;
+
 
 namespace OES
 {
     public partial class AddJudge : UserPanel
     {
+        public static int flag;
+        public static int proId;
         public AddJudge()
         {
             InitializeComponent();
@@ -20,9 +24,9 @@ namespace OES
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             int capter = (this.Parent.Parent as AddQuetionPanel).Capter;
-            String diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
-            String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
-            if (Content.Text=="" || diffcuty == "" || teststyle == ""||(True.Checked==false && Flase.Checked==false))
+            int diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
+            //String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
+            if (Content.Text==""  ||(True.Checked==false && Flase.Checked==false))
             {
                 MessageBox.Show("请完成试题信息");
             }
@@ -38,9 +42,16 @@ namespace OES
 
                 else
                     Answer = "N";
-                InfoControl.OesData.AddJudgment(Content.Text, Answer, Convert.ToInt32(capter), Convert.ToInt32(diffcuty));
-                MessageBox.Show("保存成功");
-                this.ReLoad();
+                if (flag == 0)
+                {
+                    InfoControl.OesData.AddJudgment(Content.Text, Answer, Convert.ToInt32(capter), Convert.ToInt32(diffcuty));
+                    MessageBox.Show("保存成功");
+                }
+                else if (flag == 1)
+                {
+                    InfoControl.OesData.UpdateJudgment(proId, Content.Text, Answer, Convert.ToInt32(capter), Convert.ToInt32(diffcuty));
+                }
+                    this.ReLoad();
             }
         }
 
@@ -49,14 +60,14 @@ namespace OES
             if (MessageBox.Show("确定返回么？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
 
-                PanelControl.ChangPanel(0);
-                
+                PanelControl.ChangPanel(0); 
             }
         }
 
 
         public override void  ReLoad()
         {
+            flag = 0;
             this.Content.Text = "";
             this.True.Checked = false;
             this.Flase.Checked = false;
@@ -64,8 +75,22 @@ namespace OES
         }
 
         public override void ReLoad(int x)
-        { 
-
+        {
+            flag = 1;
+            List<Judgment> judge = new List<Judgment>();
+            proId = x;
+            judge = InfoControl.OesData.FindJudgmentByPID(proId);
+            (this.Parent.Parent as AddQuetionPanel).GetCbCourse = judge[0].unit.course.CourseId;
+            (this.Parent.Parent as AddQuetionPanel).Capter = judge[0].unit.UnitId;
+            (this.Parent.Parent as AddQuetionPanel).Difficulity = judge[0].Plevel;
+            this.Content.Text = judge[0].problem;
+            if (judge[0].ans == "Y")
+            {
+                this.True.Checked = true;
+            }
+            else
+                this.Flase.Checked = true;
+            this.Visible = true;
         }
        
     }
