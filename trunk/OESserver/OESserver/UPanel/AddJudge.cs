@@ -50,6 +50,7 @@ namespace OES
                 else if (flag == 1)
                 {
                     InfoControl.OesData.UpdateJudgment(proId, Content.Text, Answer, Convert.ToInt32(capter), Convert.ToInt32(diffcuty));
+                    MessageBox.Show("保存成功");
                 }
                     this.ReLoad();
             }
@@ -77,19 +78,24 @@ namespace OES
         public override void ReLoad(int x)
         {
             flag = 1;
-            List<Judgment> judge = new List<Judgment>();
             proId = x;
+            List<Judgment> judge = new List<Judgment>();
             judge = InfoControl.OesData.FindJudgmentByPID(proId);
             (this.Parent.Parent as AddQuetionPanel).GetCbCourse = judge[0].unit.course.CourseId;
             (this.Parent.Parent as AddQuetionPanel).Capter = judge[0].unit.UnitId;
             (this.Parent.Parent as AddQuetionPanel).Difficulity = judge[0].Plevel;
+            (this.Parent.Parent as AddQuetionPanel).QueStyle = 3;
+
             this.Content.Text = judge[0].problem;
             if (judge[0].ans == "Y")
             {
                 this.True.Checked = true;
             }
-            else
+            if(judge[0].ans=="N")
+            {
                 this.Flase.Checked = true;
+            }
+
             this.Visible = true;
         }
        
