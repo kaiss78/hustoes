@@ -103,7 +103,7 @@ namespace OES.UPanel
            (this.Parent.Parent as AddQuetionPanel).Capter = list_completion[0].unit.UnitId;
            (this.Parent.Parent as AddQuetionPanel).GetCbCourse = list_completion[0].unit.course.CourseId;
            (this.Parent.Parent as AddQuetionPanel).Difficulity = list_completion[0].Plevel;
-
+           (this.Parent.Parent as AddQuetionPanel).QueStyle = 2;
            this.contentOfFillblank.Text = list_completion[0].problem;
            foreach (String ans in list_completion[0].ans)
            {
