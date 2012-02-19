@@ -54,7 +54,7 @@ namespace OES
         }
 
         //-- Description:	按照Id删除教师信息
-        public void DeleteTeacherById(string Id)
+        public void DeleteTeacherById(int Id)
         {
             List<SqlParameter> ddlparam = new List<SqlParameter>();
             ddlparam.Add(CreateParam("@Id", SqlDbType.Int, 9, Id, ParameterDirection.Input));
@@ -72,7 +72,7 @@ namespace OES
         }
 
         //-- Description:   删除多个教师
-        public void DeleteManyTeacher(List<String> list)
+        public void DeleteManyTeacher(List<int> list)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace OES
         }
 
         //-- Description:	修改教师记录的信息
-        public void UpdateTeacherById(string Id, string TeacherName, string Password, int Permission, string UserName)
+        public void UpdateTeacherById(int Id, string TeacherName, string Password, int Permission, string UserName)
         {
 
             List<SqlParameter> ddlparam = new List<SqlParameter>();
