@@ -9,7 +9,7 @@ namespace OES.Model
     {
         public string paperName = "";        
         public string createTime="";
-        public string authorId="";
+        public int authorId=0;
         public string author = "";
         public string testTime = "";
         public string paperPath = "";
