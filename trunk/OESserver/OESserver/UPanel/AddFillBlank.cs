@@ -14,7 +14,7 @@ namespace OES.UPanel
     
     public partial class AddFillBlank : UserPanel
     {
-        public static int flag;
+        public  int flag;
         public static int ProID;
         public static List<string> addanswer = new List<string>();
         public static List<Answer_Of_FiilBlank> panel = new List<Answer_Of_FiilBlank>();
@@ -61,11 +61,14 @@ namespace OES.UPanel
                 }
                 if (flag == 1)
                 {
+                    
                     if (addanswer.Count > 0)
                     {
                         InfoControl.OesData.UpdateCompletion(ProID,contentOfFillblank.Text,capter,diffcuty,addanswer);
                         MessageBox.Show("保存成功");
                         this.ReLoad();
+                        PanelControl.ChangPanel(0);
+                        
                     }
                     else MessageBox.Show("请添加试题答案");
                 }
@@ -95,16 +98,20 @@ namespace OES.UPanel
 
         public override void ReLoad(int PID)
         {
-           this.ReLoad();
-           flag = 1;
+            
            ProID = PID;
-          (this.Parent.Parent as AddQuetionPanel).QueStyle = 2;
+       
            List<Completion> list_completion=InfoControl.OesData.FindCompletionByPID(PID);
            (this.Parent.Parent as AddQuetionPanel).Capter = list_completion[0].unit.UnitId;
            (this.Parent.Parent as AddQuetionPanel).GetCbCourse = list_completion[0].unit.course.CourseId;
            (this.Parent.Parent as AddQuetionPanel).Difficulity = list_completion[0].Plevel;
+
            (this.Parent.Parent as AddQuetionPanel).QueStyle = 2;
+
+           flag = 1;
+
            this.contentOfFillblank.Text = list_completion[0].problem;
+
            foreach (String ans in list_completion[0].ans)
            {
                Answer_Of_FiilBlank fillblanks = new Answer_Of_FiilBlank();
@@ -113,6 +120,7 @@ namespace OES.UPanel
                fillblanks.getAnser = ans;
            }
            
+
            this.Visible = true;
            
         }

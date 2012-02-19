@@ -16,7 +16,7 @@ namespace OES
     
     public partial class AddSingleChoice : UserPanel 
     {
-        public static int flag;
+        public  int flag;
         public static int ProID;
         public AddSingleChoice()
         {
@@ -59,7 +59,7 @@ namespace OES
                     InfoControl.OesData.UpdateChoice(ProID, Content.Text, Option_A.Text, Option_B.Text, Option_C.Text, Option_D.Text, Answer_Of_Choice.Text, diffcuty, capter);
                     MessageBox.Show("保存成功");
                     this.ReLoad();
-
+                    PanelControl.ChangPanel(0);
                 }
  
             }
@@ -82,7 +82,8 @@ namespace OES
             Option_B.Text = "";
             Option_C.Text = "";
             Option_D.Text = "";
-            Answer_Of_Choice.Text = "";
+            Answer_Of_Choice.Text = null;
+
             this.Visible = true;
         }
 
