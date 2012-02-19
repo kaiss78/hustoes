@@ -37,7 +37,13 @@ namespace OESScore
             {
                 if (!Directory.Exists(st))
                 {
-                    Directory.CreateDirectory(st);
+                    try
+                    {
+                        Directory.CreateDirectory(st);
+                    }
+                    catch
+                    {
+                    }
                 }
             }
             dtStuList = new DataTable();
