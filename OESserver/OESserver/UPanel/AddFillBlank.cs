@@ -80,6 +80,7 @@ namespace OES.UPanel
         {
             if (MessageBox.Show("确定返回么？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                flowLayoutPanel1.Controls.Clear();
                 panel.Clear();
                 addanswer.Clear();
                 PanelControl.ChangPanel(0);
