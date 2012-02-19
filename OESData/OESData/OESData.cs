@@ -759,7 +759,7 @@ namespace OES
                 {
                     // 数据库NULL值单独处理   
                     if (p_Data.Columns[i].ToString() == "Id")
-                        problem.Id = p_Data.Rows[j][i].ToString();
+                        problem.Id = Convert.ToInt32(p_Data.Rows[j][i]);
                     if (p_Data.Columns[i].ToString() == "TeacherName")
                         problem.TeacherName = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Password")
@@ -809,7 +809,7 @@ namespace OES
             {
                 // 数据库NULL值单独处理   
                 if (p_Data.Columns[i].ToString() == "Id")
-                    problem.Id = p_Data.Rows[0][i].ToString();
+                    problem.Id = Convert.ToInt32(p_Data.Rows[0][i]);
                 if (p_Data.Columns[i].ToString() == "TeacherName")
                     problem.TeacherName = (string)p_Data.Rows[0][i];
                 if (p_Data.Columns[i].ToString() == "Password")
@@ -835,7 +835,7 @@ namespace OES
                 {
                     // 数据库NULL值单独处理   
                     if (p_Data.Columns[i].ToString() == "Id")
-                        problem.Id = p_Data.Rows[j][i].ToString();
+                        problem.Id = Convert.ToInt32(p_Data.Rows[j][i]);
                     if (p_Data.Columns[i].ToString() == "TeacherName")
                         problem.TeacherName = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Password")

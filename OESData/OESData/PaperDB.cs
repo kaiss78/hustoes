@@ -18,7 +18,7 @@ namespace OES
             
         }
 
-        public int AddPaper(string GenerateDate, string Title, string TeacherId)
+        public int AddPaper(string GenerateDate, string Title, int TeacherId)
         {
             int PaperId = -1;
             List<SqlParameter> ddlparam = new List<SqlParameter>();
