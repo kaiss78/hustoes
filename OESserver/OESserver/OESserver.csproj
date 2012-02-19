@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E4EFF3E5-EB11-47EE-AB20-B7AC00AE82FB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -118,22 +118,20 @@
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CSVHelper\CSVImporter.cs" />
-    <Compile Include="Form\frmAddRule.cs">
+    <Compile Include="UForm\frmAddRule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\frmAddRule.Designer.cs">
+    <Compile Include="UForm\frmAddRule.Designer.cs">
       <DependentUpon>frmAddRule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\frmAddAnswer.cs">
-      <SubType>Form</SubType>
+    <Compile Include="UForm\frmAddAnswer.cs">
     </Compile>
-    <Compile Include="Form\frmAddAnswer.Designer.cs">
+    <Compile Include="UForm\frmAddAnswer.Designer.cs">
       <DependentUpon>frmAddAnswer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\frmPaperPreview.cs">
-      <SubType>Form</SubType>
+    <Compile Include="UForm\frmPaperPreview.cs">
     </Compile>
-    <Compile Include="Form\frmPaperPreview.Designer.cs">
+    <Compile Include="UForm\frmPaperPreview.Designer.cs">
       <DependentUpon>frmPaperPreview.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddProData.cs">
@@ -164,16 +162,16 @@
       <DependentUpon>ConfigForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\frmAddRule.resx">
+    <EmbeddedResource Include="UForm\frmAddRule.resx">
       <DependentUpon>frmAddRule.cs</DependentUpon>
       <SubType>Designer</SubType>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\frmAddAnswer.resx">
+    <EmbeddedResource Include="UForm\frmAddAnswer.resx">
       <DependentUpon>frmAddAnswer.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\frmPaperPreview.resx">
+    <EmbeddedResource Include="UForm\frmPaperPreview.resx">
       <DependentUpon>frmPaperPreview.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

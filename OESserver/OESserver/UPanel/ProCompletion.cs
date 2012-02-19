@@ -37,8 +37,7 @@ namespace OES.UPanel
             rtbPContent.Text = "";
             tbProblemFile.Text = "";
             BlankCount = 0;
-            AnsCount = 0;
-            
+            AnsCount = 0;            
 
             dtAnsList = new DataTable();
             dtAnsList.Columns.Add("SeqNum", typeof(int));
@@ -51,9 +50,13 @@ namespace OES.UPanel
             this.Visible = true;
         }
 
-        public override void ReLoad(int x)
+        public override void ReLoad(int pid)
         {
             addnew = false;
+            ReLoad();
+            newProblem = InfoControl.getProProblem(pid);
+            rtbPContent.Text = newProblem.problem;
+
         }
 
 
@@ -181,6 +184,10 @@ namespace OES.UPanel
                     MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
+            }
+            else
+            {
+                
             }
         }
 

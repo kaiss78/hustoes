@@ -76,6 +76,23 @@ namespace OES
             set { InfoControl.paper = value; }
         }
 
+        public static ProgramProblem getProProblem(int PID)
+        {
+            List<ProgramProblem> tmp;
+            tmp = OesData.FindProgramByPID(PID);
+            if (tmp.Count==1)
+            {
+                tmp[0].ansList = OesData.FindProgramAnswerByPID(PID);
+                return tmp[0];
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
+
+
         /// <summary>
         /// 获取下一题题号
         /// </summary>
