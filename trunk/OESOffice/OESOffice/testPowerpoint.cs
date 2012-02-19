@@ -14,8 +14,8 @@ namespace OESOffice
     public partial class testPowerpoint : UserControl
     {
 
-        PowerPoint.Application powerpoint;
-        PowerPoint.Presentation ppt;
+        public PowerPoint.Application powerpoint;
+        public PowerPoint.Presentation ppt;
         PptTestPointHelper helper;
         string xmlPath;
         string filePath;
@@ -48,19 +48,19 @@ namespace OESOffice
         private void testPointView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeNode tmpNode;
-            ItemObject tmpObj;
-            List<ItemObject> stack;
+            ItemObject_PPT tmpObj;
+            List<ItemObject_PPT> stack;
             if (e.Node == Root) return;                     //根节点返回
-            ItemObject itm = e.Node.Tag as ItemObject;
+            ItemObject_PPT itm = e.Node.Tag as ItemObject_PPT;
             listProperty(itm);
             #region 在PPT中显示当前的item
-            stack = new List<ItemObject>(10);
+            stack = new List<ItemObject_PPT>(10);
             tmpNode = e.Node;
-            stack.Add(tmpNode.Tag as ItemObject);
-            while ((tmpNode.Tag as ItemObject).type != PptType.Slide)
+            stack.Add(tmpNode.Tag as ItemObject_PPT);
+            while ((tmpNode.Tag as ItemObject_PPT).type != PptType.Slide)
             {
                 tmpNode = tmpNode.Parent;
-                stack.Add(tmpNode.Tag as ItemObject);
+                stack.Add(tmpNode.Tag as ItemObject_PPT);
             }
             while (stack.Count > 0)
             {
@@ -82,7 +82,7 @@ namespace OESOffice
         /// 在PPT中显示Item的方法
         /// </summary>
         /// <param name="itm">考点信息</param>
-        private void showSomething(ItemObject itm)
+        private void showSomething(ItemObject_PPT itm)
         {
             switch (itm.type)
             {
@@ -90,9 +90,6 @@ namespace OESOffice
                     (itm.o as PowerPoint.Slide).Select();
                     break;
                 case PptType.TextContainer:
-                case PptType.EmbeddedObject:
-                case PptType.WordArt:
-                case PptType.Picture:
                 case PptType.Location:
                 case PptType.Shape:
                     (itm.o as PowerPoint.Shape).Select(True);
@@ -129,7 +126,9 @@ namespace OESOffice
                 powerpoint = null;
                 //}
             }
-            catch (Exception ex){ }
+            catch (Exception ex){
+                Console.WriteLine(ex.ToString());
+            }
             GC.Collect();
         }
 
@@ -139,84 +138,96 @@ namespace OESOffice
             #region CreateTree
             stack = new List<TreeNode>(500);
             Root = new TreeNode();
-            Root.Tag = new ItemObject(fileName, ppt, PptType.Null);   //添加根节点(仅用于分级显示)
-            Root.Text = (Root.Tag as ItemObject).name;
+            Root.Tag = new ItemObject_PPT(fileName, ppt, PptType.Null);   //添加根节点(仅用于分级显示)
+            Root.Text = (Root.Tag as ItemObject_PPT).name;
             Push(Root);
             #region 幻灯片部分
             int slideCnt = 0;
             foreach (PowerPoint.Slide s in ppt.Slides)
             {
-                tmpNode = AddNode(new ItemObject("幻灯片 " + (++slideCnt).ToString(), s, PptType.Slide));     //添加幻灯片节点
+                tmpNode = AddNode(new ItemObject_PPT("幻灯片 " + (++slideCnt).ToString(), s, PptType.Slide));     //添加幻灯片节点
                 Push(tmpNode);
                 #region 提取一张幻灯片的信息
-                AddNode(new ItemObject("过渡动画", s.SlideShowTransition, PptType.Transition));         //过渡动画节点
-                AddNode(new ItemObject("幻灯片背景", s.Background, PptType.Background));              //背景节点
+                AddNode(new ItemObject_PPT("过渡动画", s.SlideShowTransition, PptType.Transition));         //过渡动画节点
+                AddNode(new ItemObject_PPT("幻灯片背景", s.Background, PptType.Background));              //背景节点
                 //AddNode(new ItemObject("设计模板", s.Design, PptType.Design));                           //设计模板节点
                 //AddNode(new ItemObject(s.Master.Name, s.Master, PptType.Master));                       //Master节点
                 #region 动画效果属性
-                tmpNode = AddNode(new ItemObject("幻灯片动画效果", null, PptType.Effects));                   //动画节点(仅用于分级显示)
+                tmpNode = AddNode(new ItemObject_PPT("幻灯片动画效果", null, PptType.Effects));                   //动画节点(仅用于分级显示)
                 Push(tmpNode);
                 int effectCnt = 0;
                 foreach (PowerPoint.Effect effect in s.TimeLine.MainSequence)
                 {
-                    AddNode(new ItemObject("动画 " + (++effectCnt).ToString(), effect, PptType.Effect)); //具体各种动画的节点
+                    AddNode(new ItemObject_PPT("动画 " + (++effectCnt).ToString(), effect, PptType.Effect)); //具体各种动画的节点
                 }
                 Pop();
                 #endregion
                 #region 文字及图形属性
-                tmpNode = AddNode(new ItemObject("文字及图形对象", null, PptType.Shapes));                     //文字及图形区域节点(仅用于分级显示)
+                tmpNode = AddNode(new ItemObject_PPT("文字及图形对象", null, PptType.Shapes));                     //文字及图形区域节点(仅用于分级显示)
                 Push(tmpNode);
                 foreach (PowerPoint.Shape shape in s.Shapes)
                 {
                     String sInfo = shape.Name.Substring(0, shape.Name.IndexOf(' '));
-                    tmpNode = AddNode(new ItemObject(shape.Name, shape, PptType.Shape));            //具体区域的节点
+                    tmpNode = AddNode(new ItemObject_PPT(shape.Name, shape, PptType.Shape));            //具体区域的节点
                     Push(tmpNode);
-                    tmpNode = AddNode(new ItemObject("类型、定位、大小信息", shape, PptType.Location));
+                    tmpNode = AddNode(new ItemObject_PPT("类型、定位、大小信息", shape, PptType.Location));
                     #region 确定Shape的种类及各自属性
                     switch (shape.Type)
                     {
                         case Microsoft.Office.Core.MsoShapeType.msoPicture:             //图片
-                            tmpNode = AddNode(new ItemObject("图片属性", shape.PictureFormat, PptType.Picture));
+                            tmpNode = AddNode(new ItemObject_PPT("图片属性", shape.PictureFormat, PptType.Picture));
                             break;
                         case Microsoft.Office.Core.MsoShapeType.msoPlaceholder:         //文字填充框
                         case Microsoft.Office.Core.MsoShapeType.msoTextBox:             //文本框
-                            tmpNode = AddNode(new ItemObject("文字属性", shape, PptType.TextContainer));
+                            tmpNode = AddNode(new ItemObject_PPT("文字属性", shape, PptType.TextContainer));
                             Push(tmpNode);
                             int textCnt = 0;
                             foreach (PowerPoint.TextRange textrange in shape.TextFrame.TextRange.Runs(0, 100))
                             {
-                                AddNode(new ItemObject("文字段 " + (++textCnt).ToString(), textrange, PptType.Run));         //文字Run节点
+                                AddNode(new ItemObject_PPT("文字段 " + (++textCnt).ToString(), textrange, PptType.Run));         //文字Run节点
                             }
                             Pop();
                             break;
                         case Microsoft.Office.Core.MsoShapeType.msoAutoShape:           //自选图形
                             if (sInfo == "WordArt")
-                                tmpNode = AddNode(new ItemObject("艺术字属性", shape.TextEffect, PptType.WordArt));
+                                tmpNode = AddNode(new ItemObject_PPT("艺术字属性", shape.TextEffect, PptType.WordArt));
                             else
                             {
                                 try 
                                 {
                                     if (shape.ThreeD.Perspective == True)
-                                        tmpNode = AddNode(new ItemObject("三维属性", shape.ThreeD, PptType.ThreeD)); 
+                                        tmpNode = AddNode(new ItemObject_PPT("三维属性", shape.ThreeD, PptType.ThreeD)); 
                                 }
                                 catch { }
                             }
                             break;
                         case Microsoft.Office.Core.MsoShapeType.msoTextEffect:          //艺术字
-                            tmpNode = AddNode(new ItemObject("艺术字属性", shape, PptType.WordArt));
+                            tmpNode = AddNode(new ItemObject_PPT("艺术字属性", shape, PptType.WordArt));
                             break;
                     }
                     #endregion
-                    if (shape.AnimationSettings.Animate == True)                                    //shape有动画
-                        tmpNode = AddNode(new ItemObject("自定义动画", shape.AnimationSettings, PptType.Animation));
-                    if (shape.ActionSettings.Count > 0)
+                    #region Shape的自定义动画属性
+                    try
                     {
-                        tmpNode = AddNode(new ItemObject("动作设置", null, PptType.Actions));
-                        Push(tmpNode);
-                        tmpNode = AddNode(new ItemObject("单击鼠标", shape.ActionSettings[PowerPoint.PpMouseActivation.ppMouseClick], PptType.ClickAction));
-                        tmpNode = AddNode(new ItemObject("鼠标划过", shape.ActionSettings[PowerPoint.PpMouseActivation.ppMouseOver], PptType.MoveAction));
-                        Pop();
+                        if (shape.AnimationSettings.Animate == True)                                    //shape有动画
+                            tmpNode = AddNode(new ItemObject_PPT("自定义动画", shape.AnimationSettings, PptType.Animation));
                     }
+                    catch { }
+                    #endregion
+                    #region Shape的动作设置属性
+                    try
+                    {
+                        if (shape.ActionSettings.Count > 0)
+                        {
+                            tmpNode = AddNode(new ItemObject_PPT("动作设置", null, PptType.Actions));
+                            Push(tmpNode);
+                            tmpNode = AddNode(new ItemObject_PPT("单击鼠标", shape.ActionSettings[PowerPoint.PpMouseActivation.ppMouseClick], PptType.ClickAction));
+                            tmpNode = AddNode(new ItemObject_PPT("鼠标划过", shape.ActionSettings[PowerPoint.PpMouseActivation.ppMouseOver], PptType.MoveAction));
+                            Pop();
+                        }
+                    }
+                    catch { }
+                    #endregion
                     Pop();
                 }
                 Pop();
@@ -238,7 +249,7 @@ namespace OESOffice
         }
 
         //列出可以成为考点的属性
-        void listProperty(ItemObject io)
+        void listProperty(ItemObject_PPT io)
         {
             checkedListBox1.Items.Clear();
             displayInfo.Clear();
@@ -415,7 +426,7 @@ namespace OESOffice
             return stack[stack.Count - 1];
         }
 
-        TreeNode AddNode(ItemObject itm)
+        TreeNode AddNode(ItemObject_PPT itm)
         {
             TreeNode tr = new TreeNode();
             tr.Tag = itm;
@@ -459,14 +470,14 @@ namespace OESOffice
         {
             TreeNode selectedNode = testPointView.SelectedNode;
             TreeNode tmpNode;
-            ItemObject tmpObj;
+            ItemObject_PPT tmpObj;
             List<TreeNode> nodeStack;
             List<OfficeElement> rootList;
             int idx;
 
             if (selectedNode.Parent == null)
                 return;
-            if ((selectedNode.Tag as ItemObject).type == PptType.Null)
+            if ((selectedNode.Tag as ItemObject_PPT).type == PptType.Null)
                 return;
 
             #region Create Tree Structure
@@ -474,7 +485,7 @@ namespace OESOffice
             nodeStack = new List<TreeNode>(10);
             nodeStack.Add(selectedNode);
             tmpNode = selectedNode;
-            while ((tmpNode.Tag as ItemObject).type != PptType.Slide)
+            while ((tmpNode.Tag as ItemObject_PPT).type != PptType.Slide)
             {
                 tmpNode = tmpNode.Parent;
                 nodeStack.Add(tmpNode);
@@ -482,7 +493,7 @@ namespace OESOffice
             while (nodeStack.Count > 0)
             {
                 tmpNode = nodeStack[nodeStack.Count - 1];
-                tmpObj = tmpNode.Tag as ItemObject;
+                tmpObj = tmpNode.Tag as ItemObject_PPT;
                 nodeStack.RemoveAt(nodeStack.Count - 1);
                 idx = FindNodeIndex(tmpNode);
                 switch (tmpObj.type)
@@ -651,13 +662,13 @@ namespace OESOffice
         #endregion
     }
 
-    public class ItemObject
+    public class ItemObject_PPT
     {
         public object o;
         public PptType type;
         public string name;
 
-        public ItemObject(string name, object o, PptType type)
+        public ItemObject_PPT(string name, object o, PptType type)
         {
             this.name = name;
             this.o = o;
@@ -667,25 +678,6 @@ namespace OESOffice
         public override string ToString()
         {
             return name;
-        }
-    }
-
-    public class DisplayObject
-    {
-        public string displayText;
-        public string useText;
-        public object value;
-
-        public DisplayObject(string dt, string ut, object v)
-        {
-            displayText = dt;
-            useText = ut;
-            value = v;
-        }
-
-        public override string ToString()
-        {
-            return displayText + ":" + value.ToString();
         }
     }
 

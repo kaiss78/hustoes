@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{27C96848-3339-4D83-9551-E8CF1ACE666F}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -52,7 +52,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="OESXML, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -70,18 +73,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OfficeXML.cs" />
+    <Compile Include="correctWord.cs" />
+    <Compile Include="correctExcel.cs" />
+    <Compile Include="correctPowerpoint.cs" />
+    <Compile Include="DisplayObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="testExcel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="testExcel.designer.cs">
+      <DependentUpon>testExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="testPowerpoint.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="testPowerpoint.designer.cs">
       <DependentUpon>testPowerpoint.cs</DependentUpon>
     </Compile>
+    <Compile Include="testWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="testWord.designer.cs">
+      <DependentUpon>testWord.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="testExcel.resx">
+      <DependentUpon>testExcel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="testPowerpoint.resx">
       <DependentUpon>testPowerpoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testWord.resx">
+      <DependentUpon>testWord.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
