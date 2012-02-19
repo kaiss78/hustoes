@@ -19,7 +19,7 @@ namespace OES
         AddJudge judge = new AddJudge();
         ProCompletion proCompletion = new ProCompletion();
         ProModify proModify = new ProModify();
-        AddPowerpoint proPPT = new AddPowerpoint();
+        AddPowerpoint proPPT = new AddPowerpoint();    
         ProFunction proFunction = new ProFunction();
         List<UserPanel> PanelList = new List<UserPanel>();
         private DataTable dtQeueType;
