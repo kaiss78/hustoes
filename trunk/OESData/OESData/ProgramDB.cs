@@ -110,6 +110,21 @@ namespace OES
             }
         }
 
+        //删除该题的所有答案
+        public void DeleteProgramAnswer(int PID)
+        {
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@PID", SqlDbType.Int, 0, PID, ParameterDirection.Input));
+            try
+            {
+                RunProc("DeleteProgramAnswer", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         //按PID删除编程题
         public void DeleteProgram(int PID)
         {
