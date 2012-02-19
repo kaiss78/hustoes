@@ -7,14 +7,14 @@ namespace OES.Model
 {
     public class Teacher
     {
-        public string Id;
+        public int Id;
         public string TeacherName;        
         public string UserName;
         public string password;
         //定义教师的权限，0：普通教师，1：超级管理员
         public int permission;
 
-        public Teacher(string id, string tn, string un, string pw, int pm)
+        public Teacher(int id, string tn, string un, string pw, int pm)
         {
             Id = id;
             TeacherName = tn;
