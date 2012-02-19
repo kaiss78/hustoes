@@ -95,10 +95,14 @@ namespace OES.Net
             //}
         }
 
+        #region 登录
         public void Login(int tid)
         {
             Client.SendTxt("server$4$"+tid.ToString());
         }
+        #endregion
+
+        #region 下载
         public void LoadPaper(int id, int tid)
         {
             localPath.Add(InfoControl.config["TempPaperPath"] + id.ToString() + ".xml");
@@ -231,6 +235,9 @@ namespace OES.Net
             remoteCom.Add("server$2$L$" + tid.ToString() + "$" + id.ToString());
 
         }
+        #endregion
+
+        #region 上传
         public void SavePaper(int id, int tid)
         {
             remoteCom.Add("server$0$0$" + tid.ToString() + "$" + id.ToString());
@@ -363,9 +370,146 @@ namespace OES.Net
         {
             localPath.Add(InfoControl.config["FunctionPath"] + "p" + id.ToString() + ".vb");
             remoteCom.Add("server$0$L$" + tid.ToString() + "$" + id.ToString());
-             
-        }
 
+        }
+        #endregion
+
+        #region 删除
+        public void DelPaper(int id, int tid)
+        {
+            remoteCom.Add("server$6$0$" + tid.ToString() + "$" + id.ToString());
+            remoteCom.Add("server$6$N$" + tid.ToString() + "$" + id.ToString());
+            localPath.Add(InfoControl.config["TempPaperPath"] + id.ToString() + ".xml");
+            localPath.Add(InfoControl.config["TempPaperPath"] + "A" + id.ToString() + ".xml");
+
+        }
+        public void DelWordA(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["WordPath"] + "a" + id.ToString() + ".doc");
+            remoteCom.Add("server$6$1$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelWordP(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["WordPath"] + "p" + id.ToString() + ".doc");
+            remoteCom.Add("server$6$2$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelWordT(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["WordPath"] + "t" + id.ToString() + ".xml");
+            remoteCom.Add("server$6$3$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelExcelA(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["ExcelPath"] + "a" + id.ToString() + ".xls");
+            remoteCom.Add("server$6$4$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelExcelP(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["ExcelPath"] + "p" + id.ToString() + ".xls");
+            remoteCom.Add("server$6$5$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelExcelT(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["ExcelPath"] + "t" + id.ToString() + ".xml");
+            remoteCom.Add("server$6$6$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelPowerPointA(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["PPTPath"] + "a" + id.ToString() + ".ppt");
+            remoteCom.Add("server$6$7$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelPowerPointP(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["PPTPath"] + "p" + id.ToString() + ".ppt");
+            remoteCom.Add("server$6$8$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelPowerPointT(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["PPTPath"] + "a" + id.ToString() + ".xml");
+            remoteCom.Add("server$6$9$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelCCompletion(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["CompletionPath"] + id.ToString() + ".c");
+            remoteCom.Add("server$6$A$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelCModification(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["ModificationPath"] + id.ToString() + ".c");
+            remoteCom.Add("server$6$B$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelCFunctionA(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["FunctionPath"] + "a" + id.ToString() + ".c");
+            remoteCom.Add("server$6$C$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelCFunctionP(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["FunctionPath"] + "p" + id.ToString() + ".c");
+            remoteCom.Add("server$6$D$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelCppCompletion(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["CompletionPath"] + id.ToString() + ".cpp");
+            remoteCom.Add("server$6$E$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelCppModification(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["ModificationPath"] + id.ToString() + ".cpp");
+            remoteCom.Add("server$6$F$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelCppFunctionA(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["FunctionPath"] + "a" + id.ToString() + ".cpp");
+            remoteCom.Add("server$6$G$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelCppFunctionP(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["FunctionPath"] + "p" + id.ToString() + ".cpp");
+            remoteCom.Add("server$6$H$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelVbCompletion(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["CompletionPath"] + id.ToString() + ".vb");
+            remoteCom.Add("server$6$I$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelVbModification(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["ModificationPath"] + id.ToString() + ".vb");
+            remoteCom.Add("server$6$J$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelVbFunctionA(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["FunctionPath"] + "a" + id.ToString() + ".vb");
+            remoteCom.Add("server$6$K$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        public void DelVbFunctionP(int id, int tid)
+        {
+            localPath.Add(InfoControl.config["FunctionPath"] + "p" + id.ToString() + ".vb");
+            remoteCom.Add("server$6$L$" + tid.ToString() + "$" + id.ToString());
+
+        }
+        #endregion
     }
     public class FileConvertHelper
     {
