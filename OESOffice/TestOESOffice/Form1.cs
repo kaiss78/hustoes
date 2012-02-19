@@ -26,5 +26,10 @@ namespace TestOESOffice
             testPPT.LoadPowerpoint(@"F:\点维工作室\OESscore\testAns.ppt",
                 @"F:\点维工作室\OESscore\testPpt.xml");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ;
+        }
     }
 }
