@@ -14,7 +14,7 @@ namespace OES
 {
     public partial class AddJudge : UserPanel
     {
-        public static int flag;
+        public  int flag;
         public static int proId;
         public AddJudge()
         {
@@ -44,13 +44,14 @@ namespace OES
                     Answer = "N";
                 if (flag == 0)
                 {
-                    InfoControl.OesData.AddJudgment(Content.Text, Answer, Convert.ToInt32(capter), Convert.ToInt32(diffcuty));
+                    InfoControl.OesData.AddJudgment(Content.Text, Answer, capter, diffcuty);
                     MessageBox.Show("保存成功");
                 }
                 else if (flag == 1)
                 {
-                    InfoControl.OesData.UpdateJudgment(proId, Content.Text, Answer, Convert.ToInt32(capter), Convert.ToInt32(diffcuty));
+                    InfoControl.OesData.UpdateJudgment(proId, Content.Text, Answer, capter, diffcuty);
                     MessageBox.Show("保存成功");
+                    PanelControl.ChangPanel(0);
                 }
                     this.ReLoad();
             }
@@ -77,7 +78,7 @@ namespace OES
 
         public override void ReLoad(int x)
         {
-            flag = 1;
+        
             proId = x;
             List<Judgment> judge = new List<Judgment>();
             judge = InfoControl.OesData.FindJudgmentByPID(proId);
@@ -85,6 +86,9 @@ namespace OES
             (this.Parent.Parent as AddQuetionPanel).Capter = judge[0].unit.UnitId;
             (this.Parent.Parent as AddQuetionPanel).Difficulity = judge[0].Plevel;
             (this.Parent.Parent as AddQuetionPanel).QueStyle = 3;
+
+
+            flag = 1;
 
             this.Content.Text = judge[0].problem;
             if (judge[0].ans == "Y")
