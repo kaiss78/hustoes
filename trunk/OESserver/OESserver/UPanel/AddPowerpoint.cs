@@ -98,9 +98,9 @@ namespace OES.UPanel
             fori.CopyTo(tmpDir + "p" + pid.ToString() + ".ppt");
             fans.CopyTo(tmpDir + "a" + pid.ToString() + ".ppt");
             fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml");
-            InfoControl.ClientObj.SavePowerPointA(pid, Int32.Parse(InfoControl.User.Id));
-            InfoControl.ClientObj.SavePowerPointP(pid, Int32.Parse(InfoControl.User.Id));
-            InfoControl.ClientObj.SavePowerPointT(pid, Int32.Parse(InfoControl.User.Id));
+            InfoControl.ClientObj.SavePowerPointA(pid, InfoControl.User.Id);
+            InfoControl.ClientObj.SavePowerPointP(pid, InfoControl.User.Id);
+            InfoControl.ClientObj.SavePowerPointT(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SendFiles();
             while (!OES.Net.ClientEvt.isOver) ;
         }

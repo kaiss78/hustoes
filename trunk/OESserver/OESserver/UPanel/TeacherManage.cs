@@ -52,11 +52,11 @@ namespace OES.UPanel
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            List<string> del = new List<string>();
+            List<int> del = new List<int>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 if (Convert.ToBoolean(dt.Rows[i][0]) == true)
-                    del.Add(dt.Rows[i][1].ToString());
+                    del.Add(Convert.ToInt32(dt.Rows[i][1]));
             }
             if (del.Count == 0)
             {
@@ -91,7 +91,7 @@ namespace OES.UPanel
             teacherInfoDGV.Visible = false;
             teacherInfoGroup.Text = "修改教师";
             int permission = dt.Rows[cr][5].ToString().Equals("超级管理员") ? 1 : 0;
-            Teacher th = new Teacher(dt.Rows[cr][1].ToString(), dt.Rows[cr][2].ToString(),
+            Teacher th = new Teacher(Convert.ToInt32(dt.Rows[cr][1]), dt.Rows[cr][2].ToString(),
                 dt.Rows[cr][3].ToString(), dt.Rows[cr][4].ToString(), permission);
             teaAdd = new TeacherAdd(th);
             teaAdd.Disposed += new EventHandler(teacherOperation_Disposed);
