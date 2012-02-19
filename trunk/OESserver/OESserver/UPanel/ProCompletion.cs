@@ -13,10 +13,10 @@ using OES.Net;
 namespace OES.UPanel
 {
     public partial class ProCompletion : UserPanel
-    {        
+    {
         public ProgramProblem newProblem;
         public DataTable dtAnsList;
-        public DataView dvAnsList;        
+        public DataView dvAnsList;
         public int BlankCount;
         public int AnsCount;
 
@@ -37,7 +37,7 @@ namespace OES.UPanel
             rtbPContent.Text = "";
             tbProblemFile.Text = "";
             BlankCount = 0;
-            AnsCount = 0;            
+            AnsCount = 0;
 
             dtAnsList = new DataTable();
             dtAnsList.Columns.Add("SeqNum", typeof(int));
@@ -50,12 +50,39 @@ namespace OES.UPanel
             this.Visible = true;
         }
 
+
+
         public override void ReLoad(int pid)
         {
             addnew = false;
             ReLoad();
             newProblem = InfoControl.getProProblem(pid);
             rtbPContent.Text = newProblem.problem;
+            foreach (ProgramAnswer ans in newProblem.ansList     )
+            {                
+                object[] values = new object[2];
+                values[0] = ans.SeqNum;
+                values[1] = ans.SeqNum.ToString() + ": " + ans.Output;
+                dtAnsList.Rows.Add(values);
+            }
+            switch (newProblem.language)
+            {
+                case PLanguage.C:
+                    InfoControl.ClientObj.LoadCCompletion(pid,Convert.ToInt32(InfoControl.User.Id));
+                    tbProblemFile.Text = InfoControl.config["CompletionPath"] + "p" + pid.ToString() + ".c";
+                    break;
+                case PLanguage.CPP:
+                    InfoControl.ClientObj.LoadCppCompletion(pid, Convert.ToInt32(InfoControl.User.Id));
+                    tbProblemFile.Text = InfoControl.config["CompletionPath"] + "p" + pid.ToString() + ".cpp";
+                    break;
+                case PLanguage.VB:
+                    InfoControl.ClientObj.LoadVbCompletion(pid, Convert.ToInt32(InfoControl.User.Id));
+                    tbProblemFile.Text = InfoControl.config["CompletionPath"] + "p" + pid.ToString() + ".vb";
+                    break;
+            }
+            InfoControl.ClientObj.ReceiveFiles();
+            while (!ClientEvt.isOver) ;
+
 
         }
 
@@ -156,14 +183,14 @@ namespace OES.UPanel
                 int Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
 
                 int PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
-                int PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProType, language, Convert.ToInt32(Unit), Convert.ToInt32(PLevel));                                
+                int PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProType, language, Convert.ToInt32(Unit), Convert.ToInt32(PLevel));
 
                 if (PID > 0)
                 {
                     switch (language)
                     {
                         case PLanguage.C:
-                            File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString()+".c");
+                            File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".c");
                             InfoControl.ClientObj.SaveCCompletion(PID, Convert.ToInt32(InfoControl.User.Id));
                             break;
                         case PLanguage.CPP:
@@ -187,7 +214,7 @@ namespace OES.UPanel
             }
             else
             {
-                
+
             }
         }
 
