@@ -97,7 +97,7 @@ namespace OES.UPanel
         private void btnDel_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("确定删除记录", "确认删除", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("确定删除记录", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 for (int i = 0; i < paperListDataTable.Rows.Count; i++)
                 {

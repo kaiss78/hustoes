@@ -134,12 +134,12 @@ namespace OES.UPanel
                 }
                 else
                 {
-
+                    MessageBox.Show("文件格式不正确", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-
+                MessageBox.Show("文件不存在", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -147,13 +147,16 @@ namespace OES.UPanel
         {
             if (lbAnsList.SelectedIndex >= 0)
             {
-                DataRow dr = dvAnsList[lbAnsList.SelectedIndex].Row;
-                newProblem.ansList.Remove(newProblem.ansList[dtAnsList.Rows.IndexOf(dr)]);
-                dtAnsList.Rows.Remove(dr);
+                if (MessageBox.Show("确定删除记录", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    DataRow dr = dvAnsList[lbAnsList.SelectedIndex].Row;
+                    newProblem.ansList.Remove(newProblem.ansList[dtAnsList.Rows.IndexOf(dr)]);
+                    dtAnsList.Rows.Remove(dr);
+                }
             }
             else
             {
-
+                MessageBox.Show("未选择答案", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -174,7 +177,7 @@ namespace OES.UPanel
             }
             else
             {
-
+                MessageBox.Show("未选择答案", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -185,13 +188,12 @@ namespace OES.UPanel
             int PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             if (addnew)
             {
-                PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProType, language, Convert.ToInt32(Unit),
-                                                          PLevel);
+                PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProType, language, Unit, PLevel);
             }
             else
             {
                 InfoControl.OesData.DeleteProgramAnswer(PID);
-                InfoControl.OesData.UpdateProgram(PID, ProgramPType.Completion, language, Unit, PLevel);
+                InfoControl.OesData.UpdateProgram(PID, ProgramPType.Modify, language, Unit, PLevel);
                 switch (language)
                 {
                     case PLanguage.C:

@@ -134,12 +134,12 @@ namespace OES.UPanel
                 }
                 else
                 {
-
+                    MessageBox.Show("错误", "文件格式不正确", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-
+                MessageBox.Show("错误", "文件不存在", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -147,13 +147,16 @@ namespace OES.UPanel
         {
             if (lbAnsList.SelectedIndex >= 0)
             {
-                DataRow dr = dvAnsList[lbAnsList.SelectedIndex].Row;
-                newProblem.ansList.Remove(newProblem.ansList[dtAnsList.Rows.IndexOf(dr)]);
-                dtAnsList.Rows.Remove(dr);
+                if (MessageBox.Show("确定删除记录", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    DataRow dr = dvAnsList[lbAnsList.SelectedIndex].Row;
+                    newProblem.ansList.Remove(newProblem.ansList[dtAnsList.Rows.IndexOf(dr)]);
+                    dtAnsList.Rows.Remove(dr);
+                }
             }
             else
             {
-
+                MessageBox.Show("未选择答案", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -174,7 +177,7 @@ namespace OES.UPanel
             }
             else
             {
-
+                MessageBox.Show("未选择答案", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
