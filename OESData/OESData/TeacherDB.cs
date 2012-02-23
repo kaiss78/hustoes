@@ -76,10 +76,10 @@ namespace OES
         {
             try
             {
-                SqlTransaction tx = sqlcon.BeginTransaction();
+                //SqlTransaction tx = sqlcon.BeginTransaction();
                 for (int i = 0; i < list.Count; i++)
                     DeleteTeacherById(list[i]);
-                tx.Commit();
+                //tx.Commit();
             }
             catch (Exception e) { throw e; }
         }
