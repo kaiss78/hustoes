@@ -104,6 +104,7 @@ namespace OES.UPanel
                     if ((bool)paperListDataTable.Rows[i][0])
                     {
                         InfoControl.OesData.DeletePaper(Convert.ToInt32(paperListDataTable.Rows[i]["试卷ID"]));
+                        InfoControl.ClientObj.DelPaper(Convert.ToInt32(paperListDataTable.Rows[i]["试卷ID"]),InfoControl.User.Id);
                     }
                 }
                 InitList();
