@@ -484,6 +484,12 @@
     <Compile Include="UPanel\AddSingleChoice.Designer.cs">
       <DependentUpon>AddSingleChoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="UPanel\AddWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UPanel\AddWord.Designer.cs">
+      <DependentUpon>AddWord.cs</DependentUpon>
+    </Compile>
     <Compile Include="UPanel\Answer_Of_FiilBlank.cs">
       <SubType>UserControl</SubType>
     </Compile>
