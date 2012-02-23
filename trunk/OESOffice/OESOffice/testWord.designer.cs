@@ -63,12 +63,14 @@
             // 
             // btnRet
             // 
+            this.btnRet.Enabled = false;
             this.btnRet.Location = new System.Drawing.Point(429, 420);
             this.btnRet.Name = "btnRet";
             this.btnRet.Size = new System.Drawing.Size(123, 34);
             this.btnRet.TabIndex = 12;
             this.btnRet.Text = "返回";
             this.btnRet.UseVisualStyleBackColor = true;
+            this.btnRet.Visible = false;
             this.btnRet.Click += new System.EventHandler(this.btnRet_Click);
             // 
             // testWord
@@ -80,7 +82,7 @@
             this.Controls.Add(this.testWordView);
             this.Controls.Add(this.checkedListBox1);
             this.Name = "testWord";
-            this.Size = new System.Drawing.Size(558, 462);
+            this.Size = new System.Drawing.Size(567, 468);
             this.ResumeLayout(false);
 
         }
