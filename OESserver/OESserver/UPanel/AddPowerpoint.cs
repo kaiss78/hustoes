@@ -66,11 +66,11 @@ namespace OES.UPanel
             if (File.Exists(textOriPPT.Text) && File.Exists(textAnsPPT.Text))
             {
                 OfficeFrm.PptForm pf = new OES.OfficeFrm.PptForm();
-                FileInfo f = new FileInfo(textOriPPT.Text);
+                FileInfo f = new FileInfo(textAnsPPT.Text);
                 string xml_path = f.DirectoryName + "\\!Mask!" + f.Name + ".xml";
                 buttonTestPoint.Text = "正在打开添加考点界面，请耐心等待...";
                 buttonTestPoint.Enabled = false;
-                pf.LoadPPT(textOriPPT.Text, xml_path);
+                pf.LoadPPT(textAnsPPT.Text, xml_path);
                 pf.ShowDialog();
                 buttonTestPoint.Enabled = true;
                 buttonTestPoint.Text = "点此添加考点";

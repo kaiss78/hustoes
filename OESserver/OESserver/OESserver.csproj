@@ -298,6 +298,10 @@
       <DependentUpon>AddSingleChoice.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="UPanel\AddWord.resx">
+      <DependentUpon>AddWord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UPanel\Answer_Of_FiilBlank.resx">
       <DependentUpon>Answer_Of_FiilBlank.cs</DependentUpon>
       <SubType>Designer</SubType>
