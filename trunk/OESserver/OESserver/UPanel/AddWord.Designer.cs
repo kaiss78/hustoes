@@ -69,6 +69,7 @@
             this.buttonTestPoint.TabIndex = 9;
             this.buttonTestPoint.Text = "点此添加考点";
             this.buttonTestPoint.UseVisualStyleBackColor = true;
+            this.buttonTestPoint.Click += new System.EventHandler(this.buttonTestPoint_Click);
             // 
             // textInfo
             // 
@@ -160,6 +161,7 @@
             this.btnOK.TabIndex = 10;
             this.btnOK.Text = "保存试题";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // AddWord
             // 
