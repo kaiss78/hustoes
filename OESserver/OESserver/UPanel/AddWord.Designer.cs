@@ -104,6 +104,7 @@
             this.btnAnsSel.TabIndex = 6;
             this.btnAnsSel.Text = "浏览...";
             this.btnAnsSel.UseVisualStyleBackColor = true;
+            this.btnAnsSel.Click += new System.EventHandler(this.btnAnsSel_Click);
             // 
             // labelOriWord
             // 
@@ -122,6 +123,7 @@
             this.btnOriSel.TabIndex = 5;
             this.btnOriSel.Text = "浏览...";
             this.btnOriSel.UseVisualStyleBackColor = true;
+            this.btnOriSel.Click += new System.EventHandler(this.btnOriSel_Click);
             // 
             // labelAnsWord
             // 
@@ -148,6 +150,7 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "返回";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 

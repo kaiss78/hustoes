@@ -31,5 +31,26 @@ namespace OES.UPanel
         {
             mode = md;
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            PanelControl.ChangPanel(0);
+        }
+
+        private void btnOriSel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Word文档(*.doc)|*.doc";
+            if (ofd.ShowDialog() == DialogResult.OK)
+                textOriPPT.Text = ofd.FileName;
+        }
+
+        private void btnAnsSel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Word文档(*.doc)|*.doc";
+            if (ofd.ShowDialog() == DialogResult.OK)
+                textAnsPPT.Text = ofd.FileName;
+        }
     }
 }
