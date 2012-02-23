@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // WordFrm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "WordFrm";
+            this.ClientSize = new System.Drawing.Size(586, 480);
+            this.Name = "WordFrm";
+            this.Text = "添加考点";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
