@@ -53,6 +53,7 @@ namespace OES.UPanel
             PID = pid;
             newProblem = InfoControl.getProProblem(pid);
             rtbPContent.Text = newProblem.problem;
+            AnsList = newProblem.ansList;
             foreach (ProgramAnswer ans in newProblem.ansList)
             {
                 dtAnsList.Rows.Add(new object[2] { ans.Input, ans.Output });
@@ -83,12 +84,12 @@ namespace OES.UPanel
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {            
+        {
             int Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
             int PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             if (addnew)
             {
-               PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProgramPType.Function, language, Unit, PLevel);
+                PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProgramPType.Function, language, Unit, PLevel);
             }
             else
             {
@@ -191,11 +192,15 @@ namespace OES.UPanel
                     dtAnsList.Rows.Add(new object[2] { frmaddProData.ProAns.Input, frmaddProData.ProAns.Output });
                 }
             }
+            else
+            {
+                MessageBox.Show("文件不存在", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvAnsList.CurrentRow != null && dgvAnsList.CurrentRow.Index > 0)
+            if (dgvAnsList.CurrentRow != null && dgvAnsList.CurrentRow.Index >= 0)
             {
                 frmaddProData = new frmAddProData(tbAnswerFile.Text, AnsList[dgvAnsList.CurrentRow.Index]);
                 frmaddProData.ShowDialog();
@@ -206,14 +211,27 @@ namespace OES.UPanel
                     AnsList[dgvAnsList.CurrentRow.Index] = frmaddProData.ProAns;
                 }
             }
+            else
+            {
+                MessageBox.Show("未选择答案", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (dgvAnsList.CurrentRow != null && dgvAnsList.CurrentRow.Index > 0)
+            if (dgvAnsList.CurrentRow != null && dgvAnsList.CurrentRow.Index >= 0)
             {
-                AnsList.Remove(AnsList[dgvAnsList.CurrentRow.Index]);
-                dtAnsList.Rows.Remove(dtAnsList.Rows[dgvAnsList.CurrentRow.Index]);
+
+                if (MessageBox.Show("确定删除记录", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    AnsList.Remove(AnsList[dgvAnsList.CurrentRow.Index]);
+                    dtAnsList.Rows.Remove(dtAnsList.Rows[dgvAnsList.CurrentRow.Index]);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("未选择答案", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
