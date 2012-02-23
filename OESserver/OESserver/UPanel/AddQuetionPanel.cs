@@ -19,7 +19,8 @@ namespace OES
         AddJudge judge = new AddJudge();
         ProCompletion proCompletion = new ProCompletion();
         ProModify proModify = new ProModify();
-        AddPowerpoint proPPT = new AddPowerpoint();    
+        AddPowerpoint proPPT = new AddPowerpoint();
+        AddWord proWord = new AddWord();
         ProFunction proFunction = new ProFunction();
         List<UserPanel> PanelList = new List<UserPanel>();
         private DataTable dtQeueType;
@@ -45,6 +46,7 @@ namespace OES
             plAddQuestion.Controls.Add(proModify);
             plAddQuestion.Controls.Add(proFunction);
             plAddQuestion.Controls.Add(proPPT);
+            plAddQuestion.Controls.Add(proWord);
 
             PanelList = new List<UserPanel>();
             PanelList.Add(SingleChoice);
@@ -54,6 +56,7 @@ namespace OES
             PanelList.Add(proModify);
             PanelList.Add(proFunction);
             PanelList.Add(proPPT);
+            PanelList.Add(proWord);
 
             dtQeueType = new DataTable();
             dtQeueType.Columns.Add("Type", typeof(string));
@@ -62,9 +65,10 @@ namespace OES
             dtQeueType.Rows.Add(new object[2] { "填空题", 2 });
             dtQeueType.Rows.Add(new object[2] { "判断题", 3 });
             dtQeueType.Rows.Add(new object[2] { "程序填空题", 4 });
-            dtQeueType.Rows.Add(new object[2] {"程序改错题",5});
-            dtQeueType.Rows.Add(new object[2] {"程序综合题",6});
+            dtQeueType.Rows.Add(new object[2] { "程序改错题", 5 });
+            dtQeueType.Rows.Add(new object[2] { "程序综合题", 6 });
             dtQeueType.Rows.Add(new object[2] { "PPT操作题", 7 });
+            dtQeueType.Rows.Add(new object[2] { "Word操作题", 8 });
             cbQueStyle.DataSource = dtQeueType;
             cbQueStyle.DisplayMember = "Type";
             cbQueStyle.ValueMember = "Value";
