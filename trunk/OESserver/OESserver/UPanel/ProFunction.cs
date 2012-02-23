@@ -80,7 +80,6 @@ namespace OES.UPanel
                     break;
             }
             InfoControl.ClientObj.ReceiveFiles();
-            while (!ClientEvt.isOver) ;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -143,10 +142,17 @@ namespace OES.UPanel
                         InfoControl.ClientObj.SaveVbFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));
                         break;
                 }
+                ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                 InfoControl.ClientObj.SendFiles();
-                while (!ClientEvt.isOver) ;
-                MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                
             }
+        }
+
+        void ClientEvt_FilesComplete()
+        {
+            MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
         }
 
         private void btnBrowserSource_Click(object sender, EventArgs e)

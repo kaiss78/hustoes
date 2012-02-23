@@ -160,14 +160,19 @@ namespace OES
 
             InfoControl.ClientObj.SavePaper(Convert.ToInt32(NewPaper.paperID), Convert.ToInt32(InfoControl.User.Id));
             InfoControl.ClientObj.SendFiles();
-            while (!ClientEvt.isOver) ;
         }
 
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
             CreatPaper();
+        }
+
+        void ClientEvt_FilesComplete()
+        {
             this.Close();
+            ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
         }
     }
 }

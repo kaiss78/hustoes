@@ -83,9 +83,6 @@ namespace OES.UPanel
                     break;
             }
             InfoControl.ClientObj.ReceiveFiles();
-            while (!ClientEvt.isOver) ;
-
-
         }
 
 
@@ -227,14 +224,21 @@ namespace OES.UPanel
                         InfoControl.ClientObj.SaveVbCompletion(PID, InfoControl.User.Id);
                         break;
                 }
+                ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                 InfoControl.ClientObj.SendFiles();
-                while (!ClientEvt.isOver) ;
-                foreach (ProgramAnswer ans in newProblem.ansList)
-                {
-                    InfoControl.OesData.AddProgramAnswer(PID, ans.SeqNum, ans.Input, ans.Output);
-                }
-                MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                
             }
+        }
+
+        void ClientEvt_FilesComplete()
+        {
+            foreach (ProgramAnswer ans in newProblem.ansList)
+            {
+                InfoControl.OesData.AddProgramAnswer(PID, ans.SeqNum, ans.Input, ans.Output);
+            }
+            MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
