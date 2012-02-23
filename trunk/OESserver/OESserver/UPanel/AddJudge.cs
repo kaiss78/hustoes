@@ -85,7 +85,7 @@ namespace OES
             (this.Parent.Parent as AddQuetionPanel).GetCbCourse = judge[0].unit.course.CourseId;
             (this.Parent.Parent as AddQuetionPanel).Capter = judge[0].unit.UnitId;
             (this.Parent.Parent as AddQuetionPanel).Difficulity = judge[0].Plevel;
-            (this.Parent.Parent as AddQuetionPanel).QueStyle = 3;
+            //(this.Parent.Parent as AddQuetionPanel).QueStyle = 3;
 
 
             flag = 1;
