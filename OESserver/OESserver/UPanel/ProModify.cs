@@ -85,7 +85,6 @@ namespace OES.UPanel
                     break;
             }
             InfoControl.ClientObj.ReceiveFiles();
-            while (!ClientEvt.isOver) ;
         }
 
 
@@ -229,10 +228,16 @@ namespace OES.UPanel
                         break;
                 }
                 InfoControl.ClientObj.SendFiles();
-                while (!ClientEvt.isOver) ;
-                MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
+                
             }
 
+        }
+
+        void ClientEvt_FilesComplete()
+        {
+            MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
