@@ -11,6 +11,10 @@ namespace OES.Net
     {
         public static OESClient Client = new OESClient();
         public static event EventHandler LoginReturn;
+
+        //文件操作完成事件，需要用时注册
+        public static event Action FilesComplete;
+
         List<string> remoteCom=new List<string>() ;
         List<string> localPath=new List<string>();
         public static Boolean isOver=true;
@@ -146,6 +150,14 @@ namespace OES.Net
                 InfoControl.MainForm.Enabled = true;
                 FileListWaiting.Instance.Close();
             }));
+            if (FilesComplete != null)
+            {
+                InfoControl.MainForm.BeginInvoke(new Action(() =>
+                {
+                    FilesComplete();
+                }
+                    ));
+            }
         }
 
         public void LoadPaper(int id, int tid)
@@ -301,6 +313,14 @@ namespace OES.Net
                 InfoControl.MainForm.Enabled = true;
                 FileListWaiting.Instance.Close();
             }));
+            if (FilesComplete != null)
+            {
+                InfoControl.MainForm.BeginInvoke(new Action(() =>
+                {
+                    FilesComplete();
+                }
+                    ));
+            }
         }
 
         public void SavePaper(int id, int tid)
