@@ -9,11 +9,26 @@ using System.Windows.Forms;
 
 namespace OES.UPanel
 {
-    public partial class AddWord : UserControl
+    public partial class AddWord : UserPanel
     {
+        int mode = 0;           //新增或修改 分别为0和1
+        FileInfo fori, fans, fxml;
+        string tmpDir;
+
         public AddWord()
         {
             InitializeComponent();
+        }
+
+        public override void ReLoad()
+        {
+            this.Visible = true;
+            textInfo.Text = "";
+        }
+
+        public void SetMode(int md)
+        {
+            mode = md;
         }
     }
 }

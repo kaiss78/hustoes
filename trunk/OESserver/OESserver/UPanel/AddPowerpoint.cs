@@ -35,11 +35,6 @@ namespace OES.UPanel
             mode = md;
         }
 
-        private void reset()
-        {
-            textInfo.Text = textOriPPT.Text = textAnsPPT.Text = "";
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             PanelControl.ChangPanel(0);
@@ -102,7 +97,7 @@ namespace OES.UPanel
             InfoControl.ClientObj.SavePowerPointP(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SavePowerPointT(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SendFiles();
-            while (!OES.Net.ClientEvt.isOver) ;
+            //while (!OES.Net.ClientEvt.isOver) ;
         }
 
         private void delTmpFile(int pid)    //删除临时文件
@@ -135,16 +130,24 @@ namespace OES.UPanel
                 else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     int PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.PowerPoint);
+                    Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                     upload(PID);
-                    delTmpFile(PID);
-                    MessageBox.Show("保存成功");
-                    ReLoad();
+                    //delTmpFile(PID);
+                    //MessageBox.Show("保存成功");
+                    //ReLoad();
                 }
             }
             else                //修改PPT
             {
                         
             }
+        }
+
+        void ClientEvt_FilesComplete()
+        {
+            MessageBox.Show("保存成功");
+            Net.ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
+            ReLoad();
         }
     }
 }

@@ -34,9 +34,9 @@
             this.labelInfo = new System.Windows.Forms.Label();
             this.textOriWord = new System.Windows.Forms.TextBox();
             this.btnAnsSel = new System.Windows.Forms.Button();
-            this.labelOriPPT = new System.Windows.Forms.Label();
+            this.labelOriWord = new System.Windows.Forms.Label();
             this.btnOriSel = new System.Windows.Forms.Button();
-            this.labelAnsPPT = new System.Windows.Forms.Label();
+            this.labelAnsWord = new System.Windows.Forms.Label();
             this.textAnsWord = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
@@ -50,9 +50,9 @@
             this.groupInfo.Controls.Add(this.labelInfo);
             this.groupInfo.Controls.Add(this.textOriWord);
             this.groupInfo.Controls.Add(this.btnAnsSel);
-            this.groupInfo.Controls.Add(this.labelOriPPT);
+            this.groupInfo.Controls.Add(this.labelOriWord);
             this.groupInfo.Controls.Add(this.btnOriSel);
-            this.groupInfo.Controls.Add(this.labelAnsPPT);
+            this.groupInfo.Controls.Add(this.labelAnsWord);
             this.groupInfo.Controls.Add(this.textAnsWord);
             this.groupInfo.Location = new System.Drawing.Point(12, 8);
             this.groupInfo.Name = "groupInfo";
@@ -105,14 +105,14 @@
             this.btnAnsSel.Text = "浏览...";
             this.btnAnsSel.UseVisualStyleBackColor = true;
             // 
-            // labelOriPPT
+            // labelOriWord
             // 
-            this.labelOriPPT.AutoSize = true;
-            this.labelOriPPT.Location = new System.Drawing.Point(32, 24);
-            this.labelOriPPT.Name = "labelOriPPT";
-            this.labelOriPPT.Size = new System.Drawing.Size(77, 12);
-            this.labelOriPPT.TabIndex = 1;
-            this.labelOriPPT.Text = "初始Word文件";
+            this.labelOriWord.AutoSize = true;
+            this.labelOriWord.Location = new System.Drawing.Point(32, 24);
+            this.labelOriWord.Name = "labelOriWord";
+            this.labelOriWord.Size = new System.Drawing.Size(77, 12);
+            this.labelOriWord.TabIndex = 1;
+            this.labelOriWord.Text = "初始Word文件";
             // 
             // btnOriSel
             // 
@@ -123,14 +123,14 @@
             this.btnOriSel.Text = "浏览...";
             this.btnOriSel.UseVisualStyleBackColor = true;
             // 
-            // labelAnsPPT
+            // labelAnsWord
             // 
-            this.labelAnsPPT.AutoSize = true;
-            this.labelAnsPPT.Location = new System.Drawing.Point(32, 51);
-            this.labelAnsPPT.Name = "labelAnsPPT";
-            this.labelAnsPPT.Size = new System.Drawing.Size(77, 12);
-            this.labelAnsPPT.TabIndex = 2;
-            this.labelAnsPPT.Text = "标答Word文件";
+            this.labelAnsWord.AutoSize = true;
+            this.labelAnsWord.Location = new System.Drawing.Point(32, 51);
+            this.labelAnsWord.Name = "labelAnsWord";
+            this.labelAnsWord.Size = new System.Drawing.Size(77, 12);
+            this.labelAnsWord.TabIndex = 2;
+            this.labelAnsWord.Text = "标答Word文件";
             // 
             // textAnsWord
             // 
@@ -181,9 +181,9 @@
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.TextBox textOriWord;
         private System.Windows.Forms.Button btnAnsSel;
-        private System.Windows.Forms.Label labelOriPPT;
+        private System.Windows.Forms.Label labelOriWord;
         private System.Windows.Forms.Button btnOriSel;
-        private System.Windows.Forms.Label labelAnsPPT;
+        private System.Windows.Forms.Label labelAnsWord;
         private System.Windows.Forms.TextBox textAnsWord;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
