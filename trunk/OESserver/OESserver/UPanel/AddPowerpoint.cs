@@ -15,6 +15,7 @@ namespace OES.UPanel
         int mode = 0;           //新增或修改 分别为0和1
         FileInfo fori, fans, fxml;
         string tmpDir;
+        int PID;
 
         public AddPowerpoint()
         {
@@ -80,7 +81,7 @@ namespace OES.UPanel
         {
             fori = new FileInfo(textOriPPT.Text);
             fans = new FileInfo(textAnsPPT.Text);
-            string xml_path = fori.DirectoryName + "\\!Mask!" + fori.Name + ".xml";
+            string xml_path = fori.DirectoryName + "\\!Mask!" + fans.Name + ".xml";
             fxml = new FileInfo(xml_path);
             if (!fori.Exists) return -1;
             if (!fans.Exists) return -2;
@@ -129,7 +130,7 @@ namespace OES.UPanel
                     MessageBox.Show("考点xml文件不存在！");
                 else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    int PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.PowerPoint);
+                    PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.PowerPoint);
                     Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                     upload(PID);
                     //delTmpFile(PID);
@@ -146,6 +147,7 @@ namespace OES.UPanel
         void ClientEvt_FilesComplete()
         {
             MessageBox.Show("保存成功");
+            delTmpFile(PID);
             Net.ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
             ReLoad();
         }
