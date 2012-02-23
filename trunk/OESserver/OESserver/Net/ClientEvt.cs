@@ -300,7 +300,7 @@ namespace OES.Net
         }
         public void SavePowerPointT(int id, int tid)
         {
-            localPath.Add(InfoControl.config["PPTPath"] + "a" + id.ToString() + ".xml");
+            localPath.Add(InfoControl.config["PPTPath"] + "t" + id.ToString() + ".xml");
             remoteCom.Add("server$0$9$" + tid.ToString() + "$" + id.ToString());
              
         }
