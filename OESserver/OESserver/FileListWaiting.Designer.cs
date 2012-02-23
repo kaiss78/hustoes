@@ -1,4 +1,4 @@
-﻿namespace OESMonitor
+﻿namespace OES
 {
     partial class FileListWaiting
     {

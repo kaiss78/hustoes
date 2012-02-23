@@ -25,7 +25,60 @@ namespace OES.Net
             Client.ReceivedTxt+=new EventHandler(Client_ReceivedTxt);
             Client.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
             Client.Port.FileSendEnd += new EventHandler(Port_FileSendEnd);
+            Client.Port.RecieveFileRate += new ReturnVal(Port_RecieveFileRate);
+            Client.Port.SendFileRate += new ReturnVal(Port_SendFileRate);
+            Client.FileListCount += new FileListSize(Client_FileListCount);
+            Client.FileListRecieveStart += new Action(Client_FileListRecieveStart);
+            Client.FileListSendStart += new Action(Client_FileListSendStart);
         }
+
+        void Client_FileListSendStart()
+        {
+            while (!InfoControl.MainForm.IsHandleCreated) ;
+            InfoControl.MainForm.Invoke(new Action(() =>
+            {
+                InfoControl.MainForm.Enabled = false;
+                FileListWaiting.Instance.Show();
+            }));
+        }
+
+        void Client_FileListRecieveStart()
+        {
+            while (!InfoControl.MainForm.IsHandleCreated) ;
+            InfoControl.MainForm.Invoke(new Action(() =>
+            {
+                InfoControl.MainForm.Enabled = false;
+                FileListWaiting.Instance.Show();
+            }));
+        }
+
+        void Client_FileListCount(int count)
+        {
+            while (!InfoControl.MainForm.IsHandleCreated) ;
+            InfoControl.MainForm.Invoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setText(count);
+            }));
+        }
+
+        void Port_SendFileRate(double rate)
+        {
+            while (!InfoControl.MainForm.IsHandleCreated) ;
+            InfoControl.MainForm.Invoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setProcessBar((int)rate * 1000);
+            }));
+        }
+
+        void Port_RecieveFileRate(double rate)
+        {
+            while (!InfoControl.MainForm.IsHandleCreated) ;
+            InfoControl.MainForm.Invoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setProcessBar((int)rate * 1000);
+            }));
+        }
+
         void Port_FileSendEnd(object sender, EventArgs e)
         {
             
@@ -35,10 +88,6 @@ namespace OES.Net
         {
             
         }
-
-        
-
-        
 
         static void Client_ReceivedTxt(object sender, EventArgs e)
         {
@@ -91,6 +140,12 @@ namespace OES.Net
             remoteCom.Clear();
             localPath.Clear();
             isOver = true;
+            while (!InfoControl.MainForm.IsHandleCreated) ;
+            InfoControl.MainForm.Invoke(new Action(() =>
+            {
+                InfoControl.MainForm.Enabled = true;
+                FileListWaiting.Instance.Close();
+            }));
         }
 
         public void LoadPaper(int id, int tid)
@@ -240,6 +295,12 @@ namespace OES.Net
             remoteCom.Clear();
             localPath.Clear();
             isOver = true;
+            while (!InfoControl.MainForm.IsHandleCreated) ;
+            InfoControl.MainForm.Invoke(new Action(() =>
+            {
+                InfoControl.MainForm.Enabled = true;
+                FileListWaiting.Instance.Close();
+            }));
         }
 
         public void SavePaper(int id, int tid)
