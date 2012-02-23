@@ -60,20 +60,20 @@ namespace OES.UPanel
                 case PLanguage.C:
                     InfoControl.ClientObj.LoadCFunctionA(pid, Convert.ToInt32(InfoControl.User.Id));
                     InfoControl.ClientObj.LoadCFunctionP(pid, Convert.ToInt32(InfoControl.User.Id));
-                    tbProblemFile.Text = InfoControl.config["CompletionPath"] + "p" + pid.ToString() + ".c";
-                    tbAnswerFile.Text = InfoControl.config["CompletionPath"] + "a" + pid.ToString() + ".c";
+                    tbProblemFile.Text = InfoControl.config["FunctionPath"] + "p" + pid.ToString() + ".c";
+                    tbAnswerFile.Text = InfoControl.config["FunctionPath"] + "a" + pid.ToString() + ".c";
                     break;
                 case PLanguage.CPP:
                     InfoControl.ClientObj.LoadCppFunctionA(pid, Convert.ToInt32(InfoControl.User.Id));
                     InfoControl.ClientObj.LoadCppFunctionP(pid, Convert.ToInt32(InfoControl.User.Id));
-                    tbProblemFile.Text = InfoControl.config["CompletionPath"] + "p" + pid.ToString() + ".cpp";
-                    tbAnswerFile.Text = InfoControl.config["CompletionPath"] + "a" + pid.ToString() + ".cpp";
+                    tbProblemFile.Text = InfoControl.config["FunctionPath"] + "p" + pid.ToString() + ".cpp";
+                    tbAnswerFile.Text = InfoControl.config["FunctionPath"] + "a" + pid.ToString() + ".cpp";
                     break;
                 case PLanguage.VB:
                     InfoControl.ClientObj.LoadVbFunctionA(pid, Convert.ToInt32(InfoControl.User.Id));
                     InfoControl.ClientObj.LoadVbFunctionP(pid, Convert.ToInt32(InfoControl.User.Id));
-                    tbProblemFile.Text = InfoControl.config["CompletionPath"] + "p" + pid.ToString() + ".vb";
-                    tbAnswerFile.Text = InfoControl.config["CompletionPath"] + "a" + pid.ToString() + ".vb";
+                    tbProblemFile.Text = InfoControl.config["FunctionPath"] + "p" + pid.ToString() + ".vb";
+                    tbAnswerFile.Text = InfoControl.config["FunctionPath"] + "a" + pid.ToString() + ".vb";
                     break;
             }
             InfoControl.ClientObj.ReceiveFiles();
