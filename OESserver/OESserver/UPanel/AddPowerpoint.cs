@@ -105,6 +105,14 @@ namespace OES.UPanel
             while (!OES.Net.ClientEvt.isOver) ;
         }
 
+        private void delTmpFile(int pid)    //删除临时文件
+        {
+            fori = new FileInfo(tmpDir + "p" + pid.ToString() + ".ppt");
+            fans = new FileInfo(tmpDir + "a" + pid.ToString() + ".ppt");
+            fxml = new FileInfo(tmpDir + "t" + pid.ToString() + ".xml");
+            fori.Delete(); fans.Delete(); fxml.Delete();
+        }
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             int unit = (this.Parent.Parent as AddQuetionPanel).Capter;
@@ -128,6 +136,7 @@ namespace OES.UPanel
                 {
                     int PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.PowerPoint);
                     upload(PID);
+                    delTmpFile(PID);
                     MessageBox.Show("保存成功");
                     ReLoad();
                 }
