@@ -20,6 +20,7 @@ namespace OES.UPanel
         private frmAddProData frmaddProData;
         private PLanguage language;
         private bool addnew;
+        private int PID;
 
         public ProFunction()
         {
@@ -49,6 +50,7 @@ namespace OES.UPanel
         {
             addnew = false;
             ReLoad();
+            PID = pid;
             newProblem = InfoControl.getProProblem(pid);
             rtbPContent.Text = newProblem.problem;
             foreach (ProgramAnswer ans in newProblem.ansList)
@@ -81,48 +83,68 @@ namespace OES.UPanel
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
+        {            
+            int Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
+            int PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             if (addnew)
             {
-                int Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
-                int PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
-                int PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProgramPType.Function, language, Convert.ToInt32(Unit), Convert.ToInt32(PLevel));
-                if (PID > 0)
-                {
-                    foreach (ProgramAnswer ans in AnsList)
-                    {
-                        InfoControl.OesData.AddProgramAnswer(PID, ans.SeqNum, ans.Input, ans.Output);
-                    }
-                    switch (language)
-                    {
-                        case PLanguage.C:
-                            File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".c");
-                            File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".c");
-                            InfoControl.ClientObj.SaveCFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));
-                            InfoControl.ClientObj.SaveCFunctionP(PID, Convert.ToInt32(InfoControl.User.Id));
-                            break;
-                        case PLanguage.CPP:
-                            File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".cpp");
-                            File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".cpp");
-                            InfoControl.ClientObj.SaveCppFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));
-                            InfoControl.ClientObj.SaveCppFunctionP(PID, Convert.ToInt32(InfoControl.User.Id));
-                            break;
-                        case PLanguage.VB:
-                            File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".vb");
-                            File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".vb");
-                            InfoControl.ClientObj.SaveVbFunctionP(PID, Convert.ToInt32(InfoControl.User.Id));
-                            InfoControl.ClientObj.SaveVbFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));
-                            break;
-                    }
-                    InfoControl.ClientObj.SendFiles();
-                    while (!ClientEvt.isOver) ;
-                    MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
+               PID = InfoControl.OesData.AddProgram(rtbPContent.Text, ProgramPType.Function, language, Unit, PLevel);
             }
             else
             {
+                InfoControl.OesData.DeleteProgramAnswer(PID);
+                InfoControl.OesData.UpdateProgram(PID, ProgramPType.Function, language, Unit, PLevel);
+                switch (language)
+                {
+                    case PLanguage.C:
+                        InfoControl.ClientObj.DelCFunctionA(PID, InfoControl.User.Id);
+                        InfoControl.ClientObj.DelCFunctionP(PID, InfoControl.User.Id);
+                        break;
+                    case PLanguage.CPP:
+                        File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".cpp");
+                        File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".cpp");
+                        InfoControl.ClientObj.DelCppFunctionA(PID, InfoControl.User.Id);
+                        InfoControl.ClientObj.DelCppFunctionP(PID, InfoControl.User.Id);
+                        break;
+                    case PLanguage.VB:
+                        File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".vb");
+                        File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".vb");
+                        InfoControl.ClientObj.DelVbFunctionP(PID, InfoControl.User.Id);
+                        InfoControl.ClientObj.DelVbFunctionA(PID, InfoControl.User.Id);
+                        break;
+                }
 
+            }
+            if (PID > 0)
+            {
+                foreach (ProgramAnswer ans in AnsList)
+                {
+                    InfoControl.OesData.AddProgramAnswer(PID, ans.SeqNum, ans.Input, ans.Output);
+                }
+                switch (language)
+                {
+                    case PLanguage.C:
+                        File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".c");
+                        File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".c");
+                        InfoControl.ClientObj.SaveCFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));
+                        InfoControl.ClientObj.SaveCFunctionP(PID, Convert.ToInt32(InfoControl.User.Id));
+                        break;
+                    case PLanguage.CPP:
+                        File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".cpp");
+                        File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".cpp");
+                        InfoControl.ClientObj.SaveCppFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));
+                        InfoControl.ClientObj.SaveCppFunctionP(PID, Convert.ToInt32(InfoControl.User.Id));
+                        break;
+                    case PLanguage.VB:
+                        File.Copy(tbProblemFile.Text, InfoControl.config["FunctionPath"] + "p" + PID.ToString() + ".vb");
+                        File.Copy(tbAnswerFile.Text, InfoControl.config["FunctionPath"] + "a" + PID.ToString() + ".vb");
+                        InfoControl.ClientObj.SaveVbFunctionP(PID, Convert.ToInt32(InfoControl.User.Id));
+                        InfoControl.ClientObj.SaveVbFunctionA(PID, Convert.ToInt32(InfoControl.User.Id));
+                        break;
+                }
+                InfoControl.ClientObj.SendFiles();
+                while (!ClientEvt.isOver) ;
+                MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -192,6 +214,14 @@ namespace OES.UPanel
             {
                 AnsList.Remove(AnsList[dgvAnsList.CurrentRow.Index]);
                 dtAnsList.Rows.Remove(dtAnsList.Rows[dgvAnsList.CurrentRow.Index]);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确定返回么？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                PanelControl.ChangPanel(0);
             }
         }
     }
