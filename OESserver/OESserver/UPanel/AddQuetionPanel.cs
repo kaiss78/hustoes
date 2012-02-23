@@ -179,6 +179,7 @@ namespace OES
         public override void  ReLoad(int PID, int PType)
         {
             this.Visible = true;
+            this.QueStyle = PType + 1;
             PanelList[PType].ReLoad(PID);
             this.cbQueStyle.Enabled = false;
         }
