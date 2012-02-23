@@ -39,27 +39,25 @@ namespace OES.Net
         void Client_FileListSendStart()
         {
             while (!InfoControl.MainForm.IsHandleCreated) ;
-            InfoControl.MainForm.Invoke(new Action(() =>
+            InfoControl.MainForm.BeginInvoke(new Action(() =>
             {
-                InfoControl.MainForm.Enabled = false;
-                FileListWaiting.Instance.Show();
+                FileListWaiting.Instance.ShowDialog();
             }));
         }
 
         void Client_FileListRecieveStart()
         {
             while (!InfoControl.MainForm.IsHandleCreated) ;
-            InfoControl.MainForm.Invoke(new Action(() =>
+            InfoControl.MainForm.BeginInvoke(new Action(() =>
             {
-                InfoControl.MainForm.Enabled = false;
-                FileListWaiting.Instance.Show();
+                FileListWaiting.Instance.ShowDialog();
             }));
         }
 
         void Client_FileListCount(int count)
         {
             while (!InfoControl.MainForm.IsHandleCreated) ;
-            InfoControl.MainForm.Invoke(new Action(() =>
+            InfoControl.MainForm.BeginInvoke(new Action(() =>
             {
                 FileListWaiting.Instance.setText(count);
             }));
@@ -68,7 +66,7 @@ namespace OES.Net
         void Port_SendFileRate(double rate)
         {
             while (!InfoControl.MainForm.IsHandleCreated) ;
-            InfoControl.MainForm.Invoke(new Action(() =>
+            InfoControl.MainForm.BeginInvoke(new Action(() =>
             {
                 FileListWaiting.Instance.setProcessBar((int)rate * 1000);
             }));
@@ -77,7 +75,7 @@ namespace OES.Net
         void Port_RecieveFileRate(double rate)
         {
             while (!InfoControl.MainForm.IsHandleCreated) ;
-            InfoControl.MainForm.Invoke(new Action(() =>
+            InfoControl.MainForm.BeginInvoke(new Action(() =>
             {
                 FileListWaiting.Instance.setProcessBar((int)rate * 1000);
             }));
