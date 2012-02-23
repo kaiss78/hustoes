@@ -68,6 +68,7 @@
             this.btnCancel.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Values.Text = "取消";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
