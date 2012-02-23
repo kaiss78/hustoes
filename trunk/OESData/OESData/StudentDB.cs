@@ -102,10 +102,10 @@ namespace OES
         {
             try
             {
-                SqlTransaction tx = sqlcon.BeginTransaction();
+                //SqlTransaction tx = sqlcon.BeginTransaction();
                 for (int i = 0; i < list.Count; i++)
                     DeleteClass(list[i]);
-                tx.Commit();
+                //tx.Commit();
             }
             catch (Exception e) { throw e; }
         }
@@ -383,7 +383,7 @@ namespace OES
         //-- Description:   批量导入学生
         public void AddManyStudents(string dept, string className, List<string[]> value)
         {
-            SqlTransaction tx = sqlcon.BeginTransaction();
+            //SqlTransaction tx = sqlcon.BeginTransaction();
             int classId = AddClassByImport(dept, className);
             for (int i = 0; i < value.Count; i++)
             {
@@ -392,7 +392,7 @@ namespace OES
                 string pw = value[i][2].ToString();
                 AddStudentByImport(id, name, classId, pw);
             }
-            tx.Commit();
+            //tx.Commit();
         }
 
         //-- Description:   删除学生
@@ -413,10 +413,10 @@ namespace OES
         {
             try
             {
-                SqlTransaction tx = sqlcon.BeginTransaction();
+                //SqlTransaction tx = sqlcon.BeginTransaction();
                 for (int i = 0; i < list.Count; i++)
                     DeleteStudent(list[i]);
-                tx.Commit();
+                //tx.Commit();
             }
             catch (Exception e) { throw e; }
         }
