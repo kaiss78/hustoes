@@ -238,7 +238,7 @@ namespace OESScore
                 if (File.Exists(fileName))
                 {
                     dScore = 0;
-                    proAns = ScoreControl.correctPC(fileName);
+                    proAns = ProgramScore.correctPC(fileName);
                     count = 0;
                     for (int j = 0; j < proAns.Count; j++)
                     {
@@ -264,14 +264,14 @@ namespace OESScore
                 if (File.Exists(fileName))
                 {
 
-                    proAns = ScoreControl.correctPC(fileName);
+                    proAns = ProgramScore.correctPC(fileName);
                     count = 0;
                     dScore = 0;
                     for (int j = 0; j < proAns.Count; j++)
                     {
                         foreach (ProgramAnswer pa in ScoreControl.staAns.PMList[i].ansList)
                         {
-                            if (( ScoreControl.Clean(pa.Output) == proAns[j]) && (pa.SeqNum == j - 1))
+                            if ((ProgramScore.Clean(pa.Output) == proAns[j]) && (pa.SeqNum == j - 1))
                             {
                                 count++;
                                 break;
@@ -295,7 +295,7 @@ namespace OESScore
                     foreach (ProgramAnswer pa in ScoreControl.staAns.PFList[i].ansList)
                     {
                         //MessageBox.Show(ScoreControl.correctPF(fileName, pa.Input) + "||" + ScoreControl.Clean(pa.Output));
-                        if (ScoreControl.correctPF(fileName,pa.Input)==ScoreControl.Clean(pa.Output))
+                        if (ProgramScore.correctPF(fileName, pa.Input) == ProgramScore.Clean(pa.Output))
                         {
                             count++;
                         }
