@@ -57,6 +57,7 @@
             this.ClientSize = new System.Drawing.Size(586, 480);
             this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.testPowerpoint1);
+            this.MaximizeBox = false;
             this.Name = "PptForm";
             this.Text = "添加考点";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PptForm_FormClosing);
