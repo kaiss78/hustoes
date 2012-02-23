@@ -52,6 +52,7 @@ namespace OES
 
             panelList[8] = mf.addQuestionPanel;
             mf.addQuestionPanel.PanelID = 8;
+            
 
 
             panelList[9] = mf.bulkImport;
@@ -106,6 +107,8 @@ namespace OES
         {
             HideAllPanel();
             panelList[8].ReLoad(PID, PType);
+           
+            
         }
 
         static public void ReturnToPaper()

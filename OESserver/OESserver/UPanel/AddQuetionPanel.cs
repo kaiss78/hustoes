@@ -179,6 +179,7 @@ namespace OES
         {
             this.Visible = true;
             PanelList[PType].ReLoad(PID);
+            this.cbQueStyle.Enabled = false;
         }
 
         public void ChangeCb(int x)
