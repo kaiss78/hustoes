@@ -202,7 +202,7 @@ namespace ClientNet
                     byteRead = data_ns.Read(buffer, 0, 1024);
                     if (RecieveFileRate != null)
                     {
-                        RecieveFileRate(1.0 - total / fileLength);
+                        RecieveFileRate(1.0 - (double)total / fileLength);
                     }
                 }
 
@@ -264,7 +264,7 @@ namespace ClientNet
                     totle += byteRead;
                     if (SendFileRate != null)
                     {
-                        SendFileRate(totle / fileLength);
+                        SendFileRate((double)totle / fileLength);
                     }
                 }
 
