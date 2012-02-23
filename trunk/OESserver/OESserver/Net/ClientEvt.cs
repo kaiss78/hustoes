@@ -68,7 +68,7 @@ namespace OES.Net
             while (!InfoControl.MainForm.IsHandleCreated) ;
             InfoControl.MainForm.BeginInvoke(new Action(() =>
             {
-                FileListWaiting.Instance.setProcessBar((int)rate * 1000);
+                FileListWaiting.Instance.setProcessBar((int)(rate * 1000));
             }));
         }
 
@@ -77,7 +77,7 @@ namespace OES.Net
             while (!InfoControl.MainForm.IsHandleCreated) ;
             InfoControl.MainForm.BeginInvoke(new Action(() =>
             {
-                FileListWaiting.Instance.setProcessBar((int)rate * 1000);
+                FileListWaiting.Instance.setProcessBar((int)(rate * 1000));
             }));
         }
 
@@ -142,6 +142,7 @@ namespace OES.Net
             remoteCom.Clear();
             localPath.Clear();
             isOver = true;
+            Client.FileListRecieveEnd -= Client_FileListRecieveEnd;
             while (!InfoControl.MainForm.IsHandleCreated) ;
             InfoControl.MainForm.Invoke(new Action(() =>
             {
@@ -305,6 +306,7 @@ namespace OES.Net
             remoteCom.Clear();
             localPath.Clear();
             isOver = true;
+            Client.FileListSendEnd -= Client_FileListSendEnd;
             while (!InfoControl.MainForm.IsHandleCreated) ;
             InfoControl.MainForm.Invoke(new Action(() =>
             {
