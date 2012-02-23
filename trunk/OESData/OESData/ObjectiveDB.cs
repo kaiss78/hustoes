@@ -364,12 +364,12 @@ namespace OES
             dp.Add(CreateParam("@PLevel", SqlDbType.Int, 0, PLevel, ParameterDirection.Input));
             try
             {
-                SqlTransaction tx = sqlcon.BeginTransaction();
+                //SqlTransaction tx = sqlcon.BeginTransaction();
                 RunProc("UpdateCompletion", dp);
                 DeleteCompletionAnswerByPID(PID);
                 foreach (string ans in Answer)
                     AddCompletionAnswer(PID, ans);
-                tx.Commit();
+                //tx.Commit();
             }
             catch (SqlException ex)
             {
