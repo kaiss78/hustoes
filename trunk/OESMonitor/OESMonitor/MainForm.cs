@@ -146,6 +146,7 @@ namespace OESMonitor
             supportServer.Client.FileListCount += new FileListSize(Client_FileListCount);
             supportServer.Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
             supportServer.Client.DisConnectError += new ErrorEventHandler(Client_DisConnectError);
+            supportServer.Client.FileError += new ErrorEventHandler(Client_FileError);
             supportServer.Client.InitializeClient();
             supportServer.Client.Port.RecieveFileRate += new ClientNet.ReturnVal(Port_RecieveFileRate);
             #endregion
@@ -339,6 +340,12 @@ namespace OESMonitor
             this.BeginInvoke(new MethodInvoker(() =>
             {
                 netState1.State = 0;
+                if (FileListWaiting.Instance != null && !FileListWaiting.Instance.IsDisposed)
+                {
+                    FileListWaiting.Instance.Close();
+                    this.Enabled = true;
+                    MessageBox.Show("试卷下载出错！");
+                }
             }));
         }
 
@@ -361,6 +368,20 @@ namespace OESMonitor
             {
                 netState1.State = 0;
             }
+        }
+
+        void Client_FileError(object sender, ErrorEventArgs e)
+        {
+            while (!this.IsHandleCreated) ;
+            this.BeginInvoke(new MethodInvoker(() =>
+            {
+                if (FileListWaiting.Instance != null && !FileListWaiting.Instance.IsDisposed)
+                {
+                    FileListWaiting.Instance.Close();
+                    this.Enabled = true;
+                    MessageBox.Show("试卷下载出错！");
+                }
+            }));
         }
         #endregion
         #region 添加一个电脑
