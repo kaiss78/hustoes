@@ -21,6 +21,11 @@ namespace OES.OfficeFrm
             testExcel1.LoadExcel(excel_path, xml_path);
         }
 
+        private void ExcelFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            testExcel1.CloseExcel();
+        }
+
         private void btnComplete_Click(object sender, EventArgs e)
         {
             this.Close();
