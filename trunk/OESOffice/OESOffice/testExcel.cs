@@ -18,7 +18,6 @@ namespace OESOffice
             InitializeComponent();
         }
 
-
         Excel.Application excel;
         Excel.Workbook xls;
         Excel.Worksheet ws;
@@ -26,13 +25,14 @@ namespace OESOffice
         Excel.ChartObjects chobjs;
         Excel.ChartObject chobj;
         Excel.Range range;
+        string xmlPath, filePath, fileName;
         OfficeXML oxml; 
         object nullobj = System.Reflection.Missing.Value;
         int[] sheetCate;
         int[] worksheetIndex;           //工作表在整个工作簿的索引
         int[] chartIndex;               //图表在整个工作簿的索引
 
-        void CloseExcel()
+        public void CloseExcel()
         {
             try
             { 
@@ -47,10 +47,17 @@ namespace OESOffice
             { }
         }
 
-        private void testExcel_Load(object sender, EventArgs e)
+        public void LoadExcel(string excel_path, string xml_path)
+        {
+            filePath = excel_path;
+            xmlPath = xml_path;
+            openExcel(filePath, xmlPath);
+        }
+
+        private void openExcel(string excel_path, string xml_path)
         {
             MessageBox.Show("");
-            string file = @"D:\Test\Test.xls";
+            string file = excel_path;
             excel = new Excel.Application();
             xls = excel.Workbooks.Open(file, nullobj, nullobj, 
                 nullobj, nullobj, nullobj, nullobj, nullobj, 
@@ -94,7 +101,7 @@ namespace OESOffice
             radioCell.Checked = true;
             radioSingleChart.Checked = true;
 
-            oxml = new OfficeXML("test.xml");
+            oxml = new OfficeXML(xml_path);
         }
 
         private List<string> Test(Excel.SeriesCollection sc)
