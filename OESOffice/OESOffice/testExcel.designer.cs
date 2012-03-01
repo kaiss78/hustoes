@@ -592,6 +592,7 @@
             this.buttonGraph.TabIndex = 32;
             this.buttonGraph.Text = "添加图表考点";
             this.buttonGraph.UseVisualStyleBackColor = true;
+            this.buttonGraph.Click += new System.EventHandler(this.buttonGraph_Click);
             // 
             // groupBox1
             // 
