@@ -480,6 +480,7 @@
             this.buttonOK.TabIndex = 25;
             this.buttonOK.Text = "添加文字考点";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // tabPageGraph
             // 

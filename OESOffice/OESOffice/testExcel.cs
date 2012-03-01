@@ -56,7 +56,6 @@ namespace OESOffice
 
         private void openExcel(string excel_path, string xml_path)
         {
-            MessageBox.Show("");
             string file = excel_path;
             excel = new Excel.Application();
             xls = excel.Workbooks.Open(file, nullobj, nullobj, 
