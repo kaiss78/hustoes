@@ -31,7 +31,7 @@ namespace OES.UPanel
         virtual public void ReLoad(Paper x)
         {
         }
-        virtual public void ReLoad(int PID, int PType)
+        virtual public void ReLoad(int PID, int PType,int course,string chapter,int level)
         {
         }
     }

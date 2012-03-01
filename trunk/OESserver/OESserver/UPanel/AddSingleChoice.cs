@@ -94,10 +94,9 @@ namespace OES
             ProID = x;
             List<Choice> Choice = new List<Choice>();
             Choice=InfoControl.OesData.FindChoiceByPID(x);
-            (this.Parent.Parent as AddQuetionPanel).GetCbCourse = Choice[0].unit.course.CourseId;
-            (this.Parent.Parent as AddQuetionPanel).Capter = Choice[0].unit.UnitId;
-            (this.Parent.Parent as AddQuetionPanel).Difficulity = Choice[0].Plevel;
-            (this.Parent.Parent as AddQuetionPanel).QueStyle = 1;
+            //(this.Parent.Parent as AddQuetionPanel).GetCbCourse = Choice[0].unit.course.CourseId;
+            //(this.Parent.Parent as AddQuetionPanel).Capter = Choice[0].unit.UnitId;
+            //(this.Parent.Parent as AddQuetionPanel).Difficulity = Choice[0].Plevel;
             
             this.Content.Text=Choice[0].problem;
             Option_A.Text = Choice[0].optionA;
