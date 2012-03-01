@@ -332,7 +332,7 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.ProblemDGV);
             this.Name = "QuesBankForm";
-            this.Load += new System.EventHandler(this.QuesBankForm_Load);
+      
             ((System.ComponentModel.ISupportInitialize)(this.ProblemDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

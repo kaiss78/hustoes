@@ -103,10 +103,10 @@ namespace OES
         }
 
 
-        static public void QueUpdate(int PID,int PType)
+        static public void QueUpdate(int PID,int PType,int Course,String Chapter,int level)
         {
             HideAllPanel();
-            panelList[8].ReLoad(PID, PType);
+            panelList[8].ReLoad(PID, PType,Course,Chapter,level);
            
             
         }

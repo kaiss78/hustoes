@@ -25,7 +25,7 @@ namespace OES
         {
             int capter = (this.Parent.Parent as AddQuetionPanel).Capter;
             int diffcuty = (this.Parent.Parent as AddQuetionPanel).Difficulity;
-            //String teststyle = (this.Parent.Parent as AddQuetionPanel).Teststyle;
+          
             if (Content.Text==""  ||(True.Checked==false && Flase.Checked==false))
             {
                 MessageBox.Show("请完成试题信息");
@@ -53,7 +53,7 @@ namespace OES
                     MessageBox.Show("保存成功");
                     PanelControl.ChangPanel(0);
                 }
-                    this.ReLoad();
+                    this.ReLoad();//重置界面
             }
         }
 
@@ -82,13 +82,9 @@ namespace OES
             proId = x;
             List<Judgment> judge = new List<Judgment>();
             judge = InfoControl.OesData.FindJudgmentByPID(proId);
-            (this.Parent.Parent as AddQuetionPanel).GetCbCourse = judge[0].unit.course.CourseId;
-            (this.Parent.Parent as AddQuetionPanel).Capter = judge[0].unit.UnitId;
-            (this.Parent.Parent as AddQuetionPanel).Difficulity = judge[0].Plevel;
-            //(this.Parent.Parent as AddQuetionPanel).QueStyle = 3;
+           
 
-
-            flag = 1;
+            flag = 1;//将标志位变为1 进入 更改/查询 状态
 
             this.Content.Text = judge[0].problem;
             if (judge[0].ans == "Y")
