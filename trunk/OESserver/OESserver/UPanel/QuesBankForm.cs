@@ -26,7 +26,6 @@ namespace OES.UPanel
         public int pageNum = 0;
         public int theRowIndex;
         public int theType;
-       
 
         public void InitCombText()
         {
@@ -40,7 +39,6 @@ namespace OES.UPanel
 
             this.Textcombo.DisplayMember = "value";
             this.Textcombo.ValueMember = "key";
-            
         }
         
         public void InitCombUnit(int courseId)
@@ -139,67 +137,139 @@ namespace OES.UPanel
                     
                 }  break;
 
-                case 3: {
-                    tableName = "Program";
+                case 3:
+                    {
+                        tableName = "Office";
+                        List<Office> wordList = InfoControl.OesData.FindAllOffice(pointwords, unit, course, difficulty, Office.OfficeType.Word, pageIndex, 20);
+                        for (int i = 0; i < wordList.Count; i++)
+                            problemList.Add(wordList[i]);
 
-                    List<ProgramProblem> proComList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Completion, PLanguage.Null, unit, course, difficulty, pageIndex, 20);
-                    for (int i = 0; i < proComList.Count; i++)
-                        problemList.Add(proComList[i]);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 0, -1);
+
+                    } break;
+
+                case 4:
+                    {
+                        tableName = "Office";
+                        List<Office> excelList = InfoControl.OesData.FindAllOffice(pointwords, unit, course, difficulty, Office.OfficeType.Excel, pageIndex, 20);
+                        for (int i = 0; i < excelList.Count; i++)
+                            problemList.Add(excelList[i]);
+
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 1, -1);
+
+                    } break;
+
+                case 5:
+                    {
+                        tableName = "Office";
+                        List<Office> powerList = InfoControl.OesData.FindAllOffice(pointwords, unit, course, difficulty, Office.OfficeType.PowerPoint, pageIndex, 20);
+                        for (int i = 0; i < powerList.Count; i++)
+                            problemList.Add(powerList[i]);
+
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 2, -1);
+
+                    } break;
+
+                case 6: {
+                    tableName = "Program";
+                    List<ProgramProblem> proCComList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Completion, PLanguage.C, unit, course, difficulty, pageIndex, 20);
+                    for (int i = 0; i < proCComList.Count; i++)
+                        problemList.Add(proCComList[i]);
 
 
                     quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit,course, difficulty, 0, -1);
 
                 } break;
 
-                case 4: {
+                case 7: {
                     tableName = "Program";
-                    List<ProgramProblem> proModList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Modify, PLanguage.Null, unit, course, difficulty, pageIndex, 20);
-                    for (int i = 0; i < proModList.Count; i++)
-                        problemList.Add(proModList[i]);
+                    List<ProgramProblem> proCModList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Modify, PLanguage.C, unit, course, difficulty, pageIndex, 20);
+                    for (int i = 0; i < proCModList.Count; i++)
+                        problemList.Add(proCModList[i]);
 
                     quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,course,difficulty,pageIndex,-1);
 
                 } break;
 
-                case 5: {
+                case 8: {
                     tableName = "Program";
-                    List<ProgramProblem> proFuncList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Function, PLanguage.Null, unit, course, difficulty, pageIndex, 20);
-                    for (int i = 0; i < proFuncList.Count; i++)
-                        problemList.Add(proFuncList[i]);
+                    List<ProgramProblem> proCFuncList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Function, PLanguage.C, unit, course, difficulty, pageIndex, 20);
+                    for (int i = 0; i < proCFuncList.Count; i++)
+                        problemList.Add(proCFuncList[i]);
 
                     quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit,course, difficulty, 2, -1);
 
                 } break;
 
-                case 6: {
-                    tableName = "Office";
-                    List<Office> wordList = InfoControl.OesData.FindAllOffice(pointwords, unit, course, difficulty, Office.OfficeType.Word, pageIndex, 20);
-                    for (int i = 0; i < wordList.Count; i++)
-                        problemList.Add(wordList[i]);
+                case 9:
+                    {
+                        tableName = "Program";
+                        List<ProgramProblem> proCPPComList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Completion, PLanguage.CPP, unit, course, difficulty, pageIndex, 20);
+                        for (int i = 0; i < proCPPComList.Count; i++)
+                            problemList.Add(proCPPComList[i]);
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,course,difficulty,0,-1);
 
-                } break;
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 0, -1);
 
-                case 7:{
-                    tableName = "Office";
-                    List<Office> excelList = InfoControl.OesData.FindAllOffice(pointwords, unit, course, difficulty, Office.OfficeType.Excel, pageIndex, 20);
-                    for (int i = 0; i < excelList.Count; i++)
-                        problemList.Add(excelList[i]);
+                    } break;
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,course,difficulty,1,-1);
+                case 10:
+                    {
+                        tableName = "Program";
+                        List<ProgramProblem> proCPPModList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Modify, PLanguage.CPP, unit, course, difficulty, pageIndex, 20);
+                        for (int i = 0; i < proCPPModList.Count; i++)
+                            problemList.Add(proCPPModList[i]);
 
-                } break;
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, pageIndex, -1);
 
-                case 8:{
-                    tableName = "Office";
-                    List<Office> powerList = InfoControl.OesData.FindAllOffice(pointwords, unit, course, difficulty, Office.OfficeType.PowerPoint, pageIndex, 20);
-                    for (int i = 0; i < powerList.Count; i++)
-                        problemList.Add(powerList[i]);
+                    } break;
 
-                    quesNum = InfoControl.OesData.FindItemsCount(tableName,pointwords,unit,course,difficulty,2,-1);
+                case 11:
+                    {
+                        tableName = "Program";
+                        List<ProgramProblem> proCPPFuncList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Function, PLanguage.CPP, unit, course, difficulty, pageIndex, 20);
+                        for (int i = 0; i < proCPPFuncList.Count; i++)
+                            problemList.Add(proCPPFuncList[i]);
 
-                } break;
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 2, -1);
+
+                    } break;
+
+                case 12:
+                    {
+                        tableName = "Program";
+                        List<ProgramProblem> proVBComList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Completion, PLanguage.VB, unit, course, difficulty, pageIndex, 20);
+                        for (int i = 0; i < proVBComList.Count; i++)
+                            problemList.Add(proVBComList[i]);
+
+
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 0, -1);
+
+                    } break;
+
+                case 13:
+                    {
+                        tableName = "Program";
+                        List<ProgramProblem> proVBModList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Modify, PLanguage.VB, unit, course, difficulty, pageIndex, 20);
+                        for (int i = 0; i < proVBModList.Count; i++)
+                            problemList.Add(proVBModList[i]);
+
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, pageIndex, -1);
+
+                    } break;
+
+                case 14:
+                    {
+                        tableName = "Program";
+                        List<ProgramProblem> proVBFuncList = InfoControl.OesData.FindAllProgram(pointwords, ProgramPType.Function, PLanguage.VB, unit, course, difficulty, pageIndex, 20);
+                        for (int i = 0; i < proVBFuncList.Count; i++)
+                            problemList.Add(proVBFuncList[i]);
+
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 2, -1);
+
+                    } break;
+
+
             }
 
 
@@ -240,6 +310,8 @@ namespace OES.UPanel
             this.Typecombo.SelectedIndex = 0;
             this.Diffcombo.SelectedIndex = 0;
             this.Textcombo.SelectedIndex = 0;
+
+
         }
 
     
@@ -259,35 +331,41 @@ namespace OES.UPanel
                 MessageBox.Show("请选择题目！");
             else
                 PanelControl.QueUpdate(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value), theType, this.Textcombo.SelectedIndex, Convert.ToString(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[3].Value), Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[4].Value));
-            //AddQuetionPanel.CheckQue(this.comboBox1.SelectedIndex,Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.SelectedRows].Cells[1].Value));
-
-            //MessageBox.Show(Convert.ToString(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value));
+            //this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[]
         }
-
+        
         private void DeleteBut_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.ProblemDGV.Rows.Count; i++)
+            if (MessageBox.Show("确定删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if(Convert.ToBoolean(this.ProblemDGV.Rows[i].Cells[0].Value)==true)
-                    switch (this.Typecombo.SelectedIndex)
-                    {
-                        case 0: InfoControl.OesData.DeleteChoice(Convert.ToInt32(ProblemDGV.Rows[i].Cells[1].Value)); break;
-                        case 1: InfoControl.OesData.DeleteCompletion(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
-                        case 2: InfoControl.OesData.DeleteJudgment(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
-                        case 3: 
-                        case 4: 
-                        case 5: InfoControl.OesData.DeleteProgram(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
-                        case 6:
-                        case 7:
-                        case 8: InfoControl.OesData.DeleteOffice(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
+                for (int i = 0; i < this.ProblemDGV.Rows.Count; i++)
+                {
+                    if (Convert.ToBoolean(this.ProblemDGV.Rows[i].Cells[0].Value) == true)
+                        switch (this.Typecombo.SelectedIndex)
+                        {
+                            case 0: InfoControl.OesData.DeleteChoice(Convert.ToInt32(ProblemDGV.Rows[i].Cells[1].Value)); break;
+                            case 1: InfoControl.OesData.DeleteCompletion(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
+                            case 2: InfoControl.OesData.DeleteJudgment(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
+                            case 3:
+                            case 4:
+                            case 5: InfoControl.OesData.DeleteOffice(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
+                            case 6:
+                            case 7:
+                            case 8:
+                            case 9:
+                            case 10:
+                            case 11:
+                            case 12:
+                            case 13:
+                            case 14: InfoControl.OesData.DeleteProgram(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
+                        }
 
-                    }
-               
+                }
+
+                InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex);
+                this.Pagecombo.Items.Clear();
+                InitCombPage(quesNum);
             }
-
-            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex);
-            this.Pagecombo.Items.Clear();
-            InitCombPage(quesNum);
         }
 
         private void ProblemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -307,7 +385,7 @@ namespace OES.UPanel
             InitList(this.Typecombo.SelectedIndex,Convert.ToInt32(aList.key),Convert.ToInt32(bList.key),this.Diffcombo.SelectedIndex,pointWords,1);
             this.Pagecombo.Items.Clear();
             InitCombPage(quesNum);
-
+            
         }
 
         private void Pagecombo_SelectedIndexChanged(object sender, EventArgs e)
@@ -342,8 +420,7 @@ namespace OES.UPanel
             InitCombUnit(Convert.ToInt32(bList.key));
         }
 
-       
-
+    
         
        
         
