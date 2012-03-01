@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,8 +50,10 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.Textcombo = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ProblemDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // ProblemDGV
@@ -91,7 +94,7 @@
             this.ProblemDGV.RowTemplate.Height = 23;
             this.ProblemDGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ProblemDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ProblemDGV.Size = new System.Drawing.Size(699, 486);
+            this.ProblemDGV.Size = new System.Drawing.Size(699, 483);
             this.ProblemDGV.TabIndex = 1;
             this.ProblemDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProblemDGV_CellClick);
             // 
@@ -132,12 +135,18 @@
             "选择题",
             "填空题",
             "判断题",
-            "编程填空题",
-            "编程改错题",
-            "编程综合题",
             "Word题",
             "Excel题",
-            "PowerPoint题"});
+            "PowerPoint题",
+            "C语言编程填空题",
+            "C语言编程改错题",
+            "C语言编程综合题",
+            "C++编程填空题",
+            "C++编程改错题",
+            "C++编程综合题",
+            "VB编程填空题",
+            "VB编程改错题",
+            "VB编程综合题"});
             this.Typecombo.Location = new System.Drawing.Point(432, 26);
             this.Typecombo.MaxDropDownItems = 20;
             this.Typecombo.Name = "Typecombo";
@@ -298,6 +307,10 @@
             this.Textcombo.TabIndex = 21;
             this.Textcombo.SelectedIndexChanged += new System.EventHandler(this.Textcombo_SelectedIndexChanged);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -332,8 +345,8 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.ProblemDGV);
             this.Name = "QuesBankForm";
-      
             ((System.ComponentModel.ISupportInitialize)(this.ProblemDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,6 +371,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.ComboBox Textcombo;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label5;
     }
 }
