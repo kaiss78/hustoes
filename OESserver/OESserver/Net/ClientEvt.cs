@@ -14,7 +14,8 @@ namespace OES.Net
 
         //文件操作完成事件，需要用时注册
         public static event Action FilesComplete;
-
+        //文件传输错误
+        public static event Action FileError;
         List<string> remoteCom=new List<string>() ;
         List<string> localPath=new List<string>();
         public static Boolean isOver=true;
@@ -34,6 +35,19 @@ namespace OES.Net
             Client.FileListCount += new FileListSize(Client_FileListCount);
             Client.FileListRecieveStart += new Action(Client_FileListRecieveStart);
             Client.FileListSendStart += new Action(Client_FileListSendStart);
+            Client.FileError += new ErrorEventHandler(Client_FileError);
+        }
+
+        void Client_FileError(object sender, ErrorEventArgs e)
+        {
+            while (!InfoControl.MainForm.IsHandleCreated) ;
+            InfoControl.MainForm.Invoke(new Action(() =>
+            {
+                InfoControl.MainForm.Enabled = true;
+                FileListWaiting.Instance.Close();
+            }));
+            if(FileError!=null)
+                FileError();
         }
 
         void Client_FileListSendStart()
