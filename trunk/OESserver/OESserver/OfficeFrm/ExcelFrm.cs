@@ -15,5 +15,15 @@ namespace OES.OfficeFrm
         {
             InitializeComponent();
         }
+
+        public void LoadExcel(string excel_path, string xml_path)
+        {
+            testExcel1.LoadExcel(excel_path, xml_path);
+        }
+
+        private void btnComplete_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
