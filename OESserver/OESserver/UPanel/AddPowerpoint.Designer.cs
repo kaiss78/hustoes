@@ -108,7 +108,7 @@
             this.groupInfo.Controls.Add(this.btnOriSel);
             this.groupInfo.Controls.Add(this.labelAnsPPT);
             this.groupInfo.Controls.Add(this.textAnsPPT);
-            this.groupInfo.Location = new System.Drawing.Point(12, 8);
+            this.groupInfo.Location = new System.Drawing.Point(12, 3);
             this.groupInfo.Name = "groupInfo";
             this.groupInfo.Size = new System.Drawing.Size(715, 472);
             this.groupInfo.TabIndex = 7;
