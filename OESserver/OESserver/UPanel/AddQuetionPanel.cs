@@ -22,6 +22,7 @@ namespace OES
         ProModify proModify = new ProModify();
         AddPowerpoint proPPT = new AddPowerpoint();
         AddWord proWord = new AddWord();
+        AddExcel proExcel = new AddExcel();
         ProFunction proFunction = new ProFunction();
         //用于存储每个控件的集合
         List<UserPanel> PanelList = new List<UserPanel>();
@@ -51,6 +52,7 @@ namespace OES
             plAddQuestion.Controls.Add(proFunction);
             plAddQuestion.Controls.Add(proPPT);
             plAddQuestion.Controls.Add(proWord);
+            plAddQuestion.Controls.Add(proExcel);
 
             PanelList = new List<UserPanel>();
             //把每个控件添加到PanelList中
@@ -62,6 +64,7 @@ namespace OES
             PanelList.Add(proFunction);
             PanelList.Add(proPPT);
             PanelList.Add(proWord);
+            PanelList.Add(proExcel);
 
             dtQeueType = new DataTable();
             //在dtQeueType数据表中添加两列，用于确定试题类型
@@ -75,6 +78,7 @@ namespace OES
             dtQeueType.Rows.Add(new object[2] { "程序综合题", 6 });
             dtQeueType.Rows.Add(new object[2] { "PPT操作题", 7 });
             dtQeueType.Rows.Add(new object[2] { "Word操作题", 8 });
+            dtQeueType.Rows.Add(new object[2] { "Excel操作题", 9 });
             cbQueStyle.DataSource = dtQeueType;
             //displayMember为显示的值
             cbQueStyle.DisplayMember = "Type";
@@ -95,11 +99,11 @@ namespace OES
             //难度数据表
             dtDiffcult.Columns.Add("diffcult", typeof(string));
             dtDiffcult.Columns.Add("value", typeof(int));
-            dtDiffcult.Rows.Add(new object[2]{"1",1 });
-            dtDiffcult.Rows.Add(new object[2] { "2", 2});
-            dtDiffcult.Rows.Add(new object[2] { "3",3 });
-            dtDiffcult.Rows.Add(new object[2] { "4",4 });
-            dtDiffcult.Rows.Add(new object[2] { "5", 5});
+            dtDiffcult.Rows.Add(new object[2] { "1", 1 });
+            dtDiffcult.Rows.Add(new object[2] { "2", 2 });
+            dtDiffcult.Rows.Add(new object[2] { "3", 3 });
+            dtDiffcult.Rows.Add(new object[2] { "4", 4 });
+            dtDiffcult.Rows.Add(new object[2] { "5", 5 });
             cbDifficultyValue.DataSource = dtDiffcult;
             cbDifficultyValue.DisplayMember = "diffcult";
             cbDifficultyValue.ValueMember = "value";
