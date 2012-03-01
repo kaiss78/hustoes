@@ -61,7 +61,7 @@ namespace OES.UPanel
         {
             if (File.Exists(textOriPPT.Text) && File.Exists(textAnsPPT.Text))
             {
-                OfficeFrm.PptForm pf = new OES.OfficeFrm.PptForm();
+                OfficeFrm.PptFrm pf = new OES.OfficeFrm.PptFrm();
                 FileInfo f = new FileInfo(textAnsPPT.Text);
                 string xml_path = f.DirectoryName + "\\!Mask!" + f.Name + ".xml";
                 buttonTestPoint.Text = "正在打开添加考点界面，请耐心等待...";
