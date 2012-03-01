@@ -247,10 +247,10 @@ namespace ServerNet
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                if (FileSendError != null)
-                    FileSendError(this, new ErrorEventArgs(ex));
+                if (FileReceiveError != null)
+                    FileReceiveError(this, new ErrorEventArgs(ex));
                 if (portRecycle != null)
                     portRecycle(this);
             }
@@ -300,13 +300,14 @@ namespace ServerNet
                 if (portRecycle != null)
                     portRecycle(this);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                if (FileReceiveError != null)
-                    FileReceiveError(this, new ErrorEventArgs(ex));
+                if (FileSendError != null)
+                    FileSendError(this, new ErrorEventArgs(ex));
                 if (portRecycle != null)
                     portRecycle(this);
             }
+            
         }
     }
     public delegate void DataPortEventHandler(DataPort dataPort);

@@ -115,6 +115,10 @@ namespace ClientNet
         /// </summary>
         public event ErrorEventHandler DisConnectError;
         /// <summary>
+        /// 文件传输错误
+        /// </summary>
+        public event ErrorEventHandler FileError;
+        /// <summary>
         /// 返回当前列表中文件剩余数量
         /// </summary>
         public event FileListSize FileListCount;
@@ -297,6 +301,17 @@ namespace ClientNet
                                     }
                                     break;
                                 case "-1":
+                                    switch (messages[2])
+                                    {
+                                        case "Send":
+                                        case "Recieve":
+                                        case "Size":
+                                            if (FileError != null)
+                                            {
+                                                FileError(messages[2], null);
+                                            }
+                                            break;
+                                    }
                                     break;
                                 case "-2":
                                     SendFile();

@@ -12,6 +12,7 @@ using System.Collections;
 using System.Net.NetworkInformation;
 using System.Threading;
 using OES;
+using System.IO;
 
 namespace ServerNet
 {
@@ -158,7 +159,18 @@ namespace ServerNet
         /// <param name="msg"></param>
         public delegate void DataPortError(string msg);
         public event DataPortError OnDataPortError;
-        
+        /// <summary>
+        /// 文件传输大小错误(一般为网络中丢包)
+        /// </summary>
+        public event ErrorEventHandler FileSizeError;
+        /// <summary>
+        /// 文件发送过程中出错(一般为客户端断开连接)
+        /// </summary>
+        public event ErrorEventHandler FileSendError;
+        /// <summary>
+        /// 文件接收过程中出错(一般为客户端断开连接)
+        /// </summary>
+        public event ErrorEventHandler FileReceiveError;
         #endregion
 
         /// <summary>
@@ -238,9 +250,51 @@ namespace ServerNet
                     dport.FileSendBegin += this.FileSendBegin;
                 if (this.FileSendEnd != null)
                     dport.FileSendEnd += this.FileSendEnd;
+                dport.FileSizeError += new ErrorEventHandler(dport_FileSizeError);
+                dport.FileSendError += new ErrorEventHandler(dport_FileSendError);
+                dport.FileReceiveError += new ErrorEventHandler(dport_FileReceiveError);
+                if (this.FileSizeError != null)
+                    dport.FileSizeError += this.FileSizeError;
+                if (this.FileSendError != null)
+                    dport.FileSendError += this.FileSendError;
+                if (this.FileReceiveError != null)
+                    dport.FileReceiveError += this.FileReceiveError;
 
                 ports.Add(dport);
                 PortQueue.Enqueue(dport);
+            }
+        }
+
+        void dport_FileSizeError(object sender, ErrorEventArgs e)
+        {
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (clients[i].Port == sender)
+                {
+                    clients[i].SendError("Size");
+                }
+            }
+        }
+
+        void dport_FileSendError(object sender, ErrorEventArgs e)
+        {
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (clients[i].Port == sender)
+                {
+                    clients[i].SendError("Send");
+                }
+            }
+        }
+
+        void dport_FileReceiveError(object sender, ErrorEventArgs e)
+        {
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (clients[i].Port == sender)
+                {
+                    clients[i].SendError("Recieve");
+                }
             }
         }
 
