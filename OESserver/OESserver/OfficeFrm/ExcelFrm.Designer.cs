@@ -57,8 +57,10 @@
             this.ClientSize = new System.Drawing.Size(381, 522);
             this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.testExcel1);
+            this.MaximizeBox = false;
             this.Name = "ExcelFrm";
             this.Text = "ExcelFrm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ExcelFrm_FormClosing);
             this.ResumeLayout(false);
 
         }
