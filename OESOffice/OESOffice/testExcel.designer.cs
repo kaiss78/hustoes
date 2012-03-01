@@ -84,8 +84,6 @@
             this.comboSheet = new System.Windows.Forms.ComboBox();
             this.comboChartInSheet = new System.Windows.Forms.ComboBox();
             this.radioChartInSheet = new System.Windows.Forms.RadioButton();
-            this.btnComplete = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageText.SuspendLayout();
             this.groupPoint.SuspendLayout();
@@ -97,10 +95,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPageText);
             this.tabControl1.Controls.Add(this.tabPageGraph);
-            this.tabControl1.Location = new System.Drawing.Point(19, 16);
+            this.tabControl1.Location = new System.Drawing.Point(9, 11);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(340, 443);
@@ -688,36 +685,13 @@
             this.radioChartInSheet.Text = "作为工作表内嵌的图表";
             this.radioChartInSheet.UseVisualStyleBackColor = true;
             // 
-            // btnComplete
-            // 
-            this.btnComplete.Location = new System.Drawing.Point(137, 465);
-            this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(108, 32);
-            this.btnComplete.TabIndex = 26;
-            this.btnComplete.Text = "完成添加";
-            this.btnComplete.UseVisualStyleBackColor = true;
-            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(251, 465);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 32);
-            this.btnCancel.TabIndex = 39;
-            this.btnCancel.Text = "放弃添加";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // testExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.tabControl1);
             this.Name = "testExcel";
-            this.Size = new System.Drawing.Size(417, 514);
-            this.Load += new System.EventHandler(this.testExcel_Load);
+            this.Size = new System.Drawing.Size(364, 470);
             this.tabControl1.ResumeLayout(false);
             this.tabPageText.ResumeLayout(false);
             this.groupPoint.ResumeLayout(false);
@@ -791,7 +765,5 @@
         private System.Windows.Forms.ComboBox comboSheet;
         private System.Windows.Forms.ComboBox comboChartInSheet;
         private System.Windows.Forms.RadioButton radioChartInSheet;
-        private System.Windows.Forms.Button btnComplete;
-        private System.Windows.Forms.Button btnCancel;
     }
 }
