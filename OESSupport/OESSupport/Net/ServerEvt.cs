@@ -202,7 +202,11 @@ namespace OESSupport.Net
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["PaperPkg"] + msgs[4] + ".rar";
                                     if (!File.Exists(Teacher.FindTeacherByClient(Program.TeacherList, client).filepath))
                                     {
-                                        XMLtoXML.xmltoxml(Program.config["Root"] + Program.config["Paper"] + msgs[4] + ".xml");
+                                        try
+                                        {
+                                            XMLtoXML.xmltoxml(Program.config["Root"] + Program.config["Paper"] + msgs[4] + ".xml");
+                                        }
+                                        catch { }
                                     }
                                     break;
                                 case "N":
