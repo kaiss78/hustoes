@@ -307,7 +307,7 @@ namespace ServerNet
                 FileInfo fi = new FileInfo(filename);
                 return "cmd#1#1#" + port.ip.ToString() + "#" + port.localPort.ToString() + "#" + fi.Name.ToString() + "#" + fi.Length.ToString();
             }
-            return "";
+            return "cmd#-1#Send";
         }
 
         /// <summary>
@@ -360,7 +360,20 @@ namespace ServerNet
             string tmsg = "txt#" + content;
             WriteMsg(tmsg);
         }
-        
+
+        /// <summary>
+        /// 通知客户端服务端出错
+        /// </summary>
+        /// <param name="error">错误消息</param>
+        public void SendError(String error)
+        {
+#if DEBUG
+            OESServer.logForm.InsertMsg("In [Client.SendError]");
+#endif
+            string tmsg = "cmd#-1#" + error;
+            WriteMsg(tmsg);
+        }
+
         /// <summary>
         /// 重传消息
         /// </summary>
