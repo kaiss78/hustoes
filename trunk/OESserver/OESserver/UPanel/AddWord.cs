@@ -145,7 +145,5 @@ namespace OES.UPanel
             Net.ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
             ReLoad();
         }
-
-
     }
 }
