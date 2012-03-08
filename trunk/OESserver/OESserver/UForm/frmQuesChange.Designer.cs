@@ -1,4 +1,4 @@
-﻿namespace OES.UForm
+﻿namespace OES
 {
     partial class frmQuesChange
     {

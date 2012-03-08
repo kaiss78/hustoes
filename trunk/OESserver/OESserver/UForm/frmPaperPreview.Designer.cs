@@ -30,6 +30,7 @@
         {
             this.dgvPaperPreview = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.btnOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnReplace = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaperPreview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(279, 367);
+            this.btnOK.Location = new System.Drawing.Point(167, 367);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(94, 35);
             this.btnOK.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
@@ -58,11 +59,26 @@
             this.btnOK.Values.Text = "确定";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // btnReplace
+            // 
+            this.btnReplace.Location = new System.Drawing.Point(396, 367);
+            this.btnReplace.Name = "btnReplace";
+            this.btnReplace.Size = new System.Drawing.Size(94, 35);
+            this.btnReplace.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnReplace.StateCommon.Border.Rounding = 16;
+            this.btnReplace.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnReplace.TabIndex = 16;
+            this.btnReplace.Values.Text = "替换";
+            this.btnReplace.Click += new System.EventHandler(this.btnReplace_Click);
+            // 
             // frmPaperPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 414);
+            this.Controls.Add(this.btnReplace);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.dgvPaperPreview);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -77,5 +93,6 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvPaperPreview;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnOK;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnReplace;
     }
 }

@@ -8,9 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using OES.Model;
 using OES.keyandValue;
-using OES.UForm;
 
-namespace OES.UForm
+namespace OES
 {
     public partial class frmQuesChange : Form
     {
