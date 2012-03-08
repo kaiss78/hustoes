@@ -343,21 +343,31 @@ namespace OES.UPanel
                     if (Convert.ToBoolean(this.ProblemDGV.Rows[i].Cells[0].Value) == true)
                         switch (this.Typecombo.SelectedIndex)
                         {
-                            case 0: InfoControl.OesData.DeleteChoice(Convert.ToInt32(ProblemDGV.Rows[i].Cells[1].Value)); break;
-                            case 1: InfoControl.OesData.DeleteCompletion(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
-                            case 2: InfoControl.OesData.DeleteJudgment(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
-                            case 3:
-                            case 4:
-                            case 5: InfoControl.OesData.DeleteOffice(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
-                            case 6:
-                            case 7:
-                            case 8:
-                            case 9:
-                            case 10:
-                            case 11:
-                            case 12:
-                            case 13:
-                            case 14: InfoControl.OesData.DeleteProgram(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); break;
+                            case 0:     //Choice删除
+                                InfoControl.OesData.DeleteChoice(Convert.ToInt32(ProblemDGV.Rows[i].Cells[1].Value)); 
+                                break;
+                            case 1:     //Completion删除
+                                InfoControl.OesData.DeleteCompletion(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); 
+                                break;
+                            case 2:     //Judgement删除
+                                InfoControl.OesData.DeleteJudgment(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); 
+                                break;
+                            case 3:     //Word删除
+                            case 4:     //Excel删除
+                            case 5:     //PPT删除
+                                InfoControl.OesData.DeleteOffice(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value));
+                                break;
+                            case 6:     //C_Completion删除
+                            case 7:     //C_Modification删除
+                            case 8:     //C_Function删除
+                            case 9:     //Cpp_Completion删除
+                            case 10:    //Cpp_Modification删除
+                            case 11:    //Cpp_Function删除
+                            case 12:    //Vb_Completion删除
+                            case 13:    //Vb_Modification删除
+                            case 14:    //Vb_Function删除
+                                InfoControl.OesData.DeleteProgram(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value)); 
+                                break;
                         }
 
                 }
