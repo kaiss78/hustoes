@@ -29,25 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFillBlank));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Add_Answer = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SaveData = new System.Windows.Forms.PictureBox();
             this.Return = new System.Windows.Forms.PictureBox();
             this.contentOfFillblank = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SaveData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Return)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(19, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 33);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // Add_Answer
             // 
@@ -97,22 +87,31 @@
             this.contentOfFillblank.Size = new System.Drawing.Size(616, 100);
             this.contentOfFillblank.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(5, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 19);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "试题题目";
+            // 
             // AddFillBlank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CausesValidation = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Return);
             this.Controls.Add(this.SaveData);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Add_Answer);
             this.Controls.Add(this.contentOfFillblank);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "AddFillBlank";
             this.Size = new System.Drawing.Size(742, 553);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SaveData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Return)).EndInit();
             this.ResumeLayout(false);
@@ -122,11 +121,11 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
         private  System.Windows.Forms.Button Add_Answer;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.PictureBox SaveData;
         private System.Windows.Forms.PictureBox Return;
         private  System.Windows.Forms.TextBox contentOfFillblank;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -24,6 +24,11 @@ namespace OES
         AddWord proWord = new AddWord();
         AddExcel proExcel = new AddExcel();
         ProFunction proFunction = new ProFunction();
+        ProCompletion proCompletionCPP = new ProCompletion();
+        ProFunction proFunCPP = new ProFunction();
+        ProModify proModifyCPP = new ProModify();
+        
+
         //用于存储每个控件的集合
         List<UserPanel> PanelList = new List<UserPanel>();
         //添加数据表格 数据表中有两列，一列 dispaly 一列 value
@@ -47,24 +52,31 @@ namespace OES
             plAddQuestion.Controls.Add(SingleChoice);
             plAddQuestion.Controls.Add(fillblank);
             plAddQuestion.Controls.Add(judge);
+            plAddQuestion.Controls.Add(proWord);
+            plAddQuestion.Controls.Add(proExcel);
+            plAddQuestion.Controls.Add(proPPT);
             plAddQuestion.Controls.Add(proCompletion);
             plAddQuestion.Controls.Add(proModify);
             plAddQuestion.Controls.Add(proFunction);
-            plAddQuestion.Controls.Add(proPPT);
-            plAddQuestion.Controls.Add(proWord);
-            plAddQuestion.Controls.Add(proExcel);
+            plAddQuestion.Controls.Add(proCompletionCPP);
+            plAddQuestion.Controls.Add(proModifyCPP);
+            plAddQuestion.Controls.Add(proFunCPP);
+
 
             PanelList = new List<UserPanel>();
             //把每个控件添加到PanelList中
             PanelList.Add(SingleChoice);
             PanelList.Add(fillblank);
             PanelList.Add(judge);
+            PanelList.Add(proWord);
+            PanelList.Add(proExcel);
+            PanelList.Add(proPPT);
             PanelList.Add(proCompletion);
             PanelList.Add(proModify);
             PanelList.Add(proFunction);
-            PanelList.Add(proPPT);
-            PanelList.Add(proWord);
-            PanelList.Add(proExcel);
+            PanelList.Add(proCompletionCPP);
+            PanelList.Add(proModifyCPP);
+            PanelList.Add(proFunCPP);
 
             dtQeueType = new DataTable();
             //在dtQeueType数据表中添加两列，用于确定试题类型
@@ -73,12 +85,16 @@ namespace OES
             dtQeueType.Rows.Add(new object[2] { "选择题", 1 });
             dtQeueType.Rows.Add(new object[2] { "填空题", 2 });
             dtQeueType.Rows.Add(new object[2] { "判断题", 3 });
-            dtQeueType.Rows.Add(new object[2] { "程序填空题", 4 });
-            dtQeueType.Rows.Add(new object[2] { "程序改错题", 5 });
-            dtQeueType.Rows.Add(new object[2] { "程序综合题", 6 });
-            dtQeueType.Rows.Add(new object[2] { "PPT操作题", 7 });
-            dtQeueType.Rows.Add(new object[2] { "Word操作题", 8 });
-            dtQeueType.Rows.Add(new object[2] { "Excel操作题", 9 });
+            dtQeueType.Rows.Add(new object[2] { "Word题", 4 });
+            dtQeueType.Rows.Add(new object[2] { "Excel题", 5 });
+            dtQeueType.Rows.Add(new object[2] { "PowerPoint题", 6 });
+            dtQeueType.Rows.Add(new object[2] { "C语言编程填空题", 7 });
+            dtQeueType.Rows.Add(new object[2] { "C语言编程改错题", 8 });
+            dtQeueType.Rows.Add(new object[2] { "C语言编程综合题", 9 });
+            dtQeueType.Rows.Add(new object[2] { "C++编程填空题", 10 });
+            dtQeueType.Rows.Add(new object[2] { "C++编程改错题", 11 });
+            dtQeueType.Rows.Add(new object[2] { "C++编程综合题", 12 });
+
             cbQueStyle.DataSource = dtQeueType;
             //displayMember为显示的值
             cbQueStyle.DisplayMember = "Type";
