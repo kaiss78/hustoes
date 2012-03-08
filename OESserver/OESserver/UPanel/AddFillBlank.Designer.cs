@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFillBlank));
             this.Add_Answer = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.SaveData = new System.Windows.Forms.PictureBox();
-            this.Return = new System.Windows.Forms.PictureBox();
             this.contentOfFillblank = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.SaveData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Return)).BeginInit();
+            this.SaveData = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.Return = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.SuspendLayout();
             // 
             // Add_Answer
@@ -58,26 +55,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(595, 347);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
-            // SaveData
-            // 
-            this.SaveData.Image = ((System.Drawing.Image)(resources.GetObject("SaveData.Image")));
-            this.SaveData.Location = new System.Drawing.Point(76, 479);
-            this.SaveData.Name = "SaveData";
-            this.SaveData.Size = new System.Drawing.Size(86, 29);
-            this.SaveData.TabIndex = 4;
-            this.SaveData.TabStop = false;
-            this.SaveData.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // Return
-            // 
-            this.Return.Image = ((System.Drawing.Image)(resources.GetObject("Return.Image")));
-            this.Return.Location = new System.Drawing.Point(567, 479);
-            this.Return.Name = "Return";
-            this.Return.Size = new System.Drawing.Size(89, 29);
-            this.Return.TabIndex = 5;
-            this.Return.TabStop = false;
-            this.Return.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
             // contentOfFillblank
             // 
             this.contentOfFillblank.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -97,6 +74,24 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "试题题目";
             // 
+            // SaveData
+            // 
+            this.SaveData.Location = new System.Drawing.Point(122, 479);
+            this.SaveData.Name = "SaveData";
+            this.SaveData.Size = new System.Drawing.Size(105, 39);
+            this.SaveData.TabIndex = 7;
+            this.SaveData.Values.Text = "保存";
+            this.SaveData.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // Return
+            // 
+            this.Return.Location = new System.Drawing.Point(556, 479);
+            this.Return.Name = "Return";
+            this.Return.Size = new System.Drawing.Size(100, 39);
+            this.Return.TabIndex = 8;
+            this.Return.Values.Text = "返回";
+            this.Return.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
             // AddFillBlank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -104,16 +99,14 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CausesValidation = false;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.Return);
             this.Controls.Add(this.SaveData);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Add_Answer);
             this.Controls.Add(this.contentOfFillblank);
             this.Name = "AddFillBlank";
             this.Size = new System.Drawing.Size(742, 553);
-            ((System.ComponentModel.ISupportInitialize)(this.SaveData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Return)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,9 +116,9 @@
 
         private  System.Windows.Forms.Button Add_Answer;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.PictureBox SaveData;
-        private System.Windows.Forms.PictureBox Return;
         private  System.Windows.Forms.TextBox contentOfFillblank;
         private System.Windows.Forms.Label label1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton SaveData;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton Return;
     }
 }
