@@ -53,7 +53,7 @@ namespace OES
             }
         }
 
-        public void UpdatePaper(int PaperId, string GenerateDate, string Title, string TeacherId)
+        public void UpdatePaper(int PaperId, string GenerateDate, string Title, int TeacherId)
         {
             List<SqlParameter> dp = new List<SqlParameter>();
             dp.Add(CreateParam("@PaperId", SqlDbType.Int, 0, PaperId, ParameterDirection.Input));
