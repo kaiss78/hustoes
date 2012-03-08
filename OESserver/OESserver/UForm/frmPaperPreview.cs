@@ -17,6 +17,7 @@ namespace OES
 
         private DataTable dtPaperPreview;
         private Paper NewPaper;
+        private frmQuesChange ProChange;
 
         private void Init()
         {
@@ -50,15 +51,16 @@ namespace OES
 
         public frmPaperPreview(Paper paper)
         {
-            InitializeComponent();
+            InitializeComponent();            
+
             NewPaper = paper;
-            dtPaperPreview = new DataTable();            
+            dtPaperPreview = new DataTable();
             dtPaperPreview.Columns.Add("题干");
             dtPaperPreview.Columns.Add("题目类型");
             dtPaperPreview.Columns.Add("难度值");
             dtPaperPreview.Columns.Add("分值");
-            dtPaperPreview.Columns.Add("Index");  
-            
+            dtPaperPreview.Columns.Add("Index");
+
             dgvPaperPreview.DataSource = dtPaperPreview;
             dgvPaperPreview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPaperPreview.Columns["Index"].Visible = false;
@@ -73,7 +75,6 @@ namespace OES
             dgvPaperPreview.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvPaperPreview.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
             Init();
-            
         }
 
         private string GetAnswer(ProblemType PT,int ID)
@@ -162,7 +163,6 @@ namespace OES
             InfoControl.ClientObj.SendFiles();
         }
 
-
         private void btnOK_Click(object sender, EventArgs e)
         {
             ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
@@ -174,5 +174,12 @@ namespace OES
             this.Close();
             ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
         }
+
+        private void btnReplace_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show();
+            //ProChange
+        }
+
     }
 }
