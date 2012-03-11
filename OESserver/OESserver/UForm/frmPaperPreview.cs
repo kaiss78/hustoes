@@ -190,7 +190,7 @@ namespace OES
             }
             else
             {
-                InfoControl.OesData.UpdatePaper(NewPaper.paperID, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), NewPaper.paperName, InfoControl.User.Id.ToString());
+                InfoControl.OesData.UpdatePaper(NewPaper.paperID, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), NewPaper.paperName, InfoControl.User.Id);
             }
             XMLControl.CreatePaperXML(InfoControl.config["TempPaperPath"] + NewPaper.paperID.ToString() + ".xml", NewPaper.paperID.ToString());
             XMLControl.CreatePaperAnsXML(InfoControl.config["TempPaperPath"] + "A" + NewPaper.paperID.ToString() + ".xml", NewPaper.paperID.ToString());

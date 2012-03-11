@@ -48,9 +48,9 @@
             // 
             // groupInfo
             // 
+            this.groupInfo.Controls.Add(this.textXmlWord);
             this.groupInfo.Controls.Add(this.btnXmlSel);
             this.groupInfo.Controls.Add(this.label1);
-            this.groupInfo.Controls.Add(this.textXmlWord);
             this.groupInfo.Controls.Add(this.buttonTestPoint);
             this.groupInfo.Controls.Add(this.textInfo);
             this.groupInfo.Controls.Add(this.labelInfo);
@@ -193,7 +193,7 @@
             this.textXmlWord.Location = new System.Drawing.Point(116, 74);
             this.textXmlWord.Name = "textXmlWord";
             this.textXmlWord.Size = new System.Drawing.Size(412, 21);
-            this.textXmlWord.TabIndex = 11;
+            this.textXmlWord.TabIndex = 13;
             this.textXmlWord.Text = "F:\\点维工作室\\testAns.xml";
             // 
             // AddWord

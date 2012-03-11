@@ -20,7 +20,7 @@ namespace OES.OfficeFrm
             InitializeComponent();
         }
 
-        public string ShowForm()
+        public string ShowForm()    //外部调用的显示对话框
         {
             this.ShowDialog();
             return ret;
@@ -34,13 +34,15 @@ namespace OES.OfficeFrm
 
         private void WordFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (File.Exists(used_xml_path))
+                File.Delete(used_xml_path);
             testWord1.CloseDocument();
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Xml文件(.xml)|*.xml";
+            sfd.Filter = "Xml文档(*.xml)|*.xml";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 ret = sfd.FileName;
@@ -48,12 +50,16 @@ namespace OES.OfficeFrm
                 File.Delete(used_xml_path);
                 this.Close();
             }
-            else if (MessageBox.Show("是否放弃添加？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {   
+            if (MessageBox.Show("是否放弃添加？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                ret = "";
                 File.Delete(used_xml_path);
                 this.Close();
             }
         }
-        
     }
 }

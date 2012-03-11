@@ -35,11 +35,14 @@
             this.btnOriSel = new System.Windows.Forms.Button();
             this.btnAnsSel = new System.Windows.Forms.Button();
             this.groupInfo = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnXmlSel = new System.Windows.Forms.Button();
             this.buttonTestPoint = new System.Windows.Forms.Button();
             this.textInfo = new System.Windows.Forms.TextBox();
             this.labelInfo = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.textXmlPPT = new System.Windows.Forms.TextBox();
             this.groupInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +102,9 @@
             // 
             // groupInfo
             // 
+            this.groupInfo.Controls.Add(this.textXmlPPT);
+            this.groupInfo.Controls.Add(this.label1);
+            this.groupInfo.Controls.Add(this.btnXmlSel);
             this.groupInfo.Controls.Add(this.buttonTestPoint);
             this.groupInfo.Controls.Add(this.textInfo);
             this.groupInfo.Controls.Add(this.labelInfo);
@@ -115,19 +121,38 @@
             this.groupInfo.TabStop = false;
             this.groupInfo.Text = "PPT文件/路径信息";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "考点xml文件";
+            // 
+            // btnXmlSel
+            // 
+            this.btnXmlSel.Location = new System.Drawing.Point(546, 72);
+            this.btnXmlSel.Name = "btnXmlSel";
+            this.btnXmlSel.Size = new System.Drawing.Size(75, 23);
+            this.btnXmlSel.TabIndex = 12;
+            this.btnXmlSel.Text = "浏览...";
+            this.btnXmlSel.UseVisualStyleBackColor = true;
+            this.btnXmlSel.Click += new System.EventHandler(this.btnXmlSel_Click);
+            // 
             // buttonTestPoint
             // 
-            this.buttonTestPoint.Location = new System.Drawing.Point(116, 314);
+            this.buttonTestPoint.Location = new System.Drawing.Point(116, 101);
             this.buttonTestPoint.Name = "buttonTestPoint";
             this.buttonTestPoint.Size = new System.Drawing.Size(412, 38);
             this.buttonTestPoint.TabIndex = 9;
-            this.buttonTestPoint.Text = "点此添加考点";
+            this.buttonTestPoint.Text = "点此建立新考点";
             this.buttonTestPoint.UseVisualStyleBackColor = true;
             this.buttonTestPoint.Click += new System.EventHandler(this.buttonTestPoint_Click);
             // 
             // textInfo
             // 
-            this.textInfo.Location = new System.Drawing.Point(116, 75);
+            this.textInfo.Location = new System.Drawing.Point(116, 145);
             this.textInfo.Multiline = true;
             this.textInfo.Name = "textInfo";
             this.textInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -137,7 +162,7 @@
             // labelInfo
             // 
             this.labelInfo.AutoSize = true;
-            this.labelInfo.Location = new System.Drawing.Point(40, 75);
+            this.labelInfo.Location = new System.Drawing.Point(40, 145);
             this.labelInfo.Name = "labelInfo";
             this.labelInfo.Size = new System.Drawing.Size(53, 12);
             this.labelInfo.TabIndex = 7;
@@ -162,6 +187,14 @@
             this.btnCancel.Text = "返回";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // textXmlPPT
+            // 
+            this.textXmlPPT.Location = new System.Drawing.Point(116, 74);
+            this.textXmlPPT.Name = "textXmlPPT";
+            this.textXmlPPT.Size = new System.Drawing.Size(412, 21);
+            this.textXmlPPT.TabIndex = 13;
+            this.textXmlPPT.Text = "F:\\点维工作室\\gfw.xml";
             // 
             // AddPowerpoint
             // 
@@ -192,5 +225,8 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button buttonTestPoint;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnXmlSel;
+        private System.Windows.Forms.TextBox textXmlPPT;
     }
 }
