@@ -55,19 +55,31 @@ namespace OES.UPanel
                 textAnsExcel.Text = ofd.FileName;
         }
 
+        private void btnXmlSel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Xml文档(*.xml)|*.xml";
+            if (ofd.ShowDialog() == DialogResult.OK)
+                textXmlExcel.Text = ofd.FileName;
+        }
+
         private void buttonTestPoint_Click(object sender, EventArgs e)
         {
             if (File.Exists(textOriExcel.Text) && File.Exists(textAnsExcel.Text))
             {
                 OfficeFrm.ExcelFrm ef = new OES.OfficeFrm.ExcelFrm();
                 FileInfo f = new FileInfo(textAnsExcel.Text);
-                string xml_path = f.DirectoryName + "\\!Mask!" + f.Name + ".xml";
+                string msk = f.Name.Substring(0, f.Name.LastIndexOf('.'));
+                string xml_path = f.DirectoryName + "\\" + msk + ".tmp";
                 buttonTestPoint.Text = "正在打开添加考点界面，请耐心等待...";
                 buttonTestPoint.Enabled = false;
                 ef.LoadExcel(textAnsExcel.Text, xml_path);
-                ef.ShowDialog();
+                //ef.ShowDialog();
+                string tmp = ef.ShowForm();
+                if (tmp != "")
+                    textXmlExcel.Text = tmp;
                 buttonTestPoint.Enabled = true;
-                buttonTestPoint.Text = "点此添加考点";
+                buttonTestPoint.Text = "点此建立新考点";
             }
             else
             {
@@ -79,8 +91,7 @@ namespace OES.UPanel
         {
             fori = new FileInfo(textOriExcel.Text);
             fans = new FileInfo(textAnsExcel.Text);
-            string xml_path = fori.DirectoryName + "\\!Mask!" + fans.Name + ".xml";
-            fxml = new FileInfo(xml_path);
+            fxml = new FileInfo(textXmlExcel.Text);
             if (!fori.Exists) return -1;
             if (!fans.Exists) return -2;
             if (!fxml.Exists) return -3;
@@ -89,9 +100,9 @@ namespace OES.UPanel
 
         private void upload(int pid)
         {
-            fori.CopyTo(tmpDir + "p" + pid.ToString() + ".xls");
-            fans.CopyTo(tmpDir + "a" + pid.ToString() + ".xls");
-            fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml");
+            fori.CopyTo(tmpDir + "p" + pid.ToString() + ".xls", true);
+            fans.CopyTo(tmpDir + "a" + pid.ToString() + ".xls", true);
+            fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml", true);
             InfoControl.ClientObj.SaveExcelA(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SaveExcelP(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SaveExcelT(pid, InfoControl.User.Id);
@@ -116,7 +127,7 @@ namespace OES.UPanel
                 MessageBox.Show("请完成试题信息");
                 return;
             }
-            if (mode == 0)              //新增xls
+            if (mode == 0)              //新增Excel
             {
                 int judge = judgeFileExist();
                 if (judge == -1)
@@ -130,12 +141,9 @@ namespace OES.UPanel
                     PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.Excel);
                     Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                     upload(PID);
-                    //delTmpFile(PID);
-                    //MessageBox.Show("保存成功");
-                    //ReLoad();
                 }
             }
-            else                        //修改xls
+            else                        //修改Excel
             {
 
             }

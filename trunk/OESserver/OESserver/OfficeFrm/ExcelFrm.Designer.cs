@@ -30,6 +30,7 @@
         {
             this.testExcel1 = new OESOffice.testExcel();
             this.btnComplete = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // testExcel1
@@ -42,19 +43,31 @@
             // btnComplete
             // 
             this.btnComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnComplete.Location = new System.Drawing.Point(235, 476);
+            this.btnComplete.Location = new System.Drawing.Point(101, 476);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(126, 34);
             this.btnComplete.TabIndex = 2;
-            this.btnComplete.Text = "完成添加并返回";
+            this.btnComplete.Text = "完成所有添加";
             this.btnComplete.UseVisualStyleBackColor = true;
             this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(233, 476);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(126, 34);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "放弃添加";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ExcelFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 522);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.testExcel1);
             this.MaximizeBox = false;
@@ -69,6 +82,7 @@
 
         private OESOffice.testExcel testExcel1;
         private System.Windows.Forms.Button btnComplete;
+        private System.Windows.Forms.Button btnCancel;
 
     }
 }

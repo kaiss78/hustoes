@@ -57,19 +57,31 @@ namespace OES.UPanel
                 textAnsPPT.Text = ofd.FileName;
         }
 
+        private void btnXmlSel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Xml文档(*.xml)|*.xml";
+            if (ofd.ShowDialog() == DialogResult.OK)
+                textXmlPPT.Text = ofd.FileName;
+        }
+
         private void buttonTestPoint_Click(object sender, EventArgs e)
         {
             if (File.Exists(textOriPPT.Text) && File.Exists(textAnsPPT.Text))
             {
                 OfficeFrm.PptFrm pf = new OES.OfficeFrm.PptFrm();
                 FileInfo f = new FileInfo(textAnsPPT.Text);
-                string xml_path = f.DirectoryName + "\\!Mask!" + f.Name + ".xml";
+                string msk = f.Name.Substring(0, f.Name.LastIndexOf('.'));
+                string xml_path = f.DirectoryName + "\\" + msk + ".tmp";
                 buttonTestPoint.Text = "正在打开添加考点界面，请耐心等待...";
                 buttonTestPoint.Enabled = false;
                 pf.LoadPPT(textAnsPPT.Text, xml_path);
-                pf.ShowDialog();
+                //pf.ShowDialog();
+                string tmp = pf.ShowForm();
+                if (tmp != "")
+                    textXmlPPT.Text = tmp;
                 buttonTestPoint.Enabled = true;
-                buttonTestPoint.Text = "点此添加考点";
+                buttonTestPoint.Text = "点此建立新考点";
             }
             else
             {
@@ -81,8 +93,7 @@ namespace OES.UPanel
         {
             fori = new FileInfo(textOriPPT.Text);
             fans = new FileInfo(textAnsPPT.Text);
-            string xml_path = fori.DirectoryName + "\\!Mask!" + fans.Name + ".xml";
-            fxml = new FileInfo(xml_path);
+            fxml = new FileInfo(textXmlPPT.Text);
             if (!fori.Exists) return -1;
             if (!fans.Exists) return -2;
             if (!fxml.Exists) return -3;
@@ -91,14 +102,13 @@ namespace OES.UPanel
 
         private void upload(int pid)
         {
-            fori.CopyTo(tmpDir + "p" + pid.ToString() + ".ppt");
-            fans.CopyTo(tmpDir + "a" + pid.ToString() + ".ppt");
-            fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml");
+            fori.CopyTo(tmpDir + "p" + pid.ToString() + ".ppt", true);
+            fans.CopyTo(tmpDir + "a" + pid.ToString() + ".ppt", true);
+            fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml", true);
             InfoControl.ClientObj.SavePowerPointA(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SavePowerPointP(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SavePowerPointT(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SendFiles();
-            //while (!OES.Net.ClientEvt.isOver) ;
         }
 
         private void delTmpFile(int pid)    //删除临时文件
@@ -133,9 +143,6 @@ namespace OES.UPanel
                     PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.PowerPoint);
                     Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                     upload(PID);
-                    //delTmpFile(PID);
-                    //MessageBox.Show("保存成功");
-                    //ReLoad();
                 }
             }
             else                //修改PPT

@@ -58,9 +58,9 @@ namespace OES.UPanel
         private void btnXmlSel_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Xml文件(.xml)|*.xml";
+            ofd.Filter = "Xml文档(*.xml)|*.xml";
             if (ofd.ShowDialog() == DialogResult.OK)
-                textAnsWord.Text = ofd.FileName;
+                textXmlWord.Text = ofd.FileName;
         }
 
         private void buttonTestPoint_Click(object sender, EventArgs e)
@@ -138,7 +138,7 @@ namespace OES.UPanel
                     MessageBox.Show("考点xml文件不存在！");
                 else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.PowerPoint);
+                    PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.Word);
                     Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                     upload(PID);
                 }
