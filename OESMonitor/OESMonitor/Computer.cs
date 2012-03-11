@@ -325,10 +325,27 @@ namespace OESMonitor
             }
             if (PaperControl.OesData.ValidateStudentInfo(id, name, pwd))
             {
-                int myPaperId=getCurrentPaper();
-                if (myPaperId == -1) return false;
-                ExamPaperPath = PaperControl.PathConfig["TmpPaper"] + OESMonitor.examPaperIdList[myPaperId].ToString() + ".rar";
-                ExamPaperName = OESMonitor.examPaperNameList[myPaperId];
+                int myPaperId=-1;
+                bool needResume=false;
+
+                foreach(Computer c in ErrorList)
+                {
+                    if(c.Student.ID == id)
+                    {
+                        needResume=true;
+                        ExamPaperPath=c.ExamPaperPath;
+                        ExamPaperName = c.ExamPaperName;
+                    }
+                }
+                
+                if(!needResume)
+                {
+                    myPaperId=getCurrentPaper();
+                    if (myPaperId == -1) return false;
+                    ExamPaperPath = PaperControl.PathConfig["TmpPaper"] + OESMonitor.examPaperIdList[myPaperId].ToString() + ".rar";
+                    ExamPaperName = OESMonitor.examPaperNameList[myPaperId];
+                }
+                
                 this.Student = PaperControl.OesData.FindStudentByStudentId(id)[0];//new Student(name, "", id, pwd);
                 this.Student.ip = this.Client.ClientIp;
                 return true;
