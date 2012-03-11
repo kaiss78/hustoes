@@ -396,6 +396,7 @@ namespace OES.UPanel
             InitList(this.Typecombo.SelectedIndex,Convert.ToInt32(aList.key),Convert.ToInt32(bList.key),this.Diffcombo.SelectedIndex,pointWords,1);
             this.Pagecombo.Items.Clear();
             InitCombPage(quesNum);
+
             
         }
 

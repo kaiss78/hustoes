@@ -307,16 +307,19 @@ namespace OES
             problemList.Clear();
         }
 
-        public frmQuesChange(int quesType)
+        public frmQuesChange(Problem problem)
         {
+            int quesType = Convert.ToInt32(problem.type);
+
             InitializeComponent();
             InitCombText();
-
+            
             
             this.Typecombo.SelectedIndex = 0;
             this.Diffcombo.SelectedIndex = 0;
             this.Textcombo.SelectedIndex = 0;
 
+            this.scoreBox.Text = Convert.ToString(problem.score);
             this.Typecombo.SelectedIndex = quesType;
             aList = (ListItem)this.Unitcombo.SelectedItem;
             pointWords = this.PcontentText.Text;
@@ -341,6 +344,8 @@ namespace OES
             InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, 1);
             this.Pagecombo.Items.Clear();
             InitCombPage(quesNum);
+
+            
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -363,6 +368,7 @@ namespace OES
                 case 13: thePro = InfoControl.OesData.FindModifyProgramByPID(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value))[0]; break;
                 case 14: thePro = InfoControl.OesData.FindFunctionProgramByPID(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value))[0]; break;
             }
+            thePro.score = Convert.ToInt32(scoreBox.Text);
             this.Visible = false;
         }
 
@@ -370,6 +376,32 @@ namespace OES
         {
             this.Visible = false;
         }
+
+        private void frmQuesChange_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void scoreBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar >= 48 && e.KeyChar <= 57 || e.KeyChar == 8))//8是BackSpace的键码
+            {
+                e.Handled = true;
+            }
+            if (this.scoreBox.Text.Length >= 2)
+            {
+                if(e.KeyChar!=8)
+                    e.Handled = true;
+                
+            }
+        }
+
+       
 
       
 

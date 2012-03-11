@@ -35,7 +35,7 @@ namespace OES.Net
             Client.FileListCount += new FileListSize(Client_FileListCount);
             Client.FileListRecieveStart += new Action(Client_FileListRecieveStart);
             Client.FileListSendStart += new Action(Client_FileListSendStart);
-            Client.FileError += new ErrorEventHandler(Client_FileError);
+           
         }
 
         void Client_FileError(object sender, ErrorEventArgs e)
