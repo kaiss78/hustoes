@@ -754,24 +754,24 @@ namespace OES
 
             for (int j = 0; j < p_Data.Rows.Count; j++)
             {
-                Teacher problem = new Teacher();
+                Teacher th = new Teacher();
                 for (int i = 0; i < p_Data.Columns.Count; i++)
                 {
                     // 数据库NULL值单独处理   
-                    if (p_Data.Columns[i].ToString() == "Id")
-                        problem.Id = Convert.ToInt32(p_Data.Rows[j][i]);
+                    if (p_Data.Columns[i].ToString() == "TeacherId")
+                        th.Id = Convert.ToInt32(p_Data.Rows[j][i]);
                     if (p_Data.Columns[i].ToString() == "TeacherName")
-                        problem.TeacherName = (string)p_Data.Rows[j][i];
+                        th.TeacherName = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Password")
-                        problem.password = (string)p_Data.Rows[j][i];
+                        th.password = (string)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "Permission")
-                        problem.permission = (int)p_Data.Rows[j][i];
+                        th.permission = (int)p_Data.Rows[j][i];
                     if (p_Data.Columns[i].ToString() == "UserName")
-                        problem.UserName = (string)p_Data.Rows[j][i];
+                        th.UserName = (string)p_Data.Rows[j][i];
 
                 }
 
-                result.Add(problem);
+                result.Add(th);
             }
             return result;
         }
