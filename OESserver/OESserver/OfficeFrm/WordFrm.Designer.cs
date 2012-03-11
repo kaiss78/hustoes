@@ -42,7 +42,7 @@
             // btnComplete
             // 
             this.btnComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnComplete.Location = new System.Drawing.Point(440, 432);
+            this.btnComplete.Location = new System.Drawing.Point(440, 433);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(126, 34);
             this.btnComplete.TabIndex = 2;

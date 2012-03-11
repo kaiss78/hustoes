@@ -59,7 +59,7 @@
             this.groupInfo.Size = new System.Drawing.Size(715, 472);
             this.groupInfo.TabIndex = 8;
             this.groupInfo.TabStop = false;
-            this.groupInfo.Text = "PPT文件/路径信息";
+            this.groupInfo.Text = "XLS文件/路径信息";
             // 
             // buttonTestPoint
             // 
