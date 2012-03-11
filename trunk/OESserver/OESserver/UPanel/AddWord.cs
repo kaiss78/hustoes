@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using OES.Model;
 
 namespace OES.UPanel
 {
@@ -25,8 +26,26 @@ namespace OES.UPanel
 
         public override void ReLoad()
         {
+            mode = 0;
             this.Visible = true;
             textInfo.Text = "";
+        }
+
+        public override void ReLoad(int pid)
+        {
+            ReLoad();
+            mode = 1;
+            PID = pid;
+            List<OfficeWord> low = InfoControl.OesData.FindOfficeWordByPID(PID);
+            OfficeWord ow = low[0];
+            textInfo.Text = ow.problem;
+            InfoControl.ClientObj.LoadWordA(pid, InfoControl.User.Id);
+            InfoControl.ClientObj.LoadWordP(pid, InfoControl.User.Id);
+            InfoControl.ClientObj.LoadWordT(pid, InfoControl.User.Id);
+            textOriWord.Text = InfoControl.config["WordPath"] + "p" + pid.ToString() + ".doc";
+            textAnsWord.Text = InfoControl.config["WordPath"] + "a" + pid.ToString() + ".doc";
+            textXmlWord.Text = InfoControl.config["WordPath"] + "t" + pid.ToString() + ".doc";
+            InfoControl.ClientObj.ReceiveFiles();
         }
 
         public void SetMode(int md)
@@ -36,6 +55,8 @@ namespace OES.UPanel
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            if (PID != 0)
+                delTmpFile(PID);
             PanelControl.ChangPanel(0);
         }
 

@@ -25,6 +25,7 @@ namespace OES.UPanel
 
         public override void ReLoad()
         {
+            mode = 0;
             this.Visible = true;
             textInfo.Text = "";
         }
