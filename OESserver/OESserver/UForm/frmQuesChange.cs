@@ -314,13 +314,13 @@ namespace OES
             InitializeComponent();
             InitCombText();
             
-            
             this.Typecombo.SelectedIndex = 0;
             this.Diffcombo.SelectedIndex = 0;
             this.Textcombo.SelectedIndex = 0;
 
             this.scoreBox.Text = Convert.ToString(problem.score);
-            this.Typecombo.SelectedIndex = quesType;
+            if(problem!=null)
+                this.Typecombo.SelectedIndex = quesType;
             aList = (ListItem)this.Unitcombo.SelectedItem;
             pointWords = this.PcontentText.Text;
             theType = this.Typecombo.SelectedIndex;
