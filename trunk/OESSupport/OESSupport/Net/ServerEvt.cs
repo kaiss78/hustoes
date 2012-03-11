@@ -53,7 +53,7 @@ namespace OESSupport.Net
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["Paper"] + msgs[4] + ".xml";
                                     break;
                                 case "1":
-                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["Root"] + Program.config["Word"] + "a" + msgs[4] + ".doc";
+                                    Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["Word"] + "a" + msgs[4] + ".doc";
                                     break;
                                 case "2":
                                     Teacher.FindTeacherByClient(Program.TeacherList, client).filepath = Program.config["Root"] + Program.config["Word"] + "p" + msgs[4] + ".doc";
