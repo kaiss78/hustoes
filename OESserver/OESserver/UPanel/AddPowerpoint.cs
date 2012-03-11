@@ -25,9 +25,8 @@ namespace OES.UPanel
 
         public override void ReLoad()
         {
+            mode = 0;
             this.Visible = true;
-            //textOriPPT.Text = "";
-            //textAnsPPT.Text = "";
             textInfo.Text = "";
         }
 
