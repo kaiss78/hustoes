@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using OES.Net;
 
 namespace OES.UPanel
 {
@@ -63,15 +65,48 @@ namespace OES.UPanel
         private void btnConfirm4_Click(object sender, EventArgs e)
         {
             List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox4.Text, 7);
-            InfoControl.OesData.ImportOffice(list);
-            MessageBox.Show("Office题批量导入成功!");
-            textBox4.Clear();
+            List<int> ids = InfoControl.OesData.ImportOffice(list);
+            string basePath = new FileInfo(textBox4.Text).DirectoryName;
+            for (int i = 0; i < list.Count; i++)
+            {
+                switch (list[i][3].ToLower())
+                {
+                    case "word":
+                        File.Move(basePath + list[i][4], InfoControl.config["WordPath"] + "p" + ids[i] + ".doc");
+                        File.Move(basePath + list[i][5], InfoControl.config["WordPath"] + "a" + ids[i] + ".doc");
+                        File.Move(basePath + list[i][6], InfoControl.config["WordPath"] + "t" + ids[i] + ".xml");
+                        InfoControl.ClientObj.SaveWordP(ids[i], InfoControl.User.Id);
+                        InfoControl.ClientObj.SaveWordA(ids[i], InfoControl.User.Id);
+                        InfoControl.ClientObj.SaveWordT(ids[i], InfoControl.User.Id);
+                        break;
+                    case "excel":
+                        File.Move(basePath + list[i][4], InfoControl.config["ExcelPath"] + "p" + ids[i] + ".xls");
+                        File.Move(basePath + list[i][5], InfoControl.config["ExcelPath"] + "a" + ids[i] + ".xls");
+                        File.Move(basePath + list[i][6], InfoControl.config["ExcelPath"] + "t" + ids[i] + ".xml");
+                        InfoControl.ClientObj.SaveExcelP(ids[i], InfoControl.User.Id);
+                        InfoControl.ClientObj.SaveExcelA(ids[i], InfoControl.User.Id);
+                        InfoControl.ClientObj.SaveExcelT(ids[i], InfoControl.User.Id);
+                        break;
+                    case "powerpoint":
+                        File.Move(basePath + list[i][4], InfoControl.config["PPTPath"] + "p" + ids[i] + ".doc");
+                        File.Move(basePath + list[i][5], InfoControl.config["PPTPath"] + "a" + ids[i] + ".doc");
+                        File.Move(basePath + list[i][6], InfoControl.config["PPTPath"] + "t" + ids[i] + ".xml");
+                        InfoControl.ClientObj.SavePowerPointP(ids[i], InfoControl.User.Id);
+                        InfoControl.ClientObj.SavePowerPointA(ids[i], InfoControl.User.Id);
+                        InfoControl.ClientObj.SavePowerPointT(ids[i], InfoControl.User.Id);
+                        break;
+                }
+                InfoControl.ClientObj.SendFiles();
+                MessageBox.Show("Office题批量导入成功!");
+                textBox4.Clear();
+            }
         }
         //编程题
         private void btnConfirm5_Click(object sender, EventArgs e)
         {
             List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox5.Text, 9);
-            InfoControl.OesData.ImportProgram(list);
+            List<int> ids = InfoControl.OesData.ImportProgram(list);
+            string basePath = new FileInfo(textBox5.Text).DirectoryName;
             MessageBox.Show("编程题批量导入成功!");
             textBox5.Clear();
         }
