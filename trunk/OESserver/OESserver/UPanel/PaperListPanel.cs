@@ -86,12 +86,14 @@ namespace OES.UPanel
 
         //跳转到试卷编辑
         private void PaperListDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {            
+        {                        
             int RIndex = e.RowIndex;
             if (RIndex > -1)
             {
-                InfoControl.getPaper(paperList[RIndex].paperID);                
-                PanelControl.EditPaper();
+                InfoControl.getPaper(paperList[RIndex].paperID);
+                paperPreview = new frmPaperPreview(InfoControl.TmpPaper);
+                paperPreview.Show();
+
             }
         }
 
