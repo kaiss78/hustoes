@@ -235,17 +235,17 @@ namespace OES
 
         private void btnReplace_Click(object sender, EventArgs e)
         {
-            int index=dgvPaperPreview.SelectedRows[0].Index;
-            ProChange = new frmQuesChange(Convert.ToInt32(NewPaper.problemList[index].type));
-            ProChange.ShowDialog();
-            if (ProChange.thePro != null)
-            {
-                NewPaper.problemList[index] = ProChange.thePro;
-                dgvPaperPreview.SelectedRows[0].Cells[0].Value = ProChange.thePro.problem;
-                dgvPaperPreview.SelectedRows[0].Cells[1].Value = Paper.GetPTypeName(ProChange.thePro.type);
-                dgvPaperPreview.SelectedRows[0].Cells[2].Value = ProChange.thePro.Plevel;
-                dgvPaperPreview.SelectedRows[0].Cells[3].Value = ProChange.thePro.score;                
-            }
+            //int index=dgvPaperPreview.SelectedRows[0].Index;
+            //ProChange = new frmQuesChange(Convert.ToInt32(NewPaper.problemList[index].type));
+            //ProChange.ShowDialog();
+            //if (ProChange.thePro != null)
+            //{
+            //    NewPaper.problemList[index] = ProChange.thePro;
+            //    dgvPaperPreview.SelectedRows[0].Cells[0].Value = ProChange.thePro.problem;
+            //    dgvPaperPreview.SelectedRows[0].Cells[1].Value = Paper.GetPTypeName(ProChange.thePro.type);
+            //    dgvPaperPreview.SelectedRows[0].Cells[2].Value = ProChange.thePro.Plevel;
+            //    dgvPaperPreview.SelectedRows[0].Cells[3].Value = ProChange.thePro.score;                
+            //}
         }
 
     }
