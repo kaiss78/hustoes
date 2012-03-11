@@ -53,6 +53,7 @@
             this.btnConfirm6 = new System.Windows.Forms.Button();
             this.btnBrowse6 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -354,5 +355,6 @@
         private System.Windows.Forms.Button btnConfirm6;
         private System.Windows.Forms.Button btnBrowse6;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }
