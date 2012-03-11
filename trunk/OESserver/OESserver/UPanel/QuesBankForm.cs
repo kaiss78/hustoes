@@ -333,7 +333,7 @@ namespace OES.UPanel
                 PanelControl.QueUpdate(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value), theType, this.Textcombo.SelectedIndex, Convert.ToString(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[3].Value), Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[4].Value));
             //this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[]
         }
-        
+
         private void DeleteBut_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("确定删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -355,6 +355,7 @@ namespace OES.UPanel
                             case 3:     //Word删除
                             case 4:     //Excel删除
                             case 5:     //PPT删除
+                                deleteOfficeFile(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value), Typecombo.SelectedIndex);
                                 InfoControl.OesData.DeleteOffice(Convert.ToInt32(this.ProblemDGV.Rows[i].Cells[1].Value));
                                 break;
                             case 6:     //C_Completion删除
@@ -430,9 +431,34 @@ namespace OES.UPanel
             InitCombUnit(Convert.ToInt32(bList.key));
         }
 
-    
-        
-       
+        /// <summary>
+        /// 删除Office题目文件
+        /// </summary>
+        /// <param name="pid">Office题的编号</param>
+        /// <param name="type">Office题类型</param>
+        private void deleteOfficeFile(int pid, int type)
+        { 
+            int tid = InfoControl.User.Id;
+            if (type == 3)              //Word
+            {
+                InfoControl.ClientObj.DelWordA(pid, tid);
+                InfoControl.ClientObj.DelWordP(pid, tid);
+                InfoControl.ClientObj.DelWordT(pid, tid);
+            }
+            else if (type == 4)         //Excel
+            {
+                InfoControl.ClientObj.DelExcelA(pid, tid);
+                InfoControl.ClientObj.DelExcelP(pid, tid);
+                InfoControl.ClientObj.DelExcelT(pid, tid);
+            }
+            else                        //Powerpoint
+            {
+                InfoControl.ClientObj.DelPowerPointA(pid, tid);
+                InfoControl.ClientObj.DelPowerPointP(pid, tid);
+                InfoControl.ClientObj.DelPowerPointT(pid, tid);
+            }
+            InfoControl.ClientObj.DelFiles();
+        }
         
     }
 }

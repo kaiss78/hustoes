@@ -55,19 +55,31 @@ namespace OES.UPanel
                 textAnsWord.Text = ofd.FileName;
         }
 
+        private void btnXmlSel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Xml文件(.xml)|*.xml";
+            if (ofd.ShowDialog() == DialogResult.OK)
+                textAnsWord.Text = ofd.FileName;
+        }
+
         private void buttonTestPoint_Click(object sender, EventArgs e)
         {
             if (File.Exists(textOriWord.Text) && File.Exists(textAnsWord.Text))
             {
                 OfficeFrm.WordFrm wf = new OES.OfficeFrm.WordFrm();
                 FileInfo f = new FileInfo(textAnsWord.Text);
-                string xml_path = f.DirectoryName + "\\!Mask!" + f.Name + ".xml";
+                string msk = f.Name.Substring(0, f.Name.LastIndexOf('.'));
+                string xml_path = f.DirectoryName + "\\" + msk + ".tmp";
                 buttonTestPoint.Text = "正在打开添加考点界面，请耐心等待...";
                 buttonTestPoint.Enabled = false;
                 wf.LoadWord(textAnsWord.Text, xml_path);
-                wf.ShowDialog();
+                //wf.ShowDialog();
+                string tmp = wf.ShowForm();
+                if (tmp != "")
+                    textXmlWord.Text = tmp;
                 buttonTestPoint.Enabled = true;
-                buttonTestPoint.Text = "点此添加考点";
+                buttonTestPoint.Text = "点此建立新考点";
             }
             else
             {
@@ -79,8 +91,7 @@ namespace OES.UPanel
         {
             fori = new FileInfo(textOriWord.Text);
             fans = new FileInfo(textAnsWord.Text);
-            string xml_path = fori.DirectoryName + "\\!Mask!" + fans.Name + ".xml";
-            fxml = new FileInfo(xml_path);
+            fxml = new FileInfo(textXmlWord.Text);
             if (!fori.Exists) return -1;
             if (!fans.Exists) return -2;
             if (!fxml.Exists) return -3;
@@ -89,9 +100,9 @@ namespace OES.UPanel
 
         private void upload(int pid)
         {
-            fori.CopyTo(tmpDir + "p" + pid.ToString() + ".doc");
-            fans.CopyTo(tmpDir + "a" + pid.ToString() + ".doc");
-            fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml");
+            fori.CopyTo(tmpDir + "p" + pid.ToString() + ".doc", true);
+            fans.CopyTo(tmpDir + "a" + pid.ToString() + ".doc", true);
+            fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml", true);
             InfoControl.ClientObj.SaveWordA(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SaveWordP(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SaveWordT(pid, InfoControl.User.Id);
