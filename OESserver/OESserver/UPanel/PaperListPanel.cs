@@ -18,6 +18,7 @@ namespace OES.UPanel
         public List<Paper> paperList;
         private int findtype = 1;
         private List<IdScoreType> ISTList;
+        private frmPaperPreview paperPreview;
 
         public void InitDT()
         {
@@ -197,7 +198,9 @@ namespace OES.UPanel
         private void btnEdit_Click(object sender, EventArgs e)
         {
             InfoControl.getPaper(Convert.ToInt32(PaperListDGV.SelectedRows[0].Cells[1].Value));
-            PanelControl.EditPaper();
+            paperPreview = new frmPaperPreview();
+            paperPreview.Show();
+            //PanelControl.EditPaper();
         }
     }
 }

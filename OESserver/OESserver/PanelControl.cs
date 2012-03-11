@@ -58,6 +58,10 @@ namespace OES
             panelList[9] = mf.bulkImport;
             mf.bulkImport.PanelID = 9;
 
+
+            panelList[12] = mf.paperInfo;
+            mf.paperInfo.PanelID = 12;
+
         }
 
         static public void HideAllPanel()
