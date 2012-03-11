@@ -51,9 +51,9 @@ namespace OES.UPanel
             cboCourse.DataSource = dtCourse;
             this.cboCourse.SelectedIndexChanged += new System.EventHandler(this.cboCourse_SelectedIndexChanged);
             cboCourse.DisplayMember = "CourseName";
-            cboCourse.ValueMember = "CourseId";                                    
+            cboCourse.ValueMember = "CourseId";
 
-            
+
         }
 
         override public void ReLoad()
@@ -90,7 +90,7 @@ namespace OES.UPanel
                 if (flag)
                 {
                     list[tmp].score = Score;
-                    NewPaper.choice.Add(list[tmp]);
+                    NewPaper.problemList.Add((Problem)list[tmp]);
                     Count--;
                 }
             }
@@ -120,7 +120,7 @@ namespace OES.UPanel
                 if (flag)
                 {
                     list[tmp].score = Score;
-                    NewPaper.judge.Add(list[tmp]);
+                    NewPaper.problemList.Add(list[tmp]);
                     Count--;
                 }
             }
@@ -149,13 +149,13 @@ namespace OES.UPanel
                 if (flag)
                 {
                     list[tmp].score = Score;
-                    NewPaper.completion.Add(list[tmp]);
+                    NewPaper.problemList.Add(list[tmp]);
                     Count--;
                 }
             }
         }
 
-        private void AddProgramProblem(ProgramPType pType,PLanguage language, int Plevel, int Chaptet, int Course, int Count, int Score, ref List<ProgramProblem> ProList)
+        private void AddProgramProblem(ProgramPType pType, PLanguage language, int Plevel, int Chaptet, int Course, int Count, int Score, ref List<ProgramProblem> ProList)
         {
             rd = new Random();
             List<ProgramProblem> list = InfoControl.OesData.FindAllProgram("", pType, language, Chaptet, Course, Plevel, 1, int.MaxValue);
@@ -178,7 +178,7 @@ namespace OES.UPanel
                 if (flag)
                 {
                     list[tmp].score = Score;
-                    ProList.Add(list[tmp]);
+                    NewPaper.problemList.Add(list[tmp]);
                     Count--;
                 }
             }
@@ -235,13 +235,15 @@ namespace OES.UPanel
                 dtRule.Rows.Remove(rows);
             }
         }
-        
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
             NewPaper = new Paper();
             NewPaper.paperName = tbPaperName.Text;
             NewPaper.authorId = InfoControl.User.Id;
             NewPaper.author = InfoControl.User.UserName;
+            NewPaper.problemList = new List<Problem>();
+            NewPaper.paperID = -1;
             foreach (PaperRule rule in Rules)
             {
                 switch (rule.PType)
@@ -256,7 +258,7 @@ namespace OES.UPanel
                         AddJudgement(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score);
                         break;
                     case ProblemType.CppProgramCompletion:
-                        AddProgramProblem(ProgramPType.Completion,  PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
+                        AddProgramProblem(ProgramPType.Completion, PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
                         break;
                     case ProblemType.CppProgramModification:
                         AddProgramProblem(ProgramPType.Modify, PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
@@ -265,13 +267,13 @@ namespace OES.UPanel
                         AddProgramProblem(ProgramPType.Function, PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
                         break;
                     case ProblemType.CProgramCompletion:
-                        AddProgramProblem(ProgramPType.Completion,PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
+                        AddProgramProblem(ProgramPType.Completion, PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
                         break;
                     case ProblemType.CProgramModification:
                         AddProgramProblem(ProgramPType.Modify, PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pModif);
                         break;
                     case ProblemType.CProgramFun:
-                        AddProgramProblem(ProgramPType.Function,PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
+                        AddProgramProblem(ProgramPType.Function, PLanguage.C, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pFunction);
                         break;
                     case ProblemType.VbProgramCompletion:
                         AddProgramProblem(ProgramPType.Completion, PLanguage.VB, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);
@@ -291,7 +293,7 @@ namespace OES.UPanel
 
         private void cboCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((EndLoad)&&(MessageBox.Show("所有出卷规则将会清空", "警告", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes))
+            if ((EndLoad) && (MessageBox.Show("所有出卷规则将会清空", "警告", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes))
             {
                 Rules = new List<PaperRule>();
                 dtRule.Clear();

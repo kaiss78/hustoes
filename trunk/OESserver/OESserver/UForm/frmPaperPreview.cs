@@ -50,41 +50,41 @@ namespace OES
             }
         }
 
-        public frmPaperPreview()
-        {
-            InitializeComponent();
-            isNew = false;
-            dtPaperPreview = new DataTable();
-            dtPaperPreview.Columns.Add("题干");
-            dtPaperPreview.Columns.Add("题目类型");
-            dtPaperPreview.Columns.Add("难度值");
-            dtPaperPreview.Columns.Add("分值");
-            dtPaperPreview.Columns.Add("Index");
+        //public frmPaperPreview()
+        //{
+        //    InitializeComponent();
+        //    isNew = false;
+        //    dtPaperPreview = new DataTable();
+        //    dtPaperPreview.Columns.Add("题干");
+        //    dtPaperPreview.Columns.Add("题目类型");
+        //    dtPaperPreview.Columns.Add("难度值");
+        //    dtPaperPreview.Columns.Add("分值");
+        //    dtPaperPreview.Columns.Add("Index");
 
-            dgvPaperPreview.DataSource = dtPaperPreview;
-            dgvPaperPreview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPaperPreview.Columns["Index"].Visible = false;
-            dgvPaperPreview.Columns[0].FillWeight = 40;
-            dgvPaperPreview.Columns[1].FillWeight = 15;
-            dgvPaperPreview.Columns[2].FillWeight = 15;
-            dgvPaperPreview.Columns[3].FillWeight = 15;
-            dgvPaperPreview.Columns[4].FillWeight = 15;
+        //    dgvPaperPreview.DataSource = dtPaperPreview;
+        //    dgvPaperPreview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        //    dgvPaperPreview.Columns["Index"].Visible = false;
+        //    dgvPaperPreview.Columns[0].FillWeight = 40;
+        //    dgvPaperPreview.Columns[1].FillWeight = 15;
+        //    dgvPaperPreview.Columns[2].FillWeight = 15;
+        //    dgvPaperPreview.Columns[3].FillWeight = 15;
+        //    dgvPaperPreview.Columns[4].FillWeight = 15;
 
-            dgvPaperPreview.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvPaperPreview.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvPaperPreview.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvPaperPreview.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-            NewPaper = InfoControl.TmpPaper;
-            foreach (Problem pro in NewPaper.problemList)
-            {
-                dtPaperPreview.Rows.Add(new object[5] { pro.problem, Paper.GetPTypeName(pro.type), pro.Plevel, pro.score, 0 });
-            }
-        }
+        //    dgvPaperPreview.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+        //    dgvPaperPreview.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+        //    dgvPaperPreview.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+        //    dgvPaperPreview.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+        //    NewPaper = InfoControl.TmpPaper;
+        //    foreach (Problem pro in NewPaper.problemList)
+        //    {
+        //        dtPaperPreview.Rows.Add(new object[5] { pro.problem, Paper.GetPTypeName(pro.type), pro.Plevel, pro.score, 0 });
+        //    }
+        //}
 
         public frmPaperPreview(Paper paper)
         {
             InitializeComponent();
-            isNew = true;
+            isNew = (paper.paperID == -1);
             NewPaper = paper;
             dtPaperPreview = new DataTable();
             dtPaperPreview.Columns.Add("题干");
@@ -106,7 +106,10 @@ namespace OES
             dgvPaperPreview.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvPaperPreview.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvPaperPreview.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-            Init();
+            foreach (Problem pro in NewPaper.problemList)
+            {
+                dtPaperPreview.Rows.Add(new object[5] { pro.problem, Paper.GetPTypeName(pro.type), pro.Plevel, pro.score, 0 });
+            }
         }
 
         private string GetAnswer(ProblemType PT, int ID)
@@ -168,63 +171,35 @@ namespace OES
         private void CreatPaper()
         {
             int i;
-            NewPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), NewPaper.paperName, NewPaper.authorId);
+            if (isNew)
+            {
+                NewPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), NewPaper.paperName, NewPaper.authorId);
+            }
+            else
+            {
+                InfoControl.OesData.UpdatePaper(NewPaper.paperID, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), NewPaper.paperName, InfoControl.User.Id.ToString());
+            }
             XMLControl.CreatePaperXML(InfoControl.config["TempPaperPath"] + NewPaper.paperID.ToString() + ".xml", NewPaper.paperID.ToString());
             XMLControl.CreatePaperAnsXML(InfoControl.config["TempPaperPath"] + "A" + NewPaper.paperID.ToString() + ".xml", NewPaper.paperID.ToString());
 
-            for (i = 0; i < NewPaper.choice.Count; i++)
-            {
-                XMLControl.AddProblemToPaper(NewPaper.choice[i].type, NewPaper.choice[i].problemId, NewPaper.choice[i].score);
-                XMLControl.AddPaperAns(NewPaper.choice[i].type, NewPaper.choice[i].problemId, GetAnswer(NewPaper.choice[i].type, NewPaper.choice[i].problemId));
-            }
-            for (i = 0; i < NewPaper.completion.Count; i++)
-            {
-                XMLControl.AddProblemToPaper(NewPaper.completion[i].type, NewPaper.completion[i].problemId, NewPaper.completion[i].score);
-                XMLControl.AddPaperAns(NewPaper.completion[i].type, NewPaper.completion[i].problemId, GetAnswer(NewPaper.completion[i].type, NewPaper.completion[i].problemId));
-            }
-            for (i = 0; i < NewPaper.judge.Count; i++)
-            {
-                XMLControl.AddProblemToPaper(NewPaper.judge[i].type, NewPaper.judge[i].problemId, NewPaper.judge[i].score);
-                XMLControl.AddPaperAns(NewPaper.judge[i].type, NewPaper.judge[i].problemId, GetAnswer(NewPaper.judge[i].type, NewPaper.judge[i].problemId));
-            }
-            AddProgramProblem(NewPaper.pCompletion);
-            AddProgramProblem(NewPaper.pModif);
-            AddProgramProblem(NewPaper.pFunction);
-
-            InfoControl.ClientObj.SavePaper(Convert.ToInt32(NewPaper.paperID), Convert.ToInt32(InfoControl.User.Id));
-            InfoControl.ClientObj.SendFiles();
-        }
-
-        private void UpdatePaper()
-        {
-            InfoControl.OesData.UpdatePaper(NewPaper.paperID, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), NewPaper.paperName, InfoControl.User.Id.ToString());
-            foreach(Problem pro in NewPaper.problemList)
+            foreach (Problem pro in NewPaper.problemList)
             {
                 XMLControl.AddProblemToPaper(pro.type, pro.problemId, pro.score);
                 if ((pro.type == ProblemType.Choice) || (pro.type == ProblemType.Completion) || (pro.type == ProblemType.Judgment))
                 {
                     XMLControl.AddPaperAns(pro.type, pro.problemId, GetAnswer(pro.type, pro.problemId));
                 }
-                
+
             }
             InfoControl.ClientObj.SavePaper(Convert.ToInt32(NewPaper.paperID), Convert.ToInt32(InfoControl.User.Id));
             InfoControl.ClientObj.SendFiles();
         }
 
-
         private void btnOK_Click(object sender, EventArgs e)
         {
             ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
-            if (isNew)
-            {
-                CreatPaper();
-            }
-            else
-            {
-                UpdatePaper();
-            }
+            CreatPaper();
 
-            
         }
 
         void ClientEvt_FilesComplete()
@@ -235,17 +210,38 @@ namespace OES
 
         private void btnReplace_Click(object sender, EventArgs e)
         {
-            //int index=dgvPaperPreview.SelectedRows[0].Index;
-            //ProChange = new frmQuesChange(Convert.ToInt32(NewPaper.problemList[index].type));
-            //ProChange.ShowDialog();
-            //if (ProChange.thePro != null)
-            //{
-            //    NewPaper.problemList[index] = ProChange.thePro;
-            //    dgvPaperPreview.SelectedRows[0].Cells[0].Value = ProChange.thePro.problem;
-            //    dgvPaperPreview.SelectedRows[0].Cells[1].Value = Paper.GetPTypeName(ProChange.thePro.type);
-            //    dgvPaperPreview.SelectedRows[0].Cells[2].Value = ProChange.thePro.Plevel;
-            //    dgvPaperPreview.SelectedRows[0].Cells[3].Value = ProChange.thePro.score;                
-            //}
+            int index = dgvPaperPreview.SelectedRows[0].Index;
+            ProChange = new frmQuesChange(NewPaper.problemList[index]);
+            ProChange.ShowDialog();
+            if (ProChange.thePro != null)
+            {
+                NewPaper.problemList[index] = ProChange.thePro;
+                dgvPaperPreview.SelectedRows[0].Cells[0].Value = ProChange.thePro.problem;
+                dgvPaperPreview.SelectedRows[0].Cells[1].Value = Paper.GetPTypeName(ProChange.thePro.type);
+                dgvPaperPreview.SelectedRows[0].Cells[2].Value = ProChange.thePro.Plevel;
+                dgvPaperPreview.SelectedRows[0].Cells[3].Value = ProChange.thePro.score;
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            int index = dgvPaperPreview.SelectedRows[0].Index;
+            if (MessageBox.Show("确定删除记录", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                NewPaper.problemList.Remove(NewPaper.problemList[index]);
+                dtPaperPreview.Rows[index].Delete();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //ProChange = new frmQuesChange(null);
+
+            if (ProChange.thePro != null)
+            {
+                NewPaper.problemList.Add(ProChange.thePro);
+                dtPaperPreview.Rows.Add(new object[5] { ProChange.thePro.problem, Paper.GetPTypeName(ProChange.thePro.type), ProChange.thePro.Plevel, ProChange.thePro.score, 0 });
+            }
         }
 
     }
