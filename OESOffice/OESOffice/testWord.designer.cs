@@ -31,14 +31,13 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.testWordView = new System.Windows.Forms.TreeView();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.btnRet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(293, 420);
+            this.btnOK.Location = new System.Drawing.Point(349, 420);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(123, 34);
+            this.btnOK.Size = new System.Drawing.Size(95, 34);
             this.btnOK.TabIndex = 11;
             this.btnOK.Text = "添加考点";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -48,7 +47,7 @@
             // 
             this.testWordView.Location = new System.Drawing.Point(6, 6);
             this.testWordView.Name = "testWordView";
-            this.testWordView.Size = new System.Drawing.Size(281, 448);
+            this.testWordView.Size = new System.Drawing.Size(337, 448);
             this.testWordView.TabIndex = 9;
             this.testWordView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.testWordView_AfterSelect);
             // 
@@ -56,33 +55,20 @@
             // 
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.HorizontalScrollbar = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(293, 6);
+            this.checkedListBox1.Location = new System.Drawing.Point(349, 6);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(259, 404);
+            this.checkedListBox1.Size = new System.Drawing.Size(293, 404);
             this.checkedListBox1.TabIndex = 8;
-            // 
-            // btnRet
-            // 
-            this.btnRet.Enabled = false;
-            this.btnRet.Location = new System.Drawing.Point(429, 420);
-            this.btnRet.Name = "btnRet";
-            this.btnRet.Size = new System.Drawing.Size(123, 34);
-            this.btnRet.TabIndex = 12;
-            this.btnRet.Text = "返回";
-            this.btnRet.UseVisualStyleBackColor = true;
-            this.btnRet.Visible = false;
-            this.btnRet.Click += new System.EventHandler(this.btnRet_Click);
             // 
             // testWord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnRet);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.testWordView);
             this.Controls.Add(this.checkedListBox1);
             this.Name = "testWord";
-            this.Size = new System.Drawing.Size(567, 468);
+            this.Size = new System.Drawing.Size(656, 468);
             this.ResumeLayout(false);
 
         }
@@ -92,6 +78,5 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.TreeView testWordView;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button btnRet;
     }
 }
