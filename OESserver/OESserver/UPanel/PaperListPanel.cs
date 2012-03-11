@@ -198,7 +198,7 @@ namespace OES.UPanel
         private void btnEdit_Click(object sender, EventArgs e)
         {
             InfoControl.getPaper(Convert.ToInt32(PaperListDGV.SelectedRows[0].Cells[1].Value));
-            paperPreview = new frmPaperPreview();
+            paperPreview = new frmPaperPreview(InfoControl.TmpPaper);
             paperPreview.Show();
             //PanelControl.EditPaper();
         }
