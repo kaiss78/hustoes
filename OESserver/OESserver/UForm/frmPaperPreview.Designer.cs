@@ -37,6 +37,8 @@
             this.tbPaperName = new System.Windows.Forms.TextBox();
             this.btnAdd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbTScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaperPreview)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +99,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.lbTScore, 7, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.dgvPaperPreview, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbPaperName, 1, 0);
@@ -145,7 +149,7 @@
             this.tbPaperName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbPaperName.Location = new System.Drawing.Point(103, 3);
             this.tbPaperName.Name = "tbPaperName";
-            this.tbPaperName.Size = new System.Drawing.Size(279, 26);
+            this.tbPaperName.Size = new System.Drawing.Size(334, 26);
             this.tbPaperName.TabIndex = 19;
             // 
             // btnAdd
@@ -176,6 +180,29 @@
             this.btnDel.Values.Text = "删除";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(443, 8);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 8, 0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "总分：";
+            // 
+            // lbTScore
+            // 
+            this.lbTScore.AutoSize = true;
+            this.lbTScore.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbTScore.Location = new System.Drawing.Point(503, 8);
+            this.lbTScore.Margin = new System.Windows.Forms.Padding(3, 8, 0, 0);
+            this.lbTScore.Name = "lbTScore";
+            this.lbTScore.Size = new System.Drawing.Size(16, 16);
+            this.lbTScore.TabIndex = 23;
+            this.lbTScore.Text = "0";
+            this.lbTScore.UseWaitCursor = true;
+            // 
             // frmPaperPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -183,6 +210,7 @@
             this.ClientSize = new System.Drawing.Size(821, 533);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmPaperPreview";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "试卷预览";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaperPreview)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -202,5 +230,7 @@
         private System.Windows.Forms.TextBox tbPaperName;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnAdd;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDel;
+        private System.Windows.Forms.Label lbTScore;
+        private System.Windows.Forms.Label label2;
     }
 }

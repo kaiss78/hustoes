@@ -20,6 +20,16 @@ namespace OES
         private frmQuesChange ProChange;
         private bool isNew;
 
+        private int CountScore()
+        {
+            int s;
+            s = 0;
+            foreach (Problem pro in NewPaper.problemList)
+            {
+                s = s + pro.score;
+            }
+            return s;
+        }
         private void Init()
         {
             int i;
@@ -86,6 +96,7 @@ namespace OES
             InitializeComponent();
             isNew = (paper.paperID == -1);
             NewPaper = paper;
+            tbPaperName.Text = NewPaper.paperName;
             dtPaperPreview = new DataTable();
             dtPaperPreview.Columns.Add("题干");
             dtPaperPreview.Columns.Add("题目类型");
@@ -110,6 +121,7 @@ namespace OES
             {
                 dtPaperPreview.Rows.Add(new object[5] { pro.problem, Paper.GetPTypeName(pro.type), pro.Plevel, pro.score, 0 });
             }
+            lbTScore.Text = CountScore().ToString();
         }
 
         private string GetAnswer(ProblemType PT, int ID)
@@ -171,6 +183,7 @@ namespace OES
         private void CreatPaper()
         {
             int i;
+            NewPaper.paperName = tbPaperName.Text;
             if (isNew)
             {
                 NewPaper.paperID = InfoControl.OesData.AddPaper(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), NewPaper.paperName, NewPaper.authorId);
@@ -220,7 +233,9 @@ namespace OES
                 dgvPaperPreview.SelectedRows[0].Cells[1].Value = Paper.GetPTypeName(ProChange.thePro.type);
                 dgvPaperPreview.SelectedRows[0].Cells[2].Value = ProChange.thePro.Plevel;
                 dgvPaperPreview.SelectedRows[0].Cells[3].Value = ProChange.thePro.score;
+                lbTScore.Text = CountScore().ToString();
             }
+
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -230,17 +245,20 @@ namespace OES
             {
                 NewPaper.problemList.Remove(NewPaper.problemList[index]);
                 dtPaperPreview.Rows[index].Delete();
+                lbTScore.Text = CountScore().ToString();
             }
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //ProChange = new frmQuesChange(null);
-
+            ProChange = new frmQuesChange(null);
+            ProChange.ShowDialog();
             if (ProChange.thePro != null)
             {
                 NewPaper.problemList.Add(ProChange.thePro);
                 dtPaperPreview.Rows.Add(new object[5] { ProChange.thePro.problem, Paper.GetPTypeName(ProChange.thePro.type), ProChange.thePro.Plevel, ProChange.thePro.score, 0 });
+                lbTScore.Text = CountScore().ToString();
             }
         }
 
