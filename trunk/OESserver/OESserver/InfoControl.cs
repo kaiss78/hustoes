@@ -133,77 +133,74 @@ namespace OES
         /// <param name="paperID">所要获取试卷的id</param>
         public static void getPaper(int paperID)
         {
-            //Problem tmpPro;
-            //TmpPaper = OesData.FindPaperByPaperId(paperID)[0];
-            //InfoControl.clientObj.LoadPaper(Convert.ToInt32(TmpPaper.paperID), Convert.ToInt32(User.Id));
-            //InfoControl.clientObj.ReceiveFiles();
-            //while (!ClientEvt.isOver) ;
-            //TmpPaper.paperPath = InfoControl.config["TempPaperPath"] + TmpPaper.paperID + ".xml";
-            //List<IdScoreType> tmpList = XMLControl.ReadPaper(TmpPaper.paperPath);
-            //for (int i = 0; i < 9; i++)
-            //{
-            //    //TmpPaper.ProList[i] = new List<Problem>();
-            //}
-            //foreach (IdScoreType pro in tmpList)
-            //{
-            //    tmpPro = new Problem();
-            //    switch (pro.pt)
-            //    {
-            //        case ProblemType.Choice:
-            //            tmpPro = InfoControl.OesData.FindChoiceByPID(pro.id)[0];
-            //            InfoControl.TmpPaper.ProList[0].Add(tmpPro);
-            //            InfoControl.TmpPaper.score_choice = pro.score;
-            //            break;
-            //        case ProblemType.Judgment:
-            //            tmpPro = InfoControl.OesData.FindJudgmentByPID(pro.id)[0];
-            //            InfoControl.TmpPaper.ProList[2].Add(tmpPro);
-            //            InfoControl.TmpPaper.score_judge = pro.score;
-            //            break;
-            //        case ProblemType.Completion:
-            //            tmpPro = InfoControl.OesData.FindCompletionByPID(pro.id)[0];
-            //            InfoControl.TmpPaper.ProList[1].Add(tmpPro);
-            //            InfoControl.TmpPaper.score_completion = pro.score;
-            //            break;
-            //        case ProblemType.Word:
-            //            tmpPro = InfoControl.OesData.FindOfficeByPID(pro.id)[0];
-            //            InfoControl.TmpPaper.ProList[5].Add(tmpPro);
-            //            InfoControl.TmpPaper.score_officeWord = pro.score;
-            //            break;
-            //        case ProblemType.PowerPoint:
-            //            tmpPro = InfoControl.OesData.FindOfficeByPID(pro.id)[0];
-            //            InfoControl.TmpPaper.ProList[4].Add(tmpPro);
-            //            InfoControl.TmpPaper.score_officePPT = pro.score;
-            //            break;
-            //        case ProblemType.Excel:
-            //            tmpPro = InfoControl.OesData.FindOfficeByPID(pro.id)[0];
-            //            InfoControl.TmpPaper.ProList[3].Add(tmpPro);
-            //            InfoControl.TmpPaper.score_officeExcel = pro.score;
-            //            break;
-            //        case ProblemType.CProgramCompletion:
-            //        case ProblemType.CppProgramCompletion:
-            //        case ProblemType.VbProgramCompletion:
-            //            tmpPro = InfoControl.OesData.FindProgramByPID(pro.id)[0];
-            //            InfoControl.TmpPaper.ProList[7].Add(tmpPro);
-            //            InfoControl.TmpPaper.score_pModif = pro.score;
-            //            break;
-            //        case ProblemType.CProgramModification:
-            //        case ProblemType.CppProgramModification:
-            //        case ProblemType.VbProgramModification:
-            //            tmpPro = InfoControl.OesData.FindProgramByPID(pro.id)[0];
-            //            InfoControl.TmpPaper.ProList[6].Add(tmpPro);
-            //            InfoControl.TmpPaper.score_pCompletion = pro.score;
-            //            break;
-            //        case ProblemType.CProgramFun:
-            //        case ProblemType.CppProgramFun:
-            //        case ProblemType.VbProgramFun:
-            //            tmpPro = InfoControl.OesData.FindProgramByPID(pro.id)[0];
-            //            InfoControl.TmpPaper.ProList[8].Add(tmpPro);
-            //            InfoControl.TmpPaper.score_pFunction = pro.score;
-            //            break;
-            //    }
-            //    tmpPro.problemId = pro.id;
-            //    tmpPro.score = pro.score;
-            //}
+            Problem tmpPro;
+            TmpPaper = OesData.FindPaperByPaperId(paperID)[0];
+            InfoControl.clientObj.LoadPaper(Convert.ToInt32(TmpPaper.paperID), Convert.ToInt32(User.Id));
+            InfoControl.clientObj.ReceiveFiles();
+            while (!ClientEvt.isOver) ;
+            TmpPaper.paperPath = InfoControl.config["TempPaperPath"] + TmpPaper.paperID + ".xml";
+            List<IdScoreType> tmpList = XMLControl.ReadPaper(TmpPaper.paperPath);
+            InfoControl.TmpPaper.problemList = new List<Problem>();
+            foreach (IdScoreType pro in tmpList)
+            {
+                tmpPro = new Problem();
+                switch (pro.pt)
+                {
+                    case ProblemType.Choice:
+                        tmpPro = InfoControl.OesData.FindChoiceByPID(pro.id)[0];
+                        InfoControl.TmpPaper.problemList.Add(tmpPro);
+                        InfoControl.TmpPaper.score_choice = pro.score;
+                        break;
+                    case ProblemType.Judgment:
+                        tmpPro = InfoControl.OesData.FindJudgmentByPID(pro.id)[0];
+                        InfoControl.TmpPaper.problemList.Add(tmpPro);
+                        InfoControl.TmpPaper.score_judge = pro.score;
+                        break;
+                    case ProblemType.Completion:
+                        tmpPro = InfoControl.OesData.FindCompletionByPID(pro.id)[0];
+                        InfoControl.TmpPaper.problemList.Add(tmpPro);
+                        InfoControl.TmpPaper.score_completion = pro.score;
+                        break;
+                    case ProblemType.Word:
+                        tmpPro = InfoControl.OesData.FindOfficeByPID(pro.id)[0];
+                        InfoControl.TmpPaper.problemList.Add(tmpPro);
+                        InfoControl.TmpPaper.score_officeWord = pro.score;
+                        break;
+                    case ProblemType.PowerPoint:
+                        tmpPro = InfoControl.OesData.FindOfficeByPID(pro.id)[0];
+                        InfoControl.TmpPaper.problemList.Add(tmpPro);
+                        InfoControl.TmpPaper.score_officePPT = pro.score;
+                        break;
+                    case ProblemType.Excel:
+                        tmpPro = InfoControl.OesData.FindOfficeByPID(pro.id)[0];
+                        InfoControl.TmpPaper.problemList.Add(tmpPro);
+                        InfoControl.TmpPaper.score_officeExcel = pro.score;
+                        break;
+                    case ProblemType.CProgramCompletion:
+                    case ProblemType.CppProgramCompletion:
+                    case ProblemType.VbProgramCompletion:
+                        tmpPro = InfoControl.OesData.FindProgramByPID(pro.id)[0];
+                        InfoControl.TmpPaper.problemList.Add(tmpPro);
+                        InfoControl.TmpPaper.score_pModif = pro.score;
+                        break;
+                    case ProblemType.CProgramModification:
+                    case ProblemType.CppProgramModification:
+                    case ProblemType.VbProgramModification:
+                        tmpPro = InfoControl.OesData.FindProgramByPID(pro.id)[0];
+                        InfoControl.TmpPaper.problemList.Add(tmpPro);
+                        InfoControl.TmpPaper.score_pCompletion = pro.score;
+                        break;
+                    case ProblemType.CProgramFun:
+                    case ProblemType.CppProgramFun:
+                    case ProblemType.VbProgramFun:
+                        tmpPro = InfoControl.OesData.FindProgramByPID(pro.id)[0];
+                        InfoControl.TmpPaper.problemList.Add(tmpPro);
+                        InfoControl.TmpPaper.score_pFunction = pro.score;
+                        break;
+                }
+                tmpPro.problemId = pro.id;
+                tmpPro.score = pro.score;
+            }
         }
 
         /// <summary>

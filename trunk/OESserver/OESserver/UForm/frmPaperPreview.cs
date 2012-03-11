@@ -18,6 +18,7 @@ namespace OES
         private DataTable dtPaperPreview;
         private Paper NewPaper;
         private frmQuesChange ProChange;
+        private bool isNew;
 
         private void Init()
         {
@@ -34,8 +35,8 @@ namespace OES
             for (i = 0; i < NewPaper.judge.Count; i++)
             {
                 dtPaperPreview.Rows.Add(new object[5] { NewPaper.judge[i].problem, Paper.GetPTypeName(NewPaper.judge[i].type), NewPaper.judge[i].Plevel, NewPaper.judge[i].score, i });
-            }      
-            for(i=0;i<NewPaper.pCompletion.Count;i++)
+            }
+            for (i = 0; i < NewPaper.pCompletion.Count; i++)
             {
                 dtPaperPreview.Rows.Add(new object[5] { NewPaper.pCompletion[i].problem, Paper.GetPTypeName(NewPaper.pCompletion[i].type), NewPaper.pCompletion[i].Plevel, NewPaper.pCompletion[i].score, i });
             }
@@ -49,10 +50,41 @@ namespace OES
             }
         }
 
+        public frmPaperPreview()
+        {
+            InitializeComponent();
+            isNew = false;
+            dtPaperPreview = new DataTable();
+            dtPaperPreview.Columns.Add("题干");
+            dtPaperPreview.Columns.Add("题目类型");
+            dtPaperPreview.Columns.Add("难度值");
+            dtPaperPreview.Columns.Add("分值");
+            dtPaperPreview.Columns.Add("Index");
+
+            dgvPaperPreview.DataSource = dtPaperPreview;
+            dgvPaperPreview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPaperPreview.Columns["Index"].Visible = false;
+            dgvPaperPreview.Columns[0].FillWeight = 40;
+            dgvPaperPreview.Columns[1].FillWeight = 15;
+            dgvPaperPreview.Columns[2].FillWeight = 15;
+            dgvPaperPreview.Columns[3].FillWeight = 15;
+            dgvPaperPreview.Columns[4].FillWeight = 15;
+
+            dgvPaperPreview.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvPaperPreview.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvPaperPreview.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvPaperPreview.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
+            NewPaper = InfoControl.TmpPaper;
+            foreach (Problem pro in NewPaper.problemList)
+            {
+                dtPaperPreview.Rows.Add(new object[5] { pro.problem, Paper.GetPTypeName(pro.type), pro.Plevel, pro.score, 0 });
+            }
+        }
+
         public frmPaperPreview(Paper paper)
         {
-            InitializeComponent();            
-
+            InitializeComponent();
+            isNew = true;
             NewPaper = paper;
             dtPaperPreview = new DataTable();
             dtPaperPreview.Columns.Add("题干");
@@ -77,7 +109,7 @@ namespace OES
             Init();
         }
 
-        private string GetAnswer(ProblemType PT,int ID)
+        private string GetAnswer(ProblemType PT, int ID)
         {
             string ans = "";
             List<Choice> choice;
@@ -116,7 +148,7 @@ namespace OES
                 case ProblemType.CppProgramCompletion:
                 case ProblemType.VbProgramCompletion:
                     ProProblem = InfoControl.OesData.FindProgramByPID(ID);
-                    if(ProProblem.Count>0)
+                    if (ProProblem.Count > 0)
                     {
                         ans = "";
                     }
@@ -129,7 +161,7 @@ namespace OES
         {
             foreach (ProgramProblem problem in ProList)
             {
-                XMLControl.AddProblemToPaper(problem.type,problem.problemId,problem.score);
+                XMLControl.AddProblemToPaper(problem.type, problem.problemId, problem.score);
             }
         }
 
@@ -163,10 +195,36 @@ namespace OES
             InfoControl.ClientObj.SendFiles();
         }
 
+        private void UpdatePaper()
+        {
+            InfoControl.OesData.UpdatePaper(NewPaper.paperID, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), NewPaper.paperName, InfoControl.User.Id.ToString());
+            foreach(Problem pro in NewPaper.problemList)
+            {
+                XMLControl.AddProblemToPaper(pro.type, pro.problemId, pro.score);
+                if ((pro.type == ProblemType.Choice) || (pro.type == ProblemType.Completion) || (pro.type == ProblemType.Judgment))
+                {
+                    XMLControl.AddPaperAns(pro.type, pro.problemId, GetAnswer(pro.type, pro.problemId));
+                }
+                
+            }
+            InfoControl.ClientObj.SavePaper(Convert.ToInt32(NewPaper.paperID), Convert.ToInt32(InfoControl.User.Id));
+            InfoControl.ClientObj.SendFiles();
+        }
+
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
-            CreatPaper();
+            if (isNew)
+            {
+                CreatPaper();
+            }
+            else
+            {
+                UpdatePaper();
+            }
+
+            
         }
 
         void ClientEvt_FilesComplete()
@@ -177,8 +235,17 @@ namespace OES
 
         private void btnReplace_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show();
-            //ProChange
+            int index=dgvPaperPreview.SelectedRows[0].Index;
+            ProChange = new frmQuesChange(Convert.ToInt32(NewPaper.problemList[index].type));
+            ProChange.ShowDialog();
+            if (ProChange.thePro != null)
+            {
+                NewPaper.problemList[index] = ProChange.thePro;
+                dgvPaperPreview.SelectedRows[0].Cells[0].Value = ProChange.thePro.problem;
+                dgvPaperPreview.SelectedRows[0].Cells[1].Value = Paper.GetPTypeName(ProChange.thePro.type);
+                dgvPaperPreview.SelectedRows[0].Cells[2].Value = ProChange.thePro.Plevel;
+                dgvPaperPreview.SelectedRows[0].Cells[3].Value = ProChange.thePro.score;                
+            }
         }
 
     }
