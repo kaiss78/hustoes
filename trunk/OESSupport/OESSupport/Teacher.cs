@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OESSupport.Net;
 using ServerNet;
+using System.IO;
 
 namespace OESSupport
 {
@@ -12,7 +13,29 @@ namespace OESSupport
         public string name;
         public string pwd;
         public Client client;
-        public string filepath;
+        public bool isFileExist=true;
+        private string filepath;
+
+        public string Filepath
+        {
+            get 
+            {
+                return filepath; 
+            }
+            set 
+            {
+                filepath = value;
+                if (File.Exists(filepath))
+                {
+                    isFileExist = true;
+                }
+                else
+                {
+                    isFileExist = false;
+                }
+            }
+        }
+
         public Teacher(string name, Client client)
         {
             this.name = name;
