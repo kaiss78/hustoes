@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using ClientNet;
+using System.Windows.Forms;
 
 namespace OES.Net
 {
@@ -107,6 +108,24 @@ namespace OES.Net
 
         static void Client_ReceivedTxt(object sender, EventArgs e)
         {
+            string[] msgs=sender.ToString().Split('$');
+            if (msgs[0] == "server")
+            {
+                switch (msgs[1])
+                {
+                    case "fileError":
+                        MessageBox.Show(msgs[2] + "not exist!");
+                        while (!InfoControl.MainForm.IsHandleCreated) ;
+                        InfoControl.MainForm.Invoke(new Action(() =>
+                        {
+                            InfoControl.MainForm.Enabled = true;
+                            FileListWaiting.Instance.Close();
+                        }));
+                        if (FileError != null)
+                            FileError();
+                        break;
+                }
+            }
             //string[] msgs=sender.ToString().Split('$');
             //if (msgs[0] == "server")
             //{
