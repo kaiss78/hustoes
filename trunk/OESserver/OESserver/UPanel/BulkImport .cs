@@ -170,21 +170,21 @@ namespace OES.UPanel
                     {
                         switch (list[i][4].ToLower())
                         {
-                            case "C":
+                            case "c":
                                 if (!File.Exists(basePath + list[i][5]))
                                 {
                                     MessageBox.Show("文件出现异常，请检查");
                                     throw new Exception();
                                 }
                                 CPro(list[i], ids[i], basePath); break;
-                            case "Cpp":
+                            case "cpp":
                                 if (!File.Exists(basePath + list[i][5]))
                                 {
                                     MessageBox.Show("文件出现异常，请检查");
                                     throw new Exception();
                                 }
                                 CppPro(list[i], ids[i], basePath); break;
-                            case "Vb":
+                            case "vb":
                                 if (!File.Exists(basePath + list[i][5]))
                                 {
                                     MessageBox.Show("文件出现异常，请检查");
@@ -227,15 +227,15 @@ namespace OES.UPanel
             
                 switch (list[3].ToLower())
                 {
-                    case "Comp":
+                    case "comp":
                         File.Copy(basePath + list[5], InfoControl.config["CompletionPath"] + "p" + ids + ".cpp");
                         InfoControl.ClientObj.SaveCppCompletion(ids, InfoControl.User.Id);
                         break;
-                    case "Modi":
+                    case "modi":
                         File.Copy(basePath + list[5], InfoControl.config["ModificationPath"] + "p" + ids + ".cpp");
                         InfoControl.ClientObj.SaveCppModification(ids, InfoControl.User.Id);
                         break;
-                    case "Prog":
+                    case "prog":
                         File.Copy(basePath + list[5], InfoControl.config["FunctionPath"] + "p" + ids + ".cpp");
                         File.Copy(basePath + list[6], InfoControl.config["FunctionPath"] + "a" + ids + ".cpp");
                         InfoControl.ClientObj.SaveCppFunctionP(ids, InfoControl.User.Id);
@@ -248,15 +248,15 @@ namespace OES.UPanel
             
                 switch (list[3].ToLower())
                 {
-                    case "Comp":
+                    case "comp":
                         File.Copy(basePath + list[5], InfoControl.config["CompletionPath"] + "p" + ids + ".c");
                         InfoControl.ClientObj.SaveCCompletion(ids, InfoControl.User.Id);
                         break;
-                    case "Modi":
+                    case "modi":
                         File.Copy(basePath + list[5], InfoControl.config["ModificationPath"] + "p" + ids + ".c");
                         InfoControl.ClientObj.SaveCModification(ids, InfoControl.User.Id);
                         break;
-                    case "Prog":
+                    case "prog":
                         File.Copy(basePath + list[5], InfoControl.config["FunctionPath"] + "p" + ids + ".c");
                         File.Copy(basePath + list[6], InfoControl.config["FunctionPath"] + "a" + ids + ".c");
 
@@ -273,15 +273,15 @@ namespace OES.UPanel
            
                 switch (list[3].ToLower())
                 {
-                    case "Comp":
+                    case "comp":
                         File.Copy(basePath + list[5], InfoControl.config["CompletionPath"] + "p" + ids + ".vb");
                         InfoControl.ClientObj.SaveVbCompletion(ids, InfoControl.User.Id);
                         break;
-                    case "Modi":
+                    case "modi":
                         File.Copy(basePath + list[5], InfoControl.config["ModificationPath"] + "p" + ids + ".vb");
                         InfoControl.ClientObj.SaveVbModification(ids, InfoControl.User.Id);
                         break;
-                    case "Prog":
+                    case "prog":
                         File.Copy(basePath + list[5], InfoControl.config["FunctionPath"] + "p" + ids + ".vb");
                         File.Copy(basePath + list[6], InfoControl.config["FunctionPath"] + "a" + ids + ".vb");
 
