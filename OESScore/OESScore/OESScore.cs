@@ -22,13 +22,7 @@ namespace OESScore
         public List<PaperFolder> papers = new List<PaperFolder>();
         private List<StuFolder> StuList = new List<StuFolder>();
 
-        enum ScoreState
-        {
-            None = 0,     //未开始评分
-            Success = 1,  //评分成功
-            PaperNotFound = 2,//试卷不存在
-            AnswerNotFound = 3//考生答案不存在
-        }
+
 
         public formOESScore()
         {
@@ -155,24 +149,28 @@ namespace OESScore
                         if (tmpP.Count > 0)
                         {
                             tmpSF.PaperInfo = tmpP[0];
+                            tmpSF.state = ScoreState.None; ;
                             values[5] = ScoreState.None;
                         }
                         else
                         {
                             tmpSF.PaperInfo.paperName = "试卷不存在";
                             tmpSF.PaperInfo.paperID = -1;
+                            tmpSF.state = ScoreState.PaperNotFound;
                             values[5] = ScoreState.PaperNotFound;
                         }
                         if (File.Exists(stu.FullName + "\\Result.xml"))
                         {
                             tmpSF.ReadResult(stu.FullName + "\\Result.xml");
                             values[4] = tmpSF.Score.Value;
+                            tmpSF.state = ScoreState.Success;
                             values[5] = ScoreState.Success;
                         }
                         values[3] = tmpSF.PaperInfo.paperName;
                     }
                     else
                     {
+                        tmpSF.state = ScoreState.AnswerNotFound;
                         values[5] = ScoreState.AnswerNotFound;
                     }
                     StuList.Add(tmpSF);
@@ -187,7 +185,11 @@ namespace OESScore
             for (int i = 0; i < StuList.Count; i++)
             {
                 processBar.Value = (i + 1) * 100 / StuList.Count;
-                Mark(i);
+                //StuList[RIndex].s
+                if ((StuList[i].state == ScoreState.None) || (StuList[i].state == ScoreState.None))
+                {
+                    Mark(i);
+                }
             }
         }
 
@@ -376,17 +378,22 @@ namespace OESScore
         /// <param name="e"></param>
         private void dgvPaperTable_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
-            int RIndex = dtStuList.Rows.IndexOf(dvStuList[e.RowIndex].Row);
-            //MessageBox.Show(RIndex.ToString() + "  " + e.RowIndex.ToString());
-            //MessageBox.Show()
-            if (RIndex > -1)
+            //MessageBox.Show(dtStuList.Rows.IndexOf(dvStuList[e.RowIndex].Row).ToString());
+            if (e.RowIndex > -1)
             {
-                if (Convert.ToInt32(dtStuList.Rows[RIndex][5]) < 2)
+                int RIndex = dtStuList.Rows.IndexOf(dvStuList[e.RowIndex].Row);
+                //MessageBox.Show(RIndex.ToString() + "  " + e.RowIndex.ToString());
+                //MessageBox.Show()
+                if (RIndex > -1)
                 {
-                    StuList[RIndex].Score.Value = Mark(RIndex);
-                    dtStuList.Rows[RIndex][4] = StuList[RIndex].Score.Value;
-                    dtStuList.Rows[RIndex][5] = ScoreState.Success;
+                    if (Convert.ToInt32(dtStuList.Rows[RIndex][5]) < 2)
+                    {
+                        StuList[RIndex].Score.Value = Mark(RIndex);
+                        StuList[RIndex].state = ScoreState.Success;
+                        dtStuList.Rows[RIndex][4] = StuList[RIndex].Score.Value;                        
+                        dtStuList.Rows[RIndex][5] = ScoreState.Success;
+                        
+                    }
                 }
             }
         }
@@ -398,15 +405,14 @@ namespace OESScore
         /// <param name="e"></param>
         private void btnScore_Click(object sender, EventArgs e)
         {
-            int RIndex;
             for (int i = 0; i < StuList.Count; i++)
-            {
-                RIndex = dtStuList.Rows.IndexOf(dvStuList[i].Row);
-                if (Convert.ToInt32(dtStuList.Rows[RIndex][5]) < 2)
+            {             
+                if (Convert.ToInt32(dtStuList.Rows[i][5]) < 2)
                 {
                     StuList[i].Score.Value = Mark(i);
-                    dtStuList.Rows[RIndex][4] = StuList[i].Score.Value;
-                    dtStuList.Rows[RIndex][5] = ScoreState.Success;
+                    StuList[i].state = ScoreState.Success;
+                    dtStuList.Rows[i][4] = StuList[i].Score.Value;
+                    dtStuList.Rows[i][5] = ScoreState.Success;
                 }
                 processBar.Value = (i + 1) * 100 / StuList.Count;
             }
