@@ -8,7 +8,7 @@ using OESXML;
 
 namespace OESOfficeScore
 {
-    class PowerPointScore
+    public class PowerPointScore
     {
         PowerPoint.Application powerpoint;
         PowerPoint.Presentation stuPpt, ansPpt;

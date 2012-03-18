@@ -9,7 +9,7 @@ using OESXML;
 
 namespace OESOfficeScore
 {
-    class ExcelScore
+    public class ExcelScore
     {
         Excel.Application stuExcel, ansExcel;           //学生和标答（下同）使用的Excel应用程序
         Excel.Workbook stuXls, ansXls;                  //Excel工作表
