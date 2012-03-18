@@ -9,11 +9,12 @@ using System.Windows.Forms;
 
 namespace OESAnalyse
 {
-    public partial class Form1 : Form
+    public partial class OESAnalyse : Form
     {
-        public Form1()
+        public OESAnalyse()
         {
             InitializeComponent();
         }
+
     }
 }
