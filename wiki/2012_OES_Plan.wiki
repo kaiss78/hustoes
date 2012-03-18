@@ -1,506 +1,69 @@
-<html xmlns="http://www.w3.org/TR/REC-html40" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word">
-  <body lang="ZH-CN" link="blue" style="tab-interval: 21.0pt; text-justify-trim: punctuation" vlink="purple">
-    <div class="WordSection1" style="layout-grid: 15.6pt">
-      <p class="MsoNormal" style="text-align: center">
-        <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US" style="mso-bidi-font-size: 11.0pt"><font size="22.0pt">2012-OES</font></span></b><b style="mso-bidi-font-weight: normal"><span style="mso-bidi-font-size: 11.0pt; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;"><font size="22.0pt">&#x8BA1;&#x5212;&#x6587;&#x6863;</font></font></span></b><b style="mso-bidi-font-weight: normal"><span lang="EN-US" style="mso-bidi-font-size: 11.0pt"><font size="22.0pt"><o:p></o:p></font></span></b></center>
-      </p>
-      <p class="MsoNormal" style="text-align: center">
-        <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US" style="mso-bidi-font-size: 10.5pt">Made by <span class="SpellE">PangLiang</span><o:p></o:p></span></b></center>
-      </p>
-      <h1 style="margin-left: 18.0pt; text-indent: -18.0pt; mso-list: l4 level1 lfo1"><span lang="EN-US" style="line-height: 240%; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><font size="12.0pt"><span style="mso-list: Ignore">1.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></font></span><span style="line-height: 240%; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;"><font size="12.0pt">&#x4EBA;&#x5458;&#x60C5;&#x51B5;</font></font></span><span lang="EN-US" style="line-height: 240%"><font size="12.0pt"><o:p></o:p></font></span></h1>
-      <table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0pt 5.4pt 0pt 5.4pt">
-        <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes">
-          <td style="width: 70.7pt; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; background: #595959; mso-background-themecolor: text1; mso-background-themetint: 166; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="94">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font color="white"><font face="&#x5B8B;&#x4F53;">&#x59D3;&#x540D;</font></font></span><span lang="EN-US"><font color="white"><o:p></o:p></font></span></b></center>
-            </p>
-          </td>
-          <td style="width: 182.5pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #595959; mso-background-themecolor: text1; mso-background-themetint: 166; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="243">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font color="white"><font face="&#x5B8B;&#x4F53;">&#x72B6;&#x6001;</font></font></span><span lang="EN-US"><font color="white"><o:p></o:p></font></span></b></center>
-            </p>
-          </td>
-          <td style="width: 172.9pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #595959; mso-background-themecolor: text1; mso-background-themetint: 166; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="231">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><font color="white">Google </font></span></b><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font color="white"><font face="&#x5B8B;&#x4F53;">&#x8D26;&#x53F7;</font></font></span><span lang="EN-US"><font color="white"><o:p></o:p></font></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 1">
-          <td style="width: 70.7pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FDE9D9; mso-background-themecolor: accent6; mso-background-themetint: 51; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="94">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x5E9E;&#x4EAE;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 182.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="243">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9879;&#x76EE;&#x5F00;&#x53D1;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 172.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="231">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">pl8787@gmail.com<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 2">
-          <td style="width: 70.7pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FDE9D9; mso-background-themecolor: accent6; mso-background-themetint: 51; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="94">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6D2A;&#x6653;&#x4EAE;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 182.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="243">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9879;&#x76EE;&#x5F00;&#x53D1;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 172.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="231">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">fphxliang@gmail.com<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 3">
-          <td style="width: 70.7pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FDE9D9; mso-background-themecolor: accent6; mso-background-themetint: 51; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="94">
-            <p class="MsoNormal" style="text-align: center">
-              <center><span class="GramE"><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x7F57;&#x5EB7;&#x7426;</font></span></b></span><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 182.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="243">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9879;&#x76EE;&#x5F00;&#x53D1;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 172.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="231">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">hust.ELT@gmail.com<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 4">
-          <td style="width: 70.7pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FDE9D9; mso-background-themecolor: accent6; mso-background-themetint: 51; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="94">
-            <p class="MsoNormal" style="text-align: center">
-              <center><span class="GramE"><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8A00;&#x51CC;&#x5CF0;</font></span></b></span><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 182.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #943634; mso-background-themecolor: accent2; mso-background-themeshade: 191; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="243">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x516C;&#x53F8;&#x5B9E;&#x4E60;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 172.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #943634; mso-background-themecolor: accent2; mso-background-themeshade: 191; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="231">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">Solaryan2009@gmail.com<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 5">
-          <td style="width: 70.7pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FDE9D9; mso-background-themecolor: accent6; mso-background-themetint: 51; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="94">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8D3A;&#x9E4F;&#x98DE;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 182.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="243">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9879;&#x76EE;&#x5F00;&#x53D1;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 172.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="231">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">hepengfei133@gmail.com<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 6">
-          <td style="width: 70.7pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FDE9D9; mso-background-themecolor: accent6; mso-background-themetint: 51; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="94">
-            <p class="MsoNormal" style="text-align: center">
-              <center><span class="GramE"><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x79E6;&#x8087;&#x7199;</font></span></b></span><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 182.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="243">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9879;&#x76EE;&#x5F00;&#x53D1;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 172.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="231">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">qinzhaoxi@gmail.com<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 7; mso-yfti-lastrow: yes">
-          <td style="width: 70.7pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FDE9D9; mso-background-themecolor: accent6; mso-background-themetint: 51; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="94">
-            <p class="MsoNormal" style="text-align: center">
-              <center><span class="GramE"><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8D75;&#x6C49;&#x542F;</font></span></b></span><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 182.5pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="243">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9879;&#x76EE;&#x5F00;&#x53D1;&#xFF08;&#x65B0;&#x52A0;&#x5165;&#x6210;&#x5458;&#xFF09;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 172.9pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #35A543; mso-background-themecolor: background1; mso-background-themeshade: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="231">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">zhaohanqi93@gmail.com<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-      </table>
-      <p class="MsoNormal"><span lang="EN-US"><o:p>&nbsp;</o:p></span></p>
-      <h1 style="margin-left: 18.0pt; text-indent: -18.0pt; mso-list: l4 level1 lfo1"><span lang="EN-US" style="line-height: 240%; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><font size="12.0pt"><span style="mso-list: Ignore">2.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></font></span><span style="line-height: 240%; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;"><font size="12.0pt">&#x5DE5;&#x5177;&#x5E73;&#x53F0;</font></font></span><span lang="EN-US" style="line-height: 240%"><font size="12.0pt"><o:p></o:p></font></span></h1>
-      <h2><span style="line-height: 173%; mso-ascii-font-family: Cambria; mso-ascii-theme-font: major-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: major-fareast; mso-hansi-font-family: Cambria; mso-hansi-theme-font: major-latin"><font face="&#x5B8B;&#x4F53;"><font size="12.0pt">&#x5F00;&#x53D1;</font></font></span><span lang="EN-US" style="line-height: 173%"><font size="12.0pt"><o:p></o:p></font></span></h2>
-      <p class="MsoNormal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#xFF1A;</font></span><span lang="EN-US">Visual Studio 2008</span></p>
-      <p class="MsoNormal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x5F00;&#x53D1;&#x8BED;&#x8A00;&#xFF1A;</font></span><span lang="EN-US">Visual C#</span></p>
-      <p class="MsoNormal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x4EE3;&#x7801;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF1A;</font></span><span lang="EN-US">SVN</span></p>
-      <p class="MsoNormal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x4EE3;&#x7801;&#x5E93;&#xFF1A;</font></span><span lang="EN-US">Google Code</span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#xFF1A;</font></span><span lang="EN-US"><a href="https://code.google.com/p/hustoes/">https://code.google.com/p/hustoes/</a></span></p>
-      <h2><span style="line-height: 173%; mso-ascii-font-family: Cambria; mso-ascii-theme-font: major-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: major-fareast; mso-hansi-font-family: Cambria; mso-hansi-theme-font: major-latin"><font face="&#x5B8B;&#x4F53;"><font size="12.0pt">&#x8FD0;&#x884C;</font></font></span><span lang="EN-US" style="line-height: 173%"><font size="12.0pt"><o:p></o:p></font></span></h2>
-      <p class="MsoNormal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8FD0;&#x884C;&#x7CFB;&#x7EDF;&#xFF1A;</font></span><span lang="EN-US">Windows XP</span></p>
-      <p class="MsoNormal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8FD0;&#x884C;&#x5E93;&#xFF1A;</font></span><span lang="EN-US">.Net Framework 2.0</span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x4EE5;&#x4E0A;</font></span></p>
-      <h1 style="margin-left: 18.0pt; text-indent: -18.0pt; mso-list: l4 level1 lfo1"><span lang="EN-US" style="line-height: 240%; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><font size="12.0pt"><span style="mso-list: Ignore">3.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></font></span><span style="line-height: 240%; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;"><font size="12.0pt">&#x9879;&#x76EE;&#x5B8C;&#x6210;&#x60C5;&#x51B5;</font></font></span><span lang="EN-US" style="line-height: 240%"><font size="12.0pt"><o:p></o:p></font></span></h1>
-      <table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0pt 5.4pt 0pt 5.4pt">
-        <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes">
-          <td style="width: 143.3pt; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; background: #7F7F7F; mso-background-themecolor: text1; mso-background-themetint: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6A21;&#x5757;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 139.55pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #7F7F7F; mso-background-themecolor: text1; mso-background-themetint: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="186">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x529F;&#x80FD;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 143.25pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #7F7F7F; mso-background-themecolor: text1; mso-background-themetint: 128; padding: 0pt 5.4pt 0pt 5.4pt" valign="top" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x72B6;&#x6001;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 1">
-          <td style="width: 143.3pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">OES<o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 139.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="186">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x5B66;&#x751F;&#x8003;&#x8BD5;&#x4F7F;&#x7528;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 143.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #92D050; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x4E0A;&#x5B66;&#x671F;&#x5DF2;&#x7ECF;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9700;&#x8981;&#x4FEE;&#x6539;</font></span><span lang="EN-US">Bug<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 2">
-          <td style="width: 143.3pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><span class="SpellE"><b style="mso-bidi-font-weight: normal"><span lang="EN-US">OESMonitor</span></b></span><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 139.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="186">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8003;&#x8BD5;&#x76D1;&#x8003;&#x4F7F;&#x7528;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 143.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #92D050; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x4E0A;&#x5B66;&#x671F;&#x5DF2;&#x7ECF;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9700;&#x8981;&#x4FEE;&#x6539;</font></span><span lang="EN-US">Bug<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 3">
-          <td style="width: 143.3pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><span class="SpellE"><b style="mso-bidi-font-weight: normal"><span lang="EN-US">OESSupport</span></b></span><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 139.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="186">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 143.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #92D050; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x4E0A;&#x5B66;&#x671F;&#x5DF2;&#x7ECF;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9700;&#x8981;&#x4FEE;&#x6539;</font></span><span lang="EN-US">Bug<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 4">
-          <td style="width: 143.3pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><span class="SpellE"><b style="mso-bidi-font-weight: normal"><span lang="EN-US">OESServer</span></b></span><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 139.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="186">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6559;&#x5E08;&#x9898;&#x76EE;&#x7BA1;&#x7406;&#x4F7F;&#x7528;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 143.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #E36C0A; mso-background-themecolor: accent6; mso-background-themeshade: 191; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x672A;&#x5B8C;&#x6210;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x5E0C;&#x671B;&#x5728;&#x672C;&#x5B66;&#x671F;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 5">
-          <td style="width: 143.3pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><span class="SpellE"><b style="mso-bidi-font-weight: normal"><span lang="EN-US">OESScore</span></b></span><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 139.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="186">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8BD5;&#x5377;&#x8BC4;&#x5206;&#x4F7F;&#x7528;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 143.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #E36C0A; mso-background-themecolor: accent6; mso-background-themeshade: 191; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x672A;&#x5B8C;&#x6210;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x4E0A;&#x5B66;&#x671F;&#x90E8;&#x5206;&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 6">
-          <td style="width: 143.3pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">Database<o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 139.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="186">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8BD5;&#x9898;&#x6570;&#x636E;&#x5E93;&#x64CD;&#x4F5C;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 143.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #92D050; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x4E0A;&#x5B66;&#x671F;&#x5DF2;&#x7ECF;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9700;&#x8981;&#x4FEE;&#x6539;</font></span><span lang="EN-US">Bug<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 7; mso-yfti-lastrow: yes">
-          <td style="width: 143.3pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><span class="SpellE"><b style="mso-bidi-font-weight: normal"><span lang="EN-US">OESAnalyse</span></b></span><b style="mso-bidi-font-weight: normal"><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 139.55pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="186">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8003;&#x8BD5;&#x6210;&#x7EE9;&#x5206;&#x6790;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 143.25pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #D99594; mso-background-themecolor: accent2; mso-background-themetint: 153; padding: 0pt 5.4pt 0pt 5.4pt" width="191">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x672A;&#x542F;&#x52A8;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9700;&#x8981;&#x5BF9;&#x9700;&#x6C42;&#x8FDB;&#x884C;&#x8BE6;&#x7EC6;&#x5206;&#x6790;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-      </table>
-      <p class="MsoNormal"><span lang="EN-US"><o:p>&nbsp;</o:p></span></p>
-      <h1 style="margin-left: 18.0pt; text-indent: -18.0pt; mso-list: l4 level1 lfo1"><span lang="EN-US" style="line-height: 240%; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><font size="12.0pt"><span style="mso-list: Ignore">4.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></font></span><span style="line-height: 240%; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;"><font size="12.0pt">&#x672C;&#x5B66;&#x671F;&#x76EE;&#x6807;</font></font></span><span lang="EN-US" style="line-height: 240%"><font size="12.0pt"><o:p></o:p></font></span></h1>
-      <p class="MsoNormal" style="text-align: center">
-        <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin; background: #0070C0"><font color="white"><font face="&#x5B8B;&#x4F53;"><font size="14.0pt">&#x76EE;&#x6807;&#xFF1A;&#x6240;&#x6709;&#x6A21;&#x5757;&#x5B8C;&#x6210;&#xFF0C;&#x5E76;&#x4E14;&#x8FDB;&#x884C;&#x8FC7;&#x673A;&#x623F;&#x5185;&#x7684;&#x6D4B;&#x8BD5;&#x3002;</font></font></font></span></b><b style="mso-bidi-font-weight: normal"><span lang="EN-US" style="background: #0070C0"><font color="white"><font size="14.0pt"><o:p></o:p></font></font></span></b></center>
-      </p>
-      <p class="MsoNormal" style="text-indent: 23.85pt; mso-char-indent-count: 2.27"><span style="mso-bidi-font-size: 10.5pt; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x5728;&#x672C;&#x5B66;&#x671F;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x73B0;&#x9636;&#x6BB5;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x6A21;&#x5757;&#x5B8C;&#x6210;&#xFF0C;&#x5E76;&#x4E14;&#x8FDB;&#x884C;&#x673A;&#x623F;&#x5185;&#x7684;&#x6D4B;&#x8BD5;&#x3002;&#x7136;&#x540E;&#x8FD8;&#x9700;&#x8981;&#x5C06;&#x6587;&#x6863;&#x8865;&#x9F50;&#x3002;&#x4EE3;&#x7801;&#x56FA;&#x7136;&#x662F;&#x6BCF;&#x4E2A;&#x4EBA;&#x90FD;&#x8981;&#x5199;&#xFF0C;&#x6587;&#x6863;&#x4E5F;&#x5E94;&#x8BE5;&#x662F;&#x7684;&#xFF0C;&#x7531;&#x4E8E;&#x4EE5;&#x524D;&#x4E13;&#x6CE8;&#x4E8E;&#x529F;&#x80FD;&#x5B9E;&#x73B0;&#xFF0C;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x6CA1;&#x6709;&#x6CE8;&#x91CA;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x6587;&#x6863;&#x652F;&#x6301;&#xFF0C;&#x8FD9;&#x4E2A;&#x5B66;&#x671F;&#x9700;&#x8981;&#x5BF9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x8FD9;&#x4E2A;&#x7BA1;&#x7406;&#x9700;&#x8981;&#x4E00;&#x5B9A;&#x7684;&#x8F6F;&#x4EF6;&#x652F;&#x6301;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x8C01;&#x6709;&#x597D;&#x7684;&#x5EFA;&#x8BAE;&#xFF08;&#x5173;&#x4E8E;&#x6587;&#x6863;&#x7BA1;&#x7406;&#x8F6F;&#x4EF6;&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x6211;&#x90AE;&#x7BB1;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x7FA4;&#x91CC;&#x9762;&#x63D0;&#x51FA;&#xFF01;</font></span><span lang="EN-US" style="mso-bidi-font-size: 10.5pt"><o:p></o:p></span></p>
-      <h1 style="margin-left: 18.0pt; text-indent: -18.0pt; mso-list: l4 level1 lfo1"><span lang="EN-US" style="line-height: 240%; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><font size="12.0pt"><span style="mso-list: Ignore">5.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></font></span><span style="line-height: 240%; mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;"><font size="12.0pt">&#x4EFB;&#x52A1;&#x7EC6;&#x5316;</font></font></span><span lang="EN-US" style="line-height: 240%"><font size="12.0pt"><o:p></o:p></font></span></h1>
-      <table border="1" cellpadding="0" cellspacing="0" class="MsoTableGrid" style="border-collapse: collapse; border: none; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0pt 5.4pt 0pt 5.4pt">
-        <tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes">
-          <td style="width: 83.4pt; border: solid windowtext 1.0pt; mso-border-alt: solid windowtext .5pt; background: #7F7F7F; mso-background-themecolor: text1; mso-background-themetint: 128; padding: 0pt 5.4pt 0pt 5.4pt" width="111">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font color="white"><font face="&#x5B8B;&#x4F53;">&#x6708;&#x4EFD;</font></font></span><span lang="EN-US"><font color="white"><o:p></o:p></font></span></b></center>
-            </p>
-          </td>
-          <td style="width: 102.0pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #7F7F7F; mso-background-themecolor: text1; mso-background-themetint: 128; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font color="white"><font face="&#x5B8B;&#x4F53;">&#x5468;</font></font></span><span lang="EN-US"><font color="white"><o:p></o:p></font></span></b></center>
-            </p>
-          </td>
-          <td style="width: 240.7pt; border: solid windowtext 1.0pt; border-left: none; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #7F7F7F; mso-background-themecolor: text1; mso-background-themetint: 128; padding: 0pt 5.4pt 0pt 5.4pt" width="321">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font color="white"><font face="&#x5B8B;&#x4F53;">&#x76EE;&#x6807;</font></font></span><span lang="EN-US"><font color="white"><o:p></o:p></font></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 1; height: 36.7pt">
-          <td rowspan="4" style="width: 83.4pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt; height: 36.7pt" width="111">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">3</span></b><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6708;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt; height: 36.7pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">4<o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td rowspan="2" style="width: 240.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt; height: 36.7pt" width="321">
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l5 level1 lfo2"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">1.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x5B8C;&#x6210;</font></span><span class="SpellE"><span lang="EN-US">OESServer</span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x7AEF;&#x7684;&#x5408;&#x6210;&#xFF0C;&#x5185;&#x90E8;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</font></span></p>
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l5 level1 lfo2"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">2.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x4EA4;&#x4ED8;&#x674E;&#x8001;&#x5E08;&#x8FDB;&#x884C;&#x4F7F;&#x7528;&#x3002;</font></span></p>
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l5 level1 lfo2"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">3.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x7B2C;&#x4E94;&#x5468;&#x4F1A;&#x5230;&#x673A;&#x623F;&#x6D4B;&#x8BD5;&#x3002;</font></span></p>
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l5 level1 lfo2"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">4.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x627E;&#x5230;&#x5408;&#x9002;&#x6587;&#x6863;&#x7BA1;&#x7406;&#x8F6F;&#x4EF6;&#x3002;</font></span></p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 2">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">5<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 3; height: 18.7pt">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt; height: 18.7pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">6<o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td rowspan="2" style="width: 240.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt; height: 18.7pt" width="321">
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l6 level1 lfo3"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">1.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x5B8C;&#x6210;</font></span><span class="SpellE"><span lang="EN-US">OESScore</span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x7AEF;&#x7684;&#x5408;&#x6210;&#xFF0C;&#x5185;&#x90E8;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</font></span></p>
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l6 level1 lfo3"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">2.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span lang="EN-US">Office</span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8003;&#x8BD5;&#x6D41;&#x7A0B;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</font></span></p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 4">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">7<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 5">
-          <td rowspan="4" style="width: 83.4pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="111">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">4</span></b><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6708;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">8<o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 240.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="321">
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l3 level1 lfo7"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">1.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x5B8C;&#x6210;</font></span><span class="SpellE"><span lang="EN-US">OESAnalyse</span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x7684;&#x9700;&#x6C42;&#x5206;&#x6790;&#x3002;</font></span></p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 6">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">9<o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td rowspan="3" style="width: 240.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="321">
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l2 level1 lfo4"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">1.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x7740;&#x624B;&#x5BF9;</font></span><span class="SpellE"><span lang="EN-US">OESAnalyse</span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x7AEF;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#xFF0C;&#x5B8C;&#x6210;&#xFF0C;&#x5E76;&#x6D4B;&#x8BD5;&#x3002;</font></span></p>
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l2 level1 lfo4"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">2.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6587;&#x6863;&#x4EFB;&#x52A1;&#x5206;&#x914D;&#x3002;</font></span></p>
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l2 level1 lfo4"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">3.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x521D;&#x6B65;&#x6587;&#x6863;&#x5F62;&#x6210;&#x3002;</font></span></p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 7">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">10<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 8">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">11<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 9">
-          <td rowspan="4" style="width: 83.4pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="111">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">5</span></b><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6708;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">12<o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td rowspan="4" style="width: 240.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="321">
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l1 level1 lfo5"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">1.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6587;&#x6863;&#x89C4;&#x8303;&#x5316;&#xFF0C;&#x8BE6;&#x7EC6;&#x5316;&#x3002;</font></span></p>
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l1 level1 lfo5"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">2.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9488;&#x5BF9;&#x6D4B;&#x8BD5;&#x4EA7;&#x751F;&#x7684;</font></span><span lang="EN-US">Bug</span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x8FDB;&#x884C;&#x4FEE;&#x590D;&#x3002;</font></span></p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 10">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">13<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 11">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">14<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 12">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #FBD4B4; mso-background-themecolor: accent6; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">15<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 13">
-          <td rowspan="4" style="width: 83.4pt; border: solid windowtext 1.0pt; border-top: none; mso-border-top-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="111">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">6</span></b><b style="mso-bidi-font-weight: normal"><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x6708;</font></span><span lang="EN-US"><o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">16<o:p></o:p></span></b></center>
-            </p>
-          </td>
-          <td rowspan="4" style="width: 240.7pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="321">
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l0 level1 lfo6"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">1.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x9879;&#x76EE;&#x4EA4;&#x4ED8;&#x3002;</font></span></p>
-            <p align="left" class="MsoListParagraph" style="margin-left: 18.0pt; text-align: left; text-indent: -18.0pt; mso-char-indent-count: 0; mso-list: l0 level1 lfo6"><span lang="EN-US" style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-font-family: Calibri; mso-bidi-theme-font: minor-latin"><span style="mso-list: Ignore">2.<span style="font: 7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><span style="mso-ascii-font-family: Calibri; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: &#x5B8B;&#x4F53;; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Calibri; mso-hansi-theme-font: minor-latin"><font face="&#x5B8B;&#x4F53;">&#x540E;&#x671F;&#x7EF4;&#x62A4;&#x3002;</font></span></p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 14">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">17<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 15">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">18<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-        <tr style="mso-yfti-irow: 16; mso-yfti-lastrow: yes">
-          <td style="width: 102.0pt; border-top: none; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: solid windowtext 1.0pt; mso-border-top-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-alt: solid windowtext .5pt; background: #B6DDE8; mso-background-themecolor: accent5; mso-background-themetint: 102; padding: 0pt 5.4pt 0pt 5.4pt" width="136">
-            <p class="MsoNormal" style="text-align: center">
-              <center><b style="mso-bidi-font-weight: normal"><span lang="EN-US">19<o:p></o:p></span></b></center>
-            </p>
-          </td>
-        </tr>
-      </table>
-      <p class="MsoNormal"><span lang="EN-US"><o:p>&nbsp;</o:p></span></p>
-    </div>
-  </body>
-</html>
+*2012-OES**计划文档***
+
+*Made by PangLiang*
+
+= 1.      人员情况 =
+
+|| *姓名* || *状态* || *Google **账号* ||
+|| *庞亮* || *项目开发* || *pl8787@gmail.com* ||
+|| *洪晓亮* || *项目开发* || *fphxliang@gmail.com* ||
+|| *罗康琦*** || *项目开发* || *hust.ELT@gmail.com* ||
+|| *言凌峰*** || *公司实习* || *Solaryan2009@gmail.com* ||
+|| *贺鹏飞* || *项目开发* || *hepengfei133@gmail.com* ||
+|| *秦肇熙*** || *项目开发* || *qinzhaoxi@gmail.com* ||
+|| *赵汉启*** || *项目开发（新加入成员）* || *zhaohanqi93@gmail.com* ||
+
+= 2.      工具平台 =
+
+== 开发 ==
+
+开发工具：Visual Studio 2008
+
+开发语言：Visual C#
+
+代码管理工具：SVN
+
+代码库：Google Code：https://code.google.com/p/hustoes/
+
+== 运行 ==
+
+运行系统：Windows XP
+
+运行库：.Net Framework 2.0以上
+
+= 3.      项目完成情况 =
+
+|| *模块* || *功能* || *状态* ||
+|| *OES* || *学生考试使用* || *上学期已经进行测试**需要修改Bug* ||
+|| *OESMonitor*** || *考试监考使用* || *上学期已经进行测试**需要修改Bug* ||
+|| *OESSupport*** || *文件服务器* || *上学期已经进行测试**需要修改Bug* ||
+|| *OESServer*** || *教师题目管理使用* || *未完成**希望在本学期进行测试* ||
+|| *OESScore*** || *试卷评分使用* || *未完成**上学期部分功能进行测试* ||
+|| *Database* || *试题数据库操作* || *上学期已经进行测试**需要修改Bug* ||
+|| *OESAnalyse*** || *考试成绩分析* || *未启动**需要对需求进行详细分析* ||
+
+= 4.      本学期目标 =
+
+*目标：所有模块完成，并且进行过机房内的测试。***
+
+在本学期，我们需要将现阶段未完成的模块完成，并且进行机房内的测试。然后还需要将文档补齐。代码固然是每个人都要写，文档也应该是的，由于以前专注于功能实现，很多代码没有注释，也没有文档支持，这个学期需要对文档进行管理，这个管理需要一定的软件支持，如果有谁有好的建议（关于文档管理软件），可以发我邮箱，或者在群里面提出！
+
+= 5.      任务细化 =
+
+|| *月份* || *周* || *目标* ||
+|| *3**月* || *4* || 1.       完成OESServer端的合成，内部进行测试。2.       交付李老师进行使用。3.       第五周会到机房测试。4.       找到合适文档管理软件。 ||
+|| *5* ||
+|| *6* || 1.       完成OESScore端的合成，内部进行测试。2.       Office考试流程进行测试。 ||
+|| *7* ||
+|| *4**月* || *8* || 1.       完成OESAnalyse的需求分析。 ||
+|| *9* || 1.       着手对OESAnalyse端进行开发，完成，并测试。2.       文档任务分配。3.       初步文档形成。 ||
+|| *10* ||
+|| *11* ||
+|| *5**月* || *12* || 1.       文档规范化，详细化。2.       针对测试产生的Bug进行修复。 ||
+|| *13* ||
+|| *14* ||
+|| *15* ||
+|| *6**月* || *16* || 1.       项目交付。2.       后期维护。 ||
+|| *17* ||
+|| *18* ||
+|| *19* ||
