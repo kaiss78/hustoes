@@ -1,21 +1,73 @@
-*2012-OES**计划文档***
+<span class="c0 c26">2012-OES计划文档</span>
 
-*Made by PangLiang*
+<span class="c0">Made by PangLiang</span>
 
-= 1.      人员情况 =
+# =<span class="c23">人员情况</span>=
 
-|| *姓名* || *状态* || *Google **账号* ||
-|| *庞亮* || *项目开发* || *pl8787@gmail.com* ||
-|| *洪晓亮* || *项目开发* || *fphxliang@gmail.com* ||
-|| *罗康琦*** || *项目开发* || *hust.ELT@gmail.com* ||
-|| *言凌峰*** || *公司实习* || *Solaryan2009@gmail.com* ||
-|| *贺鹏飞* || *项目开发* || *hepengfei133@gmail.com* ||
-|| *秦肇熙*** || *项目开发* || *qinzhaoxi@gmail.com* ||
-|| *赵汉启*** || *项目开发（新加入成员）* || *zhaohanqi93@gmail.com* ||
+{| class="c24"
+|- class="c3"
+| class="c17" |
+<span class="c0 c20">姓名</span>
+| class="c27" |
+<span class="c20 c0">状态</span>
+| class="c40" |
+<span class="c20 c0">Google 账号</span>
+|- class="c3"
+| class="c25" |
+<span class="c0">庞亮</span>
+| class="c15" |
+<span class="c0">项目开发</span>
+| class="c10" |
+<span class="c0">pl8787@gmail.com</span>
+|- class="c3"
+| class="c25" |
+<span class="c0">洪晓亮</span>
+| class="c15" |
+<span class="c0">项目开发</span>
+| class="c10" |
+<span class="c0">fphxliang@gmail.com</span>
+|- class="c3"
+| class="c25" |
+<span class="c0">罗康琦</span>
+| class="c15" |
+<span class="c0">项目开发</span>
+| class="c10" |
+<span class="c0">hust.ELT@gmail.com</span>
+|- class="c3"
+| class="c25" |
+<span class="c0">言凌峰</span>
+| class="c35" |
+<span class="c0">公司实习</span>
+| class="c41" |
+<span class="c0">Solaryan2009@gmail.com</span>
+|- class="c3"
+| class="c25" |
+<span class="c0">贺鹏飞</span>
+| class="c15" |
+<span class="c0">项目开发</span>
+| class="c10" |
+<span class="c0">hepengfei133@gmail.com</span>
+|- class="c3"
+| class="c25" |
+<span class="c0">秦肇熙</span>
+| class="c15" |
+<span class="c0">项目开发</span>
+| class="c10" |
+<span class="c0">qinzhaoxi@gmail.com</span>
+|- class="c3"
+| class="c25" |
+<span class="c0">赵汉启</span>
+| class="c15" |
+<span class="c0">项目开发（新加入成员）</span>
+| class="c10" |
+<span class="c0">zhaohanqi93@gmail.com</span>
+|}
 
-= 2.      工具平台 =
+<span class="c0"></span>
 
-== 开发 ==
+# =<span class="c23">工具平台</span>=
+
+==<span class="c23">开发</span>==
 
 开发工具：Visual Studio 2008
 
@@ -23,47 +75,227 @@
 
 代码管理工具：SVN
 
-代码库：Google Code：https://code.google.com/p/hustoes/
+代码库：Google Code：<span class="c37">https://code.google.com/p/hustoes/</span>
 
-== 运行 ==
+==<span class="c23">运行</span>==
 
 运行系统：Windows XP
 
 运行库：.Net Framework 2.0以上
 
-= 3.      项目完成情况 =
+# =<span class="c23">项目完成情况</span>=
 
-|| *模块* || *功能* || *状态* ||
-|| *OES* || *学生考试使用* || *上学期已经进行测试**需要修改Bug* ||
-|| *OESMonitor*** || *考试监考使用* || *上学期已经进行测试**需要修改Bug* ||
-|| *OESSupport*** || *文件服务器* || *上学期已经进行测试**需要修改Bug* ||
-|| *OESServer*** || *教师题目管理使用* || *未完成**希望在本学期进行测试* ||
-|| *OESScore*** || *试卷评分使用* || *未完成**上学期部分功能进行测试* ||
-|| *Database* || *试题数据库操作* || *上学期已经进行测试**需要修改Bug* ||
-|| *OESAnalyse*** || *考试成绩分析* || *未启动**需要对需求进行详细分析* ||
+{| class="c24"
+|- class="c3"
+| class="c36" |
+<span class="c0">模块</span>
+| class="c16" |
+<span class="c0">功能</span>
+| class="c42" |
+<span class="c0">状态</span>
+|- class="c3"
+| class="c30" |
+<span class="c0">OES</span>
+| class="c2" |
+<span class="c0">学生考试使用</span>
+| class="c5" |
+<span class="c0">上学期已经进行测试</span>
 
-= 4.      本学期目标 =
+<span class="c0">需要修改Bug</span>
+|- class="c3"
+| class="c30" |
+<span class="c0">OESMonitor</span>
+| class="c2" |
+<span class="c0">考试监考使用</span>
+| class="c5" |
+<span class="c0">上学期已经进行测试</span>
 
-*目标：所有模块完成，并且进行过机房内的测试。***
+<span class="c0">需要修改Bug</span>
+|- class="c3"
+| class="c30" |
+<span class="c0">OESSupport</span>
+| class="c2" |
+<span class="c0">文件服务器</span>
+| class="c5" |
+<span class="c0">上学期已经进行测试</span>
+
+<span class="c0">需要修改Bug</span>
+|- class="c3"
+| class="c30" |
+<span class="c0">OESServer</span>
+| class="c2" |
+<span class="c0">教师题目管理使用</span>
+| class="c21" |
+<span class="c0">未完成</span>
+
+<span class="c0">希望在本学期进行测试</span>
+|- class="c3"
+| class="c30" |
+<span class="c0">OESScore</span>
+| class="c2" |
+<span class="c0">试卷评分使用</span>
+| class="c21" |
+<span class="c0">未完成</span>
+
+<span class="c0">上学期部分功能进行测试</span>
+|- class="c3"
+| class="c30" |
+<span class="c0">Database</span>
+| class="c2" |
+<span class="c0">试题数据库操作</span>
+| class="c5" |
+<span class="c0">上学期已经进行测试</span>
+
+<span class="c0">需要修改Bug</span>
+|- class="c3"
+| class="c30" |
+<span class="c0">OESAnalyse</span>
+| class="c2" |
+<span class="c0">考试成绩分析</span>
+| class="c29" |
+<span class="c0">未启动</span>
+
+<span class="c0">需要对需求进行详细分析</span>
+|}
+
+<span class="c0"></span>
+
+# =<span class="c23">本学期目标</span>=
+
+<span class="c20 c0 c39">目标：所有模块完成，并且进行过机房内的测试。</span>
 
 在本学期，我们需要将现阶段未完成的模块完成，并且进行机房内的测试。然后还需要将文档补齐。代码固然是每个人都要写，文档也应该是的，由于以前专注于功能实现，很多代码没有注释，也没有文档支持，这个学期需要对文档进行管理，这个管理需要一定的软件支持，如果有谁有好的建议（关于文档管理软件），可以发我邮箱，或者在群里面提出！
 
-= 5.      任务细化 =
+# =<span class="c23">任务细化</span>=
 
-|| *月份* || *周* || *目标* ||
-|| *3**月* || *4* || 1.       完成OESServer端的合成，内部进行测试。2.       交付李老师进行使用。3.       第五周会到机房测试。4.       找到合适文档管理软件。 ||
-|| *5* ||
-|| *6* || 1.       完成OESScore端的合成，内部进行测试。2.       Office考试流程进行测试。 ||
-|| *7* ||
-|| *4**月* || *8* || 1.       完成OESAnalyse的需求分析。 ||
-|| *9* || 1.       着手对OESAnalyse端进行开发，完成，并测试。2.       文档任务分配。3.       初步文档形成。 ||
-|| *10* ||
-|| *11* ||
-|| *5**月* || *12* || 1.       文档规范化，详细化。2.       针对测试产生的Bug进行修复。 ||
-|| *13* ||
-|| *14* ||
-|| *15* ||
-|| *6**月* || *16* || 1.       项目交付。2.       后期维护。 ||
-|| *17* ||
-|| *18* ||
-|| *19* ||
+{| class="c24"
+|- class="c3"
+| class="c34" |
+<span class="c20 c0">月份</span>
+| class="c38" |
+<span class="c20 c0">周</span>
+| class="c33" |
+<span class="c20 c0">目标</span>
+|- class="c3"
+| class="c18" |
+<span class="c0">3月</span>
+| class="c14" |
+<span class="c0">4</span>
+| class="c12" |
+# 完成OESServer端的合成，内部进行测试。
+# 交付李老师进行使用。
+# 第五周会到机房测试。
+# 找到合适文档管理软件。
+|- class="c3"
+| class="c18" |
+
+| class="c14" |
+<span class="c0">5</span>
+| class="c12" |
+<span class="c0"></span>
+|- class="c3"
+| class="c18" |
+<span class="c0"></span>
+| class="c14" |
+<span class="c0">6</span>
+| class="c12" |
+# 完成OESScore端的合成，内部进行测试。
+# Office考试流程进行测试。
+|- class="c3"
+| class="c18" |
+
+| class="c14" |
+<span class="c0">7</span>
+| class="c12" |
+<span class="c0"></span>
+|- class="c3"
+| class="c13" |
+<span class="c0">4月</span>
+| class="c22" |
+<span class="c0">8</span>
+| class="c8" |
+# 完成OESAnalyse的需求分析。
+|- class="c3"
+| class="c13" |
+
+| class="c22" |
+<span class="c0">9</span>
+| class="c8" |
+# 着手对OESAnalyse端进行开发，完成，并测试。
+# 文档任务分配。
+# 初步文档形成。
+|- class="c3"
+| class="c13" |
+
+| class="c22" |
+<span class="c0">10</span>
+| class="c8" |
+<span class="c0"></span>
+|- class="c3"
+| class="c13" |
+<span class="c0"></span>
+| class="c22" |
+<span class="c0">11</span>
+| class="c8" |
+<span class="c0"></span>
+|- class="c3"
+| class="c18" |
+<span class="c0">5月</span>
+| class="c14" |
+<span class="c0">12</span>
+| class="c12" |
+# 文档规范化，详细化。
+# 针对测试产生的Bug进行修复。
+|- class="c3"
+| class="c18" |
+
+| class="c14" |
+<span class="c0">13</span>
+| class="c12" |
+<span class="c0"></span>
+|- class="c3"
+| class="c18" |
+<span class="c0"></span>
+| class="c14" |
+<span class="c0">14</span>
+| class="c12" |
+<span class="c0"></span>
+|- class="c3"
+| class="c18" |
+<span class="c0"></span>
+| class="c14" |
+<span class="c0">15</span>
+| class="c12" |
+<span class="c0"></span>
+|- class="c3"
+| class="c13" |
+<span class="c0">6月</span>
+| class="c22" |
+<span class="c0">16</span>
+| class="c8" |
+# 项目交付。
+# 后期维护。
+|- class="c3"
+| class="c13" |
+
+| class="c22" |
+<span class="c0">17</span>
+| class="c8" |
+<span class="c0"></span>
+|- class="c3"
+| class="c13" |
+<span class="c0"></span>
+| class="c22" |
+<span class="c0">18</span>
+| class="c8" |
+<span class="c0"></span>
+|- class="c3"
+| class="c13" |
+<span class="c0"></span>
+| class="c22" |
+<span class="c0">19</span>
+| class="c8" |
+<span class="c0"></span>
+|}
+
+<span class="c0"></span>
