@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using OES.Model;
 
 namespace OES.UPanel
 {
@@ -30,6 +31,24 @@ namespace OES.UPanel
             textInfo.Text = "";
         }
 
+        public override void ReLoad(int pid)
+        {
+            ReLoad();
+            mode = 1;
+            PID = pid;
+            delTmpFile(pid);
+            List<OfficeExcel> loe = InfoControl.OesData.FindOfficeExcelByPID(PID);
+            OfficeExcel oe = loe[0];
+            textInfo.Text = oe.problem;
+            InfoControl.ClientObj.LoadExcelA(pid, InfoControl.User.Id);
+            InfoControl.ClientObj.LoadExcelP(pid, InfoControl.User.Id);
+            InfoControl.ClientObj.LoadExcelT(pid, InfoControl.User.Id);
+            textOriExcel.Text = InfoControl.config["ExcelPath"] + "p" + pid.ToString() + ".xls";
+            textAnsExcel.Text = InfoControl.config["ExcelPath"] + "a" + pid.ToString() + ".xls";
+            textXmlExcel.Text = InfoControl.config["ExcelPath"] + "t" + pid.ToString() + ".xml";
+            InfoControl.ClientObj.ReceiveFiles();
+        }
+
         public void SetMode(int md)
         {
             mode = md;
@@ -37,6 +56,8 @@ namespace OES.UPanel
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            if (PID != 0)
+                delTmpFile(PID);
             PanelControl.ChangPanel(0);
         }
 
@@ -101,9 +122,12 @@ namespace OES.UPanel
 
         private void upload(int pid)
         {
-            fori.CopyTo(tmpDir + "p" + pid.ToString() + ".xls", true);
-            fans.CopyTo(tmpDir + "a" + pid.ToString() + ".xls", true);
-            fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml", true);
+            if (fori.FullName != tmpDir + "p" + pid.ToString() + ".xls")
+                fori.CopyTo(tmpDir + "p" + pid.ToString() + ".xls", true);
+            if (fans.FullName != tmpDir + "a" + pid.ToString() + ".xls")
+                fans.CopyTo(tmpDir + "a" + pid.ToString() + ".xls", true);
+            if (fxml.FullName != tmpDir + "t" + pid.ToString() + ".xml")
+                fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml", true);
             InfoControl.ClientObj.SaveExcelA(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SaveExcelP(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SaveExcelT(pid, InfoControl.User.Id);
@@ -115,7 +139,9 @@ namespace OES.UPanel
             fori = new FileInfo(tmpDir + "p" + pid.ToString() + ".xls");
             fans = new FileInfo(tmpDir + "a" + pid.ToString() + ".xls");
             fxml = new FileInfo(tmpDir + "t" + pid.ToString() + ".xml");
-            fori.Delete(); fans.Delete(); fxml.Delete();
+            if (fori.Exists) fori.Delete();
+            if (fans.Exists) fans.Delete();
+            if (fxml.Exists) fxml.Delete();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -128,25 +154,31 @@ namespace OES.UPanel
                 MessageBox.Show("请完成试题信息");
                 return;
             }
-            if (mode == 0)              //新增Excel
+            int judge = judgeFileExist();
+            if (judge == -1)
+                MessageBox.Show("初始Excel文件不存在！");
+            else if (judge == -2)
+                MessageBox.Show("标答Excel文件不存在！");
+            else if (judge == -3)
+                MessageBox.Show("考点xml文件不存在！");
+            else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                int judge = judgeFileExist();
-                if (judge == -1)
-                    MessageBox.Show("初始Excel文件不存在！");
-                else if (judge == -2)
-                    MessageBox.Show("标答Excel文件不存在！");
-                else if (judge == -3)
-                    MessageBox.Show("考点xml文件不存在！");
-                else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (mode == 0)      //新增Excel
                 {
                     PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.Excel);
                     Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                     upload(PID);
                 }
-            }
-            else                        //修改Excel
-            {
-
+                else                //修改Excel
+                {
+                    InfoControl.OesData.UpdateOffice(PID, textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.Excel);
+                    InfoControl.ClientObj.DelExcelA(PID, InfoControl.User.Id);
+                    InfoControl.ClientObj.DelExcelP(PID, InfoControl.User.Id);
+                    InfoControl.ClientObj.DelExcelT(PID, InfoControl.User.Id);
+                    InfoControl.ClientObj.DelFiles();
+                    Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
+                    upload(PID);
+                }
             }
         }
 
