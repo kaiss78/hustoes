@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using OESOfficeScore;
 
 namespace TestOESOfficeScore
 {
@@ -25,10 +26,30 @@ namespace TestOESOfficeScore
         public const string XlsAnsName = @"F:\点维工作室\OESscore\testAns.xls";
         #endregion
 
-    
         public MainFrame()
         {
             InitializeComponent();
+        }
+
+        private void btnPPT_Click(object sender, EventArgs e)
+        {
+            PowerPointScore ps = new PowerPointScore();
+            int tp = ps.checkPoints(PptStuName, PptAnsName, PptXmlName);
+            MessageBox.Show(tp.ToString());
+        }
+
+        private void btnXls_Click(object sender, EventArgs e)
+        {
+            ExcelScore es = new ExcelScore();
+            int tp = es.checkPoints(XlsStuName, XlsAnsName, XlsXmlName);
+            MessageBox.Show(tp.ToString());
+        }
+        
+        private void btnWord_Click(object sender, EventArgs e)
+        {
+            WordScore ws = new WordScore();
+            int tp = ws.checkPoints(DocStuName, DocAnsName, DocXmlName);
+            MessageBox.Show(tp.ToString());
         }
     }
 }
