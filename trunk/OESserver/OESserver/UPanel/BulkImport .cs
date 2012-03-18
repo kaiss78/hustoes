@@ -44,43 +44,66 @@ namespace OES.UPanel
         //选择题
         private void btnConfirm1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            try
             {
-                List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox1.Text, 8);
-                InfoControl.OesData.ImportChoice(list);
-                MessageBox.Show("选择题批量导入成功!");
-                textBox1.Clear();
+                if (textBox1.Text != "")
+                {
+                    List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox1.Text, 8);
+                    InfoControl.OesData.ImportChoice(list);
+                    MessageBox.Show("选择题批量导入成功!");
+                    textBox1.Clear();
+                    throw new Exception();
+                }
+                else
+                    MessageBox.Show("请添加文件路径");
             }
-            else
-                MessageBox.Show("请添加文件路径");
+            catch
+            {
+                MessageBox.Show("加载题目出错，请检查");
+            }
         }
 
 
         //填空题
         private void btnConfirm2_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text != "")
+            try
             {
-                List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox2.Text, 4);
-                InfoControl.OesData.ImportCompletion(list);
-                MessageBox.Show("填空题批量导入成功!");
-                textBox2.Clear();
+                if (textBox2.Text != "")
+                {
+                    List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox2.Text, 4);
+                    InfoControl.OesData.ImportCompletion(list);
+                    MessageBox.Show("填空题批量导入成功!");
+                    textBox2.Clear();
+                    throw new Exception();
+                }
+                else
+                    MessageBox.Show("请添加文件路径");
             }
-            else
-                MessageBox.Show("请添加文件路径");
+            catch {
+                MessageBox.Show("加载题目出错，请检查");
+            }
         }
         //判断题
         private void btnConfirm3_Click(object sender, EventArgs e)
         {
-            if (textBox3.Text != "")
+            try
             {
-                List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox3.Text, 4);
-                InfoControl.OesData.ImportJudgment(list);
-                MessageBox.Show("判断题批量导入成功!");
-                textBox3.Clear();
+                if (textBox3.Text != "")
+                {
+                    List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox3.Text, 4);
+                    InfoControl.OesData.ImportJudgment(list);
+                    MessageBox.Show("判断题批量导入成功!");
+                    textBox3.Clear();
+                    throw new Exception();
+                }
+                else
+                    MessageBox.Show("请添加文件路径");
             }
-            else
-                MessageBox.Show("请添加文件路径");
+            catch
+            {
+                MessageBox.Show("加载题目出错，请检查");
+            }
         }
         //Office题
         private void btnConfirm4_Click(object sender, EventArgs e)
@@ -100,7 +123,6 @@ namespace OES.UPanel
                                 case "word":
                                     if (!File.Exists(basePath + list[i][4]))
                                     {
-                                        MessageBox.Show("文件出现异常，请检查");
                                         throw new Exception();
                                     }
                                     File.Copy(basePath + list[i][4], InfoControl.config["WordPath"] + "p" + ids[i] + ".doc");//配置word的路径
@@ -113,7 +135,6 @@ namespace OES.UPanel
                                 case "excel":
                                     if (!File.Exists(basePath + list[i][4]))
                                     {
-                                        MessageBox.Show("文件出现异常，请检查");
                                         throw new Exception();
                                     }
                                     File.Copy(basePath + list[i][4], InfoControl.config["ExcelPath"] + "p" + ids[i] + ".xls");
@@ -126,7 +147,6 @@ namespace OES.UPanel
                                 case "powerpoint":
                                     if (!File.Exists(basePath + list[i][4]))
                                     {
-                                        MessageBox.Show("文件出现异常，请检查");
                                         throw new Exception();
                                     }
                                     File.Copy(basePath + list[i][4], InfoControl.config["PPTPath"] + "p" + ids[i] + ".ppt");
@@ -173,21 +193,18 @@ namespace OES.UPanel
                             case "c":
                                 if (!File.Exists(basePath + list[i][5]))
                                 {
-                                    MessageBox.Show("文件出现异常，请检查");
                                     throw new Exception();
                                 }
                                 CPro(list[i], ids[i], basePath); break;
                             case "cpp":
                                 if (!File.Exists(basePath + list[i][5]))
                                 {
-                                    MessageBox.Show("文件出现异常，请检查");
                                     throw new Exception();
                                 }
                                 CppPro(list[i], ids[i], basePath); break;
                             case "vb":
                                 if (!File.Exists(basePath + list[i][5]))
                                 {
-                                    MessageBox.Show("文件出现异常，请检查");
                                     throw new Exception();
                                 }
                                 VBPro(list[i], ids[i], basePath); break;
@@ -210,15 +227,22 @@ namespace OES.UPanel
         //单元
         private void btnConfirm6_Click(object sender, EventArgs e)
         {
-            if (textBox6.Text != "")
+            try
             {
-                List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox6.Text, 2);
-                InfoControl.OesData.ImportUnit(list);
-                MessageBox.Show("单元批量导入成功!");
-                textBox6.Clear();
+                if (textBox6.Text != "")
+                {
+                    List<string[]> list = CSVHelper.CSVImporter.getObjectInCSV(textBox6.Text, 2);
+                    InfoControl.OesData.ImportUnit(list);
+                    MessageBox.Show("单元批量导入成功!");
+                    textBox6.Clear();
+                }
+                else
+                    MessageBox.Show("请输入文件路径");
             }
-            else
-                MessageBox.Show("请输入文件路径");
+            catch
+            {
+                MessageBox.Show("加载题目出错，请检查");
+            }
         }
 
 
