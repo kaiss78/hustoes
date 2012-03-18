@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Word = Microsoft.Office.Interop.Word;
 using OESXML;
+using System.Windows.Forms;
 
 namespace OESOfficeScore
 {
@@ -42,7 +43,7 @@ namespace OESOfficeScore
             return totalPoints;
         }
 
-        int check_Kernel(List<OfficeElement> ls)
+        private int check_Kernel(List<OfficeElement> ls)
         {
             int points = 0, i;
             int curPart = -1;            //当前正在分析哪一部分的考点
@@ -117,8 +118,9 @@ namespace OESOfficeScore
                     try
                     {
                         int tbIdx = int.Parse(oe.AttribValue);
-                        stuSp = stuDoc.Shapes[tbIdx];
-                        ansSp = ansDoc.Shapes[tbIdx];
+                        object ob = tbIdx;
+                        stuSp = stuDoc.Shapes.get_Item(ref ob);
+                        ansSp = ansDoc.Shapes.get_Item(ref ob);
                         stuTf = stuSp.TextFrame;
                         ansTf = ansSp.TextFrame;
                     }
@@ -424,7 +426,7 @@ namespace OESOfficeScore
         }
 
         //打开文件，读入xml信息
-        public void openFile(string stu, string ans, string xml)
+        private void openFile(string stu, string ans, string xml)
         {
             word = new Word.Application();
             Object confirmConversions = Type.Missing;
@@ -462,7 +464,7 @@ namespace OESOfficeScore
         }
 
         //获取考点信息
-        public void getPoint(OfficeXML ox)
+        private void getPoint(OfficeXML ox)
         {
             try { ox.getAllAnsPath(); }
             catch
@@ -473,7 +475,7 @@ namespace OESOfficeScore
         }
 
         //结束评分
-        void dispose()
+        private void dispose()
         {
             try
             {
