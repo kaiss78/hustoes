@@ -155,6 +155,35 @@ namespace OES.UPanel
             }
         }
 
+        private void AddOffice(int Plevel, int Chaptet, int Course, int Count, int Score,Office.OfficeType type)
+        {
+            rd = new Random();
+            List<Office> list = InfoControl.OesData.FindAllOffice("",Chaptet,Course,Plevel,type,1,int.MaxValue);
+            if (list.Count < Count)
+            {
+                MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            while (Count > 0)
+            {
+                int tmp = rd.Next(list.Count);
+                bool flag = true;
+                foreach (Completion pro in NewPaper.completion)
+                {
+                    if (pro.problemId == list[tmp].problemId)
+                    {
+                        flag = false;
+                    }
+                }
+                if (flag)
+                {
+                    list[tmp].score = Score;
+                    NewPaper.problemList.Add(list[tmp]);
+                    Count--;
+                }
+            }
+        }
+
         private void AddProgramProblem(ProgramPType pType, PLanguage language, int Plevel, int Chaptet, int Course, int Count, int Score, ref List<ProgramProblem> ProList)
         {
             rd = new Random();
@@ -256,6 +285,15 @@ namespace OES.UPanel
                         break;
                     case ProblemType.Judgment:
                         AddJudgement(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score);
+                        break;
+                    case ProblemType.Word:
+                        AddOffice(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score,Office.OfficeType.Word);
+                        break;
+                    case ProblemType.PowerPoint:
+                        AddOffice(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, Office.OfficeType.PowerPoint);
+                        break;
+                    case ProblemType.Excel:
+                        AddOffice(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, Office.OfficeType.Excel);
                         break;
                     case ProblemType.CppProgramCompletion:
                         AddProgramProblem(ProgramPType.Completion, PLanguage.CPP, rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, ref NewPaper.pCompletion);

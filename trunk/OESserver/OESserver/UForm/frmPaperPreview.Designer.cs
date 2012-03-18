@@ -32,13 +32,13 @@
             this.btnOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnReplace = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.lbTScore = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPaperName = new System.Windows.Forms.TextBox();
             this.btnAdd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbTScore = new System.Windows.Forms.Label();
+            this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaperPreview)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -119,18 +119,28 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(821, 533);
             this.tableLayoutPanel1.TabIndex = 17;
             // 
-            // btnCancel
+            // lbTScore
             // 
-            this.btnCancel.Location = new System.Drawing.Point(633, 476);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(94, 35);
-            this.btnCancel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnCancel.StateCommon.Border.Rounding = 16;
-            this.btnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancel.TabIndex = 17;
-            this.btnCancel.Values.Text = "取消";
+            this.lbTScore.AutoSize = true;
+            this.lbTScore.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbTScore.Location = new System.Drawing.Point(513, 8);
+            this.lbTScore.Margin = new System.Windows.Forms.Padding(3, 8, 0, 0);
+            this.lbTScore.Name = "lbTScore";
+            this.lbTScore.Size = new System.Drawing.Size(16, 16);
+            this.lbTScore.TabIndex = 23;
+            this.lbTScore.Text = "0";
+            this.lbTScore.UseWaitCursor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(413, 8);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 8, 0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "总分：";
             // 
             // label1
             // 
@@ -180,28 +190,18 @@
             this.btnDel.Values.Text = "删除";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
-            // label2
+            // btnCancel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(413, 8);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 8, 0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "总分：";
-            // 
-            // lbTScore
-            // 
-            this.lbTScore.AutoSize = true;
-            this.lbTScore.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbTScore.Location = new System.Drawing.Point(513, 8);
-            this.lbTScore.Margin = new System.Windows.Forms.Padding(3, 8, 0, 0);
-            this.lbTScore.Name = "lbTScore";
-            this.lbTScore.Size = new System.Drawing.Size(16, 16);
-            this.lbTScore.TabIndex = 23;
-            this.lbTScore.Text = "0";
-            this.lbTScore.UseWaitCursor = true;
+            this.btnCancel.Location = new System.Drawing.Point(633, 476);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(94, 35);
+            this.btnCancel.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+                        | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnCancel.StateCommon.Border.Rounding = 16;
+            this.btnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Values.Text = "取消";
             // 
             // frmPaperPreview
             // 
