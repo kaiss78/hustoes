@@ -1,155 +1,69 @@
-<div style="text-align:justify">__TOC__</div>
+*2012-OES**计划文档***
 
-<div style="text-align:justify">----</div>
+*Made by PangLiang*
 
-<div style="text-align:justify">Title page</div>
+= 1.      人员情况 =
 
-<div style="text-align:justify">----</div>
+|| *姓名* || *状态* || *Google **账号* ||
+|| *庞亮* || *项目开发* || *pl8787@gmail.com* ||
+|| *洪晓亮* || *项目开发* || *fphxliang@gmail.com* ||
+|| *罗康琦*** || *项目开发* || *hust.ELT@gmail.com* ||
+|| *言凌峰*** || *公司实习* || *Solaryan2009@gmail.com* ||
+|| *贺鹏飞* || *项目开发* || *hepengfei133@gmail.com* ||
+|| *秦肇熙*** || *项目开发* || *qinzhaoxi@gmail.com* ||
+|| *赵汉启*** || *项目开发（新加入成员）* || *zhaohanqi93@gmail.com* ||
 
-<center><font size = "6">'''2012-OES计划文档'''</font></center>
+= 2.      工具平台 =
 
-<center>'''Made by PangLiang'''</center>
+== 开发 ==
 
-==人员情况==
+开发工具：Visual Studio 2008
 
-{|border="2" cellspacing="0" cellpadding="4" width="100%"
-|align = "center" bgcolor = "#000000"  width="17%"|<font color="#FFFFFF">'''姓名'''</font>
-|align = "center" bgcolor = "#000000"  width="43%"|<font color="#FFFFFF">'''状态'''</font>
-|align = "center" bgcolor = "#000000"  width="41%"|<font color="#FFFFFF">'''Google 账号'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''庞亮'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''项目开发'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''pl8787@gmail.com'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''洪晓亮'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''项目开发'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''fphxliang@gmail.com'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''罗康琦'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''项目开发'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''hust.ELT@gmail.com'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''言凌峰'''</font>
-|align = "center" bgcolor = "#000000"|'''公司实习'''
-|align = "center" bgcolor = "#000000"|'''Solaryan2009@gmail.com'''
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''贺鹏飞'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''项目开发'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''hepengfei133@gmail.com'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''秦肇熙'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''项目开发'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''qinzhaoxi@gmail.com'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''赵汉启'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''项目开发（新加入成员）'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''zhaohanqi93@gmail.com'''</font>
-|}
+开发语言：Visual C#
 
-==工具平台==
-===开发===
-<div style="text-align:justify">开发工具：Visual Studio 2008</div>
+代码管理工具：SVN
 
-<div style="text-align:justify">开发语言：Visual C#</div>
+代码库：Google Code：https://code.google.com/p/hustoes/
 
-<div style="text-align:justify">代码管理工具：SVN</div>
+== 运行 ==
 
-<div style="text-align:justify">代码库：Google Code：[https://code.google.com/p/hustoes/ https://code.google.com/p/hustoes/]</div>
+运行系统：Windows XP
 
-===运行===
-<div style="text-align:justify">运行系统：Windows XP</div>
+运行库：.Net Framework 2.0以上
 
-<div style="text-align:justify">运行库：.Net Framework 2.0以上</div>
+= 3.      项目完成情况 =
 
-==项目完成情况==
+|| *模块* || *功能* || *状态* ||
+|| *OES* || *学生考试使用* || *上学期已经进行测试**需要修改Bug* ||
+|| *OESMonitor*** || *考试监考使用* || *上学期已经进行测试**需要修改Bug* ||
+|| *OESSupport*** || *文件服务器* || *上学期已经进行测试**需要修改Bug* ||
+|| *OESServer*** || *教师题目管理使用* || *未完成**希望在本学期进行测试* ||
+|| *OESScore*** || *试卷评分使用* || *未完成**上学期部分功能进行测试* ||
+|| *Database* || *试题数据库操作* || *上学期已经进行测试**需要修改Bug* ||
+|| *OESAnalyse*** || *考试成绩分析* || *未启动**需要对需求进行详细分析* ||
 
-{|border="2" cellspacing="0" cellpadding="4" width="100%"
-|align = "center" bgcolor = "#000000" <font color="#000000"> width="34%"|'''模块'''</font>
-|align = "center" bgcolor = "#000000" <font color="#000000"> width="33%"|'''功能'''</font>
-|align = "center" bgcolor = "#000000" <font color="#000000"> width="34%"|'''状态'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''OES'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''学生考试使用'''</font>
-|align = "center" bgcolor = "#92D050"|'''上学期已经进行测试'''<br>'''需要修改Bug'''
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''OESMonitor'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''考试监考使用'''</font>
-|align = "center" bgcolor = "#92D050"|'''上学期已经进行测试'''<br>'''需要修改Bug'''
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''OESSupport'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''文件服务器'''</font>
-|align = "center" bgcolor = "#92D050"|'''上学期已经进行测试'''<br>'''需要修改Bug'''
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''OESServer'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''教师题目管理使用'''</font>
-|align = "center" bgcolor = "#000000"|'''未完成'''<br>'''希望在本学期进行测试'''
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''OESScore'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''试卷评分使用'''</font>
-|align = "center" bgcolor = "#000000"|'''未完成'''<br>'''上学期部分功能进行测试'''
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''Database'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''试题数据库操作'''</font>
-|align = "center" bgcolor = "#92D050"|'''上学期已经进行测试'''<br>'''需要修改Bug'''
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''OESAnalyse'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''考试成绩分析'''</font>
-|align = "center" bgcolor = "#000000"|'''未启动'''<br>'''需要对需求进行详细分析'''
-|}
+= 4.      本学期目标 =
 
-==本学期目标==
-<center><font color="#FFFFFF"><font size = "4">'''目标：所有模块完成，并且进行过机房内的测试。'''</font></font></center>
+*目标：所有模块完成，并且进行过机房内的测试。***
 
-<div style="text-align:justify">在本学期，我们需要将现阶段未完成的模块完成，并且进行机房内的测试。然后还需要将文档补齐。代码固然是每个人都要写，文档也应该是的，由于以前专注于功能实现，很多代码没有注释，也没有文档支持，这个学期需要对文档进行管理，这个管理需要一定的软件支持，如果有谁有好的建议（关于文档管理软件），可以发我邮箱，或者在群里面提出！</div>
+在本学期，我们需要将现阶段未完成的模块完成，并且进行机房内的测试。然后还需要将文档补齐。代码固然是每个人都要写，文档也应该是的，由于以前专注于功能实现，很多代码没有注释，也没有文档支持，这个学期需要对文档进行管理，这个管理需要一定的软件支持，如果有谁有好的建议（关于文档管理软件），可以发我邮箱，或者在群里面提出！
 
-==任务细化==
+= 5.      任务细化 =
 
-{|border="2" cellspacing="0" cellpadding="4" width="100%"
-|align = "center" bgcolor = "#000000"  width="20%"|<font color="#FFFFFF">'''月份'''</font>
-|align = "center" bgcolor = "#000000"  width="24%"|<font color="#FFFFFF">周</font>
-|align = "center" bgcolor = "#000000"  width="56%"|<font color="#FFFFFF">'''目标'''</font>
-|-
-|align = "center" bgcolor = "#000000" <font color="#000000">rowspan = "4"|'''3月'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''4'''</font>
-|bgcolor = "#000000" <font color="#000000">rowspan = "2"|1. 完成OESServer端的合成，内部进行测试。<br>2. 交付李老师进行使用。<br>3. 第五周会到机房测试。<br>4. 找到合适文档管理软件。</font>
-|-
-<center>|align = "center" bgcolor = "#000000"|<font color="#000000">'''5'''</font></center>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''6'''</font>
-|bgcolor = "#000000" <font color="#000000">rowspan = "2"|1. 完成OESScore端的合成，内部进行测试。<br>2. Office考试流程进行测试。</font>
-|-
-<center>|align = "center" bgcolor = "#000000"|<font color="#000000">'''7'''</font></center>
-|-
-|align = "center" bgcolor = "#000000" <font color="#000000">rowspan = "4"|'''4月'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''8'''</font>
-|bgcolor = "#000000"|<font color="#000000">1. 完成OESAnalyse的需求分析。</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''9'''</font>
-|bgcolor = "#000000" <font color="#000000">rowspan = "3"|1. 着手对OESAnalyse端进行开发，完成，并测试。<br>2. 文档任务分配。<br>3. 初步文档形成。</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''10'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''11'''</font>
-|-
-|align = "center" bgcolor = "#000000" <font color="#000000">rowspan = "4"|'''5月'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''12'''</font>
-|bgcolor = "#000000" <font color="#000000">rowspan = "4"|1. 文档规范化，详细化。<br>2. 针对测试产生的Bug进行修复。</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''13'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''14'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''15'''</font>
-|-
-|align = "center" bgcolor = "#000000" <font color="#000000">rowspan = "4"|'''6月'''</font>
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''16'''</font>
-|bgcolor = "#000000" <font color="#000000">rowspan = "4"|1. 项目交付。<br>2. 后期维护。</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''17'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''18'''</font>
-|-
-|align = "center" bgcolor = "#000000"|<font color="#000000">'''19'''</font>
-|}
-
-[[category:uncategorized]]
+|| *月份* || *周* || *目标* ||
+|| *3**月* || *4* || 1.       完成OESServer端的合成，内部进行测试。2.       交付李老师进行使用。3.       第五周会到机房测试。4.       找到合适文档管理软件。 ||
+|| *5* ||
+|| *6* || 1.       完成OESScore端的合成，内部进行测试。2.       Office考试流程进行测试。 ||
+|| *7* ||
+|| *4**月* || *8* || 1.       完成OESAnalyse的需求分析。 ||
+|| *9* || 1.       着手对OESAnalyse端进行开发，完成，并测试。2.       文档任务分配。3.       初步文档形成。 ||
+|| *10* ||
+|| *11* ||
+|| *5**月* || *12* || 1.       文档规范化，详细化。2.       针对测试产生的Bug进行修复。 ||
+|| *13* ||
+|| *14* ||
+|| *15* ||
+|| *6**月* || *16* || 1.       项目交付。2.       后期维护。 ||
+|| *17* ||
+|| *18* ||
+|| *19* ||
