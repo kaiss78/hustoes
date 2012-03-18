@@ -36,6 +36,7 @@ namespace OES.UPanel
             ReLoad();
             mode = 1;
             PID = pid;
+            delTmpFile(pid);
             List<OfficeWord> low = InfoControl.OesData.FindOfficeWordByPID(PID);
             OfficeWord ow = low[0];
             textInfo.Text = ow.problem;
@@ -44,7 +45,7 @@ namespace OES.UPanel
             InfoControl.ClientObj.LoadWordT(pid, InfoControl.User.Id);
             textOriWord.Text = InfoControl.config["WordPath"] + "p" + pid.ToString() + ".doc";
             textAnsWord.Text = InfoControl.config["WordPath"] + "a" + pid.ToString() + ".doc";
-            textXmlWord.Text = InfoControl.config["WordPath"] + "t" + pid.ToString() + ".doc";
+            textXmlWord.Text = InfoControl.config["WordPath"] + "t" + pid.ToString() + ".xml";
             InfoControl.ClientObj.ReceiveFiles();
         }
 
@@ -121,9 +122,12 @@ namespace OES.UPanel
 
         private void upload(int pid)
         {
-            fori.CopyTo(tmpDir + "p" + pid.ToString() + ".doc", true);
-            fans.CopyTo(tmpDir + "a" + pid.ToString() + ".doc", true);
-            fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml", true);
+            if (fori.FullName != tmpDir + "p" + pid.ToString() + ".doc")
+                fori.CopyTo(tmpDir + "p" + pid.ToString() + ".doc", true);
+            if (fans.FullName != tmpDir + "a" + pid.ToString() + ".doc")
+                fans.CopyTo(tmpDir + "a" + pid.ToString() + ".doc", true);
+            if (fxml.FullName != tmpDir + "t" + pid.ToString() + ".xml")
+                fxml.CopyTo(tmpDir + "t" + pid.ToString() + ".xml", true);
             InfoControl.ClientObj.SaveWordA(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SaveWordP(pid, InfoControl.User.Id);
             InfoControl.ClientObj.SaveWordT(pid, InfoControl.User.Id);
@@ -135,7 +139,9 @@ namespace OES.UPanel
             fori = new FileInfo(tmpDir + "p" + pid.ToString() + ".doc");
             fans = new FileInfo(tmpDir + "a" + pid.ToString() + ".doc");
             fxml = new FileInfo(tmpDir + "t" + pid.ToString() + ".xml");
-            fori.Delete(); fans.Delete(); fxml.Delete();
+            if (fori.Exists) fori.Delete();
+            if (fans.Exists) fans.Delete();
+            if (fxml.Exists) fxml.Delete();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -148,25 +154,31 @@ namespace OES.UPanel
                 MessageBox.Show("请完成试题信息");
                 return;
             }
-            if (mode == 0)      //新增Word
+            int judge = judgeFileExist();
+            if (judge == -1)
+                MessageBox.Show("初始Word文件不存在！");
+            else if (judge == -2)
+                MessageBox.Show("标答Word文件不存在！");
+            else if (judge == -3)
+                MessageBox.Show("考点xml文件不存在！");
+            else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                int judge = judgeFileExist();
-                if (judge == -1)
-                    MessageBox.Show("初始Word文件不存在！");
-                else if (judge == -2)
-                    MessageBox.Show("标答Word文件不存在！");
-                else if (judge == -3)
-                    MessageBox.Show("考点xml文件不存在！");
-                else if (MessageBox.Show("确定提交吗？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (mode == 0)      //新增Word
                 {
                     PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.Word);
                     Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                     upload(PID);
                 }
-            }
-            else                //修改Word
-            {
-
+                else                //修改Word
+                {
+                    InfoControl.OesData.UpdateOffice(PID, textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.Word);
+                    InfoControl.ClientObj.DelWordA(PID, InfoControl.User.Id);
+                    InfoControl.ClientObj.DelWordP(PID, InfoControl.User.Id);
+                    InfoControl.ClientObj.DelWordT(PID, InfoControl.User.Id);
+                    InfoControl.ClientObj.DelFiles();
+                    Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
+                    upload(PID);
+                }
             }
         }
 
