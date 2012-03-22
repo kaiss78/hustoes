@@ -307,7 +307,6 @@ namespace OESScore
                     Score = Score + dScore;
                 }
             }
-
             return Score;
         }
         /// <summary>
