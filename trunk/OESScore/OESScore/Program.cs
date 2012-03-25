@@ -10,6 +10,7 @@ namespace OESScore
 {
     static class Program
     {
+        public static Form MainForm;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -26,7 +27,8 @@ namespace OESScore
             }            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formOESScore());
+            MainForm = new formOESScore();
+            Application.Run(MainForm);
         }
         #region 单进程运行
         [DllImport("User32.dll")]

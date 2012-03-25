@@ -156,44 +156,47 @@ namespace OESScore
 
                 //return null;
             }
-
-            proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml");
-            ansList = XMLControl.ReadPaperAns(ScoreControl.config["AnswerPath"] + ID + "\\A" + ID + ".xml");
-            newAnswer = new StaAns();
-            newAnswer.Ans = new List<Answer>();
-            newAnswer.PaperID = ID;
-            //ProgramProblem programProblem;
-            newAnswer.PCList = new List<ProgramProblem>();
-            newAnswer.PFList = new List<ProgramProblem>();
-            newAnswer.PMList = new List<ProgramProblem>();
-
-            foreach (IdScoreType pro in proList)
+            if (!ClientEvt.isError)
             {
-                switch (pro.pt)
+                proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml");
+                ansList = XMLControl.ReadPaperAns(ScoreControl.config["AnswerPath"] + ID + "\\A" + ID + ".xml");
+                newAnswer = new StaAns();
+                newAnswer.Ans = new List<Answer>();
+                newAnswer.PaperID = ID;
+                //ProgramProblem programProblem;
+                newAnswer.PCList = new List<ProgramProblem>();
+                newAnswer.PFList = new List<ProgramProblem>();
+                newAnswer.PMList = new List<ProgramProblem>();
+
+                foreach (IdScoreType pro in proList)
                 {
-                    case ProblemType.Choice:
-                    case ProblemType.Completion:
-                    case ProblemType.Judgment:
-                        newAnswer.Ans.Add(getAnswer(pro, ansList));
-                        break;
-                    case ProblemType.CProgramCompletion:
-                    case ProblemType.CppProgramCompletion:
-                    case ProblemType.VbProgramCompletion:
-                        newAnswer.PCList.Add(getPAnswer(pro));
-                        break;
-                    case ProblemType.CppProgramFun:
-                    case ProblemType.VbProgramFun:
-                    case ProblemType.CProgramFun:
-                        newAnswer.PFList.Add(getPAnswer(pro));
-                        break;
-                    case ProblemType.CppProgramModification:
-                    case ProblemType.CProgramModification:
-                    case ProblemType.VbProgramModification:
-                        newAnswer.PMList.Add(getPAnswer(pro));
-                        break;
+                    switch (pro.pt)
+                    {
+                        case ProblemType.Choice:
+                        case ProblemType.Completion:
+                        case ProblemType.Judgment:
+                            newAnswer.Ans.Add(getAnswer(pro, ansList));
+                            break;
+                        case ProblemType.CProgramCompletion:
+                        case ProblemType.CppProgramCompletion:
+                        case ProblemType.VbProgramCompletion:
+                            newAnswer.PCList.Add(getPAnswer(pro));
+                            break;
+                        case ProblemType.CppProgramFun:
+                        case ProblemType.VbProgramFun:
+                        case ProblemType.CProgramFun:
+                            newAnswer.PFList.Add(getPAnswer(pro));
+                            break;
+                        case ProblemType.CppProgramModification:
+                        case ProblemType.CProgramModification:
+                        case ProblemType.VbProgramModification:
+                            newAnswer.PMList.Add(getPAnswer(pro));
+                            break;
+                    }
                 }
+                return newAnswer;
             }
-            return newAnswer;
+            return null;
 
         }
 

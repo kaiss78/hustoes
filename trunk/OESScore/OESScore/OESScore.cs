@@ -215,96 +215,99 @@ namespace OESScore
             List<string> proAns;
             StuList[RIndex].Score.sum = new List<Sum>();            
             ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID.ToString());
-            XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
-            int i = 0;
-            foreach (Answer ans in StuList[RIndex].StuAns.Ans)
+            if (ScoreControl.staAns != null)
             {
-                
-                if ((ans.Type == ProblemType.Choice) || (ans.Type == ProblemType.Completion) || (ans.Type == ProblemType.Judgment))
+                XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
+                int i = 0;
+                foreach (Answer ans in StuList[RIndex].StuAns.Ans)
                 {
-                    dScore = 0;
-                    if ((ans.Ans != null) && (ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
-                    {
-                        dScore = ScoreControl.staAns.Ans[ans.ID].Score;
-                    }
-                    StuList[RIndex].Score.addDetail(ans.Type, dScore);
-                    XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
-                    Score += dScore;
-                }
-                //processBar.Value = ++i * 100 / StuList[RIndex].StuAns.Ans.Count;
-            }
 
-            for(i=0;i<ScoreControl.staAns.PCList.Count;i++)
-            {
-                fileName = StuList[RIndex].path.FullName + "\\g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
-                if (File.Exists(fileName))
-                {
-                    dScore = 0;
-                    proAns = ProgramScore.correctPC(fileName);
-                    count = 0;
-                    for (int j = 0; j < proAns.Count; j++)
+                    if ((ans.Type == ProblemType.Choice) || (ans.Type == ProblemType.Completion) || (ans.Type == ProblemType.Judgment))
                     {
-                        foreach (ProgramAnswer pa in ScoreControl.staAns.PCList[i].ansList)
+                        dScore = 0;
+                        if ((ans.Ans != null) && (ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
                         {
-                            if((pa.Output==proAns[j])&&(pa.SeqNum==j-1))
+                            dScore = ScoreControl.staAns.Ans[ans.ID].Score;
+                        }
+                        StuList[RIndex].Score.addDetail(ans.Type, dScore);
+                        XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
+                        Score += dScore;
+                    }
+                    //processBar.Value = ++i * 100 / StuList[RIndex].StuAns.Ans.Count;
+                }
+
+                for (i = 0; i < ScoreControl.staAns.PCList.Count; i++)
+                {
+                    fileName = StuList[RIndex].path.FullName + "\\g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
+                    if (File.Exists(fileName))
+                    {
+                        dScore = 0;
+                        proAns = ProgramScore.correctPC(fileName);
+                        count = 0;
+                        for (int j = 0; j < proAns.Count; j++)
+                        {
+                            foreach (ProgramAnswer pa in ScoreControl.staAns.PCList[i].ansList)
                             {
-                                count++;
-                                break;
+                                if ((pa.Output == proAns[j]) && (pa.SeqNum == j - 1))
+                                {
+                                    count++;
+                                    break;
+                                }
                             }
                         }
+                        dScore = count * ScoreControl.staAns.PCList[i].score / proAns.Count;
+                        XMLControl.AddScore(ScoreControl.staAns.PCList[i].type, ScoreControl.staAns.PCList[i].problemId, dScore);
+                        Score = Score + dScore;
                     }
-                    dScore = count*ScoreControl.staAns.PCList[i].score/proAns.Count;
-                    XMLControl.AddScore(ScoreControl.staAns.PCList[i].type, ScoreControl.staAns.PCList[i].problemId, dScore);
-                    Score = Score + dScore;
                 }
-            }
 
 
-            for (i = 0; i < ScoreControl.staAns.PMList.Count; i++)
-            {
-                fileName = StuList[RIndex].path.FullName + "\\h" + i.ToString() + getExtension(ScoreControl.staAns.PMList[i].language);
-                if (File.Exists(fileName))
+                for (i = 0; i < ScoreControl.staAns.PMList.Count; i++)
                 {
-
-                    proAns = ProgramScore.correctPC(fileName);
-                    count = 0;
-                    dScore = 0;
-                    for (int j = 0; j < proAns.Count; j++)
+                    fileName = StuList[RIndex].path.FullName + "\\h" + i.ToString() + getExtension(ScoreControl.staAns.PMList[i].language);
+                    if (File.Exists(fileName))
                     {
-                        foreach (ProgramAnswer pa in ScoreControl.staAns.PMList[i].ansList)
+
+                        proAns = ProgramScore.correctPC(fileName);
+                        count = 0;
+                        dScore = 0;
+                        for (int j = 0; j < proAns.Count; j++)
                         {
-                            if ((ProgramScore.Clean(pa.Output) == proAns[j]) && (pa.SeqNum == j - 1))
+                            foreach (ProgramAnswer pa in ScoreControl.staAns.PMList[i].ansList)
                             {
-                                count++;
-                                break;
+                                if ((ProgramScore.Clean(pa.Output) == proAns[j]) && (pa.SeqNum == j - 1))
+                                {
+                                    count++;
+                                    break;
+                                }
                             }
                         }
+                        dScore = count * ScoreControl.staAns.PMList[i].score / proAns.Count;
+                        XMLControl.AddScore(ScoreControl.staAns.PMList[i].type, ScoreControl.staAns.PMList[i].problemId, dScore);
+                        Score = Score + dScore;
                     }
-                    dScore = count * ScoreControl.staAns.PMList[i].score / proAns.Count;
-                    XMLControl.AddScore(ScoreControl.staAns.PMList[i].type, ScoreControl.staAns.PMList[i].problemId, dScore);
-                    Score = Score + dScore;
                 }
-            }
-            for (i = 0; i < ScoreControl.staAns.PFList.Count; i++)
-            {
-                fileName = StuList[RIndex].path.FullName + "\\i" + i.ToString() + getExtension(ScoreControl.staAns.PFList[i].language);
-                if (File.Exists(fileName))
+                for (i = 0; i < ScoreControl.staAns.PFList.Count; i++)
                 {
-
-                    //proAns = ScoreControl.correctPC(fileName);
-                    count = 0;
-                    dScore = 0;
-                    foreach (ProgramAnswer pa in ScoreControl.staAns.PFList[i].ansList)
+                    fileName = StuList[RIndex].path.FullName + "\\i" + i.ToString() + getExtension(ScoreControl.staAns.PFList[i].language);
+                    if (File.Exists(fileName))
                     {
-                        //MessageBox.Show(ScoreControl.correctPF(fileName, pa.Input) + "||" + ScoreControl.Clean(pa.Output));
-                        if (ProgramScore.correctPF(fileName, pa.Input) == ProgramScore.Clean(pa.Output))
+
+                        //proAns = ScoreControl.correctPC(fileName);
+                        count = 0;
+                        dScore = 0;
+                        foreach (ProgramAnswer pa in ScoreControl.staAns.PFList[i].ansList)
                         {
-                            count++;
+                            //MessageBox.Show(ScoreControl.correctPF(fileName, pa.Input) + "||" + ScoreControl.Clean(pa.Output));
+                            if (ProgramScore.correctPF(fileName, pa.Input) == ProgramScore.Clean(pa.Output))
+                            {
+                                count++;
+                            }
                         }
+                        dScore = count * ScoreControl.staAns.PFList[i].score / ScoreControl.staAns.PFList[i].ansList.Count;
+                        XMLControl.AddScore(ScoreControl.staAns.PFList[i].type, ScoreControl.staAns.PFList[i].problemId, dScore);
+                        Score = Score + dScore;
                     }
-                    dScore = count*ScoreControl.staAns.PFList[i].score/ScoreControl.staAns.PFList[i].ansList.Count;
-                    XMLControl.AddScore(ScoreControl.staAns.PFList[i].type, ScoreControl.staAns.PFList[i].problemId, dScore);
-                    Score = Score + dScore;
                 }
             }
             return Score;

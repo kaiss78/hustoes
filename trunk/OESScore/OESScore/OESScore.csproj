@@ -113,6 +113,12 @@
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataGridViewProgressBarCell.cs" />
+    <Compile Include="FileListWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileListWaiting.Designer.cs">
+      <DependentUpon>FileListWaiting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Net\ClientEvt.cs" />
     <Compile Include="OESScore.cs">
       <SubType>Form</SubType>
@@ -125,6 +131,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ConfigForm.resx">
       <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileListWaiting.resx">
+      <DependentUpon>FileListWaiting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OESScore.resx">
       <DependentUpon>OESScore.cs</DependentUpon>
