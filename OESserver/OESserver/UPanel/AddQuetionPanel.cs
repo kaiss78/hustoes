@@ -145,8 +145,10 @@ namespace OES
             cbQueStyle.Enabled = true;
             if (Int32.TryParse(cbQueStyle.SelectedValue.ToString(), out result))
             {
-                PanelList[result - 1].ReLoad();
+                PanelList[0].ReLoad();
+                cbQueStyle.SelectedIndex = 0 ;
             }
+            
         }
 
 

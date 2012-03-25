@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,10 +49,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.Textcombo = new System.Windows.Forms.ComboBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ProblemDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // ProblemDGV
@@ -307,10 +304,6 @@
             this.Textcombo.TabIndex = 21;
             this.Textcombo.SelectedIndexChanged += new System.EventHandler(this.Textcombo_SelectedIndexChanged);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -346,7 +339,6 @@
             this.Controls.Add(this.ProblemDGV);
             this.Name = "QuesBankForm";
             ((System.ComponentModel.ISupportInitialize)(this.ProblemDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,7 +363,6 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.ComboBox Textcombo;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label5;
     }
 }
