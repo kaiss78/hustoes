@@ -35,13 +35,18 @@ namespace OES.UPanel
 
         public override void ReLoad()
         {
-            newProblem = new ProgramProblem();
+            CleanData();
+            addnew = true;
+            this.Visible = true;
+        }
+
+        private void CleanData()
+        {
             rtbPContent.Text = "";
             tbProblemFile.Text = "";
             BlankCount = 0;
             AnsCount = 0;
-
-
+            newProblem = new ProgramProblem();
             dtAnsList = new DataTable();
             dtAnsList.Columns.Add("SeqNum", typeof(int));
             dtAnsList.Columns.Add("Value", typeof(string));
@@ -49,14 +54,12 @@ namespace OES.UPanel
             dvAnsList.Sort = "SeqNum";
             lbAnsList.DataSource = dvAnsList;
             lbAnsList.DisplayMember = "Value";
-            addnew = true;
-            this.Visible = true;
         }
 
         public override void ReLoad(int pid)
         {
-            addnew = false;
-            ReLoad();
+            CleanData();
+            addnew = false;            
             PID = pid;
             //(this.Parent.Parent as AddQuetionPanel).QueStyle = 
             newProblem = InfoControl.getProProblem(pid);
@@ -182,7 +185,11 @@ namespace OES.UPanel
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            if (!File.Exists(tbProblemFile.Text))
+            {
+                MessageBox.Show("错误", "文件不存在", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             int Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
             int PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             if (addnew)

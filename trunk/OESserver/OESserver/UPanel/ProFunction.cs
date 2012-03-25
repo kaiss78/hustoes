@@ -38,18 +38,26 @@ namespace OES.UPanel
 
         }
 
-        public override void ReLoad()
+        private void CleanData()
         {
+            tbAnswerFile.Text = "";
+            tbProblemFile.Text = "";
+            rtbPContent.Text = "";
             AnsList = new List<ProgramAnswer>();
             dtAnsList.Clear();
+        }
+
+
+        public override void ReLoad()
+        {
+            CleanData();
             addnew = true;
             this.Visible = true;
-
         }
         public override void ReLoad(int pid)
-        {
+        {            
+            CleanData();
             addnew = false;
-            ReLoad();
             PID = pid;
             newProblem = InfoControl.getProProblem(pid);
             rtbPContent.Text = newProblem.problem;
@@ -84,6 +92,11 @@ namespace OES.UPanel
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if ((!File.Exists(tbAnswerFile.Text)) || (!File.Exists(tbProblemFile.Text)))
+            {
+                MessageBox.Show("文件不存在", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             int Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
             int PLevel = (this.Parent.Parent as AddQuetionPanel).Difficulity;
             if (addnew)
@@ -143,9 +156,7 @@ namespace OES.UPanel
                         break;
                 }
                 ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
-                InfoControl.ClientObj.SendFiles();
-                
-                
+                InfoControl.ClientObj.SendFiles();                                
             }
         }
 
@@ -153,6 +164,7 @@ namespace OES.UPanel
         {
             MessageBox.Show("题目添加成功！", "通知", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
+            CleanData();
         }
 
         private void btnBrowserSource_Click(object sender, EventArgs e)
