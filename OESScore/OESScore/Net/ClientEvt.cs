@@ -5,17 +5,22 @@ using System.Text;
 using System.IO;
 using ClientNet;
 using OESScore;
+using System.Windows.Forms;
 
 namespace OES.Net
 {
     public class ClientEvt
     {
+        //文件操作完成事件，需要用时注册
+        public static event Action FilesComplete;
+
         public static OESClient Client = new OESClient();
         public static event EventHandler LoginReturn;
         public static string RootPath = "";
         List<string> remoteCom = new List<string>();
         List<string> localPath = new List<string>();
         public static Boolean isOver = true;
+        public static Boolean isError = false;
 
         public ClientEvt()
         {
@@ -28,6 +33,11 @@ namespace OES.Net
             Client.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
             Client.Port.FileSendEnd += new EventHandler(Port_FileSendEnd);
             Client.ConnectedServer += new EventHandler(Client_ConnectedServer);
+            Client.Port.RecieveFileRate += new ReturnVal(Port_RecieveFileRate);
+            Client.Port.SendFileRate += new ReturnVal(Port_SendFileRate);
+            Client.FileListCount += new FileListSize(Client_FileListCount);
+            Client.FileListRecieveStart += new Action(Client_FileListRecieveStart);
+            Client.FileListSendStart += new Action(Client_FileListSendStart);
         }
 
         void Client_ConnectedServer(object sender, EventArgs e)
@@ -44,6 +54,51 @@ namespace OES.Net
 
         }
 
+        void Client_FileListSendStart()
+        {
+            while (!Program.MainForm.IsHandleCreated) ;
+            Program.MainForm.BeginInvoke(new Action(() =>
+            {
+                FileListWaiting.Instance.ShowDialog();
+            }));
+        }
+
+        void Client_FileListRecieveStart()
+        {
+            while (!Program.MainForm.IsHandleCreated) ;
+            Program.MainForm.BeginInvoke(new Action(() =>
+            {
+                FileListWaiting.Instance.ShowDialog();
+            }));
+        }
+
+        void Client_FileListCount(int count)
+        {
+            while (!Program.MainForm.IsHandleCreated) ;
+            Program.MainForm.BeginInvoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setText(count);
+            }));
+        }
+
+        void Port_SendFileRate(double rate)
+        {
+            while (!Program.MainForm.IsHandleCreated) ;
+            Program.MainForm.BeginInvoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setProcessBar((int)(rate * 1000));
+            }));
+        }
+
+        void Port_RecieveFileRate(double rate)
+        {
+            while (!Program.MainForm.IsHandleCreated) ;
+            Program.MainForm.BeginInvoke(new Action(() =>
+            {
+                FileListWaiting.Instance.setProcessBar((int)(rate * 1000));
+            }));
+        }
+
         public void SendFiles()
         {
             isOver = false;
@@ -51,11 +106,27 @@ namespace OES.Net
             Client.FileListSendEnd += new Action(Client_FileListSendEnd);
         }
 
-        void Client_FileListSendEnd()
+        void Client_FileListRecieveEnd()
         {
             remoteCom.Clear();
             localPath.Clear();
             isOver = true;
+            isError = false;
+            Client.FileListRecieveEnd -= Client_FileListRecieveEnd;
+            while (!Program.MainForm.IsHandleCreated) ;
+            Program.MainForm.Invoke(new Action(() =>
+            {
+                Program.MainForm.Enabled = true;
+                FileListWaiting.Instance.Close();
+            }));
+            if (FilesComplete != null)
+            {
+                Program.MainForm.BeginInvoke(new Action(() =>
+                {
+                    FilesComplete();
+                }
+                    ));
+            }
         }
 
         public void ReceiveFiles()
@@ -66,16 +137,49 @@ namespace OES.Net
 
         }
 
-        void Client_FileListRecieveEnd()
+        void Client_FileListSendEnd()
         {
             remoteCom.Clear();
             localPath.Clear();
             isOver = true;
+            isError = false;
+            Client.FileListSendEnd -= Client_FileListSendEnd;
+            while (!Program.MainForm.IsHandleCreated) ;
+            Program.MainForm.Invoke(new Action(() =>
+            {
+                Program.MainForm.Enabled = true;
+                FileListWaiting.Instance.Close();
+            }));
+            if (FilesComplete != null)
+            {
+                Program.MainForm.BeginInvoke(new Action(() =>
+                {
+                    FilesComplete();
+                }
+                    ));
+            }
         }
 
         static void Client_ReceivedTxt(object sender, EventArgs e)
         {
-            
+            string[] msgs=sender.ToString().Split('$');
+            if (msgs[0] == "server")
+            {
+                switch (msgs[1])
+                {
+                    case "fileError":
+                        isOver = true;
+                        isError = true;
+                        MessageBox.Show(msgs[2] + " not exist!");
+                        while (!Program.MainForm.IsHandleCreated) ;
+                        Program.MainForm.Invoke(new Action(() =>
+                        {
+                            Program.MainForm.Enabled = true;
+                            FileListWaiting.Instance.Close();
+                        }));
+                        break;
+                }
+            }
         }
 
         public void Login()
