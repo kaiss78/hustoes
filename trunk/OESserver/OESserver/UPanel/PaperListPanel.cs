@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using OES.Model;
 using OES.XMLFile;
+using OES.Net;
 
 namespace OES.UPanel
 {
@@ -200,6 +201,13 @@ namespace OES.UPanel
         private void btnEdit_Click(object sender, EventArgs e)
         {
             InfoControl.getPaper(Convert.ToInt32(PaperListDGV.SelectedRows[0].Cells[1].Value));
+            ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
+        }
+
+        void ClientEvt_FilesComplete()
+        {
+            ClientEvt.FilesComplete -= ClientEvt_FilesComplete;
+            InfoControl.Paper_FilesComplete();
             paperPreview = new frmPaperPreview(InfoControl.TmpPaper);
             paperPreview.Show();
             //PanelControl.EditPaper();

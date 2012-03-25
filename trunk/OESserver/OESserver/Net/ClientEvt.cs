@@ -114,7 +114,7 @@ namespace OES.Net
                 switch (msgs[1])
                 {
                     case "fileError":
-                        MessageBox.Show(msgs[2] + "not exist!");
+                        MessageBox.Show(msgs[2] + " not exist!");
                         while (!InfoControl.MainForm.IsHandleCreated) ;
                         InfoControl.MainForm.Invoke(new Action(() =>
                         {

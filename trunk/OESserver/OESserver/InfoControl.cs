@@ -133,11 +133,15 @@ namespace OES
         /// <param name="paperID">所要获取试卷的id</param>
         public static void getPaper(int paperID)
         {
-            Problem tmpPro;
             TmpPaper = OesData.FindPaperByPaperId(paperID)[0];
             InfoControl.clientObj.LoadPaper(Convert.ToInt32(TmpPaper.paperID), Convert.ToInt32(User.Id));
             InfoControl.clientObj.ReceiveFiles();
-            while (!ClientEvt.isOver) ;
+        }
+
+        public static void Paper_FilesComplete()
+        {
+            
+            Problem tmpPro;
             TmpPaper.paperPath = InfoControl.config["TempPaperPath"] + TmpPaper.paperID + ".xml";
             List<IdScoreType> tmpList = XMLControl.ReadPaper(TmpPaper.paperPath);
             InfoControl.TmpPaper.problemList = new List<Problem>();
