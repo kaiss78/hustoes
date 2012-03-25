@@ -46,18 +46,11 @@ namespace OES
             panelList[6] = mf.scoreManage;
             mf.scoreManage.PanelID = 6;
 
-            //panelList[7] = mf.paperEditPanel;                        
-            //mf.paperEditPanel.PanelID = 7;
-
-
             panelList[8] = mf.addQuestionPanel;
-            mf.addQuestionPanel.PanelID = 8;
-            
-
+            mf.addQuestionPanel.PanelID = 8;            
 
             panelList[9] = mf.bulkImport;
             mf.bulkImport.PanelID = 9;
-
 
             panelList[12] = mf.paperInfo;
             mf.paperInfo.PanelID = 12;

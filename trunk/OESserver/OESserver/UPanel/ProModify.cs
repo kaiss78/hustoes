@@ -187,7 +187,7 @@ namespace OES.UPanel
         {
             if (!File.Exists(tbProblemFile.Text))
             {
-                MessageBox.Show("错误", "文件不存在", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("文件不存在", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             int Unit = (this.Parent.Parent as AddQuetionPanel).Capter;
