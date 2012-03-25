@@ -222,15 +222,15 @@ namespace OES.UPanel
                 switch (language)
                 {
                     case PLanguage.C:
-                        File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".c");
+                        File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".c", true);
                         InfoControl.ClientObj.SaveCCompletion(PID, Convert.ToInt32(InfoControl.User.Id));
                         break;
                     case PLanguage.CPP:
-                        File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".cpp");
+                        File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".cpp", true);
                         InfoControl.ClientObj.SaveCppCompletion(PID, Convert.ToInt32(InfoControl.User.Id));
                         break;
                     case PLanguage.VB:
-                        File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".vb");
+                        File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".vb", true);
                         InfoControl.ClientObj.SaveVbCompletion(PID, InfoControl.User.Id);
                         break;
                 }

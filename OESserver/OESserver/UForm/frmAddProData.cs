@@ -37,7 +37,7 @@ namespace OES
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
-            ProgramScore.FindVC();
+            //ProgramScore.FindVC();
             rtbOutput.Text = ProgramScore.correctPF(Path, rtbInput.Text);
         }
 
