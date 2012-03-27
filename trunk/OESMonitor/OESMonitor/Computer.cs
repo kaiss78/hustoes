@@ -16,9 +16,9 @@ namespace OESMonitor
 {
     public partial class Computer : UserControl
     {
-        private static object syncComputerList = new object();
-        private static object syncCompleteList = new object();
-        private static object syncErrorList = new object();
+        public static object syncComputerList = new object();
+        public static object syncCompleteList = new object();
+        public static object syncErrorList = new object();
 
         private static List<Computer> computerList = new List<Computer>();
 
@@ -295,6 +295,13 @@ namespace OESMonitor
                         client.SendTxt("oes$4$"+Password);
                         File.WriteAllText(PaperControl.PathConfig["StuRarKey"] + Student.ID + ".pwd", Password);
                         break;
+                    //当监考端崩溃时，恢复考试端状态
+                    case "5":
+                        if (ReconnectValidating(msgs[2], msgs[3], msgs[4]))
+                        {
+                            this.State = Convert.ToInt32(msgs[5]);
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -311,6 +318,17 @@ namespace OESMonitor
         void client_LoginSuccess()
         {
             this.State = 2;
+        }
+
+        bool ReconnectValidating(string name, string id, string pwd)
+        {
+            if (PaperControl.OesData.ValidateStudentInfo(id, name, pwd))
+            {
+                this.Student = PaperControl.OesData.FindStudentByStudentId(id)[0];//new Student(name, "", id, pwd);
+                this.Student.ip = this.Client.ClientIp;
+                return true;
+            }
+            return false;
         }
 
         bool client_LoginValidating(string name, string id, string pwd)

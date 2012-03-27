@@ -895,22 +895,28 @@ namespace OESMonitor
 
         void Server_SendDataReady(Client client, string msg)
         {
-            foreach (Computer c in Computer.ComputerList)
+            lock (Computer.syncComputerList)
             {
-                if (c.Client == client)
+                for (int i = 0; i < Computer.ComputerList.Count; i++)
                 {
-                    client.Port.FilePath = c.ExamPaperPath;
+                    if (Computer.ComputerList[i].Client == client)
+                    {
+                        client.Port.FilePath = Computer.ComputerList[i].ExamPaperPath;
+                    }
                 }
             }
         }
 
         void Server_FileSendEnd(ServerNet.DataPort dataPort)
         {
-            foreach (Computer c in Computer.ComputerList)
+            lock (Computer.syncComputerList)
             {
-                if (c.Client.Port == dataPort)
+                for (int i = 0; i < Computer.ComputerList.Count;i++ )
                 {
-                    c.State = 5;
+                    if (Computer.ComputerList[i].Client.Port == dataPort)
+                    {
+                        Computer.ComputerList[i].State = 5;
+                    }
                 }
             }
         }
@@ -921,34 +927,37 @@ namespace OESMonitor
         /// <param name="dataPort"></param>
         void Server_FileReceiveEnd(ServerNet.DataPort dataPort)
         {
-            for (int i = Computer.ComputerList.Count - 1; i >= 0; i--)
+            lock (Computer.syncComputerList)
             {
-                if (Computer.ComputerList[i].Client.Port == dataPort)
+                for (int i = Computer.ComputerList.Count - 1; i >= 0; i--)
                 {
-                    //对考生文件解密
-                    //if (RARHelper.Exists())
-                    //{
-                    //    RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
-                    //    while (!Directory.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\")) ;
-                    //    File.WriteAllText(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\password.txt", Computer.ComputerList[i].Password);
-                    //}
-                    //Computer.ComputerList[i].State = 4;
-                    //if (File.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar"))
-                    //{
-                    //    File.Delete(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar");
-                    //}
-                    Computer.ComputerList[i].State = 4;
-                    AddToFlp(flp_CompleteExam, Computer.ComputerList[i]);
-                    RemoveFromFlp(flp_Onexam, Computer.ComputerList[i]);
-                    Computer.CompleteList.Add(Computer.ComputerList[i]);
-                    Computer.ComputerList.Remove(Computer.ComputerList[i]);
-                    HandInCount--;
-                    if (HandInCount == 0)
+                    if (Computer.ComputerList[i].Client.Port == dataPort)
                     {
-                        ServerEvt.Server.IsPortAvailable = false;
-                        timer_PortCounter.Stop();
+                        //对考生文件解密
+                        //if (RARHelper.Exists())
+                        //{
+                        //    RARHelper.UnCompressRAR(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\", PaperControl.PathConfig["StuAns"], Computer.ComputerList[i].Student.ID + ".rar", true, Computer.ComputerList[i].Password);
+                        //    while (!Directory.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\")) ;
+                        //    File.WriteAllText(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + "\\password.txt", Computer.ComputerList[i].Password);
+                        //}
+                        //Computer.ComputerList[i].State = 4;
+                        //if (File.Exists(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar"))
+                        //{
+                        //    File.Delete(PaperControl.PathConfig["StuAns"] + Computer.ComputerList[i].Student.ID + ".rar");
+                        //}
+                        Computer.ComputerList[i].State = 4;
+                        AddToFlp(flp_CompleteExam, Computer.ComputerList[i]);
+                        RemoveFromFlp(flp_Onexam, Computer.ComputerList[i]);
+                        Computer.CompleteList.Add(Computer.ComputerList[i]);
+                        Computer.ComputerList.Remove(Computer.ComputerList[i]);
+                        HandInCount--;
+                        if (HandInCount == 0)
+                        {
+                            ServerEvt.Server.IsPortAvailable = false;
+                            timer_PortCounter.Stop();
+                        }
+                        break;
                     }
-                    break;
                 }
             }
         }
