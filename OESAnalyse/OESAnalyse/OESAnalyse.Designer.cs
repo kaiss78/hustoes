@@ -42,7 +42,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(31, 71);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(327, 214);
@@ -74,10 +74,11 @@
             this.PathBut.TabIndex = 3;
             this.PathBut.Text = "选择路径";
             this.PathBut.UseVisualStyleBackColor = true;
+            this.PathBut.Click += new System.EventHandler(this.PathBut_Click);
             // 
             // ScoreDistriBut
             // 
-            this.ScoreDistriBut.Location = new System.Drawing.Point(392, 87);
+            this.ScoreDistriBut.Location = new System.Drawing.Point(392, 89);
             this.ScoreDistriBut.Name = "ScoreDistriBut";
             this.ScoreDistriBut.Size = new System.Drawing.Size(75, 23);
             this.ScoreDistriBut.TabIndex = 4;
@@ -104,7 +105,7 @@
             // 
             // ExcelBut
             // 
-            this.ExcelBut.Location = new System.Drawing.Point(392, 212);
+            this.ExcelBut.Location = new System.Drawing.Point(392, 213);
             this.ExcelBut.Name = "ExcelBut";
             this.ExcelBut.Size = new System.Drawing.Size(75, 23);
             this.ExcelBut.TabIndex = 7;
@@ -115,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 337);
+            this.ClientSize = new System.Drawing.Size(495, 337);
             this.Controls.Add(this.ExcelBut);
             this.Controls.Add(this.ConfigBut);
             this.Controls.Add(this.CorrectBut);
