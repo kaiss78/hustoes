@@ -86,6 +86,7 @@ namespace OES
                                 ClientControl.ExamForm.Show();
                                 ClientControl.ExamForm.ExamForm_Load(ClientControl.ExamForm, null);
                                 this.Hide();
+                                ClientControl.State = 2;    //标记考试端已经登录成功
                             }
                             else
                             {

@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using OES.Net;
+using System.Threading;
 
 namespace OES
 {
@@ -110,6 +112,25 @@ namespace OES
                 ClientControl.LoginForm.SetNetState(1);
 
             }));
+            if (ClientControl.State == 0)
+            {
+                //如果考试端的状态为未启动，修改为未登录
+                ClientControl.State = 1;
+            }
+            else if (ClientControl.State == 2)
+            {
+                ClientControl.ExamForm.Invoke(new MethodInvoker(() =>
+                {
+                    ClientControl.ExamForm.Hide();
+                    ClientControl.LoginForm.Show();
+                }));
+            }
+            else if (ClientControl.State != 1)
+            {
+                Thread.Sleep(1000);
+                //如果考试端状态为其他，说明监考端异常退出，需要状态恢复
+                ClientEvt.Client.SendTxt("oes$5$" + ClientControl.student.sName + "$" + ClientControl.student.ID + "$" + ClientControl.student.password + "$" + ClientControl.State.ToString());
+            }
         }
     }
 }

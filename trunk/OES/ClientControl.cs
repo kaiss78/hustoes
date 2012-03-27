@@ -14,10 +14,11 @@ namespace OES
 {   
     class ClientControl
     {
-        static public Student student;
-        static public Paper paper=new Paper();
+        public static Student student;
+        public static Paper paper=new Paper();
         private static int currentProblemNum = 0;
         public static Boolean isResume = false;
+        public static int State = 0;                //设置考试端状态为未启动
         public static string password = "123456";
         /// <summary>
         /// 是否从monitor端获得密码
