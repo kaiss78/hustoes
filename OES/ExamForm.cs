@@ -50,6 +50,7 @@ namespace OES
             {
                 Error.ErrorControl.ShowError(OES.Error.ErrorType.RARNotExist);
             }
+            ClientControl.State = 5;    //设置考试端为已发卷状态
         }
 
         private bool ExistPaper()
@@ -85,6 +86,7 @@ namespace OES
                     this.Dispose();
                     ClientEvt.beginExam(0, "");
                     MD5File.GenerateSecurityFile("Begin" + ClientControl.student.ID);
+                    ClientControl.State = 3;        //设置考试端为开始考试状态
                 }
                 else
                 {
@@ -167,6 +169,7 @@ namespace OES
                     ClientControl.MainForm.Show();
                     this.Dispose();
                     ClientEvt.beginExam(1, "");
+                    ClientControl.State = 6;      //设置考试端为恢复考试状态
                 }
                 else
                 {
@@ -183,6 +186,7 @@ namespace OES
             ClientEvt.logout();
             ClientEvt.Client.Port.FileReceiveEnd -= this.Port_FileReceiveEnd;
             ClientEvt.Client.Port.RecieveFileRate -= this.Port_RecieveFileRate;
+            ClientControl.State = 1;      //设置考试端为未登入状态
             this.Dispose();
         }
 
@@ -190,6 +194,7 @@ namespace OES
         {
             ClientControl.TeaPassForm.Show();
             ClientEvt.beginExam(2, "");
+            ClientControl.State = 7;       //设置考试端为申请重考状态
             this.Dispose();
         }
     }

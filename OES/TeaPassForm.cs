@@ -33,6 +33,7 @@ namespace OES
                     ClientControl.TeaPassForm.Dispose();
                     ClientControl.TeaPassForm = null;
                 }
+                ClientControl.State = 8;        //设置考试端为开始重考状态
             }));
 
         }

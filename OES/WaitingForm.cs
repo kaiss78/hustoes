@@ -37,6 +37,7 @@ namespace OES
                 if(Directory.Exists(Config.paperPath))
                     Directory.Delete(Config.paperPath,true);
                 Directory.Move(Config.stuPath, Config.HistoryPath+DateTime.Now.Ticks.ToString());
+                ClientControl.State = 0;        //交卷完成设置为未启动状态
             }));
         }
 
