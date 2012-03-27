@@ -11,9 +11,20 @@ namespace OESAnalyse
 {
     public partial class OESAnalyse : Form
     {
+        private FolderBrowserDialog fbd=new FolderBrowserDialog();
+
         public OESAnalyse()
         {
             InitializeComponent();
+        }
+
+        private void PathBut_Click(object sender, EventArgs e)
+        {
+            if (fbd.ShowDialog().Equals(DialogResult.OK))
+            {
+                String a = fbd.SelectedPath;
+                
+            }
         }
 
     }
