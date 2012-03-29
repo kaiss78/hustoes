@@ -235,7 +235,7 @@ namespace OES
                 dgvPaperPreview.SelectedRows[0].Cells[3].Value = ProChange.thePro.score;
                 lbTScore.Text = CountScore().ToString();
             }
-
+            
         }
 
         private void btnDel_Click(object sender, EventArgs e)
