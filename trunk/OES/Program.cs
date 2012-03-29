@@ -7,18 +7,26 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using OES.Net;
 using System.Threading;
+using System.IO;
 
 namespace OES
 {
     static class Program
     {
         public static Config config = new Config(System.Environment.CurrentDirectory + @"\config.ini");
+#if MultiDebug
+        public static string[] Args;
+#endif
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+#if MultiDebug
+            Args = args;
+#endif
+#if !MultiDebug
             //Get   the   running   instance.  
             Process instance = RunningInstance();
             if (instance != null)
@@ -27,7 +35,7 @@ namespace OES
                 HandleRunningInstance(instance);
                 return;
             }
-
+#endif
             try
             {
                 Application.EnableVisualStyles();
@@ -110,7 +118,6 @@ namespace OES
             ClientControl.LoginForm.Invoke(new MethodInvoker(() =>
             {
                 ClientControl.LoginForm.SetNetState(1);
-
             }));
             if (ClientControl.State == 0)
             {
@@ -121,7 +128,11 @@ namespace OES
             {
                 ClientControl.ExamForm.Invoke(new MethodInvoker(() =>
                 {
-                    ClientControl.ExamForm.Hide();
+                    Directory.Delete(Config.paperPath, true);
+                    ClientEvt.Client.Port.FileReceiveEnd -= ClientControl.ExamForm.Port_FileReceiveEnd;
+                    ClientEvt.Client.Port.RecieveFileRate -= ClientControl.ExamForm.Port_RecieveFileRate;
+                    ClientControl.State = 1;      //设置考试端为未登入状态
+                    ClientControl.ExamForm.Dispose();
                     ClientControl.LoginForm.Show();
                 }));
             }
