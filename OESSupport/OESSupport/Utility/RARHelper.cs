@@ -90,9 +90,9 @@ namespace OESSupport.Utility
                 #endregion
 
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine(ex.Message);
+                PaperControl.Console_Color_WriteLine(e.Message, ConsoleColor.Red);
                 return false;
             }
 
@@ -156,7 +156,7 @@ namespace OESSupport.Utility
                 else
                 {
                     the_Info = @" a -k -r -s -m5 -ep1 -dw {0} {1} ";
-                    the_Info = String.Format(the_Info,  rarPath + rarName, compressPath);
+                    the_Info = String.Format(the_Info, rarPath + rarName, compressPath);
                 }
 
                 ProcessStartInfo the_StartInfo = new ProcessStartInfo();
@@ -177,9 +177,9 @@ namespace OESSupport.Utility
                 #endregion
 
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine(ex.Message);
+                PaperControl.Console_Color_WriteLine(e.Message, ConsoleColor.Red);
                 return false;
             }
             return true;

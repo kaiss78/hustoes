@@ -23,7 +23,31 @@ namespace OESSupport.Net
             Server.ReceivedMsg += new ClientEventHandel(Server_ReceivedMsg);
             Server.ReceivedTxt += new ClientEventHandel(Server_ReceivedTxt);
             Server.WrittenMsg += new ClientEventHandel(Server_WrittenMsg);
+            Server.FileReceiveError += new ErrorEventHandler(Server_FileReceiveError);
+            Server.FileSendError += new ErrorEventHandler(Server_FileSendError);
+            Server.FileSizeError += new ErrorEventHandler(Server_FileSizeError);
+            Server.OnDataPortError += new OESServer.DataPortError(Server_OnDataPortError);
             Server.StartServer();
+        }
+
+        void Server_OnDataPortError(string msg)
+        {
+            PaperControl.Console_Color_WriteLine_Log("(OnDataPortError)" + msg, ConsoleColor.Red);
+        }
+
+        void Server_FileSizeError(object sender, ErrorEventArgs e)
+        {
+            PaperControl.Console_Color_WriteLine_Log("(FileSizeError)", ConsoleColor.Red);
+        }
+
+        void Server_FileSendError(object sender, ErrorEventArgs e)
+        {
+            PaperControl.Console_Color_WriteLine_Log("(FileSendError)" + e.GetException().Message, ConsoleColor.Red);
+        }
+
+        void Server_FileReceiveError(object sender, ErrorEventArgs e)
+        {
+            PaperControl.Console_Color_WriteLine_Log("(FileReceiveError)" + e.GetException().Message, ConsoleColor.Red);
         }
 
         void Server_WrittenMsg(Client client, string msg)
@@ -207,7 +231,10 @@ namespace OESSupport.Net
                                             XMLtoXML.xmltoxml(Program.config["Root"] + Program.config["Paper"] + msgs[4] + ".xml");
                                             Teacher.FindTeacherByClient(Program.TeacherList, client).isFileExist = true;
                                         }
-                                        catch { }
+                                        catch (Exception e)
+                                        {
+                                            PaperControl.Console_Color_WriteLine(e.Message, ConsoleColor.Red);
+                                        }
                                     }
                                     break;
                                 case "N":
@@ -226,6 +253,7 @@ namespace OESSupport.Net
                         #region 教师登录
                         Program.TeacherList.Add(new Teacher(msgs[2], client));
                         client.DisConnect += new EventHandler(client_DisConnect);
+                        client.OnClientError += new Client.ClientError(client_OnClientError);
                         #endregion
                         break;
                     case "6":
@@ -393,6 +421,7 @@ namespace OESSupport.Net
                         #region Monitor端登录
                         Program.TeacherList.Add(new Teacher("0", client));
                         client.DisConnect += new EventHandler(client_DisConnect);
+                        client.OnClientError += new Client.ClientError(client_OnClientError);
                         string temp = "monitor$1";
                         client.SendTxt(temp);
                         #endregion
@@ -410,6 +439,7 @@ namespace OESSupport.Net
                         #region Score端登录
                         Program.TeacherList.Add(new Teacher("-1", client));
                         client.DisConnect += new EventHandler(client_DisConnect);
+                        client.OnClientError += new Client.ClientError(client_OnClientError);
                         string temp = "score$1";
                         client.SendTxt(temp);
                         #endregion
@@ -419,6 +449,11 @@ namespace OESSupport.Net
                         break;
                 }
             }
+        }
+
+        void client_OnClientError(Client c, string msg)
+        {
+            PaperControl.Console_Color_WriteLine_Log("{" + c.ClientIp + "}" + msg, ConsoleColor.Red);
         }
 
         void client_DisConnect(object sender, EventArgs e)
