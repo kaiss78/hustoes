@@ -18,6 +18,14 @@ namespace OES
         public LoginForm()
         {
             InitializeComponent();
+#if MultiDebug
+            if (Program.Args.Length > 1)
+            {
+                this.ExamNo.Text = Program.Args[0];
+                this.SName.Text = Program.Args[1];
+                this.Password.Text = Program.Args[2];
+            }
+#endif
 
             #region 清空试卷目录内的内容
             if (Directory.Exists(Config.PaperPath))
@@ -118,6 +126,12 @@ namespace OES
         public void SetNetState(int state)
         {
             netState1.State = state;
+#if MultiDebug
+            if (state == 1)
+            {
+                butLogin_Click(null, null);
+            }
+#endif
         }
 
         private void LoginForm_KeyDown(object sender, KeyEventArgs e)

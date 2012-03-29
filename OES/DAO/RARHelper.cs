@@ -64,7 +64,7 @@ namespace OES
                 #region 开始解压文件
                 if (password != "")
                 {
-                    the_Info = "x -p" + password + " \"" + rarName + "\" \"" + unRarPatch + "\" -y";
+                    the_Info = "x -p" + password + " \"" + rarPatch+rarName + "\" \"" + unRarPatch + "\" -y";
                 }
                 else
                 {
@@ -78,7 +78,7 @@ namespace OES
                 the_StartInfo.FileName = the_rar;
                 the_StartInfo.Arguments = the_Info;
                 the_StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                the_StartInfo.WorkingDirectory = rarPatch;//获取压缩包路径
+                //the_StartInfo.WorkingDirectory = rarPatch;//获取压缩包路径
 
 
                 Process the_Process = new Process();

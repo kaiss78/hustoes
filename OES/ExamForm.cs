@@ -25,7 +25,7 @@ namespace OES
             
         }
 
-        void Port_RecieveFileRate(double rate)
+        public void Port_RecieveFileRate(double rate)
         {
             ClientControl.ExamForm.progressBar1.Invoke(new MethodInvoker(() =>
             {
@@ -33,7 +33,7 @@ namespace OES
             }));
         }
 
-        void Port_FileReceiveEnd(object sender, EventArgs e)
+        public void Port_FileReceiveEnd(object sender, EventArgs e)
         {
             while (!this.IsHandleCreated) ;
             this.Invoke(new MethodInvoker(() =>
@@ -51,6 +51,12 @@ namespace OES
                 Error.ErrorControl.ShowError(OES.Error.ErrorType.RARNotExist);
             }
             ClientControl.State = 5;    //设置考试端为已发卷状态
+#if MultiDebug
+            this.Invoke(new MethodInvoker(() =>
+            {
+                this.Start_Click(null, null);
+            }));
+#endif
         }
 
         private bool ExistPaper()
