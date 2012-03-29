@@ -374,7 +374,9 @@ namespace OES
 
         private void UpdateBut_Click(object sender, EventArgs e)
         {
+            thePro = null;
             this.Visible = false;
+            
         }
 
         private void frmQuesChange_Load(object sender, EventArgs e)
