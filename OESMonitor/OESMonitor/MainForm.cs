@@ -319,14 +319,17 @@ namespace OESMonitor
 
         void fileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
-            flowLayoutPanelDir.Controls.Clear();
-            //foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
-            foreach (string path in Directory.GetFiles(PaperControl.PathConfig["StuAns"]))
+            if (tabControl2.SelectedIndex == 4)
             {
-                StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
-                studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
-                studentAnsDirectory.OnDelete += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnDelete);
-                flowLayoutPanelDir.Controls.Add(studentAnsDirectory);
+                flowLayoutPanelDir.Controls.Clear();
+                //foreach (string path in Directory.GetDirectories(PaperControl.PathConfig["StuAns"]))
+                foreach (string path in Directory.GetFiles(PaperControl.PathConfig["StuAns"]))
+                {
+                    StudentAnsDirectory studentAnsDirectory = new StudentAnsDirectory(path);
+                    studentAnsDirectory.OnView += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnView);
+                    studentAnsDirectory.OnDelete += new StudentAnsDirectory.SignalMsg(studentAnsDirectory_OnDelete);
+                    flowLayoutPanelDir.Controls.Add(studentAnsDirectory);
+                }
             }
         }
         #endregion
@@ -395,8 +398,10 @@ namespace OESMonitor
                 com.State = 1;
                 com.Client = client;
                 com.OnErrorConnect += new System.IO.ErrorEventHandler(com_OnErrorConnect);
-                Computer.ComputerList.Add(com);
-
+                lock (Computer.syncComputerList)
+                {
+                    Computer.ComputerList.Add(com);
+                }
                 AddToFlp(flp_Onexam, com);
             }));
         }
@@ -406,48 +411,76 @@ namespace OESMonitor
         {
             this.BeginInvoke(new MethodInvoker(() =>
             {
-                f.Controls.Add(c);
+                if (tabControl2.SelectedIndex == 0)
+                {
+                    f.Controls.Add(c);
+                }
             }));
         }
         private void RemoveFromFlp(FlowLayoutPanel f, Computer c)
         {
             this.BeginInvoke(new MethodInvoker(() =>
             {
-                f.Controls.Remove(c);
+                if (tabControl2.SelectedIndex == 0)
+                {
+                    f.Controls.Remove(c);
+                }
             }));
         }
         private void UpdateList()
         {
             this.BeginInvoke(new MethodInvoker(() =>
             {
-                flp_Onexam.Controls.Clear();
-                foreach (Computer c in Computer.ComputerList)
+                if (tabControl2.SelectedIndex == 0)
                 {
-                    flp_Onexam.Controls.Add(c);
+                    flp_Onexam.Controls.Clear();
+                    lock (Computer.syncComputerList)
+                    {
+                        foreach (Computer c in Computer.ComputerList)
+                        {
+                            flp_Onexam.Controls.Add(c);
+                        }
+                    }
                 }
             }));
         }
         private void UpdateCompleteList()
         {
+
             this.BeginInvoke(new MethodInvoker(() =>
             {
-                flp_CompleteExam.Controls.Clear();
-                foreach (Computer c in Computer.CompleteList)
+                if (tabControl2.SelectedIndex == 0)
                 {
-                    flp_CompleteExam.Controls.Add(c);
+                    flp_CompleteExam.Controls.Clear();
+                    lock (Computer.syncCompleteList)
+                    {
+                        foreach (Computer c in Computer.CompleteList)
+                        {
+                            flp_CompleteExam.Controls.Add(c);
+                        }
+                    }
                 }
             }));
+
         }
         private void UpdateErrorList()
         {
+            
             this.BeginInvoke(new MethodInvoker(() =>
             {
-                flp_Disconnect.Controls.Clear();
-                foreach (Computer c in Computer.ErrorList)
+                if (tabControl2.SelectedIndex == 0)
                 {
-                    flp_Disconnect.Controls.Add(c);
+                    flp_Disconnect.Controls.Clear();
+                    lock (Computer.syncErrorList)
+                    {
+                        foreach (Computer c in Computer.ErrorList)
+                        {
+                            flp_Disconnect.Controls.Add(c);
+                        }
+                    }
                 }
             }));
+            
         }
         #endregion
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -691,8 +724,15 @@ namespace OESMonitor
                 MessageBox.Show("未连接上服务端!");
                 tabControl2.SelectedIndex = 0;
             }
-            else
+            else if(tabControl2.SelectedIndex==0)
             {
+                UpdateCompleteList();
+                UpdateList();
+                UpdateErrorList();
+            }
+            else if (tabControl2.SelectedIndex == 4)
+            {
+                fileSystemWatcher_Changed(null, null);
             }
         }
         #endregion
@@ -948,7 +988,10 @@ namespace OESMonitor
                         Computer.ComputerList[i].State = 4;
                         AddToFlp(flp_CompleteExam, Computer.ComputerList[i]);
                         RemoveFromFlp(flp_Onexam, Computer.ComputerList[i]);
-                        Computer.CompleteList.Add(Computer.ComputerList[i]);
+                        lock (Computer.syncCompleteList)
+                        {
+                            Computer.CompleteList.Add(Computer.ComputerList[i]);
+                        }
                         Computer.ComputerList.Remove(Computer.ComputerList[i]);
                         HandInCount--;
                         if (HandInCount == 0)

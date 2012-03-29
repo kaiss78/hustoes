@@ -24,12 +24,11 @@ namespace OESMonitor
 
         public static List<Computer> ComputerList
         {
-            get 
+            get
             {
-                lock (syncComputerList)
-                {
-                    return Computer.computerList; 
-                }
+
+                return Computer.computerList;
+
             }
             //set { Computer.computerList = value; }
         }
@@ -40,10 +39,9 @@ namespace OESMonitor
         {
             get
             {
-                lock (syncCompleteList)
-                {
-                    return Computer.completeList;
-                }
+
+                return Computer.completeList;
+
             }
             //set { Computer.completeList = value; }
         }
@@ -53,10 +51,9 @@ namespace OESMonitor
         {
             get
             {
-                lock (syncErrorList)
-                {
-                    return Computer.errorList;
-                }
+
+                return Computer.errorList;
+
             }
             //set { Computer.errorList = value; }
         }
@@ -241,8 +238,14 @@ namespace OESMonitor
             if (this.State != 4)
             {
                 this.State = 0;
-                ErrorList.Add(this);
-                Computer.ComputerList.Remove(this);
+                lock (Computer.syncErrorList)
+                {
+                    ErrorList.Add(this);
+                }
+                lock (Computer.syncComputerList)
+                {
+                    Computer.ComputerList.Remove(this);
+                }
                 OnErrorConnect(this, null);
             }
         }
@@ -334,11 +337,14 @@ namespace OESMonitor
         bool client_LoginValidating(string name, string id, string pwd)
         {
             if (File.Exists(PaperControl.PathConfig["StuAns"] + id+".rar")) return false;
-            foreach (Computer c in ComputerList)
+            lock (Computer.syncComputerList)
             {
-                if (c.student.ID == id)
+                foreach (Computer c in ComputerList)
                 {
-                    return false;
+                    if (c.student.ID == id)
+                    {
+                        return false;
+                    }
                 }
             }
             if (PaperControl.OesData.ValidateStudentInfo(id, name, pwd))
@@ -346,16 +352,18 @@ namespace OESMonitor
                 int myPaperId=-1;
                 bool needResume=false;
 
-                foreach(Computer c in ErrorList)
+                lock (Computer.syncErrorList)
                 {
-                    if(c.Student.ID == id)
+                    foreach (Computer c in ErrorList)
                     {
-                        needResume=true;
-                        ExamPaperPath=c.ExamPaperPath;
-                        ExamPaperName = c.ExamPaperName;
+                        if (c.Student.ID == id)
+                        {
+                            needResume = true;
+                            ExamPaperPath = c.ExamPaperPath;
+                            ExamPaperName = c.ExamPaperName;
+                        }
                     }
                 }
-                
                 if(!needResume)
                 {
                     myPaperId=getCurrentPaper();
@@ -470,17 +478,26 @@ namespace OESMonitor
 
         private void Computer_MouseClick(object sender, MouseEventArgs e)
         {
-            foreach (Computer c in ComputerList)
+            lock (syncComputerList)
             {
-                c.BorderStyle = BorderStyle.None;
+                foreach (Computer c in ComputerList)
+                {
+                    c.BorderStyle = BorderStyle.None;
+                }
             }
-            foreach (Computer c in CompleteList)
+            lock (syncCompleteList)
             {
-                c.BorderStyle = BorderStyle.None;
+                foreach (Computer c in CompleteList)
+                {
+                    c.BorderStyle = BorderStyle.None;
+                }
             }
-            foreach (Computer c in ErrorList)
+            lock (syncErrorList)
             {
-                c.BorderStyle = BorderStyle.None;
+                foreach (Computer c in ErrorList)
+                {
+                    c.BorderStyle = BorderStyle.None;
+                }
             }
             this.BorderStyle = BorderStyle.FixedSingle;
             ComputerState.getInstance().setStudent(student);
