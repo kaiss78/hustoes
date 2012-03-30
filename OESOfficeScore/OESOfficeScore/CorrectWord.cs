@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace OESOfficeScore
 {
-    public class WordScore
+    public class CorrectWord
     {
         Word.Application word;
         Word.Document stuDoc, ansDoc;
