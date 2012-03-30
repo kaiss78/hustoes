@@ -24,17 +24,25 @@ namespace OESOfficeScore
         int[] stuCate;                                  //学生工作表中每张工作簿的类型
         int[] ansCate;                                  //标答工作表中每张工作簿的类型
 
-        //外部调用函数 返回该题得分
-        public int checkPoints(string stu, string ans, string xml)
+        /// <summary>
+        /// 外部调用函数，根据正确考点百分比，计算得分
+        /// </summary>
+        /// <param name="stu">考生答案路径</param>
+        /// <param name="ans">标准答案路径</param>
+        /// <param name="xml">考点xml路径</param>
+        /// <param name="maxPoints">满分分值</param>
+        /// <returns>考生该题得分</returns>
+        public int checkPoints(string stu, string ans, string xml, int maxPoints)
         {
-            int totalPoints = 0;
+            int totalPoints = 0, totalTestPoints = 0;   //正确的考点数，总考点数
             init(stu, ans, xml);
             foreach (List<OfficeElement> oel in oxml.AnsPaths)
             {
                 totalPoints += check_Kernel(oel);
             }
             dispose();
-            return totalPoints;
+            if (totalTestPoints == 0) return -1;         //总考点数为0
+            return totalPoints * maxPoints / totalTestPoints;
         }
 
         //评分初始化
