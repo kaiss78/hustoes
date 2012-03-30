@@ -10,6 +10,8 @@ namespace OESOfficeScore
 {
     public class WordScore
     {
+        public static WordScore ws = new WordScore();
+
         Word.Application word;
         Word.Document stuDoc, ansDoc;
         Word.Paragraph stuPara, ansPara;

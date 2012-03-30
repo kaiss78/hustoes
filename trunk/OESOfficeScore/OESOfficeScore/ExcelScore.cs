@@ -11,6 +11,8 @@ namespace OESOfficeScore
 {
     public class ExcelScore
     {
+        public static ExcelScore es = new ExcelScore();
+
         Excel.Application stuExcel, ansExcel;           //学生和标答（下同）使用的Excel应用程序
         Excel.Workbook stuXls, ansXls;                  //Excel工作表
         Excel.Worksheet stuWs, ansWs;                   //Excel工作簿
