@@ -47,7 +47,10 @@ namespace OESOfficeScore
             int totalPoints = 0, totalTestPoints = 0;   //正确的考点数，总考点数
             openFile(stu, ans, xml);
             foreach (List<OfficeElement> oel in oxml.AnsPaths)
+            {
+                totalTestPoints++;
                 totalPoints += check_Kernel(oel);
+            }
             dispose();
             if (totalTestPoints == 0) return -1;         //总考点数为0
             return totalPoints * maxPoints / totalTestPoints;
