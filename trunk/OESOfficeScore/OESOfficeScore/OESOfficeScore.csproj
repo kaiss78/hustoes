@@ -75,10 +75,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExcelScore.cs" />
-    <Compile Include="PowerPointScore.cs" />
+    <Compile Include="CorrectExcel.cs" />
+    <Compile Include="CorrectPowerPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WordScore.cs" />
+    <Compile Include="CorrectWord.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
