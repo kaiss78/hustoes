@@ -38,6 +38,7 @@ namespace OESOfficeScore
             init(stu, ans, xml);
             foreach (List<OfficeElement> oel in oxml.AnsPaths)
             {
+                totalTestPoints++;
                 totalPoints += check_Kernel(oel);
             }
             dispose();
