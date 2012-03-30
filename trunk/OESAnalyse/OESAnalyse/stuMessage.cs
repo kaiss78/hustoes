@@ -10,6 +10,11 @@ namespace OESAnalyse
         private string stuName, stuID, stuClass,paperID;
         private int stuScore;
 
+        public stuMessage(String theStuID)
+        {
+            stuID = theStuID;
+            
+        }
 
     }
 }
