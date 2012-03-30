@@ -141,7 +141,7 @@ namespace OESScore
             scoreNet.LoadWordT(pro.id, -1);
             scoreNet.ReceiveFiles();
             while (!ClientEvt.isOver) ;            
-            return new OfficeAnswer(path + "a" + pro.id.ToString() + ex, path + "t" + pro.id.ToString() + ".xml");
+            return new OfficeAnswer(path + "a" + pro.id.ToString() + ex, path + "t" + pro.id.ToString() + ".xml",pro.score);
         }
 
         /// <summary>
