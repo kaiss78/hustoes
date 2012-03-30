@@ -130,6 +130,22 @@ namespace OESScore
         }
 
         /// <summary>
+        /// 获取office提答案
+        /// </summary>
+        /// <param name="pro">题目类型及ID</param>
+        /// <param name="path">放置路径</param>
+        /// <returns></returns>
+        static private OfficeAnswer getOfficeAnswer(IdScoreType pro, string path, string ex)
+        {
+            OfficeAnswer ans;
+            scoreNet.LoadWordA(pro.id, -1);
+            scoreNet.LoadWordT(pro.id, -1);
+            scoreNet.ReceiveFiles();
+            while (!ClientEvt.isOver) ;            
+            return new OfficeAnswer(path + "a" + pro.id.ToString() + ex, path + "t" + pro.id.ToString() + ".xml");
+        }
+
+        /// <summary>
         /// 获取正确答案
         /// </summary>
         /// <param name="ID">试卷ID</param>
@@ -167,7 +183,9 @@ namespace OESScore
                 newAnswer.PCList = new List<ProgramProblem>();
                 newAnswer.PFList = new List<ProgramProblem>();
                 newAnswer.PMList = new List<ProgramProblem>();
-
+                newAnswer.WordList = new List<OfficeAnswer>();
+                newAnswer.PowerPointList = new List<OfficeAnswer>();
+                newAnswer.ExcelList = new List<OfficeAnswer>();
                 foreach (IdScoreType pro in proList)
                 {
                     switch (pro.pt)
@@ -191,6 +209,15 @@ namespace OESScore
                         case ProblemType.CProgramModification:
                         case ProblemType.VbProgramModification:
                             newAnswer.PMList.Add(getPAnswer(pro));
+                            break;
+                        case ProblemType.Word:
+                            newAnswer.WordList.Add(getOfficeAnswer(pro, ClientEvt.RootPath, ".doc"));
+                            break;
+                        case ProblemType.PowerPoint:
+                            newAnswer.PowerPointList.Add(getOfficeAnswer(pro, ClientEvt.RootPath, ".ppt"));
+                            break;
+                        case ProblemType.Excel:
+                            newAnswer.ExcelList.Add(getOfficeAnswer(pro, ClientEvt.RootPath, ".xls"));
                             break;
                     }
                 }
