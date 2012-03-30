@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TypeCombo = new System.Windows.Forms.ComboBox();
+            this.ClassCombo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PathBut = new System.Windows.Forms.Button();
             this.ScoreDistriBut = new System.Windows.Forms.Button();
@@ -38,8 +38,8 @@
             this.ExcelBut = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.PaperCombo = new System.Windows.Forms.ComboBox();
+            this.OrderCombo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -53,17 +53,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(441, 252);
             this.dataGridView1.TabIndex = 0;
             // 
-            // TypeCombo
+            // ClassCombo
             // 
-            this.TypeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TypeCombo.FormattingEnabled = true;
-            this.TypeCombo.Items.AddRange(new object[] {
-            "先班级",
-            "先试卷"});
-            this.TypeCombo.Location = new System.Drawing.Point(247, 34);
-            this.TypeCombo.Name = "TypeCombo";
-            this.TypeCombo.Size = new System.Drawing.Size(89, 20);
-            this.TypeCombo.TabIndex = 1;
+            this.ClassCombo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ClassCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ClassCombo.Enabled = false;
+            this.ClassCombo.FormattingEnabled = true;
+            this.ClassCombo.Location = new System.Drawing.Point(247, 34);
+            this.ClassCombo.Name = "ClassCombo";
+            this.ClassCombo.Size = new System.Drawing.Size(89, 20);
+            this.ClassCombo.TabIndex = 1;
             // 
             // label1
             // 
@@ -138,24 +137,28 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "试卷：";
             // 
-            // comboBox1
+            // PaperCombo
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(389, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(83, 20);
-            this.comboBox1.TabIndex = 10;
+            this.PaperCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PaperCombo.Enabled = false;
+            this.PaperCombo.FormattingEnabled = true;
+            this.PaperCombo.Location = new System.Drawing.Point(389, 34);
+            this.PaperCombo.Name = "PaperCombo";
+            this.PaperCombo.Size = new System.Drawing.Size(83, 20);
+            this.PaperCombo.TabIndex = 10;
             // 
-            // comboBox2
+            // OrderCombo
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(100, 34);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(89, 20);
-            this.comboBox2.TabIndex = 11;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.OrderCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.OrderCombo.FormattingEnabled = true;
+            this.OrderCombo.Items.AddRange(new object[] {
+            "先班级",
+            "先试卷"});
+            this.OrderCombo.Location = new System.Drawing.Point(100, 34);
+            this.OrderCombo.Name = "OrderCombo";
+            this.OrderCombo.Size = new System.Drawing.Size(89, 20);
+            this.OrderCombo.TabIndex = 11;
+            this.OrderCombo.SelectedIndexChanged += new System.EventHandler(this.OrderCombo_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -172,8 +175,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 354);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.OrderCombo);
+            this.Controls.Add(this.PaperCombo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ExcelBut);
@@ -182,7 +185,7 @@
             this.Controls.Add(this.ScoreDistriBut);
             this.Controls.Add(this.PathBut);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.TypeCombo);
+            this.Controls.Add(this.ClassCombo);
             this.Controls.Add(this.dataGridView1);
             this.Name = "OESAnalyse";
             this.Text = "Form1";
@@ -195,7 +198,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox TypeCombo;
+        private System.Windows.Forms.ComboBox ClassCombo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button PathBut;
         private System.Windows.Forms.Button ScoreDistriBut;
@@ -204,8 +207,8 @@
         private System.Windows.Forms.Button ExcelBut;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox PaperCombo;
+        private System.Windows.Forms.ComboBox OrderCombo;
         private System.Windows.Forms.Label label3;
     }
 }

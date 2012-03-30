@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text;
 using System.Collections;
+using OES.Model;
 
 namespace OESAnalyse
 {
@@ -19,6 +20,7 @@ namespace OESAnalyse
         private DirectoryInfo[] theFiles;
         private DirectoryInfo firstFile;
         private ArrayList results=new ArrayList();
+        private ArrayList students = new ArrayList();
 
         public OESAnalyse()
         {
@@ -37,14 +39,30 @@ namespace OESAnalyse
                     for (int i = 0; i < theFiles.Length; i++)
                         if (theFiles[i].GetFiles("Result.xml").Length>0)
                             results.Add(theFiles[i].GetFiles("Result.xml"));
-                                    
+                for(int i=0;i<results.Count;i++)
+                {
+                    students.Add(new Student());
+                    
+                }    
+
             }
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void OrderCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (OrderCombo.SelectedIndex == 0)   
+            {
+                ClassCombo.Enabled = true;
+                PaperCombo.Enabled = false;
+            }
+            else if (OrderCombo.SelectedIndex == 1)
+            {
+                PaperCombo.Enabled = true;
+                ClassCombo.Enabled = false;
+            } 
         }
+
+        
 
     }
 }
