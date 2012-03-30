@@ -313,7 +313,7 @@ namespace OESScore
                     fileName = StuList[RIndex].path.FullName + "\\d" + i.ToString() + ".doc";
                     if (File.Exists(fileName))
                     {
-                        Score += WordScore.ws.checkPoints(fileName,ScoreControl.staAns.WordList[i].OfficeFile, ScoreControl.staAns.WordList[i].XMLFile);
+                        Score += WordScore.ws.checkPoints(fileName, ScoreControl.staAns.WordList[i].OfficeFile, ScoreControl.staAns.WordList[i].XMLFile, ScoreControl.staAns.WordList[i].score);
                     }
                 }
 
@@ -322,7 +322,7 @@ namespace OESScore
                     fileName = StuList[RIndex].path.FullName + "\\e" + i.ToString() + ".xls";
                     if (File.Exists(fileName))
                     {
-                        Score += ExcelScore.es.checkPoints(fileName, ScoreControl.staAns.ExcelList[i].OfficeFile, ScoreControl.staAns.ExcelList[i].XMLFile);
+                        Score += ExcelScore.es.checkPoints(fileName, ScoreControl.staAns.ExcelList[i].OfficeFile, ScoreControl.staAns.ExcelList[i].XMLFile, ScoreControl.staAns.ExcelList[i].score);
                     }
                 }
                 for (i = 0; i < ScoreControl.staAns.PowerPointList.Count; i++)
@@ -330,7 +330,7 @@ namespace OESScore
                     fileName = StuList[RIndex].path.FullName + "\\f" + i.ToString() + ".ppt";
                     if (File.Exists(fileName))
                     {
-                        Score += PowerPointScore.ps.checkPoints(fileName, ScoreControl.staAns.PowerPointList[i].OfficeFile, ScoreControl.staAns.PowerPointList[i].XMLFile);
+                        Score += PowerPointScore.ps.checkPoints(fileName, ScoreControl.staAns.PowerPointList[i].OfficeFile, ScoreControl.staAns.PowerPointList[i].XMLFile,ScoreControl.staAns.PowerPointList[i].score);
                     }
                 }
             }
