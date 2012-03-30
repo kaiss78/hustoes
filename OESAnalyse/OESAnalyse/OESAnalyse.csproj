@@ -31,9 +31,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OES\bin\x86\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="OESConfig, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OES\bin\x86\Debug\OESConfig.dll</HintPath>
+    </Reference>
     <Reference Include="OESData, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\OESData\OESData\obj\x86\Debug\OESData.dll</HintPath>
+    </Reference>
+    <Reference Include="OESModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OES\bin\x86\Debug\OESModel.dll</HintPath>
+    </Reference>
+    <Reference Include="OESNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OES\bin\x86\Debug\OESNet.dll</HintPath>
     </Reference>
     <Reference Include="PieChart, Version=1.5.0.8, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

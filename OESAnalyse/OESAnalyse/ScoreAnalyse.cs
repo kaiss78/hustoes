@@ -37,6 +37,15 @@ namespace OESAnalyse
         XmlDocument document = new XmlDocument();
         XmlElement element;
 
+        public string getStuID(String filePath)
+        {
+            document.Load(filePath);
+            element = document.DocumentElement;
+            XmlNode node = element.FirstChild;
+
+            string stuID=
+        }
+
         public void getStuNum(String path)
         {
             DirectoryInfo root = new DirectoryInfo(path);
@@ -114,6 +123,7 @@ namespace OESAnalyse
 
             }
         }
+
     }
 
 }
