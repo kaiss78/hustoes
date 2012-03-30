@@ -8,8 +8,10 @@ using OESXML;
 
 namespace OESOfficeScore
 {
-    public class CorrectPowerPoint
+    public class PowerPointScore
     {
+        public static PowerPointScore ps = new PowerPointScore();
+
         PowerPoint.Application powerpoint;
         PowerPoint.Presentation stuPpt, ansPpt;
         PowerPoint.Slide stuSld, ansSld;                        //幻灯片属性
