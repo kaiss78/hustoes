@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{482623B3-E374-469E-A024-5379EF465B16}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -72,6 +72,7 @@
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\Judgment.cs" />
     <Compile Include="Model\Office.cs" />
+    <Compile Include="Model\OfficeAnswer.cs" />
     <Compile Include="Model\OfficeExcel.cs" />
     <Compile Include="Model\OfficePowerPoint.cs" />
     <Compile Include="Model\OfficeWord.cs" />
