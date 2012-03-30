@@ -11,6 +11,7 @@ using OES.Model;
 using OES.Net;
 using OES.XMLFile;
 using OES;
+using OESOfficeScore;
 
 namespace OESScore
 {
@@ -42,7 +43,7 @@ namespace OESScore
             }
             dtStuList = new DataTable();
             dtStuList.Columns.Add("学号");
-            dtStuList.Columns.Add("姓名");            
+            dtStuList.Columns.Add("姓名");
             dtStuList.Columns.Add("班级");
             dtStuList.Columns.Add("试卷名称");
             dtStuList.Columns.Add("成绩", typeof(int));
@@ -57,7 +58,7 @@ namespace OESScore
             dgvStudentTable.Columns[2].FillWeight = 15;
             dgvStudentTable.Columns[3].FillWeight = 20;
             dgvStudentTable.Columns[4].FillWeight = 10;
-            dgvStudentTable.Columns[5].FillWeight = 15;            
+            dgvStudentTable.Columns[5].FillWeight = 15;
 
             #region 网络连接状态初始化
             netState1.ReConnect += new EventHandler(netState1_ReConnect);
@@ -135,9 +136,9 @@ namespace OESScore
                     tmpSF.StuInfo = tmpS[0];
                     tmpSF.Score = new Score();
                     tmpSF.Score.Value = 0;
-                    tmpSF.path = stu;                    
+                    tmpSF.path = stu;
                     values[0] = tmpSF.StuInfo.ID;
-                    values[1] = tmpSF.StuInfo.sName;                    
+                    values[1] = tmpSF.StuInfo.sName;
                     values[2] = tmpSF.StuInfo.className;
                     values[3] = "";
                     values[4] = 0;
@@ -197,11 +198,11 @@ namespace OESScore
         {
             switch (pLanguage)
             {
-                    case PLanguage.C:
+                case PLanguage.C:
                     return ".c";
-                    case PLanguage.CPP:
+                case PLanguage.CPP:
                     return ".cpp";
-                    case PLanguage.VB:
+                case PLanguage.VB:
                     return ".vb";
             }
             return "";
@@ -213,7 +214,7 @@ namespace OESScore
             int count;
             int Score = 0, dScore = 0;
             List<string> proAns;
-            StuList[RIndex].Score.sum = new List<Sum>();            
+            StuList[RIndex].Score.sum = new List<Sum>();
             ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID.ToString());
             if (ScoreControl.staAns != null)
             {
@@ -293,12 +294,10 @@ namespace OESScore
                     if (File.Exists(fileName))
                     {
 
-                        //proAns = ScoreControl.correctPC(fileName);
                         count = 0;
                         dScore = 0;
                         foreach (ProgramAnswer pa in ScoreControl.staAns.PFList[i].ansList)
                         {
-                            //MessageBox.Show(ScoreControl.correctPF(fileName, pa.Input) + "||" + ScoreControl.Clean(pa.Output));
                             if (ProgramScore.correctPF(fileName, pa.Input) == ProgramScore.Clean(pa.Output))
                             {
                                 count++;
@@ -307,6 +306,31 @@ namespace OESScore
                         dScore = count * ScoreControl.staAns.PFList[i].score / ScoreControl.staAns.PFList[i].ansList.Count;
                         XMLControl.AddScore(ScoreControl.staAns.PFList[i].type, ScoreControl.staAns.PFList[i].problemId, dScore);
                         Score = Score + dScore;
+                    }
+                }
+                for (i = 0; i < ScoreControl.staAns.WordList.Count; i++)
+                {
+                    fileName = StuList[RIndex].path.FullName + "\\d" + i.ToString() + ".doc";
+                    if (File.Exists(fileName))
+                    {
+                        Score += WordScore.ws.checkPoints(fileName,ScoreControl.staAns.WordList[i].OfficeFile, ScoreControl.staAns.WordList[i].XMLFile);
+                    }
+                }
+
+                for (i = 0; i < ScoreControl.staAns.ExcelList.Count; i++)
+                {
+                    fileName = StuList[RIndex].path.FullName + "\\e" + i.ToString() + ".xls";
+                    if (File.Exists(fileName))
+                    {
+                        Score += ExcelScore.es.checkPoints(fileName, ScoreControl.staAns.ExcelList[i].OfficeFile, ScoreControl.staAns.ExcelList[i].XMLFile);
+                    }
+                }
+                for (i = 0; i < ScoreControl.staAns.PowerPointList.Count; i++)
+                {
+                    fileName = StuList[RIndex].path.FullName + "\\f" + i.ToString() + ".ppt";
+                    if (File.Exists(fileName))
+                    {
+                        Score += PowerPointScore.ps.checkPoints(fileName, ScoreControl.staAns.PowerPointList[i].OfficeFile, ScoreControl.staAns.PowerPointList[i].XMLFile);
                     }
                 }
             }
@@ -358,9 +382,9 @@ namespace OESScore
                 {
                     UncompressAllStudentAns(fbdPaperPath.SelectedPath);
                     ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath;
-                    if (ScoreControl.config["PaperPath"].Last()!='\\')
+                    if (ScoreControl.config["PaperPath"].Last() != '\\')
                     {
-                        ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath+"\\";
+                        ScoreControl.config["PaperPath"] = fbdPaperPath.SelectedPath + "\\";
                     }
                     tsslPath.Text = ScoreControl.config["PaperPath"];
                     LoadStudentList();
@@ -391,9 +415,9 @@ namespace OESScore
                     {
                         StuList[RIndex].Score.Value = Mark(RIndex);
                         StuList[RIndex].state = ScoreState.Success;
-                        dtStuList.Rows[RIndex][4] = StuList[RIndex].Score.Value;                        
+                        dtStuList.Rows[RIndex][4] = StuList[RIndex].Score.Value;
                         dtStuList.Rows[RIndex][5] = ScoreState.Success;
-                        
+
                     }
                 }
             }
@@ -407,7 +431,7 @@ namespace OESScore
         private void btnScore_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < StuList.Count; i++)
-            {             
+            {
                 if (Convert.ToInt32(dtStuList.Rows[i][5]) < 2)
                 {
                     StuList[i].Score.Value = Mark(i);

@@ -10,11 +10,15 @@ namespace OESScore
     {
         public string PaperID;
         public string ProType;
+        public string FolderPath;
         public List<Answer> Ans;
         public List<List<Answer>> ProAns;
         public List<ProgramProblem> PMList;
         public List<ProgramProblem> PCList;
         public List<ProgramProblem> PFList;
+        public List<OfficeAnswer> WordList;
+        public List<OfficeAnswer> PowerPointList;
+        public List<OfficeAnswer> ExcelList;
     }
 
 }
