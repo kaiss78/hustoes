@@ -34,15 +34,23 @@ namespace OESOfficeScore
         const int PART_TEXTBOX = 3;             //正在分析文本框属性部分
         const int PART_PAGESETUP = 4;           //正在分析页面设置属性部分
 
-        //外部调用函数，返回总分
-        public int checkPoints(string stu, string ans, string xml)
+        /// <summary>
+        /// 外部调用函数，根据正确考点百分比，计算得分
+        /// </summary>
+        /// <param name="stu">考生答案路径</param>
+        /// <param name="ans">标准答案路径</param>
+        /// <param name="xml">考点xml路径</param>
+        /// <param name="maxPoints">满分分值</param>
+        /// <returns>考生该题得分</returns>
+        public int checkPoints(string stu, string ans, string xml, int maxPoints)
         {
-            int totalPoints = 0;
+            int totalPoints = 0, totalTestPoints = 0;   //正确的考点数，总考点数
             openFile(stu, ans, xml);
             foreach (List<OfficeElement> oel in oxml.AnsPaths)
                 totalPoints += check_Kernel(oel);
             dispose();
-            return totalPoints;
+            if (totalTestPoints == 0) return -1;         //总考点数为0
+            return totalPoints * maxPoints / totalTestPoints;
         }
 
         private int check_Kernel(List<OfficeElement> ls)
