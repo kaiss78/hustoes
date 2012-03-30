@@ -33,22 +33,19 @@ namespace TestOESOfficeScore
 
         private void btnPPT_Click(object sender, EventArgs e)
         {
-            PowerPointScore ps = new PowerPointScore();
-            int tp = ps.checkPoints(PptStuName, PptAnsName, PptXmlName);
+            int tp = PowerPointScore.ps.checkPoints(PptStuName, PptAnsName, PptXmlName);
             MessageBox.Show(tp.ToString());
         }
 
         private void btnXls_Click(object sender, EventArgs e)
         {
-            ExcelScore es = new ExcelScore();
-            int tp = es.checkPoints(XlsStuName, XlsAnsName, XlsXmlName);
+            int tp = ExcelScore.es.checkPoints(XlsStuName, XlsAnsName, XlsXmlName);
             MessageBox.Show(tp.ToString());
         }
         
         private void btnWord_Click(object sender, EventArgs e)
-        {
-            WordScore ws = new WordScore();
-            int tp = ws.checkPoints(DocStuName, DocAnsName, DocXmlName);
+        {   
+            int tp = WordScore.ws.checkPoints(DocStuName, DocAnsName, DocXmlName);
             MessageBox.Show(tp.ToString());
         }
     }
