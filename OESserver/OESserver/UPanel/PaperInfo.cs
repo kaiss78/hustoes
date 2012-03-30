@@ -155,10 +155,10 @@ namespace OES.UPanel
             }
         }
 
-        private void AddOffice(int Plevel, int Chaptet, int Course, int Count, int Score,Office.OfficeType type)
+        private void AddOffice(int Plevel, int Chaptet, int Course, int Count, int Score, Office.OfficeType type)
         {
             rd = new Random();
-            List<Office> list = InfoControl.OesData.FindAllOffice("",Chaptet,Course,Plevel,type,1,int.MaxValue);
+            List<Office> list = InfoControl.OesData.FindAllOffice("", Chaptet, Course, Plevel, type, 1, int.MaxValue);
             if (list.Count < Count)
             {
                 MessageBox.Show("数据库中题目不足！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -287,7 +287,7 @@ namespace OES.UPanel
                         AddJudgement(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score);
                         break;
                     case ProblemType.Word:
-                        AddOffice(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score,Office.OfficeType.Word);
+                        AddOffice(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, Office.OfficeType.Word);
                         break;
                     case ProblemType.PowerPoint:
                         AddOffice(rule.PLevel, rule.Chapter, rule.Course, rule.Count, rule.Score, Office.OfficeType.PowerPoint);
@@ -340,5 +340,15 @@ namespace OES.UPanel
             }
         }
         #endregion
+
+        private void dgvRule_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int RIndex = e.RowIndex;
+            int CIndex = e.ColumnIndex;
+            if ((RIndex > -1) && (CIndex == 0))
+            {
+                dtRule.Rows[RIndex][0] = !Convert.ToBoolean(dtRule.Rows[RIndex][0]);
+            }
+        }
     }
 }

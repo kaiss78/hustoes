@@ -79,7 +79,8 @@ namespace OES.UPanel
         private void PaperListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RIndex = e.RowIndex;
-            if (RIndex > -1)
+            int CIndex = e.ColumnIndex;
+            if ((RIndex > -1) && (CIndex == 0))
             {
                 paperListDataTable.Rows[RIndex][0] = !Convert.ToBoolean(paperListDataTable.Rows[RIndex][0]);
             }
@@ -108,9 +109,10 @@ namespace OES.UPanel
                     if ((bool)paperListDataTable.Rows[i][0])
                     {
                         InfoControl.OesData.DeletePaper(Convert.ToInt32(paperListDataTable.Rows[i]["试卷ID"]));
-                        InfoControl.ClientObj.DelPaper(Convert.ToInt32(paperListDataTable.Rows[i]["试卷ID"]),InfoControl.User.Id);
+                        InfoControl.ClientObj.DelPaper(Convert.ToInt32(paperListDataTable.Rows[i]["试卷ID"]),InfoControl.User.Id);                                               
                     }
                 }
+                InfoControl.ClientObj.DelFiles();
                 InitList();
             }
         }

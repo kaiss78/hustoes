@@ -154,6 +154,7 @@
             this.dgvRule.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dgvRule.StateCommon.DataCell.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dgvRule.TabIndex = 0;
+            this.dgvRule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRule_CellClick);
             // 
             // btnEdit
             // 
