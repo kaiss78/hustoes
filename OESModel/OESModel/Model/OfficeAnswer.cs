@@ -9,6 +9,7 @@ namespace OES.Model
     {
         public string OfficeFile;
         public string XMLFile;
+        public int score;
         public OfficeAnswer(string office, string xml)
         {
             OfficeFile = office;
