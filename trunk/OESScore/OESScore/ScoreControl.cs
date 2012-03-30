@@ -136,8 +136,7 @@ namespace OESScore
         /// <param name="path">放置路径</param>
         /// <returns></returns>
         static private OfficeAnswer getOfficeAnswer(IdScoreType pro, string path, string ex)
-        {
-            OfficeAnswer ans;
+        {            
             scoreNet.LoadWordA(pro.id, -1);
             scoreNet.LoadWordT(pro.id, -1);
             scoreNet.ReceiveFiles();
