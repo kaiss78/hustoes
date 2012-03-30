@@ -129,7 +129,6 @@
             this.lbTScore.Size = new System.Drawing.Size(16, 16);
             this.lbTScore.TabIndex = 23;
             this.lbTScore.Text = "0";
-            this.lbTScore.UseWaitCursor = true;
             // 
             // label2
             // 
