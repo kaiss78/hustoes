@@ -43,7 +43,7 @@ namespace OESAnalyse
             element = document.DocumentElement;
             XmlNode node = element.FirstChild;
 
-            string stuID=
+            return node.Attributes["studentId"].Value;
         }
 
         public void getStuNum(String path)
