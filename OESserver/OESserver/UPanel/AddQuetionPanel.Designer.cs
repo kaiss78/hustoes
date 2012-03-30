@@ -131,7 +131,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(3, 84);
+            this.label4.Location = new System.Drawing.Point(0, 84);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 14);
             this.label4.TabIndex = 8;
@@ -142,9 +142,9 @@
             this.cbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCourse.Font = new System.Drawing.Font("宋体", 10.5F);
             this.cbCourse.FormattingEnabled = true;
-            this.cbCourse.Location = new System.Drawing.Point(44, 79);
+            this.cbCourse.Location = new System.Drawing.Point(35, 79);
             this.cbCourse.Name = "cbCourse";
-            this.cbCourse.Size = new System.Drawing.Size(137, 22);
+            this.cbCourse.Size = new System.Drawing.Size(155, 22);
             this.cbCourse.TabIndex = 9;
             this.cbCourse.TextChanged += new System.EventHandler(this.cbCourse_TextChanged);
             // 
