@@ -10,10 +10,12 @@ namespace OES.Model
         public string OfficeFile;
         public string XMLFile;
         public int score;
-        public OfficeAnswer(string office, string xml)
+        public OfficeAnswer(string office, string xml,int s)
         {
             OfficeFile = office;
             XMLFile = xml;
+            score = s;
+        
         }
         public OfficeAnswer()
         { }
