@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OESModel.Model
 {
-    class OfficeAnswer
+    public class OfficeAnswer
     {
         public string OfficeFile;
         public string XMLFile;
