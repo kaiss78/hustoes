@@ -11,16 +11,20 @@ using System.Text;
 using System.Collections;
 using OES.Model;
 
+
 namespace OESAnalyse
 {
     public partial class OESAnalyse : Form
     {
         private FolderBrowserDialog fbd=new FolderBrowserDialog();
         private String path;
-        private DirectoryInfo[] theFiles;
+        private DirectoryInfo[] theFiles; 
         private DirectoryInfo firstFile;
-        private ArrayList results=new ArrayList();
-        private ArrayList students = new ArrayList();
+        private List<FileInfo> results=new List<FileInfo>();
+        private List<Student> students = new List<Student>();
+        private List<string> stuIds = new List<string>();
+        OES.OESData data = new OES.OESData();
+        ScoreAnalyse sco = new ScoreAnalyse();
 
         public OESAnalyse()
         {
@@ -36,16 +40,20 @@ namespace OESAnalyse
 
                 theFiles = firstFile.GetDirectories();
                 if (theFiles != null)
+                {
+                    
                     for (int i = 0; i < theFiles.Length; i++)
                         if (theFiles[i].GetFiles("Result.xml").Length>0)
-                            results.Add(theFiles[i].GetFiles("Result.xml"));
-                for(int i=0;i<results.Count;i++)
-                {
-                    students.Add(new Student());
-                    
-                }    
-
+                            results.Add(theFiles[i].GetFiles("Result.xml")[0]);
+                    for(int i=0;i<results.Count;i++)
+                    {
+                        stuIds.Add(sco.getStuID(results[i].FullName));
+                        students.Add(data.FindStudentByStudentId(stuIds[i])[0]);
+                    }
+                }
             }
+
+            
         }
 
         private void OrderCombo_SelectedIndexChanged(object sender, EventArgs e)
