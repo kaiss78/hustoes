@@ -36,16 +36,18 @@ namespace OESAnalyse
 
         XmlDocument document = new XmlDocument();
         XmlElement element;
-
-        public string getStuID(String filePath)
+        
+        //获取学生id和试卷id
+        public void getSAndPId(String filePath,out string stuId,out string paperId)
         {
             document.Load(filePath);
             element = document.DocumentElement;
             XmlNode node = element.FirstChild;
 
-            return node.Attributes["studentId"].Value;
+            stuId= node.Attributes["studentId"].Value;
+            paperId = node.Attributes["paperId"].Value;
         }
-
+        
         public void getStuNum(String path)
         {
             DirectoryInfo root = new DirectoryInfo(path);
