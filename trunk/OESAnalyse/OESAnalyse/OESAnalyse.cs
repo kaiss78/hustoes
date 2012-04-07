@@ -23,7 +23,7 @@ namespace OESAnalyse
         private List<FileInfo> results=new List<FileInfo>();
         private List<Student> students = new List<Student>();
         private List<string> stuIds = new List<string>();
-       // public OES.OESData data = new OES.OESData();
+       
         ScoreAnalyse sco = new ScoreAnalyse();
         private static OESData oesData = new OESData();
         public static OESData OesData
@@ -42,6 +42,10 @@ namespace OESAnalyse
 
         private void PathBut_Click(object sender, EventArgs e)
         {
+            string className = "";
+            string examId = "";
+            string stuId, paperId;
+
             if (fbd.ShowDialog().Equals(DialogResult.OK))
             {
                 path = fbd.SelectedPath;
@@ -56,9 +60,20 @@ namespace OESAnalyse
                             results.Add(theFiles[i].GetFiles("Result.xml")[0]);
                     for(int i=0;i<results.Count;i++)
                     {
-                        stuIds.Add(sco.getStuID(results[i].FullName));
-                        students.Add(OESAnalyse.OesData.FindStudentByStudentId(stuIds[i])[0]);
-                        OESAnalyse.OesData.FindStudentByStudentId(students[i].classId);
+                        sco.getSAndPId(results[i].FullName,out stuId,out paperId);
+                        stuIds.Add(stuId);
+                        students.Add(oesData.FindStudentByStudentId(stuIds[i])[0]);
+                        students[i].examID = paperId;
+                        while (students[i].className != className)
+                        {
+                            this.ClassCombo.Items.Add(students[i].className);
+                            className = students[i].className;
+                        }
+                        while (students[i].examID != examId)
+                        {
+                            this.PaperCombo.Items.Add(students[i].examID);
+                            examId = students[i].examID;
+                        }
                     }
                 }
             }
