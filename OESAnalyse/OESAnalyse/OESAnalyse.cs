@@ -10,7 +10,7 @@ using System.IO;
 using System.Text;
 using System.Collections;
 using OES.Model;
-
+using OES;
 
 namespace OESAnalyse
 {
@@ -23,9 +23,18 @@ namespace OESAnalyse
         private List<FileInfo> results=new List<FileInfo>();
         private List<Student> students = new List<Student>();
         private List<string> stuIds = new List<string>();
-        OES.OESData data = new OES.OESData();
+       // public OES.OESData data = new OES.OESData();
         ScoreAnalyse sco = new ScoreAnalyse();
-
+        private static OESData oesData = new OESData();
+        public static OESData OesData
+        {
+            get
+            {
+                if (oesData == null) { oesData = new OESData(); }
+                return OESAnalyse.oesData;
+            }
+            set { OESAnalyse.oesData = value; }
+        }
         public OESAnalyse()
         {
             InitializeComponent();
@@ -48,7 +57,8 @@ namespace OESAnalyse
                     for(int i=0;i<results.Count;i++)
                     {
                         stuIds.Add(sco.getStuID(results[i].FullName));
-                        students.Add(data.FindStudentByStudentId(stuIds[i])[0]);
+                        students.Add(OESAnalyse.OesData.FindStudentByStudentId(stuIds[i])[0]);
+                        OESAnalyse.OesData.FindStudentByStudentId(students[i].classId);
                     }
                 }
             }
