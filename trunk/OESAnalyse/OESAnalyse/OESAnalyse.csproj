@@ -73,7 +73,7 @@
     </Reference>
     <Reference Include="PieChart, Version=1.5.0.8, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\qinzhaoxi\Desktop\PieChatWinPro\bin\Debug\PieChart.dll</HintPath>
+      <HintPath>bin\Debug\PieChart.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
