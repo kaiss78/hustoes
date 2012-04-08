@@ -41,7 +41,6 @@
             this.PaperCombo = new System.Windows.Forms.ComboBox();
             this.OrderCombo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,7 +147,7 @@
             this.PaperCombo.Name = "PaperCombo";
             this.PaperCombo.Size = new System.Drawing.Size(83, 20);
             this.PaperCombo.TabIndex = 10;
-            
+            this.PaperCombo.SelectedIndexChanged += new System.EventHandler(this.PaperCombo_SelectedIndexChanged_1);
             // 
             // OrderCombo
             // 
@@ -172,19 +171,11 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "选择顺序：";
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 354);
-            this.panel1.TabIndex = 13;
-            // 
             // OESAnalyse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 354);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.OrderCombo);
             this.Controls.Add(this.PaperCombo);
@@ -221,7 +212,6 @@
         private System.Windows.Forms.ComboBox PaperCombo;
         private System.Windows.Forms.ComboBox OrderCombo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
     }
 }
 
