@@ -41,6 +41,8 @@
             this.PaperCombo = new System.Windows.Forms.ComboBox();
             this.OrderCombo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +149,9 @@
             this.PaperCombo.Name = "PaperCombo";
             this.PaperCombo.Size = new System.Drawing.Size(83, 20);
             this.PaperCombo.TabIndex = 10;
+
             this.PaperCombo.SelectedIndexChanged += new System.EventHandler(this.PaperCombo_SelectedIndexChanged_1);
+
             // 
             // OrderCombo
             // 
@@ -170,6 +174,20 @@
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 12;
             this.label3.Text = "选择顺序：";
+            // 
+
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(13, 13);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(593, 299);
+            this.dataGridView2.TabIndex = 0;
+
             // 
             // OESAnalyse
             // 
@@ -212,6 +230,8 @@
         private System.Windows.Forms.ComboBox PaperCombo;
         private System.Windows.Forms.ComboBox OrderCombo;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
 

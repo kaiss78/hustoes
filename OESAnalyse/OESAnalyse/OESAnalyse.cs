@@ -29,8 +29,10 @@ namespace OESAnalyse
 
         List<Student>myList=new List<Student>();
         DataTable myTable = new DataTable("null");
+        
 
         private static OESData oesData = new OESData();
+        
         public static OESData OesData
         {
             get
@@ -144,6 +146,8 @@ namespace OESAnalyse
 
         public  void printOut(List<Student> myList)
         {
+            object[] newRow=new object[5];
+
             this.dataGridView1.DataSource = null;
             DataTable myTable = new DataTable("paper");
             myTable.Columns.Add("学号");
@@ -151,13 +155,15 @@ namespace OESAnalyse
             myTable.Columns.Add("班级");
             myTable.Columns.Add("试卷名称");
             myTable.Columns.Add("成绩");
-            for (int i = 0; i <= myList.Count; i++)
+            for (int i = 0; i <myList.Count; i++)
             {
-                myTable.Rows[i][0] = myList[i].ID;
-                myTable.Rows[i][1] = myList[i].sName;
-                myTable.Rows[i][1] = myList[i].className;
-                myTable.Rows[i][2] = myList[i].examID;
-                myTable.Rows[i][3] = myList[i].password;
+                
+                newRow[0] = myList[i].ID;
+                newRow[1] = myList[i].sName;
+                newRow[2] = myList[i].className;
+                newRow[3] = myList[i].examID;
+                newRow[4] = myList[i].password;
+                myTable.Rows.Add(newRow);
             }
             this.dataGridView1.DataSource = myTable.DefaultView;
         }
@@ -188,6 +194,7 @@ namespace OESAnalyse
             }
             return stus;
         }
+
 
         private void PaperCombo_SelectedIndexChanged_1(object sender, EventArgs e)
         {
