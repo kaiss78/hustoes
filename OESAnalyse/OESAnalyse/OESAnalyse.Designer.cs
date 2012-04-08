@@ -147,6 +147,7 @@
             this.PaperCombo.Name = "PaperCombo";
             this.PaperCombo.Size = new System.Drawing.Size(83, 20);
             this.PaperCombo.TabIndex = 10;
+            this.PaperCombo.SelectedIndexChanged += new System.EventHandler(this.PaperCombo_SelectedIndexChanged);
             // 
             // OrderCombo
             // 
