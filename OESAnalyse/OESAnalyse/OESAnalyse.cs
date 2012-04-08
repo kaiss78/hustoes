@@ -26,6 +26,10 @@ namespace OESAnalyse
         private Boolean classFirst = true;
 
         ScoreAnalyse sco = new ScoreAnalyse();
+
+        List<Student>myList=new List<Student>();
+        DataTable myTable = new DataTable("null");
+
         private static OESData oesData = new OESData();
         public static OESData OesData
         {
@@ -36,6 +40,7 @@ namespace OESAnalyse
             }
             set { OESAnalyse.oesData = value; }
         }
+
         public OESAnalyse()
         {
             InitializeComponent();
@@ -90,11 +95,14 @@ namespace OESAnalyse
             }
             else if (OrderCombo.SelectedIndex == 1)
             {
+                dataGridView1.DataSource = null;
+                dataGridView1.Refresh();
                 PaperCombo.Enabled = true;
                 ClassCombo.Enabled = false;
                 classFirst = false;
             } 
         }
+
 
         private void ClassCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -148,6 +156,28 @@ namespace OESAnalyse
             }
             return paperIds;
         }
+
+
+        public  void printOut(List<Student> myList)
+        {
+            this.dataGridView1.DataSource = null;
+            DataTable myTable = new DataTable("paper");
+            myTable.Columns.Add("学号");
+            myTable.Columns.Add("姓名");
+            myTable.Columns.Add("班级");
+            myTable.Columns.Add("试卷名称");
+            myTable.Columns.Add("成绩");
+            for (int i = 0; i <= myList.Count; i++)
+            {
+                myTable.Rows[i][0] = myList[i].ID;
+                myTable.Rows[i][1] = myList[i].sName;
+                myTable.Rows[i][1] = myList[i].className;
+                myTable.Rows[i][2] = myList[i].examID;
+                myTable.Rows[i][3] = myList[i].password;
+            }
+            this.dataGridView1.DataSource = myTable.DefaultView;
+        }
+
         //根据试卷寻找当前目录下班级
         public List<string> findCNByPaperId(string paperId)
         {
@@ -161,5 +191,6 @@ namespace OESAnalyse
             }
             return classNames;
         }
+
     }
 }
