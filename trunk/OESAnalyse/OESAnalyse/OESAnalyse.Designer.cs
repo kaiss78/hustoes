@@ -88,12 +88,13 @@
             // 
             // ScoreDistriBut
             // 
-            this.ScoreDistriBut.Location = new System.Drawing.Point(509, 154);
+            this.ScoreDistriBut.Location = new System.Drawing.Point(509, 156);
             this.ScoreDistriBut.Name = "ScoreDistriBut";
             this.ScoreDistriBut.Size = new System.Drawing.Size(75, 23);
             this.ScoreDistriBut.TabIndex = 4;
             this.ScoreDistriBut.Text = "成绩分布";
             this.ScoreDistriBut.UseVisualStyleBackColor = true;
+            this.ScoreDistriBut.Click += new System.EventHandler(this.ScoreDistriBut_Click);
             // 
             // CorrectBut
             // 
