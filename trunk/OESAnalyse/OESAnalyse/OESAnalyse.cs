@@ -77,9 +77,7 @@ namespace OESAnalyse
                         }
                     }
                 }
-            }
-
-            
+            }       
         }
 
         private void OrderCombo_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,13 +109,36 @@ namespace OESAnalyse
                 }
                 this.PaperCombo.Enabled = true;
             }
+            if (this.PaperCombo.Enabled == true && this.ClassCombo.Enabled == true)
+            {
+                //传List<Student>
+            }
         }
 
-        
+
+        private void PaperCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> classes = new List<string>();
+            if (!classFirst)
+            {
+                this.ClassCombo.Items.Clear();
+                classes = findCNByPaperId(Convert.ToString(this.PaperCombo.Items[this.PaperCombo.SelectedIndex]));
+                for (int i = 0; i < classes.Count; i++)
+                {
+                    this.ClassCombo.Items.Add(classes[i]);
+                }
+                this.ClassCombo.Enabled = true;
+            }
+            if (this.PaperCombo.Enabled == true && this.ClassCombo.Enabled == true)
+            {
+                //传List<Student>
+            }
+        }
+
         //根据班级寻找当前目录下该班级所考试卷id
         public List<string> findPIdByClassId(string className)
         {
-            List<string> paperIds=new List<string>();
+            List<string> paperIds = new List<string>();
             for (int i = 0; i < students.Count; i++)
             {
                 while (students[i].className == className && !paperIds.Contains(students[i].examID))
@@ -126,6 +147,19 @@ namespace OESAnalyse
                 }
             }
             return paperIds;
+        }
+        //根据试卷寻找当前目录下班级
+        public List<string> findCNByPaperId(string paperId)
+        {
+            List<string> classNames = new List<string>();
+            for (int i = 0; i < students.Count; i++)
+            {
+                while (students[i].examID == paperId && !classNames.Contains(students[i].className))
+                {
+                    classNames.Add(students[i].className);
+                }
+            }
+            return classNames;
         }
     }
 }
