@@ -93,8 +93,9 @@ namespace OES.UPanel
             if (RIndex > -1)
             {
                 InfoControl.getPaper(paperList[RIndex].paperID);
-                paperPreview = new frmPaperPreview(InfoControl.TmpPaper);
-                paperPreview.Show();
+                ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
+                //paperPreview = new frmPaperPreview(InfoControl.TmpPaper);
+                //paperPreview.Show();
 
             }
         }
