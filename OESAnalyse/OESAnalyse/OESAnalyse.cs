@@ -23,7 +23,8 @@ namespace OESAnalyse
         private List<FileInfo> results=new List<FileInfo>();
         private List<Student> students = new List<Student>();
         private List<string> stuIds = new List<string>();
-       
+        private Boolean classFirst = true;
+
         ScoreAnalyse sco = new ScoreAnalyse();
         private static OESData oesData = new OESData();
         public static OESData OesData
@@ -42,8 +43,8 @@ namespace OESAnalyse
 
         private void PathBut_Click(object sender, EventArgs e)
         {
-            string className = "";
-            string examId = "";
+            List<string> className = new List<string>();
+            List<string> examId = new List<string>();
             string stuId, paperId;
 
             if (fbd.ShowDialog().Equals(DialogResult.OK))
@@ -64,15 +65,15 @@ namespace OESAnalyse
                         stuIds.Add(stuId);
                         students.Add(oesData.FindStudentByStudentId(stuIds[i])[0]);
                         students[i].examID = paperId;
-                        while (students[i].className != className)
+                        while (!className.Contains(students[i].className))
                         {
+                            className.Add(students[i].className);
                             this.ClassCombo.Items.Add(students[i].className);
-                            className = students[i].className;
                         }
-                        while (students[i].examID != examId)
+                        while (!examId.Contains(students[i].examID))
                         {
+                            examId.Add(students[i].examID);
                             this.PaperCombo.Items.Add(students[i].examID);
-                            examId = students[i].examID;
                         }
                     }
                 }
@@ -87,15 +88,44 @@ namespace OESAnalyse
             {
                 ClassCombo.Enabled = true;
                 PaperCombo.Enabled = false;
+                classFirst = true;
             }
             else if (OrderCombo.SelectedIndex == 1)
             {
                 PaperCombo.Enabled = true;
                 ClassCombo.Enabled = false;
+                classFirst = false;
             } 
         }
 
-        
+        private void ClassCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> papers = new List<string>();
+            if (classFirst)
+            {
+                this.PaperCombo.Items.Clear();
+                papers = findPIdByClassId(Convert.ToString(this.ClassCombo.Items[this.ClassCombo.SelectedIndex]));
+                for (int i = 0; i < papers.Count; i++)
+                {
+                    this.PaperCombo.Items.Add(papers[i]);
+                }
+                this.PaperCombo.Enabled = true;
+            }
+        }
 
+        
+        //根据班级寻找当前目录下该班级所考试卷id
+        public List<string> findPIdByClassId(string className)
+        {
+            List<string> paperIds=new List<string>();
+            for (int i = 0; i < students.Count; i++)
+            {
+                while (students[i].className == className && !paperIds.Contains(students[i].examID))
+                {
+                    paperIds.Add(students[i].examID);
+                }
+            }
+            return paperIds;
+        }
     }
 }
