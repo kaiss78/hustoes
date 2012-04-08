@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Xml;
 
+
 namespace OESAnalyse
 {
     class ScoreAnalyse
@@ -48,6 +49,7 @@ namespace OESAnalyse
             paperId = node.Attributes["paperId"].Value;
         }
         
+        //获得学生学号
         public void getStuNum(String path)
         {
             DirectoryInfo root = new DirectoryInfo(path);
@@ -61,6 +63,9 @@ namespace OESAnalyse
             }
         }
 
+        
+
+        //获得学生学分
         public int getScore(String filePath)
         {
             XmlNode node1, node2;
@@ -98,6 +103,7 @@ namespace OESAnalyse
             return score;
         }
 
+        //获得学生成绩分布
         public void getDisNum(String path)
         {
             DirectoryInfo root = new DirectoryInfo(path);

@@ -63,6 +63,7 @@
             this.ClassCombo.Name = "ClassCombo";
             this.ClassCombo.Size = new System.Drawing.Size(89, 20);
             this.ClassCombo.TabIndex = 1;
+            this.ClassCombo.SelectedIndexChanged += new System.EventHandler(this.ClassCombo_SelectedIndexChanged);
             // 
             // label1
             // 
