@@ -70,6 +70,7 @@ namespace OESAnalyse
                         stuIds.Add(stuId);
                         students.Add(oesData.FindStudentByStudentId(stuIds[i])[0]);
                         students[i].examID = paperId;
+                        students[i].password = Convert.ToString(sco.getScore(results[i].FullName));
                         while (!className.Contains(students[i].className))
                         {
                             className.Add(students[i].className);
@@ -107,41 +108,24 @@ namespace OESAnalyse
         private void ClassCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> papers = new List<string>();
+            if (this.PaperCombo.Enabled == true && this.ClassCombo.Enabled == true)
+            {
+                //传List<Student>
+                printOut(findStuByCAP(Convert.ToString(this.ClassCombo.SelectedItem), Convert.ToString(this.PaperCombo.SelectedItem)));
+            }
             if (classFirst)
             {
                 this.PaperCombo.Items.Clear();
-                papers = findPIdByClassId(Convert.ToString(this.ClassCombo.Items[this.ClassCombo.SelectedIndex]));
+                papers = findPIdByClassId(Convert.ToString(this.ClassCombo.SelectedItem));
                 for (int i = 0; i < papers.Count; i++)
                 {
                     this.PaperCombo.Items.Add(papers[i]);
                 }
                 this.PaperCombo.Enabled = true;
             }
-            if (this.PaperCombo.Enabled == true && this.ClassCombo.Enabled == true)
-            {
-                //传List<Student>
-            }
+            
         }
 
-
-        private void PaperCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<string> classes = new List<string>();
-            if (!classFirst)
-            {
-                this.ClassCombo.Items.Clear();
-                classes = findCNByPaperId(Convert.ToString(this.PaperCombo.Items[this.PaperCombo.SelectedIndex]));
-                for (int i = 0; i < classes.Count; i++)
-                {
-                    this.ClassCombo.Items.Add(classes[i]);
-                }
-                this.ClassCombo.Enabled = true;
-            }
-            if (this.PaperCombo.Enabled == true && this.ClassCombo.Enabled == true)
-            {
-                //传List<Student>
-            }
-        }
 
         //根据班级寻找当前目录下该班级所考试卷id
         public List<string> findPIdByClassId(string className)
@@ -190,6 +174,39 @@ namespace OESAnalyse
                 }
             }
             return classNames;
+        }
+        //根据试卷id和班级寻找学生
+        public List<Student> findStuByCAP(string className, string paperId)
+        {
+            List<Student> stus = new List<Student>();
+            for (int i = 0; i < students.Count; i++)
+            {
+                if (students[i].className == className && students[i].examID == paperId)
+                {
+                    stus.Add(students[i]);
+                }
+            }
+            return stus;
+        }
+
+        private void PaperCombo_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            List<string> classes = new List<string>();
+            if (this.PaperCombo.Enabled == true && this.ClassCombo.Enabled == true)
+            {
+                //传List<Student>
+                printOut(findStuByCAP(Convert.ToString(this.ClassCombo.SelectedItem), Convert.ToString(this.PaperCombo.SelectedItem)));
+            }
+            if (!classFirst)
+            {
+                this.ClassCombo.Items.Clear();
+                classes = findCNByPaperId(Convert.ToString(this.PaperCombo.SelectedItem));
+                for (int i = 0; i < classes.Count; i++)
+                {
+                    this.ClassCombo.Items.Add(classes[i]);
+                }
+                this.ClassCombo.Enabled = true;
+            }
         }
 
     }
