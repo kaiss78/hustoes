@@ -155,6 +155,7 @@ namespace OESAnalyse
             myTable.Columns.Add("班级");
             myTable.Columns.Add("试卷名称");
             myTable.Columns.Add("成绩");
+
             for (int i = 0; i <myList.Count; i++)
             {
                 
@@ -214,6 +215,12 @@ namespace OESAnalyse
                 }
                 this.ClassCombo.Enabled = true;
             }
+        }
+
+        private void ScoreDistriBut_Click(object sender, EventArgs e)
+        {
+            PieChart pie = new PieChart();
+            pie.Visible = true;
         }
 
     }
