@@ -46,6 +46,7 @@ namespace OESAnalyse
         public OESAnalyse()
         {
             InitializeComponent();
+            this.panel1.Visible = false;
         }
 
         private void PathBut_Click(object sender, EventArgs e)
@@ -166,6 +167,7 @@ namespace OESAnalyse
                 newRow[4] = myList[i].password;
                 myTable.Rows.Add(newRow);
             }
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.DataSource = myTable.DefaultView;
         }
 
@@ -215,6 +217,49 @@ namespace OESAnalyse
                 }
                 this.ClassCombo.Enabled = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.panel1.Visible = true;
+        }
+
+        private void backButn_Click(object sender, EventArgs e)
+        {
+            this.panel1.Visible = false;
+        }
+
+        private void CorrectBut_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = null;
+            this.dataGridView1.Refresh();
+            object[] newRow = new object[3];
+            Percentage newPercentage = new Percentage();
+            ArrayList list = new ArrayList();
+            List<Student> stu=new List<Student> ();
+            stu=findStuByCAP(Convert.ToString(ClassCombo.SelectedItem),Convert.ToString(PaperCombo.SelectedItem));
+            list = newPercentage.printPercentage(path, stu, this.PaperCombo.SelectedText);
+            DataTable myTable = new DataTable();
+            myTable.Columns.Add("试题类型");
+            myTable.Columns.Add("试题ID");
+            myTable.Columns.Add("正确率");
+            for (int i = 2; i<=list.Count; i++)
+            {
+
+                newRow[0] = ((Percentage)list[i - 1]).type;
+                newRow[1] = ((Percentage)list[i - 1]).ID;
+                newRow[2] = ((Percentage)list[i - 1]).percentage;
+                myTable.Rows.Add(newRow);
+            }
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.DataSource = myTable.DefaultView;
+
+
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void ScoreDistriBut_Click(object sender, EventArgs e)
