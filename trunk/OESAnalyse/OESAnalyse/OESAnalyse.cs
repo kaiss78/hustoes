@@ -270,7 +270,7 @@ namespace OESAnalyse
 
         private void ConfigBut_Click(object sender, EventArgs e)
         {
-
+            new ConfigForm().ShowDialog(this);
         }
 
         private void ExcelBut_Click(object sender, EventArgs e)
