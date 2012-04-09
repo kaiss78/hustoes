@@ -44,6 +44,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -150,9 +151,7 @@
             this.PaperCombo.Name = "PaperCombo";
             this.PaperCombo.Size = new System.Drawing.Size(83, 20);
             this.PaperCombo.TabIndex = 10;
-
             this.PaperCombo.SelectedIndexChanged += new System.EventHandler(this.PaperCombo_SelectedIndexChanged_1);
-
             // 
             // OrderCombo
             // 
@@ -176,7 +175,6 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "选择顺序：";
             // 
-
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -188,7 +186,13 @@
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(593, 299);
             this.dataGridView2.TabIndex = 0;
-
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 0;
             // 
             // OESAnalyse
             // 
@@ -211,6 +215,7 @@
             this.Name = "OESAnalyse";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

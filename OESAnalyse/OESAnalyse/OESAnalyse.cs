@@ -219,9 +219,11 @@ namespace OESAnalyse
 
         private void ScoreDistriBut_Click(object sender, EventArgs e)
         {
-            PieChart pie = new PieChart();
+            PieChart pie = new PieChart(findStuByCAP(Convert.ToString(this.ClassCombo.SelectedItem), Convert.ToString(this.PaperCombo.SelectedItem)));
             pie.Visible = true;
         }
+
+       
 
     }
 }
