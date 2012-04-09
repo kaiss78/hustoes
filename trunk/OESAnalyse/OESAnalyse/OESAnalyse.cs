@@ -24,11 +24,9 @@ namespace OESAnalyse
         private List<Student> students = new List<Student>();
         private List<string> stuIds = new List<string>();
         private Boolean classFirst = true;
-
+        DataTable myTable = new DataTable();
         ScoreAnalyse sco = new ScoreAnalyse();
-
         List<Student>myList=new List<Student>();
-        DataTable myTable = new DataTable("null");
         
 
         private static OESData oesData = new OESData();
@@ -150,7 +148,7 @@ namespace OESAnalyse
             object[] newRow=new object[5];
 
             this.dataGridView1.DataSource = null;
-            DataTable myTable = new DataTable("paper");
+            myTable = new DataTable("paper");
             myTable.Columns.Add("学号");
             myTable.Columns.Add("姓名");
             myTable.Columns.Add("班级");
@@ -232,14 +230,14 @@ namespace OESAnalyse
         private void CorrectBut_Click(object sender, EventArgs e)
         {
             this.dataGridView1.DataSource = null;
-            this.dataGridView1.Refresh();
+            //this.dataGridView1.Refresh();
             object[] newRow = new object[3];
             Percentage newPercentage = new Percentage();
             ArrayList list = new ArrayList();
             List<Student> stu=new List<Student> ();
             stu=findStuByCAP(Convert.ToString(ClassCombo.SelectedItem),Convert.ToString(PaperCombo.SelectedItem));
             list = newPercentage.printPercentage(path, stu, this.PaperCombo.SelectedText);
-            DataTable myTable = new DataTable();
+            myTable = new DataTable();
             myTable.Columns.Add("试题类型");
             myTable.Columns.Add("试题ID");
             myTable.Columns.Add("正确率");
@@ -275,7 +273,22 @@ namespace OESAnalyse
 
         private void ExcelBut_Click(object sender, EventArgs e)
         {
-
+            SaveFileDialog saveFileDialog=new SaveFileDialog();
+            saveFileDialog.Filter = "Excel files(*.xls)|*.xls";
+             if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StringBuilder content = new StringBuilder();
+                for (int i = 0; i < myTable.Rows.Count; i++)
+                {
+                    for (int j = 0; j < myTable.Columns.Count; j++)
+                        content.Append(myTable.Rows[i][j] + "\t");
+                    content.AppendLine();
+                }
+                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName, false, Encoding.Default))
+                {
+                    sw.Write(content);
+                }
+            }
         }
 
        
