@@ -6,28 +6,50 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using OES.Model;
 
 namespace OESAnalyse
 {
     public partial class PieChart : Form
     {
-        public PieChart()
+        private float[] scoDistri = new float[5];
+        private float[] distribution = new float[5];
+        private List<Student> students = new List<Student>();
+        public PieChart(List<Student> stu)
         {
             InitializeComponent();
 
+            students = stu;
             //初始化饼状图
-            ScoreAnalyse s1 = new ScoreAnalyse();
-            String path = "F:\\Student";
-            s1.getDisNum(path);
-            s1.getStuNum(path);
-            float a = s1.ScoreDistribution[0] / s1.StuNum * 100, b = s1.ScoreDistribution[1] / s1.StuNum * 100, c = s1.ScoreDistribution[2] / s1.StuNum * 100, d = (s1.ScoreDistribution[3] / s1.StuNum) * 100, e = s1.ScoreDistribution[4] / s1.StuNum * 100;
+            getDistri();
             PieChartHelper.Init_PieChart(_pieChartShowObj);
             _pieChartShowObj.SliceRelativeDisplacements = new float[] { 0.01f, 0.01f, 0.10f };
             PieChartHelper.SetPieChartControl_Colors(_pieChartShowObj, new Color[] { Color.Yellow, Color.Red, Color.Green });
-            PieChartHelper.SetPieChartControl_Texts(_pieChartShowObj, new string[] { Convert.ToInt32(a).ToString(), Convert.ToInt32(b).ToString(), Convert.ToInt32(c).ToString(), Convert.ToInt32(d).ToString(), Convert.ToInt32(e).ToString() });
-            PieChartHelper.SetPieChartControl_Values(_pieChartShowObj, new decimal[] { Convert.ToInt32(a), Convert.ToInt32(b), Convert.ToInt32(c), Convert.ToInt32(d), Convert.ToInt32(e) });
+            PieChartHelper.SetPieChartControl_Texts(_pieChartShowObj, new string[] { Convert.ToInt32(distribution[0]).ToString(), Convert.ToInt32(distribution[1]).ToString(), Convert.ToInt32(distribution[2]).ToString(), Convert.ToInt32(distribution[3]).ToString(), Convert.ToInt32(distribution[4]).ToString() });
+            PieChartHelper.SetPieChartControl_Values(_pieChartShowObj, new decimal[] { Convert.ToInt32(distribution[0]), Convert.ToInt32(distribution[1]), Convert.ToInt32(distribution[2]), Convert.ToInt32(distribution[3]), Convert.ToInt32(distribution[4]) });
             PieChartHelper.SetPieChartControl_ToolTips(_pieChartShowObj, new string[] { "90-100分", "80-90分", "70-80分", "60-70分", "不及格" });
+        }
+
+        public void getDistri()
+        {
+            for (int i = 0; i < students.Count; i++)
+            {
+                //scoDistri[0]是90分以上，接着是80至90,70至80,60至70和不及格
+                if (Convert.ToInt32(students[i].password) >= 90)
+                    scoDistri[0]++;
+                else if (Convert.ToInt32(students[i].password) >= 80)
+                    scoDistri[1]++;
+                else if (Convert.ToInt32(students[i].password) >= 70)
+                    scoDistri[2]++;
+                else if (Convert.ToInt32(students[i].password) >= 60)
+                    scoDistri[3]++;
+                else
+                    scoDistri[4]++;
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                distribution[i] = scoDistri[i] / students.Count*100;
+            }
         }
     }
 }
