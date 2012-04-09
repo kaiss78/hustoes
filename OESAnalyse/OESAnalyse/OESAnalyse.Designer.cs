@@ -36,7 +36,7 @@
             this.CorrectBut = new System.Windows.Forms.Button();
             this.ConfigBut = new System.Windows.Forms.Button();
             this.ExcelBut = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLookPaper = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.PaperCombo = new System.Windows.Forms.ComboBox();
             this.OrderCombo = new System.Windows.Forms.ComboBox();
@@ -50,7 +50,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -121,6 +120,7 @@
             this.ConfigBut.TabIndex = 6;
             this.ConfigBut.Text = "配置";
             this.ConfigBut.UseVisualStyleBackColor = true;
+            this.ConfigBut.Click += new System.EventHandler(this.ConfigBut_Click);
             // 
             // ExcelBut
             // 
@@ -130,16 +130,17 @@
             this.ExcelBut.TabIndex = 7;
             this.ExcelBut.Text = "导出Excel";
             this.ExcelBut.UseVisualStyleBackColor = true;
+            this.ExcelBut.Click += new System.EventHandler(this.ExcelBut_Click);
             // 
-            // button1
+            // btnLookPaper
             // 
-            this.button1.Location = new System.Drawing.Point(509, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "查看试卷";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLookPaper.Location = new System.Drawing.Point(509, 114);
+            this.btnLookPaper.Name = "btnLookPaper";
+            this.btnLookPaper.Size = new System.Drawing.Size(75, 23);
+            this.btnLookPaper.TabIndex = 8;
+            this.btnLookPaper.Text = "查看试卷";
+            this.btnLookPaper.UseVisualStyleBackColor = true;
+            this.btnLookPaper.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -235,7 +236,6 @@
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
-
             // OESAnalyse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -246,7 +246,7 @@
             this.Controls.Add(this.OrderCombo);
             this.Controls.Add(this.PaperCombo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLookPaper);
             this.Controls.Add(this.ExcelBut);
             this.Controls.Add(this.ConfigBut);
             this.Controls.Add(this.CorrectBut);
@@ -258,11 +258,9 @@
             this.Name = "OESAnalyse";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,7 +276,7 @@
         private System.Windows.Forms.Button CorrectBut;
         private System.Windows.Forms.Button ConfigBut;
         private System.Windows.Forms.Button ExcelBut;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLookPaper;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox PaperCombo;
         private System.Windows.Forms.ComboBox OrderCombo;
