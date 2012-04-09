@@ -98,6 +98,7 @@
     <Compile Include="OESAnalyse.Designer.cs">
       <DependentUpon>OESAnalyse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Percentage.cs" />
     <Compile Include="PieChart.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -43,8 +43,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.backButn = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -105,6 +111,7 @@
             this.CorrectBut.TabIndex = 5;
             this.CorrectBut.Text = "题目正确率";
             this.CorrectBut.UseVisualStyleBackColor = true;
+            this.CorrectBut.Click += new System.EventHandler(this.CorrectBut_Click);
             // 
             // ConfigBut
             // 
@@ -132,6 +139,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "查看试卷";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -194,11 +202,46 @@
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.backButn);
+            this.panel1.Controls.Add(this.dataGridView3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(618, 354);
+            this.panel1.TabIndex = 13;
+            // 
+            // backButn
+            // 
+            this.backButn.Location = new System.Drawing.Point(479, 319);
+            this.backButn.Name = "backButn";
+            this.backButn.Size = new System.Drawing.Size(105, 23);
+            this.backButn.TabIndex = 1;
+            this.backButn.Text = "返回";
+            this.backButn.UseVisualStyleBackColor = true;
+            this.backButn.Click += new System.EventHandler(this.backButn_Click);
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowTemplate.Height = 23;
+            this.dataGridView3.Size = new System.Drawing.Size(618, 303);
+            this.dataGridView3.TabIndex = 0;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            // 
+
             // OESAnalyse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 354);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.OrderCombo);
             this.Controls.Add(this.PaperCombo);
@@ -215,7 +258,11 @@
             this.Name = "OESAnalyse";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,6 +285,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button backButn;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }
 
