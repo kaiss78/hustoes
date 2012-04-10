@@ -676,8 +676,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OESLogin.jpg" />
-    <Content Include="Resources\data.png" />
-    <Content Include="Resources\user.png" />
+    <None Include="Resources\data.png" />
+    <None Include="Resources\user.png" />
     <Content Include="Server.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -60,34 +60,6 @@ namespace OES.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap bg {
-            get {
-                object obj = ResourceManager.GetObject("bg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap btnbg {
-            get {
-                object obj = ResourceManager.GetObject("btnbg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap btnbg1 {
-            get {
-                object obj = ResourceManager.GetObject("btnbg1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap btnmaobi {
-            get {
-                object obj = ResourceManager.GetObject("btnmaobi", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap btnReturn {
             get {
                 object obj = ResourceManager.GetObject("btnReturn", resourceCulture);
@@ -102,34 +74,6 @@ namespace OES.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap chptbtn {
-            get {
-                object obj = ResourceManager.GetObject("chptbtn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap circle_black {
-            get {
-                object obj = ResourceManager.GetObject("circle_black", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap circle_blue {
-            get {
-                object obj = ResourceManager.GetObject("circle_blue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap circle_red {
-            get {
-                object obj = ResourceManager.GetObject("circle_red", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap cpt_btn {
             get {
                 object obj = ResourceManager.GetObject("cpt_btn", resourceCulture);
@@ -137,16 +81,16 @@ namespace OES.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap down {
+        internal static System.Drawing.Bitmap data {
             get {
-                object obj = ResourceManager.GetObject("down", resourceCulture);
+                object obj = ResourceManager.GetObject("data", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap last {
+        internal static System.Drawing.Bitmap down {
             get {
-                object obj = ResourceManager.GetObject("last", resourceCulture);
+                object obj = ResourceManager.GetObject("down", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -161,13 +105,6 @@ namespace OES.Properties {
         internal static System.Drawing.Bitmap lbContent {
             get {
                 object obj = ResourceManager.GetObject("lbContent", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap next {
-            get {
-                object obj = ResourceManager.GetObject("next", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +133,13 @@ namespace OES.Properties {
         internal static System.Drawing.Bitmap up {
             get {
                 object obj = ResourceManager.GetObject("up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
