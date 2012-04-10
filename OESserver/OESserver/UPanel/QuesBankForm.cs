@@ -336,6 +336,9 @@ namespace OES.UPanel
 
         private void DeleteBut_Click(object sender, EventArgs e)
         {
+            string a = "sdg";
+            InfoControl.OesData.FindStudentByStudentId(a);
+
             if (MessageBox.Show("确定删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 for (int i = 0; i < this.ProblemDGV.Rows.Count; i++)
