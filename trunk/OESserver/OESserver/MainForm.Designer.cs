@@ -74,11 +74,11 @@
             this.xpPanel3.CaptionGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(247)))));
             this.xpPanel3.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel3.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel3.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xpPanel3.CaptionUnderline = System.Drawing.Color.Transparent;
             this.xpPanel3.Controls.Add(this.flowLayoutPanel1);
             this.xpPanel3.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xpPanel3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xpPanel3.HorzAlignment = System.Drawing.StringAlignment.Center;
+            this.xpPanel3.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel3.ImageItems.ImageSet = null;
             this.xpPanel3.Location = new System.Drawing.Point(8, 138);
             this.xpPanel3.Name = "xpPanel3";
@@ -149,16 +149,17 @@
             this.xpPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.xpPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.xpPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.xpPanel2.Caption = "题库管理";
             this.xpPanel2.CaptionCornerType = ((UIComponents.CornerType)((UIComponents.CornerType.TopLeft | UIComponents.CornerType.TopRight)));
             this.xpPanel2.CaptionGradient.End = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(247)))));
             this.xpPanel2.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel2.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.xpPanel2.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.xpPanel2.CaptionUnderline = System.Drawing.Color.Transparent;
             this.xpPanel2.Controls.Add(this.flowLayoutPanel2);
             this.xpPanel2.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.xpPanel2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.xpPanel2.HorzAlignment = System.Drawing.StringAlignment.Center;
+            this.xpPanel2.HorzAlignment = System.Drawing.StringAlignment.Near;
             this.xpPanel2.ImageItems.ImageSet = null;
             this.xpPanel2.Location = new System.Drawing.Point(8, 8);
             this.xpPanel2.Name = "xpPanel2";
@@ -244,7 +245,7 @@
             this.flowLayoutPanel2.Controls.Add(this.paperManLbl);
             this.flowLayoutPanel2.Controls.Add(this.llbNewPaper);
             this.flowLayoutPanel2.Controls.Add(this.llbBulkImport);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 38);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 38);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(84, 78);
             this.flowLayoutPanel2.TabIndex = 5;
