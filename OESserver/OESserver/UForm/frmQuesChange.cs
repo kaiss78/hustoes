@@ -391,10 +391,7 @@ namespace OES
             
         }
 
-        private void frmQuesChange_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void label7_Click(object sender, EventArgs e)
         {
@@ -438,6 +435,11 @@ namespace OES
                 MessageBox.Show("当前为第一页");
 
             InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex + 1);
+        }
+
+        private void frmQuesChange_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            thePro=null;
         }
 
       
