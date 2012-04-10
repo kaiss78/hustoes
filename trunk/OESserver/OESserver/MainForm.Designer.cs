@@ -41,10 +41,12 @@
             this.llbNewPaper = new System.Windows.Forms.LinkLabel();
             this.paperManLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
             this.xpPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // xpPanelGroup1
@@ -57,7 +59,7 @@
             this.xpPanelGroup1.Location = new System.Drawing.Point(0, 0);
             this.xpPanelGroup1.Name = "xpPanelGroup1";
             this.xpPanelGroup1.PanelGradient = ((UIComponents.GradientColor)(resources.GetObject("xpPanelGroup1.PanelGradient")));
-            this.xpPanelGroup1.Size = new System.Drawing.Size(200, 680);
+            this.xpPanelGroup1.Size = new System.Drawing.Size(200, 677);
             this.xpPanelGroup1.TabIndex = 0;
             // 
             // xpPanel3
@@ -71,10 +73,7 @@
             this.xpPanel3.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel3.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.xpPanel3.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xpPanel3.Controls.Add(this.scoreManlbl);
-            this.xpPanel3.Controls.Add(this.techManlbl);
-            this.xpPanel3.Controls.Add(this.classManlbl);
-            this.xpPanel3.Controls.Add(this.stuManlbl);
+            this.xpPanel3.Controls.Add(this.flowLayoutPanel1);
             this.xpPanel3.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xpPanel3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel3.HorzAlignment = System.Drawing.StringAlignment.Center;
@@ -94,7 +93,7 @@
             // 
             this.scoreManlbl.AutoSize = true;
             this.scoreManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.scoreManlbl.Location = new System.Drawing.Point(7, 92);
+            this.scoreManlbl.Location = new System.Drawing.Point(3, 57);
             this.scoreManlbl.Name = "scoreManlbl";
             this.scoreManlbl.Size = new System.Drawing.Size(69, 19);
             this.scoreManlbl.TabIndex = 5;
@@ -107,7 +106,7 @@
             // 
             this.techManlbl.AutoSize = true;
             this.techManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.techManlbl.Location = new System.Drawing.Point(7, 73);
+            this.techManlbl.Location = new System.Drawing.Point(3, 38);
             this.techManlbl.Name = "techManlbl";
             this.techManlbl.Size = new System.Drawing.Size(69, 19);
             this.techManlbl.TabIndex = 4;
@@ -120,7 +119,7 @@
             // 
             this.classManlbl.AutoSize = true;
             this.classManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.classManlbl.Location = new System.Drawing.Point(7, 54);
+            this.classManlbl.Location = new System.Drawing.Point(3, 19);
             this.classManlbl.Name = "classManlbl";
             this.classManlbl.Size = new System.Drawing.Size(69, 19);
             this.classManlbl.TabIndex = 3;
@@ -133,7 +132,7 @@
             // 
             this.stuManlbl.AutoSize = true;
             this.stuManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.stuManlbl.Location = new System.Drawing.Point(7, 35);
+            this.stuManlbl.Location = new System.Drawing.Point(3, 0);
             this.stuManlbl.Name = "stuManlbl";
             this.stuManlbl.Size = new System.Drawing.Size(69, 19);
             this.stuManlbl.TabIndex = 2;
@@ -224,14 +223,25 @@
             this.MainPanel.Location = new System.Drawing.Point(200, 0);
             this.MainPanel.Margin = new System.Windows.Forms.Padding(0);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(754, 680);
+            this.MainPanel.Size = new System.Drawing.Size(754, 677);
             this.MainPanel.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.stuManlbl);
+            this.flowLayoutPanel1.Controls.Add(this.classManlbl);
+            this.flowLayoutPanel1.Controls.Add(this.techManlbl);
+            this.flowLayoutPanel1.Controls.Add(this.scoreManlbl);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 38);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(84, 83);
+            this.flowLayoutPanel1.TabIndex = 6;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 680);
+            this.ClientSize = new System.Drawing.Size(954, 677);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.xpPanelGroup1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -245,9 +255,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).EndInit();
             this.xpPanelGroup1.ResumeLayout(false);
             this.xpPanel3.ResumeLayout(false);
-            this.xpPanel3.PerformLayout();
             this.xpPanel2.ResumeLayout(false);
             this.xpPanel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -266,6 +277,7 @@
         private System.Windows.Forms.LinkLabel scoreManlbl;
         private System.Windows.Forms.LinkLabel llbProManage;
         private System.Windows.Forms.LinkLabel llbBulkImport;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 
     }
 }
