@@ -240,12 +240,15 @@ namespace OES
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            int index = dgvPaperPreview.SelectedRows[0].Index;
-            if (MessageBox.Show("确定删除记录", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (dgvPaperPreview.RowCount > 0)
             {
-                NewPaper.problemList.Remove(NewPaper.problemList[index]);
-                dtPaperPreview.Rows[index].Delete();
-                lbTScore.Text = CountScore().ToString();
+                int index = dgvPaperPreview.SelectedRows[0].Index;
+                if (MessageBox.Show("确定删除记录", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    NewPaper.problemList.Remove(NewPaper.problemList[index]);
+                    dtPaperPreview.Rows[index].Delete();
+                    lbTScore.Text = CountScore().ToString();
+                }
             }
 
         }
