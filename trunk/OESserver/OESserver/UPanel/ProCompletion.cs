@@ -202,19 +202,6 @@ namespace OES.UPanel
             {
                 InfoControl.OesData.DeleteProgramAnswer(PID);
                 InfoControl.OesData.UpdateProgram(PID, ProgramPType.Completion, language, Unit, PLevel);
-                switch (language)
-                {
-                    case PLanguage.C:
-                        InfoControl.ClientObj.DelCCompletion(PID, InfoControl.User.Id);
-                        break;
-                    case PLanguage.CPP:
-                        InfoControl.ClientObj.DelCppCompletion(PID, InfoControl.User.Id);
-                        break;
-                    case PLanguage.VB:
-                        InfoControl.ClientObj.DelVbCompletion(PID, InfoControl.User.Id);
-                        break;
-                }
-
             }
 
             if (PID > 0)
@@ -222,22 +209,30 @@ namespace OES.UPanel
                 switch (language)
                 {
                     case PLanguage.C:
-                        File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".c", true);
+                        if (tbProblemFile.Text != InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".c")
+                        {
+                            File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".c", true);
+                        }
                         InfoControl.ClientObj.SaveCCompletion(PID, Convert.ToInt32(InfoControl.User.Id));
                         break;
                     case PLanguage.CPP:
-                        File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".cpp", true);
+                        if (tbProblemFile.Text != InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".cpp")
+                        {
+                            File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".cpp", true);
+                        }
                         InfoControl.ClientObj.SaveCppCompletion(PID, Convert.ToInt32(InfoControl.User.Id));
                         break;
                     case PLanguage.VB:
-                        File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".vb", true);
+                        if (tbProblemFile.Text != InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".vb")
+                        {
+                            File.Copy(tbProblemFile.Text, InfoControl.config["CompletionPath"] + "p" + PID.ToString() + ".vb", true);
+                        }
                         InfoControl.ClientObj.SaveVbCompletion(PID, InfoControl.User.Id);
                         break;
                 }
                 ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
                 InfoControl.ClientObj.SendFiles();
-                
-                
+                                
             }
         }
 
