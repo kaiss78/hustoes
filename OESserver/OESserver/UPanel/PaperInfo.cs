@@ -267,6 +267,11 @@ namespace OES.UPanel
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            if (Rules.Count < 1)
+            {
+                MessageBox.Show("未添加规则！无法生成试卷。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             NewPaper = new Paper();
             NewPaper.paperName = tbPaperName.Text;
             NewPaper.authorId = InfoControl.User.Id;
