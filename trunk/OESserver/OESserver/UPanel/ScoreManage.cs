@@ -105,11 +105,18 @@ namespace OES.UPanel
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
-            string Class = comboClass.SelectedItem.ToString();
-            string Paper = comboPaper.SelectedItem.ToString();
-           // MessageBox.Show(comboClass.SelectedItem);
-            MessageBox.Show(Paper);
-            getScoreTable(InfoControl.OesData.FindScoreByClassPaper(Class, Paper));
+            try
+            {
+                string Class = comboClass.SelectedItem.ToString();
+                string Paper = comboPaper.SelectedItem.ToString();
+                // MessageBox.Show(comboClass.SelectedItem);
+                MessageBox.Show(Paper);
+                getScoreTable(InfoControl.OesData.FindScoreByClassPaper(Class, Paper));
+            }
+            catch
+            {
+                MessageBox.Show("未选择正确试卷");
+            }
         }
     }
 }
