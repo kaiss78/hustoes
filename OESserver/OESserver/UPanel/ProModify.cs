@@ -200,18 +200,6 @@ namespace OES.UPanel
             {
                 InfoControl.OesData.DeleteProgramAnswer(PID);
                 InfoControl.OesData.UpdateProgram(PID, ProgramPType.Modify, language, Unit, PLevel);
-                switch (language)
-                {
-                    case PLanguage.C:
-                        InfoControl.ClientObj.DelCModification(PID, InfoControl.User.Id);
-                        break;
-                    case PLanguage.CPP:
-                        InfoControl.ClientObj.DelCppModification(PID, InfoControl.User.Id);
-                        break;
-                    case PLanguage.VB:
-                        InfoControl.ClientObj.DelVbModification(PID, InfoControl.User.Id);
-                        break;
-                }
             }
             if (PID > 0)
             {
@@ -222,15 +210,24 @@ namespace OES.UPanel
                 switch (language)
                 {
                     case PLanguage.C:
-                        File.Copy(tbProblemFile.Text, InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".c", true);
+                        if (tbProblemFile.Text != InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".c")
+                        {
+                            File.Copy(tbProblemFile.Text, InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".c", true);
+                        }
                         InfoControl.ClientObj.SaveCModification(PID, Convert.ToInt32(InfoControl.User.Id));
                         break;
                     case PLanguage.CPP:
-                        File.Copy(tbProblemFile.Text, InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".cpp", true);
+                        if (tbProblemFile.Text != InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".cpp")
+                        {
+                            File.Copy(tbProblemFile.Text, InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".cpp", true);
+                        }
                         InfoControl.ClientObj.SaveCppModification(PID, Convert.ToInt32(InfoControl.User.Id));
                         break;
                     case PLanguage.VB:
-                        File.Copy(tbProblemFile.Text, InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".vb", true);
+                        if (tbProblemFile.Text != InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".vb")
+                        {
+                            File.Copy(tbProblemFile.Text, InfoControl.config["ModificationPath"] + "p" + PID.ToString() + ".vb", true);
+                        }
                         InfoControl.ClientObj.SaveVbModification(PID, Convert.ToInt32(InfoControl.User.Id));
                         break;
                 }
