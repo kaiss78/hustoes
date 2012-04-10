@@ -309,7 +309,6 @@ namespace OES
 
         public frmQuesChange(Problem problem)
         {
-            int quesType = Convert.ToInt32(problem.type);
 
             InitializeComponent();
             InitCombText();
@@ -318,9 +317,17 @@ namespace OES
             this.Diffcombo.SelectedIndex = 0;
             this.Textcombo.SelectedIndex = 0;
 
-            this.scoreBox.Text = Convert.ToString(problem.score);
-            if(problem!=null)
+            if (problem != null)
+            {
+                int quesType = Convert.ToInt32(problem.type);
                 this.Typecombo.SelectedIndex = quesType;
+                this.scoreBox.Text = Convert.ToString(problem.score);
+            }
+            else
+            {
+                this.scoreBox.Text = "";
+            }
+        
             aList = (ListItem)this.Unitcombo.SelectedItem;
             pointWords = this.PcontentText.Text;
             theType = this.Typecombo.SelectedIndex;
@@ -368,8 +375,13 @@ namespace OES
                 case 13: thePro = InfoControl.OesData.FindModifyProgramByPID(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value))[0]; break;
                 case 14: thePro = InfoControl.OesData.FindFunctionProgramByPID(Convert.ToInt32(this.ProblemDGV.Rows[this.ProblemDGV.CurrentRow.Index].Cells[1].Value))[0]; break;
             }
-            thePro.score = Convert.ToInt32(scoreBox.Text);
-            this.Visible = false;
+            if (scoreBox.Text == "")
+                MessageBox.Show("请输入分值！");
+            else
+            {
+                thePro.score = Convert.ToInt32(scoreBox.Text);
+                this.Visible = false;
+            }
         }
 
         private void UpdateBut_Click(object sender, EventArgs e)
@@ -403,7 +415,30 @@ namespace OES
             }
         }
 
-       
+        private void Pagecombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex + 1);
+        }
+
+        private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.Pagecombo.SelectedIndex < pageNum - 1)
+                this.Pagecombo.SelectedIndex = this.Pagecombo.SelectedIndex + 1;
+            else
+                MessageBox.Show("当前为最后一页");
+
+            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex + 1);
+        }
+
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.Pagecombo.SelectedIndex > 0)
+                this.Pagecombo.SelectedIndex = this.Pagecombo.SelectedIndex - 1;
+            else
+                MessageBox.Show("当前为第一页");
+
+            InitList(this.Typecombo.SelectedIndex, Convert.ToInt32(aList.key), Convert.ToInt32(bList.key), this.Diffcombo.SelectedIndex, pointWords, this.Pagecombo.SelectedIndex + 1);
+        }
 
       
 
