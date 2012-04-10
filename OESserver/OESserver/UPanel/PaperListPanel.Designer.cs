@@ -139,6 +139,7 @@
             // startTime
             // 
             this.startTime.CalendarTodayDate = new System.DateTime(2011, 3, 19, 0, 0, 0, 0);
+            this.startTime.Cursor = System.Windows.Forms.Cursors.Default;
             this.startTime.CustomFormat = "yyyy/MM/dd";
             this.startTime.Dock = System.Windows.Forms.DockStyle.Left;
             this.startTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -148,7 +149,6 @@
             this.startTime.Size = new System.Drawing.Size(134, 29);
             this.startTime.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.startTime.TabIndex = 6;
-            this.startTime.UseWaitCursor = true;
             this.startTime.ValueNullable = new System.DateTime(2011, 3, 27, 0, 0, 0, 0);
             // 
             // endTime
