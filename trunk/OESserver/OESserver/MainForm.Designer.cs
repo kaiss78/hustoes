@@ -42,11 +42,13 @@
             this.paperManLbl = new System.Windows.Forms.LinkLabel();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
             this.xpPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // xpPanelGroup1
@@ -88,6 +90,7 @@
             this.xpPanel3.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanel3.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel3.VertAlignment = System.Drawing.StringAlignment.Center;
+            this.xpPanel3.XPPanelStyle = UIComponents.XPPanelStyle.WindowsXP;
             // 
             // scoreManlbl
             // 
@@ -152,10 +155,7 @@
             this.xpPanel2.CaptionGradient.Start = System.Drawing.Color.White;
             this.xpPanel2.CaptionGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
             this.xpPanel2.CaptionUnderline = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.xpPanel2.Controls.Add(this.llbBulkImport);
-            this.xpPanel2.Controls.Add(this.llbProManage);
-            this.xpPanel2.Controls.Add(this.llbNewPaper);
-            this.xpPanel2.Controls.Add(this.paperManLbl);
+            this.xpPanel2.Controls.Add(this.flowLayoutPanel2);
             this.xpPanel2.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.xpPanel2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.xpPanel2.HorzAlignment = System.Drawing.StringAlignment.Center;
@@ -170,10 +170,11 @@
             this.xpPanel2.TextColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(93)))), ((int)(((byte)(198)))));
             this.xpPanel2.TextHighlightColors.Foreground = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
             this.xpPanel2.VertAlignment = System.Drawing.StringAlignment.Center;
+            this.xpPanel2.XPPanelStyle = UIComponents.XPPanelStyle.WindowsXP;
             // 
             // llbBulkImport
             // 
-            this.llbBulkImport.Location = new System.Drawing.Point(7, 96);
+            this.llbBulkImport.Location = new System.Drawing.Point(3, 57);
             this.llbBulkImport.Name = "llbBulkImport";
             this.llbBulkImport.Size = new System.Drawing.Size(69, 19);
             this.llbBulkImport.TabIndex = 4;
@@ -186,7 +187,7 @@
             // 
             this.llbProManage.AutoSize = true;
             this.llbProManage.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.llbProManage.Location = new System.Drawing.Point(7, 39);
+            this.llbProManage.Location = new System.Drawing.Point(3, 0);
             this.llbProManage.Name = "llbProManage";
             this.llbProManage.Size = new System.Drawing.Size(69, 19);
             this.llbProManage.TabIndex = 3;
@@ -197,7 +198,7 @@
             // 
             // llbNewPaper
             // 
-            this.llbNewPaper.Location = new System.Drawing.Point(7, 77);
+            this.llbNewPaper.Location = new System.Drawing.Point(3, 38);
             this.llbNewPaper.Name = "llbNewPaper";
             this.llbNewPaper.Size = new System.Drawing.Size(69, 19);
             this.llbNewPaper.TabIndex = 0;
@@ -208,7 +209,7 @@
             // 
             // paperManLbl
             // 
-            this.paperManLbl.Location = new System.Drawing.Point(7, 58);
+            this.paperManLbl.Location = new System.Drawing.Point(3, 19);
             this.paperManLbl.Name = "paperManLbl";
             this.paperManLbl.Size = new System.Drawing.Size(69, 19);
             this.paperManLbl.TabIndex = 1;
@@ -237,6 +238,17 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(84, 83);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.llbProManage);
+            this.flowLayoutPanel2.Controls.Add(this.paperManLbl);
+            this.flowLayoutPanel2.Controls.Add(this.llbNewPaper);
+            this.flowLayoutPanel2.Controls.Add(this.llbBulkImport);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(4, 38);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(84, 78);
+            this.flowLayoutPanel2.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -256,9 +268,10 @@
             this.xpPanelGroup1.ResumeLayout(false);
             this.xpPanel3.ResumeLayout(false);
             this.xpPanel2.ResumeLayout(false);
-            this.xpPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -278,6 +291,7 @@
         private System.Windows.Forms.LinkLabel llbProManage;
         private System.Windows.Forms.LinkLabel llbBulkImport;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
 
     }
 }
