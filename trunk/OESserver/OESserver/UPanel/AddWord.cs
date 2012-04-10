@@ -166,8 +166,15 @@ namespace OES.UPanel
                 if (mode == 0)      //新增Word
                 {
                     PID = InfoControl.OesData.AddOffice(textInfo.Text, unit, plvl, OES.Model.Office.OfficeType.Word);
-                    Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
-                    upload(PID);
+                    if (PID > 0)    //数据库操作无误
+                    {
+                        Net.ClientEvt.FilesComplete += new Action(ClientEvt_FilesComplete);
+                        upload(PID);
+                    }
+                    else            //数据库操作出现错误
+                    {
+                        MessageBox.Show("添加试题失败，请检查数据库连接！");
+                    }
                 }
                 else                //修改Word
                 {
