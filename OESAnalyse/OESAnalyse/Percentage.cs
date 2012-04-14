@@ -46,35 +46,39 @@ namespace OESAnalyse
                     {
                         if (root1.FirstChild.Attributes["studentId"].Value == myList[x].ID && root1.FirstChild.Attributes["paperId"].Value == myList[x].examID)
                         {
-                            for (i = 0; i <= 9; i++)
+                            node1 = node.FirstChild;
+                            if (node1.FirstChild != null)
                             {
-                                Percentage oneStu = new Percentage();
-                                oneStu.ID = node1.InnerText;
-                                oneStu.total = 1;
-                                oneStu.type = node.Name;
-                                if ((Convert.ToInt32(node1.NextSibling.InnerText)) != 0)
-                                    oneStu.right = 1;
-                                else
-                                    oneStu.right = 0;
-                                oneStu.percentage = 100 * oneStu.right / oneStu.total;
-                                int c;
-                                for (c = 1; c <= list.Count; c++)
+                                while (node1 != null)
                                 {
-                                    if (((Percentage)list[c - 1]).ID == oneStu.ID && ((Percentage)list[c - 1]).type == oneStu.type)
+                                    Percentage oneStu = new Percentage();
+                                    oneStu.ID = node1.InnerText;
+                                    oneStu.total = 1;
+                                    oneStu.type = node.Name;
+                                    if ((Convert.ToInt32(node1.NextSibling.InnerText)) != 0)
+                                        oneStu.right = 1;
+                                    else
+                                        oneStu.right = 0;
+                                    oneStu.percentage = 100 * oneStu.right / oneStu.total;
+                                    int c;
+                                    for (c = 1; c <= list.Count; c++)
                                     {
-                                        ((Percentage)list[c - 1]).total++;
-                                        if ((Convert.ToInt32(node1.NextSibling.InnerText)) != 0)
-                                            ((Percentage)list[c - 1]).right++;
-                                        ((Percentage)list[c - 1]).percentage = 100 * ((Percentage)list[c - 1]).right / ((Percentage)list[c - 1]).total;
-                                        break;
+                                        if (((Percentage)list[c - 1]).ID == oneStu.ID && ((Percentage)list[c - 1]).type == oneStu.type)
+                                        {
+                                            ((Percentage)list[c - 1]).total++;
+                                            if ((Convert.ToInt32(node1.NextSibling.InnerText)) != 0)
+                                                ((Percentage)list[c - 1]).right++;
+                                            ((Percentage)list[c - 1]).percentage = 100 * ((Percentage)list[c - 1]).right / ((Percentage)list[c - 1]).total;
+                                            break;
+                                        }
+                                        if (((Percentage)list[c - 1]).ID != oneStu.ID && list.Count == c)
+                                        {
+                                            list.Add(oneStu);
+                                            break;
+                                        }
                                     }
-                                    if (((Percentage)list[c - 1]).ID != oneStu.ID && list.Count == c)
-                                    {
-                                        list.Add(oneStu);
-                                        break;
-                                    }
+                                    node1 = node1.NextSibling.NextSibling;
                                 }
-                                node1 = node1.NextSibling.NextSibling;
                             }
                             for (i = 0; i <= 9; i++)
                             {
