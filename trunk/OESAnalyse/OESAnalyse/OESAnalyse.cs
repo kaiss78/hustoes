@@ -11,6 +11,7 @@ using System.Text;
 using System.Collections;
 using OES.Model;
 using OES;
+using System.Xml;
 
 namespace OESAnalyse
 {
@@ -140,6 +141,45 @@ namespace OESAnalyse
                 }
             }
             return paperIds;
+
+        }
+        public List<Prob> findProbID(string rootPath, string pID) 
+        {
+            List<Prob> stuProb=new List<Prob>(); 
+            DirectoryInfo root = new DirectoryInfo(path);
+            DirectoryInfo[] stu = root.GetDirectories("*");
+            for (int j = 0; j < stu.Length; j++)
+            {
+                FileInfo[] result = stu[j].GetFiles("Result*");
+                if (result.Length == 1)
+                {
+                    XmlDocument document = new XmlDocument();
+                    document.Load(result[0].FullName);
+                    XmlNode root1 = document.DocumentElement;
+                    if (root1.FirstChild.Attributes["paperId"].Value == pID) 
+                    {
+                        XmlNode node, node1;
+                        node = root1.FirstChild.FirstChild;
+                        do
+                        {
+                            node1 = node.FirstChild;
+                            for (int i = 0; i <= 9; i++)
+                            {
+                                Prob aProb=new Prob ();
+                                aProb.problemType = node.Name;
+                                aProb.problemID = Convert.ToInt16(node1.InnerText);
+                                stuProb.Add(aProb);
+                                node1 = node1.NextSibling.NextSibling;
+                            }
+                            node = node.NextSibling;
+                        }
+                        while (node.FirstChild!=null);
+                    }  
+                    break;
+                    
+                }
+            }
+            return (stuProb);
         }
 
 
@@ -219,7 +259,50 @@ namespace OESAnalyse
 
         private void button1_Click(object sender, EventArgs e)
         {
+            object[] newRow = new object[4];
             this.panel1.Visible = true;
+            DataTable paperTable = new DataTable();
+            paperTable.Columns.Add("试题ID");
+            paperTable.Columns.Add("试题类型");
+            paperTable.Columns.Add("题干");
+            paperTable.Columns.Add("分值");
+            List<Prob> newProb = new List<Prob>();
+            newProb = findProbID(path, Convert.ToString(this.PaperCombo.SelectedItem));
+            for (int i = 0; i < newProb.Count; i++)
+            {
+                if (newProb[i].problemType == "Choice")
+                {
+                    List<Choice> aChoice = new List<Choice>();
+                    aChoice = oesData.FindChoiceByPID(64);
+                    newRow[0] = newProb[i].problemID;
+                    newRow[1] = "Choice";
+                    newRow[2] = aChoice[0].problem;
+                    newRow[3] = aChoice[0].score;
+                }
+                else if (newProb[i].problemType == "Completion")
+                {
+                    List<Completion> aCompletion = new List<Completion>();
+                    aCompletion = oesData.FindCompletionByPID(14);
+                    newRow[0] = newProb[i].problemID;
+                    newRow[1] = newProb[i].problemType;
+                    newRow[2] = aCompletion[0].problem;
+                    newRow[3] = aCompletion[0].score;
+                }
+                else if (newProb[i].problemType == "Judgment")
+                {
+                    List<Judgment> aJudgment = new List<Judgment>();
+                    aJudgment = oesData.FindJudgmentByPID(13);
+                    newRow[0] = newProb[i].problemID;
+                    newRow[1] = newProb[i].problemType;
+                    newRow[2] = aJudgment[0].problem;
+                    newRow[3] = aJudgment[0].score;
+                }
+                paperTable.Rows.Add(newRow);
+
+            }
+            dataGridView3.RowHeadersVisible = false;
+            dataGridView3.DataSource = paperTable.DefaultView;
+            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void backButn_Click(object sender, EventArgs e)
@@ -234,14 +317,14 @@ namespace OESAnalyse
             object[] newRow = new object[3];
             Percentage newPercentage = new Percentage();
             ArrayList list = new ArrayList();
-            List<Student> stu=new List<Student> ();
-            stu=findStuByCAP(Convert.ToString(ClassCombo.SelectedItem),Convert.ToString(PaperCombo.SelectedItem));
+            List<Student> stu = new List<Student>();
+            stu = findStuByCAP(Convert.ToString(ClassCombo.SelectedItem), Convert.ToString(PaperCombo.SelectedItem));
             list = newPercentage.printPercentage(path, stu, this.PaperCombo.SelectedText);
             myTable = new DataTable();
             myTable.Columns.Add("试题类型");
             myTable.Columns.Add("试题ID");
             myTable.Columns.Add("正确率");
-            for (int i = 2; i<=list.Count; i++)
+            for (int i = 2; i <= list.Count; i++)
             {
 
                 newRow[0] = ((Percentage)list[i - 1]).type;
@@ -251,19 +334,66 @@ namespace OESAnalyse
             }
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.DataSource = myTable.DefaultView;
+            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void ScoreDistriBut_Click(object sender, EventArgs e)
         {
             PieChart pie = new PieChart(findStuByCAP(Convert.ToString(this.ClassCombo.SelectedItem), Convert.ToString(this.PaperCombo.SelectedItem)));
             pie.Visible = true;
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView3_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ProblemForm pf = new ProblemForm();
+            pf.newTextBox.Multiline = true;
+            pf.newTextBox.WordWrap = true;
+            if ( Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value) == "Choice") 
+            {
+                String output;
+                List<Choice> newChoice = new List<Choice>();
+                output ="题目：" + Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
+                newChoice = oesData.FindChoiceByPID(64);
+                output +="A."+newChoice[0].optionA+"\r\n";
+                output +="B."+newChoice[0].optionB+"\r\n";
+                output +="C."+newChoice[0].optionC+"\r\n";
+                output +="D."+newChoice[0].optionD+"\r\n";
+                output +="答案："+ newChoice[0].ans;
+                pf.newTextBox.Text = output;
+            }
+            else if (Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value) == "Completion") 
+            {
+                String output;
+                List<Completion> newCompletion = new List<Completion>();
+                output = "题目：" + Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
+                newCompletion = oesData.FindCompletionByPID(14);
+                output +="答案："+ newCompletion[0].ans+"\r\n";
+                pf.newTextBox.Text = output;
+            }
+            else if (Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value) == "Judgment") 
+            {
+                String output;
+                List<Judgment> newJudgment = new List<Judgment>();
+                output = "题目：" + Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
+                newJudgment = oesData.FindJudgmentByPID(13);
+                output +="答案："+ newJudgment[0].ans;
+                pf.newTextBox.Text = output;
+            }
+      
+            pf.newTextBox.ReadOnly = true;
+            pf.Visible = true;
+            
         }
 
         private void ConfigBut_Click(object sender, EventArgs e)
