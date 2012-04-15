@@ -114,7 +114,7 @@ namespace OES
                         for (int i = 0; i < choiceList.Count; i++)
                             problemList.Add(choiceList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, -1, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Null, (int)PLanguage.Null);
 
                     } break;
 
@@ -125,7 +125,7 @@ namespace OES
                         for (int i = 0; i < completionList.Count; i++)
                             problemList.Add(completionList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, -1, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Null, (int)PLanguage.Null);
 
                     } break;
 
@@ -136,7 +136,7 @@ namespace OES
                         for (int i = 0; i < judgmentList.Count; i++)
                             problemList.Add(judgmentList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, -1, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Null, (int)PLanguage.Null);
 
                     } break;
 
@@ -147,7 +147,7 @@ namespace OES
                         for (int i = 0; i < wordList.Count; i++)
                             problemList.Add(wordList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 0, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Null, (int)PLanguage.Null);
 
                     } break;
 
@@ -158,7 +158,7 @@ namespace OES
                         for (int i = 0; i < excelList.Count; i++)
                             problemList.Add(excelList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 1, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Null, (int)PLanguage.Null);
 
                     } break;
 
@@ -169,7 +169,7 @@ namespace OES
                         for (int i = 0; i < powerList.Count; i++)
                             problemList.Add(powerList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 2, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Null, (int)PLanguage.Null);
 
                     } break;
 
@@ -181,7 +181,7 @@ namespace OES
                             problemList.Add(proCComList[i]);
 
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 0, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Completion, (int)PLanguage.C);
 
                     } break;
 
@@ -192,7 +192,7 @@ namespace OES
                         for (int i = 0; i < proCModList.Count; i++)
                             problemList.Add(proCModList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, pageIndex, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Modify, (int)PLanguage.C);
 
                     } break;
 
@@ -203,7 +203,7 @@ namespace OES
                         for (int i = 0; i < proCFuncList.Count; i++)
                             problemList.Add(proCFuncList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 2, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Function, (int)PLanguage.C);
 
                     } break;
 
@@ -215,7 +215,7 @@ namespace OES
                             problemList.Add(proCPPComList[i]);
 
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 0, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Completion, (int)PLanguage.CPP);
 
                     } break;
 
@@ -226,7 +226,7 @@ namespace OES
                         for (int i = 0; i < proCPPModList.Count; i++)
                             problemList.Add(proCPPModList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, pageIndex, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Modify, (int)PLanguage.CPP);
 
                     } break;
 
@@ -237,7 +237,7 @@ namespace OES
                         for (int i = 0; i < proCPPFuncList.Count; i++)
                             problemList.Add(proCPPFuncList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 2, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Function, (int)PLanguage.CPP);
 
                     } break;
 
@@ -249,7 +249,7 @@ namespace OES
                             problemList.Add(proVBComList[i]);
 
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 0, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Completion, (int)PLanguage.VB);
 
                     } break;
 
@@ -260,7 +260,7 @@ namespace OES
                         for (int i = 0; i < proVBModList.Count; i++)
                             problemList.Add(proVBModList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, pageIndex, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Modify, (int)PLanguage.VB);
 
                     } break;
 
@@ -271,7 +271,7 @@ namespace OES
                         for (int i = 0; i < proVBFuncList.Count; i++)
                             problemList.Add(proVBFuncList[i]);
 
-                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, 2, -1);
+                        quesNum = InfoControl.OesData.FindItemsCount(tableName, pointwords, unit, course, difficulty, (int)ProgramPType.Function, (int)PLanguage.VB);
 
                     } break;
 
