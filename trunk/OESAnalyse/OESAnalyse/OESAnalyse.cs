@@ -273,29 +273,59 @@ namespace OESAnalyse
                 if (newProb[i].problemType == "Choice")
                 {
                     List<Choice> aChoice = new List<Choice>();
-                    aChoice = oesData.FindChoiceByPID(64);
-                    newRow[0] = newProb[i].problemID;
-                    newRow[1] = "Choice";
-                    newRow[2] = aChoice[0].problem;
-                    newRow[3] = aChoice[0].score;
+                    aChoice = oesData.FindChoiceByPID(newProb[i].problemID);
+                    if (aChoice.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = "Choice";
+                        newRow[2] = aChoice[0].problem;
+                        newRow[3] = aChoice[0].score;
+                    }
                 }
                 else if (newProb[i].problemType == "Completion")
                 {
                     List<Completion> aCompletion = new List<Completion>();
-                    aCompletion = oesData.FindCompletionByPID(14);
-                    newRow[0] = newProb[i].problemID;
-                    newRow[1] = newProb[i].problemType;
-                    newRow[2] = aCompletion[0].problem;
-                    newRow[3] = aCompletion[0].score;
+                    aCompletion = oesData.FindCompletionByPID(newProb[i].problemID);
+                    if (aCompletion.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aCompletion[0].problem;
+                        newRow[3] = aCompletion[0].score;
+                    }
                 }
                 else if (newProb[i].problemType == "Judgment")
                 {
                     List<Judgment> aJudgment = new List<Judgment>();
-                    aJudgment = oesData.FindJudgmentByPID(13);
-                    newRow[0] = newProb[i].problemID;
-                    newRow[1] = newProb[i].problemType;
-                    newRow[2] = aJudgment[0].problem;
-                    newRow[3] = aJudgment[0].score;
+                    aJudgment = oesData.FindJudgmentByPID(newProb[i].problemID);
+                    if (aJudgment.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aJudgment[0].problem;
+                        newRow[3] = aJudgment[0].score;
+                    }
                 }
                 paperTable.Rows.Add(newRow);
 
@@ -362,33 +392,60 @@ namespace OESAnalyse
             if ( Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value) == "Choice") 
             {
                 String output;
-                List<Choice> newChoice = new List<Choice>();
-                output ="题目：" + Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
-                newChoice = oesData.FindChoiceByPID(64);
-                output +="A."+newChoice[0].optionA+"\r\n";
-                output +="B."+newChoice[0].optionB+"\r\n";
-                output +="C."+newChoice[0].optionC+"\r\n";
-                output +="D."+newChoice[0].optionD+"\r\n";
-                output +="答案："+ newChoice[0].ans;
-                pf.newTextBox.Text = output;
+                if (Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) != "题目已丢失")
+                {
+                    List<Choice> newChoice = new List<Choice>();
+                    output = "题目：" + Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
+                    newChoice = oesData.FindChoiceByPID(Convert.ToInt16(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[0].Value));
+                    output += "A." + newChoice[0].optionA + "\r\n";
+                    output += "B." + newChoice[0].optionB + "\r\n";
+                    output += "C." + newChoice[0].optionC + "\r\n";
+                    output += "D." + newChoice[0].optionD + "\r\n";
+                    output += "答案：" + newChoice[0].ans;
+                    pf.newTextBox.Text = output;
+                }
+                else 
+                { 
+                    output = "题目不存在";
+                    pf.newTextBox.Text = output;
+                }
             }
             else if (Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value) == "Completion") 
             {
                 String output;
-                List<Completion> newCompletion = new List<Completion>();
-                output = "题目：" + Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
-                newCompletion = oesData.FindCompletionByPID(14);
-                output +="答案："+ newCompletion[0].ans+"\r\n";
-                pf.newTextBox.Text = output;
+                if (Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) != "题目已丢失")
+                {
+                    List<Completion> newCompletion = new List<Completion>();
+                    output = "题目：" + Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
+                    newCompletion = oesData.FindCompletionByPID(Convert.ToInt16(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[0].Value));
+                    for (int i = 0; i < newCompletion[0].ans.Count; i++)
+                    {
+                        output += "答案：" + newCompletion[0].ans[i] + "\r\n";
+                    }
+                    pf.newTextBox.Text = output;
+                }
+                else 
+                {
+                    output = "题目不存在";
+                    pf.newTextBox.Text = output;
+                }
             }
             else if (Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value) == "Judgment") 
             {
                 String output;
-                List<Judgment> newJudgment = new List<Judgment>();
-                output = "题目：" + Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
-                newJudgment = oesData.FindJudgmentByPID(13);
-                output +="答案："+ newJudgment[0].ans;
-                pf.newTextBox.Text = output;
+                if (Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) != "题目已丢失")
+                {
+                    List<Judgment> newJudgment = new List<Judgment>();
+                    output = "题目：" + Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
+                    newJudgment = oesData.FindJudgmentByPID(Convert.ToInt16(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[0].Value));
+                    output += "答案：" + newJudgment[0].ans;
+                    pf.newTextBox.Text = output;
+                }
+                else 
+                {
+                    output = "题目不存在";
+                    pf.newTextBox.Text = output;
+                }
             }
       
             pf.newTextBox.ReadOnly = true;
