@@ -32,6 +32,7 @@ namespace OES
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.ToString());
+                res = -1;
             }
             return res;
         }
