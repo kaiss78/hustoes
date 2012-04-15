@@ -249,16 +249,17 @@ namespace OESScore
                         {
                             foreach (ProgramAnswer pa in ScoreControl.staAns.PCList[i].ansList)
                             {
-                                if ((pa.Output == proAns[j]) && (pa.SeqNum == j - 1))
+                                if ((pa.Output == proAns[j]) && (pa.SeqNum == j + 1))
                                 {
                                     count++;
                                     break;
                                 }
                             }
                         }
-                        dScore = count * ScoreControl.staAns.PCList[i].score / proAns.Count;
+                        dScore = count * ScoreControl.staAns.PCList[i].score / proAns.Count;                       
                         XMLControl.AddScore(ScoreControl.staAns.PCList[i].type, ScoreControl.staAns.PCList[i].problemId, dScore);
                         Score = Score + dScore;
+                        
                     }
                 }
 
@@ -276,7 +277,7 @@ namespace OESScore
                         {
                             foreach (ProgramAnswer pa in ScoreControl.staAns.PMList[i].ansList)
                             {
-                                if ((ProgramScore.Clean(pa.Output) == proAns[j]) && (pa.SeqNum == j - 1))
+                                if ((ProgramScore.Clean(pa.Output).Equals(proAns[j])) && (pa.SeqNum == j - 1))
                                 {
                                     count++;
                                     break;
