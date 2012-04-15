@@ -385,7 +385,8 @@ namespace OES.UPanel
         private void ProblemDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             theRowIndex = e.RowIndex;
-            if (theRowIndex > -1)
+            int CIndex = e.ColumnIndex;
+            if ((theRowIndex > -1) && (CIndex == 0))
             {
                 questionTable.Rows[theRowIndex][0] = !Convert.ToBoolean(questionTable.Rows[theRowIndex][0]);
             }
