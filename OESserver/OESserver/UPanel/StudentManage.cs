@@ -199,7 +199,8 @@ namespace OES.UPanel
         private void studentInfoDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int RIndex = e.RowIndex;
-            if (RIndex > -1)
+            int CIndex = e.ColumnIndex;
+            if ((RIndex > -1) && (CIndex == 0))
             {
                 dt.Rows[RIndex][0] = !Convert.ToBoolean(dt.Rows[RIndex][0]);
             }
