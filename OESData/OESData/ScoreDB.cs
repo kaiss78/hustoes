@@ -39,6 +39,23 @@ namespace OES
             return result;
         }
 
+        //添加信息至Score表
+        public void AddScore(int ExamID, int PaperID, string StudentID, int Score)
+        {
+            List<SqlParameter> dp = new List<SqlParameter>();
+            dp.Add(CreateParam("@ExamID", SqlDbType.Int, 0, ExamID, ParameterDirection.Input));
+            dp.Add(CreateParam("@PaperID", SqlDbType.Int, 0, PaperID, ParameterDirection.Input));
+            dp.Add(CreateParam("@StudentID", SqlDbType.VarChar, 50, StudentID, ParameterDirection.Input));
+            dp.Add(CreateParam("@Score", SqlDbType.Int, 0, Score, ParameterDirection.Input));
+            try
+            {
+                RunProc("AddScore", dp);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
 
         public List<Score> FindScoreByClassPaper(string ClassName, string Title)
         {
