@@ -19,7 +19,14 @@ namespace TestOESData
         public OESData oesdata=new OESData();
         private void button1_Click(object sender, EventArgs e)
         {
-            oesdata.FindProgramAnswerByPID(1);
+            //int x = oesdata.AddExam("OESData测试", "2012-4-15");
+            for (int i = 1; i <= 100; i++)
+            {
+                Int32 t = i + 2011210000;
+                string str = t.ToString();
+                oesdata.AddScore(1, 1, str, 100);
+            }
+            //oesdata.FindProgramAnswerByPID(1);
             //oesdata.FindAllChoice("", -1, 1, -1, 1, 100);
             //oesdata.DeleteProgram(36);
             //oesdata.FindAllProgram("", OES.Model.ProgramPType.Null, 
