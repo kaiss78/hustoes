@@ -301,23 +301,26 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
-                            case "OptionA":
-                                c.optionA = option.ChildNodes.Item(0).Value;
-                                break;
-                            case "OptionB":
-                                c.optionB = option.ChildNodes.Item(0).Value;
-                                break;
-                            case "OptionC":
-                                c.optionC = option.ChildNodes.Item(0).Value;
-                                break;
-                            case "OptionD":
-                                c.optionD = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                                case "OptionA":
+                                    c.optionA = option.ChildNodes.Item(0).Value;
+                                    break;
+                                case "OptionB":
+                                    c.optionB = option.ChildNodes.Item(0).Value;
+                                    break;
+                                case "OptionC":
+                                    c.optionC = option.ChildNodes.Item(0).Value;
+                                    break;
+                                case "OptionD":
+                                    c.optionD = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -337,11 +340,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -361,11 +367,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -385,14 +394,17 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
-                        list.Add(c);
                     }
+                    list.Add(c);
                 }
             }
             return list;
@@ -409,11 +421,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -433,11 +448,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -457,11 +475,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -473,11 +494,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -489,11 +513,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -513,11 +540,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -529,11 +559,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -545,11 +578,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -570,11 +606,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -586,11 +625,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
@@ -602,11 +644,14 @@ namespace OESXML
                     c.orderId = Convert.ToInt32(xnn.Attributes["OrderId"].Value);
                     foreach (XmlNode option in xnn.ChildNodes)
                     {
-                        switch (option.Name)
+                        if (option.ChildNodes.Item(0) != null)
                         {
-                            case "Problem":
-                                c.problem = option.ChildNodes.Item(0).Value;
-                                break;
+                            switch (option.Name)
+                            {
+                                case "Problem":
+                                    c.problem = option.ChildNodes.Item(0).Value;
+                                    break;
+                            }
                         }
                     }
                     list.Add(c);
