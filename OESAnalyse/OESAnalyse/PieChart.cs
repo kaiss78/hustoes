@@ -18,16 +18,18 @@ namespace OESAnalyse
         public PieChart(List<Student> stu)
         {
             InitializeComponent();
-
-            students = stu;
-            //初始化饼状图
-            getDistri();
-            PieChartHelper.Init_PieChart(_pieChartShowObj);
-            _pieChartShowObj.SliceRelativeDisplacements = new float[] { 0.01f, 0.01f, 0.10f };
-            PieChartHelper.SetPieChartControl_Colors(_pieChartShowObj, new Color[] { Color.Yellow, Color.Red, Color.Green });
-            PieChartHelper.SetPieChartControl_Texts(_pieChartShowObj, new string[] { Convert.ToInt32(distribution[0]).ToString(), Convert.ToInt32(distribution[1]).ToString(), Convert.ToInt32(distribution[2]).ToString(), Convert.ToInt32(distribution[3]).ToString(), Convert.ToInt32(distribution[4]).ToString() });
-            PieChartHelper.SetPieChartControl_Values(_pieChartShowObj, new decimal[] { Convert.ToInt32(distribution[0]), Convert.ToInt32(distribution[1]), Convert.ToInt32(distribution[2]), Convert.ToInt32(distribution[3]), Convert.ToInt32(distribution[4]) });
-            PieChartHelper.SetPieChartControl_ToolTips(_pieChartShowObj, new string[] { "90-100分", "80-90分", "70-80分", "60-70分", "不及格" });
+            Pie pie = new Pie();
+            this.Controls.Add(pie);
+            pie.Visible = true;
+            //students = stu;
+            ////初始化饼状图
+            //getDistri();
+            //PieChartHelper.Init_PieChart(_pieChartShowObj);
+            //_pieChartShowObj.SliceRelativeDisplacements = new float[] { 0.01f, 0.01f, 0.10f };
+            //PieChartHelper.SetPieChartControl_Colors(_pieChartShowObj, new Color[] { Color.Yellow, Color.Red, Color.Green });
+            //PieChartHelper.SetPieChartControl_Texts(_pieChartShowObj, new string[] { Convert.ToInt32(distribution[0]).ToString(), Convert.ToInt32(distribution[1]).ToString(), Convert.ToInt32(distribution[2]).ToString(), Convert.ToInt32(distribution[3]).ToString(), Convert.ToInt32(distribution[4]).ToString() });
+            //PieChartHelper.SetPieChartControl_Values(_pieChartShowObj, new decimal[] { Convert.ToInt32(distribution[0]), Convert.ToInt32(distribution[1]), Convert.ToInt32(distribution[2]), Convert.ToInt32(distribution[3]), Convert.ToInt32(distribution[4]) });
+            //PieChartHelper.SetPieChartControl_ToolTips(_pieChartShowObj, new string[] { "90-100分", "80-90分", "70-80分", "60-70分", "不及格" });
         }
 
         public void getDistri()

@@ -12,6 +12,8 @@
     <AssemblyName>OESAnalyse</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -105,6 +107,12 @@
       <DependentUpon>OESAnalyse.cs</DependentUpon>
     </Compile>
     <Compile Include="Percentage.cs" />
+    <Compile Include="Pie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pie.Designer.cs">
+      <DependentUpon>Pie.cs</DependentUpon>
+    </Compile>
     <Compile Include="PieChart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +135,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OESAnalyse.resx">
       <DependentUpon>OESAnalyse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pie.resx">
+      <DependentUpon>Pie.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PieChart.resx">
