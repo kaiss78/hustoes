@@ -55,10 +55,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(45, 89);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(441, 252);
+            this.dataGridView1.Size = new System.Drawing.Size(463, 222);
             this.dataGridView1.TabIndex = 0;
             // 
             // ClassCombo
@@ -67,7 +67,7 @@
             this.ClassCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ClassCombo.Enabled = false;
             this.ClassCombo.FormattingEnabled = true;
-            this.ClassCombo.Location = new System.Drawing.Point(247, 34);
+            this.ClassCombo.Location = new System.Drawing.Point(269, 39);
             this.ClassCombo.Name = "ClassCombo";
             this.ClassCombo.Size = new System.Drawing.Size(89, 20);
             this.ClassCombo.TabIndex = 1;
@@ -76,78 +76,98 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(200, 42);
+            this.label1.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(222, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(44, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "班级：";
             // 
             // PathBut
             // 
-            this.PathBut.Location = new System.Drawing.Point(509, 69);
+            this.PathBut.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.PathBut.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.PathBut.ForeColor = System.Drawing.Color.LightGray;
+            this.PathBut.Location = new System.Drawing.Point(549, 89);
             this.PathBut.Name = "PathBut";
-            this.PathBut.Size = new System.Drawing.Size(75, 23);
+            this.PathBut.Size = new System.Drawing.Size(84, 32);
             this.PathBut.TabIndex = 3;
             this.PathBut.Text = "选择路径";
-            this.PathBut.UseVisualStyleBackColor = true;
+            this.PathBut.UseVisualStyleBackColor = false;
             this.PathBut.Click += new System.EventHandler(this.PathBut_Click);
             // 
             // ScoreDistriBut
             // 
-            this.ScoreDistriBut.Location = new System.Drawing.Point(509, 156);
+            this.ScoreDistriBut.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ScoreDistriBut.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold);
+            this.ScoreDistriBut.ForeColor = System.Drawing.Color.LightGray;
+            this.ScoreDistriBut.Location = new System.Drawing.Point(549, 165);
             this.ScoreDistriBut.Name = "ScoreDistriBut";
-            this.ScoreDistriBut.Size = new System.Drawing.Size(75, 23);
+            this.ScoreDistriBut.Size = new System.Drawing.Size(84, 32);
             this.ScoreDistriBut.TabIndex = 4;
             this.ScoreDistriBut.Text = "成绩分布";
-            this.ScoreDistriBut.UseVisualStyleBackColor = true;
+            this.ScoreDistriBut.UseVisualStyleBackColor = false;
             this.ScoreDistriBut.Click += new System.EventHandler(this.ScoreDistriBut_Click);
             // 
             // CorrectBut
             // 
-            this.CorrectBut.Location = new System.Drawing.Point(509, 195);
+            this.CorrectBut.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.CorrectBut.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold);
+            this.CorrectBut.ForeColor = System.Drawing.Color.LightGray;
+            this.CorrectBut.Location = new System.Drawing.Point(549, 203);
             this.CorrectBut.Name = "CorrectBut";
-            this.CorrectBut.Size = new System.Drawing.Size(75, 23);
+            this.CorrectBut.Size = new System.Drawing.Size(84, 32);
             this.CorrectBut.TabIndex = 5;
             this.CorrectBut.Text = "题目正确率";
-            this.CorrectBut.UseVisualStyleBackColor = true;
+            this.CorrectBut.UseVisualStyleBackColor = false;
             this.CorrectBut.Click += new System.EventHandler(this.CorrectBut_Click);
             // 
             // ConfigBut
             // 
-            this.ConfigBut.Location = new System.Drawing.Point(509, 235);
+            this.ConfigBut.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ConfigBut.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold);
+            this.ConfigBut.ForeColor = System.Drawing.Color.LightGray;
+            this.ConfigBut.Location = new System.Drawing.Point(549, 241);
             this.ConfigBut.Name = "ConfigBut";
-            this.ConfigBut.Size = new System.Drawing.Size(75, 23);
+            this.ConfigBut.Size = new System.Drawing.Size(84, 32);
             this.ConfigBut.TabIndex = 6;
             this.ConfigBut.Text = "配置";
-            this.ConfigBut.UseVisualStyleBackColor = true;
+            this.ConfigBut.UseVisualStyleBackColor = false;
             this.ConfigBut.Click += new System.EventHandler(this.ConfigBut_Click);
             // 
             // ExcelBut
             // 
-            this.ExcelBut.Location = new System.Drawing.Point(509, 280);
+            this.ExcelBut.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ExcelBut.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold);
+            this.ExcelBut.ForeColor = System.Drawing.Color.LightGray;
+            this.ExcelBut.Location = new System.Drawing.Point(549, 279);
             this.ExcelBut.Name = "ExcelBut";
-            this.ExcelBut.Size = new System.Drawing.Size(75, 23);
+            this.ExcelBut.Size = new System.Drawing.Size(84, 32);
             this.ExcelBut.TabIndex = 7;
             this.ExcelBut.Text = "导出Excel";
-            this.ExcelBut.UseVisualStyleBackColor = true;
+            this.ExcelBut.UseVisualStyleBackColor = false;
             this.ExcelBut.Click += new System.EventHandler(this.ExcelBut_Click);
             // 
             // btnLookPaper
             // 
-            this.btnLookPaper.Location = new System.Drawing.Point(509, 114);
+            this.btnLookPaper.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnLookPaper.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold);
+            this.btnLookPaper.ForeColor = System.Drawing.Color.LightGray;
+            this.btnLookPaper.Location = new System.Drawing.Point(549, 127);
             this.btnLookPaper.Name = "btnLookPaper";
-            this.btnLookPaper.Size = new System.Drawing.Size(75, 23);
+            this.btnLookPaper.Size = new System.Drawing.Size(84, 32);
             this.btnLookPaper.TabIndex = 8;
             this.btnLookPaper.Text = "查看试卷";
-            this.btnLookPaper.UseVisualStyleBackColor = true;
+            this.btnLookPaper.UseVisualStyleBackColor = false;
             this.btnLookPaper.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(342, 42);
+            this.label2.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(378, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(44, 12);
             this.label2.TabIndex = 9;
             this.label2.Text = "试卷：";
             // 
@@ -156,7 +176,7 @@
             this.PaperCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PaperCombo.Enabled = false;
             this.PaperCombo.FormattingEnabled = true;
-            this.PaperCombo.Location = new System.Drawing.Point(389, 34);
+            this.PaperCombo.Location = new System.Drawing.Point(425, 39);
             this.PaperCombo.Name = "PaperCombo";
             this.PaperCombo.Size = new System.Drawing.Size(83, 20);
             this.PaperCombo.TabIndex = 10;
@@ -169,7 +189,7 @@
             this.OrderCombo.Items.AddRange(new object[] {
             "先班级",
             "先试卷"});
-            this.OrderCombo.Location = new System.Drawing.Point(100, 34);
+            this.OrderCombo.Location = new System.Drawing.Point(114, 39);
             this.OrderCombo.Name = "OrderCombo";
             this.OrderCombo.Size = new System.Drawing.Size(89, 20);
             this.OrderCombo.TabIndex = 11;
@@ -178,9 +198,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 42);
+            this.label3.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(43, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(70, 12);
             this.label3.TabIndex = 12;
             this.label3.Text = "选择顺序：";
             // 
@@ -210,17 +231,20 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 354);
+            this.panel1.Size = new System.Drawing.Size(656, 368);
             this.panel1.TabIndex = 13;
             // 
             // backButn
             // 
-            this.backButn.Location = new System.Drawing.Point(479, 319);
+            this.backButn.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.backButn.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Bold);
+            this.backButn.ForeColor = System.Drawing.Color.LightGray;
+            this.backButn.Location = new System.Drawing.Point(527, 317);
             this.backButn.Name = "backButn";
-            this.backButn.Size = new System.Drawing.Size(105, 23);
+            this.backButn.Size = new System.Drawing.Size(81, 30);
             this.backButn.TabIndex = 1;
             this.backButn.Text = "返回";
-            this.backButn.UseVisualStyleBackColor = true;
+            this.backButn.UseVisualStyleBackColor = false;
             this.backButn.Click += new System.EventHandler(this.backButn_Click);
             // 
             // dataGridView3
@@ -233,7 +257,7 @@
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 23;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(618, 303);
+            this.dataGridView3.Size = new System.Drawing.Size(656, 303);
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellDoubleClick);
             this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
@@ -243,23 +267,25 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 354);
+            this.ClientSize = new System.Drawing.Size(656, 368);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnLookPaper);
             this.Controls.Add(this.OrderCombo);
+            this.Controls.Add(this.ScoreDistriBut);
             this.Controls.Add(this.PaperCombo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnLookPaper);
             this.Controls.Add(this.ExcelBut);
             this.Controls.Add(this.ConfigBut);
             this.Controls.Add(this.CorrectBut);
-            this.Controls.Add(this.ScoreDistriBut);
             this.Controls.Add(this.PathBut);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ClassCombo);
             this.Controls.Add(this.dataGridView1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MaximizeBox = false;
             this.Name = "OESAnalyse";
-            this.Text = "Form1";
+            this.Text = "Analyse";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
