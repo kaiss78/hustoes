@@ -207,6 +207,7 @@ namespace OESAnalyse
             }
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.DataSource = myTable.DefaultView;
+            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         //根据试卷寻找当前目录下班级
@@ -387,16 +388,19 @@ namespace OESAnalyse
         private void dataGridView3_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ProblemForm pf = new ProblemForm();
+            String ProType=Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value);
+            String ProName=Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value);
+            int ProID=Convert.ToInt16(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[0].Value);
             pf.newTextBox.Multiline = true;
             pf.newTextBox.WordWrap = true;
-            if ( Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value) == "Choice") 
+            if ( ProType == "Choice") 
             {
                 String output;
-                if (Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) != "题目已丢失")
+                if (ProName != "题目已丢失")
                 {
                     List<Choice> newChoice = new List<Choice>();
-                    output = "题目：" + Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
-                    newChoice = oesData.FindChoiceByPID(Convert.ToInt16(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[0].Value));
+                    output = "题目：" + ProName + "\r\n";
+                    newChoice = oesData.FindChoiceByPID(ProID);
                     output += "A." + newChoice[0].optionA + "\r\n";
                     output += "B." + newChoice[0].optionB + "\r\n";
                     output += "C." + newChoice[0].optionC + "\r\n";
@@ -410,14 +414,14 @@ namespace OESAnalyse
                     pf.newTextBox.Text = output;
                 }
             }
-            else if (Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value) == "Completion") 
+            else if (ProType == "Completion") 
             {
                 String output;
-                if (Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) != "题目已丢失")
+                if (ProName != "题目已丢失")
                 {
                     List<Completion> newCompletion = new List<Completion>();
-                    output = "题目：" + Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
-                    newCompletion = oesData.FindCompletionByPID(Convert.ToInt16(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[0].Value));
+                    output = "题目：" + ProName + "\r\n";
+                    newCompletion = oesData.FindCompletionByPID(ProID);
                     for (int i = 0; i < newCompletion[0].ans.Count; i++)
                     {
                         output += "答案：" + newCompletion[0].ans[i] + "\r\n";
@@ -430,16 +434,29 @@ namespace OESAnalyse
                     pf.newTextBox.Text = output;
                 }
             }
-            else if (Convert.ToString( this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[1].Value) == "Judgment") 
+            else if (ProType == "Judgment") 
             {
                 String output;
-                if (Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) != "题目已丢失")
+                if (ProName != "题目已丢失")
                 {
                     List<Judgment> newJudgment = new List<Judgment>();
-                    output = "题目：" + Convert.ToString(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[2].Value) + "\r\n";
-                    newJudgment = oesData.FindJudgmentByPID(Convert.ToInt16(this.dataGridView3.Rows[this.dataGridView3.CurrentRow.Index].Cells[0].Value));
+                    output = "题目：" + ProName + "\r\n";
+                    newJudgment = oesData.FindJudgmentByPID(ProID);
                     output += "答案：" + newJudgment[0].ans;
                     pf.newTextBox.Text = output;
+                }
+                else 
+                {
+                    output = "题目不存在";
+                    pf.newTextBox.Text = output;
+                }
+            }
+            else if (ProType == "Word") 
+            {
+                String output;
+                if (ProName != "题目已丢失")
+                {
+
                 }
                 else 
                 {
@@ -476,6 +493,11 @@ namespace OESAnalyse
                     sw.Write(content);
                 }
             }
+        }
+
+        private void OESAnalyse_Load(object sender, EventArgs e)
+        {
+
         }
 
        
