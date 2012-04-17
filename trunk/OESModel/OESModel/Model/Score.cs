@@ -9,6 +9,7 @@ namespace OES.Model
     {
         public string examName;
         public string stuName;
+        public string studentID;
         public string paperTitle;
         public int Value;
         public string stuClassName;
