@@ -7,6 +7,7 @@ namespace OES.Model
 {
     public class Score
     {
+        public string examName;
         public string stuName;
         public string paperTitle;
         public int Value;
