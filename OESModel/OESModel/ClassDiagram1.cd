@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OES.Model.Choice">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAACAAgHAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Choice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Classes">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAQAAAAACAAAAAAAAAACAAAAAAAAABAAAA=</HashCode>
+      <FileName>Model\Classes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Completion">
+    <Position X="7.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Completion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Course">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Judgment" Collapsed="true">
+    <Position X="11.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Judgment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Office">
+    <Position X="14.75" Y="3.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="OES.Model.Office.OfficeType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Office.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Model\Office.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.OfficeAnswer" Collapsed="true">
+    <Position X="24.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAgAAAAAAAACAA=</HashCode>
+      <FileName>Model\OfficeAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.OfficeExcel">
+    <Position X="13" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\OfficeExcel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.OfficePowerPoint">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\OfficePowerPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.OfficeWord">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\OfficeWord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Paper">
+    <Position X="21" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAYAAAAgAAEBAABAAUIAAYAIAAEEAQAeCIAAICgUAAg=</HashCode>
+      <FileName>Model\Paper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Pid_Ans" Collapsed="true">
+    <Position X="26.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Model\Paper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Pid_Score" Collapsed="true">
+    <Position X="26.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Model\Paper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.PaperRule" Collapsed="true">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAIgAAIAAAAYAAAAAAACAAgAAAAAAAAA=</HashCode>
+      <FileName>Model\PaperRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.PCompletion">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\PCompletion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.PFunction">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\PFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.PModif">
+    <Position X="11.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\PModif.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Problem">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCAAAAAAAAgAAAAABAIAAAAAAABAAAAAQAAABIAAAA=</HashCode>
+      <FileName>Model\Problem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.ProgramAnswer" Collapsed="true">
+    <Position X="24.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAgAIAAAAEAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Model\ProgramAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.ProgramProblem">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAABAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\ProgramProblem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Score">
+    <Position X="22.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAABAAAAAAgAAAAAEAEAAAoAAAAAAA=</HashCode>
+      <FileName>Model\Score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Sum" Collapsed="true">
+    <Position X="26.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Student">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAAAAoAAAgAAAAAAAAAAACIAAAIAgAgAAAAA=</HashCode>
+      <FileName>Model\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Teacher">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAEAAAAAAAAAAAAAAAIQAAAgAAAAA=</HashCode>
+      <FileName>Model\Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.Unit">
+    <Position X="17.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAIAAAAAEAAAAAAA=</HashCode>
+      <FileName>Model\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.IdAnswerType" Collapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAgI=</HashCode>
+      <FileName>Model\XmlModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OES.Model.IdScoreType" Collapsed="true">
+    <Position X="26.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAEAAAAAAAAAAAgA=</HashCode>
+      <FileName>Model\XmlModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="OES.Model.ProblemType" Collapsed="true">
+    <Position X="24.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACMAAgCAACAAAAAgAACAAAACBAAACAAhQQIAAAAADIQ=</HashCode>
+      <FileName>Model\Paper.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OES.Model.ProgramPType" Collapsed="true">
+    <Position X="24.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAICAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Model\ProgramProblem.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OES.Model.PLanguage" Collapsed="true">
+    <Position X="24.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAIAgAAEAAA=</HashCode>
+      <FileName>Model\ProgramProblem.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
