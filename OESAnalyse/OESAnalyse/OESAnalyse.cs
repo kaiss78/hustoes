@@ -186,8 +186,6 @@ namespace OESAnalyse
         public  void printOut(List<Student> myList)
         {
             object[] newRow=new object[5];
-
-            this.dataGridView1.DataSource = null;
             myTable = new DataTable("paper");
             myTable.Columns.Add("学号");
             myTable.Columns.Add("姓名");
@@ -208,6 +206,7 @@ namespace OESAnalyse
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.DataSource = myTable.DefaultView;
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ReadOnly = true;
         }
 
         //根据试卷寻找当前目录下班级
@@ -334,6 +333,7 @@ namespace OESAnalyse
             dataGridView3.RowHeadersVisible = false;
             dataGridView3.DataSource = paperTable.DefaultView;
             dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView3.ReadOnly = true;
         }
 
         private void backButn_Click(object sender, EventArgs e)
@@ -366,7 +366,7 @@ namespace OESAnalyse
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.DataSource = myTable.DefaultView;
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
+            this.dataGridView1.ReadOnly = true;
 
         }
 
