@@ -198,6 +198,8 @@ namespace ClientNet
                     total -= byteRead;
                     file.Write(buffer, 0, byteRead);
                     Array.Clear(buffer, 0, 1024);
+                    if (total == 0L)
+                        break;
                     byteRead = data_ns.Read(buffer, 0, 1024);
                     if (RecieveFileRate != null)
                     {
