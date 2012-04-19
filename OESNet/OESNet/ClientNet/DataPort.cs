@@ -160,7 +160,6 @@ namespace ClientNet
             dataTrans = (TcpClient)asy.AsyncState;
             dataTrans.EndConnect(asy);
             data_ns = dataTrans.GetStream();
-            data_ns = dataTrans.GetStream();
             if (ConnectedDataPort != null)
             {
                 ConnectedDataPort(this, null);
