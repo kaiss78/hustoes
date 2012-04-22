@@ -90,10 +90,10 @@
             // kryptonHeaderGroup1.Panel
             // 
             this.kryptonHeaderGroup1.Panel.Controls.Add(this.kryptonPanel1);
-            this.kryptonHeaderGroup1.Size = new System.Drawing.Size(184, 116);
+            this.kryptonHeaderGroup1.Size = new System.Drawing.Size(184, 130);
             this.kryptonHeaderGroup1.TabIndex = 3;
             this.kryptonHeaderGroup1.ValuesPrimary.Heading = "题库管理";
-            this.kryptonHeaderGroup1.ValuesPrimary.Image = null;
+            this.kryptonHeaderGroup1.ValuesPrimary.Image = global::OES.Properties.Resources.data;
             // 
             // kryptonPanel1
             // 
@@ -101,7 +101,7 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(182, 84);
+            this.kryptonPanel1.Size = new System.Drawing.Size(182, 93);
             this.kryptonPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -253,7 +253,7 @@
             // 
             this.kryptonHeaderGroup2.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlAlternate;
             this.kryptonHeaderGroup2.HeaderVisibleSecondary = false;
-            this.kryptonHeaderGroup2.Location = new System.Drawing.Point(4, 125);
+            this.kryptonHeaderGroup2.Location = new System.Drawing.Point(4, 138);
             this.kryptonHeaderGroup2.Name = "kryptonHeaderGroup2";
             // 
             // kryptonHeaderGroup2.Panel
@@ -262,7 +262,7 @@
             this.kryptonHeaderGroup2.Size = new System.Drawing.Size(183, 124);
             this.kryptonHeaderGroup2.TabIndex = 4;
             this.kryptonHeaderGroup2.ValuesPrimary.Heading = "人员管理";
-            this.kryptonHeaderGroup2.ValuesPrimary.Image = null;
+            this.kryptonHeaderGroup2.ValuesPrimary.Image = global::OES.Properties.Resources.user;
             // 
             // kryptonPanel3
             // 
@@ -270,7 +270,7 @@
             this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel3.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel3.Name = "kryptonPanel3";
-            this.kryptonPanel3.Size = new System.Drawing.Size(181, 92);
+            this.kryptonPanel3.Size = new System.Drawing.Size(181, 87);
             this.kryptonPanel3.TabIndex = 0;
             // 
             // kryptonPanel2
