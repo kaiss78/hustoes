@@ -31,23 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.xpPanelGroup1 = new UIComponents.XPPanelGroup();
             this.xpPanel3 = new UIComponents.XPPanel(127);
-            this.scoreManlbl = new System.Windows.Forms.LinkLabel();
-            this.techManlbl = new System.Windows.Forms.LinkLabel();
-            this.classManlbl = new System.Windows.Forms.LinkLabel();
-            this.stuManlbl = new System.Windows.Forms.LinkLabel();
-            this.xpPanel2 = new UIComponents.XPPanel(122);
-            this.llbBulkImport = new System.Windows.Forms.LinkLabel();
-            this.llbProManage = new System.Windows.Forms.LinkLabel();
-            this.llbNewPaper = new System.Windows.Forms.LinkLabel();
-            this.paperManLbl = new System.Windows.Forms.LinkLabel();
-            this.MainPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.stuManlbl = new System.Windows.Forms.LinkLabel();
+            this.classManlbl = new System.Windows.Forms.LinkLabel();
+            this.techManlbl = new System.Windows.Forms.LinkLabel();
+            this.scoreManlbl = new System.Windows.Forms.LinkLabel();
+            this.xpPanel2 = new UIComponents.XPPanel(122);
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.llbProManage = new System.Windows.Forms.LinkLabel();
+            this.paperManLbl = new System.Windows.Forms.LinkLabel();
+            this.llbNewPaper = new System.Windows.Forms.LinkLabel();
+            this.llbBulkImport = new System.Windows.Forms.LinkLabel();
+            this.MainPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).BeginInit();
             this.xpPanelGroup1.SuspendLayout();
             this.xpPanel3.SuspendLayout();
-            this.xpPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.xpPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,31 +92,29 @@
             this.xpPanel3.VertAlignment = System.Drawing.StringAlignment.Center;
             this.xpPanel3.XPPanelStyle = UIComponents.XPPanelStyle.WindowsXP;
             // 
-            // scoreManlbl
+            // flowLayoutPanel1
             // 
-            this.scoreManlbl.AutoSize = true;
-            this.scoreManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.scoreManlbl.Location = new System.Drawing.Point(3, 57);
-            this.scoreManlbl.Name = "scoreManlbl";
-            this.scoreManlbl.Size = new System.Drawing.Size(69, 19);
-            this.scoreManlbl.TabIndex = 5;
-            this.scoreManlbl.TabStop = true;
-            this.scoreManlbl.Tag = "6";
-            this.scoreManlbl.Text = "成绩管理";
-            this.scoreManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            this.flowLayoutPanel1.Controls.Add(this.stuManlbl);
+            this.flowLayoutPanel1.Controls.Add(this.classManlbl);
+            this.flowLayoutPanel1.Controls.Add(this.techManlbl);
+            this.flowLayoutPanel1.Controls.Add(this.scoreManlbl);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 38);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(84, 83);
+            this.flowLayoutPanel1.TabIndex = 6;
             // 
-            // techManlbl
+            // stuManlbl
             // 
-            this.techManlbl.AutoSize = true;
-            this.techManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.techManlbl.Location = new System.Drawing.Point(3, 38);
-            this.techManlbl.Name = "techManlbl";
-            this.techManlbl.Size = new System.Drawing.Size(69, 19);
-            this.techManlbl.TabIndex = 4;
-            this.techManlbl.TabStop = true;
-            this.techManlbl.Tag = "5";
-            this.techManlbl.Text = "教师管理";
-            this.techManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            this.stuManlbl.AutoSize = true;
+            this.stuManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.stuManlbl.Location = new System.Drawing.Point(3, 0);
+            this.stuManlbl.Name = "stuManlbl";
+            this.stuManlbl.Size = new System.Drawing.Size(69, 19);
+            this.stuManlbl.TabIndex = 2;
+            this.stuManlbl.TabStop = true;
+            this.stuManlbl.Tag = "3";
+            this.stuManlbl.Text = "学生管理";
+            this.stuManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // classManlbl
             // 
@@ -131,18 +129,31 @@
             this.classManlbl.Text = "班级管理";
             this.classManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
-            // stuManlbl
+            // techManlbl
             // 
-            this.stuManlbl.AutoSize = true;
-            this.stuManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.stuManlbl.Location = new System.Drawing.Point(3, 0);
-            this.stuManlbl.Name = "stuManlbl";
-            this.stuManlbl.Size = new System.Drawing.Size(69, 19);
-            this.stuManlbl.TabIndex = 2;
-            this.stuManlbl.TabStop = true;
-            this.stuManlbl.Tag = "3";
-            this.stuManlbl.Text = "学生管理";
-            this.stuManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            this.techManlbl.AutoSize = true;
+            this.techManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.techManlbl.Location = new System.Drawing.Point(3, 38);
+            this.techManlbl.Name = "techManlbl";
+            this.techManlbl.Size = new System.Drawing.Size(69, 19);
+            this.techManlbl.TabIndex = 4;
+            this.techManlbl.TabStop = true;
+            this.techManlbl.Tag = "5";
+            this.techManlbl.Text = "教师管理";
+            this.techManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            // 
+            // scoreManlbl
+            // 
+            this.scoreManlbl.AutoSize = true;
+            this.scoreManlbl.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.scoreManlbl.Location = new System.Drawing.Point(3, 57);
+            this.scoreManlbl.Name = "scoreManlbl";
+            this.scoreManlbl.Size = new System.Drawing.Size(69, 19);
+            this.scoreManlbl.TabIndex = 5;
+            this.scoreManlbl.TabStop = true;
+            this.scoreManlbl.Tag = "6";
+            this.scoreManlbl.Text = "成绩管理";
+            this.scoreManlbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
             // xpPanel2
             // 
@@ -173,16 +184,16 @@
             this.xpPanel2.VertAlignment = System.Drawing.StringAlignment.Center;
             this.xpPanel2.XPPanelStyle = UIComponents.XPPanelStyle.WindowsXP;
             // 
-            // llbBulkImport
+            // flowLayoutPanel2
             // 
-            this.llbBulkImport.Location = new System.Drawing.Point(3, 57);
-            this.llbBulkImport.Name = "llbBulkImport";
-            this.llbBulkImport.Size = new System.Drawing.Size(69, 19);
-            this.llbBulkImport.TabIndex = 4;
-            this.llbBulkImport.TabStop = true;
-            this.llbBulkImport.Tag = "9";
-            this.llbBulkImport.Text = "批量导入";
-            this.llbBulkImport.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            this.flowLayoutPanel2.Controls.Add(this.llbProManage);
+            this.flowLayoutPanel2.Controls.Add(this.paperManLbl);
+            this.flowLayoutPanel2.Controls.Add(this.llbNewPaper);
+            this.flowLayoutPanel2.Controls.Add(this.llbBulkImport);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 38);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(84, 78);
+            this.flowLayoutPanel2.TabIndex = 5;
             // 
             // llbProManage
             // 
@@ -197,17 +208,6 @@
             this.llbProManage.Text = "试题管理";
             this.llbProManage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
-            // llbNewPaper
-            // 
-            this.llbNewPaper.Location = new System.Drawing.Point(3, 38);
-            this.llbNewPaper.Name = "llbNewPaper";
-            this.llbNewPaper.Size = new System.Drawing.Size(69, 19);
-            this.llbNewPaper.TabIndex = 0;
-            this.llbNewPaper.TabStop = true;
-            this.llbNewPaper.Tag = "2";
-            this.llbNewPaper.Text = "新增试卷";
-            this.llbNewPaper.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
-            // 
             // paperManLbl
             // 
             this.paperManLbl.Location = new System.Drawing.Point(3, 19);
@@ -219,6 +219,28 @@
             this.paperManLbl.Text = "试卷管理";
             this.paperManLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
             // 
+            // llbNewPaper
+            // 
+            this.llbNewPaper.Location = new System.Drawing.Point(3, 38);
+            this.llbNewPaper.Name = "llbNewPaper";
+            this.llbNewPaper.Size = new System.Drawing.Size(69, 19);
+            this.llbNewPaper.TabIndex = 0;
+            this.llbNewPaper.TabStop = true;
+            this.llbNewPaper.Tag = "2";
+            this.llbNewPaper.Text = "新增试卷";
+            this.llbNewPaper.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            // 
+            // llbBulkImport
+            // 
+            this.llbBulkImport.Location = new System.Drawing.Point(3, 57);
+            this.llbBulkImport.Name = "llbBulkImport";
+            this.llbBulkImport.Size = new System.Drawing.Size(69, 19);
+            this.llbBulkImport.TabIndex = 4;
+            this.llbBulkImport.TabStop = true;
+            this.llbBulkImport.Tag = "9";
+            this.llbBulkImport.Text = "批量导入";
+            this.llbBulkImport.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_LinkClicked);
+            // 
             // MainPanel
             // 
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -227,28 +249,6 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(754, 677);
             this.MainPanel.TabIndex = 1;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.stuManlbl);
-            this.flowLayoutPanel1.Controls.Add(this.classManlbl);
-            this.flowLayoutPanel1.Controls.Add(this.techManlbl);
-            this.flowLayoutPanel1.Controls.Add(this.scoreManlbl);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 38);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(84, 83);
-            this.flowLayoutPanel1.TabIndex = 6;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.llbProManage);
-            this.flowLayoutPanel2.Controls.Add(this.paperManLbl);
-            this.flowLayoutPanel2.Controls.Add(this.llbNewPaper);
-            this.flowLayoutPanel2.Controls.Add(this.llbBulkImport);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 38);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(84, 78);
-            this.flowLayoutPanel2.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -268,9 +268,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.xpPanelGroup1)).EndInit();
             this.xpPanelGroup1.ResumeLayout(false);
             this.xpPanel3.ResumeLayout(false);
-            this.xpPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.xpPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
