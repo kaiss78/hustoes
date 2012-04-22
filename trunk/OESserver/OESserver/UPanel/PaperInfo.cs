@@ -62,6 +62,8 @@ namespace OES.UPanel
             dtRule.Clear();
             lbTotScore.Text = "0";
             TotScore = 0;
+            tbPaperName.Text = "";
+            cboCourse.SelectedIndex = 0;
             EndLoad = true;
             this.Visible = true;
         }
@@ -336,7 +338,7 @@ namespace OES.UPanel
 
         private void cboCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((EndLoad) && (MessageBox.Show("所有出卷规则将会清空", "警告", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes))
+            if ((EndLoad)&&(this.Visible) && (MessageBox.Show("所有出卷规则将会清空", "警告", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning) == DialogResult.Yes))
             {
                 Rules = new List<PaperRule>();
                 dtRule.Clear();
