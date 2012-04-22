@@ -289,7 +289,7 @@ namespace OESAnalyse
                         newRow[3] = aChoice[0].score;
                     }
                 }
-                else if (newProb[i].problemType == "Completion")
+                else if (newProb[i].problemType == "Completion" )
                 {
                     List<Completion> aCompletion = new List<Completion>();
                     aCompletion = oesData.FindCompletionByPID(newProb[i].problemID);
@@ -325,6 +325,197 @@ namespace OESAnalyse
                         newRow[1] = newProb[i].problemType;
                         newRow[2] = aJudgment[0].problem;
                         newRow[3] = aJudgment[0].score;
+                    }
+                }
+                else if (newProb[i].problemType == "Word") 
+                {
+                    List<OfficeWord>aOfficeWord=new List<OfficeWord>();
+                    aOfficeWord = oesData.FindOfficeWordByPID(newProb[i].problemID);
+                    if (aOfficeWord.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else 
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aOfficeWord[0].problem;
+                        newRow[3] = aOfficeWord[0].score;
+                    }
+                }
+                else if (newProb[i].problemType == "Excel") 
+                {
+                    List<OfficeExcel>aOfficeExcel=new List<OfficeExcel>();
+                    aOfficeExcel=oesData.FindOfficeExcelByPID(newProb[i].problemID);
+                    if(aOfficeExcel.Count==0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2]=aOfficeExcel[0].problem;
+                        newRow[3]=aOfficeExcel[0].score;
+                    }
+                }
+                else if (newProb[i].problemType == "PowerPoint") 
+                {
+                    List<OfficePowerPoint> aOfficePowerPoint = new List<OfficePowerPoint>();
+                    aOfficePowerPoint = oesData.FindOfficePowerPointByPID(newProb[i].problemID);
+                    if (aOfficePowerPoint.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else 
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aOfficePowerPoint[0].problem;
+                        newRow[3] = aOfficePowerPoint[0].score;
+                    }
+                }
+                else if (newProb[i].problemType == "CProgramCompletion") // (newProb[i].problemType == "CProgramModification") || (newProb[i].problemType == "CProgramFun") || (newProb[i].problemType == "CppProgramCompletion") || (newProb[i].problemType == "CppProgramModification") || (newProb[i].problemType == "CppProgramFun") || (newProb[i].problemType = "VbProgramCompletion") || (newProb[i].problemType == "VbProgramModification") || (newProb[i].problemType == "VbProgramFun")) 
+                {
+                    List<ProgramProblem> aProgramProblem = new List<ProgramProblem>();
+                    aProgramProblem = oesData.FindProgramByPID(newProb[i].problemID);
+                    if (aProgramProblem.Count==0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aProgramProblem[0].problem;
+                        newRow[3] = aProgramProblem[0].score;
+                    }
+                }
+                else if(newProb[i].problemType == "CProgramModification")
+                {
+                    
+                    List<ProgramProblem> aProgramProblem = new List<ProgramProblem>();
+                    aProgramProblem = oesData.FindProgramByPID(newProb[i].problemID);
+                    if (aProgramProblem.Count==0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aProgramProblem[0].problem;
+                        newRow[3] = aProgramProblem[0].score;
+                    }
+                }
+                else if ((newProb[i].problemType == "CProgramFun")) 
+                {
+                    List<ProgramProblem> aProgramProblem = new List<ProgramProblem>();
+                    aProgramProblem = oesData.FindProgramByPID(newProb[i].problemID);
+                    if (aProgramProblem.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aProgramProblem[0].problem;
+                        newRow[3] = aProgramProblem[0].score;
+                    }
+                }
+                else if (newProb[i].problemType == "CppProgramCompletion") 
+                {
+                    List<ProgramProblem> aProgramProblem = new List<ProgramProblem>();
+                    aProgramProblem = oesData.FindProgramByPID(newProb[i].problemID);
+                    if (aProgramProblem.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aProgramProblem[0].problem;
+                        newRow[3] = aProgramProblem[0].score;
+                    }
+                }
+                else if ((newProb[i].problemType == "CppProgramModification")) 
+                {
+                    List<ProgramProblem> aProgramProblem = new List<ProgramProblem>();
+                    aProgramProblem = oesData.FindProgramByPID(newProb[i].problemID);
+                    if (aProgramProblem.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aProgramProblem[0].problem;
+                        newRow[3] = aProgramProblem[0].score;
+                    }
+                }
+                else if ((newProb[i].problemType == "CppProgramFun")) 
+                {
+                    List<ProgramProblem> aProgramProblem = new List<ProgramProblem>();
+                    aProgramProblem = oesData.FindProgramByPID(newProb[i].problemID);
+                    if (aProgramProblem.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aProgramProblem[0].problem;
+                        newRow[3] = aProgramProblem[0].score;
+                    }
+                }
+                else if ((newProb[i].problemType == "VbProgramCompletion") || (newProb[i].problemType == "VbProgramModification") || (newProb[i].problemType == "VbProgramFun"))
+                {
+                    List<ProgramProblem> aProgramProblem = new List<ProgramProblem>();
+                    aProgramProblem = oesData.FindProgramByPID(newProb[i].problemID);
+                    if (aProgramProblem.Count == 0)
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = "题目已丢失";
+                        newRow[3] = "";
+                    }
+                    else
+                    {
+                        newRow[0] = newProb[i].problemID;
+                        newRow[1] = newProb[i].problemType;
+                        newRow[2] = aProgramProblem[0].problem;
+                        newRow[3] = aProgramProblem[0].score;
                     }
                 }
                 paperTable.Rows.Add(newRow);
@@ -456,9 +647,48 @@ namespace OESAnalyse
                 String output;
                 if (ProName != "题目已丢失")
                 {
-
+                    output = "题目：" + ProName + "\r\n";
                 }
                 else 
+                {
+                    output = "题目不存在";
+                    pf.newTextBox.Text = output;
+                }
+            }
+            else if (ProType == "Excel") 
+            {
+                String output;
+                if (ProName != "题目已丢失")
+                {
+                    output = "题目："+ProName+"\r\n";
+                }
+                else 
+                {
+                    output = "题目不存在";
+                    pf.newTextBox.Text = output;
+                }
+            }
+            else if (ProType == "PowerPoint") 
+            {
+                String output;
+                if (ProName != "题目已丢失")
+                {
+                    output = "题目：" + ProName + "\r\n";
+                }
+                else
+                {
+                    output = "题目不存在";
+                    pf.newTextBox.Text = output;
+                }
+            }
+            else if (ProType == "CProgramCompletion" || ProType == "CProgramModification" || ProType == "CProgramFun" || ProType == "CppProgramCompletion" || ProType == "CppProgramModification" || ProType == "CppProgramFun" || ProType == "VbProgramCompletion" || ProType == "VbProgramModification" || ProType == "VbProgramFun") 
+            {
+                String output;
+                if (ProName != "题目已丢失")
+                {
+                    output = "题目：" + ProName + "\r\n";
+                }
+                else
                 {
                     output = "题目不存在";
                     pf.newTextBox.Text = output;
