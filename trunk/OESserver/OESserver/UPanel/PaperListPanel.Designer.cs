@@ -76,7 +76,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
@@ -92,7 +92,7 @@
             this.flowLayoutPanel1.Controls.Add(this.endTime);
             this.flowLayoutPanel1.Controls.Add(this.btnFind);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 40);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 45);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(722, 35);
@@ -113,7 +113,7 @@
             0,
             0});
             this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(80, 25);
+            this.year.Size = new System.Drawing.Size(80, 29);
             this.year.StateCommon.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.year.TabIndex = 4;
             this.year.Value = new decimal(new int[] {
@@ -186,9 +186,9 @@
             this.groupBox1.Controls.Add(this.PaperListDGV);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 78);
+            this.groupBox1.Location = new System.Drawing.Point(13, 83);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(716, 575);
+            this.groupBox1.Size = new System.Drawing.Size(716, 570);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "试卷列表";
@@ -214,7 +214,7 @@
             this.PaperListDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.PaperListDGV.RowTemplate.Height = 23;
             this.PaperListDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PaperListDGV.Size = new System.Drawing.Size(710, 550);
+            this.PaperListDGV.Size = new System.Drawing.Size(710, 545);
             this.PaperListDGV.TabIndex = 0;
             this.PaperListDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellDoubleClick);
             this.PaperListDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaperListDGV_CellClick);
@@ -226,7 +226,7 @@
             this.btnEdit.Location = new System.Drawing.Point(534, 12);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(96, 26);
+            this.btnEdit.Size = new System.Drawing.Size(96, 31);
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "编辑试卷";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -239,7 +239,7 @@
             this.btnDel.Location = new System.Drawing.Point(634, 12);
             this.btnDel.Margin = new System.Windows.Forms.Padding(2);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(96, 26);
+            this.btnDel.Size = new System.Drawing.Size(96, 31);
             this.btnDel.TabIndex = 5;
             this.btnDel.Text = "删除试卷";
             this.btnDel.UseVisualStyleBackColor = true;
@@ -251,7 +251,7 @@
             this.cbtnFindByYear.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbtnFindByYear.Location = new System.Drawing.Point(13, 13);
             this.cbtnFindByYear.Name = "cbtnFindByYear";
-            this.cbtnFindByYear.Size = new System.Drawing.Size(69, 24);
+            this.cbtnFindByYear.Size = new System.Drawing.Size(69, 29);
             this.cbtnFindByYear.TabIndex = 6;
             this.cbtnFindByYear.Values.Text = "按年";
             this.cbtnFindByYear.Click += new System.EventHandler(this.cbtnFindByYear_Click);
@@ -261,7 +261,7 @@
             this.cbtnFindByTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbtnFindByTime.Location = new System.Drawing.Point(88, 13);
             this.cbtnFindByTime.Name = "cbtnFindByTime";
-            this.cbtnFindByTime.Size = new System.Drawing.Size(69, 24);
+            this.cbtnFindByTime.Size = new System.Drawing.Size(69, 29);
             this.cbtnFindByTime.TabIndex = 7;
             this.cbtnFindByTime.Values.Text = "按时间段";
             this.cbtnFindByTime.Click += new System.EventHandler(this.cbtnFindByTime_Click);
@@ -271,7 +271,7 @@
             this.cbtnFindByName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbtnFindByName.Location = new System.Drawing.Point(163, 13);
             this.cbtnFindByName.Name = "cbtnFindByName";
-            this.cbtnFindByName.Size = new System.Drawing.Size(69, 24);
+            this.cbtnFindByName.Size = new System.Drawing.Size(69, 29);
             this.cbtnFindByName.TabIndex = 8;
             this.cbtnFindByName.Values.Text = "按试卷名";
             this.cbtnFindByName.Click += new System.EventHandler(this.cbtnFindByName_Click);
