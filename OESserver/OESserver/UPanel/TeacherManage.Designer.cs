@@ -33,9 +33,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.teacherInfoGroup = new System.Windows.Forms.GroupBox();
             this.teacherInfoDGV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.teacherInfoGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teacherInfoDGV)).BeginInit();
@@ -55,8 +55,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.Controls.Add(this.teacherInfoGroup, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnAdd, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 6, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnEdit, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnDelete, 6, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -114,21 +114,9 @@
             this.btnAdd.Location = new System.Drawing.Point(160, 574);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(117, 37);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "添加教师";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Values.Text = "添加教师";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnDelete.Location = new System.Drawing.Point(464, 574);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(117, 37);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "删除选中教师";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -136,10 +124,19 @@
             this.btnEdit.Location = new System.Drawing.Point(312, 574);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(117, 37);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "修改教师";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.TabIndex = 6;
+            this.btnEdit.Values.Text = "修改教师";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDelete.Location = new System.Drawing.Point(464, 574);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(117, 37);
+            this.btnDelete.TabIndex = 7;
+            this.btnDelete.Values.Text = "删除选中教师";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // TeacherManage
             // 
@@ -149,7 +146,6 @@
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TeacherManage";
-            this.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.teacherInfoGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.teacherInfoDGV)).EndInit();
@@ -162,8 +158,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox teacherInfoGroup;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView teacherInfoDGV;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAdd;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
     }
 }
