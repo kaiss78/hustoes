@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnConfirm1 = new System.Windows.Forms.Button();
-            this.btnBrowse1 = new System.Windows.Forms.Button();
+            this.btnBrowse1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnConfirm2 = new System.Windows.Forms.Button();
-            this.btnBrowse2 = new System.Windows.Forms.Button();
+            this.btnBrowse2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnConfirm3 = new System.Windows.Forms.Button();
-            this.btnBrowse3 = new System.Windows.Forms.Button();
+            this.btnBrowse3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnConfirm4 = new System.Windows.Forms.Button();
-            this.btnBrowse4 = new System.Windows.Forms.Button();
+            this.btnBrowse4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnConfirm5 = new System.Windows.Forms.Button();
-            this.btnBrowse5 = new System.Windows.Forms.Button();
+            this.btnBrowse5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.btnConfirm6 = new System.Windows.Forms.Button();
-            this.btnBrowse6 = new System.Windows.Forms.Button();
+            this.btnBrowse6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton4 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton5 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton6 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -64,7 +64,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnConfirm1);
+            this.groupBox1.Controls.Add(this.kryptonButton1);
             this.groupBox1.Controls.Add(this.btnBrowse1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(18, 16);
@@ -74,24 +74,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "选择题";
             // 
-            // btnConfirm1
-            // 
-            this.btnConfirm1.Location = new System.Drawing.Point(248, 48);
-            this.btnConfirm1.Name = "btnConfirm1";
-            this.btnConfirm1.Size = new System.Drawing.Size(95, 23);
-            this.btnConfirm1.TabIndex = 2;
-            this.btnConfirm1.Text = "批量导入";
-            this.btnConfirm1.UseVisualStyleBackColor = true;
-            this.btnConfirm1.Click += new System.EventHandler(this.btnConfirm1_Click);
-            // 
             // btnBrowse1
             // 
-            this.btnBrowse1.Location = new System.Drawing.Point(556, 17);
+            this.btnBrowse1.Location = new System.Drawing.Point(556, 14);
             this.btnBrowse1.Name = "btnBrowse1";
-            this.btnBrowse1.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse1.TabIndex = 1;
-            this.btnBrowse1.Text = "浏览...";
-            this.btnBrowse1.UseVisualStyleBackColor = true;
+            this.btnBrowse1.Size = new System.Drawing.Size(86, 31);
+            this.btnBrowse1.TabIndex = 3;
+            this.btnBrowse1.Values.Text = "浏览...";
             this.btnBrowse1.Click += new System.EventHandler(this.btnBrowse1_Click);
             // 
             // textBox1
@@ -107,7 +96,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnConfirm2);
+            this.groupBox2.Controls.Add(this.kryptonButton2);
             this.groupBox2.Controls.Add(this.btnBrowse2);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Location = new System.Drawing.Point(18, 126);
@@ -117,24 +106,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "填空题";
             // 
-            // btnConfirm2
-            // 
-            this.btnConfirm2.Location = new System.Drawing.Point(248, 48);
-            this.btnConfirm2.Name = "btnConfirm2";
-            this.btnConfirm2.Size = new System.Drawing.Size(95, 23);
-            this.btnConfirm2.TabIndex = 2;
-            this.btnConfirm2.Text = "批量导入";
-            this.btnConfirm2.UseVisualStyleBackColor = true;
-            this.btnConfirm2.Click += new System.EventHandler(this.btnConfirm2_Click);
-            // 
             // btnBrowse2
             // 
-            this.btnBrowse2.Location = new System.Drawing.Point(556, 17);
+            this.btnBrowse2.Location = new System.Drawing.Point(556, 15);
             this.btnBrowse2.Name = "btnBrowse2";
-            this.btnBrowse2.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse2.TabIndex = 1;
-            this.btnBrowse2.Text = "浏览...";
-            this.btnBrowse2.UseVisualStyleBackColor = true;
+            this.btnBrowse2.Size = new System.Drawing.Size(86, 31);
+            this.btnBrowse2.TabIndex = 4;
+            this.btnBrowse2.Values.Text = "浏览...";
             this.btnBrowse2.Click += new System.EventHandler(this.btnBrowse1_Click);
             // 
             // textBox2
@@ -146,7 +124,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnConfirm3);
+            this.groupBox3.Controls.Add(this.kryptonButton3);
             this.groupBox3.Controls.Add(this.btnBrowse3);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Location = new System.Drawing.Point(18, 236);
@@ -156,24 +134,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "判断题";
             // 
-            // btnConfirm3
-            // 
-            this.btnConfirm3.Location = new System.Drawing.Point(248, 48);
-            this.btnConfirm3.Name = "btnConfirm3";
-            this.btnConfirm3.Size = new System.Drawing.Size(95, 23);
-            this.btnConfirm3.TabIndex = 2;
-            this.btnConfirm3.Text = "批量导入";
-            this.btnConfirm3.UseVisualStyleBackColor = true;
-            this.btnConfirm3.Click += new System.EventHandler(this.btnConfirm3_Click);
-            // 
             // btnBrowse3
             // 
-            this.btnBrowse3.Location = new System.Drawing.Point(556, 17);
+            this.btnBrowse3.Location = new System.Drawing.Point(556, 14);
             this.btnBrowse3.Name = "btnBrowse3";
-            this.btnBrowse3.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse3.TabIndex = 1;
-            this.btnBrowse3.Text = "浏览...";
-            this.btnBrowse3.UseVisualStyleBackColor = true;
+            this.btnBrowse3.Size = new System.Drawing.Size(86, 31);
+            this.btnBrowse3.TabIndex = 4;
+            this.btnBrowse3.Values.Text = "浏览...";
             this.btnBrowse3.Click += new System.EventHandler(this.btnBrowse1_Click);
             // 
             // textBox3
@@ -185,7 +152,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.btnConfirm4);
+            this.groupBox4.Controls.Add(this.kryptonButton4);
             this.groupBox4.Controls.Add(this.btnBrowse4);
             this.groupBox4.Controls.Add(this.textBox4);
             this.groupBox4.Location = new System.Drawing.Point(18, 346);
@@ -195,24 +162,13 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Office题";
             // 
-            // btnConfirm4
-            // 
-            this.btnConfirm4.Location = new System.Drawing.Point(248, 48);
-            this.btnConfirm4.Name = "btnConfirm4";
-            this.btnConfirm4.Size = new System.Drawing.Size(95, 23);
-            this.btnConfirm4.TabIndex = 2;
-            this.btnConfirm4.Text = "批量导入";
-            this.btnConfirm4.UseVisualStyleBackColor = true;
-            this.btnConfirm4.Click += new System.EventHandler(this.btnConfirm4_Click);
-            // 
             // btnBrowse4
             // 
-            this.btnBrowse4.Location = new System.Drawing.Point(556, 17);
+            this.btnBrowse4.Location = new System.Drawing.Point(556, 14);
             this.btnBrowse4.Name = "btnBrowse4";
-            this.btnBrowse4.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse4.TabIndex = 1;
-            this.btnBrowse4.Text = "浏览...";
-            this.btnBrowse4.UseVisualStyleBackColor = true;
+            this.btnBrowse4.Size = new System.Drawing.Size(86, 31);
+            this.btnBrowse4.TabIndex = 4;
+            this.btnBrowse4.Values.Text = "浏览...";
             this.btnBrowse4.Click += new System.EventHandler(this.btnBrowse1_Click);
             // 
             // textBox4
@@ -224,7 +180,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.btnConfirm5);
+            this.groupBox5.Controls.Add(this.kryptonButton5);
             this.groupBox5.Controls.Add(this.btnBrowse5);
             this.groupBox5.Controls.Add(this.textBox5);
             this.groupBox5.Location = new System.Drawing.Point(18, 456);
@@ -234,24 +190,13 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "编程题";
             // 
-            // btnConfirm5
-            // 
-            this.btnConfirm5.Location = new System.Drawing.Point(248, 48);
-            this.btnConfirm5.Name = "btnConfirm5";
-            this.btnConfirm5.Size = new System.Drawing.Size(95, 23);
-            this.btnConfirm5.TabIndex = 2;
-            this.btnConfirm5.Text = "批量导入";
-            this.btnConfirm5.UseVisualStyleBackColor = true;
-            this.btnConfirm5.Click += new System.EventHandler(this.btnConfirm5_Click);
-            // 
             // btnBrowse5
             // 
-            this.btnBrowse5.Location = new System.Drawing.Point(556, 17);
+            this.btnBrowse5.Location = new System.Drawing.Point(556, 14);
             this.btnBrowse5.Name = "btnBrowse5";
-            this.btnBrowse5.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse5.TabIndex = 1;
-            this.btnBrowse5.Text = "浏览...";
-            this.btnBrowse5.UseVisualStyleBackColor = true;
+            this.btnBrowse5.Size = new System.Drawing.Size(86, 31);
+            this.btnBrowse5.TabIndex = 4;
+            this.btnBrowse5.Values.Text = "浏览...";
             this.btnBrowse5.Click += new System.EventHandler(this.btnBrowse1_Click);
             // 
             // textBox5
@@ -263,7 +208,7 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.btnConfirm6);
+            this.groupBox6.Controls.Add(this.kryptonButton6);
             this.groupBox6.Controls.Add(this.btnBrowse6);
             this.groupBox6.Controls.Add(this.textBox6);
             this.groupBox6.Location = new System.Drawing.Point(18, 566);
@@ -273,24 +218,13 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "单元";
             // 
-            // btnConfirm6
-            // 
-            this.btnConfirm6.Location = new System.Drawing.Point(248, 48);
-            this.btnConfirm6.Name = "btnConfirm6";
-            this.btnConfirm6.Size = new System.Drawing.Size(95, 23);
-            this.btnConfirm6.TabIndex = 2;
-            this.btnConfirm6.Text = "批量导入";
-            this.btnConfirm6.UseVisualStyleBackColor = true;
-            this.btnConfirm6.Click += new System.EventHandler(this.btnConfirm6_Click);
-            // 
             // btnBrowse6
             // 
-            this.btnBrowse6.Location = new System.Drawing.Point(556, 17);
+            this.btnBrowse6.Location = new System.Drawing.Point(556, 14);
             this.btnBrowse6.Name = "btnBrowse6";
-            this.btnBrowse6.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse6.TabIndex = 1;
-            this.btnBrowse6.Text = "浏览...";
-            this.btnBrowse6.UseVisualStyleBackColor = true;
+            this.btnBrowse6.Size = new System.Drawing.Size(86, 31);
+            this.btnBrowse6.TabIndex = 5;
+            this.btnBrowse6.Values.Text = "浏览...";
             this.btnBrowse6.Click += new System.EventHandler(this.btnBrowse1_Click);
             // 
             // textBox6
@@ -299,6 +233,60 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(523, 21);
             this.textBox6.TabIndex = 0;
+            // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.Location = new System.Drawing.Point(248, 46);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.Size = new System.Drawing.Size(95, 28);
+            this.kryptonButton1.TabIndex = 4;
+            this.kryptonButton1.Values.Text = "批量导入";
+            this.kryptonButton1.Click += new System.EventHandler(this.btnConfirm1_Click);
+            // 
+            // kryptonButton2
+            // 
+            this.kryptonButton2.Location = new System.Drawing.Point(248, 47);
+            this.kryptonButton2.Name = "kryptonButton2";
+            this.kryptonButton2.Size = new System.Drawing.Size(95, 28);
+            this.kryptonButton2.TabIndex = 5;
+            this.kryptonButton2.Values.Text = "批量导入";
+            this.kryptonButton2.Click += new System.EventHandler(this.btnConfirm2_Click);
+            // 
+            // kryptonButton3
+            // 
+            this.kryptonButton3.Location = new System.Drawing.Point(248, 47);
+            this.kryptonButton3.Name = "kryptonButton3";
+            this.kryptonButton3.Size = new System.Drawing.Size(95, 28);
+            this.kryptonButton3.TabIndex = 5;
+            this.kryptonButton3.Values.Text = "批量导入";
+            this.kryptonButton3.Click += new System.EventHandler(this.btnConfirm3_Click);
+            // 
+            // kryptonButton4
+            // 
+            this.kryptonButton4.Location = new System.Drawing.Point(248, 47);
+            this.kryptonButton4.Name = "kryptonButton4";
+            this.kryptonButton4.Size = new System.Drawing.Size(95, 28);
+            this.kryptonButton4.TabIndex = 5;
+            this.kryptonButton4.Values.Text = "批量导入";
+            this.kryptonButton4.Click += new System.EventHandler(this.btnConfirm4_Click);
+            // 
+            // kryptonButton5
+            // 
+            this.kryptonButton5.Location = new System.Drawing.Point(248, 47);
+            this.kryptonButton5.Name = "kryptonButton5";
+            this.kryptonButton5.Size = new System.Drawing.Size(95, 28);
+            this.kryptonButton5.TabIndex = 5;
+            this.kryptonButton5.Values.Text = "批量导入";
+            this.kryptonButton5.Click += new System.EventHandler(this.btnConfirm5_Click);
+            // 
+            // kryptonButton6
+            // 
+            this.kryptonButton6.Location = new System.Drawing.Point(248, 47);
+            this.kryptonButton6.Name = "kryptonButton6";
+            this.kryptonButton6.Size = new System.Drawing.Size(95, 28);
+            this.kryptonButton6.TabIndex = 6;
+            this.kryptonButton6.Values.Text = "批量导入";
+            this.kryptonButton6.Click += new System.EventHandler(this.btnConfirm6_Click);
             // 
             // BulkImport
             // 
@@ -331,30 +319,30 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnBrowse1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnConfirm1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnConfirm2;
-        private System.Windows.Forms.Button btnBrowse2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnConfirm3;
-        private System.Windows.Forms.Button btnBrowse3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnConfirm4;
-        private System.Windows.Forms.Button btnBrowse4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button btnConfirm5;
-        private System.Windows.Forms.Button btnBrowse5;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button btnConfirm6;
-        private System.Windows.Forms.Button btnBrowse6;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowse1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowse2;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowse3;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowse4;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowse5;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnBrowse6;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton4;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton5;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton6;
     }
 }
