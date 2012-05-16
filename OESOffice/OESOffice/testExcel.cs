@@ -396,8 +396,8 @@ namespace OESOffice
             if (checkGraphValue.Checked)
             {
                 addGraph();
-                int cnt = GetGraphValueCount(ch, xls);                  //图表数据个数，一个数据一分
-                oxml.Path.Add(new OfficeElement("Value", cnt.ToString()));
+                //int cnt = GetGraphValueCount(ch, xls);
+                oxml.Path.Add(new OfficeElement("Value", "1"));
                 oxml.addPathtoXML();
             }
             if (checkGraphPosition.Checked)
@@ -466,6 +466,7 @@ namespace OESOffice
         {
             textPos.Enabled = true;
             textLuPos.Enabled = textRdPos.Enabled = false;
+            textPos.Text = textLuPos.Text = textRdPos.Text = "";
             foreach (object ob in groupPoint.Controls)
                 if (ob is CheckBox)
                     canChooseIt((CheckBox)ob);
@@ -479,6 +480,7 @@ namespace OESOffice
         {
             textPos.Enabled = false;
             textLuPos.Enabled = textRdPos.Enabled = true;
+            textPos.Text = textLuPos.Text = textRdPos.Text = "";
             foreach (object ob in groupPoint.Controls)
                 if (ob is CheckBox)
                     canChooseIt((CheckBox)ob);

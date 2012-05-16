@@ -374,6 +374,7 @@
             this.radioSheet.TabStop = true;
             this.radioSheet.Text = "只选中工作表(不选中任何单元格！)";
             this.radioSheet.UseVisualStyleBackColor = true;
+            this.radioSheet.CheckedChanged += new System.EventHandler(this.radioSheet_CheckedChanged);
             // 
             // label13
             // 
@@ -428,6 +429,7 @@
             this.radioRegion.TabStop = true;
             this.radioRegion.Text = "选中单元格区域";
             this.radioRegion.UseVisualStyleBackColor = true;
+            this.radioRegion.CheckedChanged += new System.EventHandler(this.radioRegion_CheckedChanged);
             // 
             // radioCell
             // 
@@ -439,6 +441,7 @@
             this.radioCell.TabStop = true;
             this.radioCell.Text = "选中单个单元格";
             this.radioCell.UseVisualStyleBackColor = true;
+            this.radioCell.CheckedChanged += new System.EventHandler(this.radioCell_CheckedChanged);
             // 
             // label9
             // 
@@ -648,6 +651,7 @@
             this.radioSingleChart.TabStop = true;
             this.radioSingleChart.Text = "作为单个工作表的图表";
             this.radioSingleChart.UseVisualStyleBackColor = true;
+            this.radioSingleChart.CheckedChanged += new System.EventHandler(this.radioSingleChart_CheckedChanged);
             // 
             // comboChart
             // 
@@ -657,6 +661,7 @@
             this.comboChart.Name = "comboChart";
             this.comboChart.Size = new System.Drawing.Size(181, 20);
             this.comboChart.TabIndex = 32;
+            this.comboChart.SelectedIndexChanged += new System.EventHandler(this.comboChart_SelectedIndexChanged);
             // 
             // comboSheet
             // 
@@ -666,6 +671,7 @@
             this.comboSheet.Name = "comboSheet";
             this.comboSheet.Size = new System.Drawing.Size(181, 20);
             this.comboSheet.TabIndex = 30;
+            this.comboSheet.SelectedIndexChanged += new System.EventHandler(this.comboSheet_SelectedIndexChanged);
             // 
             // comboChartInSheet
             // 
@@ -686,6 +692,7 @@
             this.radioChartInSheet.TabStop = true;
             this.radioChartInSheet.Text = "作为工作表内嵌的图表";
             this.radioChartInSheet.UseVisualStyleBackColor = true;
+            this.radioChartInSheet.CheckedChanged += new System.EventHandler(this.radioChartInSheet_CheckedChanged);
             // 
             // testExcel
             // 
