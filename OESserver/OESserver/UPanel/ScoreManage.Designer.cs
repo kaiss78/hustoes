@@ -30,7 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.AddButton = new System.Windows.Forms.Button();
             this.comboPaper = new System.Windows.Forms.ComboBox();
             this.comboClass = new System.Windows.Forms.ComboBox();
             this.comboDept = new System.Windows.Forms.ComboBox();
@@ -39,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DataGridViewScoreList = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.AddButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,17 +86,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(709, 102);
             this.panel1.TabIndex = 1;
-            // 
-            // AddButton
-            // 
-            this.AddButton.Font = new System.Drawing.Font("隶书", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.AddButton.Location = new System.Drawing.Point(578, 55);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(86, 29);
-            this.AddButton.TabIndex = 6;
-            this.AddButton.Text = "查询";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // comboPaper
             // 
@@ -180,13 +169,21 @@
             this.DataGridViewScoreList.Size = new System.Drawing.Size(706, 474);
             this.DataGridViewScoreList.TabIndex = 1;
             // 
+            // AddButton
+            // 
+            this.AddButton.Location = new System.Drawing.Point(580, 52);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(86, 32);
+            this.AddButton.TabIndex = 7;
+            this.AddButton.Values.Text = "查询";
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
             // ScoreManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ScoreManage";
-            this.Size = new System.Drawing.Size(742, 666);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -206,8 +203,8 @@
         private System.Windows.Forms.ComboBox comboDept;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView DataGridViewScoreList;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton AddButton;
     }
 }
