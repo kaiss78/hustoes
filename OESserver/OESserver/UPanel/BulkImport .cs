@@ -8,12 +8,13 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using OES.Net;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace OES.UPanel
 {
     public partial class BulkImport : UserPanel
     {
-        Dictionary<Button, TextBox> dict = new Dictionary<Button, TextBox>();
+        Dictionary<KryptonButton, TextBox> dict = new Dictionary<KryptonButton, TextBox>();
         public BulkImport()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace OES.UPanel
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                dict[sender as Button].Text = openFileDialog1.FileName;
+                dict[sender as KryptonButton].Text = openFileDialog1.FileName;
             }
         }
 
