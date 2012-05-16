@@ -217,7 +217,8 @@
             // tbPaperName
             // 
             this.tbPaperName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tbPaperName.Location = new System.Drawing.Point(89, 3);
+            this.tbPaperName.Location = new System.Drawing.Point(89, 5);
+            this.tbPaperName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.tbPaperName.Name = "tbPaperName";
             this.tbPaperName.Size = new System.Drawing.Size(274, 26);
             this.tbPaperName.TabIndex = 16;
@@ -257,7 +258,8 @@
             this.cboCourse.Dock = System.Windows.Forms.DockStyle.Right;
             this.cboCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCourse.DropDownWidth = 121;
-            this.cboCourse.Location = new System.Drawing.Point(513, 3);
+            this.cboCourse.Location = new System.Drawing.Point(513, 5);
+            this.cboCourse.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.cboCourse.Name = "cboCourse";
             this.cboCourse.Size = new System.Drawing.Size(180, 24);
             this.cboCourse.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
