@@ -34,12 +34,12 @@
             this.radioByID = new System.Windows.Forms.RadioButton();
             this.radioByName = new System.Windows.Forms.RadioButton();
             this.radioByClass = new System.Windows.Forms.RadioButton();
-            this.btnReturn = new System.Windows.Forms.Button();
-            this.btnFind = new System.Windows.Forms.Button();
             this.textKey = new System.Windows.Forms.TextBox();
             this.comboTeacher = new System.Windows.Forms.ComboBox();
             this.comboDept = new System.Windows.Forms.ComboBox();
             this.comboClass = new System.Windows.Forms.ComboBox();
+            this.btnFind = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnReturn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,26 +113,6 @@
             this.radioByClass.UseVisualStyleBackColor = true;
             this.radioByClass.CheckedChanged += new System.EventHandler(this.radioByClass_CheckedChanged);
             // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(349, 400);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(102, 35);
-            this.btnReturn.TabIndex = 10;
-            this.btnReturn.Text = "返回";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // btnFind
-            // 
-            this.btnFind.Location = new System.Drawing.Point(128, 400);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(102, 35);
-            this.btnFind.TabIndex = 9;
-            this.btnFind.Text = "查找";
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
             // textKey
             // 
             this.textKey.Location = new System.Drawing.Point(128, 330);
@@ -168,17 +148,35 @@
             this.comboClass.Size = new System.Drawing.Size(157, 24);
             this.comboClass.TabIndex = 15;
             // 
+            // btnFind
+            // 
+            this.btnFind.Location = new System.Drawing.Point(128, 442);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(102, 33);
+            this.btnFind.TabIndex = 16;
+            this.btnFind.Values.Text = "查找";
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(349, 441);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(102, 34);
+            this.btnReturn.TabIndex = 17;
+            this.btnReturn.Values.Text = "返回";
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // StudentFind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnFind);
             this.Controls.Add(this.comboClass);
             this.Controls.Add(this.comboDept);
             this.Controls.Add(this.comboTeacher);
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.btnFind);
             this.Controls.Add(this.textKey);
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -197,14 +195,14 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioByName;
         private System.Windows.Forms.RadioButton radioByClass;
-        private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox textKey;
         private System.Windows.Forms.RadioButton radioByTeacher;
         private System.Windows.Forms.RadioButton radioByID;
         private System.Windows.Forms.ComboBox comboTeacher;
         private System.Windows.Forms.ComboBox comboDept;
         private System.Windows.Forms.ComboBox comboClass;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnFind;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnReturn;
 
     }
 }
