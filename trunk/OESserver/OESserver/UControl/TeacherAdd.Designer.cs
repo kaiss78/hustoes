@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnReturn = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.textUserName = new System.Windows.Forms.TextBox();
             this.textPW2 = new System.Windows.Forms.TextBox();
             this.textName = new System.Windows.Forms.TextBox();
@@ -42,27 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.radioUser = new System.Windows.Forms.RadioButton();
             this.radioAdmin = new System.Windows.Forms.RadioButton();
+            this.btnAdd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnReturn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.SuspendLayout();
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(302, 316);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(87, 32);
-            this.btnReturn.TabIndex = 7;
-            this.btnReturn.Text = "返回";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(126, 316);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(87, 32);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "添加教师";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // textUserName
             // 
@@ -170,17 +150,35 @@
             this.radioAdmin.Text = "超级管理员";
             this.radioAdmin.UseVisualStyleBackColor = true;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(126, 355);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(87, 34);
+            this.btnAdd.TabIndex = 17;
+            this.btnAdd.Values.Text = "添加教师";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(302, 355);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(87, 34);
+            this.btnReturn.TabIndex = 18;
+            this.btnReturn.Values.Text = "返回";
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // TeacherAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.radioAdmin);
             this.Controls.Add(this.radioUser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textUserName);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.textPW2);
-            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.textName);
             this.Controls.Add(this.textPW);
             this.Controls.Add(this.labelPW);
@@ -199,8 +197,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox textUserName;
         private System.Windows.Forms.TextBox textPW2;
         private System.Windows.Forms.TextBox textName;
@@ -213,5 +209,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioUser;
         private System.Windows.Forms.RadioButton radioAdmin;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnAdd;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnReturn;
     }
 }

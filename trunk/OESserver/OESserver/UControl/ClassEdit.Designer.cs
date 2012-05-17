@@ -33,10 +33,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textDept = new System.Windows.Forms.TextBox();
             this.textClass = new System.Windows.Forms.TextBox();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.labelInfo = new System.Windows.Forms.Label();
             this.comboTeacher = new System.Windows.Forms.ComboBox();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnReturn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.SuspendLayout();
             // 
             // label1
@@ -80,26 +80,6 @@
             this.textClass.Size = new System.Drawing.Size(211, 26);
             this.textClass.TabIndex = 5;
             // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(127, 320);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(102, 33);
-            this.btnEdit.TabIndex = 6;
-            this.btnEdit.Text = "修改班级";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(373, 320);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(102, 33);
-            this.btnReturn.TabIndex = 7;
-            this.btnReturn.Text = "返回";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
             // labelInfo
             // 
             this.labelInfo.AutoSize = true;
@@ -117,14 +97,32 @@
             this.comboTeacher.Size = new System.Drawing.Size(210, 24);
             this.comboTeacher.TabIndex = 9;
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(127, 360);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(101, 33);
+            this.btnEdit.TabIndex = 10;
+            this.btnEdit.Values.Text = "修改班级";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(373, 359);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(102, 34);
+            this.btnReturn.TabIndex = 11;
+            this.btnReturn.Values.Text = "返回";
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // ClassEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboTeacher);
-            this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.comboTeacher);
+            this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.textClass);
             this.Controls.Add(this.textDept);
             this.Controls.Add(this.label3);
@@ -146,9 +144,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textDept;
         private System.Windows.Forms.TextBox textClass;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.ComboBox comboTeacher;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnReturn;
     }
 }

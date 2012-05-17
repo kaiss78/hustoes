@@ -39,11 +39,11 @@
             this.textID = new System.Windows.Forms.TextBox();
             this.textPW2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.comboDept = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.labelInfo = new System.Windows.Forms.Label();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnReturn = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.SuspendLayout();
             // 
             // label1
@@ -139,26 +139,6 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "(若不修改密码，此项请留空)";
             // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(121, 391);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(129, 39);
-            this.btnEdit.TabIndex = 11;
-            this.btnEdit.Text = "修改";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Location = new System.Drawing.Point(346, 391);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(129, 39);
-            this.btnReturn.TabIndex = 12;
-            this.btnReturn.Text = "返回";
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
             // comboDept
             // 
             this.comboDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -186,15 +166,33 @@
             this.labelInfo.Size = new System.Drawing.Size(0, 16);
             this.labelInfo.TabIndex = 15;
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(121, 437);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(129, 33);
+            this.btnEdit.TabIndex = 16;
+            this.btnEdit.Values.Text = "修改";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(346, 436);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(129, 34);
+            this.btnReturn.TabIndex = 17;
+            this.btnReturn.Values.Text = "返回";
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // StudentEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.comboDept);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textPW2);
             this.Controls.Add(this.textID);
@@ -228,10 +226,10 @@
         private System.Windows.Forms.TextBox textID;
         private System.Windows.Forms.TextBox textPW2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.ComboBox comboDept;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelInfo;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnReturn;
     }
 }
