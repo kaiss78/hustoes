@@ -169,13 +169,13 @@ namespace OESScore
             proList = new List<IdScoreType>();
             ansList = new List<IdAnswerType>();
 
-            if ((!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\A" + ID + ".xml")))
+            ClientEvt.RootPath = ScoreControl.config["AnswerPath"] + ID + "\\";
+            if (!Directory.Exists(ClientEvt.RootPath))
             {
-                ClientEvt.RootPath = ScoreControl.config["AnswerPath"] + ID + "\\";
-                if (!Directory.Exists(ClientEvt.RootPath))
-                {
-                    Directory.CreateDirectory(ClientEvt.RootPath);
-                }
+                Directory.CreateDirectory(ClientEvt.RootPath);
+            }
+            if ((!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\A" + ID + ".xml")))
+            {   
                 scoreNet.LoadPaper(Convert.ToInt32(ID), -1);
                 scoreNet.ReceiveFiles();
                 while (!ClientEvt.isOver) ;
