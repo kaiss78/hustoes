@@ -24,8 +24,8 @@ namespace OESScore
         /// </summary>
         public static OESConfig config = new OESConfig("PathConfig.xml",
         new string[,] {
-                        {"PaperPath","c:\\"},
-                        {"AnswerPath","c:\\"}
+                        {"PaperPath","D:\\Paper\\"},
+                        {"AnswerPath","D:\\Answer\\"}
                       });
 
         /// <summary>
@@ -137,24 +137,21 @@ namespace OESScore
         /// <returns></returns>
         static private OfficeAnswer getOfficeAnswer(IdScoreType pro, string path, string ex)
         {
-            switch(pro.pt)
+            switch (pro.pt)
             {
                 case ProblemType.Word:
                     scoreNet.LoadWordA(pro.id, -1);
                     scoreNet.LoadWordT(pro.id, -1);
-                break;
+                    break;
                 case ProblemType.Excel:
                     scoreNet.LoadExcelA(pro.id, -1);
                     scoreNet.LoadExcelT(pro.id, -1);
-                break;
+                    break;
                 case ProblemType.PowerPoint:
                     scoreNet.LoadPowerPointA(pro.id, -1);
                     scoreNet.LoadPowerPointT(pro.id, -1);
-                break;
-            }
-
-            scoreNet.ReceiveFiles();
-            while (!ClientEvt.isOver) ;            
+                    break;
+            }            
             return new OfficeAnswer(path + "a" + pro.id.ToString() + ex, path + "t" + pro.id.ToString() + ".xml",pro.score);
         }
 
@@ -234,6 +231,8 @@ namespace OESScore
                             break;
                     }
                 }
+                scoreNet.ReceiveFiles();
+                while (!ClientEvt.isOver) ;
                 return newAnswer;
             }
             return null;
