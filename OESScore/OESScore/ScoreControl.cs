@@ -136,9 +136,23 @@ namespace OESScore
         /// <param name="path">放置路径</param>
         /// <returns></returns>
         static private OfficeAnswer getOfficeAnswer(IdScoreType pro, string path, string ex)
-        {            
-            scoreNet.LoadWordA(pro.id, -1);
-            scoreNet.LoadWordT(pro.id, -1);
+        {
+            switch(pro.pt)
+            {
+                case ProblemType.Word:
+                    scoreNet.LoadWordA(pro.id, -1);
+                    scoreNet.LoadWordT(pro.id, -1);
+                break;
+                case ProblemType.Excel:
+                    scoreNet.LoadExcelA(pro.id, -1);
+                    scoreNet.LoadExcelT(pro.id, -1);
+                break;
+                case ProblemType.PowerPoint:
+                    scoreNet.LoadPowerPointA(pro.id, -1);
+                    scoreNet.LoadPowerPointT(pro.id, -1);
+                break;
+            }
+
             scoreNet.ReceiveFiles();
             while (!ClientEvt.isOver) ;            
             return new OfficeAnswer(path + "a" + pro.id.ToString() + ex, path + "t" + pro.id.ToString() + ".xml",pro.score);
