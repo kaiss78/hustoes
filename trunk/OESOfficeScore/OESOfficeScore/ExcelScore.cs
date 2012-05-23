@@ -492,11 +492,12 @@ namespace OESOfficeScore
                     List<List<string>> stuList, ansList;
                     stuList = GetValue(stuCh, stuXls);
                     ansList = GetValue(ansCh, ansXls);
+                    thisPoint = 1;
                     for (i = 0; i < stuList.Count && i < ansList.Count; i++)
                     {
-                        for (j = 0; j < stuList[i].Count && j < ansList[i].Count; j++ )
-                            if (stuList[i][j] == ansList[i][j])
-                                thisPoint++;
+                        for (j = 0; j < stuList[i].Count && j < ansList[i].Count; j++)
+                            if (stuList[i][j] != ansList[i][j])
+                                thisPoint = 0;
                     }
                     continue;
                 }
