@@ -116,7 +116,7 @@ namespace OES.UControl
             System.Diagnostics.Process[] pro = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pro1 in pro)
             {
-                if (pro1.ProcessName == "WINWORD")
+                if (pro1.ProcessName.ToLower() == "winword")
                 {
                     pro1.Kill();
                 }

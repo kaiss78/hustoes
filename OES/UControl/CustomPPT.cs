@@ -114,7 +114,7 @@ namespace OES.UControl
             System.Diagnostics.Process[] pro = System.Diagnostics.Process.GetProcesses();
             foreach (System.Diagnostics.Process pro1 in pro)
             {
-                if (pro1.ProcessName == "POWERPNT" | pro1.ProcessName == "Powerpnt")
+                if (pro1.ProcessName.ToLower() == "powerpnt")
                 {
                     pro1.Kill();
                 }
