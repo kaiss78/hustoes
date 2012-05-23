@@ -85,6 +85,11 @@ namespace OESOfficeScore
                 ansExcel.Quit();
                 ansExcel = null;
                 GC.Collect();
+
+                System.Diagnostics.Process[] pro = System.Diagnostics.Process.GetProcesses();
+                foreach (System.Diagnostics.Process pro1 in pro)
+                    if (pro1.ProcessName.ToLower() == "excel")
+                        pro1.Kill();
             }
             catch { }
         }
