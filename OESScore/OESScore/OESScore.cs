@@ -12,6 +12,7 @@ using OES.Net;
 using OES.XMLFile;
 using OES;
 using OESOfficeScore;
+using OESScore;
 
 namespace OESScore
 {
@@ -22,7 +23,6 @@ namespace OESScore
         public DataView dvStuList = new DataView();
         public List<PaperFolder> papers = new List<PaperFolder>();
         private List<StuFolder> StuList = new List<StuFolder>();
-
 
 
         public formOESScore()
@@ -74,7 +74,6 @@ namespace OESScore
 
         public void init()
         {
-
         }
 
         #region 网络连接状态
@@ -120,6 +119,7 @@ namespace OESScore
             List<Student> tmpS;
             List<Paper> tmpP;
             List<DirectoryInfo> studentList;
+            String ID;
             StuList = new List<StuFolder>();
             studentList = ScoreControl.GetFolderInfo(ScoreControl.config["PaperPath"]);
             dtStuList.Rows.Clear();
@@ -152,6 +152,11 @@ namespace OESScore
                             tmpSF.PaperInfo = tmpP[0];
                             tmpSF.state = ScoreState.None; ;
                             values[5] = ScoreState.None;
+                            ID=tmpSF.PaperInfo.paperID.ToString();
+                            if ((!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\A" + ID + ".xml")))
+                            {
+                                ScoreControl.scoreNet.LoadPaper(Convert.ToInt32(ID), -1);
+                            }
                         }
                         else
                         {
@@ -179,6 +184,8 @@ namespace OESScore
                 }
                 processBar.Value = ++i * 100 / studentList.Count;
             }
+            ScoreControl.scoreNet.ReceiveFiles();
+            while (!ClientEvt.isOver) ;
         }
 
         public void MarkAll()
@@ -256,10 +263,10 @@ namespace OESScore
                                 }
                             }
                         }
-                        dScore = count * ScoreControl.staAns.PCList[i].score / proAns.Count;                       
+                        dScore = count * ScoreControl.staAns.PCList[i].score / proAns.Count;
                         XMLControl.AddScore(ScoreControl.staAns.PCList[i].type, ScoreControl.staAns.PCList[i].problemId, dScore);
                         Score = Score + dScore;
-                        
+
                     }
                 }
 
@@ -331,7 +338,7 @@ namespace OESScore
                     fileName = StuList[RIndex].path.FullName + "\\f" + i.ToString() + ".ppt";
                     if (File.Exists(fileName))
                     {
-                        Score += PowerPointScore.ps.checkPoints(fileName, ScoreControl.staAns.PowerPointList[i].OfficeFile, ScoreControl.staAns.PowerPointList[i].XMLFile,ScoreControl.staAns.PowerPointList[i].score);
+                        Score += PowerPointScore.ps.checkPoints(fileName, ScoreControl.staAns.PowerPointList[i].OfficeFile, ScoreControl.staAns.PowerPointList[i].XMLFile, ScoreControl.staAns.PowerPointList[i].score);
                     }
                 }
             }

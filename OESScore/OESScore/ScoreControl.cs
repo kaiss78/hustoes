@@ -155,6 +155,7 @@ namespace OESScore
             return new OfficeAnswer(path + "a" + pro.id.ToString() + ex, path + "t" + pro.id.ToString() + ".xml",pro.score);
         }
 
+
         /// <summary>
         /// 获取正确答案
         /// </summary>
@@ -174,14 +175,14 @@ namespace OESScore
             {
                 Directory.CreateDirectory(ClientEvt.RootPath);
             }
-            if ((!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\A" + ID + ".xml")))
-            {   
-                scoreNet.LoadPaper(Convert.ToInt32(ID), -1);
-                scoreNet.ReceiveFiles();
-                while (!ClientEvt.isOver) ;
+            //if ((!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml")) || (!File.Exists(ScoreControl.config["AnswerPath"] + ID + "\\A" + ID + ".xml")))
+            //{   
+            //    scoreNet.LoadPaper(Convert.ToInt32(ID), -1);
+            //    scoreNet.ReceiveFiles();
+            //    while (!ClientEvt.isOver) ;
 
-                //return null;
-            }
+            //    //return null;
+            //}
             if (!ClientEvt.isError)
             {
                 proList = XMLControl.ReadPaper(ScoreControl.config["AnswerPath"] + ID + "\\" + ID + ".xml");
