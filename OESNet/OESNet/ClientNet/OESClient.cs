@@ -449,10 +449,22 @@ namespace ClientNet
             this.remoteCmd = remoteCmd;
             this.localPath = localPath;
             this.Port.FileSendEnd += new EventHandler(Port_FileSendEnd);
-            
-            if (remoteCmd.Count != localPath.Count) return;
 
-            if (remoteCmd.Count == 0 || localPath.Count == 0) return;
+            if (remoteCmd.Count != localPath.Count)
+            {
+                this.Port.FileSendEnd -= Port_FileSendEnd;
+                if (FileListSendEnd != null)
+                    FileListSendEnd();
+                return;
+            }
+
+            if (remoteCmd.Count == 0 || localPath.Count == 0)
+            {
+                this.Port.FileSendEnd -= Port_FileSendEnd;
+                if (FileListSendEnd != null)
+                    FileListSendEnd();
+                return;
+            }
 
             this.SendTxt(remoteCmd[0]);
             this.Port.FilePath = localPath[0];
@@ -470,7 +482,13 @@ namespace ClientNet
 #if DEBUG
             logForm.InsertMsg("In [OESClient.Port_FileSendEnd]");
 #endif
-            if (remoteCmd.Count != localPath.Count) return;
+            if (remoteCmd.Count != localPath.Count)
+            {
+                this.Port.FileSendEnd -= Port_FileSendEnd;
+                if (FileListSendEnd != null)
+                    FileListSendEnd();
+                return;
+            }
 
             if (remoteCmd.Count != 0)
             {
@@ -508,9 +526,23 @@ namespace ClientNet
             this.localPath = localPath;
             this.Port.FileReceiveEnd += new EventHandler(Port_FileReceiveEnd);
 
-            if (remoteCmd.Count != localPath.Count) return;
+            if (remoteCmd.Count != localPath.Count)
+            {
+                this.Port.FileReceiveEnd -= Port_FileReceiveEnd;
 
-            if (remoteCmd.Count == 0 || localPath.Count == 0) return;
+                if (FileListRecieveEnd != null)
+                    FileListRecieveEnd();
+                return;
+            }
+
+            if (remoteCmd.Count == 0 || localPath.Count == 0)
+            {
+                this.Port.FileReceiveEnd -= Port_FileReceiveEnd;
+
+                if (FileListRecieveEnd != null)
+                    FileListRecieveEnd();
+                return;
+            }
 
             this.SendTxt(remoteCmd[0]);
             this.Port.FilePath = localPath[0];
@@ -528,7 +560,14 @@ namespace ClientNet
 #if DEBUG
             logForm.InsertMsg("In [OESClient.Port_FileReceiveEnd]");
 #endif
-            if (remoteCmd.Count != localPath.Count) return;
+            if (remoteCmd.Count != localPath.Count)
+            {
+                this.Port.FileReceiveEnd -= Port_FileReceiveEnd;
+
+                if (FileListRecieveEnd != null)
+                    FileListRecieveEnd();
+                return;
+            }
 
             if (remoteCmd.Count != 0)
             {
