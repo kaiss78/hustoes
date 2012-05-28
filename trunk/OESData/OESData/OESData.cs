@@ -715,6 +715,8 @@ namespace OES
             }
             return result;
         }
+
+        //数据库记录转为Student
         private List<Student> DataSetToListStudent(DataSet p_DataSet)
         {
 
