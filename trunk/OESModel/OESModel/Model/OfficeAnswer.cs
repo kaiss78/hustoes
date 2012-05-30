@@ -5,11 +5,11 @@ using System.Text;
 
 namespace OES.Model
 {
-    public class OfficeAnswer
+    public class OfficeAnswer           //Office答案类
     {
-        public string OfficeFile;
-        public string XMLFile;
-        public int score;
+        public string OfficeFile;       //Office题标答文件路径
+        public string XMLFile;          //考点xml文件路径
+        public int score;               //总分
         public OfficeAnswer(string office, string xml,int s)
         {
             OfficeFile = office;

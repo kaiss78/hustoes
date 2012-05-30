@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 namespace OES.Model
 {
-    public  class Student
+    public  class Student               //学生类
     {
-        public string sName="";
-        public string ID="";
-        public string examID="";
-        public string password="";
-        public string classId="";
-        public string dept="";
-        public string className="";
-        public string ip = "";
+        public string sName="";         //学生姓名
+        public string ID="";            //学号
+        public string examID="";        //学生所参加的考试ID
+        public string password="";      //学生密码
+        public string classId="";       //班级ID
+        public string dept="";          //所在院系名称
+        public string className="";     //专业名称
+        public string ip = "";          //学生所在机器IP
 
         public Student(string name, string examid, string id, string pword)
         {
@@ -36,6 +36,7 @@ namespace OES.Model
 
         public Student() { }
 
+        //比较两个学生是否一致
         public override bool Equals(object obj)
         {
             if (obj is Student)
