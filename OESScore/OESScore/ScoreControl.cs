@@ -15,7 +15,7 @@ namespace OESScore
 {
     public class ScoreControl
     {
-
+        //标准答案
         public static StaAns staAns;
 
         public static ClientEvt scoreNet = new ClientEvt();
@@ -240,6 +240,12 @@ namespace OESScore
 
         }
 
+        /// <summary>
+        /// 获取考生答案
+        /// 
+        /// </summary>
+        /// <param name="path">考生答案文件的路径</param>
+        /// <returns>考生答案</returns>
         public static StaAns GetStuAns(string path)
         {
             StaAns stuAns = new StaAns();
