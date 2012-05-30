@@ -9,15 +9,16 @@ namespace OES.Model
     {
         //班级ID
         public string classID;
-        //院系
+        //院系名称
         public string dept;
-        //专业
+        //专业名称
         public string className;
-        //
+        //教师的登录账号
         public string teacherUserName;
-        //
+        //教师姓名
         public string teacherName;
 
+        //班级构造函数
         public Classes(string id, string dp, string cn, string tun, string tn)
         {
             classID = id;
