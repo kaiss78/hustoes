@@ -8,10 +8,15 @@ namespace OES.Model
     public class ProgramAnswer
     {
         
+        //答案ID
         public int AID;
+        //对应题目的ID
         public int PID;
+        //答案对应空的序号
         public int SeqNum;
+        //输入
         public string Input;
+        //输出（答案）
         public string Output;
 
         public ProgramAnswer()
