@@ -15,7 +15,7 @@ namespace OES.UPanel
 
         List<String> dps = new List<string>();
         List<String> cls = new List<string>();
-        List<String> paper = new List<string>();
+        List<String> exams = new List<string>();
 
         private DataTable dt;
 
@@ -38,20 +38,34 @@ namespace OES.UPanel
             for (int i = 0; i < dps.Count; i++)
                 ob[i] = dps[i];
             comboDept.Items.AddRange(ob);
-            comboDept.SelectedIndex = 0;
-
+            #region unused
+            //comboDept.SelectedIndex = 0;
             //在combox中显示paper信息
             //paper = InfoControl.OesData.FindAllPaper();
             //object[] obp = new object[paper.Count];
             //for (int i = 0; i < paper.Count; i++)
               //  obp[i] = paper[i];
             //comboPaper.Items.AddRange(obp);
+            #endregion
             comboDept.SelectedIndex = 0;
-
         }
+
+        private void showExamInClass(string className)
+        {
+            exams = InfoControl.OesData.FindExamByClass(className);
+            object[] ob = new object[exams.Count];
+            for (int i = 0; i < exams.Count; i++)
+                ob[i] = exams[i];
+            comboExam.Items.Clear();
+            comboExam.Items.AddRange(ob);
+            if (comboExam.Items.Count > 0)
+                comboExam.SelectedIndex = 0;
+            else
+                comboExam.SelectedIndex = -1;
+        }
+
         private void showClassInDept(string dept)
         {
-            
             if (InfoControl.User.permission == 1)
                 cls = InfoControl.OesData.FindClassNameOfDept(dept);
             else
@@ -60,9 +74,11 @@ namespace OES.UPanel
             for (int i = 0; i < cls.Count; i++)
                 ob[i] = cls[i];
             comboClass.Items.Clear();
-            comboClass.Items.Add("所有学生");
             comboClass.Items.AddRange(ob);
-            comboClass.SelectedIndex = 0;
+            if (comboClass.Items.Count > 0)
+                comboClass.SelectedIndex = 0;
+            else
+                comboClass.SelectedIndex = -1;
         }
 
         private void comboDept_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,53 +86,59 @@ namespace OES.UPanel
             showClassInDept(comboDept.Text);
         }
 
+        private void comboClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            showExamInClass(comboClass.Text);
+        }
+
         private void getScoreTable(List<Score> data)
         {
             dt = new DataTable("Score");
-            object[] values = new object[3];
-            dt.Columns.Add("姓名");
+            object[] values = new object[6];
             dt.Columns.Add("班级");
+            dt.Columns.Add("学号");
+            dt.Columns.Add("姓名");
+            dt.Columns.Add("考试名称");
+            dt.Columns.Add("试卷名称");
             dt.Columns.Add("成绩");
             
             foreach (Score st in data)
             {
-                values[0] = st.stuName;
-                values[1] = st.stuClassName;
-                values[2] = st.Value;
-                
+                values[0] = st.stuClassName;
+                values[1] = st.studentID;
+                values[2] = st.stuName;
+                values[3] = st.examName;
+                values[4] = st.paperTitle;
+                values[5] = st.Value;
                 dt.Rows.Add(values);
             }
             DataGridViewScoreList.DataSource = dt;
             DataGridViewScoreList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DataGridViewScoreList.Columns[0].FillWeight = 20;
-            DataGridViewScoreList.Columns[1].FillWeight = 60;
-            DataGridViewScoreList.Columns[2].FillWeight = 20;
+            DataGridViewScoreList.Columns[1].FillWeight = 15;
+            DataGridViewScoreList.Columns[2].FillWeight = 10;
+            DataGridViewScoreList.Columns[3].FillWeight = 20;
+            DataGridViewScoreList.Columns[4].FillWeight = 25;
+            DataGridViewScoreList.Columns[5].FillWeight = 10;
 
-
-            DataGridViewScoreList.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DataGridViewScoreList.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
-            DataGridViewScoreList.Columns[2].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //studentInfoDGV.Columns[3].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //studentInfoDGV.Columns[4].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //studentInfoDGV.Columns[5].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //studentInfoDGV.Columns[6].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-           // DataGridViewScoreList.Columns[3].Visible = false;
+            foreach (DataGridViewColumn col in DataGridViewScoreList.Columns)
+                col.SortMode = DataGridViewColumnSortMode.Automatic;
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
             try
             {
                 string Class = comboClass.SelectedItem.ToString();
-                string Paper = comboPaper.SelectedItem.ToString();
+                string Exam = comboExam.SelectedItem.ToString();
                 // MessageBox.Show(comboClass.SelectedItem);
-                MessageBox.Show(Paper);
-                getScoreTable(InfoControl.OesData.FindScoreByClassPaper(Class, Paper));
+                // MessageBox.Show(Paper);
+                getScoreTable(InfoControl.OesData.FindScoreByClassExam(Class, Exam));
             }
             catch
             {
                 MessageBox.Show("未选择正确试卷");
             }
         }
+
     }
 }

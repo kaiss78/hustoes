@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboPaper = new System.Windows.Forms.ComboBox();
+            this.comboExam = new System.Windows.Forms.ComboBox();
             this.comboClass = new System.Windows.Forms.ComboBox();
             this.comboDept = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 6);
             this.panel1.Controls.Add(this.AddButton);
-            this.panel1.Controls.Add(this.comboPaper);
+            this.panel1.Controls.Add(this.comboExam);
             this.panel1.Controls.Add(this.comboClass);
             this.panel1.Controls.Add(this.comboDept);
             this.panel1.Controls.Add(this.label3);
@@ -87,14 +87,14 @@
             this.panel1.Size = new System.Drawing.Size(709, 102);
             this.panel1.TabIndex = 1;
             // 
-            // comboPaper
+            // comboExam
             // 
-            this.comboPaper.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPaper.FormattingEnabled = true;
-            this.comboPaper.Location = new System.Drawing.Point(130, 64);
-            this.comboPaper.Name = "comboPaper";
-            this.comboPaper.Size = new System.Drawing.Size(243, 20);
-            this.comboPaper.TabIndex = 5;
+            this.comboExam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboExam.FormattingEnabled = true;
+            this.comboExam.Location = new System.Drawing.Point(130, 64);
+            this.comboExam.Name = "comboExam";
+            this.comboExam.Size = new System.Drawing.Size(243, 20);
+            this.comboExam.TabIndex = 5;
             // 
             // comboClass
             // 
@@ -104,6 +104,7 @@
             this.comboClass.Name = "comboClass";
             this.comboClass.Size = new System.Drawing.Size(188, 20);
             this.comboClass.TabIndex = 4;
+            this.comboClass.SelectedIndexChanged += new System.EventHandler(this.comboClass_SelectedIndexChanged);
             // 
             // comboDept
             // 
@@ -123,7 +124,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 21);
             this.label3.TabIndex = 2;
-            this.label3.Text = "试卷名称:";
+            this.label3.Text = "考试名称:";
             // 
             // label2
             // 
@@ -198,7 +199,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboPaper;
+        private System.Windows.Forms.ComboBox comboExam;
         private System.Windows.Forms.ComboBox comboClass;
         private System.Windows.Forms.ComboBox comboDept;
         private System.Windows.Forms.Label label3;
