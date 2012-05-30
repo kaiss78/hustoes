@@ -24,7 +24,10 @@ namespace OESScore
         public List<PaperFolder> papers = new List<PaperFolder>();
         private List<StuFolder> StuList = new List<StuFolder>();
 
-
+        /// <summary>
+        /// 窗体构造函数
+        /// 初始化数据
+        /// </summary>
         public formOESScore()
         {
             InitializeComponent();
@@ -187,7 +190,9 @@ namespace OESScore
             ScoreControl.scoreNet.ReceiveFiles();
             while (!ClientEvt.isOver) ;
         }
-
+        /// <summary>
+        /// 对所选文件夹中，所有考生答案进行评分
+        /// </summary>
         public void MarkAll()
         {
             for (int i = 0; i < StuList.Count; i++)
@@ -201,6 +206,11 @@ namespace OESScore
             }
         }
 
+        /// <summary>
+        /// 获取扩展名
+        /// </summary>
+        /// <param name="pLanguage">程序题语言</param>
+        /// <returns>对应语言的扩展名</returns>
         private string getExtension(PLanguage pLanguage)
         {
             switch (pLanguage)
@@ -215,6 +225,11 @@ namespace OESScore
             return "";
         }
 
+        /// <summary>
+        /// 对某一考生进行单独的评分
+        /// </summary>
+        /// <param name="RIndex">对应考生文件夹的序号</param>
+        /// <returns>分值</returns>
         public int Mark(int RIndex)
         {
             string fileName;
