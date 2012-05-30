@@ -7,15 +7,21 @@ namespace OES.Model
 {
     public class Paper
     {
+        //试卷名
         public string paperName = "";        
+        //创建时间
         public string createTime="";
+        //创建者ID
         public int authorId=0;
+        //创建者名
         public string author = "";
+        //考试时间（没用了)
         public string testTime = "";
+        //试卷存放路径（没用了，貌似）
         public string paperPath = "";
-
+        //试卷ID
         public int paperID;
-
+        //各个类型题目的分值
         public int score_choice = 0;
         public int score_completion = 0;
         public int score_judge = 0;
@@ -27,6 +33,7 @@ namespace OES.Model
         public int score_pModif = 0;
 
         //ProgramState:0表示没有编程题；1表示是C语言编程；2表示C++语言编程        
+        //题目列表
         public List<Choice> choice;
         public List<Completion> completion;
         public List<Judgment> judge;
@@ -39,6 +46,10 @@ namespace OES.Model
         public List<Problem> problemList;
        // public List<Problem>[] ProList = new List<Problem>[12];
 
+        /// <summary>
+        /// 构造一个空的试卷
+        /// 初始化题目列表
+        /// </summary>
         public Paper()
         {
             choice = new List<Choice>();
@@ -57,7 +68,11 @@ namespace OES.Model
             //}
             paperID = -1;
         }
-
+        /// <summary>
+        /// 获取题目类型对应的中文名称
+        /// </summary>
+        /// <param name="pt">题目类型</param>
+        /// <returns>中文名称</returns>
         public static string GetPTypeName(ProblemType pt)
         {
             switch (pt)
@@ -112,6 +127,11 @@ namespace OES.Model
             }
             return "";
         }
+
+        /// <summary>
+        /// 往试卷中添加一道题目
+        /// </summary>
+        /// <param name="p">题目</param>
         public void Add(Problem p)
         {
             if (p is Choice)
@@ -164,6 +184,8 @@ namespace OES.Model
             problemList.Add(p);
         }
     }       
+
+    //题目类型的枚举
     public enum ProblemType
     {
         Choice=0,
@@ -187,6 +209,7 @@ namespace OES.Model
         Start,
         Blank
     }
+
     public class Pid_Ans
     {
         public int id;
