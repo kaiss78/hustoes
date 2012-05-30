@@ -7,10 +7,15 @@ namespace OES.Model
 {
     public class Classes
     {
+        //班级ID
         public string classID;
+        //院系
         public string dept;
+        //专业
         public string className;
+        //
         public string teacherUserName;
+        //
         public string teacherName;
 
         public Classes(string id, string dp, string cn, string tun, string tn)
