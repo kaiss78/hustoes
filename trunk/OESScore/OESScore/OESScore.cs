@@ -129,9 +129,11 @@ namespace OESScore
             object[] values = new object[6];
             int i = 0;
 
+            //遍历所有考生文件夹
             foreach (DirectoryInfo stu in studentList)
             {
                 tmpS = ScoreControl.OesData.FindStudentByStudentId(stu.Name);
+                //判断考生是否存在
                 if (tmpS.Count > 0)
                 {
                     tmpSF = new StuFolder();
@@ -145,11 +147,13 @@ namespace OESScore
                     values[2] = tmpSF.StuInfo.className;
                     values[3] = "";
                     values[4] = 0;
+                    //查看是否有考生的答案
                     if (File.Exists(stu.FullName + "\\studentAns.xml"))
                     {
                         tmpSF.StuAns = ScoreControl.GetStuAns(stu.FullName);
 
                         tmpP = ScoreControl.OesData.FindPaperByPaperId(XMLControl.GetStudentAnsPaper(stu.FullName + "\\studentAns.xml"));
+                        //判断试卷是否存在
                         if (tmpP.Count > 0)
                         {
                             tmpSF.PaperInfo = tmpP[0];
@@ -195,11 +199,13 @@ namespace OESScore
         /// </summary>
         public void MarkAll()
         {
+            //遍历所有考生文件夹，进行评分
             for (int i = 0; i < StuList.Count; i++)
             {
                 processBar.Value = (i + 1) * 100 / StuList.Count;
                 //StuList[RIndex].s
-                if ((StuList[i].state == ScoreState.None) || (StuList[i].state == ScoreState.None))
+                //只对状态为 无 或 已评分 的答案进行评分
+                if ((StuList[i].state == ScoreState.None) || (StuList[i].state == ScoreState.Success))
                 {
                     Mark(i);
                 }
@@ -238,15 +244,19 @@ namespace OESScore
             List<string> proAns;
             StuList[RIndex].Score.sum = new List<Sum>();
             ScoreControl.staAns = ScoreControl.SetStandardAnswer(StuList[RIndex].PaperInfo.paperID.ToString());
+
+            //判断考生答案是否为空
             if (ScoreControl.staAns != null)
             {
                 XMLControl.CreateScoreXML(StuList[RIndex].path.FullName + "\\Result.xml", ScoreControl.staAns.PaperID, StuList[RIndex].StuInfo.ID);
                 int i = 0;
+                //遍历考生答案 对客观题进行评分
                 foreach (Answer ans in StuList[RIndex].StuAns.Ans)
                 {
-
+                    //只对客观题的答案进行比较
                     if ((ans.Type == ProblemType.Choice) || (ans.Type == ProblemType.Completion) || (ans.Type == ProblemType.Judgment))
                     {
+                        //当前题目的得分
                         dScore = 0;
                         if ((ans.Ans != null) && (ScoreControl.staAns.Ans[ans.ID].Ans.Split('\n').Contains(ans.Ans)))
                         {
@@ -254,23 +264,28 @@ namespace OESScore
                         }
                         StuList[RIndex].Score.addDetail(ans.Type, dScore);
                         XMLControl.AddScore(ans.Type, ScoreControl.staAns.Ans[ans.ID].ID, dScore);
+                        //累加得分
                         Score += dScore;
                     }
                     //processBar.Value = ++i * 100 / StuList[RIndex].StuAns.Ans.Count;
                 }
 
+                //对程序填空题进行评分
                 for (i = 0; i < ScoreControl.staAns.PCList.Count; i++)
                 {
                     fileName = StuList[RIndex].path.FullName + "\\g" + i.ToString() + getExtension(ScoreControl.staAns.PCList[i].language);
+                    //判断对应程序题文件是否存在
                     if (File.Exists(fileName))
                     {
                         dScore = 0;
                         proAns = ProgramScore.correctPC(fileName);
                         count = 0;
+                        //查看各个空的答案，与标准答案进行比较
                         for (int j = 0; j < proAns.Count; j++)
                         {
                             foreach (ProgramAnswer pa in ScoreControl.staAns.PCList[i].ansList)
                             {
+                                //与标准答案之一相同则停止比较，累加正确的空数
                                 if ((pa.Output == proAns[j]) && (pa.SeqNum == j + 1))
                                 {
                                     count++;
@@ -278,6 +293,7 @@ namespace OESScore
                                 }
                             }
                         }
+                        //计算当前程序填空题的得分
                         dScore = count * ScoreControl.staAns.PCList[i].score / proAns.Count;
                         XMLControl.AddScore(ScoreControl.staAns.PCList[i].type, ScoreControl.staAns.PCList[i].problemId, dScore);
                         Score = Score + dScore;
@@ -285,13 +301,13 @@ namespace OESScore
                     }
                 }
 
-
+                //对程序改错题进行评分，具体流程同程序填空题
                 for (i = 0; i < ScoreControl.staAns.PMList.Count; i++)
                 {
                     fileName = StuList[RIndex].path.FullName + "\\h" + i.ToString() + getExtension(ScoreControl.staAns.PMList[i].language);
+                    //查看相应程序题文件是否存在
                     if (File.Exists(fileName))
                     {
-
                         proAns = ProgramScore.correctPC(fileName);
                         count = 0;
                         dScore = 0;
@@ -311,16 +327,21 @@ namespace OESScore
                         Score = Score + dScore;
                     }
                 }
+
+                //对程序编程题评分
                 for (i = 0; i < ScoreControl.staAns.PFList.Count; i++)
                 {
                     fileName = StuList[RIndex].path.FullName + "\\i" + i.ToString() + getExtension(ScoreControl.staAns.PFList[i].language);
+                    //查看相应程序题文件是否存在
                     if (File.Exists(fileName))
                     {
 
                         count = 0;
                         dScore = 0;
+                        //多组数据，每组数据都要编译执行
                         foreach (ProgramAnswer pa in ScoreControl.staAns.PFList[i].ansList)
                         {
+                            //调用方法，编译运行相应程序文件，并给相应输入，得出结果与标准答案比较                            
                             if (ProgramScore.correctPF(fileName, pa.Input) == ProgramScore.Clean(pa.Output))
                             {
                                 count++;
