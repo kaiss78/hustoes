@@ -12,6 +12,8 @@ using System.Collections;
 using OES.Model;
 using OES;
 using System.Xml;
+using System.Diagnostics;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace OESAnalyse
 {
@@ -143,6 +145,7 @@ namespace OESAnalyse
             return paperIds;
 
         }
+        //找到学生的试卷信息
         public List<Prob> findProbID(string rootPath, string pID) 
         {
             List<Prob> stuProb=new List<Prob>(); 
@@ -163,7 +166,7 @@ namespace OESAnalyse
                         do
                         {
                             node1 = node.FirstChild;
-                            for (int i = 0; i <= 9; i++)
+                            while(node1!=null)
                             {
                                 Prob aProb=new Prob ();
                                 aProb.problemType = node.Name;
@@ -182,7 +185,7 @@ namespace OESAnalyse
             return (stuProb);
         }
 
-
+//在datagridview中输出学生的详细信息
         public  void printOut(List<Student> myList)
         {
             object[] newRow=new object[5];
@@ -256,7 +259,7 @@ namespace OESAnalyse
                 this.ClassCombo.Enabled = true;
             }
         }
-
+        //输出试卷的详细信息（包括每一道题目的试题ID，类型，分值和题干）
         private void button1_Click(object sender, EventArgs e)
         {
             object[] newRow = new object[4];
@@ -531,7 +534,7 @@ namespace OESAnalyse
         {
             this.panel1.Visible = false;
         }
-
+        //输出整套试卷的每一道题目的正确率
         private void CorrectBut_Click(object sender, EventArgs e)
         {
             this.dataGridView1.DataSource = null;
@@ -575,7 +578,7 @@ namespace OESAnalyse
         {
             
         }
-
+        //显示每一道题目的详细内容
         private void dataGridView3_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ProblemForm pf = new ProblemForm();
@@ -728,6 +731,160 @@ namespace OESAnalyse
         private void OESAnalyse_Load(object sender, EventArgs e)
         {
 
+        }
+        //输出整套试卷
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+                List<Prob> newProb = new List<Prob>();
+                object oMissing = System.Reflection.Missing.Value;
+                object oEndOfDoc = "\\endofdoc";
+                Word._Application oWord;
+                Word._Document oDoc;
+                oWord=new Word.Application();
+                oWord.Visible = true;
+                oDoc = oWord.Documents.Add(ref oMissing, ref oMissing, ref oMissing, ref oMissing);
+                Word.Paragraph oPara1;
+                oPara1 = oDoc.Content.Paragraphs.Add(ref oMissing);
+                oPara1.Range.Font.Bold = 1;
+                oPara1.Format.SpaceAfter = 24;
+                oPara1.Range.InsertParagraphAfter();
+                //using (StreamWriter sw = new StreamWriter(@"D:\StudentPaper.txt"))
+                //{
+                    newProb = findProbID(path, Convert.ToString(this.PaperCombo.SelectedItem));
+                    for (int i = 0; i < newProb.Count; i++)
+                    {
+                        if (newProb[i].problemType == "Choice")
+                        {
+                            List<Choice> aChoice = new List<Choice>();
+                            aChoice = oesData.FindChoiceByPID(newProb[i].problemID);
+                            //sw.WriteLine(newProb[i].problemType);
+                            if (aChoice.Count == 0)
+                            {
+                                //sw.WriteLine("{0}、此题目不存在", newProb[i].problemID);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + "、此题目不存在\r\n";
+                            }
+                            else
+                            {
+                                //sw.WriteLine("{0}、{1}", newProb[i].problemID, aChoice[0].problem);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + "、" + aChoice[i].problem + "\r\n";
+                                //sw.WriteLine("A.{0}", aChoice[0].optionA);
+                                oPara1.Range.Text = "      A." + aChoice[0].optionA + "\r\n";
+                                //sw.WriteLine("B.{0}", aChoice[0].optionB);
+                                oPara1.Range.Text = "      B." + aChoice[0].optionB + "\r\n";
+                                //sw.WriteLine("C.{0}", aChoice[0].optionC);
+                                oPara1.Range.Text = "      C." + aChoice[0].optionC + "\r\n";
+                                //sw.WriteLine("D.{0}", aChoice[0].optionD);
+                                oPara1.Range.Text = "      D." + aChoice[0].optionD + "\r\n";
+                                //sw.WriteLine("答案：{0}", aChoice[0].ans);
+                                oPara1.Range.Text = "      答案：" + aChoice[0].ans + "\r\n";
+                            }
+                        }
+                        else if (newProb[i].problemType == "Completion")
+                        {
+                            List<Completion> aCompletion = new List<Completion>();
+                            aCompletion = oesData.FindCompletionByPID(newProb[i].problemID);
+                            //sw.WriteLine(newProb[i].problemType);
+                            if (aCompletion.Count == 0)
+                            {
+                                //sw.WriteLine("{0}、此题目不存在", newProb[i].problemID);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + "、此题目不存在\r\n";
+                            }
+                            else
+                            {
+                                //sw.WriteLine("{0}、{1}", newProb[i].problemID, aCompletion[0].problem);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + aCompletion[0].problem + "\r\n";
+                                for (int a = 0; a < aCompletion[0].ans.Count; a++)
+                                {
+                                    //sw.WriteLine("答案：{0}", aCompletion[0].ans[a]);
+                                    oPara1.Range.Text = "      答案：" + aCompletion[0].ans[a]+"\r\n";
+                                }
+                            }
+                        }
+                        else if (newProb[i].problemType == "Judgment")
+                        {
+                            List<Judgment> aJudgment = new List<Judgment>();
+                            aJudgment = oesData.FindJudgmentByPID(newProb[i].problemID);
+                            //sw.WriteLine(newProb[i].problemType);
+                            if (aJudgment.Count == 0)
+                            {
+                                //sw.WriteLine("{0}、此题目不存在", newProb[i].problemID);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + "、此题目不存在\r\n";
+                            }
+                            else
+                            {
+                                //sw.WriteLine("{0}、{1}", newProb[i].problemID, aJudgment[0].problem);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + aJudgment[0].problem+"\r\n";
+                                //sw.WriteLine("答案：{0}", aJudgment[0].ans);
+                                oPara1.Range.Text = "       答案：" + aJudgment[0].ans+"\r\n";
+                            }
+                        }
+                        else if (newProb[i].problemType == "Word")
+                        {
+                            List<OfficeWord> aOfficeWord = new List<OfficeWord>();
+                            aOfficeWord = oesData.FindOfficeWordByPID(newProb[i].problemID);
+                            //sw.WriteLine(newProb[i].problemType);
+                            if (aOfficeWord.Count == 0)
+                            {
+                                //sw.WriteLine("{0}、此题目不存在", newProb[i].problemID);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + "、此题目不存在\r\n";
+                            }
+                            else
+                            {
+                                //sw.WriteLine("{0}、{1}", newProb[i].problemID, aOfficeWord[0].problem);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + aOfficeWord[0].problem + "\r\n";
+                            }
+                        }
+                        else if (newProb[i].problemType == "Excel")
+                        {
+                            List<OfficeExcel> aOfficeExcel = new List<OfficeExcel>();
+                            aOfficeExcel = oesData.FindOfficeExcelByPID(newProb[i].problemID);
+                            //sw.WriteLine(newProb[i].problemType);
+                            if (aOfficeExcel.Count == 0)
+                            {
+                                //sw.WriteLine("{0}、此题目不存在", newProb[i].problemID);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + "、此题目不存在\r\n";
+                            }
+                            else
+                            {
+                                //sw.WriteLine("{0}、{1}", newProb[i].problemID, aOfficeExcel[0].problem);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + aOfficeExcel[0].problem + "\r\n";
+                            }
+                        }
+                        else if (newProb[i].problemType == "PowerPoint")
+                        {
+                            List<OfficePowerPoint> aOfficePowerPoint = new List<OfficePowerPoint>();
+                            aOfficePowerPoint = oesData.FindOfficePowerPointByPID(newProb[i].problemID);
+                            //sw.WriteLine(newProb[i].problemType);
+                            if (aOfficePowerPoint.Count == 0)
+                            {
+                                //sw.WriteLine("{0}、此题目不存在", newProb[i].problemID);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + "、此题目不存在\r\n";
+                            }
+                            else
+                            {
+                                //sw.WriteLine("{0}、{1}", newProb[i].problemID, aOfficePowerPoint[0].problem);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + aOfficePowerPoint[0].problem + "\r\n";
+                            }
+                        }
+                        else if (newProb[i].problemType == "CProgramCompletion" || newProb[i].problemType == "CProgramModification" || newProb[i].problemType == "CProgramFun" || newProb[i].problemType == "CppProgramCompletion" || newProb[i].problemType == "CppProgramModification" || newProb[i].problemType == "CppProgramFun" || newProb[i].problemType == "VbProgramCompletion" || newProb[i].problemType == "VbProgramModification" || newProb[i].problemType == "VbProgramFun")
+                        {
+                            List<ProgramProblem> aProgramProblem = new List<ProgramProblem>();
+                            aProgramProblem = oesData.FindProgramByPID(newProb[i].problemID);
+                            //sw.WriteLine(newProb[i].problemType);
+                            if (aProgramProblem.Count == 0)
+                            {
+                                //sw.WriteLine("{0}、此题目不存在", newProb[i].problemID);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + "、此题目不存在\r\n";
+                            }
+                            else
+                            {
+                                //sw.WriteLine("{0}、{1}", newProb[i].problemID, aProgramProblem[0].problem);
+                                oPara1.Range.Text = Convert.ToString(newProb[i].problemID) + aProgramProblem[0].problem + "\r\n";
+                            }
+                        }
+                    }
+                //}
+                //Process.Start(@"D:\StudentPaper.txt");
         }
 
        
