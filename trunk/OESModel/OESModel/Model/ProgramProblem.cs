@@ -7,8 +7,11 @@ namespace OES.Model
 {
     public class ProgramProblem:Problem
     {
+        //语言
         public PLanguage language;
+        //题目类型（填空，改错，编程）
         public ProgramPType Type;
+        //答案列表
         public List<ProgramAnswer> ansList;
 
         public ProgramProblem()
