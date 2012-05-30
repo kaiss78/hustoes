@@ -5,12 +5,12 @@ using System.Text;
 
 namespace OES.Model
 {
-    public class Teacher
+    public class Teacher                //教师类
     {
-        public int Id;
-        public string TeacherName;        
-        public string UserName;
-        public string password;
+        public int Id;                  //教师ID
+        public string TeacherName;      //教师姓名     
+        public string UserName;         //教师登录账号
+        public string password;         //教师密码
         //定义教师的权限，0：普通教师，1：超级管理员
         public int permission;
 

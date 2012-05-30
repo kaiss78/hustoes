@@ -7,32 +7,22 @@ namespace OES.Model
 {
     public class OfficeWord:Office
     {
-        public OfficeWord()
+        public OfficeWord()         //Office Word题类
         {
             type = ProblemType.Word;
         }
-        //public OfficeWord(Office office)
-        //{
-        //    this.orderId = office.orderId;
-        //    this.Plevel = office.Plevel;
-        //    this.problem = office.problem;
-        //    this.problemId = office.problemId;
-        //    this.rawPath = office.rawPath;
-        //    this.score = office.score;
-        //    this.stuAnsPath = office.stuAnsPath;
-        //    this.type = ProblemType.Word;
-        //    this.unit = office.unit;
-        //}
+        //给出Word题面的构造函数
         public OfficeWord(string p)
         {
             problem = p;
             type = ProblemType.Word;
         }
+        //给出路径的构造函数
         public OfficeWord(string rawPath, string ansPath, string stuAnsPath):base(rawPath,ansPath,stuAnsPath)
         {
-
             type = ProblemType.Word;
         }
+        //获取答案路径
         public override string getAns()
         {
             return stuAnsPath;
