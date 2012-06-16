@@ -40,11 +40,12 @@ namespace OESMonitor.Net
         {
             
         }
-
+        //获取试卷xml ps：这个方法没有用
         public string LoadPaper(int id, int tid)
         {
             return "server$2$0$" + tid.ToString() + "$" + id.ToString();
         }
+        //获取试卷rar压缩包
         public string LoadPaperPkg(int id, int tid)
         {
             return "server$2$M$" + tid.ToString() + "$" + id.ToString();
