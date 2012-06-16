@@ -60,6 +60,7 @@ namespace OESMonitor
 
         public event ErrorEventHandler OnErrorConnect;
 
+        #region 考试状态
         private int state=0;
 
         public int State
@@ -176,6 +177,7 @@ namespace OESMonitor
                 }
             }
         }
+        #endregion
 
         private Client client;
 
@@ -250,6 +252,7 @@ namespace OESMonitor
             }
         }
 
+        //作为服务端接收消息后，进行消息处理
         void client_ReceivedTxt(Client client, string msg)
         {
             string[] msgs = msg.Split('$');
@@ -380,6 +383,7 @@ namespace OESMonitor
             return false;
         }
 
+        //获取当前试卷Id
         int getCurrentPaper()
         {
             if (OESMonitor.examPaperIdList.Count == 0) return -1;
@@ -396,6 +400,7 @@ namespace OESMonitor
             return -1;
         }
 
+        //根据开始考试原因，改变考试状态
         void client_TestStarted(int reason)
         {
             switch (reason)
@@ -416,6 +421,7 @@ namespace OESMonitor
             client.SendTxt("oes$6$"+PaperControl.TestTime.ToString());
         }
 
+        //验证重新考试时的教师输入密码
         bool client_ValidateTeaPass(string psw)
         {
             if (psw == PaperControl.PwdConfig["Password"])
@@ -473,9 +479,11 @@ namespace OESMonitor
         public Computer()
         {
             InitializeComponent();
-            
+
         }
 
+        #region 自定义控件的界面功能设计
+        //单击效果变化
         private void Computer_MouseClick(object sender, MouseEventArgs e)
         {
             lock (syncComputerList)
@@ -533,5 +541,6 @@ namespace OESMonitor
         {
             client.SendTxt("oes$9");
         }
+        #endregion
     }
 }
