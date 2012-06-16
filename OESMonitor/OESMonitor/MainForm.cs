@@ -21,8 +21,11 @@ namespace OESMonitor
 {
     public partial class OESMonitor : Form
     {
+        //日志显示窗口初始化，日志将写入文件 Client2Monitor.log
         CommandLine cl = new CommandLine("Client2Monitor.log");
+        //存储本机所有可用IP(针对多网卡)
         List<IPAddress> alternativeIp = new List<IPAddress>();
+        //试卷发放的模式 单试卷 顺序发卷 随机发卷
         public static int paperDeliverMode = 0;
         /// <summary>
         /// 若当前为顺序发试卷，表示已经发卷的Id，是循环变化的
@@ -35,8 +38,8 @@ namespace OESMonitor
         /// <summary>
         /// 当前考试的试卷列表
         /// </summary>
-        public static List<int> examPaperIdList = new List<int>();
-        public static List<string> examPaperNameList = new List<string>();
+        public static List<int> examPaperIdList = new List<int>();          //记录试卷的Id
+        public static List<string> examPaperNameList = new List<string>();  //记录试卷的名称
 
         //统一收卷的事件
         public static int HandInCount = 0;
@@ -70,8 +73,9 @@ namespace OESMonitor
                     {
                         ServerEvt.Server.IsPortAvailable = true;
                         buttonExamStatue.Text = "停止发卷/发卷";
-                        timer_PortCounter.Start();
-                        numericUpDown1.Enabled = false;
+                        timer_PortCounter.Start();      //用来监视数据端口数量
+                        //设置考试时间
+                        numericUpDown1.Enabled = false; 
                         PaperControl.TestTime = (int)numericUpDown1.Value;
                     }
                 }
@@ -79,12 +83,15 @@ namespace OESMonitor
                 {
                     buttonExamStatue.Text = "开始考试/收卷";
                     numericUpDown1.Enabled = true;
+                    //判断是否还有未上交的试卷
                     if (handInPaper != null)
                     {
+                        //自动收卷
                         handInPaper();
                     }
                     else
                     {
+                        //收卷完毕
                         ServerEvt.Server.IsPortAvailable = false;
                         timer_PortCounter.Stop();
                     }
@@ -151,10 +158,12 @@ namespace OESMonitor
             supportServer.Client.Port.RecieveFileRate += new ClientNet.ReturnVal(Port_RecieveFileRate);
             #endregion
 
+            //设置数据端口监视刷新时间
             timer_PortCounter.Interval = 1000;
 
             panel1.Controls.Add(ComputerState.getInstance());
 
+            #region 试卷列表的属性设置
             paperListDataTable = new DataTable("PaperList");
             paperListDataTable.Columns.Add("选中", typeof(bool));
             paperListDataTable.Columns.Add("试卷ID");
@@ -174,6 +183,7 @@ namespace OESMonitor
             btnGetPaperFromDB.MouseLeave += new EventHandler(radioButton1_MouseLeave);
             downloadButton.MouseEnter += new EventHandler(downloadButton_MouseEnter);
             downloadButton.MouseLeave += new EventHandler(radioButton1_MouseLeave);
+            #endregion
 
             #region 考试答案文件夹监视管理
             if (!Directory.Exists(PaperControl.PathConfig["StuAns"]))
@@ -202,7 +212,7 @@ namespace OESMonitor
         {
             cl.Text = "与客户端（client）的通信命令";
             cl.Show();
-
+            #region 相关文件夹初始化
             if (!Directory.Exists(PaperControl.PathConfig["StuAns"]))
             {
                 try
@@ -239,7 +249,9 @@ namespace OESMonitor
                     return;
                 }
             }
+            #endregion
 
+            #region Monitor的作为服务端的初始化
             ServerEvt.Server.AcceptedClient += new EventHandler(Server_AcceptedClient);
             ServerEvt.Server.FileReceiveEnd += new DataPortEventHandler(Server_FileReceiveEnd);
             ServerEvt.Server.FileSendEnd += new DataPortEventHandler(Server_FileSendEnd);
@@ -270,11 +282,16 @@ namespace OESMonitor
             }
             IsStartExam = false;
 
+            //初始化ip范围
             string[] ips = ServerEvt.Server.ip.ToString().Split('.');
             textBoxStartIp.Text = ips[0] + "." + ips[1] + "." + ips[2] + "." + "1";
             textBoxEndIp.Text = ips[0] + "." + ips[1] + "." + ips[2] + "." + "254";
+            #endregion
         }
 
+        /// <summary>
+        /// 获取本机所有IPv4的IP地址
+        /// </summary>
         private void RetrieveHostIpv4Address()
         {
             //获得所有的ip地址，包括ipv6和ipv4
@@ -739,6 +756,7 @@ namespace OESMonitor
 
         #region 监考设置Tab
         #region 本机服务Ip端口广播
+        //检测IP地址合法性
         private bool checkIp()
         {
             IPAddress temp;
@@ -750,6 +768,7 @@ namespace OESMonitor
             }
             return false;
         }
+        //生成开始ip到结束ip地址间所有ip的列表 
         public List<string> generateIpDomain()
         {
             IPAddress temp;
@@ -764,6 +783,7 @@ namespace OESMonitor
             }
             return iplist;
         }
+        //广播一次
         private void buttonBroadcastOnce_Click(object sender, EventArgs e)
         {
             if (checkIp())
@@ -861,6 +881,8 @@ namespace OESMonitor
         {
             ServerEvt.BroadcastHelper.Broadcast("monitor#" + UdpBroadcast.GetLongIp(textBoxStartIp.Text).ToString() + "#" + UdpBroadcast.GetLongIp(textBoxEndIp.Text).ToString() + "#" + ServerEvt.Server.ip.ToString() + "#" + ServerEvt.Server.port.ToString());
         }
+
+        #region 开启线程进行循环单播
         private Thread t;
         private static bool isBoardCastEnd=true;
         private void timer_BroadcastSingle_Tick(object sender, EventArgs e)
@@ -883,6 +905,7 @@ namespace OESMonitor
                 t.Start();
             }
         }
+        #endregion
 
         #endregion
         #endregion
