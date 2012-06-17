@@ -11,16 +11,19 @@ namespace OESXML
 {
     public class OfficeXML
     {
+        //表示每个考点的路径 例如 段->字->颜色
         public List<OfficeElement> Path = new List<OfficeElement>();
+        //输出成Path考点集合
         public List<List<OfficeElement>> AnsPaths = new List<List<OfficeElement>>();
+        //OfficeXML文件的路径
         public String FileName;
+        //初始化OfficeXML对象，需要指定文件路径
         public OfficeXML(String filename)
         {
             FileName = filename;
             XmlDocument xd = new XmlDocument();
             if (FileName != "")
             {
-
                 XmlElement xmlelem;
                 XmlNode xmlnode;
                 if (File.Exists(FileName))
@@ -51,8 +54,9 @@ namespace OESXML
                 }
                 xd.Save(FileName);
             }
-            
         }
+
+        //根据XML节点的名称查找parent节点下的子节点
         private XmlNode findNode(XmlNode parent, OfficeElement targed)
         {
             foreach (XmlNode xn in parent.ChildNodes)
@@ -64,6 +68,8 @@ namespace OESXML
             }
             return null;
         }
+
+        //将每个考点路径加入XML文件,节点存在继续遍历,不存在新建路径上的节点
         public void addPathtoXML()
         {
             XmlDocument xd = new XmlDocument();
@@ -94,18 +100,24 @@ namespace OESXML
             xd.Save(FileName);
             Path.Clear();
         }
+
+        //获取考点Path的集合,并存入AnsPaths里面
         public void getAllAnsPath()
         {
             XmlDocument xd =new XmlDocument();
             xd.Load(FileName);
             getAllAnsPathDFS(xd.ChildNodes.Item(1));
         }
+
+        //利用深度搜索方式获取到所有考点路径
         private void getAllAnsPathDFS(XmlNode xn)
         {
+            //当前节点已经为叶子节点,表明考点路径已经获取完整
             if (xn.ChildNodes.Count == 0)
             {
                 AnsPaths.Add(new List<OfficeElement>(Path));
             }
+            //当前节点还有子节点,重复调用自己
             else
             {
                 foreach (XmlNode xxn in xn.ChildNodes)
@@ -117,6 +129,7 @@ namespace OESXML
             }
         }
 
+        //另外一种对OfficeXML读取方式,获取返回TreeNode形式
         public TreeNode getAllAnsPath_Tree()
         {
             XmlDocument xd = new XmlDocument();
@@ -125,6 +138,8 @@ namespace OESXML
             res = getAllAnsPathDFS_Tree(xd.ChildNodes.Item(1));
             return res;
         }
+
+        //利用深度搜索方式获取到所有考点路径
         private TreeNode getAllAnsPathDFS_Tree(XmlNode xn)
         {
             TreeNode res = new TreeNode();
@@ -138,10 +153,14 @@ namespace OESXML
         }
     }
 
+    //每个Office元素结构
     public class OfficeElement
     {
+        //Office属性名称
         public String AttribName;
+        //Office属性值
         public String AttribValue;
+        //Office构造函数
         public OfficeElement(String AttN,String AttV)
         {
             AttribName = AttN;
