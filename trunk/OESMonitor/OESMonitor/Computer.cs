@@ -20,6 +20,9 @@ namespace OESMonitor
         public static object syncCompleteList = new object();
         public static object syncErrorList = new object();
 
+        //以下三个Computer列表是在界面上显示的，由于修改的时候会有线程同步的问题，修改时需要上锁！
+
+        //所有连接Monitor端的Client端的电脑列表
         private static List<Computer> computerList = new List<Computer>();
 
         public static List<Computer> ComputerList
@@ -33,6 +36,7 @@ namespace OESMonitor
             //set { Computer.computerList = value; }
         }
 
+        //所有连接Monitor端后断开并考试完成的电脑列表
         private static List<Computer> completeList = new List<Computer>();
 
         public static List<Computer> CompleteList
@@ -45,6 +49,8 @@ namespace OESMonitor
             }
             //set { Computer.completeList = value; }
         }
+
+        //因为某种原因（非交卷）断开连接的电脑列表
         private static List<Computer> errorList = new List<Computer>();
 
         public static List<Computer> ErrorList
