@@ -80,6 +80,7 @@ namespace OESMonitor
                 while (!this.IsHandleCreated) ;
                 switch (value)
                 {
+                    //Client连接上Monitor然后断开时的Computer状态
                     case 0:
                         this.BeginInvoke(new MethodInvoker(() =>
                         { 
@@ -88,6 +89,7 @@ namespace OESMonitor
                             
                         }));
                         break;
+                    //Client连接上Monitor时的状态
                     case 1:
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
@@ -96,6 +98,7 @@ namespace OESMonitor
                             
                         }));
                         break;
+                    //Client登录成功后的状态
                     case 2:
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
@@ -105,6 +108,7 @@ namespace OESMonitor
                             
                         }));
                         break;
+                    //正常点击开始考试的状态
                     case 3:
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
@@ -114,6 +118,7 @@ namespace OESMonitor
                             
                         }));
                         break;
+                    //交卷完成的状态
                     case 4:
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
@@ -123,6 +128,7 @@ namespace OESMonitor
                             
                         }));
                         break;
+                    //试卷发送完毕的状态
                     case 5:
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
@@ -132,6 +138,7 @@ namespace OESMonitor
 
                         }));
                         break;
+                    //点击恢复考试,并成功恢复考试的状态
                     case 6:
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
@@ -141,6 +148,7 @@ namespace OESMonitor
 
                         }));
                         break;
+                    //点击重新考试,并在等待教师密码时的状态
                     case 7:
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
@@ -150,6 +158,7 @@ namespace OESMonitor
 
                         }));
                         break;
+                    //输入教师密码后,成功开始重新考试的状态
                     case 8:
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
@@ -159,6 +168,7 @@ namespace OESMonitor
 
                         }));
                         break;
+                    //其他非法状态一律视为未启动
                     default:
                         this.BeginInvoke(new MethodInvoker(() =>
                         {
