@@ -80,6 +80,7 @@ namespace OESMonitor
                 while (!this.IsHandleCreated) ;
                 switch (value)
                 {
+                    //注意凡是界面的东西,都需要交给界面线程处理!由于状态的改变在其他线程中进行,所以需要进行Invoke操作.
                     //Client连接上Monitor然后断开时的Computer状态
                     case 0:
                         this.BeginInvoke(new MethodInvoker(() =>
